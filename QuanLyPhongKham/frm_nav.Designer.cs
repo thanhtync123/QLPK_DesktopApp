@@ -34,6 +34,7 @@
             this.danhMụcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.khámNộiKhoaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,7 +52,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mn_patients,
-            this.danhMụcToolStripMenuItem});
+            this.danhMụcToolStripMenuItem,
+            this.khámNộiKhoaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1016, 24);
@@ -87,6 +89,12 @@
             this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem2.Text = "toolStripMenuItem2";
             // 
+            // khámNộiKhoaToolStripMenuItem
+            // 
+            this.khámNộiKhoaToolStripMenuItem.Name = "khámNộiKhoaToolStripMenuItem";
+            this.khámNộiKhoaToolStripMenuItem.Size = new System.Drawing.Size(99, 20);
+            this.khámNộiKhoaToolStripMenuItem.Text = "Khám nội khoa";
+            // 
             // frm_nav
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -113,6 +121,7 @@
         private System.Windows.Forms.ToolStripMenuItem danhMụcToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem khámNộiKhoaToolStripMenuItem;
     }
 }
 

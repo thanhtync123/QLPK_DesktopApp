@@ -103,6 +103,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frm_examination.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_examination.Designer.cs">
+      <DependentUpon>frm_examination.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_medications.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +129,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frm_examination.resx">
+      <DependentUpon>frm_examination.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_medications.resx">
       <DependentUpon>frm_medications.cs</DependentUpon>
     </EmbeddedResource>
