@@ -78,7 +78,7 @@ namespace QuanLyPhongKham
 
         private void mn_test_Click(object sender, EventArgs e)
         {
-            AddTab(new frm_patients());
+            //AddTab(new frm_patients());
         }
 
         private void tabControl1_MouseDown(object sender, MouseEventArgs e)
