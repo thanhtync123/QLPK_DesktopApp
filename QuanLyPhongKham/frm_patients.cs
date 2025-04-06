@@ -178,7 +178,7 @@ namespace QuanLyPhongKham
             txb_dob.Text = DateTime.Now.ToString("dd/MM/yyyy");
             cb_gender.SelectedIndex = 0;
             txb_phone.Text = "";
-            txb_address.Text = "123";
+            txb_address.Text = "121212333";
         }
 
         private void dtgv_CellClick(object sender, DataGridViewCellEventArgs e)
