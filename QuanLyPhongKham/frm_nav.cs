@@ -19,7 +19,7 @@ namespace QuanLyPhongKham
             // Kích thước ảnh nút đóng
             Size mysize = new Size(20, 20);
 
-            // Load ảnh đóng màu đỏ (đang chọn)
+            // Load ảnh đóng màu đỏ (đang chọn)12312312
             using (MemoryStream ms = new MemoryStream(Properties.Resources.close)) // Nếu close là byte[]
             {
                 Bitmap bt = new Bitmap(ms);
