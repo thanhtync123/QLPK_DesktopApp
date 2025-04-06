@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace QuanLyPhongKham
 {
-    public partial class Form1 : Form
+    public partial class frm_examination : Form
     {
-        public Form1()
+        public frm_examination()
         {
             InitializeComponent();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
