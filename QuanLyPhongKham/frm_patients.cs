@@ -29,7 +29,7 @@ namespace QuanLyPhongKham
                 using (MySqlConnection conn = new MySqlConnection(connectionString))
                 {
                     conn.Open();
-                    string query = "SELECT `id`, `name`, DATE_FORMAT(`date_of_birth`, '%Y-%m-%d') AS `date_of_birth`, `gender`, `phone`, `address`, `created_at`, `updated_at` FROM `patients` WHERE 1";
+                    string query = "SELECT `id`, `name`, DATE_FORMAT(`date_of_birth`, '%d/%m/%Y') AS `date_of_birth`, `gender`, `phone`, `address`, `created_at`, `updated_at` FROM `patients` WHERE 1";
 
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
@@ -73,6 +73,9 @@ namespace QuanLyPhongKham
         {
             try
             {
+                // Chuyển đổi ngày nhập từ dd/MM/yyyy thành yyyy-MM-dd
+                DateTime dob = DateTime.ParseExact(txb_dob.Text, "dd/MM/yyyy", null);
+
                 using (MySqlConnection conn = new MySqlConnection(connectionString))
                 {
                     conn.Open();
@@ -82,7 +85,7 @@ namespace QuanLyPhongKham
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@name", txb_name.Text);
-                        cmd.Parameters.AddWithValue("@dob", txb_dob.Text);
+                        cmd.Parameters.AddWithValue("@dob", dob.ToString("yyyy-MM-dd")); // Chuyển đổi ngày sang định dạng yyyy-MM-dd
                         cmd.Parameters.AddWithValue("@gender", cb_gender.Text);
                         cmd.Parameters.AddWithValue("@phone", txb_phone.Text);
                         cmd.Parameters.AddWithValue("@address", txb_address.Text);
@@ -139,6 +142,9 @@ namespace QuanLyPhongKham
 
             try
             {
+                // Chuyển đổi ngày nhập từ dd/MM/yyyy thành yyyy-MM-dd
+                DateTime dob = DateTime.ParseExact(txb_dob.Text, "dd/MM/yyyy", null);
+
                 using (MySqlConnection conn = new MySqlConnection(connectionString))
                 {
                     conn.Open();
@@ -147,7 +153,7 @@ namespace QuanLyPhongKham
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@name", txb_name.Text);
-                        cmd.Parameters.AddWithValue("@dob", txb_dob.Text);
+                        cmd.Parameters.AddWithValue("@dob", dob.ToString("yyyy-MM-dd")); // Chuyển đổi ngày sang định dạng yyyy-MM-dd
                         cmd.Parameters.AddWithValue("@gender", cb_gender.Text);
                         cmd.Parameters.AddWithValue("@phone", txb_phone.Text);
                         cmd.Parameters.AddWithValue("@address", txb_address.Text);

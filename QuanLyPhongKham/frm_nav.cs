@@ -16,18 +16,18 @@ namespace QuanLyPhongKham
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // Kích thước ảnh nút đóng
+    
             Size mysize = new Size(20, 20);
 
-            // Load ảnh đóng màu đỏ (đang chọn)12312312
-            using (MemoryStream ms = new MemoryStream(Properties.Resources.close)) // Nếu close là byte[]
+          
+            using (MemoryStream ms = new MemoryStream(Properties.Resources.close)) 
             {
                 Bitmap bt = new Bitmap(ms);
                 closeImageAct = new Bitmap(bt, mysize);
             }
 
             // Load ảnh đóng màu đen (tab không được chọn)
-            using (MemoryStream ms2 = new MemoryStream(Properties.Resources.closeBlack)) // Nếu closeBlack là byte[]
+            using (MemoryStream ms2 = new MemoryStream(Properties.Resources.closeBlack)) 
             {
                 Bitmap bt2 = new Bitmap(ms2);
                 closeImage = new Bitmap(bt2, mysize);
