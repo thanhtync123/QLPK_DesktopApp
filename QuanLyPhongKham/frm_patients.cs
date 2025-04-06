@@ -14,27 +14,21 @@ namespace QuanLyPhongKham
             InitializeComponent();
         }
 
-        // Sự kiện load form
         private void frm_patients_Load(object sender, EventArgs e)
         {
-            // Set mặc định giới tính đầu tiên (nếu có)
             cb_gender.SelectedIndex = 0;
-            btn_delete.Enabled = false; // Disable nút xóa khi chưa chọn bệnh nhân
-            btn_update.Enabled = false; // Disable nút cập nhật khi chưa chọn bệnh nhân
-
-            // Gọi hàm load dữ liệu
+            btn_delete.Enabled = false;
+            btn_update.Enabled = false;
             LoadPatients();
         }
 
-        // Hàm load dữ liệu bệnh nhân từ MySQL vào DataGridView
         private void LoadPatients()
         {
             try
             {
                 using (MySqlConnection conn = new MySqlConnection(connectionString))
                 {
-                    conn.Open(); // Mở kết nối
-
+                    conn.Open();
                     string query = "SELECT `id`, `name`, DATE_FORMAT(`date_of_birth`, '%Y-%m-%d') AS `date_of_birth`, `gender`, `phone`, `address`, `created_at`, `updated_at` FROM `patients` WHERE 1";
 
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
@@ -43,13 +37,11 @@ namespace QuanLyPhongKham
                         DataTable dt = new DataTable();
                         adapter.Fill(dt);
 
-                        // Kiểm tra nếu chưa có cột ghi chú thì thêm
                         if (!dt.Columns.Contains("note"))
                         {
                             dt.Columns.Add("note", typeof(string));
                         }
 
-                        // Duyệt từng dòng và gán nhãn nếu id = 1
                         foreach (DataRow row in dt.Rows)
                         {
                             if (row["id"].ToString() == "13")
@@ -58,13 +50,12 @@ namespace QuanLyPhongKham
                             }
                             else
                             {
-                                row["note"] = ""; // hoặc để null tùy ý
+                                row["note"] = "";
                             }
                         }
 
                         dtgv.DataSource = dt;
 
-                        // Đặt tiêu đề cột nếu cần
                         if (dtgv.Columns.Contains("note"))
                         {
                             dtgv.Columns["note"].HeaderText = "Ghi chú";
@@ -78,8 +69,6 @@ namespace QuanLyPhongKham
             }
         }
 
-
-        // Thêm bệnh nhân
         private void btn_add_Click(object sender, EventArgs e)
         {
             try
@@ -93,7 +82,7 @@ namespace QuanLyPhongKham
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@name", txb_name.Text);
-                        cmd.Parameters.AddWithValue("@dob", txb_dob.Text); // Giữ định dạng dd/MM/yyyy
+                        cmd.Parameters.AddWithValue("@dob", txb_dob.Text);
                         cmd.Parameters.AddWithValue("@gender", cb_gender.Text);
                         cmd.Parameters.AddWithValue("@phone", txb_phone.Text);
                         cmd.Parameters.AddWithValue("@address", txb_address.Text);
@@ -110,7 +99,6 @@ namespace QuanLyPhongKham
             }
         }
 
-        // Xóa bệnh nhân
         private void btn_delete_Click(object sender, EventArgs e)
         {
             if (txb_id.Text == "")
@@ -141,7 +129,6 @@ namespace QuanLyPhongKham
             }
         }
 
-        // Cập nhật thông tin bệnh nhân
         private void btn_update_Click(object sender, EventArgs e)
         {
             if (txb_id.Text == "")
@@ -160,7 +147,7 @@ namespace QuanLyPhongKham
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@name", txb_name.Text);
-                        cmd.Parameters.AddWithValue("@dob", txb_dob.Text); // Giữ định dạng dd/MM/yyyy
+                        cmd.Parameters.AddWithValue("@dob", txb_dob.Text);
                         cmd.Parameters.AddWithValue("@gender", cb_gender.Text);
                         cmd.Parameters.AddWithValue("@phone", txb_phone.Text);
                         cmd.Parameters.AddWithValue("@address", txb_address.Text);
@@ -178,37 +165,33 @@ namespace QuanLyPhongKham
             }
         }
 
-        // Làm mới bảng dữ liệu và ô nhập liệu
         private void btn_refresh_Click(object sender, EventArgs e)
         {
             LoadPatients();
             ClearFields();
         }
 
-        // Hàm xóa thông tin ô nhập liệu
         private void ClearFields()
         {
             txb_id.Text = "";
             txb_name.Text = "";
-            txb_dob.Text = DateTime.Now.ToString("dd/MM/yyyy"); // Chuyển sang định dạng dd/MM/yyyy
+            txb_dob.Text = DateTime.Now.ToString("dd/MM/yyyy");
             cb_gender.SelectedIndex = 0;
             txb_phone.Text = "";
-            txb_address.Text = "";
+            txb_address.Text = "123";
         }
 
-        // Sự kiện click vào dòng trong DataGridView
         private void dtgv_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            btn_update.Enabled = true; // Kích hoạt nút cập nhật
-            btn_delete.Enabled = true; // Kích hoạt nút xóa
+            btn_update.Enabled = true;
+            btn_delete.Enabled = true;
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dtgv.Rows[e.RowIndex];
 
                 txb_id.Text = row.Cells["id"].Value.ToString();
                 txb_name.Text = row.Cells["name"].Value.ToString();
-                txb_dob.Text = Convert.ToDateTime(row.Cells["date_of_birth"].Value).ToString("dd/MM/yyyy"); // Chuyển sang định dạng dd/MM/yyyy
-
+                txb_dob.Text = Convert.ToDateTime(row.Cells["date_of_birth"].Value).ToString("dd/MM/yyyy");
                 cb_gender.Text = row.Cells["gender"].Value.ToString();
                 txb_phone.Text = row.Cells["phone"].Value.ToString();
                 txb_address.Text = row.Cells["address"].Value.ToString();
