@@ -61,7 +61,7 @@ namespace QuanLyPhongKham
                 drr.Cells["address"].Value = dr["address"];
             }
             dr.Close();
-            conn.Close();
+    
         }
 
         private void frm_examination_Load(object sender, EventArgs e)
@@ -70,6 +70,7 @@ namespace QuanLyPhongKham
             LoadExamID();
             LoadComboboxDiagnoses();
             LoadComboboxDoctorNote();
+            LoadComboboxMed();
         }
 
         private void dtgv_patients_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -86,59 +87,85 @@ namespace QuanLyPhongKham
         }
         private void LoadExamID()
         {
-            conn.Open();
+    
             string query = "SELECT max(id)+1 as exam_id from examinations";
             cmd = new MySqlCommand(query, conn);
             dr = cmd.ExecuteReader();
             if (dr.Read()) 
-              txb_exam_id.Text = dr["exam_id"].ToString();
+            txb_exam_id.Text = dr["exam_id"].ToString();
            
             dr.Close();
-            conn.Close();
+  
             
             
-        }
-        private void LoadComboboxDiagnoses()
-        {
-            conn.Open();
-            string query = "SELECT * FROM diagnoses";
-            cmd = new MySqlCommand(query, conn);
-            dr = cmd.ExecuteReader();
-            while (dr.Read())
-            {
-                cb_diagnoses.Items.Add(new 
-                { 
-                  Text = dr["name"].ToString(), 
-                  Value = Convert.ToInt32(dr["id"]) 
-                });
-            }    
-            dr.Close();
-            conn.Close();
-            cb_diagnoses.DisplayMember = "Text";
-            cb_diagnoses.ValueMember = "Value";
-            cb_diagnoses.SelectedIndex = 0;
-
-           
         }
         private void LoadComboboxDoctorNote()
         {
-            conn.Open();
-            string query = "SELECT * FROM doctor_notes";
+            
+           
+            string query = "SELECT id, content FROM doctor_notes";
             cmd = new MySqlCommand(query, conn);
-            dr = cmd.ExecuteReader();
-            while (dr.Read())
-            {
-                cb_doctornote.Items.Add(new
-                {
-                    Text = dr["content"].ToString(),
-                    Value = Convert.ToInt32(dr["id"])
-                });
-            }
-            dr.Close();
-            conn.Close();
-            cb_doctornote.DisplayMember = "Text";
-            cb_doctornote.ValueMember = "Value";
-            cb_doctornote.SelectedIndex = 0;
+            adt = new MySqlDataAdapter(cmd);
+            dt = new DataTable();
+            adt.Fill(dt);
+            cb_doctornote.DataSource = dt;
+            cb_doctornote.DisplayMember = "content";
+            cb_doctornote.ValueMember = "id";
+
+
+        }
+        private void LoadComboboxDiagnoses()
+        {
+
+    
+            string query = "SELECT id, name FROM diagnoses";
+            cmd = new MySqlCommand(query, conn);
+            adt = new MySqlDataAdapter(cmd);
+            dt = new DataTable();
+            adt.Fill(dt);
+            cb_diagnoses.DataSource = dt;
+            cb_diagnoses.DisplayMember = "name";
+            cb_diagnoses.ValueMember = "id";
+            cb_diagnoses.SelectedIndex = 0;
+
+        }
+       
+        private void LoadComboboxMed()
+        {
+            string query = "SELECT id, name FROM medications";
+            cmd = new MySqlCommand(query, conn);
+            adt = new MySqlDataAdapter(cmd);
+            dt = new DataTable();
+            adt.Fill(dt);
+            cb_medname.DataSource = dt;
+            cb_medname.DisplayMember = "name";
+            cb_medname.ValueMember = "id";
+     
+
+
+        }
+        private void btn_addmed_Click(object sender, EventArgs e)
+        {
+            int soCot = dtgv_med.Columns.Count;
+            object[] duLieuMoi = new object[soCot]; 
+            dtgv_med.Rows.Add(duLieuMoi);
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            var selectedCell = dtgv_med.CurrentCell;
+            var comboBoxCell = (DataGridViewComboBoxCell)dtgv_med.Rows[selectedCell.RowIndex].Cells["cb_medname"];
+            var selectedItem = comboBoxCell.Value;
+            MessageBox.Show("Mục đã chọn: " + selectedItem.ToString());
+               
+
+        }
+
+        private void dtgv_med_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            MessageBox.Show("sàn");
+
+
         }
     }
 }
