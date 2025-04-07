@@ -10,6 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace QuanLyPhongKham
 {
@@ -17,11 +19,11 @@ namespace QuanLyPhongKham
     {
         int id;
         string connectionString = "Server=localhost;Database=clinic_db2;Uid=root;Pwd=;";
-        MySqlConnection conn; 
-        MySqlCommand cmd;   
-        MySqlDataAdapter adt; 
+        MySqlConnection conn;
+        MySqlCommand cmd;
+        MySqlDataAdapter adt;
         DataTable dt;
-        MySqlDataReader dr;   
+        MySqlDataReader dr;
 
         public frm_examination()
         {
@@ -45,10 +47,10 @@ namespace QuanLyPhongKham
                 "          name," +
                 "DATE_FORMAT(date_of_birth, '%d/%m/%Y') AS date_of_birth, " +
                 "gender, phone, address,  created_at,  updated_at FROM patients \r\n\r\n";
-            conn = new MySqlConnection(connectionString); 
+            conn = new MySqlConnection(connectionString);
             conn.Open();
-            cmd = new MySqlCommand(sql, conn); 
-            dr = cmd.ExecuteReader(); 
+            cmd = new MySqlCommand(sql, conn);
+            dr = cmd.ExecuteReader();
             while (dr.Read())
             {
                 int i = dtgv_patients.Rows.Add();
@@ -61,7 +63,7 @@ namespace QuanLyPhongKham
                 drr.Cells["address"].Value = dr["address"];
             }
             dr.Close();
-    
+
         }
 
         private void frm_examination_Load(object sender, EventArgs e)
@@ -81,28 +83,28 @@ namespace QuanLyPhongKham
             txb_ngaysinh.Text = dtgv_patients.CurrentRow.Cells["date_of_birth"].Value.ToString();
             int lastFourChars = Convert.ToInt32(txb_ngaysinh.Text.Substring(txb_ngaysinh.Text.Length - 4));
             int currentYear = DateTime.Now.Year;
-            txb_age.Text = (currentYear - lastFourChars).ToString(); 
+            txb_age.Text = (currentYear - lastFourChars).ToString();
             txb_address.Text = dtgv_patients.CurrentRow.Cells["address"].Value.ToString();
             txb_gender.Text = dtgv_patients.CurrentRow.Cells["gender"].Value.ToString();
         }
         private void LoadExamID()
         {
-    
+
             string query = "SELECT max(id)+1 as exam_id from examinations";
             cmd = new MySqlCommand(query, conn);
             dr = cmd.ExecuteReader();
-            if (dr.Read()) 
-            txb_exam_id.Text = dr["exam_id"].ToString();
-           
+            if (dr.Read())
+                txb_exam_id.Text = dr["exam_id"].ToString();
+
             dr.Close();
-  
-            
-            
+
+
+
         }
         private void LoadComboboxDoctorNote()
         {
-            
-           
+
+
             string query = "SELECT id, content FROM doctor_notes";
             cmd = new MySqlCommand(query, conn);
             adt = new MySqlDataAdapter(cmd);
@@ -117,7 +119,7 @@ namespace QuanLyPhongKham
         private void LoadComboboxDiagnoses()
         {
 
-    
+
             string query = "SELECT id, name FROM diagnoses";
             cmd = new MySqlCommand(query, conn);
             adt = new MySqlDataAdapter(cmd);
@@ -129,7 +131,7 @@ namespace QuanLyPhongKham
             cb_diagnoses.SelectedIndex = 0;
 
         }
-       
+
         private void LoadComboboxMed()
         {
             string query = "SELECT id, name FROM medications";
@@ -140,32 +142,43 @@ namespace QuanLyPhongKham
             cb_medname.DataSource = dt;
             cb_medname.DisplayMember = "name";
             cb_medname.ValueMember = "id";
-     
+            cb_medname.SelectedIndex = 0;
+
 
 
         }
         private void btn_addmed_Click(object sender, EventArgs e)
         {
             int soCot = dtgv_med.Columns.Count;
-            object[] duLieuMoi = new object[soCot]; 
+            object[] duLieuMoi = new object[soCot];
             dtgv_med.Rows.Add(duLieuMoi);
         }
 
-        private void guna2Button1_Click(object sender, EventArgs e)
+        private void cb_medname_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var selectedCell = dtgv_med.CurrentCell;
-            var comboBoxCell = (DataGridViewComboBoxCell)dtgv_med.Rows[selectedCell.RowIndex].Cells["cb_medname"];
-            var selectedItem = comboBoxCell.Value;
-            MessageBox.Show("Mục đã chọn: " + selectedItem.ToString());
-               
+            int selectedMedID = Convert.ToInt32(cb_doctornote.SelectedIndex);
+            MessageBox.Show(selectedMedID + "");
 
-        }
+    
+            //string query = "SELECT id, name, unit, dosage, route, times_per_day, note, price FROM medications WHERE id = @medID";
+            //cmd = new MySqlCommand(query, conn);
+            //cmd.Parameters.AddWithValue("@medID", selectedMedID);
 
-        private void dtgv_med_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-            MessageBox.Show("sàn");
-
-
+            //conn.Open();
+            //MySqlDataReader dr = cmd.ExecuteReader();
+            //if (dr.Read())
+            //{
+            //    // Populate the textboxes with the data
+            //    txb_unit.Text = dr["unit"].ToString();
+            //    txb_dosage.Text = dr["dosage"].ToString();
+            //    txb_route.Text = dr["route"].ToString();
+            //    txb_times.Text = dr["times_per_day"].ToString();
+            //    txb_mednote.Text = dr["note"].ToString();
+            //    txb_price.Text = dr["price"].ToString();
+            //}
+            //dr.Close();
+            //conn.Close();
         }
     }
 }
+

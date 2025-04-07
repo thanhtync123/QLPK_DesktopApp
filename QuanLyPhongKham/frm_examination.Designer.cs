@@ -48,20 +48,9 @@
             this.label6 = new System.Windows.Forms.Label();
             this.guna2TabControl1 = new Guna.UI2.WinForms.Guna2TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.btn_save = new System.Windows.Forms.Button();
-            this.btn_addmed = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.txb_note = new Guna.UI2.WinForms.Guna2TextBox();
-            this.lb_totalprice = new System.Windows.Forms.Label();
             this.dtgv_med = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.cb_medname = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.txb_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txb_dosage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txb_route = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txb_times = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txb_med_note = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txb_quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txb_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -77,7 +66,33 @@
             this.dtgv_patients = new Guna.UI2.WinForms.Guna2DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.cb_medname = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.txb_unit = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txb_dosage = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txb_times = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.txb_route = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.txb_quantity = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.txb_mednote = new Guna.UI2.WinForms.Guna2TextBox();
+            this.med_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dosage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.route = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.times = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.med_note = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label19 = new System.Windows.Forms.Label();
+            this.txb_totalprice = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.txb_price = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btn_addmed = new System.Windows.Forms.Button();
             this.guna2TabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_med)).BeginInit();
@@ -255,7 +270,7 @@
             this.guna2TabControl1.Location = new System.Drawing.Point(279, 119);
             this.guna2TabControl1.Name = "guna2TabControl1";
             this.guna2TabControl1.SelectedIndex = 0;
-            this.guna2TabControl1.Size = new System.Drawing.Size(1264, 615);
+            this.guna2TabControl1.Size = new System.Drawing.Size(1536, 632);
             this.guna2TabControl1.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty;
             this.guna2TabControl1.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(52)))), ((int)(((byte)(70)))));
             this.guna2TabControl1.TabButtonHoverState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
@@ -277,11 +292,27 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.btn_save);
             this.tabPage1.Controls.Add(this.btn_addmed);
+            this.tabPage1.Controls.Add(this.label19);
+            this.tabPage1.Controls.Add(this.txb_totalprice);
+            this.tabPage1.Controls.Add(this.label20);
+            this.tabPage1.Controls.Add(this.txb_price);
+            this.tabPage1.Controls.Add(this.label17);
+            this.tabPage1.Controls.Add(this.txb_quantity);
+            this.tabPage1.Controls.Add(this.label18);
+            this.tabPage1.Controls.Add(this.txb_mednote);
+            this.tabPage1.Controls.Add(this.label15);
+            this.tabPage1.Controls.Add(this.txb_times);
+            this.tabPage1.Controls.Add(this.label16);
+            this.tabPage1.Controls.Add(this.txb_route);
+            this.tabPage1.Controls.Add(this.label14);
+            this.tabPage1.Controls.Add(this.txb_dosage);
+            this.tabPage1.Controls.Add(this.label13);
+            this.tabPage1.Controls.Add(this.label12);
+            this.tabPage1.Controls.Add(this.txb_unit);
+            this.tabPage1.Controls.Add(this.cb_medname);
             this.tabPage1.Controls.Add(this.label11);
             this.tabPage1.Controls.Add(this.txb_note);
-            this.tabPage1.Controls.Add(this.lb_totalprice);
             this.tabPage1.Controls.Add(this.dtgv_med);
             this.tabPage1.Controls.Add(this.label10);
             this.tabPage1.Controls.Add(this.label9);
@@ -294,34 +325,15 @@
             this.tabPage1.Location = new System.Drawing.Point(184, 4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1076, 607);
+            this.tabPage1.Size = new System.Drawing.Size(1348, 624);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Đơn thuốc";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // btn_save
-            // 
-            this.btn_save.Location = new System.Drawing.Point(20, 567);
-            this.btn_save.Name = "btn_save";
-            this.btn_save.Size = new System.Drawing.Size(75, 23);
-            this.btn_save.TabIndex = 27;
-            this.btn_save.Text = "Lưu";
-            this.btn_save.UseVisualStyleBackColor = true;
-            // 
-            // btn_addmed
-            // 
-            this.btn_addmed.Location = new System.Drawing.Point(973, 192);
-            this.btn_addmed.Name = "btn_addmed";
-            this.btn_addmed.Size = new System.Drawing.Size(75, 23);
-            this.btn_addmed.TabIndex = 26;
-            this.btn_addmed.Text = "Thêm thuốc";
-            this.btn_addmed.UseVisualStyleBackColor = true;
-            this.btn_addmed.Click += new System.EventHandler(this.btn_addmed_Click);
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(271, 182);
+            this.label11.Location = new System.Drawing.Point(22, 194);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(44, 13);
             this.label11.TabIndex = 25;
@@ -338,21 +350,12 @@
             this.txb_note.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txb_note.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txb_note.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txb_note.Location = new System.Drawing.Point(319, 164);
+            this.txb_note.Location = new System.Drawing.Point(70, 176);
             this.txb_note.Name = "txb_note";
             this.txb_note.PlaceholderText = "";
             this.txb_note.SelectedText = "";
             this.txb_note.Size = new System.Drawing.Size(413, 31);
             this.txb_note.TabIndex = 24;
-            // 
-            // lb_totalprice
-            // 
-            this.lb_totalprice.AutoSize = true;
-            this.lb_totalprice.Location = new System.Drawing.Point(691, 577);
-            this.lb_totalprice.Name = "lb_totalprice";
-            this.lb_totalprice.Size = new System.Drawing.Size(41, 13);
-            this.lb_totalprice.TabIndex = 23;
-            this.lb_totalprice.Text = "label11";
             // 
             // dtgv_med
             // 
@@ -370,14 +373,14 @@
             this.dtgv_med.ColumnHeadersHeight = 28;
             this.dtgv_med.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dtgv_med.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.cb_medname,
-            this.txb_unit,
-            this.txb_dosage,
-            this.txb_route,
-            this.txb_times,
-            this.txb_med_note,
-            this.txb_quantity,
-            this.txb_price});
+            this.med_name,
+            this.unit,
+            this.dosage,
+            this.route,
+            this.times,
+            this.med_note,
+            this.quantity,
+            this.price});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -387,10 +390,10 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtgv_med.DefaultCellStyle = dataGridViewCellStyle3;
             this.dtgv_med.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dtgv_med.Location = new System.Drawing.Point(20, 221);
+            this.dtgv_med.Location = new System.Drawing.Point(504, 36);
             this.dtgv_med.Name = "dtgv_med";
             this.dtgv_med.RowHeadersVisible = false;
-            this.dtgv_med.Size = new System.Drawing.Size(1028, 352);
+            this.dtgv_med.Size = new System.Drawing.Size(825, 582);
             this.dtgv_med.TabIndex = 22;
             this.dtgv_med.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgv_med.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -413,52 +416,11 @@
             this.dtgv_med.ThemeStyle.RowsStyle.Height = 22;
             this.dtgv_med.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtgv_med.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.dtgv_med.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_med_CellValueChanged);
-            // 
-            // cb_medname
-            // 
-            this.cb_medname.HeaderText = "Tên Thuốc";
-            this.cb_medname.Name = "cb_medname";
-            // 
-            // txb_unit
-            // 
-            this.txb_unit.HeaderText = "Đơn vị";
-            this.txb_unit.Name = "txb_unit";
-            // 
-            // txb_dosage
-            // 
-            this.txb_dosage.HeaderText = "Liều dùng";
-            this.txb_dosage.Name = "txb_dosage";
-            // 
-            // txb_route
-            // 
-            this.txb_route.HeaderText = "Đường dùng";
-            this.txb_route.Name = "txb_route";
-            // 
-            // txb_times
-            // 
-            this.txb_times.HeaderText = "Số lần / ngày";
-            this.txb_times.Name = "txb_times";
-            // 
-            // txb_med_note
-            // 
-            this.txb_med_note.HeaderText = "Ghi chú";
-            this.txb_med_note.Name = "txb_med_note";
-            // 
-            // txb_quantity
-            // 
-            this.txb_quantity.HeaderText = "Số lượng";
-            this.txb_quantity.Name = "txb_quantity";
-            // 
-            // txb_price
-            // 
-            this.txb_price.HeaderText = "Giá";
-            this.txb_price.Name = "txb_price";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(273, 145);
+            this.label10.Location = new System.Drawing.Point(24, 157);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(42, 13);
             this.label10.TabIndex = 21;
@@ -467,7 +429,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(255, 103);
+            this.label9.Location = new System.Drawing.Point(6, 115);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(60, 13);
             this.label9.TabIndex = 20;
@@ -476,7 +438,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(535, 24);
+            this.label8.Location = new System.Drawing.Point(286, 36);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(64, 13);
             this.label8.TabIndex = 19;
@@ -485,7 +447,7 @@
             // txb_reason
             // 
             this.txb_reason.AutoSize = true;
-            this.txb_reason.Location = new System.Drawing.Point(316, 24);
+            this.txb_reason.Location = new System.Drawing.Point(67, 36);
             this.txb_reason.Name = "txb_reason";
             this.txb_reason.Size = new System.Drawing.Size(62, 13);
             this.txb_reason.TabIndex = 15;
@@ -503,7 +465,7 @@
             this.cb_doctornote.ItemHeight = 30;
             this.cb_doctornote.Items.AddRange(new object[] {
             "Chọn lời dặn"});
-            this.cb_doctornote.Location = new System.Drawing.Point(319, 122);
+            this.cb_doctornote.Location = new System.Drawing.Point(70, 134);
             this.cb_doctornote.Name = "cb_doctornote";
             this.cb_doctornote.Size = new System.Drawing.Size(413, 36);
             this.cb_doctornote.TabIndex = 18;
@@ -520,7 +482,7 @@
             this.cb_diagnoses.ItemHeight = 30;
             this.cb_diagnoses.Items.AddRange(new object[] {
             "Chọn chẩn đoán"});
-            this.cb_diagnoses.Location = new System.Drawing.Point(319, 80);
+            this.cb_diagnoses.Location = new System.Drawing.Point(70, 92);
             this.cb_diagnoses.Name = "cb_diagnoses";
             this.cb_diagnoses.Size = new System.Drawing.Size(413, 36);
             this.cb_diagnoses.TabIndex = 17;
@@ -536,7 +498,7 @@
             this.guna2TextBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2TextBox2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox2.Location = new System.Drawing.Point(538, 43);
+            this.guna2TextBox2.Location = new System.Drawing.Point(289, 55);
             this.guna2TextBox2.Name = "guna2TextBox2";
             this.guna2TextBox2.PlaceholderText = "";
             this.guna2TextBox2.SelectedText = "";
@@ -554,7 +516,7 @@
             this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Location = new System.Drawing.Point(319, 43);
+            this.guna2TextBox1.Location = new System.Drawing.Point(70, 55);
             this.guna2TextBox1.Name = "guna2TextBox1";
             this.guna2TextBox1.PlaceholderText = "";
             this.guna2TextBox1.SelectedText = "";
@@ -677,27 +639,301 @@
             this.name.HeaderText = "Tên bệnh nhân";
             this.name.Name = "name";
             // 
-            // guna2Button1
+            // cb_medname
             // 
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(1269, 59);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(180, 45);
-            this.guna2Button1.TabIndex = 17;
-            this.guna2Button1.Text = "guna2Button1";
-            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
+            this.cb_medname.BackColor = System.Drawing.Color.Transparent;
+            this.cb_medname.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cb_medname.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_medname.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cb_medname.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cb_medname.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cb_medname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cb_medname.ItemHeight = 30;
+            this.cb_medname.Location = new System.Drawing.Point(70, 275);
+            this.cb_medname.Name = "cb_medname";
+            this.cb_medname.Size = new System.Drawing.Size(413, 36);
+            this.cb_medname.TabIndex = 27;
+            this.cb_medname.SelectedIndexChanged += new System.EventHandler(this.cb_medname_SelectedIndexChanged);
+            // 
+            // txb_unit
+            // 
+            this.txb_unit.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txb_unit.DefaultText = "";
+            this.txb_unit.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txb_unit.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txb_unit.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txb_unit.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txb_unit.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txb_unit.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txb_unit.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txb_unit.Location = new System.Drawing.Point(70, 317);
+            this.txb_unit.Name = "txb_unit";
+            this.txb_unit.PlaceholderText = "";
+            this.txb_unit.SelectedText = "";
+            this.txb_unit.Size = new System.Drawing.Size(180, 31);
+            this.txb_unit.TabIndex = 28;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(22, 335);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(38, 13);
+            this.label12.TabIndex = 29;
+            this.label12.Text = "Đơn vị";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(10, 298);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(56, 13);
+            this.label13.TabIndex = 30;
+            this.label13.Text = "Tên thuốc";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(262, 335);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(54, 13);
+            this.label14.TabIndex = 32;
+            this.label14.Text = "Liều dùng";
+            // 
+            // txb_dosage
+            // 
+            this.txb_dosage.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txb_dosage.DefaultText = "";
+            this.txb_dosage.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txb_dosage.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txb_dosage.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txb_dosage.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txb_dosage.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txb_dosage.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txb_dosage.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txb_dosage.Location = new System.Drawing.Point(322, 317);
+            this.txb_dosage.Name = "txb_dosage";
+            this.txb_dosage.PlaceholderText = "";
+            this.txb_dosage.SelectedText = "";
+            this.txb_dosage.Size = new System.Drawing.Size(168, 31);
+            this.txb_dosage.TabIndex = 31;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(250, 372);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(71, 13);
+            this.label15.TabIndex = 36;
+            this.label15.Text = "Số lần / ngày";
+            // 
+            // txb_times
+            // 
+            this.txb_times.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txb_times.DefaultText = "";
+            this.txb_times.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txb_times.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txb_times.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txb_times.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txb_times.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txb_times.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txb_times.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txb_times.Location = new System.Drawing.Point(322, 354);
+            this.txb_times.Name = "txb_times";
+            this.txb_times.PlaceholderText = "";
+            this.txb_times.SelectedText = "";
+            this.txb_times.Size = new System.Drawing.Size(168, 31);
+            this.txb_times.TabIndex = 35;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(2, 372);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(66, 13);
+            this.label16.TabIndex = 34;
+            this.label16.Text = "Đường dùng";
+            // 
+            // txb_route
+            // 
+            this.txb_route.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txb_route.DefaultText = "";
+            this.txb_route.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txb_route.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txb_route.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txb_route.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txb_route.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txb_route.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txb_route.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txb_route.Location = new System.Drawing.Point(70, 354);
+            this.txb_route.Name = "txb_route";
+            this.txb_route.PlaceholderText = "";
+            this.txb_route.SelectedText = "";
+            this.txb_route.Size = new System.Drawing.Size(180, 31);
+            this.txb_route.TabIndex = 33;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(271, 406);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(49, 13);
+            this.label17.TabIndex = 40;
+            this.label17.Text = "Số lượng";
+            // 
+            // txb_quantity
+            // 
+            this.txb_quantity.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txb_quantity.DefaultText = "";
+            this.txb_quantity.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txb_quantity.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txb_quantity.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txb_quantity.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txb_quantity.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txb_quantity.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txb_quantity.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txb_quantity.Location = new System.Drawing.Point(322, 391);
+            this.txb_quantity.Name = "txb_quantity";
+            this.txb_quantity.PlaceholderText = "";
+            this.txb_quantity.SelectedText = "";
+            this.txb_quantity.Size = new System.Drawing.Size(168, 31);
+            this.txb_quantity.TabIndex = 39;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(20, 409);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(44, 13);
+            this.label18.TabIndex = 38;
+            this.label18.Text = "Ghi chú";
+            // 
+            // txb_mednote
+            // 
+            this.txb_mednote.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txb_mednote.DefaultText = "";
+            this.txb_mednote.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txb_mednote.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txb_mednote.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txb_mednote.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txb_mednote.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txb_mednote.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txb_mednote.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txb_mednote.Location = new System.Drawing.Point(70, 391);
+            this.txb_mednote.Name = "txb_mednote";
+            this.txb_mednote.PlaceholderText = "";
+            this.txb_mednote.SelectedText = "";
+            this.txb_mednote.Size = new System.Drawing.Size(180, 31);
+            this.txb_mednote.TabIndex = 37;
+            // 
+            // med_name
+            // 
+            this.med_name.HeaderText = "Tên thuốc";
+            this.med_name.Name = "med_name";
+            // 
+            // unit
+            // 
+            this.unit.HeaderText = "Đơn vị";
+            this.unit.Name = "unit";
+            // 
+            // dosage
+            // 
+            this.dosage.HeaderText = "Liều dùng";
+            this.dosage.Name = "dosage";
+            // 
+            // route
+            // 
+            this.route.HeaderText = "Đường dùng";
+            this.route.Name = "route";
+            // 
+            // times
+            // 
+            this.times.HeaderText = "Số lần / ngày";
+            this.times.Name = "times";
+            // 
+            // med_note
+            // 
+            this.med_note.HeaderText = "Ghi chú";
+            this.med_note.Name = "med_note";
+            // 
+            // quantity
+            // 
+            this.quantity.HeaderText = "Số lượng";
+            this.quantity.Name = "quantity";
+            // 
+            // price
+            // 
+            this.price.HeaderText = "Giá";
+            this.price.Name = "price";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(264, 446);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(52, 13);
+            this.label19.TabIndex = 44;
+            this.label19.Text = "Tổng tiền";
+            // 
+            // txb_totalprice
+            // 
+            this.txb_totalprice.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txb_totalprice.DefaultText = "";
+            this.txb_totalprice.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txb_totalprice.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txb_totalprice.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txb_totalprice.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txb_totalprice.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txb_totalprice.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txb_totalprice.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txb_totalprice.Location = new System.Drawing.Point(322, 428);
+            this.txb_totalprice.Name = "txb_totalprice";
+            this.txb_totalprice.PlaceholderText = "";
+            this.txb_totalprice.SelectedText = "";
+            this.txb_totalprice.Size = new System.Drawing.Size(168, 31);
+            this.txb_totalprice.TabIndex = 43;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(20, 446);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(44, 13);
+            this.label20.TabIndex = 42;
+            this.label20.Text = "Đơn giá";
+            // 
+            // txb_price
+            // 
+            this.txb_price.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txb_price.DefaultText = "";
+            this.txb_price.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txb_price.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txb_price.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txb_price.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txb_price.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txb_price.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txb_price.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txb_price.Location = new System.Drawing.Point(70, 428);
+            this.txb_price.Name = "txb_price";
+            this.txb_price.PlaceholderText = "";
+            this.txb_price.SelectedText = "";
+            this.txb_price.Size = new System.Drawing.Size(180, 31);
+            this.txb_price.TabIndex = 41;
+            // 
+            // btn_addmed
+            // 
+            this.btn_addmed.Location = new System.Drawing.Point(70, 474);
+            this.btn_addmed.Name = "btn_addmed";
+            this.btn_addmed.Size = new System.Drawing.Size(75, 23);
+            this.btn_addmed.TabIndex = 45;
+            this.btn_addmed.Text = "btn_addmed";
+            this.btn_addmed.UseVisualStyleBackColor = true;
             // 
             // frm_examination
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1555, 746);
-            this.Controls.Add(this.guna2Button1);
+            this.ClientSize = new System.Drawing.Size(1850, 763);
             this.Controls.Add(this.dtgv_patients);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txb_exam_id);
@@ -755,22 +991,37 @@
         private Guna.UI2.WinForms.Guna2DataGridView dtgv_med;
         private System.Windows.Forms.Label label7;
         private Guna.UI2.WinForms.Guna2TextBox txb_exam_id;
-        private System.Windows.Forms.Label lb_totalprice;
         private Guna.UI2.WinForms.Guna2DataGridView dtgv_patients;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.Label label11;
         private Guna.UI2.WinForms.Guna2TextBox txb_note;
+        private System.Windows.Forms.Label label17;
+        private Guna.UI2.WinForms.Guna2TextBox txb_quantity;
+        private System.Windows.Forms.Label label18;
+        private Guna.UI2.WinForms.Guna2TextBox txb_mednote;
+        private System.Windows.Forms.Label label15;
+        private Guna.UI2.WinForms.Guna2TextBox txb_times;
+        private System.Windows.Forms.Label label16;
+        private Guna.UI2.WinForms.Guna2TextBox txb_route;
+        private System.Windows.Forms.Label label14;
+        private Guna.UI2.WinForms.Guna2TextBox txb_dosage;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private Guna.UI2.WinForms.Guna2TextBox txb_unit;
+        private Guna.UI2.WinForms.Guna2ComboBox cb_medname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn med_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dosage;
+        private System.Windows.Forms.DataGridViewTextBoxColumn route;
+        private System.Windows.Forms.DataGridViewTextBoxColumn times;
+        private System.Windows.Forms.DataGridViewTextBoxColumn med_note;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price;
+        private System.Windows.Forms.Label label19;
+        private Guna.UI2.WinForms.Guna2TextBox txb_totalprice;
+        private System.Windows.Forms.Label label20;
+        private Guna.UI2.WinForms.Guna2TextBox txb_price;
         private System.Windows.Forms.Button btn_addmed;
-        private System.Windows.Forms.Button btn_save;
-        private System.Windows.Forms.DataGridViewComboBoxColumn cb_medname;
-        private System.Windows.Forms.DataGridViewTextBoxColumn txb_unit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn txb_dosage;
-        private System.Windows.Forms.DataGridViewTextBoxColumn txb_route;
-        private System.Windows.Forms.DataGridViewTextBoxColumn txb_times;
-        private System.Windows.Forms.DataGridViewTextBoxColumn txb_med_note;
-        private System.Windows.Forms.DataGridViewTextBoxColumn txb_quantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn txb_price;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
     }
 }
