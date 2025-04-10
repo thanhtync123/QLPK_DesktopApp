@@ -12,7 +12,7 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using static System.ComponentModel.Design.ObjectSelectorEditor;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-
+using System.Drawing.Printing;
 namespace QuanLyPhongKham
 {
     public partial class frm_examination : Form
@@ -48,7 +48,7 @@ namespace QuanLyPhongKham
                 "DATE_FORMAT(date_of_birth, '%d/%m/%Y') AS date_of_birth, " +
                 "gender, phone, address,  created_at,  updated_at FROM patients \r\n\r\n";
             conn = new MySqlConnection(connectionString);
-            conn.Open();
+            ResetConnection();
             cmd = new MySqlCommand(sql, conn);
             dr = cmd.ExecuteReader();
             while (dr.Read())
@@ -63,16 +63,20 @@ namespace QuanLyPhongKham
                 drr.Cells["address"].Value = dr["address"];
             }
             dr.Close();
+            ResetConnection();
 
         }
 
         private void frm_examination_Load(object sender, EventArgs e)
         {
             LoadGrid();
-            LoadExamID();
             LoadComboboxDiagnoses();
             LoadComboboxDoctorNote();
             LoadComboboxMed();
+            LoadExamID();
+            LoadDTGV_Service();
+            btn_deletemed.Enabled = false;
+          
         }
 
         private void dtgv_patients_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -87,9 +91,143 @@ namespace QuanLyPhongKham
             txb_address.Text = dtgv_patients.CurrentRow.Cells["address"].Value.ToString();
             txb_gender.Text = dtgv_patients.CurrentRow.Cells["gender"].Value.ToString();
         }
-        private void LoadExamID()
+
+        private void LoadComboboxDoctorNote()
         {
 
+
+            string query = "SELECT id, content FROM doctor_notes";
+           ResetConnection();
+            cmd = new MySqlCommand(query, conn);
+            adt = new MySqlDataAdapter(cmd);
+            dt = new DataTable();
+            adt.Fill(dt);
+            cb_doctornote.DataSource = dt;
+            cb_doctornote.DisplayMember = "content";
+            cb_doctornote.ValueMember = "id";
+            ResetConnection();
+
+        }
+        private void LoadComboboxDiagnoses()
+        {
+
+
+            string query = "SELECT id, name FROM diagnoses";
+            ResetConnection();
+            cmd = new MySqlCommand(query, conn);
+            adt = new MySqlDataAdapter(cmd);
+            dt = new DataTable();
+            adt.Fill(dt);
+            cb_diagnoses.DataSource = dt;
+            cb_diagnoses.DisplayMember = "name";
+            cb_diagnoses.ValueMember = "id";
+            cb_diagnoses.SelectedIndex = 0;
+            ResetConnection();
+        }
+
+        private void LoadComboboxMed()
+        {
+            string query = "SELECT id, name FROM medications";
+            ResetConnection();
+            cmd = new MySqlCommand(query, conn);
+            adt = new MySqlDataAdapter(cmd);
+            dt = new DataTable();
+            adt.Fill(dt);
+            cb_medname.DataSource = dt;
+            cb_medname.DisplayMember = "name";
+            cb_medname.ValueMember = "id";
+            cb_medname.SelectedIndex = 0;
+            ResetConnection();
+
+
+
+        }
+
+        private void btn_addmed_Click(object sender, EventArgs e)
+        {
+            int rowIndex = dtgv_med.Rows.Add();
+            dtgv_med.Rows[rowIndex].Cells[0].Value = cb_medname.SelectedValue;
+            dtgv_med.Rows[rowIndex].Cells[1].Value = cb_medname.Text;
+            dtgv_med.Rows[rowIndex].Cells[2].Value = txb_unit.Text;
+            dtgv_med.Rows[rowIndex].Cells[3].Value = txb_dosage.Text;
+            dtgv_med.Rows[rowIndex].Cells[4].Value = txb_route.Text;
+            dtgv_med.Rows[rowIndex].Cells[5].Value = txb_times.Text;
+            dtgv_med.Rows[rowIndex].Cells[6].Value = txb_mednote.Text;
+            dtgv_med.Rows[rowIndex].Cells[7].Value = txb_quantity.Text;
+            dtgv_med.Rows[rowIndex].Cells[8].Value =  txb_price.Text;
+            dtgv_med.Rows[rowIndex].Cells[9].Value = txb_totalpricepermed.Text;
+            lb_totalprice.Text = "Tổng tiền";
+
+            decimal total = 0;
+            foreach (DataGridViewRow row in dtgv_med.Rows)
+            {
+                if (row.Cells[9].Value != null && decimal.TryParse(row.Cells[9].Value.ToString(), out decimal rowTotal))
+                {
+                    total += rowTotal;
+                }
+            }
+            lb_totalprice.Text = "Tổng tiền: " + total.ToString("N0") + " đ";
+
+        }
+
+        private void cb_medname_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cb_medname.SelectedIndex != 0)
+            {
+                if (conn.State != ConnectionState.Open)
+                    ResetConnection();
+                string query = "SELECT id, name, unit, dosage, route, times_per_day, note, price FROM medications where id = @id ";
+                int selectedId = Convert.ToInt32(cb_medname.SelectedValue);
+                cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@id", selectedId);
+                dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                   
+                    txb_unit.Text = dr["unit"].ToString();
+                    txb_dosage.Text = dr["dosage"].ToString();
+                    txb_route.Text = dr["route"].ToString();
+                    txb_times.Text = dr["times_per_day"].ToString();
+                    txb_mednote.Text = dr["note"].ToString();
+                    txb_price.Text = dr["price"].ToString();
+                    txb_quantity.Text = "1";
+                }
+                int quantity = Convert.ToInt32(txb_quantity.Value);
+                int price = Convert.ToInt32(txb_price.Text);
+                txb_totalpricepermed.Text = quantity * price + "";
+
+                dr.Close();
+                ResetConnection();
+            }        
+                   
+            
+            
+        }
+
+        private void txb_quantity_ValueChanged(object sender, EventArgs e)
+        {
+            int quantity = Convert.ToInt32(txb_quantity.Value);
+            int price = Convert.ToInt32(txb_price.Text);
+            txb_totalpricepermed.Text = quantity * price+"";
+        }
+
+        private void btn_deletemed_Click(object sender, EventArgs e)
+        {
+            if (dtgv_med.SelectedRows.Count > 0)
+                dtgv_med.Rows.RemoveAt(dtgv_med.SelectedRows[0].Index);
+
+            else
+                MessageBox.Show("Vui lòng chọn một hàng để xóa.");
+
+        }
+
+        private void dtgv_med_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            btn_deletemed.Enabled = true;
+        }
+        private void LoadExamID()
+        {
+            ResetConnection();
             string query = "SELECT max(id)+1 as exam_id from examinations";
             cmd = new MySqlCommand(query, conn);
             dr = cmd.ExecuteReader();
@@ -101,84 +239,325 @@ namespace QuanLyPhongKham
 
 
         }
-        private void LoadComboboxDoctorNote()
+        private void LoadDTGV_Service()
         {
-
-
-            string query = "SELECT id, content FROM doctor_notes";
+            ResetConnection();
+            string query = "SELECT `id`, `name`, `type`,`price` \r\n FROM `services`\r\nORDER BY FIELD(`type`, 'X-quang', 'Siêu âm', 'Xét nghiệm', 'Điện tim');\r\n";
             cmd = new MySqlCommand(query, conn);
-            adt = new MySqlDataAdapter(cmd);
-            dt = new DataTable();
-            adt.Fill(dt);
-            cb_doctornote.DataSource = dt;
-            cb_doctornote.DisplayMember = "content";
-            cb_doctornote.ValueMember = "id";
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                int i = dtgv_service.Rows.Add();
+                DataGridViewRow drr = dtgv_service.Rows[i];
+                drr.Cells["id_service"].Value = dr["id"];
+                drr.Cells["service_name"].Value = dr["name"];
+                drr.Cells["type"].Value = dr["type"];
+                drr.Cells["price1"].Value = dr["price"];
+                drr.Cells["add_service"].Value = "+";
+            }
 
 
-        }
-        private void LoadComboboxDiagnoses()
-        {
-
-
-            string query = "SELECT id, name FROM diagnoses";
-            cmd = new MySqlCommand(query, conn);
-            adt = new MySqlDataAdapter(cmd);
-            dt = new DataTable();
-            adt.Fill(dt);
-            cb_diagnoses.DataSource = dt;
-            cb_diagnoses.DisplayMember = "name";
-            cb_diagnoses.ValueMember = "id";
-            cb_diagnoses.SelectedIndex = 0;
-
+            dr.Close();
         }
 
-        private void LoadComboboxMed()
+
+        private void btn_add_examination_Click(object sender, EventArgs e)
         {
-            string query = "SELECT id, name FROM medications";
-            cmd = new MySqlCommand(query, conn);
-            adt = new MySqlDataAdapter(cmd);
-            dt = new DataTable();
-            adt.Fill(dt);
-            cb_medname.DataSource = dt;
-            cb_medname.DisplayMember = "name";
-            cb_medname.ValueMember = "id";
-            cb_medname.SelectedIndex = 0;
+            try
+            {
+                    string queryExamination = @"
+INSERT INTO examinations 
+(id, patient_id, reason, diagnosis_id, doctor_note_id, note, pulse, blood_pressure, respiratory_rate, weight, height, temperature, type, created_at, updated_at) 
+VALUES 
+(NULL, @patient_id, @reason, @diagnosis_id, @doctor_note_id, @note, @pulse, @blood_pressure, @respiratory_rate, @weight, @height, @temperature, @type, current_timestamp(), current_timestamp());";
 
+                MySqlCommand cmd = new MySqlCommand(queryExamination, conn);
 
+                // Gán giá trị cho các parameter
+                cmd.Parameters.AddWithValue("@patient_id", Convert.ToInt16(txb_id.Text));
+                cmd.Parameters.AddWithValue("@reason", lbsdfsf.Text);
+                cmd.Parameters.AddWithValue("@diagnosis_id", Convert.ToInt16(cb_diagnoses.SelectedValue));
+                cmd.Parameters.AddWithValue("@doctor_note_id", Convert.ToInt16(cb_doctornote.SelectedValue));
+                cmd.Parameters.AddWithValue("@note", txb_note.Text);
+                cmd.Parameters.AddWithValue("@pulse", txb_pulse.Text);
+                cmd.Parameters.AddWithValue("@blood_pressure", txb_blood_pressure.Text);
+                cmd.Parameters.AddWithValue("@respiratory_rate", txb_respiratory_rate.Text);
+                cmd.Parameters.AddWithValue("@weight", txb_weight.Text);
+                cmd.Parameters.AddWithValue("@height", txb_height.Text);
+                cmd.Parameters.AddWithValue("@temperature", txb_temperature.Text);
+                cmd.Parameters.AddWithValue("@type", "toa thuốc");
 
+                cmd.ExecuteNonQuery();
+                string queryGetExamID = "SELECT LAST_INSERT_ID();";
+                cmd = new MySqlCommand(queryGetExamID, conn);
+                int examinationID = Convert.ToInt32(cmd.ExecuteScalar());
+
+                foreach (DataGridViewRow row in dtgv_med.Rows)
+                {
+                    if (row.Cells[0].Value != null)
+                    {
+                        string queryMedication = "INSERT INTO examination_medications (examination_id, medication_id, unit, dosage, route, times, note, quantity, price, created_at, updated_at) " +
+                                                 "VALUES (@examination_id, @medication_id, @unit, @dosage, @route, @times, @note, @quantity, @price, current_timestamp(), current_timestamp());";
+                        cmd = new MySqlCommand(queryMedication, conn);
+                        cmd.Parameters.AddWithValue("@examination_id", examinationID);
+                        cmd.Parameters.AddWithValue("@medication_id", row.Cells[0].Value);
+                        cmd.Parameters.AddWithValue("@unit", row.Cells[2].Value);
+                        cmd.Parameters.AddWithValue("@dosage", row.Cells[3].Value);
+                        cmd.Parameters.AddWithValue("@route", row.Cells[4].Value);
+                        cmd.Parameters.AddWithValue("@times", row.Cells[5].Value);
+                        cmd.Parameters.AddWithValue("@note", row.Cells[6].Value);
+                        cmd.Parameters.AddWithValue("@quantity", row.Cells[7].Value);
+                        cmd.Parameters.AddWithValue("@price", row.Cells[8].Value);
+
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                LoadExamID();
+                MessageBox.Show("Thêm phiếu khám và toa thuốc thành công!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
+            finally
+            {
+                ResetConnection();
+            }
         }
-        private void btn_addmed_Click(object sender, EventArgs e)
+        private void ResetConnection()
         {
-            int soCot = dtgv_med.Columns.Count;
-            object[] duLieuMoi = new object[soCot];
-            dtgv_med.Rows.Add(duLieuMoi);
+            if (conn.State == ConnectionState.Open)
+
+                conn.Close();
+            if (conn.State != ConnectionState.Open)
+            
+                conn.Open();
+            
         }
 
-        private void cb_medname_SelectedIndexChanged(object sender, EventArgs e)
+        private void dtgv_service_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int selectedMedID = Convert.ToInt32(cb_doctornote.SelectedIndex);
-            MessageBox.Show(selectedMedID + "");
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+             
+                if (dtgv_service.Columns[e.ColumnIndex].Name == "add_service")
+                {
+                    DataGridViewRow selectedRow = dtgv_service.Rows[e.RowIndex];
+                    var idService = selectedRow.Cells["id_service"].Value?.ToString();
+                    var nameService = selectedRow.Cells["service_name"].Value?.ToString();
+                    var priceService = selectedRow.Cells["price1"].Value?.ToString();
 
-    
-            //string query = "SELECT id, name, unit, dosage, route, times_per_day, note, price FROM medications WHERE id = @medID";
-            //cmd = new MySqlCommand(query, conn);
-            //cmd.Parameters.AddWithValue("@medID", selectedMedID);
+                    int rowIndex = dtgv_service_patient.Rows.Add();
+                    dtgv_service_patient.Rows[rowIndex].Cells["id_service2"].Value = idService;
+                    dtgv_service_patient.Rows[rowIndex].Cells["name_service2"].Value = nameService;
+                    dtgv_service_patient.Rows[rowIndex].Cells["price2"].Value = priceService;
+                    dtgv_service_patient.Rows[rowIndex].Cells["delete_service"].Value = "-";
+                    UpdateTotalServicePrice();
 
-            //conn.Open();
-            //MySqlDataReader dr = cmd.ExecuteReader();
-            //if (dr.Read())
-            //{
-            //    // Populate the textboxes with the data
-            //    txb_unit.Text = dr["unit"].ToString();
-            //    txb_dosage.Text = dr["dosage"].ToString();
-            //    txb_route.Text = dr["route"].ToString();
-            //    txb_times.Text = dr["times_per_day"].ToString();
-            //    txb_mednote.Text = dr["note"].ToString();
-            //    txb_price.Text = dr["price"].ToString();
-            //}
-            //dr.Close();
-            //conn.Close();
+
+                }
+            }
+        }
+
+        private void dtgv_service_patient_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+                if (dtgv_service_patient.Columns[e.ColumnIndex].Name == "delete_service")
+                {
+                    dtgv_service_patient.Rows.RemoveAt(e.RowIndex);
+                    UpdateTotalServicePrice();
+                }  
+                    
+                 
+            
+        }
+
+        private void btn_save_examination_service_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string queryExamination = @"
+INSERT INTO examinations 
+(id, patient_id, reason, diagnosis_id, doctor_note_id, note, pulse, blood_pressure, respiratory_rate, weight, height, temperature, type, created_at, updated_at) 
+VALUES 
+(NULL, @patient_id, @reason, @diagnosis_id, @doctor_note_id, @note, @pulse, @blood_pressure, @respiratory_rate, @weight, @height, @temperature, @type, current_timestamp(), current_timestamp());";
+
+                MySqlCommand cmd = new MySqlCommand(queryExamination, conn);
+
+                // Gán giá trị cho các parameter
+                cmd.Parameters.AddWithValue("@patient_id", Convert.ToInt16(txb_id.Text));
+                cmd.Parameters.AddWithValue("@reason", lbsdfsf.Text);
+                cmd.Parameters.AddWithValue("@diagnosis_id", Convert.ToInt16(cb_diagnoses.SelectedValue));
+                cmd.Parameters.AddWithValue("@doctor_note_id", Convert.ToInt16(cb_doctornote.SelectedValue));
+                cmd.Parameters.AddWithValue("@note", txb_note.Text);
+                cmd.Parameters.AddWithValue("@pulse", txb_pulse.Text);
+                cmd.Parameters.AddWithValue("@blood_pressure", txb_blood_pressure.Text);
+                cmd.Parameters.AddWithValue("@respiratory_rate", txb_respiratory_rate.Text);
+                cmd.Parameters.AddWithValue("@weight", txb_weight.Text);
+                cmd.Parameters.AddWithValue("@height", txb_height.Text);
+                cmd.Parameters.AddWithValue("@temperature", txb_temperature.Text);
+                cmd.Parameters.AddWithValue("@type", "chỉ định");
+
+                cmd.ExecuteNonQuery();
+                string queryGetExamID = "SELECT LAST_INSERT_ID();";
+                cmd = new MySqlCommand(queryGetExamID, conn);
+                int examinationID = Convert.ToInt32(cmd.ExecuteScalar());
+
+                foreach (DataGridViewRow row in dtgv_service_patient.Rows)
+                {
+                    if (row.Cells[0].Value != null)
+                    {
+                        string queryMedication = "INSERT INTO `examination_services` " +
+                            "(`id`, `examination_id`, `service_id`, `price`) VALUES " +
+                            "(NULL, @examination_id, @service_id, @price);";
+                        cmd = new MySqlCommand(queryMedication, conn);
+                        cmd.Parameters.AddWithValue("@examination_id", examinationID);
+                        cmd.Parameters.AddWithValue("@service_id", row.Cells[0].Value);
+                        cmd.Parameters.AddWithValue("@price", row.Cells[2].Value);
+
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                LoadExamID();
+                MessageBox.Show("Lưu chỉ định thành công");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
+            finally
+            {
+                ResetConnection();
+            }
+        }
+        private void UpdateTotalServicePrice()
+        {
+            decimal total = 0;
+
+            foreach (DataGridViewRow row in dtgv_service_patient.Rows)
+            {
+                if (row.Cells["price2"].Value != null)
+                {
+                    decimal price;
+                    if (decimal.TryParse(row.Cells["price2"].Value.ToString(), out price))
+                    {
+                        total += price;
+                    }
+                }
+            }
+
+            lb_total_price_service.Text = total.ToString("N0"); // định dạng tiền, có thể dùng "C" nếu muốn hiển thị đơn vị tiền tệ
+        }
+
+        private void btn_print_prescription_Click(object sender, EventArgs e)
+        {
+            printPreviewDialog1.Document = printDocument1;
+
+            // Mở bản xem trước
+            printPreviewDialog1.ShowDialog();
+        }
+
+        private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            // Khai báo font
+            Font titleFont = new Font("Arial", 16, FontStyle.Bold);
+            Font contentFont = new Font("Arial", 12);
+            Font smallFont = new Font("Arial", 10);
+            Font boldContentFont = new Font("Arial", 12, FontStyle.Bold); // Font đậm cho tên thuốc
+
+            // Khởi tạo vị trí
+            float y = 20;
+            float leftMargin = e.MarginBounds.Left;
+            float rightMargin = e.MarginBounds.Right;
+
+            // In thông tin phòng khám (căn trái và phải)
+            e.Graphics.DrawString("Phòng Khám Đa Khoa Bình Tân", contentFont, Brushes.Black, leftMargin, y);
+        
+            y += 20;
+            e.Graphics.DrawString("166 Lã Văn Quý, Q. Bình Tân", contentFont, Brushes.Black, leftMargin, y);
+
+            y += 20;
+            e.Graphics.DrawString("08 54594554", contentFont, Brushes.Black, leftMargin, y);
+            y += 40;
+
+            // In tiêu đề chính (căn giữa)
+            string title = "ĐƠN THUỐC";
+            float titleWidth = e.Graphics.MeasureString(title, titleFont).Width;
+            e.Graphics.DrawString(title, titleFont, Brushes.Black, (e.MarginBounds.Width - titleWidth) / 2 + leftMargin, y);
+            y += 40;
+
+            // In thông tin bệnh nhân
+            e.Graphics.DrawString($"Họ tên: {txb_name.Text}", contentFont, Brushes.Black, leftMargin, y);
+            e.Graphics.DrawString($"Năm sinh: {txb_ngaysinh.Text}", contentFont, Brushes.Black, leftMargin + 300, y);
+            y += 25;
+            e.Graphics.DrawString($"Giới tính: {txb_gender.Text}", contentFont, Brushes.Black, leftMargin, y);
+            e.Graphics.DrawString($"Chẩn đoán: {txb_reason.Text}", contentFont, Brushes.Black, leftMargin + 300, y);
+            y += 40;
+
+            // In danh sách thuốc (không dùng cột, chỉ in theo định dạng yêu cầu)
+            int medicineIndex = 1;
+            foreach (DataGridViewRow row in dtgv_med.Rows)
+            {
+                if (row.IsNewRow) continue;
+
+                // Lấy thông tin thuốc
+                string medicineName = row.Cells[1].Value?.ToString() ?? ""; // Tên thuốc (cột 1)
+                string quantity = row.Cells[7].Value?.ToString() ?? ""; // Số lượng (cột 7)
+                string note = row.Cells[6].Value?.ToString() ?? ""; // Ghi chú (cột 6)
+
+                // In số thứ tự và tên thuốc (in đậm)
+                string medicineLine = $"{medicineIndex}. {medicineName}";
+                e.Graphics.DrawString(medicineLine, boldContentFont, Brushes.Black, leftMargin, y);
+
+                // In số lượng (căn phải trên cùng dòng)
+                string quantityLine = $"Số lượng {quantity} viên";
+                float quantityWidth = e.Graphics.MeasureString(quantityLine, contentFont).Width;
+                e.Graphics.DrawString(quantityLine, contentFont, Brushes.Black, rightMargin - quantityWidth, y);
+                y += 25;
+
+                // In ghi chú (thụt lề)
+                if (!string.IsNullOrEmpty(note))
+                {
+                    e.Graphics.DrawString(note, contentFont, Brushes.Black, leftMargin + 20, y);
+                    y += 25;
+                }
+
+                medicineIndex++;
+            }
+
+            // In lời dặn và chữ ký bác sĩ
+            y += 40;
+            e.Graphics.DrawString($"Lời dặn: {cb_doctornote.Text}", contentFont, Brushes.Black, leftMargin, y);
+            y += 25;
+            e.Graphics.DrawString($"Ngày {DateTime.Now.Day} Tháng {DateTime.Now.Month} Năm {DateTime.Now.Year}", smallFont, Brushes.Black, leftMargin + 500, y);
+            y += 25;
+            e.Graphics.DrawString("Bác sĩ", smallFont, Brushes.Black, leftMargin + 500, y);
+            y += 50;
+            e.Graphics.DrawString($"BS CK1", contentFont, Brushes.Black, leftMargin + 500, y);
+        }
+
+
+
+
+        private void printDocument1_BeginPrint(object sender, PrintEventArgs e)
+        {
+            PrintDialog dlg = new PrintDialog();
+            dlg.Document = printDocument1;
+
+            if (dlg.ShowDialog() != DialogResult.OK)
+            {
+                e.Cancel = true; // Hủy in nếu người dùng không chọn in
+            }
         }
     }
+
+
 }
+
+
+
+
+
+
+
 

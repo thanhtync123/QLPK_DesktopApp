@@ -100,7 +100,7 @@ namespace QuanLyPhongKham
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            AddTab(new frm_medications());
+            //AddTab(new frm_medications());
         }
 
         private void AddTab(Form frm)
