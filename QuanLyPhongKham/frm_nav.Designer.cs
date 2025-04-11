@@ -30,11 +30,9 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.mn_patients = new System.Windows.Forms.ToolStripMenuItem();
-            this.danhMụcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.khámNộiKhoaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cậnLâmSàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.xQuangToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,7 +41,7 @@
             this.tabControl1.Location = new System.Drawing.Point(1, 27);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1000, 600);
+            this.tabControl1.Size = new System.Drawing.Size(2000, 2000);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControl1_DrawItem);
             this.tabControl1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tabControl1_MouseDown);
@@ -51,49 +49,35 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mn_patients,
-            this.danhMụcToolStripMenuItem,
-            this.khámNộiKhoaToolStripMenuItem});
+            this.khámNộiKhoaToolStripMenuItem,
+            this.cậnLâmSàngToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1016, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // mn_patients
-            // 
-            this.mn_patients.Name = "mn_patients";
-            this.mn_patients.Size = new System.Drawing.Size(76, 20);
-            this.mn_patients.Text = "Bệnh nhân";
-            this.mn_patients.Click += new System.EventHandler(this.mn_test_Click);
-            // 
-            // danhMụcToolStripMenuItem
-            // 
-            this.danhMụcToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
-            this.toolStripMenuItem2});
-            this.danhMụcToolStripMenuItem.Name = "danhMụcToolStripMenuItem";
-            this.danhMụcToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
-            this.danhMụcToolStripMenuItem.Text = "Danh mục";
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.toolStripMenuItem1.Text = "Thuốc";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
-            this.toolStripMenuItem2.Text = "toolStripMenuItem2";
-            // 
             // khámNộiKhoaToolStripMenuItem
             // 
             this.khámNộiKhoaToolStripMenuItem.Name = "khámNộiKhoaToolStripMenuItem";
             this.khámNộiKhoaToolStripMenuItem.Size = new System.Drawing.Size(99, 20);
             this.khámNộiKhoaToolStripMenuItem.Text = "Khám nội khoa";
+            this.khámNộiKhoaToolStripMenuItem.Click += new System.EventHandler(this.khámNộiKhoaToolStripMenuItem_Click);
+            // 
+            // cậnLâmSàngToolStripMenuItem
+            // 
+            this.cậnLâmSàngToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.xQuangToolStripMenuItem});
+            this.cậnLâmSàngToolStripMenuItem.Name = "cậnLâmSàngToolStripMenuItem";
+            this.cậnLâmSàngToolStripMenuItem.Size = new System.Drawing.Size(91, 20);
+            this.cậnLâmSàngToolStripMenuItem.Text = "Cận lâm sàng";
+            // 
+            // xQuangToolStripMenuItem
+            // 
+            this.xQuangToolStripMenuItem.Name = "xQuangToolStripMenuItem";
+            this.xQuangToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.xQuangToolStripMenuItem.Text = "X - quang";
+            this.xQuangToolStripMenuItem.Click += new System.EventHandler(this.xQuangToolStripMenuItem_Click);
             // 
             // frm_nav
             // 
@@ -117,11 +101,9 @@
 
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem mn_patients;
-        private System.Windows.Forms.ToolStripMenuItem danhMụcToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem khámNộiKhoaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cậnLâmSàngToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem xQuangToolStripMenuItem;
     }
 }
 

@@ -28,22 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_xray));
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.dtpk_todate = new System.Windows.Forms.DateTimePicker();
+            this.dtpk_fromdate = new System.Windows.Forms.DateTimePicker();
+            this.cb_khoangthoigian = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.dtgv_exam = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.rdn_noresult = new System.Windows.Forms.RadioButton();
+            this.rdn_resulted = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_search = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -81,10 +82,17 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txb_name = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.btn_print = new System.Windows.Forms.Button();
-            this.btn_edit = new System.Windows.Forms.Button();
+            this.txb_final_result = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.rdn_all = new System.Windows.Forms.RadioButton();
             this.btn_save = new System.Windows.Forms.Button();
+            this.btn_edit = new System.Windows.Forms.Button();
+            this.btn_print = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btn_refresh = new System.Windows.Forms.Button();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_exam)).BeginInit();
             this.panel1.SuspendLayout();
@@ -96,42 +104,53 @@
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.SystemColors.Info;
-            this.guna2Panel1.Controls.Add(this.dateTimePicker2);
-            this.guna2Panel1.Controls.Add(this.dateTimePicker1);
-            this.guna2Panel1.Controls.Add(this.comboBox2);
+            this.guna2Panel1.Controls.Add(this.rdn_all);
+            this.guna2Panel1.Controls.Add(this.label18);
+            this.guna2Panel1.Controls.Add(this.dtpk_todate);
+            this.guna2Panel1.Controls.Add(this.dtpk_fromdate);
+            this.guna2Panel1.Controls.Add(this.cb_khoangthoigian);
             this.guna2Panel1.Controls.Add(this.label4);
             this.guna2Panel1.Controls.Add(this.dtgv_exam);
-            this.guna2Panel1.Controls.Add(this.radioButton2);
-            this.guna2Panel1.Controls.Add(this.radioButton1);
+            this.guna2Panel1.Controls.Add(this.rdn_noresult);
+            this.guna2Panel1.Controls.Add(this.rdn_resulted);
             this.guna2Panel1.Controls.Add(this.label2);
-            this.guna2Panel1.Controls.Add(this.button1);
+            this.guna2Panel1.Controls.Add(this.btn_search);
             this.guna2Panel1.Controls.Add(this.label1);
             this.guna2Panel1.Location = new System.Drawing.Point(12, 29);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(331, 722);
+            this.guna2Panel1.Size = new System.Drawing.Size(349, 722);
             this.guna2Panel1.TabIndex = 0;
             // 
-            // dateTimePicker2
+            // dtpk_todate
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(9, 88);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(193, 20);
-            this.dateTimePicker2.TabIndex = 36;
+            this.dtpk_todate.CustomFormat = "dd/MM/yyyy";
+            this.dtpk_todate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpk_todate.Location = new System.Drawing.Point(9, 88);
+            this.dtpk_todate.Name = "dtpk_todate";
+            this.dtpk_todate.Size = new System.Drawing.Size(98, 20);
+            this.dtpk_todate.TabIndex = 36;
             // 
-            // dateTimePicker1
+            // dtpk_fromdate
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(9, 45);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(193, 20);
-            this.dateTimePicker1.TabIndex = 35;
+            this.dtpk_fromdate.CustomFormat = "dd/MM/yyyy";
+            this.dtpk_fromdate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpk_fromdate.Location = new System.Drawing.Point(9, 45);
+            this.dtpk_fromdate.Name = "dtpk_fromdate";
+            this.dtpk_fromdate.Size = new System.Drawing.Size(98, 20);
+            this.dtpk_fromdate.TabIndex = 35;
             // 
-            // comboBox2
+            // cb_khoangthoigian
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(208, 43);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(108, 21);
-            this.comboBox2.TabIndex = 34;
+            this.cb_khoangthoigian.FormattingEnabled = true;
+            this.cb_khoangthoigian.Items.AddRange(new object[] {
+            "Chọn khoảng thời gian",
+            "Hôm qua",
+            "Tuần trước",
+            "Tháng trước"});
+            this.cb_khoangthoigian.Location = new System.Drawing.Point(138, 43);
+            this.cb_khoangthoigian.Name = "cb_khoangthoigian";
+            this.cb_khoangthoigian.Size = new System.Drawing.Size(178, 21);
+            this.cb_khoangthoigian.TabIndex = 34;
             // 
             // label4
             // 
@@ -148,26 +167,26 @@
             // 
             // dtgv_exam
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dtgv_exam.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgv_exam.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            this.dtgv_exam.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgv_exam.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dtgv_exam.ColumnHeadersHeight = 40;
             this.dtgv_exam.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgv_exam.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgv_exam.DefaultCellStyle = dataGridViewCellStyle9;
             this.dtgv_exam.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtgv_exam.Location = new System.Drawing.Point(9, 143);
             this.dtgv_exam.Name = "dtgv_exam";
@@ -197,27 +216,25 @@
             this.dtgv_exam.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dtgv_exam.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_exam_CellClick);
             // 
-            // radioButton2
+            // rdn_noresult
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(156, 116);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(77, 17);
-            this.radioButton2.TabIndex = 8;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Có kết quả";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rdn_noresult.AutoSize = true;
+            this.rdn_noresult.Location = new System.Drawing.Point(224, 114);
+            this.rdn_noresult.Name = "rdn_noresult";
+            this.rdn_noresult.Size = new System.Drawing.Size(77, 17);
+            this.rdn_noresult.TabIndex = 8;
+            this.rdn_noresult.Text = "Có kết quả";
+            this.rdn_noresult.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // rdn_resulted
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(67, 116);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(83, 17);
-            this.radioButton1.TabIndex = 7;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Chờ kết quả";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rdn_resulted.AutoSize = true;
+            this.rdn_resulted.Location = new System.Drawing.Point(119, 114);
+            this.rdn_resulted.Name = "rdn_resulted";
+            this.rdn_resulted.Size = new System.Drawing.Size(83, 17);
+            this.rdn_resulted.TabIndex = 7;
+            this.rdn_resulted.Text = "Chờ kết quả";
+            this.rdn_resulted.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -228,14 +245,15 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Đến ngày";
             // 
-            // button1
+            // btn_search
             // 
-            this.button1.Location = new System.Drawing.Point(208, 88);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(71, 20);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Xem";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_search.Location = new System.Drawing.Point(138, 88);
+            this.btn_search.Name = "btn_search";
+            this.btn_search.Size = new System.Drawing.Size(64, 20);
+            this.btn_search.TabIndex = 1;
+            this.btn_search.Text = "Xem";
+            this.btn_search.UseVisualStyleBackColor = true;
+            this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
             // 
             // label1
             // 
@@ -258,6 +276,8 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.Info;
+            this.panel3.Controls.Add(this.txb_final_result);
+            this.panel3.Controls.Add(this.label17);
             this.panel3.Controls.Add(this.txb_result);
             this.panel3.Controls.Add(this.txb_phone);
             this.panel3.Controls.Add(this.SĐT);
@@ -288,9 +308,9 @@
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.txb_name);
             this.panel3.Controls.Add(this.label5);
-            this.panel3.Location = new System.Drawing.Point(3, 66);
+            this.panel3.Location = new System.Drawing.Point(3, 45);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1175, 639);
+            this.panel3.Size = new System.Drawing.Size(1175, 660);
             this.panel3.TabIndex = 1;
             // 
             // txb_result
@@ -298,7 +318,7 @@
             this.txb_result.Location = new System.Drawing.Point(588, 153);
             this.txb_result.Multiline = true;
             this.txb_result.Name = "txb_result";
-            this.txb_result.Size = new System.Drawing.Size(387, 468);
+            this.txb_result.Size = new System.Drawing.Size(387, 374);
             this.txb_result.TabIndex = 41;
             // 
             // txb_phone
@@ -352,11 +372,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(538, 156);
+            this.label3.Location = new System.Drawing.Point(547, 156);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 13);
+            this.label3.Size = new System.Drawing.Size(34, 13);
             this.label3.TabIndex = 34;
-            this.label3.Text = "Kết quả";
+            this.label3.Text = "Mô tả";
             // 
             // cb_template
             // 
@@ -398,30 +418,30 @@
             // dtgv_service
             // 
             this.dtgv_service.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.dtgv_service.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgv_service.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            this.dtgv_service.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgv_service.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dtgv_service.ColumnHeadersHeight = 40;
             this.dtgv_service.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.examination_service_id,
             this.id,
             this.name,
             this.state});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgv_service.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgv_service.DefaultCellStyle = dataGridViewCellStyle12;
             this.dtgv_service.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtgv_service.Location = new System.Drawing.Point(61, 233);
             this.dtgv_service.Name = "dtgv_service";
@@ -606,34 +626,53 @@
             this.label5.TabIndex = 11;
             this.label5.Text = "Tên BN";
             // 
-            // panel2
+            // txb_final_result
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.Info;
-            this.panel2.Controls.Add(this.btn_print);
-            this.panel2.Controls.Add(this.btn_edit);
-            this.panel2.Controls.Add(this.btn_save);
-            this.panel2.Location = new System.Drawing.Point(3, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1175, 61);
-            this.panel2.TabIndex = 0;
+            this.txb_final_result.Location = new System.Drawing.Point(588, 533);
+            this.txb_final_result.Multiline = true;
+            this.txb_final_result.Name = "txb_final_result";
+            this.txb_final_result.Size = new System.Drawing.Size(387, 62);
+            this.txb_final_result.TabIndex = 43;
             // 
-            // btn_print
+            // label17
             // 
-            this.btn_print.Location = new System.Drawing.Point(160, 7);
-            this.btn_print.Name = "btn_print";
-            this.btn_print.Size = new System.Drawing.Size(71, 24);
-            this.btn_print.TabIndex = 30;
-            this.btn_print.Text = "In";
-            this.btn_print.UseVisualStyleBackColor = true;
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(536, 536);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(46, 13);
+            this.label17.TabIndex = 42;
+            this.label17.Text = "Kết luận";
             // 
-            // btn_edit
+            // label18
             // 
-            this.btn_edit.Location = new System.Drawing.Point(83, 7);
-            this.btn_edit.Name = "btn_edit";
-            this.btn_edit.Size = new System.Drawing.Size(71, 24);
-            this.btn_edit.TabIndex = 29;
-            this.btn_edit.Text = "Sửa";
-            this.btn_edit.UseVisualStyleBackColor = true;
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(139, 25);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(114, 13);
+            this.label18.TabIndex = 37;
+            this.label18.Text = "Chọn khoảng thời gian";
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            // 
+            // rdn_all
+            // 
+            this.rdn_all.AutoSize = true;
+            this.rdn_all.Checked = true;
+            this.rdn_all.Location = new System.Drawing.Point(9, 114);
+            this.rdn_all.Name = "rdn_all";
+            this.rdn_all.Size = new System.Drawing.Size(56, 17);
+            this.rdn_all.TabIndex = 38;
+            this.rdn_all.TabStop = true;
+            this.rdn_all.Text = "Tất cả";
+            this.rdn_all.UseVisualStyleBackColor = true;
             // 
             // btn_save
             // 
@@ -644,6 +683,48 @@
             this.btn_save.Text = "Lưu";
             this.btn_save.UseVisualStyleBackColor = true;
             this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
+            // 
+            // btn_edit
+            // 
+            this.btn_edit.Location = new System.Drawing.Point(83, 7);
+            this.btn_edit.Name = "btn_edit";
+            this.btn_edit.Size = new System.Drawing.Size(71, 24);
+            this.btn_edit.TabIndex = 29;
+            this.btn_edit.Text = "Sửa";
+            this.btn_edit.UseVisualStyleBackColor = true;
+            this.btn_edit.Click += new System.EventHandler(this.btn_edit_Click);
+            // 
+            // btn_print
+            // 
+            this.btn_print.Location = new System.Drawing.Point(160, 7);
+            this.btn_print.Name = "btn_print";
+            this.btn_print.Size = new System.Drawing.Size(71, 24);
+            this.btn_print.TabIndex = 30;
+            this.btn_print.Text = "In";
+            this.btn_print.UseVisualStyleBackColor = true;
+            this.btn_print.Click += new System.EventHandler(this.btn_print_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.SystemColors.Info;
+            this.panel2.Controls.Add(this.btn_refresh);
+            this.panel2.Controls.Add(this.btn_print);
+            this.panel2.Controls.Add(this.btn_edit);
+            this.panel2.Controls.Add(this.btn_save);
+            this.panel2.Location = new System.Drawing.Point(3, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1175, 62);
+            this.panel2.TabIndex = 0;
+            // 
+            // btn_refresh
+            // 
+            this.btn_refresh.Location = new System.Drawing.Point(237, 7);
+            this.btn_refresh.Name = "btn_refresh";
+            this.btn_refresh.Size = new System.Drawing.Size(93, 24);
+            this.btn_refresh.TabIndex = 31;
+            this.btn_refresh.Text = "Lấy phiếu khám";
+            this.btn_refresh.UseVisualStyleBackColor = true;
+            this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
             // 
             // frm_xray
             // 
@@ -671,17 +752,16 @@
 
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2DataGridView dtgv_exam;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton rdn_noresult;
+        private System.Windows.Forms.RadioButton rdn_resulted;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_search;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox txb_name;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox txb_note;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txb_reason;
@@ -702,17 +782,14 @@
         private System.Windows.Forms.TextBox txb_service;
         private System.Windows.Forms.Label label14;
         private Guna.UI2.WinForms.Guna2DataGridView dtgv_service;
-        private System.Windows.Forms.Button btn_print;
-        private System.Windows.Forms.Button btn_edit;
-        private System.Windows.Forms.Button btn_save;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cb_khoangthoigian;
         private System.Windows.Forms.TextBox txb_id_exam;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox txb_reception_date;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dtpk_fromdate;
+        private System.Windows.Forms.DateTimePicker dtpk_todate;
         private System.Windows.Forms.TextBox txb_phone;
         private System.Windows.Forms.Label SĐT;
         private System.Windows.Forms.TextBox txb_result;
@@ -720,5 +797,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn state;
+        private System.Windows.Forms.TextBox txb_final_result;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private System.Windows.Forms.RadioButton rdn_all;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button btn_print;
+        private System.Windows.Forms.Button btn_edit;
+        private System.Windows.Forms.Button btn_save;
+        private System.Windows.Forms.Button btn_refresh;
     }
 }

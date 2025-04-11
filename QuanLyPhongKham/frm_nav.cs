@@ -78,7 +78,9 @@ namespace QuanLyPhongKham
 
         private void mn_test_Click(object sender, EventArgs e)
         {
-            //AddTab(new frm_patients());
+            //AddTab(new frm_examination());
+            //AddTab(new frm_xray());
+               
         }
 
         private void tabControl1_MouseDown(object sender, MouseEventArgs e)
@@ -98,9 +100,16 @@ namespace QuanLyPhongKham
             }
         }
 
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+
+
+        private void xQuangToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //AddTab(new frm_medications());
+            AddTab(new frm_xray());
+        }
+
+        private void khámNộiKhoaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddTab(new frm_examination());
         }
 
         private void AddTab(Form frm)
