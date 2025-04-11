@@ -160,12 +160,12 @@ namespace QuanLyPhongKham
 
             decimal total = 0;
             foreach (DataGridViewRow row in dtgv_med.Rows)
-            {
+            
                 if (row.Cells[9].Value != null && decimal.TryParse(row.Cells[9].Value.ToString(), out decimal rowTotal))
-                {
+                
                     total += rowTotal;
-                }
-            }
+                
+            
             lb_totalprice.Text = "Tổng tiền: " + total.ToString("N0") + " đ";
 
         }
@@ -545,10 +545,97 @@ VALUES
             dlg.Document = printDocument1;
 
             if (dlg.ShowDialog() != DialogResult.OK)
+                e.Cancel = true; 
+            
+        }
+
+        private void btn_print_service_Click(object sender, EventArgs e)
+        {
+            printPreviewDialog2.Document = printDocument2;
+            printPreviewDialog2.ShowDialog();
+        }
+
+        private void printDocument2_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            // Khai báo font chữ
+            Font titleFont = new Font("Arial", 16, FontStyle.Bold);
+            Font contentFont = new Font("Arial", 12);
+            Font smallFont = new Font("Arial", 10);
+            Font boldContentFont = new Font("Arial", 12, FontStyle.Bold); // Font đậm cho tên thuốc
+
+            // Khởi tạo vị trí
+            float y = 20;
+            float leftMargin = e.MarginBounds.Left;
+            float rightMargin = e.MarginBounds.Right;
+
+            // In thông tin phòng khám (căn trái)
+            e.Graphics.DrawString("Phòng Khám Đa Khoa Bình Tân", contentFont, Brushes.Black, leftMargin, y);
+            y += 20;
+            e.Graphics.DrawString("166 Lã Văn Quý, Q. Bình Tân", contentFont, Brushes.Black, leftMargin, y);
+            y += 20;
+            e.Graphics.DrawString("08 54594554", contentFont, Brushes.Black, leftMargin, y);
+            y += 40;
+
+            // In tiêu đề chính (căn giữa)
+            string title = "Phiếu chỉ định";
+            float titleWidth = e.Graphics.MeasureString(title, titleFont).Width;
+            e.Graphics.DrawString(title, titleFont, Brushes.Black, (e.MarginBounds.Width - titleWidth) / 2 + leftMargin, y);
+            y += 40;
+
+            // In thông tin bệnh nhân
+            e.Graphics.DrawString($"Họ tên: {txb_name.Text}", contentFont, Brushes.Black, leftMargin, y);
+            e.Graphics.DrawString($"Năm sinh: {txb_ngaysinh.Text}", contentFont, Brushes.Black, leftMargin + 300, y);
+            y += 25;
+            e.Graphics.DrawString($"Giới tính: {txb_gender.Text}", contentFont, Brushes.Black, leftMargin, y);
+            e.Graphics.DrawString($"Chẩn đoán: {txb_reason.Text}", contentFont, Brushes.Black, leftMargin + 300, y);
+            y += 40;
+
+            // In danh sách dịch vụ chỉ định
+            e.Graphics.DrawString("Mã chỉ định", boldContentFont, Brushes.Black, leftMargin, y);
+            e.Graphics.DrawString("Tên chỉ định", boldContentFont, Brushes.Black, leftMargin + 120, y);
+            e.Graphics.DrawString("Tiền", boldContentFont, Brushes.Black, leftMargin + 400, y);
+            y += 25;
+            int serviceIndex = 1;
+            foreach (DataGridViewRow row in dtgv_service_patient.Rows)
+            {
+                if (row.IsNewRow) continue;
+
+                string serviceId = row.Cells[0].Value?.ToString() ?? "";
+                string serviceName = row.Cells[1].Value?.ToString() ?? "";
+                string price = row.Cells[2].Value?.ToString() ?? ""; // Giả sử cột số 3 là cột Tiền
+
+                e.Graphics.DrawString(serviceId, contentFont, Brushes.Black, leftMargin, y);
+                e.Graphics.DrawString(serviceName, contentFont, Brushes.Black, leftMargin + 120, y);
+                e.Graphics.DrawString(price, contentFont, Brushes.Black, leftMargin + 400, y);
+
+                y += 20;
+            }
+
+            // In lời dặn và chữ ký bác sĩ
+            y += 40;
+            e.Graphics.DrawString($"Lời dặn: {cb_doctornote.Text}", contentFont, Brushes.Black, leftMargin, y);
+            y += 25;
+
+            e.Graphics.DrawString($"Ngày {DateTime.Now.Day} Tháng {DateTime.Now.Month} Năm {DateTime.Now.Year}", smallFont, Brushes.Black, leftMargin + 500, y);
+            y += 25;
+            e.Graphics.DrawString("Bác sĩ", smallFont, Brushes.Black, leftMargin + 500, y);
+            y += 50;
+            e.Graphics.DrawString("BS CK1", contentFont, Brushes.Black, leftMargin + 500, y);
+
+        }
+
+        private void printDocument2_BeginPrint(object sender, PrintEventArgs e)
+        {
+            PrintDialog dlg = new PrintDialog();
+            dlg.Document = printDocument2;
+
+            if (dlg.ShowDialog() != DialogResult.OK)
             {
                 e.Cancel = true; // Hủy in nếu người dùng không chọn in
             }
         }
+
+
     }
 
 

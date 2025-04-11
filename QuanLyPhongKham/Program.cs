@@ -16,7 +16,7 @@ namespace QuanLyPhongKham
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frm_examination());
+            Application.Run(new frm_xray());
         }
     }
 }

@@ -99,6 +99,7 @@
             this.cb_diagnoses = new Guna.UI2.WinForms.Guna2ComboBox();
             this.txb_reason = new Guna.UI2.WinForms.Guna2TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btn_print_service = new System.Windows.Forms.Button();
             this.lb_total_price_service = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.btn_save_examination_service = new System.Windows.Forms.Button();
@@ -132,6 +133,8 @@
             this.txb_exam_id = new Guna.UI2.WinForms.Guna2TextBox();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.printDocument2 = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog2 = new System.Windows.Forms.PrintPreviewDialog();
             this.guna2TabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txb_quantity)).BeginInit();
@@ -869,6 +872,7 @@
             this.cb_doctornote.Name = "cb_doctornote";
             this.cb_doctornote.Size = new System.Drawing.Size(413, 36);
             this.cb_doctornote.TabIndex = 18;
+
             // 
             // cb_diagnoses
             // 
@@ -907,6 +911,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.btn_print_service);
             this.tabPage2.Controls.Add(this.lb_total_price_service);
             this.tabPage2.Controls.Add(this.label26);
             this.tabPage2.Controls.Add(this.btn_save_examination_service);
@@ -919,6 +924,16 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Chỉ định Cận lâm sàng";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btn_print_service
+            // 
+            this.btn_print_service.Location = new System.Drawing.Point(1228, 43);
+            this.btn_print_service.Name = "btn_print_service";
+            this.btn_print_service.Size = new System.Drawing.Size(75, 23);
+            this.btn_print_service.TabIndex = 51;
+            this.btn_print_service.Text = "In";
+            this.btn_print_service.UseVisualStyleBackColor = true;
+            this.btn_print_service.Click += new System.EventHandler(this.btn_print_service_Click);
             // 
             // lb_total_price_service
             // 
@@ -1365,7 +1380,6 @@
             // 
             // printDocument1
             // 
-    
             this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
             // printPreviewDialog1
@@ -1378,6 +1392,21 @@
             this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
+            // 
+            // printDocument2
+            // 
+            this.printDocument2.BeginPrint += new System.Drawing.Printing.PrintEventHandler(this.printDocument2_BeginPrint);
+            this.printDocument2.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument2_PrintPage);
+            // 
+            // printPreviewDialog2
+            // 
+            this.printPreviewDialog2.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog2.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog2.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog2.Enabled = true;
+            this.printPreviewDialog2.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog2.Icon")));
+            this.printPreviewDialog2.Name = "printPreviewDialog2";
+            this.printPreviewDialog2.Visible = false;
             // 
             // frm_examination
             // 
@@ -1522,5 +1551,8 @@
         private System.Windows.Forms.Button btn_print_prescription;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private System.Windows.Forms.Button btn_print_service;
+        private System.Drawing.Printing.PrintDocument printDocument2;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog2;
     }
 }
