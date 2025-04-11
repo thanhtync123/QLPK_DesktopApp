@@ -192,23 +192,52 @@ namespace QuanLyPhongKham
 
         private void dtgv_service_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            if (e.RowIndex >= 0 )
             {
                 DataGridViewRow row = dtgv_service.Rows[e.RowIndex];
                 var name_service = row.Cells["name"].Value?.ToString();
                 txb_service.Text = name_service;
                 if (dtgv_service.CurrentRow.Cells["state"].Value.ToString() == "Đã có KQ")
                 {
-                   
-        
-
+                    string sql = @"SELECT 
+                                    es.id AS examination_service_id,
+                                    er.result AS result,
+                                    er.template_id
+                                FROM 
+                                    examinations e
+                                JOIN examination_services es ON e.id = es.examination_id
+                                JOIN services s ON es.service_id = s.id
+                                JOIN examination_results er ON er.examination_service_id = es.id
+                                WHERE 
+                                    er.examination_service_id = @examination_service_id
+                                ";
+                    conn = new MySqlConnection(connectionString);
+                    ResetConnection();
+                    cmd = new MySqlCommand(sql, conn);
+                    var exam_service_id = Convert.ToInt16(dtgv_service.CurrentRow.Cells["examination_service_id"].Value);
+                    cmd.Parameters.AddWithValue("@examination_service_id", exam_service_id);
+                    dr = cmd.ExecuteReader();
+                    if (dr.Read())
+                    {
+                        txb_result.Text = dr["result"].ToString()
+                           .Replace("\\n", "\r\n")
+                           .Replace("\n", "\r\n");
+                        cb_template.SelectedValue = Convert.ToInt32(dr["template_id"]);
+                    }    
+      
+                    dr.Close();
+                    ResetConnection();
                 }
             }   
         }
 
         private void cb_template_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cb_template.SelectedIndex > 0)
+            if (cb_template.SelectedIndex > 0 &&
+      dtgv_service.CurrentRow != null &&
+      dtgv_service.CurrentRow.Cells["state"].Value != null &&
+      dtgv_service.CurrentRow.Cells["state"].Value.ToString() == "Chưa có KQ")
+
             {
                 int selectedTemplateId = Convert.ToInt32(cb_template.SelectedValue);
                 string sql = "SELECT `template_content` FROM `templates` WHERE `id` = @template_id;";
@@ -260,5 +289,7 @@ namespace QuanLyPhongKham
 
 
         }
+
+
     }
 }
