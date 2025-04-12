@@ -41,5 +41,49 @@ namespace QuanLyPhongKham
 
             conn.Close();  
         }
+        public static void Add(string query, Dictionary<string, object> parameters)
+        {
+            try
+            {
+                ResetConnection(); // Mở lại kết nối nếu cần
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    foreach (var param in parameters)
+                    {
+                        cmd.Parameters.AddWithValue(param.Key, param.Value);
+                    }
+
+                    cmd.ExecuteNonQuery(); // Thực thi lệnh thêm
+                }
+                conn.Close(); // Đóng kết nối sau khi thêm
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi thêm dữ liệu: " + ex.Message);
+            }
+        }
+        public static void Update(string query, Dictionary<string, object> parameters)
+        {
+            try
+            {
+                ResetConnection(); // Mở lại kết nối nếu cần
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    // Thêm các tham số vào câu lệnh SQL
+                    foreach (var param in parameters)
+                    {
+                        cmd.Parameters.AddWithValue(param.Key, param.Value);
+                    }
+
+                    cmd.ExecuteNonQuery(); // Thực thi lệnh cập nhật
+                }
+                conn.Close(); // Đóng kết nối sau khi cập nhật
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi cập nhật dữ liệu: " + ex.Message);
+            }
+        }
+
     }
 }
