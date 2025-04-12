@@ -18,12 +18,7 @@ namespace QuanLyPhongKham
     public partial class frm_examination : Form
     {
         int id;
-        string connectionString = "Server=localhost;Database=clinic_db2;Uid=root;Pwd=;";
-        MySqlConnection conn;
-        MySqlCommand cmd;
-        MySqlDataAdapter adt;
-        DataTable dt;
-        MySqlDataReader dr;
+
 
         public frm_examination()
         {
@@ -42,15 +37,22 @@ namespace QuanLyPhongKham
             dtgv_patients.Columns["address"].Visible = false;
 
             dtgv_patients.Rows.Clear();
-            String sql = "SELECT     " +
-                "           id,     " +
-                "          name," +
-                "DATE_FORMAT(date_of_birth, '%d/%m/%Y') AS date_of_birth, " +
-                "gender, phone, address,  created_at,  updated_at FROM patients \r\n\r\n";
-            conn = new MySqlConnection(connectionString);
-            ResetConnection();
-            cmd = new MySqlCommand(sql, conn);
-            dr = cmd.ExecuteReader();
+            string sql = @"
+        SELECT 
+            id, 
+            name, 
+            DATE_FORMAT(date_of_birth, '%d/%m/%Y') AS date_of_birth, 
+            gender, 
+            phone, 
+            address, 
+            created_at, 
+            updated_at 
+        FROM patients";
+
+            Db.ResetConnection();
+            MySqlCommand cmd = Db.CreateCommand(sql);
+            MySqlDataReader dr = cmd.ExecuteReader();
+
             while (dr.Read())
             {
                 int i = dtgv_patients.Rows.Add();
@@ -62,8 +64,9 @@ namespace QuanLyPhongKham
                 drr.Cells["phone"].Value = dr["phone"];
                 drr.Cells["address"].Value = dr["address"];
             }
+
             dr.Close();
-            ResetConnection();
+            Db.ResetConnection();
 
         }
 
@@ -95,51 +98,22 @@ namespace QuanLyPhongKham
         private void LoadComboboxDoctorNote()
         {
 
-
             string query = "SELECT id, content FROM doctor_notes";
-           ResetConnection();
-            cmd = new MySqlCommand(query, conn);
-            adt = new MySqlDataAdapter(cmd);
-            dt = new DataTable();
-            adt.Fill(dt);
-            cb_doctornote.DataSource = dt;
-            cb_doctornote.DisplayMember = "content";
-            cb_doctornote.ValueMember = "id";
-            ResetConnection();
+            Db.LoadComboBoxData(cb_doctornote, query, "content", "id");
 
         }
         private void LoadComboboxDiagnoses()
         {
-
-
             string query = "SELECT id, name FROM diagnoses";
-            ResetConnection();
-            cmd = new MySqlCommand(query, conn);
-            adt = new MySqlDataAdapter(cmd);
-            dt = new DataTable();
-            adt.Fill(dt);
-            cb_diagnoses.DataSource = dt;
-            cb_diagnoses.DisplayMember = "name";
-            cb_diagnoses.ValueMember = "id";
-            cb_diagnoses.SelectedIndex = 0;
-            ResetConnection();
+            Db.LoadComboBoxData(cb_diagnoses, query, "name", "id");
+            cb_diagnoses.SelectedIndex = 0;  // Chọn phần tử đầu tiên sau khi load dữ liệu
         }
 
         private void LoadComboboxMed()
         {
             string query = "SELECT id, name FROM medications";
-            ResetConnection();
-            cmd = new MySqlCommand(query, conn);
-            adt = new MySqlDataAdapter(cmd);
-            dt = new DataTable();
-            adt.Fill(dt);
-            cb_medname.DataSource = dt;
-            cb_medname.DisplayMember = "name";
-            cb_medname.ValueMember = "id";
-            cb_medname.SelectedIndex = 0;
-            ResetConnection();
-
-
+            Db.LoadComboBoxData(cb_medname, query, "name", "id");
+            cb_medname.SelectedIndex = 0;  // Chọn phần tử đầu tiên sau khi load dữ liệu
 
         }
 
@@ -174,34 +148,38 @@ namespace QuanLyPhongKham
         {
             if (cb_medname.SelectedIndex != 0)
             {
-                if (conn.State != ConnectionState.Open)
-                    ResetConnection();
-                string query = "SELECT id, name, unit, dosage, route, times_per_day, note, price FROM medications where id = @id ";
+                if (Db.conn.State != ConnectionState.Open)
+                    Db.ResetConnection(); // dùng Db.ResetConnection() nếu đã viết sẵn trong Db.cs
+
+                string query = "SELECT id, name, unit, dosage, route, times_per_day, note, price FROM medications WHERE id = @id";
                 int selectedId = Convert.ToInt32(cb_medname.SelectedValue);
-                cmd = new MySqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@id", selectedId);
-                dr = cmd.ExecuteReader();
-                if (dr.Read())
+
+                Db.cmd = new MySqlCommand(query, Db.conn);
+                Db.cmd.Parameters.AddWithValue("@id", selectedId);
+                Db.dr = Db.cmd.ExecuteReader();
+
+                if (Db.dr.Read())
                 {
-                   
-                    txb_unit.Text = dr["unit"].ToString();
-                    txb_dosage.Text = dr["dosage"].ToString();
-                    txb_route.Text = dr["route"].ToString();
-                    txb_times.Text = dr["times_per_day"].ToString();
-                    txb_mednote.Text = dr["note"].ToString();
-                    txb_price.Text = dr["price"].ToString();
+                    txb_unit.Text = Db.dr["unit"].ToString();
+                    txb_dosage.Text = Db.dr["dosage"].ToString();
+                    txb_route.Text = Db.dr["route"].ToString();
+                    txb_times.Text = Db.dr["times_per_day"].ToString();
+                    txb_mednote.Text = Db.dr["note"].ToString();
+                    txb_price.Text = Db.dr["price"].ToString();
                     txb_quantity.Text = "1";
                 }
+
                 int quantity = Convert.ToInt32(txb_quantity.Value);
                 int price = Convert.ToInt32(txb_price.Text);
-                txb_totalpricepermed.Text = quantity * price + "";
+                txb_totalpricepermed.Text = (quantity * price).ToString();
 
-                dr.Close();
-                ResetConnection();
-            }        
-                   
-            
-            
+                Db.dr.Close();
+                Db.ResetConnection();
+            }
+
+
+
+
         }
 
         private void txb_quantity_ValueChanged(object sender, EventArgs e)
@@ -229,12 +207,12 @@ namespace QuanLyPhongKham
         {
             ResetConnection();
             string query = "SELECT max(id)+1 as exam_id from examinations";
-            cmd = new MySqlCommand(query, conn);
-            dr = cmd.ExecuteReader();
-            if (dr.Read())
-                txb_exam_id.Text = dr["exam_id"].ToString();
+            Db.cmd = new MySqlCommand(query, Db.conn);
+            Db.dr = Db.cmd.ExecuteReader();
+            if (Db.dr.Read())
+                txb_exam_id.Text = Db.dr["exam_id"].ToString();
 
-            dr.Close();
+            Db.dr.Close();
 
 
 
@@ -243,21 +221,21 @@ namespace QuanLyPhongKham
         {
             ResetConnection();
             string query = "SELECT `id`, `name`, `type`,`price` \r\n FROM `services`\r\nORDER BY FIELD(`type`, 'X-quang', 'Siêu âm', 'Xét nghiệm', 'Điện tim');\r\n";
-            cmd = new MySqlCommand(query, conn);
-            dr = cmd.ExecuteReader();
-            while (dr.Read())
+            Db.cmd = new MySqlCommand(query, Db.conn);
+            Db.dr = Db.cmd.ExecuteReader();
+            while (Db.dr.Read())
             {
                 int i = dtgv_service.Rows.Add();
                 DataGridViewRow drr = dtgv_service.Rows[i];
-                drr.Cells["id_service"].Value = dr["id"];
-                drr.Cells["service_name"].Value = dr["name"];
-                drr.Cells["type"].Value = dr["type"];
-                drr.Cells["price1"].Value = dr["price"];
+                drr.Cells["id_service"].Value = Db.dr["id"];
+                drr.Cells["service_name"].Value = Db.dr["name"];
+                drr.Cells["type"].Value = Db.dr["type"];
+                drr.Cells["price1"].Value = Db.dr["price"];
                 drr.Cells["add_service"].Value = "+";
             }
 
 
-            dr.Close();
+            Db.dr.Close();
         }
 
 
@@ -271,7 +249,7 @@ INSERT INTO examinations
 VALUES 
 (NULL, @patient_id, @reason, @diagnosis_id, @doctor_note_id, @note, @pulse, @blood_pressure, @respiratory_rate, @weight, @height, @temperature, @type, current_timestamp(), current_timestamp());";
 
-                MySqlCommand cmd = new MySqlCommand(queryExamination, conn);
+                MySqlCommand cmd = new MySqlCommand(queryExamination, Db.conn);
 
                 // Gán giá trị cho các parameter
                 cmd.Parameters.AddWithValue("@patient_id", Convert.ToInt16(txb_id.Text));
@@ -289,7 +267,7 @@ VALUES
 
                 cmd.ExecuteNonQuery();
                 string queryGetExamID = "SELECT LAST_INSERT_ID();";
-                cmd = new MySqlCommand(queryGetExamID, conn);
+                cmd = new MySqlCommand(queryGetExamID, Db.conn);
                 int examinationID = Convert.ToInt32(cmd.ExecuteScalar());
 
                 foreach (DataGridViewRow row in dtgv_med.Rows)
@@ -298,7 +276,7 @@ VALUES
                     {
                         string queryMedication = "INSERT INTO examination_medications (examination_id, medication_id, unit, dosage, route, times, note, quantity, price, created_at, updated_at) " +
                                                  "VALUES (@examination_id, @medication_id, @unit, @dosage, @route, @times, @note, @quantity, @price, current_timestamp(), current_timestamp());";
-                        cmd = new MySqlCommand(queryMedication, conn);
+                        cmd = new MySqlCommand(queryMedication, Db.conn);
                         cmd.Parameters.AddWithValue("@examination_id", examinationID);
                         cmd.Parameters.AddWithValue("@medication_id", row.Cells[0].Value);
                         cmd.Parameters.AddWithValue("@unit", row.Cells[2].Value);
@@ -326,12 +304,12 @@ VALUES
         }
         private void ResetConnection()
         {
-            if (conn.State == ConnectionState.Open)
+            if (Db.conn.State == ConnectionState.Open)
 
-                conn.Close();
-            if (conn.State != ConnectionState.Open)
+                Db.conn.Close();
+            if (Db.conn.State != ConnectionState.Open)
             
-                conn.Open();
+                Db.conn.Open();
             
         }
 
@@ -382,7 +360,7 @@ INSERT INTO examinations
 VALUES 
 (NULL, @patient_id, @reason, @diagnosis_id, @doctor_note_id, @note, @pulse, @blood_pressure, @respiratory_rate, @weight, @height, @temperature, @type, current_timestamp(), current_timestamp());";
 
-                MySqlCommand cmd = new MySqlCommand(queryExamination, conn);
+                MySqlCommand cmd = new MySqlCommand(queryExamination, Db.conn);
 
                 // Gán giá trị cho các parameter
                 cmd.Parameters.AddWithValue("@patient_id", Convert.ToInt16(txb_id.Text));
@@ -400,7 +378,7 @@ VALUES
 
                 cmd.ExecuteNonQuery();
                 string queryGetExamID = "SELECT LAST_INSERT_ID();";
-                cmd = new MySqlCommand(queryGetExamID, conn);
+                cmd = new MySqlCommand(queryGetExamID,   Db.conn);
                 int examinationID = Convert.ToInt32(cmd.ExecuteScalar());
 
                 foreach (DataGridViewRow row in dtgv_service_patient.Rows)
@@ -410,7 +388,7 @@ VALUES
                         string queryMedication = "INSERT INTO `examination_services` " +
                             "(`id`, `examination_id`, `service_id`, `price`) VALUES " +
                             "(NULL, @examination_id, @service_id, @price);";
-                        cmd = new MySqlCommand(queryMedication, conn);
+                        cmd = new MySqlCommand(queryMedication, Db.conn);
                         cmd.Parameters.AddWithValue("@examination_id", examinationID);
                         cmd.Parameters.AddWithValue("@service_id", row.Cells[0].Value);
                         cmd.Parameters.AddWithValue("@price", row.Cells[2].Value);

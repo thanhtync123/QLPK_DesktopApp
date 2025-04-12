@@ -33,6 +33,7 @@
             this.khámNộiKhoaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cậnLâmSàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xQuangToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.xétNghiệmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,7 +68,8 @@
             // cậnLâmSàngToolStripMenuItem
             // 
             this.cậnLâmSàngToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.xQuangToolStripMenuItem});
+            this.xQuangToolStripMenuItem,
+            this.xétNghiệmToolStripMenuItem});
             this.cậnLâmSàngToolStripMenuItem.Name = "cậnLâmSàngToolStripMenuItem";
             this.cậnLâmSàngToolStripMenuItem.Size = new System.Drawing.Size(91, 20);
             this.cậnLâmSàngToolStripMenuItem.Text = "Cận lâm sàng";
@@ -78,6 +80,13 @@
             this.xQuangToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.xQuangToolStripMenuItem.Text = "X - quang";
             this.xQuangToolStripMenuItem.Click += new System.EventHandler(this.xQuangToolStripMenuItem_Click);
+            // 
+            // xétNghiệmToolStripMenuItem
+            // 
+            this.xétNghiệmToolStripMenuItem.Name = "xétNghiệmToolStripMenuItem";
+            this.xétNghiệmToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.xétNghiệmToolStripMenuItem.Text = "Xét nghiệm";
+            this.xétNghiệmToolStripMenuItem.Click += new System.EventHandler(this.xétNghiệmToolStripMenuItem_Click);
             // 
             // frm_nav
             // 
@@ -104,6 +113,7 @@
         private System.Windows.Forms.ToolStripMenuItem khámNộiKhoaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cậnLâmSàngToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem xQuangToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem xétNghiệmToolStripMenuItem;
     }
 }
 

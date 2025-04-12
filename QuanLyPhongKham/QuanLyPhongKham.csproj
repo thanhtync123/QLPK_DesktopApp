@@ -57,6 +57,9 @@
     <Reference Include="MySql.Data, Version=9.2.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.9.2.0\lib\net462\MySql.Data.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
@@ -103,6 +106,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Db.cs" />
     <Compile Include="frm_examination.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,11 +119,11 @@
     <Compile Include="frm_nav.Designer.cs">
       <DependentUpon>frm_nav.cs</DependentUpon>
     </Compile>
-    <Compile Include="frm_patients.cs">
+    <Compile Include="frm_test.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_patients.Designer.cs">
-      <DependentUpon>frm_patients.cs</DependentUpon>
+    <Compile Include="frm_test.Designer.cs">
+      <DependentUpon>frm_test.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_xray.cs">
       <SubType>Form</SubType>
@@ -127,6 +131,7 @@
     <Compile Include="frm_xray.Designer.cs">
       <DependentUpon>frm_xray.cs</DependentUpon>
     </Compile>
+    <Compile Include="LoadExam.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frm_examination.resx">
@@ -135,8 +140,8 @@
     <EmbeddedResource Include="frm_nav.resx">
       <DependentUpon>frm_nav.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_patients.resx">
-      <DependentUpon>frm_patients.cs</DependentUpon>
+    <EmbeddedResource Include="frm_test.resx">
+      <DependentUpon>frm_test.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_xray.resx">
       <DependentUpon>frm_xray.cs</DependentUpon>

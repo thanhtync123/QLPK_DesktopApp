@@ -36,18 +36,20 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_xray));
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.dtpk_todate = new System.Windows.Forms.DateTimePicker();
-            this.dtpk_fromdate = new System.Windows.Forms.DateTimePicker();
-            this.cb_khoangthoigian = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.dtgv_exam = new Guna.UI2.WinForms.Guna2DataGridView();
             this.rdn_noresult = new System.Windows.Forms.RadioButton();
             this.rdn_resulted = new System.Windows.Forms.RadioButton();
+            this.dtpk_todate = new System.Windows.Forms.DateTimePicker();
+            this.dtpk_fromdate = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
+            this.dtgv_exam = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.id_patient = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.btn_search = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.txb_final_result = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.txb_result = new System.Windows.Forms.TextBox();
             this.txb_phone = new System.Windows.Forms.TextBox();
             this.SĐT = new System.Windows.Forms.Label();
@@ -82,17 +84,13 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txb_name = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txb_final_result = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.rdn_all = new System.Windows.Forms.RadioButton();
-            this.btn_save = new System.Windows.Forms.Button();
-            this.btn_edit = new System.Windows.Forms.Button();
-            this.btn_print = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_refresh = new System.Windows.Forms.Button();
+            this.btn_print = new System.Windows.Forms.Button();
+            this.btn_edit = new System.Windows.Forms.Button();
+            this.btn_save = new System.Windows.Forms.Button();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_exam)).BeginInit();
             this.panel1.SuspendLayout();
@@ -104,15 +102,12 @@
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.SystemColors.Info;
-            this.guna2Panel1.Controls.Add(this.rdn_all);
-            this.guna2Panel1.Controls.Add(this.label18);
-            this.guna2Panel1.Controls.Add(this.dtpk_todate);
-            this.guna2Panel1.Controls.Add(this.dtpk_fromdate);
-            this.guna2Panel1.Controls.Add(this.cb_khoangthoigian);
-            this.guna2Panel1.Controls.Add(this.label4);
-            this.guna2Panel1.Controls.Add(this.dtgv_exam);
             this.guna2Panel1.Controls.Add(this.rdn_noresult);
             this.guna2Panel1.Controls.Add(this.rdn_resulted);
+            this.guna2Panel1.Controls.Add(this.dtpk_todate);
+            this.guna2Panel1.Controls.Add(this.dtpk_fromdate);
+            this.guna2Panel1.Controls.Add(this.label4);
+            this.guna2Panel1.Controls.Add(this.dtgv_exam);
             this.guna2Panel1.Controls.Add(this.label2);
             this.guna2Panel1.Controls.Add(this.btn_search);
             this.guna2Panel1.Controls.Add(this.label1);
@@ -120,6 +115,26 @@
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(349, 722);
             this.guna2Panel1.TabIndex = 0;
+            // 
+            // rdn_noresult
+            // 
+            this.rdn_noresult.AutoSize = true;
+            this.rdn_noresult.Location = new System.Drawing.Point(231, 49);
+            this.rdn_noresult.Name = "rdn_noresult";
+            this.rdn_noresult.Size = new System.Drawing.Size(77, 17);
+            this.rdn_noresult.TabIndex = 42;
+            this.rdn_noresult.Text = "Có kết quả";
+            this.rdn_noresult.UseVisualStyleBackColor = true;
+            // 
+            // rdn_resulted
+            // 
+            this.rdn_resulted.AutoSize = true;
+            this.rdn_resulted.Location = new System.Drawing.Point(142, 49);
+            this.rdn_resulted.Name = "rdn_resulted";
+            this.rdn_resulted.Size = new System.Drawing.Size(83, 17);
+            this.rdn_resulted.TabIndex = 41;
+            this.rdn_resulted.Text = "Chờ kết quả";
+            this.rdn_resulted.UseVisualStyleBackColor = true;
             // 
             // dtpk_todate
             // 
@@ -138,19 +153,6 @@
             this.dtpk_fromdate.Name = "dtpk_fromdate";
             this.dtpk_fromdate.Size = new System.Drawing.Size(98, 20);
             this.dtpk_fromdate.TabIndex = 35;
-            // 
-            // cb_khoangthoigian
-            // 
-            this.cb_khoangthoigian.FormattingEnabled = true;
-            this.cb_khoangthoigian.Items.AddRange(new object[] {
-            "Chọn khoảng thời gian",
-            "Hôm qua",
-            "Tuần trước",
-            "Tháng trước"});
-            this.cb_khoangthoigian.Location = new System.Drawing.Point(138, 43);
-            this.cb_khoangthoigian.Name = "cb_khoangthoigian";
-            this.cb_khoangthoigian.Size = new System.Drawing.Size(178, 21);
-            this.cb_khoangthoigian.TabIndex = 34;
             // 
             // label4
             // 
@@ -179,6 +181,8 @@
             this.dtgv_exam.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dtgv_exam.ColumnHeadersHeight = 40;
             this.dtgv_exam.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dtgv_exam.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id_patient});
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -188,10 +192,10 @@
             dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtgv_exam.DefaultCellStyle = dataGridViewCellStyle9;
             this.dtgv_exam.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dtgv_exam.Location = new System.Drawing.Point(9, 143);
+            this.dtgv_exam.Location = new System.Drawing.Point(9, 163);
             this.dtgv_exam.Name = "dtgv_exam";
             this.dtgv_exam.RowHeadersVisible = false;
-            this.dtgv_exam.Size = new System.Drawing.Size(307, 544);
+            this.dtgv_exam.Size = new System.Drawing.Size(307, 524);
             this.dtgv_exam.TabIndex = 9;
             this.dtgv_exam.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgv_exam.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -216,25 +220,10 @@
             this.dtgv_exam.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dtgv_exam.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_exam_CellClick);
             // 
-            // rdn_noresult
+            // id_patient
             // 
-            this.rdn_noresult.AutoSize = true;
-            this.rdn_noresult.Location = new System.Drawing.Point(224, 114);
-            this.rdn_noresult.Name = "rdn_noresult";
-            this.rdn_noresult.Size = new System.Drawing.Size(77, 17);
-            this.rdn_noresult.TabIndex = 8;
-            this.rdn_noresult.Text = "Có kết quả";
-            this.rdn_noresult.UseVisualStyleBackColor = true;
-            // 
-            // rdn_resulted
-            // 
-            this.rdn_resulted.AutoSize = true;
-            this.rdn_resulted.Location = new System.Drawing.Point(119, 114);
-            this.rdn_resulted.Name = "rdn_resulted";
-            this.rdn_resulted.Size = new System.Drawing.Size(83, 17);
-            this.rdn_resulted.TabIndex = 7;
-            this.rdn_resulted.Text = "Chờ kết quả";
-            this.rdn_resulted.UseVisualStyleBackColor = true;
+            this.id_patient.HeaderText = "Mã BN";
+            this.id_patient.Name = "id_patient";
             // 
             // label2
             // 
@@ -247,7 +236,7 @@
             // 
             // btn_search
             // 
-            this.btn_search.Location = new System.Drawing.Point(138, 88);
+            this.btn_search.Location = new System.Drawing.Point(142, 86);
             this.btn_search.Name = "btn_search";
             this.btn_search.Size = new System.Drawing.Size(64, 20);
             this.btn_search.TabIndex = 1;
@@ -312,6 +301,23 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1175, 660);
             this.panel3.TabIndex = 1;
+            // 
+            // txb_final_result
+            // 
+            this.txb_final_result.Location = new System.Drawing.Point(588, 533);
+            this.txb_final_result.Multiline = true;
+            this.txb_final_result.Name = "txb_final_result";
+            this.txb_final_result.Size = new System.Drawing.Size(387, 62);
+            this.txb_final_result.TabIndex = 43;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(536, 536);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(46, 13);
+            this.label17.TabIndex = 42;
+            this.label17.Text = "Kết luận";
             // 
             // txb_result
             // 
@@ -626,84 +632,6 @@
             this.label5.TabIndex = 11;
             this.label5.Text = "Tên BN";
             // 
-            // txb_final_result
-            // 
-            this.txb_final_result.Location = new System.Drawing.Point(588, 533);
-            this.txb_final_result.Multiline = true;
-            this.txb_final_result.Name = "txb_final_result";
-            this.txb_final_result.Size = new System.Drawing.Size(387, 62);
-            this.txb_final_result.TabIndex = 43;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(536, 536);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(46, 13);
-            this.label17.TabIndex = 42;
-            this.label17.Text = "Kết luận";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(139, 25);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(114, 13);
-            this.label18.TabIndex = 37;
-            this.label18.Text = "Chọn khoảng thời gian";
-            // 
-            // printPreviewDialog1
-            // 
-            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
-            this.printPreviewDialog1.Enabled = true;
-            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
-            this.printPreviewDialog1.Name = "printPreviewDialog1";
-            this.printPreviewDialog1.Visible = false;
-            // 
-            // rdn_all
-            // 
-            this.rdn_all.AutoSize = true;
-            this.rdn_all.Checked = true;
-            this.rdn_all.Location = new System.Drawing.Point(9, 114);
-            this.rdn_all.Name = "rdn_all";
-            this.rdn_all.Size = new System.Drawing.Size(56, 17);
-            this.rdn_all.TabIndex = 38;
-            this.rdn_all.TabStop = true;
-            this.rdn_all.Text = "Tất cả";
-            this.rdn_all.UseVisualStyleBackColor = true;
-            // 
-            // btn_save
-            // 
-            this.btn_save.Location = new System.Drawing.Point(6, 7);
-            this.btn_save.Name = "btn_save";
-            this.btn_save.Size = new System.Drawing.Size(71, 24);
-            this.btn_save.TabIndex = 28;
-            this.btn_save.Text = "Lưu";
-            this.btn_save.UseVisualStyleBackColor = true;
-            this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
-            // 
-            // btn_edit
-            // 
-            this.btn_edit.Location = new System.Drawing.Point(83, 7);
-            this.btn_edit.Name = "btn_edit";
-            this.btn_edit.Size = new System.Drawing.Size(71, 24);
-            this.btn_edit.TabIndex = 29;
-            this.btn_edit.Text = "Sửa";
-            this.btn_edit.UseVisualStyleBackColor = true;
-            this.btn_edit.Click += new System.EventHandler(this.btn_edit_Click);
-            // 
-            // btn_print
-            // 
-            this.btn_print.Location = new System.Drawing.Point(160, 7);
-            this.btn_print.Name = "btn_print";
-            this.btn_print.Size = new System.Drawing.Size(71, 24);
-            this.btn_print.TabIndex = 30;
-            this.btn_print.Text = "In";
-            this.btn_print.UseVisualStyleBackColor = true;
-            this.btn_print.Click += new System.EventHandler(this.btn_print_Click);
-            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.Info;
@@ -725,6 +653,46 @@
             this.btn_refresh.Text = "Lấy phiếu khám";
             this.btn_refresh.UseVisualStyleBackColor = true;
             this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
+            // 
+            // btn_print
+            // 
+            this.btn_print.Location = new System.Drawing.Point(160, 7);
+            this.btn_print.Name = "btn_print";
+            this.btn_print.Size = new System.Drawing.Size(71, 24);
+            this.btn_print.TabIndex = 30;
+            this.btn_print.Text = "In";
+            this.btn_print.UseVisualStyleBackColor = true;
+            this.btn_print.Click += new System.EventHandler(this.btn_print_Click);
+            // 
+            // btn_edit
+            // 
+            this.btn_edit.Location = new System.Drawing.Point(83, 7);
+            this.btn_edit.Name = "btn_edit";
+            this.btn_edit.Size = new System.Drawing.Size(71, 24);
+            this.btn_edit.TabIndex = 29;
+            this.btn_edit.Text = "Sửa";
+            this.btn_edit.UseVisualStyleBackColor = true;
+            this.btn_edit.Click += new System.EventHandler(this.btn_edit_Click);
+            // 
+            // btn_save
+            // 
+            this.btn_save.Location = new System.Drawing.Point(6, 7);
+            this.btn_save.Name = "btn_save";
+            this.btn_save.Size = new System.Drawing.Size(71, 24);
+            this.btn_save.TabIndex = 28;
+            this.btn_save.Text = "Lưu";
+            this.btn_save.UseVisualStyleBackColor = true;
+            this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
             // 
             // frm_xray
             // 
@@ -752,8 +720,6 @@
 
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2DataGridView dtgv_exam;
-        private System.Windows.Forms.RadioButton rdn_noresult;
-        private System.Windows.Forms.RadioButton rdn_resulted;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btn_search;
         private System.Windows.Forms.Label label1;
@@ -782,7 +748,6 @@
         private System.Windows.Forms.TextBox txb_service;
         private System.Windows.Forms.Label label14;
         private Guna.UI2.WinForms.Guna2DataGridView dtgv_service;
-        private System.Windows.Forms.ComboBox cb_khoangthoigian;
         private System.Windows.Forms.TextBox txb_id_exam;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox txb_reception_date;
@@ -799,14 +764,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn state;
         private System.Windows.Forms.TextBox txb_final_result;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label18;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
-        private System.Windows.Forms.RadioButton rdn_all;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btn_print;
         private System.Windows.Forms.Button btn_edit;
         private System.Windows.Forms.Button btn_save;
         private System.Windows.Forms.Button btn_refresh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_patient;
+        private System.Windows.Forms.RadioButton rdn_noresult;
+        private System.Windows.Forms.RadioButton rdn_resulted;
     }
 }
