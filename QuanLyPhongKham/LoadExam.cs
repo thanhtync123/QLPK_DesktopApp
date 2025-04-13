@@ -24,6 +24,7 @@ namespace QuanLyPhongKham
             dtgv_exam.Columns.Add("reason", "Lý do khám");
             dtgv_exam.Columns.Add("diagnosis", "Chẩn đoán");
             dtgv_exam.Columns.Add("note", "Ghi chú");
+            dtgv_exam.Columns.Add("time_exam", "Thời gian cấp phiếu");
 
             string[] columnsToHide = {
             "id_exam", "gender", "date_of_birth", "phone",
@@ -34,11 +35,13 @@ namespace QuanLyPhongKham
                 dtgv_exam.Columns[columnName].Visible = false;
         }
 
-        // Phương thức tải dữ liệu vào DataGridView
+      
         public static void LoadDTGVCommon(DataGridView dtgv_exam, string type)
         {
             string sql = @"
             SELECT 
+                    DATE_FORMAT(e.updated_at, '%d/%m/%Y %H:%i') AS time_exam,
+                    DATE_FORMAT(p.date_of_birth, '%d/%m/%Y') AS date_of_birth,
                     e.id AS id_exam,
                     p.id AS id_patient,
                     p.name,
@@ -92,6 +95,7 @@ namespace QuanLyPhongKham
                 drr.Cells["reason"].Value = Db.dr["reason"];
                 drr.Cells["diagnosis"].Value = Db.dr["diagnosis"];
                 drr.Cells["note"].Value = Db.dr["note"];
+                drr.Cells["time_exam"].Value = Db.dr["time_exam"];
             }
 
             Db.dr.Close();

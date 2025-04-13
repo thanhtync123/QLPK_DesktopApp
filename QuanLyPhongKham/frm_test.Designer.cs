@@ -57,13 +57,13 @@
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.label14 = new System.Windows.Forms.Label();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.rdn_all = new System.Windows.Forms.RadioButton();
             this.rdn_noresult = new System.Windows.Forms.RadioButton();
             this.rdn_resulted = new System.Windows.Forms.RadioButton();
             this.dtpk_todate = new System.Windows.Forms.DateTimePicker();
             this.dtpk_fromdate = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.dtgv_exam = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.id_patient = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.btn_search = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -229,6 +229,7 @@
             this.btn_refresh.TabIndex = 31;
             this.btn_refresh.Text = "Lấy phiếu khám";
             this.btn_refresh.UseVisualStyleBackColor = true;
+            this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
             // 
             // btn_print
             // 
@@ -272,6 +273,7 @@
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.SystemColors.Info;
+            this.guna2Panel1.Controls.Add(this.rdn_all);
             this.guna2Panel1.Controls.Add(this.rdn_noresult);
             this.guna2Panel1.Controls.Add(this.rdn_resulted);
             this.guna2Panel1.Controls.Add(this.dtpk_todate);
@@ -286,24 +288,36 @@
             this.guna2Panel1.Size = new System.Drawing.Size(349, 722);
             this.guna2Panel1.TabIndex = 2;
             // 
+            // rdn_all
+            // 
+            this.rdn_all.AutoSize = true;
+            this.rdn_all.Checked = true;
+            this.rdn_all.Location = new System.Drawing.Point(113, 49);
+            this.rdn_all.Name = "rdn_all";
+            this.rdn_all.Size = new System.Drawing.Size(76, 17);
+            this.rdn_all.TabIndex = 52;
+            this.rdn_all.TabStop = true;
+            this.rdn_all.Text = "Xem tất cả";
+            this.rdn_all.UseVisualStyleBackColor = true;
+            // 
             // rdn_noresult
             // 
             this.rdn_noresult.AutoSize = true;
-            this.rdn_noresult.Location = new System.Drawing.Point(239, 45);
+            this.rdn_noresult.Location = new System.Drawing.Point(113, 95);
             this.rdn_noresult.Name = "rdn_noresult";
-            this.rdn_noresult.Size = new System.Drawing.Size(77, 17);
-            this.rdn_noresult.TabIndex = 38;
-            this.rdn_noresult.Text = "Có kết quả";
+            this.rdn_noresult.Size = new System.Drawing.Size(83, 17);
+            this.rdn_noresult.TabIndex = 51;
+            this.rdn_noresult.Text = "Chưa có KQ";
             this.rdn_noresult.UseVisualStyleBackColor = true;
             // 
             // rdn_resulted
             // 
             this.rdn_resulted.AutoSize = true;
-            this.rdn_resulted.Location = new System.Drawing.Point(134, 45);
+            this.rdn_resulted.Location = new System.Drawing.Point(113, 72);
             this.rdn_resulted.Name = "rdn_resulted";
-            this.rdn_resulted.Size = new System.Drawing.Size(83, 17);
-            this.rdn_resulted.TabIndex = 37;
-            this.rdn_resulted.Text = "Chờ kết quả";
+            this.rdn_resulted.Size = new System.Drawing.Size(72, 17);
+            this.rdn_resulted.TabIndex = 50;
+            this.rdn_resulted.Text = "Đã có KQ";
             this.rdn_resulted.UseVisualStyleBackColor = true;
             // 
             // dtpk_todate
@@ -351,8 +365,6 @@
             this.dtgv_exam.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dtgv_exam.ColumnHeadersHeight = 40;
             this.dtgv_exam.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.dtgv_exam.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id_patient});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -390,11 +402,6 @@
             this.dtgv_exam.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dtgv_exam.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_exam_CellClick);
             // 
-            // id_patient
-            // 
-            this.id_patient.HeaderText = "Mã BN";
-            this.id_patient.Name = "id_patient";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -406,7 +413,7 @@
             // 
             // btn_search
             // 
-            this.btn_search.Location = new System.Drawing.Point(138, 88);
+            this.btn_search.Location = new System.Drawing.Point(195, 66);
             this.btn_search.Name = "btn_search";
             this.btn_search.Size = new System.Drawing.Size(64, 20);
             this.btn_search.TabIndex = 1;
@@ -608,7 +615,7 @@
             // 
             // examination_service_id
             // 
-            this.examination_service_id.HeaderText = "examination_service_id";
+            this.examination_service_id.HeaderText = "Mã phiếu KQ";
             this.examination_service_id.Name = "examination_service_id";
             // 
             // id
@@ -821,7 +828,6 @@
         private System.Windows.Forms.DateTimePicker dtpk_fromdate;
         private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2DataGridView dtgv_exam;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_patient;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btn_search;
         private System.Windows.Forms.Label label1;
@@ -845,12 +851,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel1;
         private Guna.UI2.WinForms.Guna2DataGridView dtgv_service;
-        private System.Windows.Forms.DataGridViewTextBoxColumn examination_service_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn state;
-        private System.Windows.Forms.RadioButton rdn_noresult;
-        private System.Windows.Forms.RadioButton rdn_resulted;
         private Guna.UI2.WinForms.Guna2DataGridView dtgv_result;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn namemeame;
@@ -858,5 +858,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.RadioButton rdn_all;
+        private System.Windows.Forms.RadioButton rdn_noresult;
+        private System.Windows.Forms.RadioButton rdn_resulted;
+        private System.Windows.Forms.DataGridViewTextBoxColumn examination_service_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn state;
     }
 }

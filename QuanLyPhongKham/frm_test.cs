@@ -32,7 +32,7 @@ namespace QuanLyPhongKham
         }
         private void LoadComboboxTemplate()
         {
-            string query = "SELECT id, name, template_content FROM templates";
+            string query = "SELECT id, name, template_content FROM templates where type = 'Xét nghiệm'";
             Db.LoadComboBoxData(cb_template, query, "name", "id");
             cb_template.Text = "Chọn biểu mẫu";
         }
@@ -41,30 +41,29 @@ namespace QuanLyPhongKham
             if (e.RowIndex >= 0 && dtgv_exam.Rows[e.RowIndex].Cells["id_exam"].Value != null)
             {
                 DataGridViewRow row = dtgv_exam.Rows[e.RowIndex];
-                var id_exam = row.Cells["id_exam"].Value?.ToString();
-                var id_patient = row.Cells["id_patient"].Value?.ToString();
-                var name = row.Cells["name"].Value?.ToString();
-                var gender = row.Cells["gender"].Value?.ToString();
-                var date_of_birth = row.Cells["date_of_birth"].Value?.ToString();
-                var phone = row.Cells["phone"].Value?.ToString();
-                var address = row.Cells["address"].Value?.ToString();
-                var updated_at = row.Cells["updated_at"].Value?.ToString();
-                var reason = row.Cells["reason"].Value?.ToString();
-                var diagnosis = row.Cells["diagnosis"].Value?.ToString();
-                var note = row.Cells["note"].Value?.ToString();
-                txb_id_exam.Text = id_exam;
-                txb_name.Text = name;
-                txb_gender.Text = gender;
-                txb_dob.Text = date_of_birth;
-                txb_phone.Text = phone;
-                txb_address.Text = address;
-                txb_reception_date.Text = updated_at;
-                txb_reason.Text = reason;
-                txb_id_patient.Text = id_patient;
-                txb_note.Text = note;
+
+                var date_of_birth = row.Cells["date_of_birth"].Value?.ToString(); // <-- Thêm dòng này
+
+                Db.SetTextAndMoveCursorToEnd(txb_id_exam, row.Cells["id_exam"].Value?.ToString());
+                Db.SetTextAndMoveCursorToEnd(txb_id_patient, row.Cells["id_patient"].Value?.ToString());
+                Db.SetTextAndMoveCursorToEnd(txb_name, row.Cells["name"].Value?.ToString());
+                Db.SetTextAndMoveCursorToEnd(txb_gender, row.Cells["gender"].Value?.ToString());
+                Db.SetTextAndMoveCursorToEnd(txb_dob, date_of_birth); // dùng biến đã khai báo
+                Db.SetTextAndMoveCursorToEnd(txb_phone, row.Cells["phone"].Value?.ToString());
+                Db.SetTextAndMoveCursorToEnd(txb_address, row.Cells["address"].Value?.ToString());
+                Db.SetTextAndMoveCursorToEnd(txb_reception_date, row.Cells["updated_at"].Value?.ToString());
+                Db.SetTextAndMoveCursorToEnd(txb_reason, row.Cells["reason"].Value?.ToString());
+                Db.SetTextAndMoveCursorToEnd(txb_note, row.Cells["note"].Value?.ToString());
+
+                var dob = DateTime.ParseExact(date_of_birth, "dd/MM/yyyy", null);
+                var age = DateTime.Now.Year - dob.Year - (DateTime.Now < dob.AddYears(DateTime.Now.Year - dob.Year) ? 1 : 0);
+                txb_age.Text = age.ToString() + " tuổi";
+
                 LoadDTGV_Service();
             }
+
         }
+
         private void LoadDTGV_Service()
         {
             string sql = @"SELECT s.id, s.name, es.id AS examination_service_id,
@@ -118,8 +117,9 @@ namespace QuanLyPhongKham
             var to_date = dtpk_todate.Text;
 
             string query = @"
-        SELECT 
-            DISTINCT e.id AS id_exam,
+        SELECT DISTINCT
+            DATE_FORMAT(e.updated_at, '%d/%m/%Y %H:%i') AS time_exam,
+             e.id AS id_exam,
             p.id AS id_patient,
             p.name,
             p.gender,
@@ -136,22 +136,28 @@ namespace QuanLyPhongKham
         JOIN examination_services es ON es.examination_id = e.id
         JOIN services s ON s.id = es.service_id AND s.type = 'Xét nghiệm'
         LEFT JOIN examination_results er ON er.examination_service_id = es.id
-        WHERE DATE(p.updated_at) 
+        WHERE DATE(e.updated_at) 
               BETWEEN STR_TO_DATE(@from_date, '%d/%m/%Y') 
               AND STR_TO_DATE(@to_date, '%d/%m/%Y')
     ";
 
 
-            if (!rdn_resulted.Checked)
+
+            if (rdn_all.Checked)
+            {
+                query += "";
+            }
+            if (rdn_resulted.Checked)
             {
 
                 query += " AND er.id IS NOT NULL ";
             }
-            else if (!rdn_noresult.Checked)
+            else if (rdn_noresult.Checked)
             {
 
                 query += " AND er.id IS NULL ";
             }
+
 
             Db.conn = new MySqlConnection(Db.connectionString);
             Db.ResetConnection();
@@ -177,6 +183,7 @@ namespace QuanLyPhongKham
                 drr.Cells["reason"].Value = Db.dr["reason"];
                 drr.Cells["diagnosis"].Value = Db.dr["diagnosis"];
                 drr.Cells["note"].Value = Db.dr["note"];
+                drr.Cells["time_exam"].Value = Db.dr["time_exam"];
             }
 
             Db.dr.Close();
@@ -316,7 +323,8 @@ namespace QuanLyPhongKham
                                 isUserChangingTemplate = false;
 
                                 // Display final result
-                                txb_final_result.Text = reader["final_result"].ToString();
+                                Db.SetTextAndMoveCursorToEnd(txb_final_result, reader["final_result"].ToString());
+
 
                                 // Set template combobox
                                 var templateId = reader["template_id"];
@@ -382,6 +390,8 @@ namespace QuanLyPhongKham
                 {
                     btn_save.Enabled = true;
                     btn_edit.Enabled = false;
+                    cb_template.SelectedIndex = 0;
+                    txb_final_result.Text = "";
 
                     if (cb_template.SelectedIndex > 0)
                     {
@@ -391,7 +401,7 @@ namespace QuanLyPhongKham
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi: " + ex.Message);
+                //MessageBox.Show("Lỗi: " + ex.Message);
             }
         }
 
@@ -587,6 +597,12 @@ namespace QuanLyPhongKham
             // Chữ ký bác sĩ
             e.Graphics.DrawString("BÁC SĨ XÉT NGHIỆM", boldFont, Brushes.Black, x + e.MarginBounds.Width - 150, y);
             e.Graphics.DrawString("(Ký và ghi rõ họ tên)", regularFont, Brushes.Black, x + e.MarginBounds.Width - 150, y + lineHeight);
+        }
+
+        private void btn_refresh_Click(object sender, EventArgs e)
+        {
+            dtgv_exam.Rows.Clear();
+            LoadExam.LoadDTGVCommon(dtgv_exam, "Xét nghiệm");
         }
     }
 }

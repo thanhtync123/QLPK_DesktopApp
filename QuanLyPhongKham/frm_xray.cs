@@ -69,9 +69,9 @@ namespace QuanLyPhongKham
         }
         private void LoadComboboxTemplate()
         {
-            string query = "SELECT id, name, template_content FROM templates";
+            string query = "SELECT id, name, template_content,type FROM templates where type = 'X-quang' ";
             Db.LoadComboBoxData(cb_template, query, "name", "id");
-            cb_template.Text = "Chọn biểu mẫu";
+            
         }
         private void dtgv_exam_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -90,16 +90,21 @@ namespace QuanLyPhongKham
                 var reason = row.Cells["reason"].Value?.ToString();
                 var diagnosis = row.Cells["diagnosis"].Value?.ToString();
                 var note = row.Cells["note"].Value?.ToString();
-                txb_id_exam.Text = id_exam;
-                txb_name.Text = name;
-                txb_gender.Text = gender;
-                txb_dob.Text = date_of_birth;
-                txb_phone.Text = phone;
-                txb_address.Text = address;
-                txb_reception_date.Text = updated_at;
-                txb_reason.Text = reason;
-                txb_id_patient.Text = id_patient;
-                txb_note.Text = note;
+                Db.SetTextAndMoveCursorToEnd(txb_id_exam, id_exam);
+                Db.SetTextAndMoveCursorToEnd(txb_name, name);
+                Db.SetTextAndMoveCursorToEnd(txb_gender, gender);
+                txb_dob.Text = date_of_birth + "";
+                var dob = DateTime.ParseExact(date_of_birth, "dd/MM/yyyy", null);
+                var age = DateTime.Now.Year - dob.Year - (DateTime.Now < dob.AddYears(DateTime.Now.Year - dob.Year) ? 1 : 0);
+                txb_age.Text = age.ToString()+ " tuổi"; ;
+
+                Db.SetTextAndMoveCursorToEnd(txb_phone, phone);
+                Db.SetTextAndMoveCursorToEnd(txb_address, address);
+                Db.SetTextAndMoveCursorToEnd(txb_reception_date, updated_at);
+                Db.SetTextAndMoveCursorToEnd(txb_reason, reason);
+                Db.SetTextAndMoveCursorToEnd(txb_id_patient, id_patient);
+                Db.SetTextAndMoveCursorToEnd(txb_note, note);
+
                 LoadDTGV_Service();
             }
 
@@ -140,11 +145,13 @@ namespace QuanLyPhongKham
                     if (Db.dr.Read())
                     {
                         isUserChangingTemplate = false;
-                        txb_result.Text = Db.dr["result"].ToString()
-                            .Replace("\\n", "\r\n")
-                            .Replace("\n", "\r\n");
+                        Db.SetTextAndMoveCursorToEnd(txb_result, Db.dr["result"].ToString()
+                             .Replace("\\r\\n", "\r\n")); // chuyển chuỗi '\\r\\n' về ký tự xuống dòng thật
+
+                        Db.SetTextAndMoveCursorToEnd(txb_final_result, Db.dr["final_result"].ToString());
+
                         cb_template.SelectedValue = Convert.ToInt32(Db.dr["template_id"]);
-                        txb_final_result.Text = Db.dr["final_result"].ToString();
+                        
                         isUserChangingTemplate = true;
                     }
 
@@ -155,6 +162,10 @@ namespace QuanLyPhongKham
                 {
                     btn_save.Enabled = true;
                     btn_edit.Enabled = false;
+                    cb_template.Text = "Chọn biểu mẫu";
+                    txb_result.Text = "";
+                    txb_final_result.Text = "";
+                        
                 }
             }
 
@@ -163,13 +174,12 @@ namespace QuanLyPhongKham
         private void cb_template_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            // Chỉ xử lý khi người dùng thực sự thay đổi template
+     
 
-            if (isUserChangingTemplate && cb_template.SelectedIndex > 0 && dtgv_service.CurrentRow != null)
+            if (isUserChangingTemplate && cb_template.SelectedIndex >= 0 && dtgv_service.CurrentRow != null)
             {
                 int selectedTemplateId = Convert.ToInt32(cb_template.SelectedValue);
                 string sql = "SELECT `template_content` FROM `templates` WHERE `id` = @template_id;";
-
                 Db.ResetConnection();
                 Db.cmd = new MySqlCommand(sql, Db.conn);
                 Db.cmd.Parameters.AddWithValue("@template_id", selectedTemplateId);
@@ -177,8 +187,7 @@ namespace QuanLyPhongKham
 
                 if (Db.dr.Read())
                     txb_result.Text = Db.dr["template_content"].ToString()
-                                       .Replace("\\n", "\r\n")
-                                       .Replace("\n", "\r\n");
+                                .Replace("\\r\\n", "\r\n"); // chuyển chuỗi '\\r\\n' về ký tự xuống dòng thật
 
                 Db.dr.Close();
                 Db.ResetConnection();
@@ -253,8 +262,9 @@ namespace QuanLyPhongKham
             var to_date = dtpk_todate.Text;
 
             string query = @"
-        SELECT 
-            DISTINCT e.id AS id_exam,
+        SELECT DISTINCT
+            DATE_FORMAT(e.updated_at, '%d/%m/%Y %H:%i') AS time_exam,
+             e.id AS id_exam,
             p.id AS id_patient,
             p.name,
             p.gender,
@@ -271,20 +281,23 @@ namespace QuanLyPhongKham
         JOIN examination_services es ON es.examination_id = e.id
         JOIN services s ON s.id = es.service_id AND s.type = 'X-quang'
         LEFT JOIN examination_results er ON er.examination_service_id = es.id
-        WHERE DATE(p.updated_at) 
+        WHERE DATE(e.updated_at) 
               BETWEEN STR_TO_DATE(@from_date, '%d/%m/%Y') 
               AND STR_TO_DATE(@to_date, '%d/%m/%Y')
     ";
 
-
-            if (!rdn_resulted.Checked)
+            if (rdn_all.Checked )
             {
-  
+                query += "";
+            }    
+            if (rdn_resulted.Checked )
+            {
+            
                 query += " AND er.id IS NOT NULL ";
             }
-            else if (!rdn_noresult.Checked)
+            else if (rdn_noresult.Checked )
             {
-           
+      
                 query += " AND er.id IS NULL ";
             }
 
@@ -312,6 +325,7 @@ namespace QuanLyPhongKham
                 drr.Cells["reason"].Value = Db.dr["reason"];
                 drr.Cells["diagnosis"].Value = Db.dr["diagnosis"];
                 drr.Cells["note"].Value = Db.dr["note"];
+                drr.Cells["time_exam"].Value = Db.dr["time_exam"];
             }
 
             Db.dr.Close();

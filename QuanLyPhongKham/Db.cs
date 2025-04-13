@@ -84,6 +84,12 @@ namespace QuanLyPhongKham
                 MessageBox.Show("Lỗi khi cập nhật dữ liệu: " + ex.Message);
             }
         }
+        public static void SetTextAndMoveCursorToEnd(TextBox textBox, string text)
+        {
+            textBox.Text = text;
+            textBox.SelectionStart = textBox.Text.Length;
+            textBox.SelectionLength = 0;
+        }
 
     }
 }

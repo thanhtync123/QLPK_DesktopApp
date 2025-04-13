@@ -31,16 +31,16 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_examination));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txb_name = new Guna.UI2.WinForms.Guna2TextBox();
             this.txb_ngaysinh = new Guna.UI2.WinForms.Guna2TextBox();
             this.txb_age = new Guna.UI2.WinForms.Guna2TextBox();
@@ -79,8 +79,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.txb_unit = new Guna.UI2.WinForms.Guna2TextBox();
             this.cb_medname = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txb_note = new Guna.UI2.WinForms.Guna2TextBox();
             this.dtgv_med = new Guna.UI2.WinForms.Guna2DataGridView();
             this.id_med = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.med_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -92,31 +90,15 @@
             this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalpricepermed = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.lbsdfsf = new System.Windows.Forms.Label();
-            this.cb_doctornote = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.cb_diagnoses = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.txb_reason = new Guna.UI2.WinForms.Guna2TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btn_print_service = new System.Windows.Forms.Button();
             this.lb_total_price_service = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.btn_save_examination_service = new System.Windows.Forms.Button();
-            this.dtgv_service_patient = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.id_service2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name_service2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.delete_service = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtgv_service = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.id_service = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.service_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.add_service = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtgv_patients = new Guna.UI2.WinForms.Guna2DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.time_patients = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txb_pulse = new Guna.UI2.WinForms.Guna2TextBox();
             this.txb_temperature = new Guna.UI2.WinForms.Guna2TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -135,14 +117,34 @@
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.printDocument2 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog2 = new System.Windows.Forms.PrintPreviewDialog();
+            this.txb_reason = new Guna.UI2.WinForms.Guna2TextBox();
+            this.cb_diagnoses = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.lbsdfsf = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txb_note = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.cb_doctornote = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.add_service = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.service_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_service = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtgv_service = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.delete_service = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name_service2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_service2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtgv_service_patient = new Guna.UI2.WinForms.Guna2DataGridView();
             this.guna2TabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txb_quantity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_med)).BeginInit();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgv_service_patient)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgv_service)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_patients)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_service)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_service_patient)).BeginInit();
             this.SuspendLayout();
             // 
             // txb_name
@@ -313,10 +315,10 @@
             this.guna2TabControl1.Controls.Add(this.tabPage1);
             this.guna2TabControl1.Controls.Add(this.tabPage2);
             this.guna2TabControl1.ItemSize = new System.Drawing.Size(180, 40);
-            this.guna2TabControl1.Location = new System.Drawing.Point(279, 154);
+            this.guna2TabControl1.Location = new System.Drawing.Point(402, 252);
             this.guna2TabControl1.Name = "guna2TabControl1";
             this.guna2TabControl1.SelectedIndex = 0;
-            this.guna2TabControl1.Size = new System.Drawing.Size(1536, 526);
+            this.guna2TabControl1.Size = new System.Drawing.Size(1370, 499);
             this.guna2TabControl1.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty;
             this.guna2TabControl1.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(52)))), ((int)(((byte)(70)))));
             this.guna2TabControl1.TabButtonHoverState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
@@ -362,26 +364,18 @@
             this.tabPage1.Controls.Add(this.label12);
             this.tabPage1.Controls.Add(this.txb_unit);
             this.tabPage1.Controls.Add(this.cb_medname);
-            this.tabPage1.Controls.Add(this.label11);
-            this.tabPage1.Controls.Add(this.txb_note);
             this.tabPage1.Controls.Add(this.dtgv_med);
-            this.tabPage1.Controls.Add(this.label10);
-            this.tabPage1.Controls.Add(this.label9);
-            this.tabPage1.Controls.Add(this.lbsdfsf);
-            this.tabPage1.Controls.Add(this.cb_doctornote);
-            this.tabPage1.Controls.Add(this.cb_diagnoses);
-            this.tabPage1.Controls.Add(this.txb_reason);
             this.tabPage1.Location = new System.Drawing.Point(184, 4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1348, 518);
+            this.tabPage1.Size = new System.Drawing.Size(1272, 491);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Đơn thuốc";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // btn_print_prescription
             // 
-            this.btn_print_prescription.Location = new System.Drawing.Point(388, 470);
+            this.btn_print_prescription.Location = new System.Drawing.Point(371, 231);
             this.btn_print_prescription.Name = "btn_print_prescription";
             this.btn_print_prescription.Size = new System.Drawing.Size(61, 23);
             this.btn_print_prescription.TabIndex = 51;
@@ -391,7 +385,7 @@
             // 
             // btn_add_examination
             // 
-            this.btn_add_examination.Location = new System.Drawing.Point(322, 470);
+            this.btn_add_examination.Location = new System.Drawing.Point(305, 231);
             this.btn_add_examination.Name = "btn_add_examination";
             this.btn_add_examination.Size = new System.Drawing.Size(61, 23);
             this.btn_add_examination.TabIndex = 50;
@@ -425,7 +419,7 @@
             // 
             // btn_deletemed
             // 
-            this.btn_deletemed.Location = new System.Drawing.Point(151, 465);
+            this.btn_deletemed.Location = new System.Drawing.Point(134, 226);
             this.btn_deletemed.Name = "btn_deletemed";
             this.btn_deletemed.Size = new System.Drawing.Size(75, 23);
             this.btn_deletemed.TabIndex = 47;
@@ -438,7 +432,7 @@
             this.txb_quantity.BackColor = System.Drawing.Color.Transparent;
             this.txb_quantity.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txb_quantity.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txb_quantity.Location = new System.Drawing.Point(322, 391);
+            this.txb_quantity.Location = new System.Drawing.Point(305, 152);
             this.txb_quantity.Minimum = new decimal(new int[] {
             1,
             0,
@@ -457,7 +451,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(267, 451);
+            this.label19.Location = new System.Drawing.Point(250, 212);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(52, 13);
             this.label19.TabIndex = 44;
@@ -465,7 +459,7 @@
             // 
             // btn_addmed
             // 
-            this.btn_addmed.Location = new System.Drawing.Point(70, 465);
+            this.btn_addmed.Location = new System.Drawing.Point(53, 226);
             this.btn_addmed.Name = "btn_addmed";
             this.btn_addmed.Size = new System.Drawing.Size(75, 23);
             this.btn_addmed.TabIndex = 45;
@@ -484,7 +478,7 @@
             this.txb_totalpricepermed.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txb_totalpricepermed.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txb_totalpricepermed.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txb_totalpricepermed.Location = new System.Drawing.Point(322, 433);
+            this.txb_totalpricepermed.Location = new System.Drawing.Point(305, 194);
             this.txb_totalpricepermed.Name = "txb_totalpricepermed";
             this.txb_totalpricepermed.PlaceholderText = "";
             this.txb_totalpricepermed.SelectedText = "";
@@ -494,7 +488,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(20, 446);
+            this.label20.Location = new System.Drawing.Point(3, 207);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(44, 13);
             this.label20.TabIndex = 42;
@@ -511,7 +505,7 @@
             this.txb_price.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txb_price.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txb_price.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txb_price.Location = new System.Drawing.Point(70, 428);
+            this.txb_price.Location = new System.Drawing.Point(53, 189);
             this.txb_price.Name = "txb_price";
             this.txb_price.PlaceholderText = "";
             this.txb_price.SelectedText = "";
@@ -521,7 +515,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(270, 404);
+            this.label17.Location = new System.Drawing.Point(253, 165);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(49, 13);
             this.label17.TabIndex = 40;
@@ -530,7 +524,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(20, 409);
+            this.label18.Location = new System.Drawing.Point(3, 170);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(44, 13);
             this.label18.TabIndex = 38;
@@ -547,7 +541,7 @@
             this.txb_mednote.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txb_mednote.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txb_mednote.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txb_mednote.Location = new System.Drawing.Point(70, 391);
+            this.txb_mednote.Location = new System.Drawing.Point(53, 152);
             this.txb_mednote.Name = "txb_mednote";
             this.txb_mednote.PlaceholderText = "";
             this.txb_mednote.SelectedText = "";
@@ -557,7 +551,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(250, 372);
+            this.label15.Location = new System.Drawing.Point(233, 133);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(71, 13);
             this.label15.TabIndex = 36;
@@ -574,7 +568,7 @@
             this.txb_times.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txb_times.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txb_times.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txb_times.Location = new System.Drawing.Point(322, 354);
+            this.txb_times.Location = new System.Drawing.Point(305, 115);
             this.txb_times.Name = "txb_times";
             this.txb_times.PlaceholderText = "";
             this.txb_times.SelectedText = "";
@@ -584,7 +578,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(2, 372);
+            this.label16.Location = new System.Drawing.Point(-15, 133);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(66, 13);
             this.label16.TabIndex = 34;
@@ -601,7 +595,7 @@
             this.txb_route.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txb_route.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txb_route.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txb_route.Location = new System.Drawing.Point(70, 354);
+            this.txb_route.Location = new System.Drawing.Point(53, 115);
             this.txb_route.Name = "txb_route";
             this.txb_route.PlaceholderText = "";
             this.txb_route.SelectedText = "";
@@ -611,7 +605,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(262, 335);
+            this.label14.Location = new System.Drawing.Point(245, 96);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(54, 13);
             this.label14.TabIndex = 32;
@@ -628,7 +622,7 @@
             this.txb_dosage.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txb_dosage.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txb_dosage.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txb_dosage.Location = new System.Drawing.Point(322, 317);
+            this.txb_dosage.Location = new System.Drawing.Point(305, 78);
             this.txb_dosage.Name = "txb_dosage";
             this.txb_dosage.PlaceholderText = "";
             this.txb_dosage.SelectedText = "";
@@ -638,7 +632,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(10, 298);
+            this.label13.Location = new System.Drawing.Point(-7, 59);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(56, 13);
             this.label13.TabIndex = 30;
@@ -647,7 +641,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(22, 335);
+            this.label12.Location = new System.Drawing.Point(5, 96);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(38, 13);
             this.label12.TabIndex = 29;
@@ -664,7 +658,7 @@
             this.txb_unit.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txb_unit.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txb_unit.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txb_unit.Location = new System.Drawing.Point(70, 317);
+            this.txb_unit.Location = new System.Drawing.Point(53, 78);
             this.txb_unit.Name = "txb_unit";
             this.txb_unit.PlaceholderText = "";
             this.txb_unit.SelectedText = "";
@@ -683,38 +677,11 @@
             this.cb_medname.ItemHeight = 30;
             this.cb_medname.Items.AddRange(new object[] {
             "Chọn tên thuốc"});
-            this.cb_medname.Location = new System.Drawing.Point(70, 275);
+            this.cb_medname.Location = new System.Drawing.Point(53, 36);
             this.cb_medname.Name = "cb_medname";
             this.cb_medname.Size = new System.Drawing.Size(413, 36);
             this.cb_medname.TabIndex = 27;
             this.cb_medname.SelectedIndexChanged += new System.EventHandler(this.cb_medname_SelectedIndexChanged);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(22, 194);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(44, 13);
-            this.label11.TabIndex = 25;
-            this.label11.Text = "Ghi chú";
-            // 
-            // txb_note
-            // 
-            this.txb_note.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txb_note.DefaultText = "";
-            this.txb_note.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txb_note.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txb_note.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txb_note.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txb_note.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txb_note.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txb_note.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txb_note.Location = new System.Drawing.Point(70, 176);
-            this.txb_note.Name = "txb_note";
-            this.txb_note.PlaceholderText = "";
-            this.txb_note.SelectedText = "";
-            this.txb_note.Size = new System.Drawing.Size(413, 31);
-            this.txb_note.TabIndex = 24;
             // 
             // dtgv_med
             // 
@@ -829,86 +796,6 @@
             this.totalpricepermed.HeaderText = "Thành tiền";
             this.totalpricepermed.Name = "totalpricepermed";
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(24, 157);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(42, 13);
-            this.label10.TabIndex = 21;
-            this.label10.Text = "Lời dặn";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 115);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(60, 13);
-            this.label9.TabIndex = 20;
-            this.label9.Text = "Chẩn đoán";
-            // 
-            // lbsdfsf
-            // 
-            this.lbsdfsf.AutoSize = true;
-            this.lbsdfsf.Location = new System.Drawing.Point(67, 36);
-            this.lbsdfsf.Name = "lbsdfsf";
-            this.lbsdfsf.Size = new System.Drawing.Size(62, 13);
-            this.lbsdfsf.TabIndex = 15;
-            this.lbsdfsf.Text = "Lý do khám";
-            // 
-            // cb_doctornote
-            // 
-            this.cb_doctornote.BackColor = System.Drawing.Color.Transparent;
-            this.cb_doctornote.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cb_doctornote.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cb_doctornote.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cb_doctornote.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cb_doctornote.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cb_doctornote.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cb_doctornote.ItemHeight = 30;
-            this.cb_doctornote.Items.AddRange(new object[] {
-            "Chọn lời dặn"});
-            this.cb_doctornote.Location = new System.Drawing.Point(70, 134);
-            this.cb_doctornote.Name = "cb_doctornote";
-            this.cb_doctornote.Size = new System.Drawing.Size(413, 36);
-            this.cb_doctornote.TabIndex = 18;
-
-            // 
-            // cb_diagnoses
-            // 
-            this.cb_diagnoses.BackColor = System.Drawing.Color.Transparent;
-            this.cb_diagnoses.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cb_diagnoses.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cb_diagnoses.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cb_diagnoses.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cb_diagnoses.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cb_diagnoses.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cb_diagnoses.ItemHeight = 30;
-            this.cb_diagnoses.Items.AddRange(new object[] {
-            "Chọn chẩn đoán"});
-            this.cb_diagnoses.Location = new System.Drawing.Point(70, 92);
-            this.cb_diagnoses.Name = "cb_diagnoses";
-            this.cb_diagnoses.Size = new System.Drawing.Size(413, 36);
-            this.cb_diagnoses.TabIndex = 17;
-            // 
-            // txb_reason
-            // 
-            this.txb_reason.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txb_reason.DefaultText = "";
-            this.txb_reason.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txb_reason.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txb_reason.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txb_reason.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txb_reason.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txb_reason.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txb_reason.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txb_reason.Location = new System.Drawing.Point(70, 55);
-            this.txb_reason.Name = "txb_reason";
-            this.txb_reason.PlaceholderText = "";
-            this.txb_reason.SelectedText = "";
-            this.txb_reason.Size = new System.Drawing.Size(413, 31);
-            this.txb_reason.TabIndex = 15;
-            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.btn_print_service);
@@ -920,14 +807,14 @@
             this.tabPage2.Location = new System.Drawing.Point(184, 4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1348, 518);
+            this.tabPage2.Size = new System.Drawing.Size(1182, 491);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Chỉ định Cận lâm sàng";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // btn_print_service
             // 
-            this.btn_print_service.Location = new System.Drawing.Point(1228, 43);
+            this.btn_print_service.Location = new System.Drawing.Point(111, 7);
             this.btn_print_service.Name = "btn_print_service";
             this.btn_print_service.Size = new System.Drawing.Size(75, 23);
             this.btn_print_service.TabIndex = 51;
@@ -957,173 +844,13 @@
             // 
             // btn_save_examination_service
             // 
-            this.btn_save_examination_service.Location = new System.Drawing.Point(1228, 14);
+            this.btn_save_examination_service.Location = new System.Drawing.Point(10, 7);
             this.btn_save_examination_service.Name = "btn_save_examination_service";
             this.btn_save_examination_service.Size = new System.Drawing.Size(95, 23);
             this.btn_save_examination_service.TabIndex = 2;
             this.btn_save_examination_service.Text = "Thêm chỉ định";
             this.btn_save_examination_service.UseVisualStyleBackColor = true;
             this.btn_save_examination_service.Click += new System.EventHandler(this.btn_save_examination_service_Click);
-            // 
-            // dtgv_service_patient
-            // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.dtgv_service_patient.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dtgv_service_patient.BackgroundColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgv_service_patient.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.dtgv_service_patient.ColumnHeadersHeight = 15;
-            this.dtgv_service_patient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.dtgv_service_patient.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id_service2,
-            this.name_service2,
-            this.price2,
-            this.delete_service});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgv_service_patient.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dtgv_service_patient.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dtgv_service_patient.Location = new System.Drawing.Point(599, 36);
-            this.dtgv_service_patient.Name = "dtgv_service_patient";
-            this.dtgv_service_patient.RowHeadersVisible = false;
-            this.dtgv_service_patient.Size = new System.Drawing.Size(571, 454);
-            this.dtgv_service_patient.TabIndex = 1;
-            this.dtgv_service_patient.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.dtgv_service_patient.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.dtgv_service_patient.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.dtgv_service_patient.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.dtgv_service_patient.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.dtgv_service_patient.ThemeStyle.BackColor = System.Drawing.Color.Gainsboro;
-            this.dtgv_service_patient.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dtgv_service_patient.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.dtgv_service_patient.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dtgv_service_patient.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtgv_service_patient.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.dtgv_service_patient.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.dtgv_service_patient.ThemeStyle.HeaderStyle.Height = 15;
-            this.dtgv_service_patient.ThemeStyle.ReadOnly = false;
-            this.dtgv_service_patient.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.dtgv_service_patient.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dtgv_service_patient.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtgv_service_patient.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.dtgv_service_patient.ThemeStyle.RowsStyle.Height = 22;
-            this.dtgv_service_patient.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dtgv_service_patient.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.dtgv_service_patient.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_service_patient_CellClick);
-            // 
-            // id_service2
-            // 
-            this.id_service2.HeaderText = "Mã chỉ định";
-            this.id_service2.Name = "id_service2";
-            // 
-            // name_service2
-            // 
-            this.name_service2.HeaderText = "Tên chỉ định";
-            this.name_service2.Name = "name_service2";
-            // 
-            // price2
-            // 
-            this.price2.HeaderText = "Thành tiền";
-            this.price2.Name = "price2";
-            // 
-            // delete_service
-            // 
-            this.delete_service.HeaderText = "Xóa";
-            this.delete_service.Name = "delete_service";
-            // 
-            // dtgv_service
-            // 
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            this.dtgv_service.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
-            this.dtgv_service.BackgroundColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgv_service.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
-            this.dtgv_service.ColumnHeadersHeight = 15;
-            this.dtgv_service.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.dtgv_service.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id_service,
-            this.service_name,
-            this.type,
-            this.price1,
-            this.add_service});
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgv_service.DefaultCellStyle = dataGridViewCellStyle9;
-            this.dtgv_service.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dtgv_service.Location = new System.Drawing.Point(10, 36);
-            this.dtgv_service.Name = "dtgv_service";
-            this.dtgv_service.RowHeadersVisible = false;
-            this.dtgv_service.Size = new System.Drawing.Size(583, 454);
-            this.dtgv_service.TabIndex = 0;
-            this.dtgv_service.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.dtgv_service.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.dtgv_service.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.dtgv_service.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.dtgv_service.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.dtgv_service.ThemeStyle.BackColor = System.Drawing.Color.Gainsboro;
-            this.dtgv_service.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dtgv_service.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.dtgv_service.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dtgv_service.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtgv_service.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.dtgv_service.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.dtgv_service.ThemeStyle.HeaderStyle.Height = 15;
-            this.dtgv_service.ThemeStyle.ReadOnly = false;
-            this.dtgv_service.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.dtgv_service.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dtgv_service.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtgv_service.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.dtgv_service.ThemeStyle.RowsStyle.Height = 22;
-            this.dtgv_service.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dtgv_service.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.dtgv_service.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_service_CellClick);
-            // 
-            // id_service
-            // 
-            this.id_service.HeaderText = "Mã chỉ định";
-            this.id_service.Name = "id_service";
-            // 
-            // service_name
-            // 
-            this.service_name.HeaderText = "Tên chỉ định";
-            this.service_name.Name = "service_name";
-            // 
-            // type
-            // 
-            this.type.HeaderText = "Loại";
-            this.type.Name = "type";
-            // 
-            // price1
-            // 
-            this.price1.HeaderText = "Thành tiền";
-            this.price1.Name = "price1";
-            // 
-            // add_service
-            // 
-            this.add_service.HeaderText = "Thêm";
-            this.add_service.Name = "add_service";
             // 
             // dtgv_patients
             // 
@@ -1141,7 +868,8 @@
             this.dtgv_patients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dtgv_patients.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
-            this.name});
+            this.name,
+            this.time_patients});
             dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1151,10 +879,10 @@
             dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtgv_patients.DefaultCellStyle = dataGridViewCellStyle12;
             this.dtgv_patients.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dtgv_patients.Location = new System.Drawing.Point(33, 154);
+            this.dtgv_patients.Location = new System.Drawing.Point(12, 72);
             this.dtgv_patients.Name = "dtgv_patients";
             this.dtgv_patients.RowHeadersVisible = false;
-            this.dtgv_patients.Size = new System.Drawing.Size(240, 526);
+            this.dtgv_patients.Size = new System.Drawing.Size(359, 608);
             this.dtgv_patients.TabIndex = 16;
             this.dtgv_patients.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgv_patients.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -1188,6 +916,11 @@
             // 
             this.name.HeaderText = "Tên bệnh nhân";
             this.name.Name = "name";
+            // 
+            // time_patients
+            // 
+            this.time_patients.HeaderText = "Tiếp nhận lúc";
+            this.time_patients.Name = "time_patients";
             // 
             // txb_pulse
             // 
@@ -1408,11 +1141,292 @@
             this.printPreviewDialog2.Name = "printPreviewDialog2";
             this.printPreviewDialog2.Visible = false;
             // 
+            // txb_reason
+            // 
+            this.txb_reason.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txb_reason.DefaultText = "";
+            this.txb_reason.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txb_reason.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txb_reason.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txb_reason.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txb_reason.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txb_reason.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txb_reason.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txb_reason.Location = new System.Drawing.Point(463, 154);
+            this.txb_reason.Name = "txb_reason";
+            this.txb_reason.PlaceholderText = "";
+            this.txb_reason.SelectedText = "";
+            this.txb_reason.Size = new System.Drawing.Size(413, 31);
+            this.txb_reason.TabIndex = 15;
+            // 
+            // cb_diagnoses
+            // 
+            this.cb_diagnoses.BackColor = System.Drawing.Color.Transparent;
+            this.cb_diagnoses.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cb_diagnoses.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_diagnoses.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cb_diagnoses.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cb_diagnoses.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cb_diagnoses.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cb_diagnoses.ItemHeight = 30;
+            this.cb_diagnoses.Items.AddRange(new object[] {
+            "Chọn chẩn đoán"});
+            this.cb_diagnoses.Location = new System.Drawing.Point(463, 191);
+            this.cb_diagnoses.Name = "cb_diagnoses";
+            this.cb_diagnoses.Size = new System.Drawing.Size(413, 36);
+            this.cb_diagnoses.TabIndex = 17;
+            // 
+            // lbsdfsf
+            // 
+            this.lbsdfsf.AutoSize = true;
+            this.lbsdfsf.Location = new System.Drawing.Point(395, 172);
+            this.lbsdfsf.Name = "lbsdfsf";
+            this.lbsdfsf.Size = new System.Drawing.Size(62, 13);
+            this.lbsdfsf.TabIndex = 15;
+            this.lbsdfsf.Text = "Lý do khám";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(399, 214);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(60, 13);
+            this.label9.TabIndex = 20;
+            this.label9.Text = "Chẩn đoán";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(885, 209);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(44, 13);
+            this.label11.TabIndex = 36;
+            this.label11.Text = "Ghi chú";
+            // 
+            // txb_note
+            // 
+            this.txb_note.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txb_note.DefaultText = "";
+            this.txb_note.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txb_note.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txb_note.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txb_note.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txb_note.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txb_note.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txb_note.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txb_note.Location = new System.Drawing.Point(933, 191);
+            this.txb_note.Name = "txb_note";
+            this.txb_note.PlaceholderText = "";
+            this.txb_note.SelectedText = "";
+            this.txb_note.Size = new System.Drawing.Size(413, 31);
+            this.txb_note.TabIndex = 35;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(887, 172);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(42, 13);
+            this.label10.TabIndex = 34;
+            this.label10.Text = "Lời dặn";
+            // 
+            // cb_doctornote
+            // 
+            this.cb_doctornote.BackColor = System.Drawing.Color.Transparent;
+            this.cb_doctornote.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cb_doctornote.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_doctornote.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cb_doctornote.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cb_doctornote.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cb_doctornote.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cb_doctornote.ItemHeight = 30;
+            this.cb_doctornote.Items.AddRange(new object[] {
+            "Chọn lời dặn"});
+            this.cb_doctornote.Location = new System.Drawing.Point(933, 149);
+            this.cb_doctornote.Name = "cb_doctornote";
+            this.cb_doctornote.Size = new System.Drawing.Size(413, 36);
+            this.cb_doctornote.TabIndex = 33;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.ForeColor = System.Drawing.Color.Red;
+            this.label27.Location = new System.Drawing.Point(12, 45);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(41, 13);
+            this.label27.TabIndex = 37;
+            this.label27.Text = "label27";
+            // 
+            // add_service
+            // 
+            this.add_service.HeaderText = "Thêm";
+            this.add_service.Name = "add_service";
+            // 
+            // price1
+            // 
+            this.price1.HeaderText = "Thành tiền";
+            this.price1.Name = "price1";
+            // 
+            // type
+            // 
+            this.type.HeaderText = "Loại";
+            this.type.Name = "type";
+            // 
+            // service_name
+            // 
+            this.service_name.HeaderText = "Tên chỉ định";
+            this.service_name.Name = "service_name";
+            // 
+            // id_service
+            // 
+            this.id_service.HeaderText = "Mã chỉ định";
+            this.id_service.Name = "id_service";
+            // 
+            // dtgv_service
+            // 
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            this.dtgv_service.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            this.dtgv_service.BackgroundColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgv_service.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.dtgv_service.ColumnHeadersHeight = 15;
+            this.dtgv_service.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dtgv_service.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id_service,
+            this.service_name,
+            this.type,
+            this.price1,
+            this.add_service});
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgv_service.DefaultCellStyle = dataGridViewCellStyle9;
+            this.dtgv_service.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dtgv_service.Location = new System.Drawing.Point(10, 36);
+            this.dtgv_service.Name = "dtgv_service";
+            this.dtgv_service.RowHeadersVisible = false;
+            this.dtgv_service.Size = new System.Drawing.Size(583, 454);
+            this.dtgv_service.TabIndex = 0;
+            this.dtgv_service.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dtgv_service.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dtgv_service.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dtgv_service.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dtgv_service.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dtgv_service.ThemeStyle.BackColor = System.Drawing.Color.Gainsboro;
+            this.dtgv_service.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dtgv_service.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.dtgv_service.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dtgv_service.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtgv_service.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.dtgv_service.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dtgv_service.ThemeStyle.HeaderStyle.Height = 15;
+            this.dtgv_service.ThemeStyle.ReadOnly = false;
+            this.dtgv_service.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dtgv_service.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dtgv_service.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtgv_service.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dtgv_service.ThemeStyle.RowsStyle.Height = 22;
+            this.dtgv_service.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dtgv_service.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dtgv_service.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_service_CellClick);
+            // 
+            // delete_service
+            // 
+            this.delete_service.HeaderText = "Xóa";
+            this.delete_service.Name = "delete_service";
+            // 
+            // price2
+            // 
+            this.price2.HeaderText = "Thành tiền";
+            this.price2.Name = "price2";
+            // 
+            // name_service2
+            // 
+            this.name_service2.HeaderText = "Tên chỉ định";
+            this.name_service2.Name = "name_service2";
+            // 
+            // id_service2
+            // 
+            this.id_service2.HeaderText = "Mã chỉ định";
+            this.id_service2.Name = "id_service2";
+            // 
+            // dtgv_service_patient
+            // 
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.dtgv_service_patient.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dtgv_service_patient.BackgroundColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgv_service_patient.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dtgv_service_patient.ColumnHeadersHeight = 15;
+            this.dtgv_service_patient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dtgv_service_patient.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id_service2,
+            this.name_service2,
+            this.price2,
+            this.delete_service});
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgv_service_patient.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dtgv_service_patient.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dtgv_service_patient.Location = new System.Drawing.Point(599, 36);
+            this.dtgv_service_patient.Name = "dtgv_service_patient";
+            this.dtgv_service_patient.RowHeadersVisible = false;
+            this.dtgv_service_patient.Size = new System.Drawing.Size(571, 454);
+            this.dtgv_service_patient.TabIndex = 1;
+            this.dtgv_service_patient.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dtgv_service_patient.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dtgv_service_patient.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dtgv_service_patient.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dtgv_service_patient.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dtgv_service_patient.ThemeStyle.BackColor = System.Drawing.Color.Gainsboro;
+            this.dtgv_service_patient.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dtgv_service_patient.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.dtgv_service_patient.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dtgv_service_patient.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtgv_service_patient.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.dtgv_service_patient.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dtgv_service_patient.ThemeStyle.HeaderStyle.Height = 15;
+            this.dtgv_service_patient.ThemeStyle.ReadOnly = false;
+            this.dtgv_service_patient.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dtgv_service_patient.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dtgv_service_patient.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtgv_service_patient.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dtgv_service_patient.ThemeStyle.RowsStyle.Height = 22;
+            this.dtgv_service_patient.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dtgv_service_patient.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dtgv_service_patient.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_service_patient_CellClick);
+            // 
             // frm_examination
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1850, 763);
+            this.ClientSize = new System.Drawing.Size(1850, 827);
+            this.Controls.Add(this.label27);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.txb_note);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.cb_doctornote);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txb_exam_id);
             this.Controls.Add(this.label24);
@@ -1441,6 +1455,10 @@
             this.Controls.Add(this.txb_age);
             this.Controls.Add(this.txb_ngaysinh);
             this.Controls.Add(this.txb_name);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.lbsdfsf);
+            this.Controls.Add(this.txb_reason);
+            this.Controls.Add(this.cb_diagnoses);
             this.Name = "frm_examination";
             this.Text = "Khám nội khoa";
             this.Load += new System.EventHandler(this.frm_examination_Load);
@@ -1451,9 +1469,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_med)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgv_service_patient)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgv_service)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_patients)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_service)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_service_patient)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1473,20 +1491,44 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private Guna.UI2.WinForms.Guna2TabControl guna2TabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label lbsdfsf;
-        private Guna.UI2.WinForms.Guna2ComboBox cb_doctornote;
-        private Guna.UI2.WinForms.Guna2ComboBox cb_diagnoses;
-        private Guna.UI2.WinForms.Guna2TextBox txb_reason;
-        private Guna.UI2.WinForms.Guna2DataGridView dtgv_med;
         private Guna.UI2.WinForms.Guna2DataGridView dtgv_patients;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
-        private System.Windows.Forms.Label label11;
-        private Guna.UI2.WinForms.Guna2TextBox txb_note;
+        private Guna.UI2.WinForms.Guna2TextBox txb_pulse;
+        private Guna.UI2.WinForms.Guna2TextBox txb_temperature;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
+        private Guna.UI2.WinForms.Guna2TextBox txb_blood_pressure;
+        private Guna.UI2.WinForms.Guna2TextBox txb_respiratory_rate;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label25;
+        private Guna.UI2.WinForms.Guna2TextBox txb_weight;
+        private Guna.UI2.WinForms.Guna2TextBox txb_height;
+        private System.Windows.Forms.Label label8;
+        private Guna.UI2.WinForms.Guna2TextBox txb_exam_id;
+        private System.Windows.Forms.Button btn_save_examination_service;
+        private System.Windows.Forms.Label lb_total_price_service;
+        private System.Windows.Forms.Label label26;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private System.Windows.Forms.Button btn_print_service;
+        private System.Drawing.Printing.PrintDocument printDocument2;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog2;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.Button btn_print_prescription;
+        private System.Windows.Forms.Button btn_add_examination;
+        private Guna.UI2.WinForms.Guna2Button btn_insert_examination;
+        private System.Windows.Forms.Label lb_totalprice;
+        private System.Windows.Forms.Button btn_deletemed;
+        private Guna.UI2.WinForms.Guna2NumericUpDown txb_quantity;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Button btn_addmed;
+        private Guna.UI2.WinForms.Guna2TextBox txb_totalpricepermed;
+        private System.Windows.Forms.Label label20;
+        private Guna.UI2.WinForms.Guna2TextBox txb_price;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private Guna.UI2.WinForms.Guna2TextBox txb_mednote;
@@ -1500,12 +1542,7 @@
         private System.Windows.Forms.Label label12;
         private Guna.UI2.WinForms.Guna2TextBox txb_unit;
         private Guna.UI2.WinForms.Guna2ComboBox cb_medname;
-        private System.Windows.Forms.Label label19;
-        private Guna.UI2.WinForms.Guna2TextBox txb_totalpricepermed;
-        private System.Windows.Forms.Label label20;
-        private Guna.UI2.WinForms.Guna2TextBox txb_price;
-        private System.Windows.Forms.Button btn_addmed;
-        private Guna.UI2.WinForms.Guna2NumericUpDown txb_quantity;
+        private Guna.UI2.WinForms.Guna2DataGridView dtgv_med;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_med;
         private System.Windows.Forms.DataGridViewTextBoxColumn med_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn unit;
@@ -1516,43 +1553,26 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn price;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalpricepermed;
-        private System.Windows.Forms.Button btn_deletemed;
-        private System.Windows.Forms.Label lb_totalprice;
-        private Guna.UI2.WinForms.Guna2Button btn_insert_examination;
-        private Guna.UI2.WinForms.Guna2TextBox txb_pulse;
-        private Guna.UI2.WinForms.Guna2TextBox txb_temperature;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label23;
-        private Guna.UI2.WinForms.Guna2TextBox txb_blood_pressure;
-        private Guna.UI2.WinForms.Guna2TextBox txb_respiratory_rate;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label25;
-        private Guna.UI2.WinForms.Guna2TextBox txb_weight;
-        private Guna.UI2.WinForms.Guna2TextBox txb_height;
-        private System.Windows.Forms.Button btn_add_examination;
-        private System.Windows.Forms.Label label8;
-        private Guna.UI2.WinForms.Guna2TextBox txb_exam_id;
-        private Guna.UI2.WinForms.Guna2DataGridView dtgv_service;
+        private Guna.UI2.WinForms.Guna2TextBox txb_reason;
+        private Guna.UI2.WinForms.Guna2ComboBox cb_diagnoses;
+        private System.Windows.Forms.Label lbsdfsf;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label11;
+        private Guna.UI2.WinForms.Guna2TextBox txb_note;
+        private System.Windows.Forms.Label label10;
+        private Guna.UI2.WinForms.Guna2ComboBox cb_doctornote;
+        private System.Windows.Forms.DataGridViewTextBoxColumn time_patients;
+        private System.Windows.Forms.Label label27;
         private Guna.UI2.WinForms.Guna2DataGridView dtgv_service_patient;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_service2;
         private System.Windows.Forms.DataGridViewTextBoxColumn name_service2;
         private System.Windows.Forms.DataGridViewTextBoxColumn price2;
         private System.Windows.Forms.DataGridViewTextBoxColumn delete_service;
+        private Guna.UI2.WinForms.Guna2DataGridView dtgv_service;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_service;
         private System.Windows.Forms.DataGridViewTextBoxColumn service_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn type;
         private System.Windows.Forms.DataGridViewTextBoxColumn price1;
         private System.Windows.Forms.DataGridViewTextBoxColumn add_service;
-        private System.Windows.Forms.Button btn_save_examination_service;
-        private System.Windows.Forms.Label lb_total_price_service;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Button btn_print_prescription;
-        private System.Drawing.Printing.PrintDocument printDocument1;
-        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
-        private System.Windows.Forms.Button btn_print_service;
-        private System.Drawing.Printing.PrintDocument printDocument2;
-        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog2;
     }
 }

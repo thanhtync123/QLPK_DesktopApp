@@ -27,6 +27,7 @@ namespace QuanLyPhongKham
 
         private void LoadGrid()
         {
+            label27.Visible = false;
             dtgv_patients.Columns.Add("date_of_birth", "Ngày sinh");
             dtgv_patients.Columns["date_of_birth"].Visible = false;
             dtgv_patients.Columns.Add("gender", "Giới tính");
@@ -37,24 +38,29 @@ namespace QuanLyPhongKham
             dtgv_patients.Columns["address"].Visible = false;
 
             dtgv_patients.Rows.Clear();
-            string sql = @"
-        SELECT 
-            id, 
-            name, 
-            DATE_FORMAT(date_of_birth, '%d/%m/%Y') AS date_of_birth, 
-            gender, 
-            phone, 
-            address, 
-            created_at, 
-            updated_at 
-        FROM patients";
+
+            string sql = @"SELECT 
+                 id, 
+                 name, 
+                 DATE_FORMAT(date_of_birth, '%d/%m/%Y') AS date_of_birth, 
+                 gender, 
+                 phone, 
+                 address, 
+                 created_at, 
+                 DATE_FORMAT(updated_at, '%H:%i:%s') AS updated_time
+             FROM patients
+             WHERE DATE(updated_at) = CURDATE();";
 
             Db.ResetConnection();
             MySqlCommand cmd = Db.CreateCommand(sql);
             MySqlDataReader dr = cmd.ExecuteReader();
 
+            bool hasData = false;
+
             while (dr.Read())
             {
+                hasData = true;
+
                 int i = dtgv_patients.Rows.Add();
                 DataGridViewRow drr = dtgv_patients.Rows[i];
                 drr.Cells["ID"].Value = dr["id"];
@@ -63,10 +69,25 @@ namespace QuanLyPhongKham
                 drr.Cells["gender"].Value = dr["gender"];
                 drr.Cells["phone"].Value = dr["phone"];
                 drr.Cells["address"].Value = dr["address"];
+                drr.Cells["time_patients"].Value = dr["updated_time"];
             }
 
             dr.Close();
             Db.ResetConnection();
+
+            dr.Close();
+            Db.ResetConnection();
+
+            if (!hasData)
+            {
+                label27.Text = "Không có bệnh nhân nào được tiếp nhận trong hôm nay.";
+                label27.Visible = true;
+            }
+            else
+            
+                label27.Visible = false;
+            
+
 
         }
 
@@ -79,7 +100,10 @@ namespace QuanLyPhongKham
             LoadExamID();
             LoadDTGV_Service();
             btn_deletemed.Enabled = false;
-          
+            cb_diagnoses.SelectedIndex = 0;
+   
+
+
         }
 
         private void dtgv_patients_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -93,25 +117,27 @@ namespace QuanLyPhongKham
             txb_age.Text = (currentYear - lastFourChars).ToString();
             txb_address.Text = dtgv_patients.CurrentRow.Cells["address"].Value.ToString();
             txb_gender.Text = dtgv_patients.CurrentRow.Cells["gender"].Value.ToString();
+
+
         }
 
         private void LoadComboboxDoctorNote()
         {
 
-            string query = "SELECT id, content FROM doctor_notes";
+            string query = "SELECT id, content FROM doctor_notes order by content asc";
             Db.LoadComboBoxData(cb_doctornote, query, "content", "id");
 
         }
         private void LoadComboboxDiagnoses()
         {
-            string query = "SELECT id, name FROM diagnoses";
+            string query = "SELECT id, name FROM diagnoses order by name asc";
             Db.LoadComboBoxData(cb_diagnoses, query, "name", "id");
             cb_diagnoses.SelectedIndex = 0;  // Chọn phần tử đầu tiên sau khi load dữ liệu
         }
 
         private void LoadComboboxMed()
         {
-            string query = "SELECT id, name FROM medications";
+            string query = "SELECT id, name FROM medications order by name asc";
             Db.LoadComboBoxData(cb_medname, query, "name", "id");
             cb_medname.SelectedIndex = 0;  // Chọn phần tử đầu tiên sau khi load dữ liệu
 
