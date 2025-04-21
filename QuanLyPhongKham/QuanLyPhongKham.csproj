@@ -107,11 +107,35 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Db.cs" />
+    <Compile Include="frm_diagnoses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_diagnoses.Designer.cs">
+      <DependentUpon>frm_diagnoses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_dtnote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_dtnote.Designer.cs">
+      <DependentUpon>frm_dtnote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_ecg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_ecg.Designer.cs">
+      <DependentUpon>frm_ecg.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_examination.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frm_examination.Designer.cs">
       <DependentUpon>frm_examination.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_med.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_med.Designer.cs">
+      <DependentUpon>frm_med.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_nav.cs">
       <SubType>Form</SubType>
@@ -119,11 +143,35 @@
     <Compile Include="frm_nav.Designer.cs">
       <DependentUpon>frm_nav.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_patients.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_patients.Designer.cs">
+      <DependentUpon>frm_patients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_service.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_service.Designer.cs">
+      <DependentUpon>frm_service.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_template.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_template.Designer.cs">
+      <DependentUpon>frm_template.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_test.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frm_test.Designer.cs">
       <DependentUpon>frm_test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_ultrasound.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_ultrasound.Designer.cs">
+      <DependentUpon>frm_ultrasound.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_xray.cs">
       <SubType>Form</SubType>
@@ -134,14 +182,38 @@
     <Compile Include="LoadExam.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frm_diagnoses.resx">
+      <DependentUpon>frm_diagnoses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_dtnote.resx">
+      <DependentUpon>frm_dtnote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_ecg.resx">
+      <DependentUpon>frm_ecg.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_examination.resx">
       <DependentUpon>frm_examination.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_med.resx">
+      <DependentUpon>frm_med.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_nav.resx">
       <DependentUpon>frm_nav.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_patients.resx">
+      <DependentUpon>frm_patients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_service.resx">
+      <DependentUpon>frm_service.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_template.resx">
+      <DependentUpon>frm_template.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_test.resx">
       <DependentUpon>frm_test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_ultrasound.resx">
+      <DependentUpon>frm_ultrasound.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_xray.resx">
       <DependentUpon>frm_xray.cs</DependentUpon>
@@ -169,6 +241,25 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

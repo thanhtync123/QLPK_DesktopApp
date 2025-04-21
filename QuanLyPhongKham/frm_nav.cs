@@ -117,6 +117,46 @@ namespace QuanLyPhongKham
             AddTab(new frm_test());
         }
 
+        private void điệnTimToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddTab(new frm_ecg());
+        }
+
+        private void siêuÂmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddTab(new frm_ultrasound());
+        }
+
+        private void tiếpNhậnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddTab(new frm_patients());
+        }
+
+        private void chẩnĐoánToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddTab(new frm_diagnoses());
+        }
+
+        private void lờiDặnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddTab(new frm_dtnote());
+        }
+
+        private void thuốcToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddTab(new frm_med());
+        }
+
+        private void dịchVụToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddTab(new frm_service());
+        }
+
+        private void biểuMẫuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddTab(new frm_template()); 
+        }
+
         private void AddTab(Form frm)
         {
             int t = KiemTraFormTonTai(frm);

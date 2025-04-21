@@ -90,6 +90,46 @@ namespace QuanLyPhongKham
             textBox.SelectionStart = textBox.Text.Length;
             textBox.SelectionLength = 0;
         }
+        public static void LoadDTGV(DataGridView dtgv, string query)
+        {
+            try
+            {
+                ResetConnection(); // Đảm bảo kết nối được mở
+                MySqlCommand cmd = CreateCommand(query);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dtgv.DataSource = dt; // Gán dữ liệu cho DataGridView
+                conn.Close(); // Đóng kết nối sau khi hoàn tất
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi load dữ liệu vào DataGridView: " + ex.Message);
+            }
+        }
+        public static void Delete(string query, Dictionary<string, object> parameters)
+        {
+            try
+            {
+                ResetConnection(); // Mở lại kết nối nếu cần
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    // Thêm các tham số vào câu lệnh SQL
+                    foreach (var param in parameters)
+                    {
+                        cmd.Parameters.AddWithValue(param.Key, param.Value);
+                    }
+
+                    cmd.ExecuteNonQuery(); // Thực thi lệnh xóa
+                }
+                conn.Close(); // Đóng kết nối sau khi xóa
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi xóa dữ liệu: " + ex.Message);
+            }
+        }
+
 
     }
 }
