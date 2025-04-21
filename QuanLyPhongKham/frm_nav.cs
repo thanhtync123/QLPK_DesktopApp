@@ -157,6 +157,21 @@ namespace QuanLyPhongKham
             AddTab(new frm_template()); 
         }
 
+        private void traCứuPhiếuKhámToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddTab(new frm_examination_Lookup());
+        }
+
+        private void traCứuPhiếuThuốcToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddTab(new frm_medication_Lookup());
+        }
+
+        private void traCứuKếtQuảToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddTab(new frm_result_Lookup());
+        }
+
         private void AddTab(Form frm)
         {
             int t = KiemTraFormTonTai(frm);
