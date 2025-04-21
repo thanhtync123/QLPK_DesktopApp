@@ -131,11 +131,29 @@
     <Compile Include="frm_examination.Designer.cs">
       <DependentUpon>frm_examination.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_LookUpExamination.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_LookUpExamination.Designer.cs">
+      <DependentUpon>frm_LookUpExamination.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_LookUpService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_LookUpService.Designer.cs">
+      <DependentUpon>frm_LookUpService.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_med.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frm_med.Designer.cs">
       <DependentUpon>frm_med.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_LookUpMedication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_LookUpMedication.Designer.cs">
+      <DependentUpon>frm_LookUpMedication.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_nav.cs">
       <SubType>Form</SubType>
@@ -148,6 +166,12 @@
     </Compile>
     <Compile Include="frm_patients.Designer.cs">
       <DependentUpon>frm_patients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_LookUpResult.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_LookUpResult.Designer.cs">
+      <DependentUpon>frm_LookUpResult.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_service.cs">
       <SubType>Form</SubType>
@@ -194,14 +218,26 @@
     <EmbeddedResource Include="frm_examination.resx">
       <DependentUpon>frm_examination.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_LookUpExamination.resx">
+      <DependentUpon>frm_LookUpExamination.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_LookUpService.resx">
+      <DependentUpon>frm_LookUpService.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_med.resx">
       <DependentUpon>frm_med.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_LookUpMedication.resx">
+      <DependentUpon>frm_LookUpMedication.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_nav.resx">
       <DependentUpon>frm_nav.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_patients.resx">
       <DependentUpon>frm_patients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_LookUpResult.resx">
+      <DependentUpon>frm_LookUpResult.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_service.resx">
       <DependentUpon>frm_service.cs</DependentUpon>

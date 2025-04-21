@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace QuanLyPhongKham
 {
-    public partial class frm_medication_Lookup : Form
+    public partial class frm_LookUpResult : Form
     {
-        public frm_medication_Lookup()
+        public frm_LookUpResult()
         {
             InitializeComponent();
         }
