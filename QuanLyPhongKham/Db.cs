@@ -129,6 +129,16 @@ namespace QuanLyPhongKham
                 MessageBox.Show("Lỗi khi xóa dữ liệu: " + ex.Message);
             }
         }
+        public static object Scalar(string query)
+        {
+            using (MySqlConnection con = new MySqlConnection(connectionString))
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                return cmd.ExecuteScalar();
+            }
+        }
+
 
 
     }

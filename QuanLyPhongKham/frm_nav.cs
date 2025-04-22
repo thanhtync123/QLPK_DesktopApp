@@ -167,14 +167,26 @@ namespace QuanLyPhongKham
             AddTab(new frm_LookUpMedication());
         }
 
-        private void traCứuKếtQuảToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AddTab(new frm_LookUpResult());
-        }
+
 
         private void traCứuPhiếuChỉĐịnhToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddTab(new frm_LookUpService());
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void traCứuKếtQuảToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void thốngKêDoanhThuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddTab(new frm_statistic());
         }
 
         private void AddTab(Form frm)

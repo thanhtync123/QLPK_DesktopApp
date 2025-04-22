@@ -11,6 +11,7 @@ namespace QuanLyPhongKham
             InitializeComponent();
         }
 
+
         private void LoadDTGV(string keyword = "")
         {
             string query = $@"

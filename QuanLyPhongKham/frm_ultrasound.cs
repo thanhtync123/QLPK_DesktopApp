@@ -785,5 +785,11 @@ namespace QuanLyPhongKham
         {
             ResetPictureBoxes();
         }
+
+        private void txb_search_TextChanged(object sender, EventArgs e)
+        {
+			string keyword = txb_search.Text.Trim();
+			LoadExam.LoadDTGVCommon(dtgv_exam, "Siêu âm", keyword);
+		}
     }
 }

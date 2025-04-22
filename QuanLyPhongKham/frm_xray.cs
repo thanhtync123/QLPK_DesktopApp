@@ -255,7 +255,8 @@ namespace QuanLyPhongKham
                 MessageBox.Show("Không có dữ liệu nào được sửa.");
         }
 
-        private void btn_search_Click(object sender, EventArgs e)
+
+		private void btn_search_Click(object sender, EventArgs e)
         {
           
             var from_date = dtpk_fromdate.Text;
@@ -332,7 +333,9 @@ namespace QuanLyPhongKham
             Db.ResetConnection();
         }
 
-        private void btn_print_Click(object sender, EventArgs e)
+
+
+		private void btn_print_Click(object sender, EventArgs e)
         {
             if (dtgv_service.CurrentRow == null || txb_result.Text.Trim() == "")
             {
@@ -409,7 +412,7 @@ namespace QuanLyPhongKham
 
             // Define two-column layout for patient details
             string patientId = "Mã BN: " + txb_id_patient.Text;
-            string patientName = "Họ tên: " + txb_name.Text;
+            string patientName = "Họ tên: " + txb_search.Text;
             string gender = "Giới tính: " + txb_gender.Text;
             string dob = "Ngày sinh: " + txb_dob.Text;
             string phone = "SĐT: " + txb_phone.Text;
@@ -517,5 +520,11 @@ namespace QuanLyPhongKham
             dtgv_exam.Rows.Clear();
             LoadExam.LoadDTGVCommon(dtgv_exam, "X-quang"); 
         }
+
+        private void txb_search_TextChanged(object sender, EventArgs e)
+        {
+			string keyword = txb_search.Text.Trim();
+			LoadExam.LoadDTGVCommon(dtgv_exam, "X-quang", keyword);
+		}
     }
 }

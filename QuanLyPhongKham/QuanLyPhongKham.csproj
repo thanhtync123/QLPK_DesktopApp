@@ -137,6 +137,12 @@
     <Compile Include="frm_LookUpExamination.Designer.cs">
       <DependentUpon>frm_LookUpExamination.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_LookUpResult.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_LookUpResult.Designer.cs">
+      <DependentUpon>frm_LookUpResult.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_LookUpService.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,17 +173,17 @@
     <Compile Include="frm_patients.Designer.cs">
       <DependentUpon>frm_patients.cs</DependentUpon>
     </Compile>
-    <Compile Include="frm_LookUpResult.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frm_LookUpResult.Designer.cs">
-      <DependentUpon>frm_LookUpResult.cs</DependentUpon>
-    </Compile>
     <Compile Include="frm_service.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frm_service.Designer.cs">
       <DependentUpon>frm_service.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_statistic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_statistic.Designer.cs">
+      <DependentUpon>frm_statistic.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_template.cs">
       <SubType>Form</SubType>
@@ -221,6 +227,9 @@
     <EmbeddedResource Include="frm_LookUpExamination.resx">
       <DependentUpon>frm_LookUpExamination.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_LookUpResult.resx">
+      <DependentUpon>frm_LookUpResult.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_LookUpService.resx">
       <DependentUpon>frm_LookUpService.cs</DependentUpon>
     </EmbeddedResource>
@@ -236,11 +245,11 @@
     <EmbeddedResource Include="frm_patients.resx">
       <DependentUpon>frm_patients.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_LookUpResult.resx">
-      <DependentUpon>frm_LookUpResult.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frm_service.resx">
       <DependentUpon>frm_service.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_statistic.resx">
+      <DependentUpon>frm_statistic.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_template.resx">
       <DependentUpon>frm_template.cs</DependentUpon>
