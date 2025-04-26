@@ -8,6 +8,7 @@ namespace QuanLyPhongKham
     {
         public frm_dtnote()
         {
+            //sdgjk
             InitializeComponent();
         }
 
