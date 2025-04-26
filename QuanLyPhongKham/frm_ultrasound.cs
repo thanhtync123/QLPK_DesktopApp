@@ -32,6 +32,7 @@ namespace QuanLyPhongKham
         {
             LoadComboboxTemplate();
             loadvideo();
+            webBrowser1.Visible = false;
         }
         private int snapCount = 0;
 
@@ -153,169 +154,221 @@ namespace QuanLyPhongKham
             Db.LoadComboBoxData(cb_template, query, "name", "id");
         }
 
-
-        private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
+        private void btn_print_Click(object sender, EventArgs e)
         {
-            Font titleFont = new Font("Arial", 16, FontStyle.Bold);
-            Font headerFont = new Font("Arial", 12, FontStyle.Bold);
-            Font normalFont = new Font("Arial", 11, FontStyle.Regular);
-            Font resultFont = new Font("Arial", 10, FontStyle.Regular);
+            //if (dtgv_service.CurrentRow == null || txb_result.Text.Trim() == "")
+            //{
+            //    MessageBox.Show("Vui lòng chọn dịch vụ có kết quả để in.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return;
+            //}
 
-            // Define positions and measurements
-            int pageWidth = e.PageBounds.Width;
-            int yPos = 50;
-            int leftMargin = 50;
-            int rightMargin = pageWidth - 50;
-            int contentWidth = rightMargin - leftMargin;
-            int columnWidth = contentWidth / 2 - 10; // For two-column layout with spacing
+            // Tạo HTML phiếu kết quả siêu âm
+            string html = $@"
+<html>
+<head>
+    <style>
+        body {{
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 40px;
+            color: #333;
+            background-color: #f4f4f9;
+            line-height: 1.6;
+        }}
+        .header {{
+            text-align: center;
+        }}
+        .divider {{
+            border-top: 2px solid #3498db;
+            margin: 20px 0;
+        }}
+        .section-title {{
+            font-size: 20px;
+            font-weight: 500;
+            color: #2980b9;
+            margin-top: 20px;
+        }}
+        .info-container {{
+            display: flex;
+            flex-wrap: wrap;
+        }}
+        .info-item {{
+            width: 48%;
+            margin-bottom: 8px;
+        }}
+        .result-container {{
+            background-color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }}
+        .image-container {{
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }}
+        .image-container img {{
+            max-width: 45%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }}
+        .signature {{
+            margin-top: 40px;
+            text-align: right;
+        }}
+    </style>
+</head>
+<body>
+    <div class='header'>
+        <h1 style='font-size: 28px; font-weight: 600; color: #2c3e50;'>PHÒNG KHÁM ĐA KHOA</h1>
+        <h2 style='font-size: 18px; color: #2c3e50;'>Địa chỉ: 123 Đường Thanh Niên, Quận Hải Châu, Đà Nẵng</h2>
+        <p style='font-size: 16px; color: #2c3e50;'>Điện thoại: 0123-456-789</p>
+    </div>
+    
+    <div class='divider'></div>
+    
+    <h1 class='header' style='font-size: 28px; font-weight: 600; color: #2c3e50;'>PHIẾU KẾT QUẢ SIÊU ÂM</h1>
+    
+    <div style='text-align: right; font-size: 14px; color: #7f8c8d;'>
+        <div>Thời gian in phiếu: {DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")}</div>
+    </div>
+    
+    <h2 class='section-title'>THÔNG TIN BỆNH NHÂN</h2>
+    <div class='info-container'>
+        <div class='info-item'>Mã BN: {txb_id_patient.Text}</div>
+        <div class='info-item'>Họ tên: {txb_name.Text}</div>
+        <div class='info-item'>Giới tính: {txb_gender.Text}</div>
+        <div class='info-item'>Ngày sinh: {txb_dob.Text}</div>
+        <div class='info-item'>SĐT: {txb_phone.Text}</div>
+        <div class='info-item'>Địa chỉ: {txb_address.Text}</div>
+    </div>
+    
+    <h2 class='section-title'>THÔNG TIN KHÁM</h2>
+    <div class='info-container'>
+        <div class='info-item'>Mã phiếu khám: {txb_id_exam.Text}</div>
+        <div class='info-item'>Ngày khám: {txb_reception_date.Text}</div>
+        <div class='info-item'>Lý do khám: {txb_reason.Text}</div>
+        <div class='info-item'></div>
+        <div class='info-item'>Chỉ định: {txb_service.Text}</div>
+        <div class='info-item'>Mã phiếu KQ: {dtgv_service.CurrentRow.Cells["examination_service_id"].Value?.ToString()}</div>
+    </div>
+    
+    <h2 class='section-title'>KẾT QUẢ SIÊU ÂM</h2>
+    <div class='result-container'>
+        {txb_result.Text.Replace(Environment.NewLine, "<br/>")}
+    </div>
+";
 
-            // -- HEADER SECTION --
-            // Draw hospital/clinic header with centered text
-            string clinicName = "PHÒNG KHÁM ĐA KHOA";
-            int clinicNameX = leftMargin + (contentWidth - (int)e.Graphics.MeasureString(clinicName, titleFont).Width) / 2;
-            e.Graphics.DrawString(clinicName, titleFont, Brushes.Black, new Point(clinicNameX, yPos));
-            yPos += 30;
-
-            string clinicAddress = "Địa chỉ: 123 Đường Thanh Niên, Quận Hải Châu, Đà Nẵng";
-            int addressX = leftMargin + (contentWidth - (int)e.Graphics.MeasureString(clinicAddress, normalFont).Width) / 2;
-            e.Graphics.DrawString(clinicAddress, normalFont, Brushes.Black, new Point(addressX, yPos));
-            yPos += 20;
-
-            string clinicPhone = "Điện thoại: 0123-456-789";
-            int phoneX = leftMargin + (contentWidth - (int)e.Graphics.MeasureString(clinicPhone, normalFont).Width) / 2;
-            e.Graphics.DrawString(clinicPhone, normalFont, Brushes.Black, new Point(phoneX, yPos));
-            yPos += 30;
-
-            // -- TITLE SECTION --
-            // Draw report title centered
-            string reportTitle = "PHIẾU KẾT QUẢ SIÊU ÂM";
-            int reportTitleX = leftMargin + (contentWidth - (int)e.Graphics.MeasureString(reportTitle, titleFont).Width) / 2;
-
-            // Draw title with underline
-            e.Graphics.DrawString(reportTitle, titleFont, Brushes.Black, new Point(reportTitleX, yPos));
-            yPos += 30;
-
-            // Draw horizontal line under title
-            using (Pen linePen = new Pen(Color.Black, 1))
-            {
-                e.Graphics.DrawLine(linePen, leftMargin, yPos, rightMargin, yPos);
-            }
-            yPos += 20;
-
-            // -- PRINT TIME SECTION --
-            string printTime = "Thời gian in phiếu: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
-            e.Graphics.DrawString(printTime, normalFont, Brushes.Black, new Point(leftMargin, yPos));
-            yPos += 20;
-
-            // -- PATIENT INFORMATION SECTION --
-            // Draw patient information section
-            e.Graphics.DrawString("THÔNG TIN BỆNH NHÂN", headerFont, Brushes.Black, new Point(leftMargin, yPos));
-            yPos += 25;
-
-            // Define two-column layout for patient details
-            string patientId = "Mã BN: " + txb_id_patient.Text;
-            string patientName = "Họ tên: " + txb_name.Text;
-            string gender = "Giới tính: " + txb_gender.Text;
-            string dob = "Ngày sinh: " + txb_dob.Text;
-            string phone = "SĐT: " + txb_phone.Text;
-            string address = "Địa chỉ: " + txb_address.Text;
-
-            // Left column
-            int col1X = leftMargin + 10;
-            int col2X = leftMargin + columnWidth + 20;
-
-            e.Graphics.DrawString(patientId, normalFont, Brushes.Black, new Point(col1X, yPos));
-            e.Graphics.DrawString(patientName, normalFont, Brushes.Black, new Point(col2X, yPos));
-            yPos += 20;
-
-            e.Graphics.DrawString(gender, normalFont, Brushes.Black, new Point(col1X, yPos));
-            e.Graphics.DrawString(dob, normalFont, Brushes.Black, new Point(col2X, yPos));
-            yPos += 20;
-
-            e.Graphics.DrawString(phone, normalFont, Brushes.Black, new Point(col1X, yPos));
-            e.Graphics.DrawString(address, normalFont, Brushes.Black, new Point(col2X, yPos));
-            yPos += 25;
-
-            // -- EXAMINATION INFORMATION SECTION --
-            // Draw examination information section
-            e.Graphics.DrawString("THÔNG TIN KHÁM", headerFont, Brushes.Black, new Point(leftMargin, yPos));
-            yPos += 25;
-
-            string examId = "Mã phiếu khám: " + txb_id_exam.Text;
-            string examDate = "Ngày khám: " + txb_reception_date.Text;
-            string reason = "Lý do khám: " + txb_reason.Text;
-            string serviceName = "Chỉ định: " + txb_service.Text;
-            string examinationServiceId = "Mã phiếu KQ: " + dtgv_service.CurrentRow.Cells["examination_service_id"].Value?.ToString();
-
-            e.Graphics.DrawString(examId, normalFont, Brushes.Black, new Point(col1X, yPos));
-            e.Graphics.DrawString(examDate, normalFont, Brushes.Black, new Point(col2X, yPos));
-            yPos += 20;
-
-            e.Graphics.DrawString(reason, normalFont, Brushes.Black, new Point(col1X, yPos));
-            yPos += 20;
-
-            e.Graphics.DrawString(serviceName, normalFont, Brushes.Black, new Point(col1X, yPos));
-            e.Graphics.DrawString(examinationServiceId, normalFont, Brushes.Black, new Point(col2X, yPos));
-            yPos += 25;
-
-
-            // -- X-RAY RESULT SECTION --
-            // Draw X-ray result
-            e.Graphics.DrawString("KẾT QUẢ SIÊU ÂM", headerFont, Brushes.Black, new Point(leftMargin, yPos));
-            yPos += 25;
-
-            // Print the result text, wrapping it as needed
-            RectangleF resultRect = new RectangleF(leftMargin + 10, yPos, contentWidth - 20, 500);
-            using (StringFormat sf = new StringFormat())
-            {
-                sf.Alignment = StringAlignment.Near;
-                e.Graphics.DrawString(txb_result.Text, resultFont, Brushes.Black, resultRect, sf);
-            }
-
-            int resultTextHeight = (int)e.Graphics.MeasureString(txb_result.Text, resultFont, contentWidth - 20).Height;
-            yPos += resultTextHeight + 10;
-
-            // -- FINAL RESULT SECTION --
-            // Final result
+            // Thêm phần kết luận nếu có
             if (!string.IsNullOrWhiteSpace(txb_final_result.Text))
             {
-                e.Graphics.DrawString("KẾT LUẬN:", headerFont, Brushes.Black, new Point(leftMargin, yPos));
-                yPos += 25;
-
-                RectangleF finalResultRect = new RectangleF(leftMargin + 10, yPos, contentWidth - 20, 500);
-                using (StringFormat sf = new StringFormat())
-                {
-                    sf.Alignment = StringAlignment.Near;
-                    e.Graphics.DrawString(txb_final_result.Text, normalFont, Brushes.Black, finalResultRect, sf);
-                }
-
-                int finalResultTextHeight = (int)e.Graphics.MeasureString(txb_final_result.Text, normalFont, contentWidth - 20).Height;
-                yPos += finalResultTextHeight + 10;
+                html += $@"
+    <h2 class='section-title'>KẾT LUẬN</h2>
+    <div class='result-container'>
+        {txb_final_result.Text.Replace(Environment.NewLine, "<br/>")}
+    </div>
+";
             }
 
-            // -- SIGNATURE SECTION --
-            // Date and signature
-            string dateStr = "Ngày " + DateTime.Now.Day + " tháng " + DateTime.Now.Month + " năm " + DateTime.Now.Year;
+            // Thêm ảnh từ PictureBox
+            string imageHtml = "";
+            PictureBox[] pictureBoxes = { pb_1, pb_2, pb_3, pb_4 };
+            foreach (var pb in pictureBoxes)
+            {
+                if (pb != null && pb.Image != null)
+                {
+                    try
+                    {
+                        using (MemoryStream ms = new MemoryStream())
+                        {
+                            // Explicitly save as JPEG to avoid RawFormat issues
+                            pb.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                            byte[] imageBytes = ms.ToArray();
+                            string base64String = Convert.ToBase64String(imageBytes);
+                            imageHtml += $"<img src='data:image/jpeg;base64,{base64String}' />";
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        // Log the error and continue with other images
+                        MessageBox.Show($"Lỗi khi xử lý ảnh: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }
 
-            // Align date and signature on the right
-            int dateX = rightMargin - (int)e.Graphics.MeasureString(dateStr, normalFont).Width - 10;
-            e.Graphics.DrawString(dateStr, normalFont, Brushes.Black, new Point(dateX, yPos));
-            yPos += 20;
+            if (!string.IsNullOrEmpty(imageHtml))
+            {
+                html += $@"
+    <h2 class='section-title'>HÌNH ẢNH SIÊU ÂM</h2>
+    <div class='image-container'>
+        {imageHtml}
+    </div>
+";
+            }
 
-            string doctor = "BÁC SĨ";
-            int doctorX = rightMargin - (int)e.Graphics.MeasureString(doctor, headerFont).Width - 10;
-            e.Graphics.DrawString(doctor, headerFont, Brushes.Black, new Point(doctorX, yPos));
-            yPos += 60;
+            // Thêm phần chữ ký
+            html += $@"
+    <div class='signature'>
+        <div>Ngày {DateTime.Now.Day} tháng {DateTime.Now.Month} năm {DateTime.Now.Year}</div>
+        <div style='font-weight: bold; margin-top: 10px;'>BÁC SĨ</div>
+        <div style='margin-top: 70px;'>(Ký, họ tên)</div>
+    </div>
+</body>
+</html>";
 
-            // Space for signature
-            string signature = "(Ký, họ tên)";
-            int signatureX = rightMargin - (int)e.Graphics.MeasureString(signature, normalFont).Width - 10;
-            e.Graphics.DrawString(signature, normalFont, Brushes.Black, new Point(signatureX, yPos));
+            // Hiển thị bản xem trước
+            Form previewForm = new Form
+            {
+                Text = "Xem trước kết quả siêu âm",
+                Width = 800,
+                Height = 1000,
+                StartPosition = FormStartPosition.CenterScreen
+            };
 
+            WebBrowser browser = new WebBrowser
+            {
+                Dock = DockStyle.Fill,
+                DocumentText = html
+            };
 
-            // Clean up the event after printing
-            printDocument1.PrintPage -= PrintDocument_PrintPage;
+            // Thêm panel chứa nút in
+            Panel controlPanel = new Panel
+            {
+                Dock = DockStyle.Bottom,
+                Height = 50
+            };
+
+            // Thêm nút in
+            Button printButton = new Button
+            {
+                Text = "In phiếu",
+                Width = 100,
+                Height = 35,
+                Location = new Point(previewForm.Width - 120, 8),
+                Anchor = AnchorStyles.Right | AnchorStyles.Top
+            };
+
+            printButton.Click += (s, ev) => {
+                browser.Print();
+            };
+
+            controlPanel.Controls.Add(printButton);
+            previewForm.Controls.Add(browser);
+            previewForm.Controls.Add(controlPanel);
+            previewForm.ShowDialog();
         }
+
+
+
+
+
+
+
+
+
+
+
 
 
         private void dtgv_exam_CellClick(object sender, DataGridViewCellEventArgs e) // KHÔNG CẦN TẠO LẠI SỰ KIỆN VÌ ĐÃ TẠO
@@ -563,9 +616,13 @@ namespace QuanLyPhongKham
         {
             try
             {
-                // Tạo danh sách để lưu đường dẫn các ảnh
                 List<string> imagePaths = new List<string>();
-                string folderPath = @"D:\HocTap\QLPK\QuanLyPhongKham\images";
+
+                // Lấy thư mục chạy (bin/Debug/...) và lùi lên thư mục gốc dự án
+                string projectPath = Directory.GetParent(Application.StartupPath).Parent.Parent.FullName;
+
+                // Ghép thêm thư mục images
+                string folderPath = Path.Combine(projectPath, "images");
 
                 // Đảm bảo thư mục tồn tại
                 if (!Directory.Exists(folderPath))
@@ -573,7 +630,7 @@ namespace QuanLyPhongKham
                     Directory.CreateDirectory(folderPath);
                 }
 
-                // Lưu các ảnh từ các PictureBox
+                // Lưu các ảnh từ PictureBox
                 for (int i = 0; i < snapCount; i++)
                 {
                     PictureBox currentPb = null;
@@ -587,31 +644,24 @@ namespace QuanLyPhongKham
 
                     if (currentPb != null && currentPb.Image != null)
                     {
-                        // Tạo tên file ngẫu nhiên
                         string randomFileName = Guid.NewGuid().ToString() + ".jpg";
                         string fullPath = Path.Combine(folderPath, randomFileName);
 
-                        // Lưu ảnh
                         currentPb.Image.Save(fullPath, System.Drawing.Imaging.ImageFormat.Jpeg);
-
-                        // Thêm đường dẫn vào danh sách
                         imagePaths.Add(fullPath);
                     }
                 }
 
-                // Gộp các đường dẫn với dấu phẩy
                 string filePaths = string.Join(",", imagePaths);
 
-                // Lấy các giá trị cần thiết
                 var examination_service_id = Convert.ToInt32(dtgv_service.CurrentRow.Cells["examination_service_id"].Value);
                 var template_id = Convert.ToInt32(cb_template.SelectedValue);
                 string result = txb_result.Text;
                 string final_result = txb_final_result.Text;
 
-                // Chuẩn bị câu lệnh SQL để chèn dữ liệu
                 string query = @"INSERT INTO examination_results 
-            (examination_service_id, template_id, result, final_result, file_path) 
-            VALUES (@examination_service_id, @template_id, @result, @final_result, @file_path);";
+(examination_service_id, template_id, result, final_result, file_path) 
+VALUES (@examination_service_id, @template_id, @result, @final_result, @file_path);";
 
                 MySqlCommand cmd = new MySqlCommand(query, Db.conn);
                 cmd.Parameters.AddWithValue("@examination_service_id", examination_service_id);
@@ -628,9 +678,9 @@ namespace QuanLyPhongKham
                     LoadDTGV_Service();
                 }
                 else
-                
+                {
                     MessageBox.Show("Không có dữ liệu nào được thêm.");
-                
+                }
             }
             catch (Exception ex)
             {
@@ -642,17 +692,18 @@ namespace QuanLyPhongKham
         {
             try
             {
-                // Tạo danh sách để lưu đường dẫn các ảnh
                 List<string> imagePaths = new List<string>();
-                string folderPath = @"D:\HocTap\QLPK\QuanLyPhongKham\images";
 
-                // Đảm bảo thư mục tồn tại
+                // Lấy thư mục gốc dự án
+                string projectPath = Directory.GetParent(Application.StartupPath).Parent.Parent.FullName;
+                string folderPath = Path.Combine(projectPath, "images");
+
                 if (!Directory.Exists(folderPath))
                 {
                     Directory.CreateDirectory(folderPath);
                 }
 
-                // Lưu các ảnh từ các PictureBox nếu có
+                // Lưu ảnh nếu có
                 for (int i = 0; i < snapCount; i++)
                 {
                     PictureBox currentPb = null;
@@ -666,52 +717,47 @@ namespace QuanLyPhongKham
 
                     if (currentPb != null && currentPb.Image != null)
                     {
-                        // Tạo tên file ngẫu nhiên
                         string randomFileName = Guid.NewGuid().ToString() + ".jpg";
                         string fullPath = Path.Combine(folderPath, randomFileName);
 
-                        // Lưu ảnh
                         currentPb.Image.Save(fullPath, System.Drawing.Imaging.ImageFormat.Jpeg);
 
-                        // Thêm đường dẫn vào danh sách
-                        imagePaths.Add(fullPath);
+                        // Lưu **tên file** thay vì full path
+                        imagePaths.Add(randomFileName);
                     }
                 }
 
-                // Gộp các đường dẫn với dấu phẩy
                 string filePaths = string.Join(",", imagePaths);
 
-                // Lấy các giá trị cần thiết
                 var examination_service_id = Convert.ToInt32(dtgv_service.CurrentRow.Cells["examination_service_id"].Value);
                 var template_id = Convert.ToInt32(cb_template.SelectedValue);
                 string result = txb_result.Text;
                 string final_result = txb_final_result.Text;
 
-                // Kiểm tra xem có ảnh mới không
                 string query;
                 MySqlCommand cmd;
 
                 if (imagePaths.Count > 0)
                 {
-                    // Cập nhật cả đường dẫn ảnh
+                    // Nếu có ảnh mới thì update cả file_path
                     query = @"UPDATE examination_results SET 
-                     template_id=@template_id,
-                     result=@result,
-                     final_result=@final_result,
-                     file_path=@file_path
-                     WHERE examination_service_id = @examination_service_id";
+                    template_id=@template_id,
+                    result=@result,
+                    final_result=@final_result,
+                    file_path=@file_path
+                    WHERE examination_service_id = @examination_service_id";
 
                     cmd = new MySqlCommand(query, Db.conn);
                     cmd.Parameters.AddWithValue("@file_path", filePaths);
                 }
                 else
                 {
-                    // Không cập nhật đường dẫn ảnh
+                    // Không ảnh mới thì giữ nguyên file_path
                     query = @"UPDATE examination_results SET 
-                     template_id=@template_id,
-                     result=@result,
-                     final_result=@final_result
-                     WHERE examination_service_id = @examination_service_id";
+                    template_id=@template_id,
+                    result=@result,
+                    final_result=@final_result
+                    WHERE examination_service_id = @examination_service_id";
 
                     cmd = new MySqlCommand(query, Db.conn);
                 }
@@ -766,20 +812,7 @@ namespace QuanLyPhongKham
                 Db.ResetConnection();
             }
         }
-        private void btn_print_Click(object sender, EventArgs e)
-        {
-            if (dtgv_service.CurrentRow == null || txb_result.Text.Trim() == "")
-            {
-                MessageBox.Show("Vui lòng chọn dịch vụ có kết quả để in.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
 
-            printDocument1.DocumentName = "Kết quả";
-            printDocument1.PrintPage += new PrintPageEventHandler(PrintDocument_PrintPage);
-
-            printPreviewDialog1.Document = printDocument1;
-            printPreviewDialog1.ShowDialog();
-        }
 
         private void btn_resetpicturebox_Click(object sender, EventArgs e)
         {

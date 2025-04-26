@@ -45,7 +45,9 @@ namespace QuanLyPhongKham
         JOIN 
             diagnoses d ON e.diagnosis_id = d.id
         JOIN 
-            doctor_notes dn ON e.doctor_note_id = dn.id;
+            doctor_notes dn ON e.doctor_note_id = dn.id
+         ORDER BY e.id DESC
+        
     ";
             Db.LoadDTGV(dtgv, query);
 

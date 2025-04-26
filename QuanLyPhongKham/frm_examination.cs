@@ -84,9 +84,9 @@ namespace QuanLyPhongKham
                 label27.Visible = true;
             }
             else
-            
+
                 label27.Visible = false;
-            
+
 
 
         }
@@ -101,7 +101,8 @@ namespace QuanLyPhongKham
             LoadDTGV_Service();
             btn_deletemed.Enabled = false;
             cb_diagnoses.SelectedIndex = 0;
-   
+            webBrowser1.Visible = false;
+
 
 
         }
@@ -139,7 +140,7 @@ namespace QuanLyPhongKham
         {
             string query = "SELECT id, name FROM medications order by name asc";
             Db.LoadComboBoxData(cb_medname, query, "name", "id");
-            cb_medname.SelectedIndex = 0;  // Chọn phần tử đầu tiên sau khi load dữ liệu
+
 
         }
 
@@ -154,18 +155,18 @@ namespace QuanLyPhongKham
             dtgv_med.Rows[rowIndex].Cells[5].Value = txb_times.Text;
             dtgv_med.Rows[rowIndex].Cells[6].Value = txb_mednote.Text;
             dtgv_med.Rows[rowIndex].Cells[7].Value = txb_quantity.Text;
-            dtgv_med.Rows[rowIndex].Cells[8].Value =  txb_price.Text;
+            dtgv_med.Rows[rowIndex].Cells[8].Value = txb_price.Text;
             dtgv_med.Rows[rowIndex].Cells[9].Value = txb_totalpricepermed.Text;
             lb_totalprice.Text = "Tổng tiền";
 
             decimal total = 0;
             foreach (DataGridViewRow row in dtgv_med.Rows)
-            
+
                 if (row.Cells[9].Value != null && decimal.TryParse(row.Cells[9].Value.ToString(), out decimal rowTotal))
-                
+
                     total += rowTotal;
-                
-            
+
+
             lb_totalprice.Text = "Tổng tiền: " + total.ToString("N0") + " đ";
 
         }
@@ -212,7 +213,7 @@ namespace QuanLyPhongKham
         {
             int quantity = Convert.ToInt32(txb_quantity.Value);
             int price = Convert.ToInt32(txb_price.Text);
-            txb_totalpricepermed.Text = quantity * price+"";
+            txb_totalpricepermed.Text = quantity * price + "";
         }
 
         private void btn_deletemed_Click(object sender, EventArgs e)
@@ -269,11 +270,11 @@ namespace QuanLyPhongKham
         {
             try
             {
-                    string queryExamination = @"
-INSERT INTO examinations 
-(id, patient_id, reason, diagnosis_id, doctor_note_id, note, pulse, blood_pressure, respiratory_rate, weight, height, temperature, type, created_at, updated_at) 
-VALUES 
-(NULL, @patient_id, @reason, @diagnosis_id, @doctor_note_id, @note, @pulse, @blood_pressure, @respiratory_rate, @weight, @height, @temperature, @type, current_timestamp(), current_timestamp());";
+                string queryExamination = @"
+                    INSERT INTO examinations 
+                    (id, patient_id, reason, diagnosis_id, doctor_note_id, note, pulse, blood_pressure, respiratory_rate, weight, height, temperature, type, created_at, updated_at) 
+                    VALUES 
+                    (NULL, @patient_id, @reason, @diagnosis_id, @doctor_note_id, @note, @pulse, @blood_pressure, @respiratory_rate, @weight, @height, @temperature, @type, current_timestamp(), current_timestamp());";
 
                 MySqlCommand cmd = new MySqlCommand(queryExamination, Db.conn);
 
@@ -334,16 +335,16 @@ VALUES
 
                 Db.conn.Close();
             if (Db.conn.State != ConnectionState.Open)
-            
+
                 Db.conn.Open();
-            
+
         }
 
         private void dtgv_service_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
-             
+
                 if (dtgv_service.Columns[e.ColumnIndex].Name == "add_service")
                 {
                     DataGridViewRow selectedRow = dtgv_service.Rows[e.RowIndex];
@@ -370,10 +371,10 @@ VALUES
                 {
                     dtgv_service_patient.Rows.RemoveAt(e.RowIndex);
                     UpdateTotalServicePrice();
-                }  
-                    
-                 
-            
+                }
+
+
+
         }
 
         private void btn_save_examination_service_Click(object sender, EventArgs e)
@@ -390,7 +391,7 @@ VALUES
 
                 // Gán giá trị cho các parameter
                 cmd.Parameters.AddWithValue("@patient_id", Convert.ToInt16(txb_id.Text));
-                cmd.Parameters.AddWithValue("@reason", lbsdfsf.Text);
+                cmd.Parameters.AddWithValue("@reason", txb_reason.Text);
                 cmd.Parameters.AddWithValue("@diagnosis_id", Convert.ToInt16(cb_diagnoses.SelectedValue));
                 cmd.Parameters.AddWithValue("@doctor_note_id", Convert.ToInt16(cb_doctornote.SelectedValue));
                 cmd.Parameters.AddWithValue("@note", txb_note.Text);
@@ -404,7 +405,7 @@ VALUES
 
                 cmd.ExecuteNonQuery();
                 string queryGetExamID = "SELECT LAST_INSERT_ID();";
-                cmd = new MySqlCommand(queryGetExamID,   Db.conn);
+                cmd = new MySqlCommand(queryGetExamID, Db.conn);
                 int examinationID = Convert.ToInt32(cmd.ExecuteScalar());
 
                 foreach (DataGridViewRow row in dtgv_service_patient.Rows)
@@ -450,199 +451,209 @@ VALUES
                 }
             }
 
-            lb_total_price_service.Text = total.ToString("N0"); // định dạng tiền, có thể dùng "C" nếu muốn hiển thị đơn vị tiền tệ
+            lb_total_price_service.Text = total.ToString("N0");
         }
 
         private void btn_print_prescription_Click(object sender, EventArgs e)
         {
-            printPreviewDialog1.Document = printDocument1;
+            string html = @"
+<html>
+<head>
+    <meta charset='UTF-8'>
+</head>
+<body style='font-family: Segoe UI, sans-serif; margin: 20px; color: #333; background-color: #fff; line-height: 1.6;'>
+    <h1 style='text-align: center; font-size: 22px; font-weight: 600; margin-bottom: 5px;'>PHÒNG KHÁM ĐA KHOA BÌNH TÂN</h1>
+    <h2 style='text-align: center; font-size: 14px; margin-bottom: 10px;'>Địa chỉ: 166 Lã Văn Quý, Q. Bình Tân | ĐT: 08 54594554</h2>
+    <div style='border-top: 1px solid #3498db; margin: 10px 0;'></div>
+    
+    <h1 style='text-align: center; font-size: 20px; font-weight: 600; margin-bottom: 10px;'>ĐƠN THUỐC</h1>
+    
+    <div style='text-align: right; font-size: 12px; color: #7f8c8d;'>Mã phiếu khám: " + txb_exam_id.Text + @"</div>
 
-            // Mở bản xem trước
-            printPreviewDialog1.ShowDialog();
-        }
+    <div style='border-top: 1px solid #ddd; margin: 10px 0;'></div>
 
-        private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
-        {
-            // Khai báo font
-            Font titleFont = new Font("Arial", 16, FontStyle.Bold);
-            Font contentFont = new Font("Arial", 12);
-            Font smallFont = new Font("Arial", 10);
-            Font boldContentFont = new Font("Arial", 12, FontStyle.Bold); // Font đậm cho tên thuốc
+    <h2 style='font-size: 16px; font-weight: 500; color: #2980b9; margin-top: 10px;'>THÔNG TIN BỆNH NHÂN</h2>
+    <div style='font-size: 14px; margin-top: 5px;'>Mã bệnh nhân: " + txb_id.Text + @"</div>
+    <div style='font-size: 14px; margin-top: 5px;'>Họ tên: " + txb_name.Text + @"</div>
+    <div style='font-size: 14px; margin-top: 5px;'>Năm sinh: " + txb_ngaysinh.Text + @" | Giới tính: " + txb_gender.Text + @"</div>
+    <div style='font-size: 14px; margin-top: 5px;'>Chẩn đoán: " + cb_diagnoses.Text + @"</div>
 
-            // Khởi tạo vị trí
-            float y = 20;
-            float leftMargin = e.MarginBounds.Left;
-            float rightMargin = e.MarginBounds.Right;
+    <h2 style='font-size: 16px; font-weight: 500; color: #2980b9; margin-top: 10px;'>DANH SÁCH THUỐC</h2>
+    <table style='width: 100%; border-collapse: collapse; margin-top: 10px;'>
+        <thead>
+            <tr>
+                <th style='border: 1px solid #ccc; padding: 5px;'>Tên thuốc</th>
+                <th style='border: 1px solid #ccc; padding: 5px;'>Liều dùng</th>
+                <th style='border: 1px solid #ccc; padding: 5px;'>Đường dùng</th>
+                <th style='border: 1px solid #ccc; padding: 5px;'>Ghi chú</th>
+                <th style='border: 1px solid #ccc; padding: 5px;'>Đơn giá</th>
+                <th style='border: 1px solid #ccc; padding: 5px;'>Tổng tiền</th>
+            </tr>
+        </thead>
+        <tbody>";
 
-            // In thông tin phòng khám (căn trái và phải)
-            e.Graphics.DrawString("Phòng Khám Đa Khoa Bình Tân", contentFont, Brushes.Black, leftMargin, y);
-        
-            y += 20;
-            e.Graphics.DrawString("166 Lã Văn Quý, Q. Bình Tân", contentFont, Brushes.Black, leftMargin, y);
-
-            y += 20;
-            e.Graphics.DrawString("08 54594554", contentFont, Brushes.Black, leftMargin, y);
-            y += 40;
-
-            // In tiêu đề chính (căn giữa)
-            string title = "ĐƠN THUỐC";
-            float titleWidth = e.Graphics.MeasureString(title, titleFont).Width;
-            e.Graphics.DrawString(title, titleFont, Brushes.Black, (e.MarginBounds.Width - titleWidth) / 2 + leftMargin, y);
-            y += 40;
-
-            // In thông tin bệnh nhân
-            e.Graphics.DrawString($"Họ tên: {txb_name.Text}", contentFont, Brushes.Black, leftMargin, y);
-            e.Graphics.DrawString($"Năm sinh: {txb_ngaysinh.Text}", contentFont, Brushes.Black, leftMargin + 300, y);
-            y += 25;
-            e.Graphics.DrawString($"Giới tính: {txb_gender.Text}", contentFont, Brushes.Black, leftMargin, y);
-            e.Graphics.DrawString($"Chẩn đoán: {txb_reason.Text}", contentFont, Brushes.Black, leftMargin + 300, y);
-            y += 40;
-
-            // In danh sách thuốc (không dùng cột, chỉ in theo định dạng yêu cầu)
-            int medicineIndex = 1;
+            // Dynamically generate table rows from DataGridView
             foreach (DataGridViewRow row in dtgv_med.Rows)
             {
                 if (row.IsNewRow) continue;
 
-                // Lấy thông tin thuốc
-                string medicineName = row.Cells[1].Value?.ToString() ?? ""; // Tên thuốc (cột 1)
-                string quantity = row.Cells[7].Value?.ToString() ?? ""; // Số lượng (cột 7)
-                string note = row.Cells[6].Value?.ToString() ?? ""; // Ghi chú (cột 6)
+                string medicineName = row.Cells[1].Value?.ToString() ?? "";
+                string dosage = row.Cells[3].Value?.ToString() ?? "";
+                string route = row.Cells[4].Value?.ToString() ?? "";
+                string note = row.Cells[6].Value?.ToString() ?? "";
+                string price = row.Cells[8].Value?.ToString() ?? "";
+                string total = row.Cells[9].Value?.ToString() ?? "";
 
-                // In số thứ tự và tên thuốc (in đậm)
-                string medicineLine = $"{medicineIndex}. {medicineName}";
-                e.Graphics.DrawString(medicineLine, boldContentFont, Brushes.Black, leftMargin, y);
-
-                // In số lượng (căn phải trên cùng dòng)
-                string quantityLine = $"Số lượng {quantity} viên";
-                float quantityWidth = e.Graphics.MeasureString(quantityLine, contentFont).Width;
-                e.Graphics.DrawString(quantityLine, contentFont, Brushes.Black, rightMargin - quantityWidth, y);
-                y += 25;
-
-                // In ghi chú (thụt lề)
-                if (!string.IsNullOrEmpty(note))
-                {
-                    e.Graphics.DrawString(note, contentFont, Brushes.Black, leftMargin + 20, y);
-                    y += 25;
-                }
-
-                medicineIndex++;
+                html += $@"
+            <tr>
+                <td style='border: 1px solid #ccc; padding: 5px;'>{medicineName}</td>
+                <td style='border: 1px solid #ccc; padding: 5px;'>{dosage}</td>
+                <td style='border: 1px solid #ccc; padding: 5px;'>{route}</td>
+                <td style='border: 1px solid #ccc; padding: 5px;'>{note}</td>
+                <td style='border: 1px solid #ccc; padding: 5px;'>{price}</td>
+                <td style='border: 1px solid #ccc; padding: 5px;'>{total}</td>
+            </tr>";
             }
 
-            // In lời dặn và chữ ký bác sĩ
-            y += 40;
-            e.Graphics.DrawString($"Lời dặn: {cb_doctornote.Text}", contentFont, Brushes.Black, leftMargin, y);
-            y += 25;
-            e.Graphics.DrawString($"Ngày {DateTime.Now.Day} Tháng {DateTime.Now.Month} Năm {DateTime.Now.Year}", smallFont, Brushes.Black, leftMargin + 500, y);
-            y += 25;
-            e.Graphics.DrawString("Bác sĩ", smallFont, Brushes.Black, leftMargin + 500, y);
-            y += 50;
-            e.Graphics.DrawString($"BS CK1", contentFont, Brushes.Black, leftMargin + 500, y);
-        }
+            html += @"
+        </tbody>
+    </table>
+
+    <div style='text-align: right; font-size: 14px; margin-top: 10px; font-weight: bold;'>Tổng tiền thuốc: " + lb_totalprice.Text + @"</div>
+
+    <div style='margin-top: 30px; text-align: right; font-size: 14px;'>
+        <div>Ngày " + DateTime.Now.Day + " tháng " + DateTime.Now.Month + " năm " + DateTime.Now.Year + @"</div>
+        <div style='font-weight: bold; margin-top: 10px;'>BÁC SĨ</div>
+        <div style='margin-top: 50px;'>(Ký, họ tên)</div>
+    </div>
+</body>
+</html>";
 
 
+            Form previewForm = new Form
+            {
+                Text = "Xem trước",
+                Width = 800,
+                Height = 1000,
+                StartPosition = FormStartPosition.CenterScreen
+            };
 
+            WebBrowser browser = new WebBrowser
+            {
+                Dock = DockStyle.Fill,
+                DocumentText = html
+            };
+            System.Windows.Forms.Button printButton = new System.Windows.Forms.Button
+            {
+                Text = "In phiếu",
+                Dock = DockStyle.Bottom,
+                Height = 40
+            };
 
-        private void printDocument1_BeginPrint(object sender, PrintEventArgs e)
-        {
-            PrintDialog dlg = new PrintDialog();
-            dlg.Document = printDocument1;
+            printButton.Click += (s, ev) => {
+                browser.ShowPrintPreviewDialog();  // Hiển thị hộp thoại xem trước bản in của hệ thống
+            };
 
-            if (dlg.ShowDialog() != DialogResult.OK)
-                e.Cancel = true; 
-            
+            previewForm.Controls.Add(browser);
+            previewForm.Controls.Add(printButton);
+            previewForm.ShowDialog();
         }
 
         private void btn_print_service_Click(object sender, EventArgs e)
         {
-            printPreviewDialog2.Document = printDocument2;
-            printPreviewDialog2.ShowDialog();
-        }
-
-        private void printDocument2_PrintPage(object sender, PrintPageEventArgs e)
-        {
-            // Khai báo font chữ
-            Font titleFont = new Font("Arial", 16, FontStyle.Bold);
-            Font contentFont = new Font("Arial", 12);
-            Font smallFont = new Font("Arial", 10);
-            Font boldContentFont = new Font("Arial", 12, FontStyle.Bold); // Font đậm cho tên thuốc
-
-            // Khởi tạo vị trí
-            float y = 20;
-            float leftMargin = e.MarginBounds.Left;
-            float rightMargin = e.MarginBounds.Right;
-
-            // In thông tin phòng khám (căn trái)
-            e.Graphics.DrawString("Phòng Khám Đa Khoa Bình Tân", contentFont, Brushes.Black, leftMargin, y);
-            y += 20;
-            e.Graphics.DrawString("166 Lã Văn Quý, Q. Bình Tân", contentFont, Brushes.Black, leftMargin, y);
-            y += 20;
-            e.Graphics.DrawString("08 54594554", contentFont, Brushes.Black, leftMargin, y);
-            y += 40;
-
-            // In tiêu đề chính (căn giữa)
-            string title = "Phiếu chỉ định";
-            float titleWidth = e.Graphics.MeasureString(title, titleFont).Width;
-            e.Graphics.DrawString(title, titleFont, Brushes.Black, (e.MarginBounds.Width - titleWidth) / 2 + leftMargin, y);
-            y += 40;
-
-            // In thông tin bệnh nhân
-            e.Graphics.DrawString($"Họ tên: {txb_name.Text}", contentFont, Brushes.Black, leftMargin, y);
-            e.Graphics.DrawString($"Năm sinh: {txb_ngaysinh.Text}", contentFont, Brushes.Black, leftMargin + 300, y);
-            y += 25;
-            e.Graphics.DrawString($"Giới tính: {txb_gender.Text}", contentFont, Brushes.Black, leftMargin, y);
-            e.Graphics.DrawString($"Chẩn đoán: {txb_reason.Text}", contentFont, Brushes.Black, leftMargin + 300, y);
-            y += 40;
-
-            // In danh sách dịch vụ chỉ định
-            e.Graphics.DrawString("Mã chỉ định", boldContentFont, Brushes.Black, leftMargin, y);
-            e.Graphics.DrawString("Tên chỉ định", boldContentFont, Brushes.Black, leftMargin + 120, y);
-            e.Graphics.DrawString("Tiền", boldContentFont, Brushes.Black, leftMargin + 400, y);
-            y += 25;
-            int serviceIndex = 1;
+            string html = @"
+<html>
+<head>
+    <meta charset='UTF-8'>
+</head>
+<body style='font-family: Segoe UI, sans-serif; margin: 20px; color: #333; background-color: #fff; line-height: 1.6;'>
+    <h1 style='text-align: center; font-size: 22px; font-weight: 600; margin-bottom: 5px;'>PHÒNG KHÁM ĐA KHOA BÌNH TÂN</h1>
+    <h2 style='text-align: center; font-size: 14px; margin-bottom: 10px;'>Địa chỉ: 166 Lã Văn Quý, Q. Bình Tân | ĐT: 08 54594554</h2>
+    <div style='border-top: 1px solid #3498db; margin: 10px 0;'></div>
+    
+    <h1 style='text-align: center; font-size: 20px; font-weight: 600; margin-bottom: 10px;'>PHIẾU CHỈ ĐỊNH</h1>
+    
+    <div style='text-align: right; font-size: 12px; color: #7f8c8d;'>Mã phiếu khám: " + txb_exam_id.Text + @"</div>
+    <div style='border-top: 1px solid #ddd; margin: 10px 0;'></div>
+    <h2 style='font-size: 16px; font-weight: 500; color: #2980b9; margin-top: 10px;'>THÔNG TIN BỆNH NHÂN</h2>
+    <div style='font-size: 14px; margin-top: 5px;'>Mã bệnh nhân: " + txb_id.Text + @"</div>
+    <div style='font-size: 14px; margin-top: 5px;'>Họ tên: " + txb_name.Text + @"</div>
+    <div style='font-size: 14px; margin-top: 5px;'>Năm sinh: " + txb_ngaysinh.Text + @" | Giới tính: " + txb_gender.Text + @"</div>
+    <div style='font-size: 14px; margin-top: 5px;'>Chẩn đoán: " + cb_diagnoses.Text + @"</div>
+    <h2 style='font-size: 16px; font-weight: 500; color: #2980b9; margin-top: 10px;'>DANH SÁCH CHỈ ĐỊNH</h2>
+    <table style='width: 100%; border-collapse: collapse; margin-top: 10px;'>
+        <thead>
+            <tr>
+                <th style='border: 1px solid #ccc; padding: 5px;'>Mã dịch vụ</th>
+                <th style='border: 1px solid #ccc; padding: 5px;'>Tên dịch vụ</th>
+                <th style='border: 1px solid #ccc; padding: 5px;'>Đơn giá</th>
+                <th style='border: 1px solid #ccc; padding: 5px;'>Ghi chú</th>
+            </tr>
+        </thead>
+        <tbody>";
+            // Dynamically generate table rows from DataGridView
             foreach (DataGridViewRow row in dtgv_service_patient.Rows)
             {
                 if (row.IsNewRow) continue;
-
                 string serviceId = row.Cells[0].Value?.ToString() ?? "";
                 string serviceName = row.Cells[1].Value?.ToString() ?? "";
-                string price = row.Cells[2].Value?.ToString() ?? ""; // Giả sử cột số 3 là cột Tiền
-
-                e.Graphics.DrawString(serviceId, contentFont, Brushes.Black, leftMargin, y);
-                e.Graphics.DrawString(serviceName, contentFont, Brushes.Black, leftMargin + 120, y);
-                e.Graphics.DrawString(price, contentFont, Brushes.Black, leftMargin + 400, y);
-
-                y += 20;
+                string price = row.Cells[2].Value?.ToString() ?? "";
+                string note = row.Cells[3].Value?.ToString() ?? ""; // Giả định có cột ghi chú
+                html += $@"
+        <tr>
+            <td style='border: 1px solid #ccc; padding: 5px;'>{serviceId}</td>
+            <td style='border: 1px solid #ccc; padding: 5px;'>{serviceName}</td>
+            <td style='border: 1px solid #ccc; padding: 5px;'>{price}</td>
+            <td style='border: 1px solid #ccc; padding: 5px;'>{note}</td>
+        </tr>";
             }
+            html += @"
+        </tbody>
+    </table>
+    <div style='text-align: right; font-size: 14px; margin-top: 10px; font-weight: bold;'>Tổng tiền dịch vụ: " + lb_total_price_service.Text + @"</div>
+    <div style='margin-top: 30px; text-align: right; font-size: 14px;'>
+        <div>Ngày " + DateTime.Now.Day + " tháng " + DateTime.Now.Month + " năm " + DateTime.Now.Year + @"</div>
+        <div style='font-weight: bold; margin-top: 10px;'>BÁC SĨ</div>
+        <div style='margin-top: 50px;'>(Ký, họ tên)</div>
+    </div>
+</body>
+</html>";
 
-            // In lời dặn và chữ ký bác sĩ
-            y += 40;
-            e.Graphics.DrawString($"Lời dặn: {cb_doctornote.Text}", contentFont, Brushes.Black, leftMargin, y);
-            y += 25;
 
-            e.Graphics.DrawString($"Ngày {DateTime.Now.Day} Tháng {DateTime.Now.Month} Năm {DateTime.Now.Year}", smallFont, Brushes.Black, leftMargin + 500, y);
-            y += 25;
-            e.Graphics.DrawString("Bác sĩ", smallFont, Brushes.Black, leftMargin + 500, y);
-            y += 50;
-            e.Graphics.DrawString("BS CK1", contentFont, Brushes.Black, leftMargin + 500, y);
 
-        }
 
-        private void printDocument2_BeginPrint(object sender, PrintEventArgs e)
-        {
-            PrintDialog dlg = new PrintDialog();
-            dlg.Document = printDocument2;
-
-            if (dlg.ShowDialog() != DialogResult.OK)
+            Form previewForm = new Form
             {
-                e.Cancel = true; // Hủy in nếu người dùng không chọn in
-            }
+                Text = "Xem trước ",
+                Width = 800,
+                Height = 1000,
+                StartPosition = FormStartPosition.CenterScreen
+            };
+
+            WebBrowser browser = new WebBrowser
+            {
+                Dock = DockStyle.Fill,
+                DocumentText = html
+            };
+            System.Windows.Forms.Button printButton = new System.Windows.Forms.Button
+            {
+                Text = "In phiếu",
+                Dock = DockStyle.Bottom,
+                Height = 40
+            };
+
+            printButton.Click += (s, ev) => {
+                browser.ShowPrintPreviewDialog();  // Hiển thị hộp thoại xem trước bản in của hệ thống
+            };
+
+            previewForm.Controls.Add(browser);
+            previewForm.Controls.Add(printButton);
+            previewForm.ShowDialog();
         }
+
 
 
     }
-
-
 }
 
 

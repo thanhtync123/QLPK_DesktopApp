@@ -344,49 +344,74 @@ namespace QuanLyPhongKham
                 return;
             }
 
+            // Tạo HTML phiếu kết quả X-quang
             string html = $@"
 <html>
 <head>
 </head>
-<body style='font-family: Segoe UI, sans-serif; margin: 20px; color: #333; background-color: #fff; line-height: 1.4;'>
-    <h1 style='text-align: center; font-size: 22px; font-weight: 600; margin-bottom: 5px;'>PHÒNG KHÁM ĐA KHOA</h1>
-    <h2 style='text-align: center; font-size: 14px; margin-bottom: 10px;'>Địa chỉ: 123 Đường Thanh Niên, Quận Hải Châu, Đà Nẵng | ĐT: 0123-456-789</h2>
-    <div style='border-top: 1px solid #3498db; margin: 10px 0;'></div>
-    <h1 style='text-align: center; font-size: 20px; font-weight: 600; margin-bottom: 10px;'>PHIẾU KẾT QUẢ X-QUANG</h1>
-    <div style='text-align: right; font-size: 12px; color: #7f8c8d;'>Thời gian in phiếu: {DateTime.Now:dd/MM/yyyy HH:mm:ss}</div>
+<body style='font-family: Segoe UI, sans-serif; margin: 40px; color: #333; background-color: #f4f4f9; line-height: 1.6;'>
+    <h1 style='text-align: center; font-size: 28px; font-weight: 600; color: #2c3e50;'>PHÒNG KHÁM ĐA KHOA</h1>
+    <h2 style='text-align: center; font-size: 18px; color: #2c3e50;'>Địa chỉ: 123 Đường Thanh Niên, Quận Hải Châu, Đà Nẵng | ĐT: 0123-456-789</h2>
+    <div style='border-top: 2px solid #3498db; margin: 20px 0;'></div>
+    <h1 style='text-align: center; font-size: 28px; font-weight: 600; color: #2c3e50;'>PHIẾU KẾT QUẢ X-QUANG</h1>
+    <div style='text-align: right; font-size: 14px; color: #7f8c8d;'>
+        <div>Thời gian in phiếu: {DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")}</div>
+    </div>
     <div style='border-top: 1px solid #ddd; margin: 10px 0;'></div>
-
-    <h2 style='font-size: 16px; font-weight: 500; color: #2980b9; margin-top: 10px;'>THÔNG TIN BỆNH NHÂN</h2>
-    <div style='font-size: 14px; margin-top: 5px;'>Mã BN: {txb_id_patient.Text} | Họ tên: {txb_name.Text}</div>
-    <div style='font-size: 14px; margin-top: 5px;'>Giới tính: {txb_gender.Text} | Ngày sinh: {txb_dob.Text}</div>
-    <div style='font-size: 14px; margin-top: 5px;'>SĐT: {txb_phone.Text} | Địa chỉ: {txb_address.Text}</div>
-
-    <h2 style='font-size: 16px; font-weight: 500; color: #2980b9; margin-top: 10px;'>THÔNG TIN KHÁM</h2>
-    <div style='font-size: 14px; margin-top: 5px;'>Mã phiếu khám: {txb_id_exam.Text} | Ngày khám: {txb_reception_date.Text}</div>
-    <div style='font-size: 14px; margin-top: 5px;'>Lý do khám: {txb_reason.Text}</div>
-    <div style='font-size: 14px; margin-top: 5px;'>Chỉ định: {txb_service.Text} | Mã phiếu KQ: {dtgv_service.CurrentRow.Cells["examination_service_id"].Value?.ToString()}</div>
-
-    <h2 style='font-size: 16px; font-weight: 500; color: #2980b9; margin-top: 10px;'>KẾT QUẢ X-QUANG</h2>
-    <div style='font-size: 14px; margin-top: 5px; background-color: #fafafa; padding: 10px; border-radius: 5px;'>
+    
+    <h2 style='font-size: 20px; font-weight: 500; color: #2980b9;'>THÔNG TIN BỆNH NHÂN</h2>
+    <div style='display: flex; justify-content: space-between; font-size: 16px;'>
+        <div style='width: 48%;'>Mã BN: {txb_id_patient.Text}</div>
+        <div style='width: 48%;'>Họ tên: {txb_name.Text}</div>
+    </div>
+    <div style='display: flex; justify-content: space-between; font-size: 16px; margin-top: 10px;'>
+        <div style='width: 48%;'>Giới tính: {txb_gender.Text}</div>
+        <div style='width: 48%;'>Ngày sinh: {txb_dob.Text}</div>
+    </div>
+    <div style='display: flex; justify-content: space-between; font-size: 16px; margin-top: 10px;'>
+        <div style='width: 48%;'>SĐT: {txb_phone.Text}</div>
+        <div style='width: 48%;'>Địa chỉ: {txb_address.Text}</div>
+    </div>
+    
+    <h2 style='font-size: 20px; font-weight: 500; color: #2980b9; margin-top: 20px;'>THÔNG TIN KHÁM</h2>
+    <div style='display: flex; justify-content: space-between; font-size: 16px;'>
+        <div style='width: 48%;'>Mã phiếu khám: {txb_id_exam.Text}</div>
+        <div style='width: 48%;'>Ngày khám: {txb_reception_date.Text}</div>
+    </div>
+    <div style='font-size: 16px; margin-top: 10px;'>Lý do khám: {txb_reason.Text}</div>
+    <div style='display: flex; justify-content: space-between; font-size: 16px; margin-top: 10px;'>
+        <div style='width: 48%;'>Chỉ định: {txb_service.Text}</div>
+        <div style='width: 48%;'>Mã phiếu KQ: {dtgv_service.CurrentRow.Cells["examination_service_id"].Value?.ToString()}</div>
+    </div>
+    
+    <h2 style='font-size: 20px; font-weight: 500; color: #2980b9; margin-top: 20px;'>KẾT QUẢ X-QUANG</h2>
+    <div style='font-size: 16px; margin-top: 10px; background-color: white; padding: 15px; border-radius: 5px;'>
         {txb_result.Text.Replace(Environment.NewLine, "<br/>")}
     </div>
+";
 
-    {(string.IsNullOrWhiteSpace(txb_final_result.Text) ? "" : $@"
-        <h2 style='font-size: 16px; font-weight: 500; color: #2980b9; margin-top: 10px;'>KẾT LUẬN</h2>
-        <div style='font-size: 14px; margin-top: 5px; background-color: #fafafa; padding: 10px; border-radius: 5px;'>
-            {txb_final_result.Text.Replace(Environment.NewLine, "<br/>")}
-        </div>
-    ")}
+            // Thêm phần kết luận nếu có
+            if (!string.IsNullOrWhiteSpace(txb_final_result.Text))
+            {
+                html += $@"
+    <h2 style='font-size: 20px; font-weight: 500; color: #2980b9; margin-top: 20px;'>KẾT LUẬN</h2>
+    <div style='font-size: 16px; margin-top: 10px; background-color: white; padding: 15px; border-radius: 5px;'>
+        {txb_final_result.Text.Replace(Environment.NewLine, "<br/>")}
+    </div>
+";
+            }
 
-    <div style='margin-top: 30px; text-align: right; font-size: 14px;'>
+            // Thêm phần chữ ký
+            html += $@"
+    <div style='margin-top: 40px; text-align: right; font-size: 16px;'>
         <div>Ngày {DateTime.Now.Day} tháng {DateTime.Now.Month} năm {DateTime.Now.Year}</div>
         <div style='font-weight: bold; margin-top: 10px;'>BÁC SĨ X-QUANG</div>
-        <div style='margin-top: 50px;'>(Ký, họ tên)</div>
+        <div style='margin-top: 70px;'>(Ký, họ tên)</div>
     </div>
 </body>
-
 </html>";
 
+            // Hiển thị bản xem trước
             Form previewForm = new Form
             {
                 Text = "Xem trước kết quả X-quang",
@@ -401,6 +426,7 @@ namespace QuanLyPhongKham
                 DocumentText = html
             };
 
+            // Thêm nút in
             Button printButton = new Button
             {
                 Text = "In phiếu",
@@ -409,13 +435,14 @@ namespace QuanLyPhongKham
             };
 
             printButton.Click += (s, ev) => {
-                browser.ShowPrintPreviewDialog();  // Hiển thị hộp thoại xem trước bản in của hệ thống
+                browser.Print();
             };
 
             previewForm.Controls.Add(browser);
             previewForm.Controls.Add(printButton);
             previewForm.ShowDialog();
         }
+
         private void btn_refresh_Click(object sender, EventArgs e)
         {
             dtgv_exam.Rows.Clear();
@@ -427,7 +454,5 @@ namespace QuanLyPhongKham
 			string keyword = txb_search.Text.Trim();
 			LoadExam.LoadDTGVCommon(dtgv_exam, "X-quang", keyword);
 		}
-
-
     }
 }

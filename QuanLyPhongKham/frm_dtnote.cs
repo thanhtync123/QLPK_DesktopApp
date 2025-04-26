@@ -124,7 +124,6 @@ namespace QuanLyPhongKham
             txb_id.ReadOnly = true;
             btn_update.Enabled = false;
             btn_delete.Enabled = false;
-
             txb_search.TextChanged += txb_search_TextChanged;
         }
     }

@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.label_1 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.label_2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -76,23 +76,26 @@
             this.guna2Panel1.Size = new System.Drawing.Size(229, 80);
             this.guna2Panel1.TabIndex = 0;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Bệnh nhân";
-            // 
             // label_1
             // 
             this.label_1.AutoSize = true;
+            this.label_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_1.ForeColor = System.Drawing.Color.Red;
             this.label_1.Location = new System.Drawing.Point(20, 37);
             this.label_1.Name = "label_1";
-            this.label_1.Size = new System.Drawing.Size(35, 13);
+            this.label_1.Size = new System.Drawing.Size(76, 25);
             this.label_1.TabIndex = 1;
             this.label_1.Text = "label2";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(17, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(96, 20);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Bệnh nhân";
             // 
             // guna2Panel2
             // 
@@ -108,18 +111,21 @@
             // label_2
             // 
             this.label_2.AutoSize = true;
+            this.label_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_2.ForeColor = System.Drawing.Color.Red;
             this.label_2.Location = new System.Drawing.Point(20, 37);
             this.label_2.Name = "label_2";
-            this.label_2.Size = new System.Drawing.Size(35, 13);
+            this.label_2.Size = new System.Drawing.Size(76, 25);
             this.label_2.TabIndex = 1;
             this.label_2.Text = "label3";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(17, 10);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(87, 13);
+            this.label4.Size = new System.Drawing.Size(143, 20);
             this.label4.TabIndex = 0;
             this.label4.Text = "Doanh thu thuốc";
             // 
@@ -137,18 +143,21 @@
             // label_3
             // 
             this.label_3.AutoSize = true;
+            this.label_3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_3.ForeColor = System.Drawing.Color.Red;
             this.label_3.Location = new System.Drawing.Point(20, 37);
             this.label_3.Name = "label_3";
-            this.label_3.Size = new System.Drawing.Size(35, 13);
+            this.label_3.Size = new System.Drawing.Size(76, 25);
             this.label_3.TabIndex = 1;
             this.label_3.Text = "label5";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(17, 10);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(95, 13);
+            this.label6.Size = new System.Drawing.Size(154, 20);
             this.label6.TabIndex = 0;
             this.label6.Text = "Doanh thu dịch vụ";
             // 
@@ -166,18 +175,21 @@
             // lb_6
             // 
             this.lb_6.AutoSize = true;
+            this.lb_6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_6.ForeColor = System.Drawing.Color.Red;
             this.lb_6.Location = new System.Drawing.Point(20, 37);
             this.lb_6.Name = "lb_6";
-            this.lb_6.Size = new System.Drawing.Size(35, 13);
+            this.lb_6.Size = new System.Drawing.Size(76, 25);
             this.lb_6.TabIndex = 1;
             this.lb_6.Text = "label7";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(17, 10);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(75, 13);
+            this.label8.Size = new System.Drawing.Size(123, 20);
             this.label8.TabIndex = 0;
             this.label8.Text = "Số ca điện tim";
             // 
@@ -195,18 +207,21 @@
             // lb_5
             // 
             this.lb_5.AutoSize = true;
+            this.lb_5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_5.ForeColor = System.Drawing.Color.Red;
             this.lb_5.Location = new System.Drawing.Point(20, 37);
             this.lb_5.Name = "lb_5";
-            this.lb_5.Size = new System.Drawing.Size(35, 13);
+            this.lb_5.Size = new System.Drawing.Size(76, 25);
             this.lb_5.TabIndex = 1;
             this.lb_5.Text = "label9";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(17, 10);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(80, 13);
+            this.label10.Size = new System.Drawing.Size(131, 20);
             this.label10.TabIndex = 0;
             this.label10.Text = "Số ca X-Quang";
             // 
@@ -224,18 +239,21 @@
             // lb_4
             // 
             this.lb_4.AutoSize = true;
+            this.lb_4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_4.ForeColor = System.Drawing.Color.Red;
             this.lb_4.Location = new System.Drawing.Point(20, 37);
             this.lb_4.Name = "lb_4";
-            this.lb_4.Size = new System.Drawing.Size(41, 13);
+            this.lb_4.Size = new System.Drawing.Size(89, 25);
             this.lb_4.TabIndex = 1;
             this.lb_4.Text = "label11";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(17, 10);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(83, 13);
+            this.label12.Size = new System.Drawing.Size(135, 20);
             this.label12.TabIndex = 0;
             this.label12.Text = "Tổng doanh thu";
             // 
@@ -253,18 +271,21 @@
             // lb_8
             // 
             this.lb_8.AutoSize = true;
+            this.lb_8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_8.ForeColor = System.Drawing.Color.Red;
             this.lb_8.Location = new System.Drawing.Point(20, 37);
             this.lb_8.Name = "lb_8";
-            this.lb_8.Size = new System.Drawing.Size(41, 13);
+            this.lb_8.Size = new System.Drawing.Size(89, 25);
             this.lb_8.TabIndex = 1;
             this.lb_8.Text = "label13";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.Location = new System.Drawing.Point(17, 10);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(91, 13);
+            this.label14.Size = new System.Drawing.Size(151, 20);
             this.label14.TabIndex = 0;
             this.label14.Text = "Số ca Xét nghiệm";
             // 
@@ -282,18 +303,21 @@
             // lb_7
             // 
             this.lb_7.AutoSize = true;
+            this.lb_7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_7.ForeColor = System.Drawing.Color.Red;
             this.lb_7.Location = new System.Drawing.Point(20, 37);
             this.lb_7.Name = "lb_7";
-            this.lb_7.Size = new System.Drawing.Size(41, 13);
+            this.lb_7.Size = new System.Drawing.Size(89, 25);
             this.lb_7.TabIndex = 1;
             this.lb_7.Text = "label15";
             // 
             // label16
             // 
             this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.Location = new System.Drawing.Point(17, 10);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(74, 13);
+            this.label16.Size = new System.Drawing.Size(122, 20);
             this.label16.TabIndex = 0;
             this.label16.Text = "Số ca siêu âm";
             // 
@@ -344,7 +368,7 @@
             this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.guna2Panel1);
             this.Name = "frm_statistic";
-            this.Text = "frm_statistic";
+            this.Text = "Thống kê tổng quan";
             this.Load += new System.EventHandler(this.frm_statistic_Load);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();

@@ -119,7 +119,7 @@ namespace QuanLyPhongKham
 
         private void điệnTimToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddTab(new frm_ecg());
+            AddTab(new frm_ecgg());
         }
 
         private void siêuÂmToolStripMenuItem_Click(object sender, EventArgs e)

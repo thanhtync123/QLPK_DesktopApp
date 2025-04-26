@@ -28,7 +28,7 @@ namespace QuanLyPhongKham
             LoadExam.InitialDTGVCommon(dtgv_exam);
             LoadExam.LoadDTGVCommon(dtgv_exam, "Xét nghiệm");
             LoadComboboxTemplate();
-
+            webBrowser1.Visible = false;
         }
         private void LoadComboboxTemplate()
         {
@@ -484,119 +484,168 @@ namespace QuanLyPhongKham
                     return;
                 }
 
-                // Tạo đối tượng PrintDocument
-                PrintDocument printDoc = new PrintDocument();
-                printDoc.PrintPage += new PrintPageEventHandler(PrintPageHandler);
+                // Tạo HTML phiếu kết quả xét nghiệm
+                string html = $@"
+<html>
+<head>
+    <style>
+        body {{
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 40px;
+            color: #333;
+            background-color: #f4f4f9;
+            line-height: 1.6;
+        }}
+        table {{
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }}
+        th {{
+            background-color: #f2f2f2;
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }}
+        td {{
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }}
+        .header {{
+            text-align: center;
+        }}
+        .divider {{
+            border-top: 2px solid #3498db;
+            margin: 20px 0;
+        }}
+        .section-title {{
+            font-size: 20px;
+            font-weight: 500;
+            color: #2980b9;
+            margin-top: 20px;
+        }}
+        .patient-info {{
+            display: flex;
+            flex-wrap: wrap;
+        }}
+        .patient-info-item {{
+            width: 50%;
+            margin-bottom: 5px;
+        }}
+        .signature {{
+            margin-top: 40px;
+            text-align: right;
+        }}
+    </style>
+</head>
+<body>
+    <div class='header'>
+        <h1 style='font-size: 28px; font-weight: 600; color: #2c3e50;'>BỆNH VIỆN ĐA KHOA XYZ</h1>
+        <h2 style='font-size: 18px; color: #2c3e50;'>123 Đường Láng, Quận Đống Đa, Hà Nội</h2>
+        <p style='font-size: 16px; color: #2c3e50;'>Điện thoại: (024) 1234 5678</p>
+    </div>
+    
+    <div class='divider'></div>
+    
+    <h1 class='header' style='font-size: 28px; font-weight: 600; color: #2c3e50;'>PHIẾU KẾT QUẢ XÉT NGHIỆM</h1>
+    
+    <div style='display: flex; justify-content: space-between; font-size: 16px; margin-top: 20px;'>
+        <div>Mã phiếu khám: {txb_id_exam.Text}</div>
+        <div>Mã kết quả: {dtgv_service.CurrentRow.Cells["examination_service_id"].Value?.ToString() ?? ""}</div>
+    </div>
+    
+    <h2 class='section-title'>THÔNG TIN BỆNH NHÂN</h2>
+    <div class='patient-info'>
+        <div class='patient-info-item'>Mã bệnh nhân: {txb_id_patient.Text}</div>
+        <div class='patient-info-item'>Họ tên: {txb_name.Text}</div>
+        <div class='patient-info-item'>Giới tính: {txb_gender.Text}</div>
+        <div class='patient-info-item'>Ngày sinh: {txb_dob.Text}</div>
+        <div class='patient-info-item'>Điện thoại: {txb_phone.Text}</div>
+        <div class='patient-info-item'>Địa chỉ: {txb_address.Text}</div>
+        <div class='patient-info-item'>Ngày tiếp nhận: {txb_reception_date.Text}</div>
+        <div class='patient-info-item'>Lý do khám: {txb_reason.Text}</div>
+    </div>
+    
+    <h2 class='section-title'>KẾT QUẢ XÉT NGHIỆM</h2>
+    <table>
+        <tr>
+            <th style='width: 22%;'>Nhóm xét nghiệm</th>
+            <th style='width: 28%;'>Tên xét nghiệm</th>
+            <th style='width: 15%;'>Kết quả</th>
+            <th style='width: 15%;'>Đơn vị</th>
+            <th style='width: 20%;'>Giá trị bình thường</th>
+        </tr>";
 
-                // Hiển thị bản xem trước in
-                PrintPreviewDialog previewDialog = new PrintPreviewDialog();
-                previewDialog.Document = printDoc;
-                previewDialog.WindowState = FormWindowState.Maximized;
-                previewDialog.ShowDialog();
+                // Thêm các dòng dữ liệu từ DataGridView
+                foreach (DataGridViewRow row in dtgv_result.Rows)
+                {
+                    if (row.IsNewRow) continue;
+                    string groupName = row.Cells[0].Value?.ToString() ?? "";
+                    string testName = row.Cells[1].Value?.ToString() ?? "";
+                    string result = row.Cells[2].Value?.ToString() ?? "";
+                    string unit = row.Cells[3].Value?.ToString() ?? "";
+                    string normalRange = row.Cells[4].Value?.ToString() ?? "";
+
+                    html += $@"
+        <tr>
+            <td>{groupName}</td>
+            <td>{testName}</td>
+            <td>{result}</td>
+            <td>{unit}</td>
+            <td>{normalRange}</td>
+        </tr>";
+                }
+
+                html += $@"
+    </table>
+    
+    <h2 class='section-title'>KẾT LUẬN</h2>
+    <div style='font-size: 16px; margin-top: 10px; background-color: white; padding: 15px; border-radius: 5px;'>
+        {txb_final_result.Text.Replace(Environment.NewLine, "<br/>")}
+    </div>
+    
+    <div class='signature'>
+        <div>Ngày {DateTime.Now.Day} tháng {DateTime.Now.Month} năm {DateTime.Now.Year}</div>
+        <div style='font-weight: bold; margin-top: 10px;'>BÁC SĨ XÉT NGHIỆM</div>
+        <div style='margin-top: 70px;'>(Ký và ghi rõ họ tên)</div>
+    </div>
+</body>
+</html>";
+
+
+                Form previewForm = new Form
+                {
+                    Text = "Xem trước ",
+                    Width = 800,
+                    Height = 1000,
+                    StartPosition = FormStartPosition.CenterScreen
+                };
+
+                WebBrowser browser = new WebBrowser
+                {
+                    Dock = DockStyle.Fill,
+                    DocumentText = html
+                };
+                System.Windows.Forms.Button printButton = new System.Windows.Forms.Button
+                {
+                    Text = "In phiếu",
+                    Dock = DockStyle.Bottom,
+                    Height = 40
+                };
+
+                printButton.Click += (s, ev) => {
+                    browser.ShowPrintPreviewDialog();  // Hiển thị hộp thoại xem trước bản in của hệ thống
+                };
+
+                previewForm.Controls.Add(browser);
+                previewForm.Controls.Add(printButton);
+                previewForm.ShowDialog();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi khi chuẩn bị in: " + ex.Message);
             }
-        }
-
-        private void PrintPageHandler(object sender, PrintPageEventArgs e)
-        {
-            // Font chữ
-            Font titleFont = new Font("Arial", 18, FontStyle.Bold);
-            Font subtitleFont = new Font("Arial", 14, FontStyle.Bold);
-            Font headerFont = new Font("Arial", 12, FontStyle.Bold);
-            Font regularFont = new Font("Arial", 10);
-            Font boldFont = new Font("Arial", 10, FontStyle.Bold);
-            float lineHeight = regularFont.GetHeight(e.Graphics) + 3; // Giảm khoảng cách dòng
-            float x = e.MarginBounds.Left;
-            float y = e.MarginBounds.Top;
-            Pen thinPen = new Pen(Brushes.Black, 0.5f);
-
-            // Thông tin bệnh viện
-            string hospitalName = "BỆNH VIỆN ĐA KHOA XYZ";
-            string hospitalAddress = "123 Đường Láng, Quận Đống Đa, Hà Nội";
-            string hospitalPhone = "Điện thoại: (024) 1234 5678";
-            e.Graphics.DrawString(hospitalName, titleFont, Brushes.Black, x + (e.MarginBounds.Width - e.Graphics.MeasureString(hospitalName, titleFont).Width) / 2, y);
-            y += e.Graphics.MeasureString(hospitalName, titleFont).Height;
-            e.Graphics.DrawString(hospitalAddress, regularFont, Brushes.Black, x + (e.MarginBounds.Width - e.Graphics.MeasureString(hospitalAddress, regularFont).Width) / 2, y);
-            y += lineHeight;
-            e.Graphics.DrawString(hospitalPhone, regularFont, Brushes.Black, x + (e.MarginBounds.Width - e.Graphics.MeasureString(hospitalPhone, regularFont).Width) / 2, y);
-            y += lineHeight + 10;
-
-            // Tiêu đề phiếu
-            string title = "PHIẾU KẾT QUẢ XÉT NGHIỆM";
-            e.Graphics.DrawString(title, subtitleFont, Brushes.Black, x + (e.MarginBounds.Width - e.Graphics.MeasureString(title, subtitleFont).Width) / 2, y);
-            y += e.Graphics.MeasureString(title, subtitleFont).Height + 10;
-
-            // Mã phiếu khám và mã kết quả
-            string examId = $"Mã phiếu khám: {txb_id_exam.Text}";
-            string resultId = $"Mã kết quả: {dtgv_service.CurrentRow.Cells["examination_service_id"].Value?.ToString() ?? ""}";
-            e.Graphics.DrawString(examId, regularFont, Brushes.Black, x, y);
-            e.Graphics.DrawString(resultId, regularFont, Brushes.Black, x + e.MarginBounds.Width / 2, y);
-            y += lineHeight + 10;
-
-            // Thông tin bệnh nhân
-            e.Graphics.DrawString("Thông tin bệnh nhân", headerFont, Brushes.Black, x, y);
-            y += lineHeight;
-            string[] patientLabels = { "Mã bệnh nhân:", "Họ tên:", "Giới tính:", "Ngày sinh:", "Điện thoại:", "Địa chỉ:", "Ngày tiếp nhận:", "Lý do khám:" };
-            string[] patientValues = { txb_id_patient.Text, txb_name.Text, txb_gender.Text, txb_dob.Text, txb_phone.Text, txb_address.Text, txb_reception_date.Text, txb_reason.Text };
-            for (int i = 0; i < patientLabels.Length; i++)
-            {
-                e.Graphics.DrawString($"{patientLabels[i]} {patientValues[i]}", regularFont, Brushes.Black, x, y);
-                y += lineHeight;
-            }
-            y += 10;
-
-            // Kết quả xét nghiệm
-            e.Graphics.DrawString("Kết quả xét nghiệm", headerFont, Brushes.Black, x, y);
-            y += lineHeight;
-
-            // Chiều rộng cột
-            float[] colWidths = { 150, 180, 80, 70, 120 }; // Tăng Nhóm xét nghiệm và Giá trị bình thường
-            float tableWidth = colWidths.Sum();
-            float[] colX = new float[colWidths.Length];
-            colX[0] = x;
-            for (int i = 1; i < colX.Length; i++)
-                colX[i] = colX[i - 1] + colWidths[i - 1];
-
-            // Tiêu đề bảng
-            string[] headers = { "Nhóm xét nghiệm", "Tên xét nghiệm", "Kết quả", "Đơn vị", "Giá trị bình thường" };
-            e.Graphics.FillRectangle(Brushes.LightGray, x, y, tableWidth, lineHeight);
-            for (int i = 0; i < headers.Length; i++)
-                e.Graphics.DrawString(headers[i], boldFont, Brushes.Black, colX[i] + 5, y + 2);
-            e.Graphics.DrawRectangle(thinPen, x, y, tableWidth, lineHeight);
-            for (int i = 1; i < colX.Length; i++)
-                e.Graphics.DrawLine(thinPen, colX[i], y, colX[i], y + lineHeight);
-            y += lineHeight;
-
-            // Dữ liệu bảng
-            foreach (DataGridViewRow row in dtgv_result.Rows)
-            {
-                if (row.IsNewRow) continue;
-                string groupName = row.Cells[0].Value?.ToString() ?? "";
-                string testName = row.Cells[1].Value?.ToString() ?? "";
-                string result = row.Cells[2].Value?.ToString() ?? "";
-                string unit = row.Cells[3].Value?.ToString() ?? "";
-                string normalRange = row.Cells[4].Value?.ToString() ?? "";
-                e.Graphics.DrawString(groupName, regularFont, Brushes.Black, colX[0] + 5, y + 2);
-                e.Graphics.DrawString(testName, regularFont, Brushes.Black, colX[1] + 5, y + 2);
-                e.Graphics.DrawString(result, regularFont, Brushes.Black, colX[2] + 5, y + 2);
-                e.Graphics.DrawString(unit, regularFont, Brushes.Black, colX[3] + 5, y + 2);
-                e.Graphics.DrawString(normalRange, regularFont, Brushes.Black, colX[4] + 5, y + 2);
-                e.Graphics.DrawRectangle(thinPen, x, y, tableWidth, lineHeight);
-                for (int i = 1; i < colX.Length; i++)
-                    e.Graphics.DrawLine(thinPen, colX[i], y, colX[i], y + lineHeight);
-                y += lineHeight;
-            }
-
-            // Kết luận
-            e.Graphics.DrawString("Kết luận: " + txb_final_result.Text, headerFont, Brushes.Black, x, y);
-            y += lineHeight;
-
-            // Chữ ký bác sĩ
-            e.Graphics.DrawString("BÁC SĨ XÉT NGHIỆM", boldFont, Brushes.Black, x + e.MarginBounds.Width - 150, y);
-            e.Graphics.DrawString("(Ký và ghi rõ họ tên)", regularFont, Brushes.Black, x + e.MarginBounds.Width - 150, y + lineHeight);
         }
 
         private void btn_refresh_Click(object sender, EventArgs e)

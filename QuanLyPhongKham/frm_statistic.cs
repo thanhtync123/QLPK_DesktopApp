@@ -1,14 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.ComponentModel.Design.ObjectSelectorEditor;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
 namespace QuanLyPhongKham
 {
@@ -18,10 +9,11 @@ namespace QuanLyPhongKham
         {
             InitializeComponent();
         }
+
         private void LoadThongKe()
         {
-            string fromDate = dateTimePicker1.Value.ToString("yyyy-MM-dd");
-            string toDate = dateTimePicker2.Value.ToString("yyyy-MM-dd");
+            string fromDate = dateTimePicker1.Value.ToString("yyyy-MM-dd 00:00:00");
+            string toDate = dateTimePicker2.Value.ToString("yyyy-MM-dd 23:59:59");
 
             // Tổng bệnh nhân
             string query1 = $"SELECT COUNT(*) FROM patients WHERE updated_at BETWEEN '{fromDate}' AND '{toDate}'";
@@ -40,19 +32,35 @@ namespace QuanLyPhongKham
             lb_4.Text = string.Format("{0:N0} VND", tong);
 
             // Số ca X-quang
-            string query5 = $"SELECT COUNT(*) FROM diagnoses WHERE type = 'X-quang' AND created_at BETWEEN '{fromDate}' AND '{toDate}'";
+            string query5 = $@"
+        SELECT COUNT(*) 
+        FROM examination_services es
+        JOIN services s ON es.service_id = s.id
+        WHERE s.type = 'X-quang' AND es.created_at BETWEEN '{fromDate}' AND '{toDate}'";
             lb_5.Text = Db.Scalar(query5).ToString();
 
             // Số ca Điện tim
-            string query6 = $"SELECT COUNT(*) FROM diagnoses WHERE type = 'Điện tim' AND created_at BETWEEN '{fromDate}' AND '{toDate}'";
+            string query6 = $@"
+        SELECT COUNT(*) 
+        FROM examination_services es
+        JOIN services s ON es.service_id = s.id
+        WHERE s.type = 'Điện tim' AND es.created_at BETWEEN '{fromDate}' AND '{toDate}'";
             lb_6.Text = Db.Scalar(query6).ToString();
 
             // Số ca Siêu âm
-            string query7 = $"SELECT COUNT(*) FROM diagnoses WHERE type = 'Siêu âm' AND created_at BETWEEN '{fromDate}' AND '{toDate}'";
+            string query7 = $@"
+        SELECT COUNT(*) 
+        FROM examination_services es
+        JOIN services s ON es.service_id = s.id
+        WHERE s.type = 'Siêu âm' AND es.created_at BETWEEN '{fromDate}' AND '{toDate}'";
             lb_7.Text = Db.Scalar(query7).ToString();
 
             // Số ca Xét nghiệm
-            string query8 = $"SELECT COUNT(*) FROM diagnoses WHERE type = 'Xét nghiệm' AND created_at BETWEEN '{fromDate}' AND '{toDate}'";
+            string query8 = $@"
+        SELECT COUNT(*) 
+        FROM examination_services es
+        JOIN services s ON es.service_id = s.id
+        WHERE s.type = 'Xét nghiệm' AND es.created_at BETWEEN '{fromDate}' AND '{toDate}'";
             lb_8.Text = Db.Scalar(query8).ToString();
         }
 
@@ -66,9 +74,6 @@ namespace QuanLyPhongKham
             dateTimePicker2.CustomFormat = "dd/MM/yyyy";
 
             LoadThongKe();
-
-
-
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
@@ -77,3 +82,11 @@ namespace QuanLyPhongKham
         }
     }
 }
+
+
+
+
+
+
+
+
