@@ -340,83 +340,67 @@ namespace QuanLyPhongKham
 <html>
 <head>
     <style>
-        body {{
-            font-family: 'Segoe UI', Arial, sans-serif;
-            margin: 40px;
-            color: #333;
-            background-color: #f4f4f9;
-            line-height: 1.6;
-        }}
-        .header {{
-            text-align: center;
-        }}
-        .divider {{
-            border-top: 2px solid #3498db;
-            margin: 20px 0;
-        }}
-        .section-title {{
-            font-size: 20px;
-            font-weight: 500;
-            color: #2980b9;
-            margin-top: 20px;
-        }}
-        .info-container {{
-            display: flex;
-            flex-wrap: wrap;
-        }}
-        .info-item {{
-            width: 48%;
-            margin-bottom: 8px;
-        }}
-        .result-container {{
-            background-color: white;
-            padding: 15px;
-            border-radius: 5px;
-            margin-top: 10px;
-        }}
-        .signature {{
-            margin-top: 40px;
-            text-align: right;
-        }}
+        body {{ font-family: 'Segoe UI', Arial, sans-serif; margin: 10px; color: #333; background-color: #fff; line-height: 1.3; font-size: 12px; }}
+        .header {{ text-align: center; margin-bottom: 8px; }}
+        .clinic-name {{ font-size: 20px; font-weight: bold; color: #2c3e50; margin-bottom: 2px; text-transform: uppercase; }}
+        .clinic-address {{ font-size: 12px; margin-bottom: 0; color: #2c3e50; }}
+        .clinic-phone {{ font-size: 12px; color: #2c3e50; margin-top: 2px; }}
+        .divider {{ border-top: 1px solid #3498db; margin: 5px 0; }}
+        .title {{ text-align: center; font-size: 18px; font-weight: bold; margin: 8px 0; color: #2c3e50; text-transform: uppercase; }}
+        .print-time {{ text-align: right; font-size: 10px; color: #7f8c8d; font-style: italic; margin: 2px 0; }}
+        .section-title {{ font-size: 14px; font-weight: bold; color: #2980b9; margin: 8px 0 5px 0; text-transform: uppercase; border-left: 3px solid #3498db; padding-left: 5px; }}
+        .info-row {{ display: flex; flex-wrap: wrap; margin: 2px 0; }}
+        .info-item {{ margin-right: 15px; font-size: 12px; white-space: nowrap; }}
+        .info-label {{ font-weight: bold; }}
+        .result-box {{ background-color: #f8f9fa; padding: 8px; border-radius: 3px; border-left: 3px solid #3498db; margin-top: 5px; font-size: 12px; line-height: 1.4; }}
+        .conclusion {{ font-size: 12px; margin-top: 5px; padding: 5px; border-left: 3px solid #e74c3c; }}
+        .signature {{ margin-top: 15px; text-align: right; font-size: 12px; }}
+        .signature-title {{ font-weight: bold; margin-top: 5px; }}
+        .signature-note {{ margin-top: 30px; font-style: italic; }}
+        @media print {{ body {{ margin: 0; }} .result-box {{ background-color: #fff; border-left: 1px solid #000; }} }}
     </style>
 </head>
 <body>
     <div class='header'>
-        <h1 style='font-size: 28px; font-weight: 600; color: #2c3e50;'>PHÒNG KHÁM ĐA KHOA</h1>
-        <h2 style='font-size: 18px; color: #2c3e50;'>Địa chỉ: 123 Đường Thanh Niên, Quận Hải Châu, Đà Nẵng</h2>
-        <p style='font-size: 16px; color: #2c3e50;'>Điện thoại: 0123-456-789</p>
+        <div class='clinic-name'>PHÒNG KHÁM ĐA KHOA</div>
+        <div class='clinic-address'>Địa chỉ: 123 Đường Thanh Niên, Quận Hải Châu, Đà Nẵng</div>
+        <div class='clinic-phone'>Điện thoại: 0123-456-789</div>
     </div>
     
     <div class='divider'></div>
     
-    <h1 class='header' style='font-size: 28px; font-weight: 600; color: #2c3e50;'>PHIẾU KẾT QUẢ ĐIỆN TIM</h1>
+    <div class='title'>PHIẾU KẾT QUẢ ĐIỆN TIM</div>
+    <div class='print-time'>Thời gian in phiếu: {DateTime.Now:dd/MM/yyyy HH:mm:ss}</div>
     
-    <div style='text-align: right; font-size: 14px; color: #7f8c8d;'>
-        <div>Thời gian in phiếu: {DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")}</div>
+    <div class='section-title'>THÔNG TIN BỆNH NHÂN</div>
+    <div>
+        <div class='info-row'>
+            <div class='info-item'><span class='info-label'>Mã BN:</span> {txb_id_patient.Text}</div>
+            <div class='info-item'><span class='info-label'>Họ tên:</span> <strong>{txb_name.Text}</strong></div>
+            <div class='info-item'><span class='info-label'>Giới tính:</span> {txb_gender.Text}</div>
+            <div class='info-item'><span class='info-label'>Ngày sinh:</span> {txb_dob.Text}</div>
+        </div>
+        <div class='info-row'>
+            <div class='info-item'><span class='info-label'>SĐT:</span> {txb_phone.Text}</div>
+            <div class='info-item'><span class='info-label'>Địa chỉ:</span> {txb_address.Text}</div>
+        </div>
     </div>
     
-    <h2 class='section-title'>THÔNG TIN BỆNH NHÂN</h2>
-    <div class='info-container'>
-        <div class='info-item'>Mã BN: {txb_id_patient.Text}</div>
-        <div class='info-item'>Họ tên: {txb_name.Text}</div>
-        <div class='info-item'>Giới tính: {txb_gender.Text}</div>
-        <div class='info-item'>Ngày sinh: {txb_dob.Text}</div>
-        <div class='info-item'>SĐT: {txb_phone.Text}</div>
-        <div class='info-item'>Địa chỉ: {txb_address.Text}</div>
+    <div class='section-title'>THÔNG TIN KHÁM</div>
+    <div>
+        <div class='info-row'>
+            <div class='info-item'><span class='info-label'>Mã phiếu khám:</span> {txb_id_exam.Text}</div>
+            <div class='info-item'><span class='info-label'>Ngày khám:</span> {txb_reception_date.Text}</div>
+            <div class='info-item'><span class='info-label'>Mã phiếu KQ:</span> {dtgv_service.CurrentRow.Cells["examination_service_id"].Value?.ToString()}</div>
+        </div>
+        <div class='info-row'>
+            <div class='info-item'><span class='info-label'>Chỉ định:</span> <strong>{txb_service.Text}</strong></div>
+            <div class='info-item'><span class='info-label'>Lý do khám:</span> <em>{txb_reason.Text}</em></div>
+        </div>
     </div>
     
-    <h2 class='section-title'>THÔNG TIN KHÁM</h2>
-    <div class='info-container'>
-        <div class='info-item'>Mã phiếu khám: {txb_id_exam.Text}</div>
-        <div class='info-item'>Ngày khám: {txb_reception_date.Text}</div>
-        <div class='info-item'>Lý do khám: {txb_reason.Text}</div>
-        <div class='info-item'></div>
-        <div class='info-item'>Chỉ định: {txb_service.Text}</div>
-        <div class='info-item'>Mã phiếu KQ: {dtgv_service.CurrentRow.Cells["examination_service_id"].Value?.ToString()}</div>
-    </div>
-    
-    <h2 class='section-title'>KẾT QUẢ ĐIỆN TIM</h2>
-    <div class='result-container'>
+    <div class='section-title'>KẾT QUẢ ĐIỆN TIM</div>
+    <div class='result-box'>
         {txb_result.Text.Replace(Environment.NewLine, "<br/>")}
     </div>
 ";
@@ -425,9 +409,9 @@ namespace QuanLyPhongKham
             if (!string.IsNullOrWhiteSpace(txb_final_result.Text))
             {
                 html += $@"
-    <h2 class='section-title'>KẾT LUẬN</h2>
-    <div class='result-container'>
-        {txb_final_result.Text.Replace(Environment.NewLine, "<br/>")}
+    <div class='section-title'>KẾT LUẬN</div>
+    <div class='result-box' style='border-left: 3px solid #e74c3c;'>
+        <strong>{txb_final_result.Text.Replace(Environment.NewLine, "<br/>")}</strong>
     </div>
 ";
             }
@@ -436,16 +420,15 @@ namespace QuanLyPhongKham
             html += $@"
     <div class='signature'>
         <div>Ngày {DateTime.Now.Day} tháng {DateTime.Now.Month} năm {DateTime.Now.Year}</div>
-        <div style='font-weight: bold; margin-top: 10px;'>BÁC SĨ</div>
-        <div style='margin-top: 70px;'>(Ký, họ tên)</div>
+        <div class='signature-title'>BÁC SĨ</div>
+        <div class='signature-note'>(Ký, họ tên)</div>
     </div>
 </body>
 </html>";
 
-            // Hiển thị bản xem trước
             Form previewForm = new Form
             {
-                Text = "Xem trước kết quả điện tim",
+                Text = "Xem trước kết quả ",
                 Width = 800,
                 Height = 1000,
                 StartPosition = FormStartPosition.CenterScreen
@@ -457,14 +440,19 @@ namespace QuanLyPhongKham
                 DocumentText = html
             };
 
-            // Thêm panel chứa các nút điều khiển
-            Panel controlPanel = new Panel
+            Button printButton = new Button
             {
+                Text = "In phiếu",
                 Dock = DockStyle.Bottom,
-                Height = 50
+                Height = 40
             };
+
+            printButton.Click += (s, ev) => {
+                browser.ShowPrintPreviewDialog();  // Hiển thị hộp thoại xem trước bản in của hệ thống
+            };
+
             previewForm.Controls.Add(browser);
-            previewForm.Controls.Add(controlPanel);
+            previewForm.Controls.Add(printButton);
             previewForm.ShowDialog();
         }
 

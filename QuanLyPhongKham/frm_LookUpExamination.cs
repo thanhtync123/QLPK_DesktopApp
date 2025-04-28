@@ -52,7 +52,7 @@ namespace QuanLyPhongKham
             Db.LoadDTGV(dtgv, query);
 
             dtgv.Columns["id"].HeaderText = "Mã Phiếu Khám";
-            dtgv.Columns["patient_id"].HeaderText = "Mã Bệnh Nhân";  // Hiển thị Mã Bệnh Nhân
+            dtgv.Columns["patient_id"].HeaderText = "Mã Bệnh Nhân";  
             dtgv.Columns["patient_name"].HeaderText = "Tên Bệnh Nhân";
             dtgv.Columns["reason"].HeaderText = "Lý Do Khám";
             dtgv.Columns["diagnosis"].HeaderText = "Chẩn Đoán";
@@ -100,6 +100,43 @@ namespace QuanLyPhongKham
 
             Db.LoadDTGV(dtgv, query);
         }
+
+
+        private void dtgv_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                var selectedRow = dtgv.Rows[e.RowIndex];
+            }
+        }
+
+
+        private void btn_delete_Click(object sender, EventArgs e)
+        {
+
+            if (dtgv.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn một bản ghi để xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn xóa bản ghi này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.No)
+            {
+                return;  
+            }
+
+            var selectedRow = dtgv.SelectedRows[0];
+            int id = Convert.ToInt32(selectedRow.Cells["id"].Value);
+            string query = "DELETE FROM examinations WHERE id = @id";
+            var data = new Dictionary<string, object>
+                {
+                    { "@id", id }
+                };
+            Db.Delete(query, data);
+            MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            LoadDTGV();
+        }
+
 
     }
 }

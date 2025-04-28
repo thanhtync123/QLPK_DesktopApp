@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 
@@ -39,7 +40,8 @@ namespace QuanLyPhongKham
                 JOIN examination_medications em ON e.id = em.examination_id
                 JOIN medications m ON em.medication_id = m.id
                 WHERE p.name LIKE '%{keyword}%'
-                GROUP BY e.id, p.id;
+                GROUP BY e.id, p.id
+                ORDER BY e.id DESC;
             ";
 
 
@@ -80,5 +82,41 @@ namespace QuanLyPhongKham
         {
             LoadDTGV();
         }
+        private void dtgv_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                var selectedRow = dtgv.Rows[e.RowIndex];
+            }
+        }
+
+
+        private void btn_delete_Click(object sender, EventArgs e)
+        {
+            if (dtgv.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn một bản ghi để xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn xóa bản ghi này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.No)
+            {
+                return;
+            }
+
+            var selectedRow = dtgv.SelectedRows[0];
+            int id = Convert.ToInt32(selectedRow.Cells["examination_id"].Value); // Sửa thành examination_id thay vì id
+            string query = "DELETE FROM examination_medications WHERE examination_id = @id"; // Sửa truy vấn để xóa theo examination_id
+            var data = new Dictionary<string, object>
+    {
+        { "@id", id }
+    };
+            Db.Delete(query, data);
+            MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            LoadDTGV(); // Tải lại dữ liệu sau khi xóa
+        }
+
+
     }
 }

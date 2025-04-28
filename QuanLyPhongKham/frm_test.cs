@@ -484,94 +484,74 @@ namespace QuanLyPhongKham
                     return;
                 }
 
-                // Tạo HTML phiếu kết quả xét nghiệm
                 string html = $@"
 <html>
 <head>
     <style>
-        body {{
-            font-family: 'Segoe UI', Arial, sans-serif;
-            margin: 40px;
-            color: #333;
-            background-color: #f4f4f9;
-            line-height: 1.6;
-        }}
-        table {{
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }}
-        th {{
-            background-color: #f2f2f2;
-            padding: 8px;
-            text-align: left;
-            border: 1px solid #ddd;
-        }}
-        td {{
-            padding: 8px;
-            text-align: left;
-            border: 1px solid #ddd;
-        }}
-        .header {{
-            text-align: center;
-        }}
-        .divider {{
-            border-top: 2px solid #3498db;
-            margin: 20px 0;
-        }}
-        .section-title {{
-            font-size: 20px;
-            font-weight: 500;
-            color: #2980b9;
-            margin-top: 20px;
-        }}
-        .patient-info {{
-            display: flex;
-            flex-wrap: wrap;
-        }}
-        .patient-info-item {{
-            width: 50%;
-            margin-bottom: 5px;
-        }}
-        .signature {{
-            margin-top: 40px;
-            text-align: right;
-        }}
+        body {{ font-family: 'Segoe UI', Arial, sans-serif; margin: 10px; color: #333; background-color: #fff; line-height: 1.3; font-size: 12px; }}
+        .header {{ text-align: center; margin-bottom: 8px; }}
+        .hospital-name {{ font-size: 20px; font-weight: bold; color: #2c3e50; margin-bottom: 2px; text-transform: uppercase; }}
+        .hospital-address {{ font-size: 12px; margin-bottom: 0; color: #2c3e50; }}
+        .hospital-phone {{ font-size: 12px; color: #2c3e50; margin-top: 2px; }}
+        .divider {{ border-top: 1px solid #3498db; margin: 5px 0; }}
+        .title {{ text-align: center; font-size: 18px; font-weight: bold; margin: 8px 0; color: #2c3e50; text-transform: uppercase; }}
+        .print-time {{ text-align: right; font-size: 10px; color: #7f8c8d; font-style: italic; margin: 2px 0; }}
+        .section-title {{ font-size: 14px; font-weight: bold; color: #2980b9; margin: 8px 0 5px 0; text-transform: uppercase; border-left: 3px solid #3498db; padding-left: 5px; }}
+        .id-container {{ display: flex; justify-content: space-between; font-size: 12px; margin: 5px 0; }}
+        .info-row {{ display: flex; flex-wrap: wrap; margin: 2px 0; }}
+        .info-item {{ margin-right: 15px; font-size: 12px; white-space: nowrap; }}
+        .info-label {{ font-weight: bold; }}
+        table {{ width: 100%; border-collapse: collapse; margin: 5px 0; font-size: 11px; }}
+        th, td {{ padding: 3px; text-align: left; border: 1px solid #ddd; }}
+        th {{ background-color: #f2f2f2; font-weight: bold; }}
+        .conclusion {{ font-size: 12px; margin-top: 5px; padding: 5px; border-left: 3px solid #e74c3c; }}
+        .signature {{ margin-top: 15px; text-align: right; font-size: 12px; }}
+        .signature-title {{ font-weight: bold; margin-top: 5px; }}
+        .signature-note {{ margin-top: 30px; font-style: italic; }}
+        @media print {{ body {{ margin: 0; }} th {{ background-color: #f8f8f8; }} }}
     </style>
 </head>
 <body>
     <div class='header'>
-        <h1 style='font-size: 28px; font-weight: 600; color: #2c3e50;'>BỆNH VIỆN ĐA KHOA XYZ</h1>
-        <h2 style='font-size: 18px; color: #2c3e50;'>123 Đường Láng, Quận Đống Đa, Hà Nội</h2>
-        <p style='font-size: 16px; color: #2c3e50;'>Điện thoại: (024) 1234 5678</p>
+        <div class='hospital-name'>BỆNH VIỆN ĐA KHOA XYZ</div>
+        <div class='hospital-address'>123 Đường Láng, Quận Đống Đa, Hà Nội</div>
+        <div class='hospital-phone'>Điện thoại: (024) 1234 5678</div>
     </div>
     
     <div class='divider'></div>
     
-    <h1 class='header' style='font-size: 28px; font-weight: 600; color: #2c3e50;'>PHIẾU KẾT QUẢ XÉT NGHIỆM</h1>
+    <div class='title'>PHIẾU KẾT QUẢ XÉT NGHIỆM</div>
+    <div class='print-time'>Thời gian in phiếu: {DateTime.Now:dd/MM/yyyy HH:mm:ss}</div>
     
-    <div style='display: flex; justify-content: space-between; font-size: 16px; margin-top: 20px;'>
-        <div>Mã phiếu khám: {txb_id_exam.Text}</div>
-        <div>Mã kết quả: {dtgv_service.CurrentRow.Cells["examination_service_id"].Value?.ToString() ?? ""}</div>
+    <div class='id-container'>
+        <div><span class='info-label'>Mã phiếu khám:</span> {txb_id_exam.Text}</div>
+        <div><span class='info-label'>Mã kết quả:</span> {dtgv_service.CurrentRow.Cells["examination_service_id"].Value?.ToString() ?? ""}</div>
     </div>
     
-    <h2 class='section-title'>THÔNG TIN BỆNH NHÂN</h2>
-    <div class='patient-info'>
-        <div class='patient-info-item'>Mã bệnh nhân: {txb_id_patient.Text}</div>
-        <div class='patient-info-item'>Họ tên: {txb_name.Text}</div>
-        <div class='patient-info-item'>Giới tính: {txb_gender.Text}</div>
-        <div class='patient-info-item'>Ngày sinh: {txb_dob.Text}</div>
-        <div class='patient-info-item'>Điện thoại: {txb_phone.Text}</div>
-        <div class='patient-info-item'>Địa chỉ: {txb_address.Text}</div>
-        <div class='patient-info-item'>Ngày tiếp nhận: {txb_reception_date.Text}</div>
-        <div class='patient-info-item'>Lý do khám: {txb_reason.Text}</div>
+    <div class='section-title'>THÔNG TIN BỆNH NHÂN</div>
+    <div>
+        <div class='info-row'>
+            <div class='info-item'><span class='info-label'>Mã BN:</span> {txb_id_patient.Text}</div>
+            <div class='info-item'><span class='info-label'>Họ tên:</span> <strong>{txb_name.Text}</strong></div>
+            <div class='info-item'><span class='info-label'>Giới tính:</span> {txb_gender.Text}</div>
+            <div class='info-item'><span class='info-label'>Ngày sinh:</span> {txb_dob.Text}</div>
+        </div>
+        <div class='info-row'>
+            <div class='info-item'><span class='info-label'>Điện thoại:</span> {txb_phone.Text}</div>
+            <div class='info-item'><span class='info-label'>Địa chỉ:</span> {txb_address.Text}</div>
+        </div>
+        <div class='info-row'>
+            <div class='info-item'><span class='info-label'>Ngày tiếp nhận:</span> {txb_reception_date.Text}</div>
+            <div class='info-item'><span class='info-label'>Chỉ định:</span> <strong>{txb_service.Text}</strong></div>
+            <div class='info-item'><span class='info-label'>Lý do khám:</span> <em>{txb_reason.Text}</em></div>
+        </div>
     </div>
     
-    <h2 class='section-title'>KẾT QUẢ XÉT NGHIỆM</h2>
+    <div class='section-title'>KẾT QUẢ XÉT NGHIỆM</div>
     <table>
         <tr>
-            <th style='width: 22%;'>Nhóm xét nghiệm</th>
-            <th style='width: 28%;'>Tên xét nghiệm</th>
+            <th style='width: 20%;'>Nhóm xét nghiệm</th>
+            <th style='width: 25%;'>Tên xét nghiệm</th>
             <th style='width: 15%;'>Kết quả</th>
             <th style='width: 15%;'>Đơn vị</th>
             <th style='width: 20%;'>Giá trị bình thường</th>
@@ -600,15 +580,15 @@ namespace QuanLyPhongKham
                 html += $@"
     </table>
     
-    <h2 class='section-title'>KẾT LUẬN</h2>
-    <div style='font-size: 16px; margin-top: 10px; background-color: white; padding: 15px; border-radius: 5px;'>
+    <div class='section-title'>KẾT LUẬN</div>
+    <div class='conclusion'>
         {txb_final_result.Text.Replace(Environment.NewLine, "<br/>")}
     </div>
     
     <div class='signature'>
         <div>Ngày {DateTime.Now.Day} tháng {DateTime.Now.Month} năm {DateTime.Now.Year}</div>
-        <div style='font-weight: bold; margin-top: 10px;'>BÁC SĨ XÉT NGHIỆM</div>
-        <div style='margin-top: 70px;'>(Ký và ghi rõ họ tên)</div>
+        <div class='signature-title'>BÁC SĨ XÉT NGHIỆM</div>
+        <div class='signature-note'>(Ký và ghi rõ họ tên)</div>
     </div>
 </body>
 </html>";

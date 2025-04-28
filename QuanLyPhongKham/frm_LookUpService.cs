@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 
@@ -35,7 +36,8 @@ namespace QuanLyPhongKham
                 JOIN examination_services es ON e.id = es.examination_id
                 JOIN services s ON es.service_id = s.id
                 WHERE p.name LIKE '%{keyword}%'
-                GROUP BY e.id, p.id;
+                GROUP BY e.id, p.id
+                ORDER BY e.id DESC;
             ";
 
             Db.LoadDTGV(dtgv, query);
@@ -62,5 +64,58 @@ namespace QuanLyPhongKham
         {
             LoadDTGV();
         }
+
+        private void dtgv_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                var selectedRow = dtgv.Rows[e.RowIndex];
+            }
+        }
+
+
+        private void btn_delete_Click(object sender, EventArgs e)
+        {
+            if (dtgv.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn một bản ghi để xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn xóa bản ghi này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.No)
+            {
+                return;
+            }
+
+            try
+            {
+                var selectedRow = dtgv.SelectedRows[0];
+                int examinationId = Convert.ToInt32(selectedRow.Cells["examination_id"].Value);
+
+                // Xóa dữ liệu từ bảng examination_services
+                string query = "DELETE FROM examination_services WHERE examination_id = @examination_id";
+                var data = new Dictionary<string, object>
+        {
+            { "@examination_id", examinationId }
+        };
+
+                // Giả sử Db.Delete thực hiện xóa với câu lệnh SQL này.
+                Db.Delete(query, data);
+
+                // Thông báo xóa thành công và tải lại dữ liệu
+                MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadDTGV();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi xóa dữ liệu: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
     }
 }
+        
+    
+
