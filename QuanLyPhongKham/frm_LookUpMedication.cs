@@ -93,6 +93,7 @@ namespace QuanLyPhongKham
 
         private void btn_delete_Click(object sender, EventArgs e)
         {
+            //dsg
             if (dtgv.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Vui lòng chọn một bản ghi để xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
