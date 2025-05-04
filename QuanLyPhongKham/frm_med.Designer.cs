@@ -79,7 +79,7 @@
             // txb_id
             // 
             this.txb_id.Location = new System.Drawing.Point(129, 160);
-            this.txb_id.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_id.Margin = new System.Windows.Forms.Padding(4);
             this.txb_id.Name = "txb_id";
             this.txb_id.Size = new System.Drawing.Size(115, 22);
             this.txb_id.TabIndex = 36;
@@ -97,7 +97,7 @@
             // btn_delete
             // 
             this.btn_delete.Location = new System.Drawing.Point(388, 462);
-            this.btn_delete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_delete.Margin = new System.Windows.Forms.Padding(4);
             this.btn_delete.Name = "btn_delete";
             this.btn_delete.Size = new System.Drawing.Size(100, 28);
             this.btn_delete.TabIndex = 34;
@@ -108,7 +108,7 @@
             // btn_update
             // 
             this.btn_update.Location = new System.Drawing.Point(280, 462);
-            this.btn_update.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_update.Margin = new System.Windows.Forms.Padding(4);
             this.btn_update.Name = "btn_update";
             this.btn_update.Size = new System.Drawing.Size(100, 28);
             this.btn_update.TabIndex = 33;
@@ -119,7 +119,7 @@
             // btn_add
             // 
             this.btn_add.Location = new System.Drawing.Point(172, 462);
-            this.btn_add.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_add.Margin = new System.Windows.Forms.Padding(4);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(100, 28);
             this.btn_add.TabIndex = 32;
@@ -130,7 +130,7 @@
             // txb_search
             // 
             this.txb_search.Location = new System.Drawing.Point(656, 58);
-            this.txb_search.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_search.Margin = new System.Windows.Forms.Padding(4);
             this.txb_search.Name = "txb_search";
             this.txb_search.Size = new System.Drawing.Size(344, 22);
             this.txb_search.TabIndex = 31;
@@ -160,7 +160,7 @@
             this.dtgv.DefaultCellStyle = dataGridViewCellStyle3;
             this.dtgv.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtgv.Location = new System.Drawing.Point(579, 90);
-            this.dtgv.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtgv.Margin = new System.Windows.Forms.Padding(4);
             this.dtgv.Name = "dtgv";
             this.dtgv.RowHeadersVisible = false;
             this.dtgv.RowHeadersWidth = 51;
@@ -192,7 +192,7 @@
             // txb_name
             // 
             this.txb_name.Location = new System.Drawing.Point(127, 204);
-            this.txb_name.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_name.Margin = new System.Windows.Forms.Padding(4);
             this.txb_name.Name = "txb_name";
             this.txb_name.Size = new System.Drawing.Size(385, 22);
             this.txb_name.TabIndex = 29;
@@ -210,7 +210,7 @@
             // txb_unit
             // 
             this.txb_unit.Location = new System.Drawing.Point(127, 252);
-            this.txb_unit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_unit.Margin = new System.Windows.Forms.Padding(4);
             this.txb_unit.Name = "txb_unit";
             this.txb_unit.Size = new System.Drawing.Size(144, 22);
             this.txb_unit.TabIndex = 39;
@@ -228,7 +228,7 @@
             // txb_dosage
             // 
             this.txb_dosage.Location = new System.Drawing.Point(368, 252);
-            this.txb_dosage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_dosage.Margin = new System.Windows.Forms.Padding(4);
             this.txb_dosage.Name = "txb_dosage";
             this.txb_dosage.Size = new System.Drawing.Size(144, 22);
             this.txb_dosage.TabIndex = 41;
@@ -246,7 +246,7 @@
             // txb_times
             // 
             this.txb_times.Location = new System.Drawing.Point(368, 295);
-            this.txb_times.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_times.Margin = new System.Windows.Forms.Padding(4);
             this.txb_times.Name = "txb_times";
             this.txb_times.Size = new System.Drawing.Size(144, 22);
             this.txb_times.TabIndex = 45;
@@ -264,7 +264,7 @@
             // txb_route
             // 
             this.txb_route.Location = new System.Drawing.Point(127, 295);
-            this.txb_route.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_route.Margin = new System.Windows.Forms.Padding(4);
             this.txb_route.Name = "txb_route";
             this.txb_route.Size = new System.Drawing.Size(144, 22);
             this.txb_route.TabIndex = 43;
@@ -282,7 +282,7 @@
             // txb_note
             // 
             this.txb_note.Location = new System.Drawing.Point(127, 389);
-            this.txb_note.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_note.Margin = new System.Windows.Forms.Padding(4);
             this.txb_note.Name = "txb_note";
             this.txb_note.Size = new System.Drawing.Size(385, 22);
             this.txb_note.TabIndex = 47;
@@ -300,7 +300,7 @@
             // txb_price
             // 
             this.txb_price.Location = new System.Drawing.Point(127, 340);
-            this.txb_price.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_price.Margin = new System.Windows.Forms.Padding(4);
             this.txb_price.Name = "txb_price";
             this.txb_price.Size = new System.Drawing.Size(144, 22);
             this.txb_price.TabIndex = 49;
@@ -333,9 +333,9 @@
             this.Controls.Add(this.dtgv);
             this.Controls.Add(this.txb_name);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frm_med";
-            this.Text = "frm_med";
+            this.Text = "Thuốc";
             this.Load += new System.EventHandler(this.frm_med_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgv)).EndInit();
             this.ResumeLayout(false);

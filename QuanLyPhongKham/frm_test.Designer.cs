@@ -233,7 +233,7 @@
             this.panel2.Location = new System.Drawing.Point(4, 4);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1888, 76);
+            this.panel2.Size = new System.Drawing.Size(1643, 76);
             this.panel2.TabIndex = 0;
             // 
             // btn_refresh
@@ -531,7 +531,7 @@
             this.panel3.Location = new System.Drawing.Point(24, 55);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1872, 812);
+            this.panel3.Size = new System.Drawing.Size(1576, 812);
             this.panel3.TabIndex = 1;
             // 
             // dtgv_result
@@ -564,12 +564,12 @@
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtgv_result.DefaultCellStyle = dataGridViewCellStyle6;
             this.dtgv_result.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dtgv_result.Location = new System.Drawing.Point(651, 46);
+            this.dtgv_result.Location = new System.Drawing.Point(651, 34);
             this.dtgv_result.Margin = new System.Windows.Forms.Padding(4);
             this.dtgv_result.Name = "dtgv_result";
             this.dtgv_result.RowHeadersVisible = false;
             this.dtgv_result.RowHeadersWidth = 51;
-            this.dtgv_result.Size = new System.Drawing.Size(1175, 661);
+            this.dtgv_result.Size = new System.Drawing.Size(908, 661);
             this.dtgv_result.TabIndex = 45;
             this.dtgv_result.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgv_result.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -870,7 +870,7 @@
             this.panel1.Location = new System.Drawing.Point(455, 15);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1896, 889);
+            this.panel1.Size = new System.Drawing.Size(1645, 889);
             this.panel1.TabIndex = 3;
             // 
             // frm_test

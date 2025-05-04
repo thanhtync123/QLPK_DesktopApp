@@ -81,7 +81,7 @@
             // txb_id
             // 
             this.txb_id.Location = new System.Drawing.Point(161, 185);
-            this.txb_id.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_id.Margin = new System.Windows.Forms.Padding(4);
             this.txb_id.Name = "txb_id";
             this.txb_id.Size = new System.Drawing.Size(115, 22);
             this.txb_id.TabIndex = 36;
@@ -99,7 +99,7 @@
             // txb_search
             // 
             this.txb_search.Location = new System.Drawing.Point(971, 66);
-            this.txb_search.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_search.Margin = new System.Windows.Forms.Padding(4);
             this.txb_search.Name = "txb_search";
             this.txb_search.Size = new System.Drawing.Size(344, 22);
             this.txb_search.TabIndex = 31;
@@ -129,7 +129,7 @@
             this.dtgv.DefaultCellStyle = dataGridViewCellStyle3;
             this.dtgv.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtgv.Location = new System.Drawing.Point(891, 98);
-            this.dtgv.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtgv.Margin = new System.Windows.Forms.Padding(4);
             this.dtgv.Name = "dtgv";
             this.dtgv.RowHeadersVisible = false;
             this.dtgv.RowHeadersWidth = 51;
@@ -161,7 +161,7 @@
             // txb_name
             // 
             this.txb_name.Location = new System.Drawing.Point(161, 229);
-            this.txb_name.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_name.Margin = new System.Windows.Forms.Padding(4);
             this.txb_name.Name = "txb_name";
             this.txb_name.Size = new System.Drawing.Size(447, 22);
             this.txb_name.TabIndex = 29;
@@ -176,7 +176,7 @@
             "Xét nghiệm",
             "Điện tim"});
             this.cb_type.Location = new System.Drawing.Point(161, 282);
-            this.cb_type.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_type.Margin = new System.Windows.Forms.Padding(4);
             this.cb_type.Name = "cb_type";
             this.cb_type.Size = new System.Drawing.Size(213, 24);
             this.cb_type.TabIndex = 39;
@@ -195,7 +195,7 @@
             // txb_content
             // 
             this.txb_content.Location = new System.Drawing.Point(161, 327);
-            this.txb_content.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_content.Margin = new System.Windows.Forms.Padding(4);
             this.txb_content.Multiline = true;
             this.txb_content.Name = "txb_content";
             this.txb_content.Size = new System.Drawing.Size(447, 99);
@@ -204,7 +204,7 @@
             // btn_delete
             // 
             this.btn_delete.Location = new System.Drawing.Point(779, 98);
-            this.btn_delete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_delete.Margin = new System.Windows.Forms.Padding(4);
             this.btn_delete.Name = "btn_delete";
             this.btn_delete.Size = new System.Drawing.Size(100, 28);
             this.btn_delete.TabIndex = 44;
@@ -215,7 +215,7 @@
             // btn_update
             // 
             this.btn_update.Location = new System.Drawing.Point(671, 98);
-            this.btn_update.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_update.Margin = new System.Windows.Forms.Padding(4);
             this.btn_update.Name = "btn_update";
             this.btn_update.Size = new System.Drawing.Size(100, 28);
             this.btn_update.TabIndex = 43;
@@ -226,7 +226,7 @@
             // btn_add
             // 
             this.btn_add.Location = new System.Drawing.Point(563, 98);
-            this.btn_add.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_add.Margin = new System.Windows.Forms.Padding(4);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(100, 28);
             this.btn_add.TabIndex = 42;
@@ -274,7 +274,7 @@
             this.dtgv_content.DefaultCellStyle = dataGridViewCellStyle6;
             this.dtgv_content.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtgv_content.Location = new System.Drawing.Point(16, 434);
-            this.dtgv_content.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtgv_content.Margin = new System.Windows.Forms.Padding(4);
             this.dtgv_content.Name = "dtgv_content";
             this.dtgv_content.RowHeadersVisible = false;
             this.dtgv_content.RowHeadersWidth = 51;
@@ -353,9 +353,9 @@
             this.Controls.Add(this.dtgv);
             this.Controls.Add(this.txb_name);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frm_template";
-            this.Text = "frm_template";
+            this.Text = "Biểu mẫu";
             this.Load += new System.EventHandler(this.frm_template_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_content)).EndInit();
