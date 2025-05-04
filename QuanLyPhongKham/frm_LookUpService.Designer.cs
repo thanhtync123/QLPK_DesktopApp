@@ -48,11 +48,12 @@
             this.txb_search.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txb_search.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txb_search.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txb_search.Location = new System.Drawing.Point(14, 18);
+            this.txb_search.Location = new System.Drawing.Point(19, 22);
+            this.txb_search.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txb_search.Name = "txb_search";
             this.txb_search.PlaceholderText = "";
             this.txb_search.SelectedText = "";
-            this.txb_search.Size = new System.Drawing.Size(282, 36);
+            this.txb_search.Size = new System.Drawing.Size(376, 44);
             this.txb_search.TabIndex = 5;
             this.txb_search.TextChanged += new System.EventHandler(this.txb_search_TextChanged);
             // 
@@ -79,10 +80,12 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtgv.DefaultCellStyle = dataGridViewCellStyle3;
             this.dtgv.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dtgv.Location = new System.Drawing.Point(14, 60);
+            this.dtgv.Location = new System.Drawing.Point(19, 74);
+            this.dtgv.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtgv.Name = "dtgv";
             this.dtgv.RowHeadersVisible = false;
-            this.dtgv.Size = new System.Drawing.Size(1475, 752);
+            this.dtgv.RowHeadersWidth = 51;
+            this.dtgv.Size = new System.Drawing.Size(1967, 926);
             this.dtgv.TabIndex = 4;
             this.dtgv.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgv.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -109,9 +112,10 @@
             // 
             // btn_delete
             // 
-            this.btn_delete.Location = new System.Drawing.Point(333, 30);
+            this.btn_delete.Location = new System.Drawing.Point(444, 37);
+            this.btn_delete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_delete.Name = "btn_delete";
-            this.btn_delete.Size = new System.Drawing.Size(75, 23);
+            this.btn_delete.Size = new System.Drawing.Size(100, 28);
             this.btn_delete.TabIndex = 6;
             this.btn_delete.Text = "Xóa";
             this.btn_delete.UseVisualStyleBackColor = true;
@@ -119,12 +123,14 @@
             // 
             // frm_LookUpService
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1511, 831);
+            this.ClientSize = new System.Drawing.Size(2015, 1023);
             this.Controls.Add(this.btn_delete);
             this.Controls.Add(this.txb_search);
             this.Controls.Add(this.dtgv);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frm_LookUpService";
             this.Text = "Tra cứu phiếu chỉ định";
             this.Load += new System.EventHandler(this.frm_LookUpService_Load);

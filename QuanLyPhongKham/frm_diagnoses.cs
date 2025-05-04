@@ -9,6 +9,8 @@ namespace QuanLyPhongKham
         public frm_diagnoses()
         {
             InitializeComponent();
+
+            
         }
 
         private void LoadDTGV()
