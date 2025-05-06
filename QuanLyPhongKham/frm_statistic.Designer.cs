@@ -72,7 +72,7 @@
             this.guna2Panel1.Controls.Add(this.label_1);
             this.guna2Panel1.Controls.Add(this.label1);
             this.guna2Panel1.Location = new System.Drawing.Point(521, 158);
-            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(4);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(305, 98);
             this.guna2Panel1.TabIndex = 0;
@@ -107,7 +107,7 @@
             this.guna2Panel2.Controls.Add(this.label_2);
             this.guna2Panel2.Controls.Add(this.label4);
             this.guna2Panel2.Location = new System.Drawing.Point(875, 158);
-            this.guna2Panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2Panel2.Margin = new System.Windows.Forms.Padding(4);
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Size = new System.Drawing.Size(305, 98);
             this.guna2Panel2.TabIndex = 2;
@@ -142,7 +142,7 @@
             this.guna2Panel3.Controls.Add(this.label_3);
             this.guna2Panel3.Controls.Add(this.label6);
             this.guna2Panel3.Location = new System.Drawing.Point(1220, 158);
-            this.guna2Panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2Panel3.Margin = new System.Windows.Forms.Padding(4);
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.Size = new System.Drawing.Size(305, 98);
             this.guna2Panel3.TabIndex = 3;
@@ -177,7 +177,7 @@
             this.guna2Panel4.Controls.Add(this.lb_6);
             this.guna2Panel4.Controls.Add(this.label8);
             this.guna2Panel4.Location = new System.Drawing.Point(1220, 288);
-            this.guna2Panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2Panel4.Margin = new System.Windows.Forms.Padding(4);
             this.guna2Panel4.Name = "guna2Panel4";
             this.guna2Panel4.Size = new System.Drawing.Size(305, 98);
             this.guna2Panel4.TabIndex = 6;
@@ -212,7 +212,7 @@
             this.guna2Panel5.Controls.Add(this.lb_5);
             this.guna2Panel5.Controls.Add(this.label10);
             this.guna2Panel5.Location = new System.Drawing.Point(875, 288);
-            this.guna2Panel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2Panel5.Margin = new System.Windows.Forms.Padding(4);
             this.guna2Panel5.Name = "guna2Panel5";
             this.guna2Panel5.Size = new System.Drawing.Size(305, 98);
             this.guna2Panel5.TabIndex = 5;
@@ -247,7 +247,7 @@
             this.guna2Panel6.Controls.Add(this.lb_4);
             this.guna2Panel6.Controls.Add(this.label12);
             this.guna2Panel6.Location = new System.Drawing.Point(521, 288);
-            this.guna2Panel6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2Panel6.Margin = new System.Windows.Forms.Padding(4);
             this.guna2Panel6.Name = "guna2Panel6";
             this.guna2Panel6.Size = new System.Drawing.Size(305, 98);
             this.guna2Panel6.TabIndex = 4;
@@ -282,7 +282,7 @@
             this.guna2Panel7.Controls.Add(this.lb_8);
             this.guna2Panel7.Controls.Add(this.label14);
             this.guna2Panel7.Location = new System.Drawing.Point(1220, 433);
-            this.guna2Panel7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2Panel7.Margin = new System.Windows.Forms.Padding(4);
             this.guna2Panel7.Name = "guna2Panel7";
             this.guna2Panel7.Size = new System.Drawing.Size(305, 98);
             this.guna2Panel7.TabIndex = 8;
@@ -317,7 +317,7 @@
             this.guna2Panel8.Controls.Add(this.lb_7);
             this.guna2Panel8.Controls.Add(this.label16);
             this.guna2Panel8.Location = new System.Drawing.Point(875, 433);
-            this.guna2Panel8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2Panel8.Margin = new System.Windows.Forms.Padding(4);
             this.guna2Panel8.Name = "guna2Panel8";
             this.guna2Panel8.Size = new System.Drawing.Size(305, 98);
             this.guna2Panel8.TabIndex = 7;
@@ -348,7 +348,7 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(521, 62);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(265, 22);
             this.dateTimePicker1.TabIndex = 9;
@@ -357,13 +357,15 @@
             // dateTimePicker2
             // 
             this.dateTimePicker2.Location = new System.Drawing.Point(521, 106);
-            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(265, 22);
             this.dateTimePicker2.TabIndex = 10;
             // 
             // guna2Button1
             // 
+            this.guna2Button1.AutoRoundedCorners = true;
+            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
             this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -371,7 +373,7 @@
             this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2Button1.ForeColor = System.Drawing.Color.White;
             this.guna2Button1.Location = new System.Drawing.Point(807, 69);
-            this.guna2Button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2Button1.Margin = new System.Windows.Forms.Padding(4);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.Size = new System.Drawing.Size(149, 48);
             this.guna2Button1.TabIndex = 11;
@@ -382,6 +384,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(230)))));
             this.ClientSize = new System.Drawing.Size(2112, 794);
             this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.dateTimePicker2);
@@ -395,7 +398,7 @@
             this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.guna2Panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frm_statistic";
             this.Text = "Thống kê tổng quan";
             this.Load += new System.EventHandler(this.frm_statistic_Load);

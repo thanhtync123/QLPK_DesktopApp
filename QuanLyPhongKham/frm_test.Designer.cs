@@ -45,7 +45,6 @@
             this.label16 = new System.Windows.Forms.Label();
             this.txb_reception_date = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.cb_template = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.txb_service = new System.Windows.Forms.TextBox();
@@ -182,16 +181,6 @@
             this.label15.TabIndex = 35;
             this.label15.Text = "Ngày tiếp nhận";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(647, 16);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 16);
-            this.label3.TabIndex = 34;
-            this.label3.Text = "Mô tả";
-            // 
             // cb_template
             // 
             this.cb_template.FormattingEnabled = true;
@@ -225,7 +214,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.Info;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(230)))));
             this.panel2.Controls.Add(this.btn_refresh);
             this.panel2.Controls.Add(this.btn_print);
             this.panel2.Controls.Add(this.btn_edit);
@@ -292,7 +281,7 @@
             // 
             // guna2Panel1
             // 
-            this.guna2Panel1.BackColor = System.Drawing.SystemColors.Info;
+            this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(230)))));
             this.guna2Panel1.Controls.Add(this.webBrowser1);
             this.guna2Panel1.Controls.Add(this.txb_search);
             this.guna2Panel1.Controls.Add(this.rdn_all);
@@ -495,7 +484,7 @@
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.SystemColors.Info;
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(230)))));
             this.panel3.Controls.Add(this.dtgv_result);
             this.panel3.Controls.Add(this.dtgv_service);
             this.panel3.Controls.Add(this.txb_final_result);
@@ -506,7 +495,6 @@
             this.panel3.Controls.Add(this.label16);
             this.panel3.Controls.Add(this.txb_reception_date);
             this.panel3.Controls.Add(this.label15);
-            this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.cb_template);
             this.panel3.Controls.Add(this.label13);
             this.panel3.Controls.Add(this.txb_service);
@@ -528,7 +516,7 @@
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.txb_name);
             this.panel3.Controls.Add(this.label5);
-            this.panel3.Location = new System.Drawing.Point(24, 55);
+            this.panel3.Location = new System.Drawing.Point(14, 81);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1576, 812);
@@ -564,12 +552,12 @@
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtgv_result.DefaultCellStyle = dataGridViewCellStyle6;
             this.dtgv_result.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dtgv_result.Location = new System.Drawing.Point(651, 34);
+            this.dtgv_result.Location = new System.Drawing.Point(651, 14);
             this.dtgv_result.Margin = new System.Windows.Forms.Padding(4);
             this.dtgv_result.Name = "dtgv_result";
             this.dtgv_result.RowHeadersVisible = false;
             this.dtgv_result.RowHeadersWidth = 51;
-            this.dtgv_result.Size = new System.Drawing.Size(908, 661);
+            this.dtgv_result.Size = new System.Drawing.Size(908, 681);
             this.dtgv_result.TabIndex = 45;
             this.dtgv_result.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgv_result.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -877,7 +865,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Info;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(230)))));
             this.ClientSize = new System.Drawing.Size(2397, 892);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.panel1);
@@ -909,7 +897,6 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox txb_reception_date;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cb_template;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txb_service;

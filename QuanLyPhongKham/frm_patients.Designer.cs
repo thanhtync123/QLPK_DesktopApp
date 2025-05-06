@@ -68,7 +68,7 @@
             // txb_name
             // 
             this.txb_name.Location = new System.Drawing.Point(111, 153);
-            this.txb_name.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_name.Margin = new System.Windows.Forms.Padding(4);
             this.txb_name.Name = "txb_name";
             this.txb_name.Size = new System.Drawing.Size(331, 22);
             this.txb_name.TabIndex = 1;
@@ -76,7 +76,7 @@
             // dtpk_dob
             // 
             this.dtpk_dob.Location = new System.Drawing.Point(111, 197);
-            this.dtpk_dob.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpk_dob.Margin = new System.Windows.Forms.Padding(4);
             this.dtpk_dob.Name = "dtpk_dob";
             this.dtpk_dob.Size = new System.Drawing.Size(331, 22);
             this.dtpk_dob.TabIndex = 2;
@@ -105,7 +105,7 @@
             // 
             this.rdn_male.AutoSize = true;
             this.rdn_male.Location = new System.Drawing.Point(111, 246);
-            this.rdn_male.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdn_male.Margin = new System.Windows.Forms.Padding(4);
             this.rdn_male.Name = "rdn_male";
             this.rdn_male.Size = new System.Drawing.Size(57, 20);
             this.rdn_male.TabIndex = 5;
@@ -117,7 +117,7 @@
             // 
             this.rdn_female.AutoSize = true;
             this.rdn_female.Location = new System.Drawing.Point(181, 246);
-            this.rdn_female.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdn_female.Margin = new System.Windows.Forms.Padding(4);
             this.rdn_female.Name = "rdn_female";
             this.rdn_female.Size = new System.Drawing.Size(45, 20);
             this.rdn_female.TabIndex = 6;
@@ -128,7 +128,7 @@
             // txb_phone
             // 
             this.txb_phone.Location = new System.Drawing.Point(111, 286);
-            this.txb_phone.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_phone.Margin = new System.Windows.Forms.Padding(4);
             this.txb_phone.Name = "txb_phone";
             this.txb_phone.Size = new System.Drawing.Size(331, 22);
             this.txb_phone.TabIndex = 8;
@@ -146,7 +146,7 @@
             // txb_address
             // 
             this.txb_address.Location = new System.Drawing.Point(111, 340);
-            this.txb_address.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_address.Margin = new System.Windows.Forms.Padding(4);
             this.txb_address.Name = "txb_address";
             this.txb_address.Size = new System.Drawing.Size(331, 22);
             this.txb_address.TabIndex = 10;
@@ -164,7 +164,7 @@
             // txb_id
             // 
             this.txb_id.Location = new System.Drawing.Point(111, 110);
-            this.txb_id.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_id.Margin = new System.Windows.Forms.Padding(4);
             this.txb_id.Name = "txb_id";
             this.txb_id.Size = new System.Drawing.Size(99, 22);
             this.txb_id.TabIndex = 12;
@@ -203,7 +203,7 @@
             this.dtgv.DefaultCellStyle = dataGridViewCellStyle3;
             this.dtgv.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtgv.Location = new System.Drawing.Point(483, 98);
-            this.dtgv.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtgv.Margin = new System.Windows.Forms.Padding(4);
             this.dtgv.Name = "dtgv";
             this.dtgv.RowHeadersVisible = false;
             this.dtgv.RowHeadersWidth = 51;
@@ -235,7 +235,7 @@
             // txb_search
             // 
             this.txb_search.Location = new System.Drawing.Point(483, 66);
-            this.txb_search.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_search.Margin = new System.Windows.Forms.Padding(4);
             this.txb_search.Name = "txb_search";
             this.txb_search.Size = new System.Drawing.Size(344, 22);
             this.txb_search.TabIndex = 15;
@@ -253,7 +253,7 @@
             // btn_add
             // 
             this.btn_add.Location = new System.Drawing.Point(13, 436);
-            this.btn_add.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_add.Margin = new System.Windows.Forms.Padding(4);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(100, 28);
             this.btn_add.TabIndex = 16;
@@ -264,7 +264,7 @@
             // btn_update
             // 
             this.btn_update.Location = new System.Drawing.Point(121, 436);
-            this.btn_update.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_update.Margin = new System.Windows.Forms.Padding(4);
             this.btn_update.Name = "btn_update";
             this.btn_update.Size = new System.Drawing.Size(100, 28);
             this.btn_update.TabIndex = 17;
@@ -275,7 +275,7 @@
             // btn_delete
             // 
             this.btn_delete.Location = new System.Drawing.Point(229, 436);
-            this.btn_delete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_delete.Margin = new System.Windows.Forms.Padding(4);
             this.btn_delete.Name = "btn_delete";
             this.btn_delete.Size = new System.Drawing.Size(100, 28);
             this.btn_delete.TabIndex = 18;
@@ -286,7 +286,7 @@
             // btn_refresh
             // 
             this.btn_refresh.Location = new System.Drawing.Point(16, 400);
-            this.btn_refresh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_refresh.Margin = new System.Windows.Forms.Padding(4);
             this.btn_refresh.Name = "btn_refresh";
             this.btn_refresh.Size = new System.Drawing.Size(100, 28);
             this.btn_refresh.TabIndex = 19;
@@ -297,7 +297,7 @@
             // btn_re_updated
             // 
             this.btn_re_updated.Location = new System.Drawing.Point(337, 436);
-            this.btn_re_updated.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_re_updated.Margin = new System.Windows.Forms.Padding(4);
             this.btn_re_updated.Name = "btn_re_updated";
             this.btn_re_updated.Size = new System.Drawing.Size(119, 28);
             this.btn_re_updated.TabIndex = 20;
@@ -309,6 +309,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(230)))));
             this.ClientSize = new System.Drawing.Size(2025, 1018);
             this.Controls.Add(this.btn_re_updated);
             this.Controls.Add(this.btn_refresh);
@@ -332,7 +333,7 @@
             this.Controls.Add(this.txb_name);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frm_patients";
             this.Text = "Tiếp nhận & QLBN";
             this.Load += new System.EventHandler(this.frm_patients_Load);

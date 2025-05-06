@@ -54,7 +54,7 @@
             // txb_id
             // 
             this.txb_id.Location = new System.Drawing.Point(159, 119);
-            this.txb_id.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_id.Margin = new System.Windows.Forms.Padding(4);
             this.txb_id.Name = "txb_id";
             this.txb_id.Size = new System.Drawing.Size(115, 22);
             this.txb_id.TabIndex = 2;
@@ -72,7 +72,7 @@
             // btn_delete
             // 
             this.btn_delete.Location = new System.Drawing.Point(375, 212);
-            this.btn_delete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_delete.Margin = new System.Windows.Forms.Padding(4);
             this.btn_delete.Name = "btn_delete";
             this.btn_delete.Size = new System.Drawing.Size(100, 28);
             this.btn_delete.TabIndex = 4;
@@ -83,7 +83,7 @@
             // btn_update
             // 
             this.btn_update.Location = new System.Drawing.Point(267, 212);
-            this.btn_update.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_update.Margin = new System.Windows.Forms.Padding(4);
             this.btn_update.Name = "btn_update";
             this.btn_update.Size = new System.Drawing.Size(100, 28);
             this.btn_update.TabIndex = 5;
@@ -94,7 +94,7 @@
             // btn_add
             // 
             this.btn_add.Location = new System.Drawing.Point(159, 212);
-            this.btn_add.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_add.Margin = new System.Windows.Forms.Padding(4);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(100, 28);
             this.btn_add.TabIndex = 6;
@@ -105,7 +105,7 @@
             // txb_search
             // 
             this.txb_search.Location = new System.Drawing.Point(740, 18);
-            this.txb_search.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_search.Margin = new System.Windows.Forms.Padding(4);
             this.txb_search.Name = "txb_search";
             this.txb_search.Size = new System.Drawing.Size(344, 22);
             this.txb_search.TabIndex = 7;
@@ -134,7 +134,7 @@
             this.dtgv.DefaultCellStyle = dataGridViewCellStyle3;
             this.dtgv.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtgv.Location = new System.Drawing.Point(663, 50);
-            this.dtgv.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtgv.Margin = new System.Windows.Forms.Padding(4);
             this.dtgv.Name = "dtgv";
             this.dtgv.RowHeadersVisible = false;
             this.dtgv.RowHeadersWidth = 51;
@@ -166,7 +166,7 @@
             // txb_content
             // 
             this.txb_content.Location = new System.Drawing.Point(159, 164);
-            this.txb_content.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_content.Margin = new System.Windows.Forms.Padding(4);
             this.txb_content.Name = "txb_content";
             this.txb_content.Size = new System.Drawing.Size(457, 22);
             this.txb_content.TabIndex = 9;
@@ -175,6 +175,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(230)))));
             this.ClientSize = new System.Drawing.Size(1733, 753);
             this.ControlBox = false;
             this.Controls.Add(this.label3);
@@ -188,7 +189,7 @@
             this.Controls.Add(this.dtgv);
             this.Controls.Add(this.txb_content);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frm_dtnote";
             this.Text = "Lời dặn";
             this.Load += new System.EventHandler(this.frm_dtnote_Load);
