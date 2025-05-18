@@ -54,6 +54,8 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txb_result_content = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_content)).BeginInit();
             this.SuspendLayout();
@@ -61,47 +63,42 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(47, 238);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(25, 117);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 16);
+            this.label3.Size = new System.Drawing.Size(72, 13);
             this.label3.TabIndex = 38;
             this.label3.Text = "Tên biểu mẫu";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(119, 188);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(79, 77);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(20, 16);
+            this.label2.Size = new System.Drawing.Size(18, 13);
             this.label2.TabIndex = 37;
             this.label2.Text = "ID";
             // 
             // txb_id
             // 
-            this.txb_id.Location = new System.Drawing.Point(161, 185);
-            this.txb_id.Margin = new System.Windows.Forms.Padding(4);
+            this.txb_id.Location = new System.Drawing.Point(111, 74);
             this.txb_id.Name = "txb_id";
-            this.txb_id.Size = new System.Drawing.Size(115, 22);
+            this.txb_id.Size = new System.Drawing.Size(87, 20);
             this.txb_id.TabIndex = 36;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(887, 74);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(665, 60);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 16);
+            this.label1.Size = new System.Drawing.Size(49, 13);
             this.label1.TabIndex = 35;
             this.label1.Text = "Tìm kiếm";
             // 
             // txb_search
             // 
-            this.txb_search.Location = new System.Drawing.Point(971, 66);
-            this.txb_search.Margin = new System.Windows.Forms.Padding(4);
+            this.txb_search.Location = new System.Drawing.Point(728, 54);
             this.txb_search.Name = "txb_search";
-            this.txb_search.Size = new System.Drawing.Size(344, 22);
+            this.txb_search.Size = new System.Drawing.Size(259, 20);
             this.txb_search.TabIndex = 31;
             this.txb_search.TextChanged += new System.EventHandler(this.txb_search_TextChanged);
             // 
@@ -128,12 +125,11 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtgv.DefaultCellStyle = dataGridViewCellStyle3;
             this.dtgv.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dtgv.Location = new System.Drawing.Point(891, 98);
-            this.dtgv.Margin = new System.Windows.Forms.Padding(4);
+            this.dtgv.Location = new System.Drawing.Point(668, 80);
             this.dtgv.Name = "dtgv";
             this.dtgv.RowHeadersVisible = false;
             this.dtgv.RowHeadersWidth = 51;
-            this.dtgv.Size = new System.Drawing.Size(1000, 853);
+            this.dtgv.Size = new System.Drawing.Size(750, 693);
             this.dtgv.TabIndex = 30;
             this.dtgv.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgv.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -160,10 +156,9 @@
             // 
             // txb_name
             // 
-            this.txb_name.Location = new System.Drawing.Point(161, 229);
-            this.txb_name.Margin = new System.Windows.Forms.Padding(4);
+            this.txb_name.Location = new System.Drawing.Point(111, 110);
             this.txb_name.Name = "txb_name";
-            this.txb_name.Size = new System.Drawing.Size(447, 22);
+            this.txb_name.Size = new System.Drawing.Size(336, 20);
             this.txb_name.TabIndex = 29;
             // 
             // cb_type
@@ -171,42 +166,38 @@
             this.cb_type.FormattingEnabled = true;
             this.cb_type.Items.AddRange(new object[] {
             "Chọn loại",
-            "X -  quang",
+            "X-quang",
             "Siêu âm",
             "Xét nghiệm",
             "Điện tim"});
-            this.cb_type.Location = new System.Drawing.Point(161, 282);
-            this.cb_type.Margin = new System.Windows.Forms.Padding(4);
+            this.cb_type.Location = new System.Drawing.Point(111, 153);
             this.cb_type.Name = "cb_type";
-            this.cb_type.Size = new System.Drawing.Size(213, 24);
+            this.cb_type.Size = new System.Drawing.Size(161, 21);
             this.cb_type.TabIndex = 39;
             this.cb_type.SelectedIndexChanged += new System.EventHandler(this.cb_type_SelectedIndexChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(107, 292);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(70, 161);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(33, 16);
+            this.label4.Size = new System.Drawing.Size(27, 13);
             this.label4.TabIndex = 40;
             this.label4.Text = "Loại";
             // 
             // txb_content
             // 
-            this.txb_content.Location = new System.Drawing.Point(161, 327);
-            this.txb_content.Margin = new System.Windows.Forms.Padding(4);
+            this.txb_content.Location = new System.Drawing.Point(111, 190);
             this.txb_content.Multiline = true;
             this.txb_content.Name = "txb_content";
-            this.txb_content.Size = new System.Drawing.Size(447, 99);
+            this.txb_content.Size = new System.Drawing.Size(514, 193);
             this.txb_content.TabIndex = 41;
             // 
             // btn_delete
             // 
-            this.btn_delete.Location = new System.Drawing.Point(779, 98);
-            this.btn_delete.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_delete.Location = new System.Drawing.Point(587, 12);
             this.btn_delete.Name = "btn_delete";
-            this.btn_delete.Size = new System.Drawing.Size(100, 28);
+            this.btn_delete.Size = new System.Drawing.Size(75, 23);
             this.btn_delete.TabIndex = 44;
             this.btn_delete.Text = "Xóa";
             this.btn_delete.UseVisualStyleBackColor = true;
@@ -214,10 +205,9 @@
             // 
             // btn_update
             // 
-            this.btn_update.Location = new System.Drawing.Point(671, 98);
-            this.btn_update.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_update.Location = new System.Drawing.Point(506, 12);
             this.btn_update.Name = "btn_update";
-            this.btn_update.Size = new System.Drawing.Size(100, 28);
+            this.btn_update.Size = new System.Drawing.Size(75, 23);
             this.btn_update.TabIndex = 43;
             this.btn_update.Text = "Sửa";
             this.btn_update.UseVisualStyleBackColor = true;
@@ -225,10 +215,9 @@
             // 
             // btn_add
             // 
-            this.btn_add.Location = new System.Drawing.Point(563, 98);
-            this.btn_add.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_add.Location = new System.Drawing.Point(425, 12);
             this.btn_add.Name = "btn_add";
-            this.btn_add.Size = new System.Drawing.Size(100, 28);
+            this.btn_add.Size = new System.Drawing.Size(75, 23);
             this.btn_add.TabIndex = 42;
             this.btn_add.Text = "Thêm";
             this.btn_add.UseVisualStyleBackColor = true;
@@ -237,10 +226,9 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(107, 327);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(70, 190);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(40, 16);
+            this.label5.Size = new System.Drawing.Size(34, 13);
             this.label5.TabIndex = 45;
             this.label5.Text = "Mô tả";
             // 
@@ -273,12 +261,11 @@
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtgv_content.DefaultCellStyle = dataGridViewCellStyle6;
             this.dtgv_content.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dtgv_content.Location = new System.Drawing.Point(16, 434);
-            this.dtgv_content.Margin = new System.Windows.Forms.Padding(4);
+            this.dtgv_content.Location = new System.Drawing.Point(12, 466);
             this.dtgv_content.Name = "dtgv_content";
             this.dtgv_content.RowHeadersVisible = false;
             this.dtgv_content.RowHeadersWidth = 51;
-            this.dtgv_content.Size = new System.Drawing.Size(867, 517);
+            this.dtgv_content.Size = new System.Drawing.Size(650, 314);
             this.dtgv_content.TabIndex = 46;
             this.dtgv_content.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgv_content.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -332,12 +319,31 @@
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(59, 396);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(46, 13);
+            this.label6.TabIndex = 47;
+            this.label6.Text = "Kết luận";
+            // 
+            // txb_result_content
+            // 
+            this.txb_result_content.Location = new System.Drawing.Point(110, 396);
+            this.txb_result_content.Multiline = true;
+            this.txb_result_content.Name = "txb_result_content";
+            this.txb_result_content.Size = new System.Drawing.Size(514, 64);
+            this.txb_result_content.TabIndex = 48;
+            // 
             // frm_template
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(230)))));
-            this.ClientSize = new System.Drawing.Size(2004, 975);
+            this.ClientSize = new System.Drawing.Size(1455, 792);
+            this.Controls.Add(this.txb_result_content);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.dtgv_content);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btn_delete);
@@ -354,7 +360,6 @@
             this.Controls.Add(this.dtgv);
             this.Controls.Add(this.txb_name);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frm_template";
             this.Text = "Biểu mẫu";
             this.Load += new System.EventHandler(this.frm_template_Load);
@@ -387,5 +392,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txb_result_content;
     }
 }

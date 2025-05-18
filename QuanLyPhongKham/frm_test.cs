@@ -587,7 +587,7 @@ namespace QuanLyPhongKham
     
     <div class='signature'>
         <div>Ngày {DateTime.Now.Day} tháng {DateTime.Now.Month} năm {DateTime.Now.Year}</div>
-        <div class='signature-title'>BÁC SĨ XÉT NGHIỆM</div>
+        <div class='signature-title'>CỬ NHÂN XÉT NGHIỆM</div>
         <div class='signature-note'>(Ký và ghi rõ họ tên)</div>
     </div>
 </body>

@@ -24,7 +24,7 @@ namespace QuanLyPhongKham
 
         private void LoadDTGV()
         {
-            string query = "SELECT id, name, type, template_content FROM templates order by type" ;
+            string query = "SELECT id, name, type, template_content, result_content FROM templates ORDER BY type";
             Db.LoadDTGV(dtgv, query);
             dtgv.Columns["id"].HeaderText = "Mã mẫu";
             dtgv.Columns["name"].HeaderText = "Tên mẫu";
@@ -54,6 +54,7 @@ namespace QuanLyPhongKham
                 txb_id.Text = row.Cells["id"].Value.ToString();
                 txb_name.Text = row.Cells["name"].Value.ToString();
                 cb_type.Text = row.Cells["type"].Value.ToString();
+                txb_result_content.Text = row.Cells["result_content"].Value?.ToString() ?? "";
 
                 string type = cb_type.Text;
                 string content = row.Cells["template_content"].Value.ToString();
@@ -85,7 +86,7 @@ namespace QuanLyPhongKham
 
                     string name = row.Cells[0].Value?.ToString();
                     string testName = row.Cells[1].Value?.ToString();
-                    string resultValue = row.Cells[2].Value?.ToString(); // tránh trùng tên
+                    string resultValue = row.Cells[2].Value?.ToString();
                     string unit = row.Cells[3].Value?.ToString();
                     string normalRange = row.Cells[4].Value?.ToString();
 
@@ -119,7 +120,6 @@ namespace QuanLyPhongKham
             }
         }
 
-
         private void LoadJsonToDtgvContent(string json)
         {
             dtgv_content.Rows.Clear();
@@ -149,6 +149,7 @@ namespace QuanLyPhongKham
             txb_id.Clear();
             txb_name.Clear();
             txb_content.Clear();
+            txb_result_content.Clear();
             dtgv_content.Rows.Clear();
             cb_type.SelectedIndex = 0;
             btn_add.Enabled = true;
@@ -164,12 +165,13 @@ namespace QuanLyPhongKham
                 return;
             }
 
-            string query = "INSERT INTO templates (name, type, template_content) VALUES (@name, @type, @content)";
+            string query = "INSERT INTO templates (name, type, template_content, result_content) VALUES (@name, @type, @content, @result_content)";
             var data = new Dictionary<string, object>
             {
                 { "@name", txb_name.Text.Trim() },
                 { "@type", cb_type.Text },
-                { "@content", GetContent() }
+                { "@content", GetContent() },
+                { "@result_content", txb_result_content.Text.Trim() }
             };
 
             Db.Add(query, data);
@@ -185,13 +187,14 @@ namespace QuanLyPhongKham
                 return;
             }
 
-            string query = "UPDATE templates SET name = @name, type = @type, template_content = @content WHERE id = @id";
+            string query = "UPDATE templates SET name = @name, type = @type, template_content = @content, result_content = @result_content WHERE id = @id";
             var data = new Dictionary<string, object>
             {
                 { "@id", txb_id.Text.Trim() },
                 { "@name", txb_name.Text.Trim() },
                 { "@type", cb_type.Text },
-                { "@content", GetContent() }
+                { "@content", GetContent() },
+                { "@result_content", txb_result_content.Text.Trim() }
             };
 
             Db.Update(query, data);
@@ -225,9 +228,11 @@ namespace QuanLyPhongKham
         {
             string keyword = MySql.Data.MySqlClient.MySqlHelper.EscapeString(txb_search.Text.Trim());
             string query = $@"
-                SELECT id, name, type, template_content 
+                SELECT id, name, type, template_content, result_content 
                 FROM templates 
-                WHERE id LIKE '%{keyword}%' OR name LIKE '%{keyword}%' OR type LIKE '%{keyword}%'";
+                WHERE id LIKE '%{keyword}%' 
+                   OR name LIKE '%{keyword}%' 
+                   OR type LIKE '%{keyword}%'";
             Db.LoadDTGV(dtgv, query);
         }
     }
