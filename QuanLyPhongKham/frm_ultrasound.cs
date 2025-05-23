@@ -227,7 +227,7 @@ namespace QuanLyPhongKham
         </div>
         <div class='info-row'>
             <div class='info-item'><span class='info-label'>Chỉ định:</span> <strong>{txb_service.Text}</strong></div>
-            <div class='info-item'><span class='info-label'>Lý do khám:</span> <em>{txb_reason.Text}</em></div>
+            <div class='info-item'><span class='info-label'>Lý do khám:</span> <em>{txb_chandoanphu.Text}</em></div>
         </div>
     </div>
     
@@ -340,6 +340,7 @@ namespace QuanLyPhongKham
                 var reason = row.Cells["reason"].Value?.ToString();
                 var diagnosis = row.Cells["diagnosis"].Value?.ToString();
                 var note = row.Cells["note"].Value?.ToString();
+             
                 Db.SetTextAndMoveCursorToEnd(txb_id_exam, id_exam);
                 Db.SetTextAndMoveCursorToEnd(txb_name, name);
                 Db.SetTextAndMoveCursorToEnd(txb_gender, gender);
@@ -347,11 +348,11 @@ namespace QuanLyPhongKham
                 var dob = DateTime.ParseExact(date_of_birth, "dd/MM/yyyy", null);
                 var age = DateTime.Now.Year - dob.Year - (DateTime.Now < dob.AddYears(DateTime.Now.Year - dob.Year) ? 1 : 0);
                 txb_age.Text = age.ToString() + " tuổi"; ;
-
+                txb_chandoan.Text = diagnosis + "";
                 Db.SetTextAndMoveCursorToEnd(txb_phone, phone);
                 Db.SetTextAndMoveCursorToEnd(txb_address, address);
                 Db.SetTextAndMoveCursorToEnd(txb_reception_date, updated_at);
-                Db.SetTextAndMoveCursorToEnd(txb_reason, reason);
+                Db.SetTextAndMoveCursorToEnd(txb_chandoanphu, reason);
                 Db.SetTextAndMoveCursorToEnd(txb_id_patient, id_patient);
                 Db.SetTextAndMoveCursorToEnd(txb_note, note);
 

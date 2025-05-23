@@ -147,5 +147,22 @@ namespace QuanLyPhongKham
                 WHERE id LIKE '%{keyword}%' OR name LIKE '%{keyword}%'";
             Db.LoadDTGV(dtgv, query);
         }
+
+        private void btn_refresh_Click(object sender, EventArgs e)
+        {
+            txb_id.Text = "";
+            txb_name.Text = "";
+            txb_note.Text = "";
+            txb_price.Text = "";
+            txb_route.Text = "";
+            txb_search.Text = "";
+            txb_search.Text = "";
+            txb_times.Text = "";
+            txb_unit.Text = "";
+            txb_id.Text = "";
+            btn_add.Enabled = true;
+            btn_delete.Enabled = false;
+            
+        }
     }
 }

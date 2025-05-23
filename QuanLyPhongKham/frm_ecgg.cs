@@ -236,7 +236,7 @@ namespace QuanLyPhongKham
                 var dob = DateTime.ParseExact(date_of_birth, "dd/MM/yyyy", null);
                 var age = DateTime.Now.Year - dob.Year - (DateTime.Now < dob.AddYears(DateTime.Now.Year - dob.Year) ? 1 : 0);
                 txb_age.Text = age.ToString() + " tuổi"; ;
-
+                txb_chandoanchinh.Text = diagnosis+"";
                 Db.SetTextAndMoveCursorToEnd(txb_phone, phone);
                 Db.SetTextAndMoveCursorToEnd(txb_address, address);
                 Db.SetTextAndMoveCursorToEnd(txb_reception_date, updated_at);

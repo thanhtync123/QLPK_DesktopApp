@@ -184,6 +184,12 @@
     <Compile Include="frm_patients.Designer.cs">
       <DependentUpon>frm_patients.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_popupLUMedication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_popupLUMedication.Designer.cs">
+      <DependentUpon>frm_popupLUMedication.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_service.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -255,6 +261,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_patients.resx">
       <DependentUpon>frm_patients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_popupLUMedication.resx">
+      <DependentUpon>frm_popupLUMedication.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_service.resx">
       <DependentUpon>frm_service.cs</DependentUpon>

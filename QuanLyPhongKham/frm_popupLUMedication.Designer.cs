@@ -1,6 +1,6 @@
 ﻿namespace QuanLyPhongKham
 {
-    partial class frm_LookUpMedication
+    partial class frm_popupLUMedication
     {
         /// <summary>
         /// Required designer variable.
@@ -34,15 +34,33 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.mySqlDataAdapter1 = new MySql.Data.MySqlClient.MySqlDataAdapter();
             this.txb_search = new Guna.UI2.WinForms.Guna2TextBox();
             this.dtgv = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.mySqlDataAdapter1 = new MySql.Data.MySqlClient.MySqlDataAdapter();
-            this.dtgv_chitietphieuthuoc = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.btn_delete = new System.Windows.Forms.Button();
+            this.mySqlDataAdapter2 = new MySql.Data.MySqlClient.MySqlDataAdapter();
             this.btn_choose = new System.Windows.Forms.Button();
+            this.btn_delete = new System.Windows.Forms.Button();
+            this.dtgv_med = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.id_med = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.med_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dosage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.route = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.times = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.med_note = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalpricepermed = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgv_chitietphieuthuoc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_med)).BeginInit();
             this.SuspendLayout();
+            // 
+            // mySqlDataAdapter1
+            // 
+            this.mySqlDataAdapter1.DeleteCommand = null;
+            this.mySqlDataAdapter1.InsertCommand = null;
+            this.mySqlDataAdapter1.SelectCommand = null;
+            this.mySqlDataAdapter1.UpdateCommand = null;
             // 
             // txb_search
             // 
@@ -55,17 +73,18 @@
             this.txb_search.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txb_search.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txb_search.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txb_search.Location = new System.Drawing.Point(12, 12);
+            this.txb_search.Location = new System.Drawing.Point(12, 14);
             this.txb_search.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txb_search.Name = "txb_search";
             this.txb_search.PlaceholderText = "";
             this.txb_search.SelectedText = "";
             this.txb_search.Size = new System.Drawing.Size(282, 36);
-            this.txb_search.TabIndex = 3;
+            this.txb_search.TabIndex = 8;
             this.txb_search.TextChanged += new System.EventHandler(this.txb_search_TextChanged);
             // 
             // dtgv
             // 
+            this.dtgv.AllowUserToAddRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dtgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -87,12 +106,13 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtgv.DefaultCellStyle = dataGridViewCellStyle3;
             this.dtgv.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dtgv.Location = new System.Drawing.Point(12, 54);
+            this.dtgv.Location = new System.Drawing.Point(12, 57);
             this.dtgv.Name = "dtgv";
+            this.dtgv.ReadOnly = true;
             this.dtgv.RowHeadersVisible = false;
             this.dtgv.RowHeadersWidth = 51;
-            this.dtgv.Size = new System.Drawing.Size(363, 752);
-            this.dtgv.TabIndex = 2;
+            this.dtgv.Size = new System.Drawing.Size(363, 613);
+            this.dtgv.TabIndex = 7;
             this.dtgv.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgv.ThemeStyle.AlternatingRowsStyle.Font = null;
             this.dtgv.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
@@ -106,7 +126,7 @@
             this.dtgv.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.dtgv.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dtgv.ThemeStyle.HeaderStyle.Height = 4;
-            this.dtgv.ThemeStyle.ReadOnly = false;
+            this.dtgv.ThemeStyle.ReadOnly = true;
             this.dtgv.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgv.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dtgv.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -116,17 +136,37 @@
             this.dtgv.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dtgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_CellClick);
             // 
-            // mySqlDataAdapter1
+            // mySqlDataAdapter2
             // 
-            this.mySqlDataAdapter1.DeleteCommand = null;
-            this.mySqlDataAdapter1.InsertCommand = null;
-            this.mySqlDataAdapter1.SelectCommand = null;
-            this.mySqlDataAdapter1.UpdateCommand = null;
+            this.mySqlDataAdapter2.DeleteCommand = null;
+            this.mySqlDataAdapter2.InsertCommand = null;
+            this.mySqlDataAdapter2.SelectCommand = null;
+            this.mySqlDataAdapter2.UpdateCommand = null;
             // 
-            // dtgv_chitietphieuthuoc
+            // btn_choose
+            // 
+            this.btn_choose.Location = new System.Drawing.Point(381, 27);
+            this.btn_choose.Name = "btn_choose";
+            this.btn_choose.Size = new System.Drawing.Size(122, 23);
+            this.btn_choose.TabIndex = 11;
+            this.btn_choose.Text = "Chọn toa thuốc";
+            this.btn_choose.UseVisualStyleBackColor = true;
+            this.btn_choose.Click += new System.EventHandler(this.btn_choose_Click);
+            // 
+            // btn_delete
+            // 
+            this.btn_delete.Location = new System.Drawing.Point(300, 28);
+            this.btn_delete.Name = "btn_delete";
+            this.btn_delete.Size = new System.Drawing.Size(75, 23);
+            this.btn_delete.TabIndex = 9;
+            this.btn_delete.Text = "Xóa";
+            this.btn_delete.UseVisualStyleBackColor = true;
+            // 
+            // dtgv_med
             // 
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.dtgv_chitietphieuthuoc.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dtgv_med.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dtgv_med.BackgroundColor = System.Drawing.Color.Silver;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -134,9 +174,20 @@
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgv_chitietphieuthuoc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.dtgv_chitietphieuthuoc.ColumnHeadersHeight = 4;
-            this.dtgv_chitietphieuthuoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dtgv_med.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dtgv_med.ColumnHeadersHeight = 28;
+            this.dtgv_med.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dtgv_med.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id_med,
+            this.med_name,
+            this.unit,
+            this.dosage,
+            this.route,
+            this.times,
+            this.med_note,
+            this.quantity,
+            this.price,
+            this.totalpricepermed});
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -144,84 +195,132 @@
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgv_chitietphieuthuoc.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dtgv_chitietphieuthuoc.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dtgv_chitietphieuthuoc.Location = new System.Drawing.Point(381, 54);
-            this.dtgv_chitietphieuthuoc.Name = "dtgv_chitietphieuthuoc";
-            this.dtgv_chitietphieuthuoc.RowHeadersVisible = false;
-            this.dtgv_chitietphieuthuoc.RowHeadersWidth = 51;
-            this.dtgv_chitietphieuthuoc.Size = new System.Drawing.Size(851, 752);
-            this.dtgv_chitietphieuthuoc.TabIndex = 5;
-            this.dtgv_chitietphieuthuoc.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.dtgv_chitietphieuthuoc.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.dtgv_chitietphieuthuoc.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.dtgv_chitietphieuthuoc.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.dtgv_chitietphieuthuoc.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.dtgv_chitietphieuthuoc.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.dtgv_chitietphieuthuoc.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dtgv_chitietphieuthuoc.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.dtgv_chitietphieuthuoc.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dtgv_chitietphieuthuoc.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtgv_chitietphieuthuoc.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.dtgv_chitietphieuthuoc.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.dtgv_chitietphieuthuoc.ThemeStyle.HeaderStyle.Height = 4;
-            this.dtgv_chitietphieuthuoc.ThemeStyle.ReadOnly = false;
-            this.dtgv_chitietphieuthuoc.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.dtgv_chitietphieuthuoc.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dtgv_chitietphieuthuoc.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtgv_chitietphieuthuoc.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.dtgv_chitietphieuthuoc.ThemeStyle.RowsStyle.Height = 22;
-            this.dtgv_chitietphieuthuoc.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dtgv_chitietphieuthuoc.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-          
+            this.dtgv_med.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dtgv_med.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dtgv_med.Location = new System.Drawing.Point(381, 57);
+            this.dtgv_med.Name = "dtgv_med";
+            this.dtgv_med.RowHeadersVisible = false;
+            this.dtgv_med.RowHeadersWidth = 51;
+            this.dtgv_med.Size = new System.Drawing.Size(805, 613);
+            this.dtgv_med.TabIndex = 23;
+            this.dtgv_med.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dtgv_med.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dtgv_med.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dtgv_med.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dtgv_med.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dtgv_med.ThemeStyle.BackColor = System.Drawing.Color.Silver;
+            this.dtgv_med.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dtgv_med.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.dtgv_med.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dtgv_med.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtgv_med.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.dtgv_med.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dtgv_med.ThemeStyle.HeaderStyle.Height = 28;
+            this.dtgv_med.ThemeStyle.ReadOnly = false;
+            this.dtgv_med.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dtgv_med.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dtgv_med.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtgv_med.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dtgv_med.ThemeStyle.RowsStyle.Height = 22;
+            this.dtgv_med.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dtgv_med.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
-            // btn_delete
+            // id_med
             // 
-            this.btn_delete.Location = new System.Drawing.Point(300, 25);
-            this.btn_delete.Name = "btn_delete";
-            this.btn_delete.Size = new System.Drawing.Size(75, 23);
-            this.btn_delete.TabIndex = 4;
-            this.btn_delete.Text = "Xóa";
-            this.btn_delete.UseVisualStyleBackColor = true;
-            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
+            this.id_med.HeaderText = "Mã thuốc";
+            this.id_med.MinimumWidth = 6;
+            this.id_med.Name = "id_med";
             // 
-            // btn_choose
+            // med_name
             // 
-            this.btn_choose.Location = new System.Drawing.Point(381, 25);
-            this.btn_choose.Name = "btn_choose";
-            this.btn_choose.Size = new System.Drawing.Size(122, 23);
-            this.btn_choose.TabIndex = 6;
-            this.btn_choose.Text = "Chọn toa thuốc";
-            this.btn_choose.UseVisualStyleBackColor = true;
+            this.med_name.HeaderText = "Tên thuốc";
+            this.med_name.MinimumWidth = 6;
+            this.med_name.Name = "med_name";
             // 
-            // frm_LookUpMedication
+            // unit
+            // 
+            this.unit.HeaderText = "Đơn vị";
+            this.unit.MinimumWidth = 6;
+            this.unit.Name = "unit";
+            // 
+            // dosage
+            // 
+            this.dosage.HeaderText = "Liều dùng";
+            this.dosage.MinimumWidth = 6;
+            this.dosage.Name = "dosage";
+            // 
+            // route
+            // 
+            this.route.HeaderText = "Đường dùng";
+            this.route.MinimumWidth = 6;
+            this.route.Name = "route";
+            // 
+            // times
+            // 
+            this.times.HeaderText = "Số lần / ngày";
+            this.times.MinimumWidth = 6;
+            this.times.Name = "times";
+            // 
+            // med_note
+            // 
+            this.med_note.HeaderText = "Ghi chú";
+            this.med_note.MinimumWidth = 6;
+            this.med_note.Name = "med_note";
+            // 
+            // quantity
+            // 
+            this.quantity.HeaderText = "Số lượng";
+            this.quantity.MinimumWidth = 6;
+            this.quantity.Name = "quantity";
+            // 
+            // price
+            // 
+            this.price.HeaderText = "Đơn giá";
+            this.price.MinimumWidth = 6;
+            this.price.Name = "price";
+            // 
+            // totalpricepermed
+            // 
+            this.totalpricepermed.HeaderText = "Thành tiền";
+            this.totalpricepermed.MinimumWidth = 6;
+            this.totalpricepermed.Name = "totalpricepermed";
+            // 
+            // frm_popupLUMedication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(230)))));
-            this.ClientSize = new System.Drawing.Size(1455, 851);
-            this.Controls.Add(this.btn_choose);
-            this.Controls.Add(this.dtgv_chitietphieuthuoc);
-            this.Controls.Add(this.btn_delete);
+            this.ClientSize = new System.Drawing.Size(1198, 736);
+            this.Controls.Add(this.dtgv_med);
             this.Controls.Add(this.txb_search);
             this.Controls.Add(this.dtgv);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frm_LookUpMedication";
-            this.Text = "Tra cứu phiếu thuốc";
-            this.Load += new System.EventHandler(this.frm_LookUpMedication_Load);
+            this.Controls.Add(this.btn_choose);
+            this.Controls.Add(this.btn_delete);
+            this.Name = "frm_popupLUMedication";
+            this.Text = "Các toa thuốc cũ";
+            this.Load += new System.EventHandler(this.frm_popupLUMedication_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgv)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgv_chitietphieuthuoc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_med)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
+        private MySql.Data.MySqlClient.MySqlDataAdapter mySqlDataAdapter1;
         private Guna.UI2.WinForms.Guna2TextBox txb_search;
         private Guna.UI2.WinForms.Guna2DataGridView dtgv;
-        private MySql.Data.MySqlClient.MySqlDataAdapter mySqlDataAdapter1;
-        private Guna.UI2.WinForms.Guna2DataGridView dtgv_chitietphieuthuoc;
-        private System.Windows.Forms.Button btn_delete;
+        private MySql.Data.MySqlClient.MySqlDataAdapter mySqlDataAdapter2;
         private System.Windows.Forms.Button btn_choose;
+        private System.Windows.Forms.Button btn_delete;
+        private Guna.UI2.WinForms.Guna2DataGridView dtgv_med;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_med;
+        private System.Windows.Forms.DataGridViewTextBoxColumn med_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dosage;
+        private System.Windows.Forms.DataGridViewTextBoxColumn route;
+        private System.Windows.Forms.DataGridViewTextBoxColumn times;
+        private System.Windows.Forms.DataGridViewTextBoxColumn med_note;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalpricepermed;
     }
 }

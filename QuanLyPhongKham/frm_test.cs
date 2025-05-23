@@ -53,8 +53,8 @@ namespace QuanLyPhongKham
                 Db.SetTextAndMoveCursorToEnd(txb_address, row.Cells["address"].Value?.ToString());
                 Db.SetTextAndMoveCursorToEnd(txb_reception_date, row.Cells["updated_at"].Value?.ToString());
                 Db.SetTextAndMoveCursorToEnd(txb_reason, row.Cells["reason"].Value?.ToString());
-                Db.SetTextAndMoveCursorToEnd(txb_note, row.Cells["note"].Value?.ToString());
-
+                var diagnosis = row.Cells["diagnosis"].Value?.ToString();
+                txb_reason1.Text = diagnosis;
                 var dob = DateTime.ParseExact(date_of_birth, "dd/MM/yyyy", null);
                 var age = DateTime.Now.Year - dob.Year - (DateTime.Now < dob.AddYears(DateTime.Now.Year - dob.Year) ? 1 : 0);
                 txb_age.Text = age.ToString() + " tuổi";
@@ -568,30 +568,30 @@ namespace QuanLyPhongKham
                     string normalRange = row.Cells[4].Value?.ToString() ?? "";
 
                     html += $@"
-        <tr>
-            <td>{groupName}</td>
-            <td>{testName}</td>
-            <td>{result}</td>
-            <td>{unit}</td>
-            <td>{normalRange}</td>
-        </tr>";
-                }
+                        <tr>
+                            <td>{groupName}</td>
+                            <td>{testName}</td>
+                            <td>{result}</td>
+                            <td>{unit}</td>
+                            <td>{normalRange}</td>
+                        </tr>";
+                                }
 
-                html += $@"
-    </table>
+                                html += $@"
+                    </table>
     
-    <div class='section-title'>KẾT LUẬN</div>
-    <div class='conclusion'>
-        {txb_final_result.Text.Replace(Environment.NewLine, "<br/>")}
-    </div>
+                    <div class='section-title'>KẾT LUẬN</div>
+                    <div class='conclusion'>
+                        {txb_final_result.Text.Replace(Environment.NewLine, "<br/>")}
+                    </div>
     
-    <div class='signature'>
-        <div>Ngày {DateTime.Now.Day} tháng {DateTime.Now.Month} năm {DateTime.Now.Year}</div>
-        <div class='signature-title'>CỬ NHÂN XÉT NGHIỆM</div>
-        <div class='signature-note'>(Ký và ghi rõ họ tên)</div>
-    </div>
-</body>
-</html>";
+                    <div class='signature'>
+                        <div>Ngày {DateTime.Now.Day} tháng {DateTime.Now.Month} năm {DateTime.Now.Year}</div>
+                        <div class='signature-title'>CỬ NHÂN XÉT NGHIỆM</div>
+                        <div class='signature-note'>(Ký và ghi rõ họ tên)</div>
+                    </div>
+                </body>
+                </html>";
 
 
                 Form previewForm = new Form
@@ -639,5 +639,7 @@ namespace QuanLyPhongKham
 			string keyword = txb_search.Text.Trim();
 			LoadExam.LoadDTGVCommon(dtgv_exam, "Xét nghiệm", keyword);
 		}
+
+
     }
 }

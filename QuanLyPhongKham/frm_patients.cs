@@ -77,6 +77,7 @@ namespace QuanLyPhongKham
         {
             dtpk_dob.Format = DateTimePickerFormat.Custom;
             dtpk_dob.CustomFormat = "dd/MM/yyyy";
+            rdn_male.Checked= true;
 
             LoadAllPatients();
 

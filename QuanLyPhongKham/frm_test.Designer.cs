@@ -69,6 +69,8 @@
             this.btn_search = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.txb_reason1 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.dtgv_result = new Guna.UI2.WinForms.Guna2DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.namemeame = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -81,12 +83,8 @@
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.state = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txb_note = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.txb_reason = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.txb_address = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txb_gender = new System.Windows.Forms.TextBox();
@@ -110,16 +108,16 @@
             // 
             // txb_final_result
             // 
-            this.txb_final_result.Location = new System.Drawing.Point(571, 580);
+            this.txb_final_result.Location = new System.Drawing.Point(537, 414);
             this.txb_final_result.Multiline = true;
             this.txb_final_result.Name = "txb_final_result";
-            this.txb_final_result.Size = new System.Drawing.Size(387, 62);
+            this.txb_final_result.Size = new System.Drawing.Size(632, 207);
             this.txb_final_result.TabIndex = 43;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(519, 583);
+            this.label17.Location = new System.Drawing.Point(485, 417);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(46, 13);
             this.label17.TabIndex = 42;
@@ -143,7 +141,7 @@
             // 
             // txb_id_exam
             // 
-            this.txb_id_exam.Location = new System.Drawing.Point(89, 223);
+            this.txb_id_exam.Location = new System.Drawing.Point(89, 192);
             this.txb_id_exam.Name = "txb_id_exam";
             this.txb_id_exam.Size = new System.Drawing.Size(106, 20);
             this.txb_id_exam.TabIndex = 38;
@@ -151,7 +149,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(4, 231);
+            this.label16.Location = new System.Drawing.Point(4, 200);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(80, 13);
             this.label16.TabIndex = 37;
@@ -159,7 +157,7 @@
             // 
             // txb_reception_date
             // 
-            this.txb_reception_date.Location = new System.Drawing.Point(89, 197);
+            this.txb_reception_date.Location = new System.Drawing.Point(89, 166);
             this.txb_reception_date.Name = "txb_reception_date";
             this.txb_reception_date.Size = new System.Drawing.Size(106, 20);
             this.txb_reception_date.TabIndex = 36;
@@ -167,7 +165,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(4, 205);
+            this.label15.Location = new System.Drawing.Point(4, 174);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(79, 13);
             this.label15.TabIndex = 35;
@@ -178,7 +176,7 @@
             this.cb_template.FormattingEnabled = true;
             this.cb_template.Items.AddRange(new object[] {
             "Chọn biểu mẫu"});
-            this.cb_template.Location = new System.Drawing.Point(88, 284);
+            this.cb_template.Location = new System.Drawing.Point(88, 253);
             this.cb_template.Name = "cb_template";
             this.cb_template.Size = new System.Drawing.Size(338, 21);
             this.cb_template.TabIndex = 32;
@@ -188,7 +186,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(31, 292);
+            this.label13.Location = new System.Drawing.Point(31, 261);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(51, 13);
             this.label13.TabIndex = 31;
@@ -196,7 +194,7 @@
             // 
             // txb_service
             // 
-            this.txb_service.Location = new System.Drawing.Point(88, 258);
+            this.txb_service.Location = new System.Drawing.Point(88, 227);
             this.txb_service.Name = "txb_service";
             this.txb_service.Size = new System.Drawing.Size(338, 20);
             this.txb_service.TabIndex = 30;
@@ -256,7 +254,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(36, 265);
+            this.label14.Location = new System.Drawing.Point(36, 234);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(46, 13);
             this.label14.TabIndex = 29;
@@ -400,7 +398,7 @@
             this.dtgv_exam.Name = "dtgv_exam";
             this.dtgv_exam.RowHeadersVisible = false;
             this.dtgv_exam.RowHeadersWidth = 51;
-            this.dtgv_exam.Size = new System.Drawing.Size(322, 544);
+            this.dtgv_exam.Size = new System.Drawing.Size(332, 544);
             this.dtgv_exam.TabIndex = 9;
             this.dtgv_exam.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgv_exam.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -456,6 +454,8 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(230)))));
+            this.panel3.Controls.Add(this.txb_reason1);
+            this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.dtgv_result);
             this.panel3.Controls.Add(this.dtgv_service);
             this.panel3.Controls.Add(this.txb_final_result);
@@ -470,12 +470,8 @@
             this.panel3.Controls.Add(this.label13);
             this.panel3.Controls.Add(this.txb_service);
             this.panel3.Controls.Add(this.label14);
-            this.panel3.Controls.Add(this.txb_note);
-            this.panel3.Controls.Add(this.label12);
             this.panel3.Controls.Add(this.txb_reason);
             this.panel3.Controls.Add(this.label11);
-            this.panel3.Controls.Add(this.textBox10);
-            this.panel3.Controls.Add(this.label10);
             this.panel3.Controls.Add(this.txb_address);
             this.panel3.Controls.Add(this.label9);
             this.panel3.Controls.Add(this.txb_gender);
@@ -491,6 +487,22 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1182, 660);
             this.panel3.TabIndex = 1;
+            // 
+            // txb_reason1
+            // 
+            this.txb_reason1.Location = new System.Drawing.Point(89, 114);
+            this.txb_reason1.Name = "txb_reason1";
+            this.txb_reason1.Size = new System.Drawing.Size(337, 20);
+            this.txb_reason1.TabIndex = 47;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(28, 121);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(60, 13);
+            this.label3.TabIndex = 46;
+            this.label3.Text = "Chẩn đoán";
             // 
             // dtgv_result
             // 
@@ -526,7 +538,7 @@
             this.dtgv_result.Name = "dtgv_result";
             this.dtgv_result.RowHeadersVisible = false;
             this.dtgv_result.RowHeadersWidth = 51;
-            this.dtgv_result.Size = new System.Drawing.Size(681, 553);
+            this.dtgv_result.Size = new System.Drawing.Size(681, 393);
             this.dtgv_result.TabIndex = 45;
             this.dtgv_result.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgv_result.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -614,11 +626,11 @@
             dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtgv_service.DefaultCellStyle = dataGridViewCellStyle9;
             this.dtgv_service.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dtgv_service.Location = new System.Drawing.Point(12, 312);
+            this.dtgv_service.Location = new System.Drawing.Point(12, 280);
             this.dtgv_service.Name = "dtgv_service";
             this.dtgv_service.RowHeadersVisible = false;
             this.dtgv_service.RowHeadersWidth = 51;
-            this.dtgv_service.Size = new System.Drawing.Size(470, 330);
+            this.dtgv_service.Size = new System.Drawing.Size(470, 362);
             this.dtgv_service.TabIndex = 44;
             this.dtgv_service.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgv_service.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -667,22 +679,6 @@
             this.state.MinimumWidth = 6;
             this.state.Name = "state";
             // 
-            // txb_note
-            // 
-            this.txb_note.Location = new System.Drawing.Point(89, 166);
-            this.txb_note.Name = "txb_note";
-            this.txb_note.Size = new System.Drawing.Size(337, 20);
-            this.txb_note.TabIndex = 27;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(41, 173);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(44, 13);
-            this.label12.TabIndex = 26;
-            this.label12.Text = "Ghi chú";
-            // 
             // txb_reason
             // 
             this.txb_reason.Location = new System.Drawing.Point(89, 140);
@@ -693,27 +689,11 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(29, 147);
+            this.label11.Location = new System.Drawing.Point(8, 146);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(60, 13);
+            this.label11.Size = new System.Drawing.Size(81, 13);
             this.label11.TabIndex = 24;
-            this.label11.Text = "Chẩn đoán";
-            // 
-            // textBox10
-            // 
-            this.textBox10.Location = new System.Drawing.Point(88, 114);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(337, 20);
-            this.textBox10.TabIndex = 23;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(35, 124);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(46, 13);
-            this.label10.TabIndex = 22;
-            this.label10.Text = "Bệnh sử";
+            this.label11.Text = "Chẩn đoán phụ";
             // 
             // txb_address
             // 
@@ -816,7 +796,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(230)))));
-            this.ClientSize = new System.Drawing.Size(1455, 725);
+            this.ClientSize = new System.Drawing.Size(1665, 725);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -866,12 +846,8 @@
         private System.Windows.Forms.Button btn_search;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox txb_note;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txb_reason;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txb_address;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txb_gender;
@@ -901,5 +877,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn state;
         private Guna.UI2.WinForms.Guna2TextBox txb_search;
         private System.Windows.Forms.WebBrowser webBrowser1;
+        private System.Windows.Forms.TextBox txb_reason1;
+        private System.Windows.Forms.Label label3;
     }
 }

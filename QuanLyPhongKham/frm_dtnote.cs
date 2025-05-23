@@ -126,5 +126,15 @@ namespace QuanLyPhongKham
             btn_delete.Enabled = false;
             txb_search.TextChanged += txb_search_TextChanged;
         }
+
+        private void btn_refresh_Click(object sender, EventArgs e)
+        {
+            txb_id.Text = "";
+            txb_content.Text = "";
+            txb_search.Text = "";
+            btn_add.Enabled = true;
+            btn_update.Enabled = false;
+            btn_delete.Enabled = false;
+        }
     }
 }

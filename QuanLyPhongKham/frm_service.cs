@@ -131,5 +131,14 @@ namespace QuanLyPhongKham
                 WHERE id LIKE '%{keyword}%' OR name LIKE '%{keyword}%' OR type LIKE '%{keyword}%'";
             Db.LoadDTGV(dtgv, query);
         }
+
+        private void btn_refresh_Click(object sender, EventArgs e)
+        {
+            txb_search.Text = "";
+            txb_id.Text = "";
+            txb_name.Text = "";
+            txb_price.Text = "";
+           
+        }
     }
 }

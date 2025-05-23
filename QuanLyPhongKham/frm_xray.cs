@@ -76,6 +76,7 @@ namespace QuanLyPhongKham
         }
         private void dtgv_exam_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            // reason = chẩn đoán phụ
            
             if (e.RowIndex >= 0 && dtgv_exam.Rows[e.RowIndex].Cells["id_exam"].Value != null)
             {
