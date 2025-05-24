@@ -364,17 +364,16 @@ namespace QuanLyPhongKham
         {
             if (e.RowIndex >= 0)
             {
-                // Reset các PictureBox và snapCount
                 ResetPictureBoxes();
 
                 DataGridViewRow row = dtgv_service.Rows[e.RowIndex];
-                var name_service = row.Cells["name"].Value?.ToString();
-                txb_service.Text = name_service;
+                txb_service.Text = row.Cells["name"].Value?.ToString();
 
                 if (dtgv_service.CurrentRow.Cells["state"].Value.ToString() == "Đã có KQ")
                 {
                     btn_save.Enabled = false;
                     btn_edit.Enabled = true;
+
                     string sql = @"SELECT 
                 es.id AS examination_service_id,
                 er.result AS result,
@@ -398,16 +397,12 @@ namespace QuanLyPhongKham
                     if (Db.dr.Read())
                     {
                         isUserChangingTemplate = false;
-                        Db.SetTextAndMoveCursorToEnd(txb_result, Db.dr["result"].ToString()
-                             .Replace("\\r\\n", "\r\n")); // chuyển chuỗi '\\r\\n' về ký tự xuống dòng thật
+                        Db.SetTextAndMoveCursorToEnd(txb_result, Db.dr["result"].ToString().Replace("\\r\\n", "\r\n"));
                         Db.SetTextAndMoveCursorToEnd(txb_final_result, Db.dr["final_result"].ToString());
                         cb_template.SelectedValue = Convert.ToInt32(Db.dr["template_id"]);
                         isUserChangingTemplate = true;
 
-                        // Lấy đường dẫn ảnh
                         string filePaths = Db.dr["file_path"].ToString();
-
-                        // Hiển thị các ảnh
                         if (!string.IsNullOrEmpty(filePaths))
                         {
                             LoadImagesFromPaths(filePaths.Split(','));
@@ -428,51 +423,59 @@ namespace QuanLyPhongKham
             }
         }
 
-        // Hàm để hiển thị ảnh từ đường dẫn
-        // Hàm để hiển thị ảnh từ đường dẫn
         private void LoadImagesFromPaths(string[] paths)
         {
             snapCount = 0;
+            string projectDir = Directory.GetParent(Application.StartupPath).Parent.Parent.FullName;
+            string imagesDir = Path.Combine(projectDir, "images");
 
-            for (int i = 0; i < paths.Length && i < 4; i++) // Giới hạn tối đa 4 ảnh
+            for (int i = 0; i < paths.Length && i < 4; i++)
             {
-                string path = paths[i].Trim(); // Loại bỏ khoảng trắng thừa nếu có
-
-                if (!string.IsNullOrEmpty(path) && File.Exists(path))
+                string fileName = paths[i].Trim();
+                if (!string.IsNullOrEmpty(fileName))
                 {
-                    try
+                    string fullPath = Path.Combine(imagesDir, fileName);
+                    if (File.Exists(fullPath))
                     {
-                        Image img = Image.FromFile(path);
-
-                        PictureBox currentPb = null;
-                        switch (i)
+                        try
                         {
-                            case 0: currentPb = pb_1; break;
-                            case 1: currentPb = pb_2; break;
-                            case 2: currentPb = pb_3; break;
-                            case 3: currentPb = pb_4; break;
+                            PictureBox pb = null;
+                            switch (i)
+                            {
+                                case 0: pb = pb_1; break;
+                                case 1: pb = pb_2; break;
+                                case 2: pb = pb_3; break;
+                                case 3: pb = pb_4; break;
+                            }
+                            if (pb != null)
+                            {
+                                if (pb.Image != null)
+                                {
+                                    pb.Image.Dispose();
+                                    pb.Image = null;
+                                }
+                                pb.Image = Image.FromFile(fullPath);
+                                pb.Visible = true;
+                                snapCount++;
+                            }
                         }
-
-                        if (currentPb != null)
+                        catch (Exception ex)
                         {
-                            currentPb.Image = img;
-                            currentPb.Visible = true;
-                            snapCount++;
+                            MessageBox.Show($"Lỗi khi đọc ảnh {fullPath}: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        MessageBox.Show($"Lỗi khi đọc ảnh {path}: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        Console.WriteLine($"File ảnh không tồn tại: {fullPath}");
                     }
-                }
-                else
-                {
-                    Console.WriteLine($"Đường dẫn không hợp lệ hoặc file không tồn tại: '{path}'");
                 }
             }
 
             Console.WriteLine($"Đã hiển thị {snapCount} ảnh");
         }
+
+
+
 
         // Hàm reset các PictureBox
         private void ResetPictureBoxes()
@@ -570,173 +573,77 @@ namespace QuanLyPhongKham
         {
             try
             {
-                List<string> imagePaths = new List<string>();
+                string projectDir = Directory.GetParent(Application.StartupPath).Parent.Parent.FullName;
+                string imagesDir = Path.Combine(projectDir, "images");
+                Directory.CreateDirectory(imagesDir);  // tạo nếu chưa có
 
-  
-                string projectPath = Directory.GetParent(Application.StartupPath).Parent.Parent.FullName;
-
-
-                string folderPath = Path.Combine(projectPath, "images");
-
-   
-                if (!Directory.Exists(folderPath))
+                var pbs = new[] { pb_1, pb_2, pb_3, pb_4 };
+                var paths = pbs.Where(p => p.Image != null).Select(p =>
                 {
-                    Directory.CreateDirectory(folderPath);
-                }
+                    string name = Guid.NewGuid() + ".jpg";
+                    p.Image.Save(Path.Combine(imagesDir, name), System.Drawing.Imaging.ImageFormat.Jpeg);
+                    return $"images/{name}";
+                }).ToList();
 
-                // Lưu các ảnh từ PictureBox
-                for (int i = 0; i < snapCount; i++)
-                {
-                    PictureBox currentPb = null;
-                    switch (i)
-                    {
-                        case 0: currentPb = pb_1; break;
-                        case 1: currentPb = pb_2; break;
-                        case 2: currentPb = pb_3; break;
-                        case 3: currentPb = pb_4; break;
-                    }
+                string filePaths = string.Join(",", paths);
+                int id = Convert.ToInt32(dtgv_service.CurrentRow.Cells["examination_service_id"].Value);
+                int tid = Convert.ToInt32(cb_template.SelectedValue);
+                string result = txb_result.Text.Replace("'", "''");
+                string final = txb_final_result.Text.Replace("'", "''");
 
-                    if (currentPb != null && currentPb.Image != null)
-                    {
-                        string randomFileName = Guid.NewGuid().ToString() + ".jpg";
-                        string fullPath = Path.Combine(folderPath, randomFileName);
+                string query = $@"
+        INSERT INTO examination_results 
+        (examination_service_id, template_id, result, final_result, file_path) 
+        VALUES ({id}, {tid}, '{result}', '{final}', '{filePaths}');";
 
-                        currentPb.Image.Save(fullPath, System.Drawing.Imaging.ImageFormat.Jpeg);
-                        imagePaths.Add(fullPath);
-                    }
-                }
-
-                string filePaths = string.Join(",", imagePaths);
-
-                var examination_service_id = Convert.ToInt32(dtgv_service.CurrentRow.Cells["examination_service_id"].Value);
-                var template_id = Convert.ToInt32(cb_template.SelectedValue);
-                string result = txb_result.Text;
-                string final_result = txb_final_result.Text;
-
-                string query = @"INSERT INTO examination_results 
-(examination_service_id, template_id, result, final_result, file_path) 
-VALUES (@examination_service_id, @template_id, @result, @final_result, @file_path);";
-
-                MySqlCommand cmd = new MySqlCommand(query, Db.conn);
-                cmd.Parameters.AddWithValue("@examination_service_id", examination_service_id);
-                cmd.Parameters.AddWithValue("@template_id", template_id);
-                cmd.Parameters.AddWithValue("@result", result);
-                cmd.Parameters.AddWithValue("@final_result", final_result);
-                cmd.Parameters.AddWithValue("@file_path", filePaths);
-
-                int rowsAffected = cmd.ExecuteNonQuery();
-
-                if (rowsAffected > 0)
-                {
-                    MessageBox.Show("Thêm kết quả thành công.");
-                    LoadDTGV_Service();
-                }
-                else
-                {
-                    MessageBox.Show("Không có dữ liệu nào được thêm.");
-                }
+                var cmd = new MySqlCommand(query, Db.conn);
+                MessageBox.Show(cmd.ExecuteNonQuery() > 0 ? "Thêm kết quả thành công." : "Không có dữ liệu nào được thêm.");
+                LoadDTGV_Service();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi lưu ảnh: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi: " + ex.Message);
             }
+
         }
 
         private void btn_edit_Click(object sender, EventArgs e)
         {
             try
             {
-                List<string> imagePaths = new List<string>();
+                string projectDir = Directory.GetParent(Application.StartupPath).Parent.Parent.FullName;
+                string folder = Path.Combine(projectDir, "images");
+                Directory.CreateDirectory(folder);
 
-                // Lấy thư mục gốc dự án
-                string projectPath = Directory.GetParent(Application.StartupPath).Parent.Parent.FullName;
-                string folderPath = Path.Combine(projectPath, "images");
-
-                if (!Directory.Exists(folderPath))
+                var pbs = new[] { pb_1, pb_2, pb_3, pb_4 };
+                var imgs = pbs.Where(p => p.Image != null).Select(p =>
                 {
-                    Directory.CreateDirectory(folderPath);
-                }
+                    string name = Guid.NewGuid() + ".jpg";
+                    p.Image.Save(Path.Combine(folder, name), System.Drawing.Imaging.ImageFormat.Jpeg);
+                    return name;
+                }).ToList();
 
-                // Lưu ảnh nếu có
-                for (int i = 0; i < snapCount; i++)
-                {
-                    PictureBox currentPb = null;
-                    switch (i)
-                    {
-                        case 0: currentPb = pb_1; break;
-                        case 1: currentPb = pb_2; break;
-                        case 2: currentPb = pb_3; break;
-                        case 3: currentPb = pb_4; break;
-                    }
+                string filePaths = string.Join(",", imgs);
+                int id = Convert.ToInt32(dtgv_service.CurrentRow.Cells["examination_service_id"].Value);
+                int tid = Convert.ToInt32(cb_template.SelectedValue);
+                string result = txb_result.Text.Replace("'", "''");
+                string final = txb_final_result.Text.Replace("'", "''");
 
-                    if (currentPb != null && currentPb.Image != null)
-                    {
-                        string randomFileName = Guid.NewGuid().ToString() + ".jpg";
-                        string fullPath = Path.Combine(folderPath, randomFileName);
+                string query = imgs.Count > 0
+                    ? $@"UPDATE examination_results SET template_id={tid}, result='{result}', final_result='{final}', file_path='{filePaths}' WHERE examination_service_id={id};"
+                    : $@"UPDATE examination_results SET template_id={tid}, result='{result}', final_result='{final}' WHERE examination_service_id={id};";
 
-                        currentPb.Image.Save(fullPath, System.Drawing.Imaging.ImageFormat.Jpeg);
-
-                        // Lưu **tên file** thay vì full path
-                        imagePaths.Add(randomFileName);
-                    }
-                }
-
-                string filePaths = string.Join(",", imagePaths);
-
-                var examination_service_id = Convert.ToInt32(dtgv_service.CurrentRow.Cells["examination_service_id"].Value);
-                var template_id = Convert.ToInt32(cb_template.SelectedValue);
-                string result = txb_result.Text;
-                string final_result = txb_final_result.Text;
-
-                string query;
-                MySqlCommand cmd;
-
-                if (imagePaths.Count > 0)
-                {
-                    // Nếu có ảnh mới thì update cả file_path
-                    query = @"UPDATE examination_results SET 
-                    template_id=@template_id,
-                    result=@result,
-                    final_result=@final_result,
-                    file_path=@file_path
-                    WHERE examination_service_id = @examination_service_id";
-
-                    cmd = new MySqlCommand(query, Db.conn);
-                    cmd.Parameters.AddWithValue("@file_path", filePaths);
-                }
-                else
-                {
-                    // Không ảnh mới thì giữ nguyên file_path
-                    query = @"UPDATE examination_results SET 
-                    template_id=@template_id,
-                    result=@result,
-                    final_result=@final_result
-                    WHERE examination_service_id = @examination_service_id";
-
-                    cmd = new MySqlCommand(query, Db.conn);
-                }
-
-                cmd.Parameters.AddWithValue("@examination_service_id", examination_service_id);
-                cmd.Parameters.AddWithValue("@template_id", template_id);
-                cmd.Parameters.AddWithValue("@result", result);
-                cmd.Parameters.AddWithValue("@final_result", final_result);
-
-                int rowsAffected = cmd.ExecuteNonQuery();
-
-                if (rowsAffected > 0)
-                {
-                    MessageBox.Show("Sửa kết quả thành công.");
-                    LoadDTGV_Service();
-                }
-                else
-                {
-                    MessageBox.Show("Không có dữ liệu nào được sửa.");
-                }
+                var cmd = new MySqlCommand(query, Db.conn);
+                MessageBox.Show(cmd.ExecuteNonQuery() > 0 ? "Sửa kết quả thành công." : "Không có dữ liệu nào được sửa.");
+                LoadDTGV_Service();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi cập nhật: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi: " + ex.Message);
             }
+
+
+
         }
 
 
@@ -784,7 +691,7 @@ VALUES (@examination_service_id, @template_id, @result, @final_result, @file_pat
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
             ofd.Multiselect = true;
-            txb_filepath.Text = ""; 
+       
 
             if (ofd.ShowDialog() == DialogResult.OK)
             {
@@ -809,7 +716,7 @@ VALUES (@examination_service_id, @template_id, @result, @final_result, @file_pat
                     pb_4.Visible = true;
                     pb_4.Image = Image.FromFile(files[3]);
                 }
-                txb_filepath.Text = string.Join(";", files);
+                
 
             }
           
