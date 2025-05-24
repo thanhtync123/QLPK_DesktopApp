@@ -572,13 +572,13 @@ namespace QuanLyPhongKham
             {
                 List<string> imagePaths = new List<string>();
 
-                // Lấy thư mục chạy (bin/Debug/...) và lùi lên thư mục gốc dự án
+  
                 string projectPath = Directory.GetParent(Application.StartupPath).Parent.Parent.FullName;
 
-                // Ghép thêm thư mục images
+
                 string folderPath = Path.Combine(projectPath, "images");
 
-                // Đảm bảo thư mục tồn tại
+   
                 if (!Directory.Exists(folderPath))
                 {
                     Directory.CreateDirectory(folderPath);
@@ -778,5 +778,41 @@ VALUES (@examination_service_id, @template_id, @result, @final_result, @file_pat
 			string keyword = txb_search.Text.Trim();
 			LoadExam.LoadDTGVCommon(dtgv_exam, "Siêu âm", keyword);
 		}
+
+        private void btn_upload_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
+            ofd.Multiselect = true;
+            txb_filepath.Text = ""; 
+
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                var files = ofd.FileNames;
+                if (files.Length > 0)
+                {
+                    pb_1.Visible = true;
+                    pb_1.Image = Image.FromFile(files[0]);
+                }
+                if (files.Length > 1)
+                {
+                    pb_2.Visible = true;
+                    pb_2.Image = Image.FromFile(files[1]);
+                }
+                if (files.Length > 2)
+                {
+                    pb_3.Visible = true;
+                    pb_3.Image = Image.FromFile(files[2]);
+                }
+                if (files.Length > 3)
+                {
+                    pb_4.Visible = true;
+                    pb_4.Image = Image.FromFile(files[3]);
+                }
+                txb_filepath.Text = string.Join(";", files);
+
+            }
+          
+        }
     }
 }

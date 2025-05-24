@@ -138,7 +138,12 @@ namespace QuanLyPhongKham
                 return cmd.ExecuteScalar();
             }
         }
-
+        public static MySqlDataReader GetReader(string query)
+        {
+            ResetConnection();
+            MySqlCommand cmd = CreateCommand(query);
+            return cmd.ExecuteReader(CommandBehavior.CloseConnection);
+        }
 
 
     }

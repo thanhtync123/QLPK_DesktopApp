@@ -159,7 +159,7 @@ namespace QuanLyPhongKham
 
         private void traCứuPhiếuKhámToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddTab(new frm_LookUpExamination());
+            AddTab(new lb_chitietphieukham());
         }
 
         private void traCứuPhiếuThuốcToolStripMenuItem_Click(object sender, EventArgs e)

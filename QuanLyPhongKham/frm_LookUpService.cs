@@ -16,42 +16,26 @@ namespace QuanLyPhongKham
         private void LoadDTGV(string keyword = "")
         {
             string query = $@"
-                SELECT 
-                    e.id AS examination_id,
-                    p.id AS patient_id,
-                    p.name AS patient_name,
-                    DATE_FORMAT(MIN(s.created_at), '%d/%m/%Y') AS service_date,
-                    GROUP_CONCAT(
-                        CONCAT(
-                            'Tên dịch vụ: ', s.name, '\n',
-                            'Đơn giá: ', es.price, '\n',
-                            '-----------------------------'
-                        )
-                        ORDER BY s.name
-                        SEPARATOR '\n'
-                    ) AS service_info,
-                    SUM(CAST(es.price AS UNSIGNED)) AS total_price
-                FROM examinations e
-                JOIN patients p ON e.patient_id = p.id
-                JOIN examination_services es ON e.id = es.examination_id
-                JOIN services s ON es.service_id = s.id
-                WHERE p.name LIKE '%{keyword}%'
-                GROUP BY e.id, p.id
-                ORDER BY e.id DESC;
+SELECT 
+    e.id AS 'Mã phiếu khám',
+    p.id AS 'Mã BN',
+    p.name AS 'Tên BN',
+    DATE_FORMAT(s.created_at, '%d/%m/%Y %H:%i') AS 'Ngày cấp dịch vụ'
+FROM examinations e
+JOIN patients p ON e.patient_id = p.id
+JOIN examination_services es ON e.id = es.examination_id
+JOIN services s ON es.service_id = s.id
+WHERE p.name LIKE '%{keyword}%' or p.id LIKE '%{keyword}%' or e.id LIKE '%{keyword}%'
+
+             
+
             ";
 
-            Db.LoadDTGV(dtgv, query);
+            Db.LoadDTGV(dtgv_patient, query);
 
-            dtgv.Columns["examination_id"].HeaderText = "Mã phiếu khám";
-            dtgv.Columns["patient_id"].HeaderText = "Mã BN";
-            dtgv.Columns["patient_name"].HeaderText = "Tên bệnh nhân";
-            dtgv.Columns["service_info"].HeaderText = "Thông tin dịch vụ";
-            dtgv.Columns["total_price"].HeaderText = "Tổng tiền";
-            dtgv.Columns["service_date"].HeaderText = "Ngày cấp dịch vụ";
-
-            dtgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dtgv.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-            dtgv.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dtgv_patient.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dtgv_patient.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dtgv_patient.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
         }
 
         private void txb_search_TextChanged(object sender, EventArgs e)
@@ -67,16 +51,34 @@ namespace QuanLyPhongKham
 
         private void dtgv_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
-            {
-                var selectedRow = dtgv.Rows[e.RowIndex];
-            }
+            var id_examination = dtgv_patient.SelectedRows[0].Cells["Mã phiếu khám"].Value;
+            string sql = $@"
+                Select s.name as 'Tên chỉ định',
+                es.price as 'Giá'
+                from 
+                examinations e, services s, 
+                examination_services es
+                where es.examination_id = e.id
+                and es.service_id = s.id
+                and e.id = {id_examination}";
+            Db.LoadDTGV(dtgv, sql);
+            decimal total = 0;
+            foreach (DataGridViewRow row in dtgv.Rows)
+            
+                if (row.Cells["Giá"].Value != null && decimal.TryParse(row.Cells["Giá"].Value.ToString(), out decimal price))
+                
+                    total += price;
+                
+            
+            label1.Text = $"Tổng tiền: {total:N0} đ"; // định dạng có dấu phân cách hàng nghìn
+
+
         }
 
 
         private void btn_delete_Click(object sender, EventArgs e)
         {
-            if (dtgv.SelectedRows.Count == 0)
+            if (dtgv_patient.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Vui lòng chọn một bản ghi để xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -90,7 +92,7 @@ namespace QuanLyPhongKham
 
             try
             {
-                var selectedRow = dtgv.SelectedRows[0];
+                var selectedRow = dtgv_patient.SelectedRows[0];
                 int examinationId = Convert.ToInt32(selectedRow.Cells["examination_id"].Value);
 
                 // Xóa dữ liệu từ bảng examination_services

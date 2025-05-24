@@ -244,10 +244,29 @@ namespace QuanLyPhongKham
 
 
         }
-        private void LoadDTGV_Service()
+        private void txb_search_TextChanged(object sender, EventArgs e)
+        {
+            dtgv_service.Rows.Clear();
+            var keyword = txb_search.Text.Trim();
+            LoadDTGV_Service(keyword);
+
+        }
+
+        private void LoadDTGV_Service(String keyword="")
         {
             ResetConnection();
-            string query = "SELECT `id`, `name`, `type`,`price` \r\n FROM `services`\r\nORDER BY FIELD(`type`, 'X-quang', 'Siêu âm', 'Xét nghiệm', 'Điện tim');\r\n";
+            string query = $@"SELECT id,`name`, `type`, `price`
+                        FROM `services`
+                         WHERE name LIKE '%{keyword}%'
+                        ORDER BY 
+                          CASE `type`
+                            WHEN 'X-quang' THEN 1
+                            WHEN 'Siêu âm' THEN 2
+                            WHEN 'Xét nghiệm' THEN 3
+                            WHEN 'Điện tim' THEN 4
+                          END;
+
+                        ";
             Db.cmd = new MySqlCommand(query, Db.conn);
             Db.dr = Db.cmd.ExecuteReader();
             while (Db.dr.Read())
@@ -264,7 +283,6 @@ namespace QuanLyPhongKham
 
             Db.dr.Close();
         }
-
 
         private void btn_add_examination_Click(object sender, EventArgs e)
         {
@@ -453,6 +471,46 @@ VALUES
 
             lb_total_price_service.Text = total.ToString("N0");
         }
+        private void btn_pre_prescription_Click(object sender, EventArgs e)
+        {
+            decimal total = 0;
+            frm_popupLUMedication frm = new frm_popupLUMedication();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                foreach (var row in frm.AllRows)
+                {
+                    int index = dtgv_med.Rows.Add();
+                    for (int i = 0; i < row.Cells.Count; i++)
+                        dtgv_med.Rows[index].Cells[i].Value = row.Cells[i].Value;
+
+
+                }
+                foreach (DataGridViewRow row in dtgv_med.Rows)
+
+                    if (row.Cells[9].Value != null && decimal.TryParse(row.Cells[9].Value.ToString(), out decimal rowTotal))
+
+                        total += rowTotal;
+
+
+                lb_totalprice.Text = "Tổng tiền: " + total.ToString("N0") + " đ";
+            }
+        }
+
+        private void btn_refresh_Click(object sender, EventArgs e)
+        {
+            dtgv_med.Rows.Clear();
+            txb_quantity.Value = 1;
+            txb_totalpricepermed.Text = "0";
+            txb_times.Text = "";
+            txb_dosage.Text = "";
+            txb_price.Text = "";
+            txb_mednote.Text = "";
+            txb_route.Text = "";
+            txb_unit.Text = "";
+
+        }
+
+
 
         private void btn_print_prescription_Click(object sender, EventArgs e)
         {
@@ -651,44 +709,7 @@ VALUES
             previewForm.ShowDialog();
         }
 
-        private void btn_pre_prescription_Click(object sender, EventArgs e)
-        {
-            decimal total = 0;
-            frm_popupLUMedication frm = new frm_popupLUMedication();
-            if (frm.ShowDialog() == DialogResult.OK)
-            {
-                foreach (var row in frm.AllRows)
-                {
-                    int index = dtgv_med.Rows.Add();
-                    for (int i = 0; i < row.Cells.Count; i++)
-                        dtgv_med.Rows[index].Cells[i].Value = row.Cells[i].Value;
 
-                    
-                }
-                foreach (DataGridViewRow row in dtgv_med.Rows)
-
-                    if (row.Cells[9].Value != null && decimal.TryParse(row.Cells[9].Value.ToString(), out decimal rowTotal))
-
-                        total += rowTotal;
-
-
-                lb_totalprice.Text = "Tổng tiền: " + total.ToString("N0") + " đ";
-            }
-        }
-
-        private void btn_refresh_Click(object sender, EventArgs e)
-        {
-            dtgv_med.Rows.Clear();
-            txb_quantity.Value = 1;
-            txb_totalpricepermed.Text = "0";
-            txb_times.Text = "";
-            txb_dosage.Text = "";
-            txb_price.Text = "";
-            txb_mednote.Text="";
-              txb_route.Text = "";
-            txb_unit.Text = "";
-
-        }
     }
 }
 

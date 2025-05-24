@@ -140,6 +140,7 @@
             this.cb_doctornote = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label27 = new System.Windows.Forms.Label();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.txb_search = new System.Windows.Forms.TextBox();
             this.guna2TabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txb_quantity)).BeginInit();
@@ -402,7 +403,7 @@
             this.btn_refresh.TabIndex = 52;
             this.btn_refresh.Text = "Làm mới";
             this.btn_refresh.UseVisualStyleBackColor = true;
-            this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
+        
             // 
             // btn_print_prescription
             // 
@@ -848,6 +849,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.txb_search);
             this.tabPage2.Controls.Add(this.btn_print_service);
             this.tabPage2.Controls.Add(this.lb_total_price_service);
             this.tabPage2.Controls.Add(this.label26);
@@ -1490,6 +1492,14 @@
             this.webBrowser1.Size = new System.Drawing.Size(250, 250);
             this.webBrowser1.TabIndex = 38;
             // 
+            // txb_search
+            // 
+            this.txb_search.Location = new System.Drawing.Point(227, 10);
+            this.txb_search.Name = "txb_search";
+            this.txb_search.Size = new System.Drawing.Size(290, 20);
+            this.txb_search.TabIndex = 52;
+            this.txb_search.TextChanged += new System.EventHandler(this.txb_search_TextChanged);
+            // 
             // frm_examination
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1653,5 +1663,6 @@
         private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.Button btn_pre_prescription;
         private System.Windows.Forms.Button btn_refresh;
+        private System.Windows.Forms.TextBox txb_search;
     }
 }

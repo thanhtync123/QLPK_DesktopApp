@@ -433,6 +433,8 @@
             // 
             // cb_template
             // 
+            this.cb_template.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cb_template.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cb_template.FormattingEnabled = true;
             this.cb_template.Items.AddRange(new object[] {
             "Chọn biểu mẫu"});

@@ -21,8 +21,8 @@ namespace QuanLyPhongKham
         public frm_xray()
         {
             InitializeComponent();
-            LoadExam.InitialDTGVCommon(dtgv_exam); // Khởi tạo DataGridView
-            LoadExam.LoadDTGVCommon(dtgv_exam, "X-quang"); // Tải dữ liệu cho X-quang
+            LoadExam.InitialDTGVCommon(dtgv_exam);
+            LoadExam.LoadDTGVCommon(dtgv_exam, "X-quang"); 
         }
         private void frm_xray_Load(object sender, EventArgs e)
         {
