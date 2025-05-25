@@ -13,6 +13,7 @@ using MySql.Data.MySqlClient;
 using WMPLib;
 using System.IO;
 using System.Collections.Generic;
+using Org.BouncyCastle.Math.Field;
 
 namespace QuanLyPhongKham
 {
@@ -154,174 +155,210 @@ namespace QuanLyPhongKham
             Db.LoadComboBoxData(cb_template, query, "name", "id");
         }
 
-        private void btn_print_Click(object sender, EventArgs e)
+        private string imageUrl1 = null;
+        private string imageUrl2 = null;
+        private void btn_upload_Click(object sender, EventArgs e)
         {
-            //if (dtgv_service.CurrentRow == null || txb_result.Text.Trim() == "")
-            //{
-            //    MessageBox.Show("Vui lòng chọn dịch vụ có kết quả để in.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //    return;
-            //}
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
+            ofd.Multiselect = true;
 
-            // Tạo HTML phiếu kết quả siêu âm
-            string html = $@"
-<html>
-<head>
-    <style>
-        body {{ font-family: 'Segoe UI', Arial, sans-serif; margin: 10px; color: #333; background-color: #fff; line-height: 1.3; font-size: 12px; }}
-        .header {{ text-align: center; margin-bottom: 8px; }}
-        .clinic-name {{ font-size: 20px; font-weight: bold; color: #2c3e50; margin-bottom: 2px; text-transform: uppercase; }}
-        .clinic-address {{ font-size: 12px; margin-bottom: 0; color: #2c3e50; }}
-        .clinic-phone {{ font-size: 12px; color: #2c3e50; margin-top: 2px; }}
-        .divider {{ border-top: 1px solid #3498db; margin: 5px 0; }}
-        .title {{ text-align: center; font-size: 18px; font-weight: bold; margin: 8px 0; color: #2c3e50; text-transform: uppercase; }}
-        .print-time {{ text-align: right; font-size: 10px; color: #7f8c8d; font-style: italic; margin: 2px 0; }}
-        .section-title {{ font-size: 14px; font-weight: bold; color: #2980b9; margin: 8px 0 5px 0; text-transform: uppercase; border-left: 3px solid #3498db; padding-left: 5px; }}
-        .info-row {{ display: flex; flex-wrap: wrap; margin: 2px 0; }}
-        .info-item {{ margin-right: 15px; font-size: 12px; white-space: nowrap; }}
-        .info-label {{ font-weight: bold; }}
-        .result-box {{ background-color: #f8f9fa; padding: 8px; border-radius: 3px; border-left: 3px solid #3498db; margin-top: 5px; font-size: 12px; line-height: 1.4; }}
-        .image-container {{ display: flex; flex-wrap: wrap; gap: 8px; margin-top: 5px; }}
-        .image-container img {{ max-width: 48%; height: auto; border: 1px solid #ddd; border-radius: 3px; }}
-        .signature {{ margin-top: 15px; text-align: right; font-size: 12px; }}
-        .signature-title {{ font-weight: bold; margin-top: 5px; }}
-        .signature-note {{ margin-top: 30px; font-style: italic; }}
-        @media print {{ 
-            body {{ margin: 0; background-color: #fff; }} 
-            .result-box {{ background-color: #fff; border-left: 1px solid #000; }}
-            .image-container img {{ max-width: 48%; border: 1px solid #999; }}
-        }}
-    </style>
-</head>
-<body>
-    <div class='header'>
-        <div class='clinic-name'>PHÒNG KHÁM ĐA KHOA</div>
-        <div class='clinic-address'>Địa chỉ: 123 Đường Thanh Niên, Quận Hải Châu, Đà Nẵng</div>
-        <div class='clinic-phone'>Điện thoại: 0123-456-789</div>
-    </div>
-    
-    <div class='divider'></div>
-    
-    <div class='title'>PHIẾU KẾT QUẢ SIÊU ÂM</div>
-    <div class='print-time'>Thời gian in phiếu: {DateTime.Now:dd/MM/yyyy HH:mm:ss}</div>
-    
-    <div class='section-title'>THÔNG TIN BỆNH NHÂN</div>
-    <div>
-        <div class='info-row'>
-            <div class='info-item'><span class='info-label'>Mã BN:</span> {txb_id_patient.Text}</div>
-            <div class='info-item'><span class='info-label'>Họ tên:</span> <strong>{txb_name.Text}</strong></div>
-            <div class='info-item'><span class='info-label'>Giới tính:</span> {txb_gender.Text}</div>
-            <div class='info-item'><span class='info-label'>Ngày sinh:</span> {txb_dob.Text}</div>
-        </div>
-        <div class='info-row'>
-            <div class='info-item'><span class='info-label'>SĐT:</span> {txb_phone.Text}</div>
-            <div class='info-item'><span class='info-label'>Địa chỉ:</span> {txb_address.Text}</div>
-        </div>
-    </div>
-    
-    <div class='section-title'>THÔNG TIN KHÁM</div>
-    <div>
-        <div class='info-row'>
-            <div class='info-item'><span class='info-label'>Mã phiếu khám:</span> {txb_id_exam.Text}</div>
-            <div class='info-item'><span class='info-label'>Ngày khám:</span> {txb_reception_date.Text}</div>
-            <div class='info-item'><span class='info-label'>Mã phiếu KQ:</span> {dtgv_service.CurrentRow.Cells["examination_service_id"].Value?.ToString()}</div>
-        </div>
-        <div class='info-row'>
-            <div class='info-item'><span class='info-label'>Chỉ định:</span> <strong>{txb_service.Text}</strong></div>
-            <div class='info-item'><span class='info-label'>Lý do khám:</span> <em>{txb_chandoanphu.Text}</em></div>
-        </div>
-    </div>
-    
-    <div class='section-title'>KẾT QUẢ SIÊU ÂM</div>
-    <div class='result-box'>
-        {txb_result.Text.Replace(Environment.NewLine, "<br/>")}
-    </div>
-";
 
-            // Thêm phần kết luận nếu có
-            if (!string.IsNullOrWhiteSpace(txb_final_result.Text))
+            if (ofd.ShowDialog() == DialogResult.OK)
             {
-                html += $@"
-    <div class='section-title'>KẾT LUẬN</div>
-    <div class='result-box' style='border-left: 3px solid #e74c3c;'>
-        <strong>{txb_final_result.Text.Replace(Environment.NewLine, "<br/>")}</strong>
-    </div>
-";
+
+                var files = ofd.FileNames;
+                if (files.Length > 0)
+                {
+                    pb_1.Visible = true;
+                    imageUrl1 = files[0];
+                    pb_1.Image = Image.FromFile(files[0]);
+                }
+                if (files.Length > 1)
+                {
+                    pb_2.Visible = true;
+                    imageUrl2= files[1]; 
+                    pb_2.Image = Image.FromFile(files[1]);
+                }
+
+
+
             }
 
-            // Thêm ảnh từ PictureBox
-            string imageHtml = "";
-            PictureBox[] pictureBoxes = { pb_1, pb_2, pb_3, pb_4 };
-            foreach (var pb in pictureBoxes)
-            {
-                if (pb != null && pb.Image != null)
+        }
+        private void btn_print_Click(object sender, EventArgs e)
+        {
+            var mabn = txb_id_patient.Text.Trim();
+            var tenbn = txb_name.Text.Trim();
+            var ngaysinh = txb_dob.Text.Trim();
+            var diachi = txb_address.Text.Trim();
+            var sdt = txb_phone.Text.Trim();
+            var chandoan = txb_chandoan.Text.Trim();
+            var chandoanphu = txb_chandoanphu.Text.Trim();
+            var mota = txb_result.Text.Trim();
+            var ketqua = txb_final_result.Text.Trim();
+            var chidinh = txb_service.Text.Trim();
+                using (frm_report_ultrasound printForm = new frm_report_ultrasound(imageUrl1,imageUrl2,mabn,tenbn,ngaysinh,diachi,sdt,chandoan,chandoanphu,mota,ketqua,chidinh))
                 {
-                    try
+                    printForm.ShowDialog();
+                }
+            
+
+
+        }
+        private void dtgv_service_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                ResetPictureBoxes();
+
+                DataGridViewRow row = dtgv_service.Rows[e.RowIndex];
+                txb_service.Text = row.Cells["name"].Value?.ToString();
+
+                if (dtgv_service.CurrentRow.Cells["state"].Value.ToString() == "Đã có KQ")
+                {
+                    btn_save.Enabled = false;
+                    btn_edit.Enabled = true;
+
+                    string sql = @"SELECT 
+                            es.id AS examination_service_id,
+                            er.result AS result,
+                            er.template_id,
+                            er.final_result,
+                            er.file_path
+                        FROM 
+                            examinations e
+                        JOIN examination_services es ON e.id = es.examination_id
+                        JOIN services s ON es.service_id = s.id
+                        JOIN examination_results er ON er.examination_service_id = es.id
+                        WHERE 
+                            er.examination_service_id = @examination_service_id";
+
+                    Db.ResetConnection();
+                    Db.cmd = new MySqlCommand(sql, Db.conn);
+                    var exam_service_id = Convert.ToInt32(dtgv_service.CurrentRow.Cells["examination_service_id"].Value);
+                    Db.cmd.Parameters.AddWithValue("@examination_service_id", exam_service_id);
+                    Db.dr = Db.cmd.ExecuteReader();
+
+                    if (Db.dr.Read())
                     {
-                        using (MemoryStream ms = new MemoryStream())
+                        isUserChangingTemplate = false;
+                        Db.SetTextAndMoveCursorToEnd(txb_result, Db.dr["result"].ToString().Replace("\\r\\n", "\r\n"));
+                        Db.SetTextAndMoveCursorToEnd(txb_final_result, Db.dr["final_result"].ToString());
+                        cb_template.SelectedValue = Convert.ToInt32(Db.dr["template_id"]);
+                        isUserChangingTemplate = true;
+
+                        string filePaths = Db.dr["file_path"].ToString();
+                        if (!string.IsNullOrEmpty(filePaths))
                         {
-                            // Explicitly save as JPEG to avoid RawFormat issues
-                            pb.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-                            byte[] imageBytes = ms.ToArray();
-                            string base64String = Convert.ToBase64String(imageBytes);
-                            imageHtml += $"<img src='data:image/jpeg;base64,{base64String}' />";
+                            LoadImagesFromPaths(filePaths.Split(','));
                         }
                     }
-                    catch (Exception ex)
+
+                    Db.dr.Close();
+                    Db.ResetConnection();
+                }
+                else
+                {
+                    btn_save.Enabled = true;
+                    btn_edit.Enabled = false;
+                    cb_template.Text = "Chọn biểu mẫu";
+                    txb_result.Text = "";
+                    txb_final_result.Text = "";
+                }
+            }
+        }
+        private void LoadImagesFromPaths(string[] paths)
+        {
+            snapCount = 0;
+            string projectDir = Directory.GetParent(Application.StartupPath).Parent.Parent.FullName;
+            string imagesDir = Path.Combine(projectDir, "images");
+
+            for (int i = 0; i < paths.Length && i < 2; i++) // chỉ xử lý 2 ảnh
+            {
+                string fileName = paths[i].Trim();
+                if (!string.IsNullOrEmpty(fileName))
+                {
+                    string fullPath = Path.Combine(imagesDir, fileName);
+                    if (File.Exists(fullPath))
                     {
-                        // Log the error and continue with other images
-                        MessageBox.Show($"Lỗi khi xử lý ảnh: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        try
+                        {
+                            PictureBox pb = (i == 0) ? pb_1 : pb_2;
+                            if (pb.Image != null)
+                            {
+                                pb.Image.Dispose();
+                                pb.Image = null;
+                            }
+                            pb.Image = Image.FromFile(fullPath);
+                            pb.Visible = true;
+                            snapCount++;
+
+                            // Gán đường dẫn ảnh để in
+                            if (i == 0) imageUrl1 = fullPath;
+                            else if (i == 1) imageUrl2 = fullPath;
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show($"Lỗi khi đọc ảnh {fullPath}: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine($"File ảnh không tồn tại: {fullPath}");
                     }
                 }
             }
 
-            if (!string.IsNullOrEmpty(imageHtml))
-            {
-                html += $@"
-    <div class='section-title'>HÌNH ẢNH SIÊU ÂM</div>
-    <div class='image-container'>
-        {imageHtml}
-    </div>
-";
-            }
+            Console.WriteLine($"Đã hiển thị {snapCount} ảnh");
 
-            // Thêm phần chữ ký
-            html += $@"
-    <div class='signature'>
-        <div>Ngày {DateTime.Now.Day} tháng {DateTime.Now.Month} năm {DateTime.Now.Year}</div>
-        <div class='signature-title'>BÁC SĨ</div>
-        <div class='signature-note'>(Ký, họ tên)</div>
-    </div>
-</body>
-</html>";
+            //snapCount = 0;
+            //string projectDir = Directory.GetParent(Application.StartupPath).Parent.Parent.FullName;
+            //string imagesDir = Path.Combine(projectDir, "images");
 
-            Form previewForm = new Form
-            {
-                Text = "Xem trước kết quả X-quang",
-                Width = 800,
-                Height = 1000,
-                StartPosition = FormStartPosition.CenterScreen
-            };
+            //for (int i = 0; i < paths.Length && i < 4; i++)
+            //{
+            //    string fileName = paths[i].Trim();
+            //    if (!string.IsNullOrEmpty(fileName))
+            //    {
+            //        string fullPath = Path.Combine(imagesDir, fileName);
+            //        if (File.Exists(fullPath))
+            //        {
+            //            try
+            //            {
+            //                PictureBox pb = null;
+            //                switch (i)
+            //                {
+            //                    case 0: pb = pb_1; break;
+            //                    case 1: pb = pb_2; break;
+            //                    case 2: pb = pb_3; break;
+            //                    case 3: pb = pb_4; break;
+            //                }
+            //                if (pb != null)
+            //                {
+            //                    if (pb.Image != null)
+            //                    {
+            //                        pb.Image.Dispose();
+            //                        pb.Image = null;
+            //                    }
+            //                    pb.Image = Image.FromFile(fullPath);
+            //                    pb.Visible = true;
+            //                    snapCount++;
+            //                }
+            //            }
+            //            catch (Exception ex)
+            //            {
+            //                MessageBox.Show($"Lỗi khi đọc ảnh {fullPath}: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //            }
+            //        }
+            //        else
+            //        {
+            //            Console.WriteLine($"File ảnh không tồn tại: {fullPath}");
+            //        }
+            //    }
+            //}
 
-            WebBrowser browser = new WebBrowser
-            {
-                Dock = DockStyle.Fill,
-                DocumentText = html
-            };
-
-            Button printButton = new Button
-            {
-                Text = "In phiếu",
-                Dock = DockStyle.Bottom,
-                Height = 40
-            };
-
-            printButton.Click += (s, ev) => {
-                browser.ShowPrintPreviewDialog();  // Hiển thị hộp thoại xem trước bản in của hệ thống
-            };
-
-            previewForm.Controls.Add(browser);
-            previewForm.Controls.Add(printButton);
-            previewForm.ShowDialog();
+            //Console.WriteLine($"Đã hiển thị {snapCount} ảnh");
         }
 
         private void dtgv_exam_CellClick(object sender, DataGridViewCellEventArgs e) // KHÔNG CẦN TẠO LẠI SỰ KIỆN VÌ ĐÃ TẠO
@@ -360,119 +397,9 @@ namespace QuanLyPhongKham
             }
         }
 
-        private void dtgv_service_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                ResetPictureBoxes();
 
-                DataGridViewRow row = dtgv_service.Rows[e.RowIndex];
-                txb_service.Text = row.Cells["name"].Value?.ToString();
 
-                if (dtgv_service.CurrentRow.Cells["state"].Value.ToString() == "Đã có KQ")
-                {
-                    btn_save.Enabled = false;
-                    btn_edit.Enabled = true;
 
-                    string sql = @"SELECT 
-                es.id AS examination_service_id,
-                er.result AS result,
-                er.template_id,
-                er.final_result,
-                er.file_path
-            FROM 
-                examinations e
-            JOIN examination_services es ON e.id = es.examination_id
-            JOIN services s ON es.service_id = s.id
-            JOIN examination_results er ON er.examination_service_id = es.id
-            WHERE 
-                er.examination_service_id = @examination_service_id";
-
-                    Db.ResetConnection();
-                    Db.cmd = new MySqlCommand(sql, Db.conn);
-                    var exam_service_id = Convert.ToInt32(dtgv_service.CurrentRow.Cells["examination_service_id"].Value);
-                    Db.cmd.Parameters.AddWithValue("@examination_service_id", exam_service_id);
-                    Db.dr = Db.cmd.ExecuteReader();
-
-                    if (Db.dr.Read())
-                    {
-                        isUserChangingTemplate = false;
-                        Db.SetTextAndMoveCursorToEnd(txb_result, Db.dr["result"].ToString().Replace("\\r\\n", "\r\n"));
-                        Db.SetTextAndMoveCursorToEnd(txb_final_result, Db.dr["final_result"].ToString());
-                        cb_template.SelectedValue = Convert.ToInt32(Db.dr["template_id"]);
-                        isUserChangingTemplate = true;
-
-                        string filePaths = Db.dr["file_path"].ToString();
-                        if (!string.IsNullOrEmpty(filePaths))
-                        {
-                            LoadImagesFromPaths(filePaths.Split(','));
-                        }
-                    }
-
-                    Db.dr.Close();
-                    Db.ResetConnection();
-                }
-                else
-                {
-                    btn_save.Enabled = true;
-                    btn_edit.Enabled = false;
-                    cb_template.Text = "Chọn biểu mẫu";
-                    txb_result.Text = "";
-                    txb_final_result.Text = "";
-                }
-            }
-        }
-
-        private void LoadImagesFromPaths(string[] paths)
-        {
-            snapCount = 0;
-            string projectDir = Directory.GetParent(Application.StartupPath).Parent.Parent.FullName;
-            string imagesDir = Path.Combine(projectDir, "images");
-
-            for (int i = 0; i < paths.Length && i < 4; i++)
-            {
-                string fileName = paths[i].Trim();
-                if (!string.IsNullOrEmpty(fileName))
-                {
-                    string fullPath = Path.Combine(imagesDir, fileName);
-                    if (File.Exists(fullPath))
-                    {
-                        try
-                        {
-                            PictureBox pb = null;
-                            switch (i)
-                            {
-                                case 0: pb = pb_1; break;
-                                case 1: pb = pb_2; break;
-                                case 2: pb = pb_3; break;
-                                case 3: pb = pb_4; break;
-                            }
-                            if (pb != null)
-                            {
-                                if (pb.Image != null)
-                                {
-                                    pb.Image.Dispose();
-                                    pb.Image = null;
-                                }
-                                pb.Image = Image.FromFile(fullPath);
-                                pb.Visible = true;
-                                snapCount++;
-                            }
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show($"Lỗi khi đọc ảnh {fullPath}: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine($"File ảnh không tồn tại: {fullPath}");
-                    }
-                }
-            }
-
-            Console.WriteLine($"Đã hiển thị {snapCount} ảnh");
-        }
 
 
 
@@ -686,40 +613,6 @@ namespace QuanLyPhongKham
 			LoadExam.LoadDTGVCommon(dtgv_exam, "Siêu âm", keyword);
 		}
 
-        private void btn_upload_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
-            ofd.Multiselect = true;
-       
 
-            if (ofd.ShowDialog() == DialogResult.OK)
-            {
-                var files = ofd.FileNames;
-                if (files.Length > 0)
-                {
-                    pb_1.Visible = true;
-                    pb_1.Image = Image.FromFile(files[0]);
-                }
-                if (files.Length > 1)
-                {
-                    pb_2.Visible = true;
-                    pb_2.Image = Image.FromFile(files[1]);
-                }
-                if (files.Length > 2)
-                {
-                    pb_3.Visible = true;
-                    pb_3.Image = Image.FromFile(files[2]);
-                }
-                if (files.Length > 3)
-                {
-                    pb_4.Visible = true;
-                    pb_4.Image = Image.FromFile(files[3]);
-                }
-                
-
-            }
-          
-        }
     }
 }

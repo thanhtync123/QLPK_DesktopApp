@@ -36,30 +36,22 @@ namespace QuanLyPhongKham
 
         private void frm_report_xray_Load(object sender, EventArgs e)
         {
-            MessageBox.Show(tenbn+"");
+            
             reportViewer1.LocalReport.ReportEmbeddedResource = "QuanLyPhongKham.Report1.rdlc";
-            // hoặc nếu dùng file path cụ thể (thường không nên hardcode đường dẫn)
-            // reportViewer1.LocalReport.ReportPath = @"C:\QLPK\QuanLyPhongKham\Report1.rdlc";
-
-            // Tạo mảng parameters
             ReportParameter[] parameters = new ReportParameter[]
             {
         new ReportParameter("txb_mabn", mabn),
-        new ReportParameter("txb_tenbn", "Nguyễn văn a"),
+        new ReportParameter("txb_tenbn", tenbn),
         new ReportParameter("txb_ngaysinh", ngaysinh),
         new ReportParameter("txb_diachi", diachi),
         new ReportParameter("txb_sdt", sdt),
-        new ReportParameter("txb_chandoan", "123"),
-        new ReportParameter("txb_chandoanphu", "123"),
-        new ReportParameter("txb_mota", "123"),
-        new ReportParameter("txb_ketluan", "123"),
-        new ReportParameter("txb_chidinh", "123")
+        new ReportParameter("txb_chandoan", chandoan),
+        new ReportParameter("txb_chandoanphu", chandoanphu),
+        new ReportParameter("txb_mota", mota),
+        new ReportParameter("txb_ketluan", ketqua),
+        new ReportParameter("txb_chidinh", chidinh)
             };
-
-            // Gán parameters cho báo cáo
             reportViewer1.LocalReport.SetParameters(parameters);
-
-            // Refresh report để áp dụng
             reportViewer1.RefreshReport();
         }
     }

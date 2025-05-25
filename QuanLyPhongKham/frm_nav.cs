@@ -9,14 +9,16 @@ namespace QuanLyPhongKham
     {
         Image closeImage, closeImageAct;
 
-        public frm_nav()
+        private string userRole;
+        public frm_nav(string role)
         {
             InitializeComponent();
+            userRole = role;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-    
+            
             Size mysize = new Size(20, 20);
 
           
