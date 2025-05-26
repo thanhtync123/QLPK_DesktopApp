@@ -21,10 +21,8 @@ namespace QuanLyPhongKham
         public static void ResetConnection()
         {
             if (conn.State == ConnectionState.Open)
-
                 conn.Close();
             if (conn.State != ConnectionState.Open)
-
                 conn.Open();
 
         }

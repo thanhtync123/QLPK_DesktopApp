@@ -1,58 +1,83 @@
 ﻿using Microsoft.Reporting.WinForms;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.Reporting.WinForms;
-using MySqlX.XDevAPI.Common;
 
 namespace QuanLyPhongKham
 {
     public partial class frm_report_med : Form
     {
-        private DataTable _dtMed;
-        public frm_report_med(DataTable dt)
+        private readonly DataTable _dtMed;
+        private readonly string _mabn;
+        private readonly string _tenbn;
+        private readonly string _diachi;
+        private readonly string _ngaysinh;
+        private readonly string _gioitinh;
+        private readonly string _loidan;
+        private readonly string _chandoan;
+        private readonly string _chandoanphu;
+        private readonly string _ngaykham;
+
+        // Constructor nhận DataTable và các thông tin bệnh nhân (nếu cần)
+        public frm_report_med(
+            DataTable dtMed,
+            string mabn = "",
+            string tenbn = "",
+            string ngaysinh = "",
+            string diachi = "",
+            string gioitinh = "",
+            string loidan = "",
+            string chandoan = "",
+            string chandoanphu = "",
+            string ngaykham = ""
+ 
+        )
         {
             InitializeComponent();
-            _dtMed = dt;
-
+            _dtMed = dtMed;
+            _mabn = mabn;
+            _tenbn = tenbn;
+            _ngaysinh = ngaysinh;
+            _diachi = diachi;
+            _gioitinh = gioitinh;
+            _loidan = loidan;
+            _chandoan = chandoan;
+            _chandoanphu = chandoanphu;
+            _ngaykham = ngaykham;
         }
-       
+
         private void frm_report_med_Load(object sender, EventArgs e)
         {
             try
             {
-
-                MessageBox.Show("Số dòng dữ liệu: " + _dtMed.Rows.Count, "Debug dữ liệu");
-
-                // Hiển thị tên các cột trong DataTable
-                string columns = string.Join(", ", _dtMed.Columns.Cast<DataColumn>().Select(c => c.ColumnName));
-                MessageBox.Show("Các cột trong DataTable: " + columns, "Debug cột");
-               
-                    foreach (DataRow row in _dtMed.Rows)
-                    {
-                        string rowData = string.Join(", ", _dtMed.Columns.Cast<DataColumn>().Select(c => row[c.ColumnName]?.ToString()));
-                        MessageBox.Show(rowData, "Debug dòng dữ liệu");
-                    }
-
-                ReportDataSource rds = new ReportDataSource("DataSet1",_dtMed);
+                // Gán nguồn dữ liệu cho report
+                var rds = new ReportDataSource("DataSet1", _dtMed);
                 reportViewer1.LocalReport.DataSources.Clear();
                 reportViewer1.LocalReport.DataSources.Add(rds);
 
+                // Nếu Report3.rdlc có các ReportParameter, truyền vào ở đây
+                var parameters = new ReportParameter[]
+                {
+                    new ReportParameter("txb_mabn", _mabn ?? ""),
+                    new ReportParameter("txb_tenbn", _tenbn ?? ""),
+                    new ReportParameter("txb_ngaysinh", _ngaysinh ?? ""),
+                    new ReportParameter("txb_diachi", _diachi ?? ""),
+                    //new ReportParameter("", _gioitinh ?? ""),
+                    new ReportParameter("txb_loidan", _loidan ?? ""),
+                    new ReportParameter("txb_chandoan", _chandoan ?? ""),
+                    new ReportParameter("txb_chandoanphu", _chandoanphu ?? ""),
+                    new ReportParameter("txb_ngaykham", _ngaykham ?? "")
+                };
+                reportViewer1.LocalReport.SetParameters(parameters);
+
                 reportViewer1.LocalReport.Refresh();
                 reportViewer1.RefreshReport();
-
-
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi: " + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi khi tải báo cáo: " + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        } 
+        }
     }
 }
