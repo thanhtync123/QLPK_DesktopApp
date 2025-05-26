@@ -203,6 +203,31 @@ namespace QuanLyPhongKham
             AddTab(new frm_users());
         }
 
+        private void mẫuChẩnĐoánToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddTab(new frm_diagnoses());
+        }
+
+        private void mẫuLờiDặnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddTab(new frm_dtnote());
+        }
+
+        private void thuốcToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            AddTab(new frm_med());
+        }
+
+        private void giáDịchVụToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddTab(new frm_service());
+        }
+
+        private void biểuMẫuToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            AddTab(new frm_template());
+        }
+
         private void AddTab(Form frm)
         {
             int t = KiemTraFormTonTai(frm);
