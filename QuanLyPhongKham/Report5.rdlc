@@ -98,7 +98,9 @@
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox7</rd:DefaultName>
@@ -131,7 +133,9 @@
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox9</rd:DefaultName>
@@ -164,7 +168,9 @@
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox11</rd:DefaultName>
@@ -197,7 +203,9 @@
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox15</rd:DefaultName>
@@ -230,7 +238,9 @@
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox17</rd:DefaultName>
@@ -263,7 +273,9 @@
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                             <Paragraph>
                               <TextRuns>
@@ -312,7 +324,9 @@
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>t_name</rd:DefaultName>
@@ -345,7 +359,9 @@
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>t_rs_name</rd:DefaultName>
@@ -377,7 +393,9 @@
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>t_result</rd:DefaultName>
@@ -409,7 +427,9 @@
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>t_unit</rd:DefaultName>
@@ -441,7 +461,9 @@
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>t_normal</rd:DefaultName>
@@ -473,7 +495,9 @@
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>t_note</rd:DefaultName>
@@ -582,8 +606,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
-            <Top>2.94098in</Top>
-            <Left>1.30176in</Left>
+            <Top>2.63542in</Top>
+            <Left>4.82134in</Left>
             <Height>0.25in</Height>
             <Width>1.375in</Width>
             <ZIndex>2</ZIndex>
@@ -618,7 +642,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
             <Top>2.29167in</Top>
-            <Left>4.82134in</Left>
+            <Left>5.19634in</Left>
             <Height>0.25in</Height>
             <Width>1in</Width>
             <ZIndex>3</ZIndex>
@@ -724,7 +748,7 @@
             <Top>2.29167in</Top>
             <Left>2.75662in</Left>
             <Height>0.25in</Height>
-            <Width>1.44445in</Width>
+            <Width>1.8731in</Width>
             <ZIndex>6</ZIndex>
             <Style>
               <Border>
@@ -756,7 +780,7 @@
             <Top>2.63542in</Top>
             <Left>2.75662in</Left>
             <Height>0.25in</Height>
-            <Width>1.43594in</Width>
+            <Width>1.8731in</Width>
             <ZIndex>7</ZIndex>
             <Style>
               <Border>
@@ -785,10 +809,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_ngaysinh</rd:DefaultName>
-            <Top>2.9132in</Top>
-            <Left>2.74621in</Left>
+            <Top>2.6493in</Top>
+            <Left>6.2762in</Left>
             <Height>0.25in</Height>
-            <Width>1.44635in</Width>
+            <Width>1.8731in</Width>
             <ZIndex>8</ZIndex>
             <Style>
               <Border>
@@ -882,7 +906,7 @@
             </Paragraphs>
             <rd:DefaultName>txb_diachi</rd:DefaultName>
             <Top>2.29167in</Top>
-            <Left>5.8769in</Left>
+            <Left>6.2519in</Left>
             <Height>0.25in</Height>
             <Width>1.43875in</Width>
             <ZIndex>11</ZIndex>
@@ -913,8 +937,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_ngaykham</rd:DefaultName>
-            <Top>1.97167in</Top>
-            <Left>4.43315in</Left>
+            <Top>1.84667in</Top>
+            <Left>4.30815in</Left>
             <Height>0.25in</Height>
             <Width>1.51042in</Width>
             <ZIndex>12</ZIndex>
@@ -947,8 +971,8 @@
             <rd:DefaultName>txb_ketluan</rd:DefaultName>
             <Top>5.44806in</Top>
             <Left>1.51232in</Left>
-            <Height>0.25in</Height>
-            <Width>1.33333in</Width>
+            <Height>0.28319in</Height>
+            <Width>7.00315in</Width>
             <ZIndex>13</ZIndex>
             <Style>
               <Border>
@@ -1059,8 +1083,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
-            <Top>0.22015in</Top>
-            <Left>3.65923in</Left>
+            <Top>0.47015in</Top>
+            <Left>4.03423in</Left>
             <Height>0.25in</Height>
             <Width>4.23958in</Width>
             <ZIndex>17</ZIndex>
@@ -1095,8 +1119,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
-            <Top>0.53959in</Top>
-            <Left>3.19256in</Left>
+            <Top>0.78959in</Top>
+            <Left>3.56756in</Left>
             <Height>0.46667in</Height>
             <Width>5.32291in</Width>
             <ZIndex>18</ZIndex>
@@ -1130,8 +1154,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
-            <Top>1.04793in</Top>
-            <Left>4.66748in</Left>
+            <Top>1.29793in</Top>
+            <Left>4.91748in</Left>
             <Height>0.25in</Height>
             <Width>2.36814in</Width>
             <ZIndex>19</ZIndex>
@@ -1146,8 +1170,8 @@
             </Style>
           </Textbox>
           <Line Name="Line2">
-            <Top>0.53959in</Top>
-            <Left>4.53771in</Left>
+            <Top>0.78959in</Top>
+            <Left>4.91271in</Left>
             <Height>0in</Height>
             <Width>2.49791in</Width>
             <ZIndex>20</ZIndex>
@@ -1160,7 +1184,7 @@
           </Line>
           <Line Name="Line3">
             <Top>8.52752cm</Top>
-            <Left>0cm</Left>
+            <Left>0.9525cm</Left>
             <Height>0cm</Height>
             <Width>21.60822cm</Width>
             <ZIndex>21</ZIndex>
