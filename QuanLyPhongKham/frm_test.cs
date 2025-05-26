@@ -640,6 +640,19 @@ namespace QuanLyPhongKham
 			LoadExam.LoadDTGVCommon(dtgv_exam, "Xét nghiệm", keyword);
 		}
 
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
+
+        private void dtgv_result_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
