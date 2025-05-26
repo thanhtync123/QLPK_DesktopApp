@@ -56,10 +56,11 @@ namespace QuanLyPhongKham
                 `gender`, 
                 `phone`, 
                 `address`, 
-                `created_at`, 
-                DATE_FORMAT(`updated_at`, '%d/%m/%Y') AS `updated_at`
+                DATE_FORMAT(`created_at`, '%d/%m/%Y %H:%i') AS `created_at`, 
+                DATE_FORMAT(`updated_at`, '%d/%m/%Y %H:%i') AS `updated_at`
             FROM `patients`
-            ORDER BY updated_at DESC";
+            ORDER BY updated_at DESC
+            ";
 
             Db.LoadDTGV(dtgv, query);
 
@@ -72,7 +73,48 @@ namespace QuanLyPhongKham
             dtgv.Columns["created_at"].HeaderText = "Ngày tạo";
             dtgv.Columns["updated_at"].HeaderText = "Tiếp nhận lúc";
             dtgv.Columns["created_at"].DefaultCellStyle.Format = "dd/MM/yyyy";
+
+            dtgv.EnableHeadersVisualStyles = false;
+            dtgv.AllowUserToAddRows = false;
+
+            // Thêm sự kiện CellFormatting
+            dtgv.CellFormatting += (s, e) =>
+            {
+                if (e.RowIndex >= 0)
+                {
+                    var updatedAtValue = dtgv.Rows[e.RowIndex].Cells["updated_at"].Value?.ToString();
+                    string todayStr = DateTime.Today.ToString("dd/MM/yyyy");
+
+                    bool isToday = false;
+
+                    if (!string.IsNullOrEmpty(updatedAtValue))
+                    {
+                        // Lấy phần ngày: substring đầu 10 ký tự "dd/MM/yyyy"
+                        string updatedDateOnly = updatedAtValue.Length >= 10 ? updatedAtValue.Substring(0, 10) : updatedAtValue;
+
+                        isToday = (updatedDateOnly == todayStr);
+                    }
+
+                    if ((dtgv.Columns[e.ColumnIndex].Name == "updated_at" || dtgv.Columns[e.ColumnIndex].Name == "name") && isToday)
+                    {
+                        e.CellStyle.BackColor = Color.PaleGreen;  // xanh lá nhẹ nhàng
+                        e.CellStyle.ForeColor = Color.Black;      // chữ màu đen dễ đọc
+                        e.CellStyle.Font = new Font(e.CellStyle.Font, FontStyle.Bold);
+                    }
+                    else
+                    {
+                        e.CellStyle.BackColor = Color.White;
+                        e.CellStyle.ForeColor = Color.Black;
+                        e.CellStyle.Font = new Font(e.CellStyle.Font, FontStyle.Regular);
+                    }
+
+                }
+            };
+
+
+
         }
+
 
         private void frm_patients_Load(object sender, EventArgs e)
         {
