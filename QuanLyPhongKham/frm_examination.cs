@@ -516,7 +516,21 @@ VALUES
 
         private void btn_print_service_Click(object sender, EventArgs e)
         {
-            frm_report_service frm = new frm_report_service(GetDataTableFromDataGridView(dtgv_service_patient));
+
+            var mabn = txb_id.Text;
+            var tenbn = txb_name.Text;
+            var diachi = txb_address.Text;
+            var ngaysinh = txb_ngaysinh.Text;
+            var gioitinh = txb_gender.Text;
+            var loidan = cb_doctornote.Text;
+            var chandoan = cb_diagnoses.Text;
+            var chandoanphu = txb_reason.Text;
+            var tongtien = lb_total_price_service.Text;
+            var ngaykham = DateTime.Now.ToString("dd/MM/yyyy");
+            frm_report_service frm = new frm_report_service(
+                GetDataTableFromDataGridView(dtgv_service_patient),
+                mabn, tenbn, diachi, ngaysinh, gioitinh, loidan, chandoan, chandoanphu, ngaykham, tongtien // thêm tongtien
+            );
             frm.ShowDialog();
         }
         private void btn_print_prescription_Click(object sender, EventArgs e)
@@ -542,7 +556,7 @@ VALUES
             DataTable dt = new DataTable();
             foreach (DataGridViewColumn column in dgv.Columns)
             {
-                string columnName = column.Name; // dùng tên kỹ thuật thay vì HeaderText
+                string columnName = column.Name; 
                 Type columnType = column.ValueType ?? typeof(string);
                 dt.Columns.Add(columnName, columnType);
             }

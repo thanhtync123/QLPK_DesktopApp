@@ -1072,7 +1072,9 @@
                 <TextRuns>
                   <TextRun>
                     <Value>=Parameters!txb_ngaykham.Value</Value>
-                    <Style />
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
                   </TextRun>
                 </TextRuns>
                 <Style />
@@ -1102,7 +1104,9 @@
                 <TextRuns>
                   <TextRun>
                     <Value>Ký tên</Value>
-                    <Style />
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
                   </TextRun>
                 </TextRuns>
                 <Style />
@@ -1111,7 +1115,9 @@
                 <TextRuns>
                   <TextRun>
                     <Value />
-                    <Style />
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
                   </TextRun>
                 </TextRuns>
                 <Style />
