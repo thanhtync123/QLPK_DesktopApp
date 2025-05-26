@@ -252,7 +252,7 @@ namespace QuanLyPhongKham
 
         }
 
-        private void LoadDTGV_Service(String keyword="")
+        private void LoadDTGV_Service(String keyword = "")
         {
             ResetConnection();
             string query = $@"SELECT id,`name`, `type`, `price`
@@ -512,205 +512,55 @@ VALUES
 
 
 
-        private void btn_print_prescription_Click(object sender, EventArgs e)
-        {
-            string html = @"
-<html>
-<head>
-    <meta charset='UTF-8'>
-</head>
-<body style='font-family: Segoe UI, sans-serif; margin: 20px; color: #333; background-color: #fff; line-height: 1.6;'>
-    <h1 style='text-align: center; font-size: 22px; font-weight: 600; margin-bottom: 5px;'>PHÒNG KHÁM ĐA KHOA BÌNH TÂN</h1>
-    <h2 style='text-align: center; font-size: 14px; margin-bottom: 10px;'>Địa chỉ: 166 Lã Văn Quý, Q. Bình Tân | ĐT: 08 54594554</h2>
-    <div style='border-top: 1px solid #3498db; margin: 10px 0;'></div>
-    
-    <h1 style='text-align: center; font-size: 20px; font-weight: 600; margin-bottom: 10px;'>ĐƠN THUỐC</h1>
-    
-    <div style='text-align: right; font-size: 12px; color: #7f8c8d;'>Mã phiếu khám: " + txb_exam_id.Text + @"</div>
 
-    <div style='border-top: 1px solid #ddd; margin: 10px 0;'></div>
-
-    <h2 style='font-size: 16px; font-weight: 500; color: #2980b9; margin-top: 10px;'>THÔNG TIN BỆNH NHÂN</h2>
-    <div style='font-size: 14px; margin-top: 5px;'>Mã bệnh nhân: " + txb_id.Text + @"</div>
-    <div style='font-size: 14px; margin-top: 5px;'>Họ tên: " + txb_name.Text + @"</div>
-    <div style='font-size: 14px; margin-top: 5px;'>Năm sinh: " + txb_ngaysinh.Text + @" | Giới tính: " + txb_gender.Text + @"</div>
-    <div style='font-size: 14px; margin-top: 5px;'>Chẩn đoán: " + cb_diagnoses.Text + @"</div>
-
-    <h2 style='font-size: 16px; font-weight: 500; color: #2980b9; margin-top: 10px;'>DANH SÁCH THUỐC</h2>
-    <table style='width: 100%; border-collapse: collapse; margin-top: 10px;'>
-        <thead>
-            <tr>
-                <th style='border: 1px solid #ccc; padding: 5px;'>Tên thuốc</th>
-                <th style='border: 1px solid #ccc; padding: 5px;'>Liều dùng</th>
-                <th style='border: 1px solid #ccc; padding: 5px;'>Đường dùng</th>
-                <th style='border: 1px solid #ccc; padding: 5px;'>Ghi chú</th>
-                <th style='border: 1px solid #ccc; padding: 5px;'>Đơn giá</th>
-                <th style='border: 1px solid #ccc; padding: 5px;'>Tổng tiền</th>
-            </tr>
-        </thead>
-        <tbody>";
-
-            // Dynamically generate table rows from DataGridView
-            foreach (DataGridViewRow row in dtgv_med.Rows)
-            {
-                if (row.IsNewRow) continue;
-
-                string medicineName = row.Cells[1].Value?.ToString() ?? "";
-                string dosage = row.Cells[3].Value?.ToString() ?? "";
-                string route = row.Cells[4].Value?.ToString() ?? "";
-                string note = row.Cells[6].Value?.ToString() ?? "";
-                string price = row.Cells[8].Value?.ToString() ?? "";
-                string total = row.Cells[9].Value?.ToString() ?? "";
-
-                html += $@"
-            <tr>
-                <td style='border: 1px solid #ccc; padding: 5px;'>{medicineName}</td>
-                <td style='border: 1px solid #ccc; padding: 5px;'>{dosage}</td>
-                <td style='border: 1px solid #ccc; padding: 5px;'>{route}</td>
-                <td style='border: 1px solid #ccc; padding: 5px;'>{note}</td>
-                <td style='border: 1px solid #ccc; padding: 5px;'>{price}</td>
-                <td style='border: 1px solid #ccc; padding: 5px;'>{total}</td>
-            </tr>";
-            }
-
-            html += @"
-        </tbody>
-    </table>
-
-    <div style='text-align: right; font-size: 14px; margin-top: 10px; font-weight: bold;'>Tổng tiền thuốc: " + lb_totalprice.Text + @"</div>
-
-    <div style='margin-top: 30px; text-align: right; font-size: 14px;'>
-        <div>Ngày " + DateTime.Now.Day + " tháng " + DateTime.Now.Month + " năm " + DateTime.Now.Year + @"</div>
-        <div style='font-weight: bold; margin-top: 10px;'>BÁC SĨ</div>
-        <div style='margin-top: 50px;'>(Ký, họ tên)</div>
-    </div>
-</body>
-</html>";
-
-
-            Form previewForm = new Form
-            {
-                Text = "Xem trước",
-                Width = 800,
-                Height = 1000,
-                StartPosition = FormStartPosition.CenterScreen
-            };
-
-            WebBrowser browser = new WebBrowser
-            {
-                Dock = DockStyle.Fill,
-                DocumentText = html
-            };
-            System.Windows.Forms.Button printButton = new System.Windows.Forms.Button
-            {
-                Text = "In phiếu",
-                Dock = DockStyle.Bottom,
-                Height = 40
-            };
-
-            printButton.Click += (s, ev) => {
-                browser.ShowPrintPreviewDialog();  // Hiển thị hộp thoại xem trước bản in của hệ thống
-            };
-
-            previewForm.Controls.Add(browser);
-            previewForm.Controls.Add(printButton);
-            previewForm.ShowDialog();
-        }
 
         private void btn_print_service_Click(object sender, EventArgs e)
         {
-            string html = @"
-<html>
-<head>
-    <meta charset='UTF-8'>
-</head>
-<body style='font-family: Segoe UI, sans-serif; margin: 20px; color: #333; background-color: #fff; line-height: 1.6;'>
-    <h1 style='text-align: center; font-size: 22px; font-weight: 600; margin-bottom: 5px;'>PHÒNG KHÁM ĐA KHOA BÌNH TÂN</h1>
-    <h2 style='text-align: center; font-size: 14px; margin-bottom: 10px;'>Địa chỉ: 166 Lã Văn Quý, Q. Bình Tân | ĐT: 08 54594554</h2>
-    <div style='border-top: 1px solid #3498db; margin: 10px 0;'></div>
-    
-    <h1 style='text-align: center; font-size: 20px; font-weight: 600; margin-bottom: 10px;'>PHIẾU CHỈ ĐỊNH</h1>
-    
-    <div style='text-align: right; font-size: 12px; color: #7f8c8d;'>Mã phiếu khám: " + txb_exam_id.Text + @"</div>
-    <div style='border-top: 1px solid #ddd; margin: 10px 0;'></div>
-    <h2 style='font-size: 16px; font-weight: 500; color: #2980b9; margin-top: 10px;'>THÔNG TIN BỆNH NHÂN</h2>
-    <div style='font-size: 14px; margin-top: 5px;'>Mã bệnh nhân: " + txb_id.Text + @"</div>
-    <div style='font-size: 14px; margin-top: 5px;'>Họ tên: " + txb_name.Text + @"</div>
-    <div style='font-size: 14px; margin-top: 5px;'>Năm sinh: " + txb_ngaysinh.Text + @" | Giới tính: " + txb_gender.Text + @"</div>
-    <div style='font-size: 14px; margin-top: 5px;'>Chẩn đoán: " + cb_diagnoses.Text + @"</div>
-    <h2 style='font-size: 16px; font-weight: 500; color: #2980b9; margin-top: 10px;'>DANH SÁCH CHỈ ĐỊNH</h2>
-    <table style='width: 100%; border-collapse: collapse; margin-top: 10px;'>
-        <thead>
-            <tr>
-                <th style='border: 1px solid #ccc; padding: 5px;'>Mã dịch vụ</th>
-                <th style='border: 1px solid #ccc; padding: 5px;'>Tên dịch vụ</th>
-                <th style='border: 1px solid #ccc; padding: 5px;'>Đơn giá</th>
-                <th style='border: 1px solid #ccc; padding: 5px;'>Ghi chú</th>
-            </tr>
-        </thead>
-        <tbody>";
-            // Dynamically generate table rows from DataGridView
-            foreach (DataGridViewRow row in dtgv_service_patient.Rows)
-            {
-                if (row.IsNewRow) continue;
-                string serviceId = row.Cells[0].Value?.ToString() ?? "";
-                string serviceName = row.Cells[1].Value?.ToString() ?? "";
-                string price = row.Cells[2].Value?.ToString() ?? "";
-                string note = row.Cells[3].Value?.ToString() ?? ""; // Giả định có cột ghi chú
-                html += $@"
-        <tr>
-            <td style='border: 1px solid #ccc; padding: 5px;'>{serviceId}</td>
-            <td style='border: 1px solid #ccc; padding: 5px;'>{serviceName}</td>
-            <td style='border: 1px solid #ccc; padding: 5px;'>{price}</td>
-            <td style='border: 1px solid #ccc; padding: 5px;'>{note}</td>
-        </tr>";
-            }
-            html += @"
-        </tbody>
-    </table>
-    <div style='text-align: right; font-size: 14px; margin-top: 10px; font-weight: bold;'>Tổng tiền dịch vụ: " + lb_total_price_service.Text + @"</div>
-    <div style='margin-top: 30px; text-align: right; font-size: 14px;'>
-        <div>Ngày " + DateTime.Now.Day + " tháng " + DateTime.Now.Month + " năm " + DateTime.Now.Year + @"</div>
-        <div style='font-weight: bold; margin-top: 10px;'>BÁC SĨ</div>
-        <div style='margin-top: 50px;'>(Ký, họ tên)</div>
-    </div>
-</body>
-</html>";
+            frm_report_service frm = new frm_report_service(GetDataTableFromDataGridView(dtgv_service_patient));
+            frm.ShowDialog();
+        }
+        private void btn_print_prescription_Click(object sender, EventArgs e)
+        {
+            //var mabn = txb_id.Text;
+            //var tenbn = txb_name.Text;
+            //var diachi = txb_address.Text;
+            //var tuoi = txb_age.Text;
+            //var gioitinh = txb_gender.Text;
+            //var loidan = cb_doctornote.Text;
+            //var chandoan = cb_diagnoses.Text;
+            //var chandoanphu = txb_reason.Text;
+            //var ngaykham = DateTime.Now.ToString("dd/MM/yyyy");
+            frm_report_med frm = new frm_report_med(GetDataTableFromDataGridView(dtgv_med));
+          frm.ShowDialog();
 
 
-
-
-            Form previewForm = new Form
-            {
-                Text = "Xem trước ",
-                Width = 800,
-                Height = 1000,
-                StartPosition = FormStartPosition.CenterScreen
-            };
-
-            WebBrowser browser = new WebBrowser
-            {
-                Dock = DockStyle.Fill,
-                DocumentText = html
-            };
-            System.Windows.Forms.Button printButton = new System.Windows.Forms.Button
-            {
-                Text = "In phiếu",
-                Dock = DockStyle.Bottom,
-                Height = 40
-            };
-
-            printButton.Click += (s, ev) => {
-                browser.ShowPrintPreviewDialog();  // Hiển thị hộp thoại xem trước bản in của hệ thống
-            };
-
-            previewForm.Controls.Add(browser);
-            previewForm.Controls.Add(printButton);
-            previewForm.ShowDialog();
         }
 
+        public DataTable GetDataTableFromDataGridView(DataGridView dgv)
+        {
+            DataTable dt = new DataTable();
+            foreach (DataGridViewColumn column in dgv.Columns)
+            {
+                string columnName = column.Name; // dùng tên kỹ thuật thay vì HeaderText
+                Type columnType = column.ValueType ?? typeof(string);
+                dt.Columns.Add(columnName, columnType);
+            }
+            foreach (DataGridViewRow row in dgv.Rows)
+            {
+                if (!row.IsNewRow)
+                {
+                    DataRow dr = dt.NewRow();
+                    for (int i = 0; i < dgv.Columns.Count; i++)
+                    {
+                        dr[i] = row.Cells[i].Value ?? DBNull.Value;
+                    }
+                    dt.Rows.Add(dr);
+                }
+            }
+            return dt;
 
-    }
+        }
+    } 
 }
 
 

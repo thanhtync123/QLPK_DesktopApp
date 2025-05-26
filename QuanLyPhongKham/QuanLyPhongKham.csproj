@@ -135,6 +135,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataSetMed.cs">
+      <DependentUpon>DataSetMed.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetMed.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetMed.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetService.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetService.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Db.cs" />
     <Compile Include="frm_diagnoses.cs">
       <SubType>Form</SubType>
@@ -159,6 +172,12 @@
     </Compile>
     <Compile Include="frm_examination.Designer.cs">
       <DependentUpon>frm_examination.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_login.Designer.cs">
+      <DependentUpon>frm_login.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_LookUpExamination.cs">
       <SubType>Form</SubType>
@@ -208,6 +227,18 @@
     <Compile Include="frm_popupLUMedication.Designer.cs">
       <DependentUpon>frm_popupLUMedication.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_report_med.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_report_med.Designer.cs">
+      <DependentUpon>frm_report_med.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_report_service.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_report_service.Designer.cs">
+      <DependentUpon>frm_report_service.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_report_ultrasound.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -250,6 +281,12 @@
     <Compile Include="frm_ultrasound.Designer.cs">
       <DependentUpon>frm_ultrasound.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_users.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_users.Designer.cs">
+      <DependentUpon>frm_users.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_xray.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -260,18 +297,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
-    <Compile Include="z_test_1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="z_test_1.Designer.cs">
-      <DependentUpon>z_test_1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="z_test_print.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="z_test_print.Designer.cs">
-      <DependentUpon>z_test_print.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="frm_diagnoses.resx">
       <DependentUpon>frm_diagnoses.cs</DependentUpon>
     </EmbeddedResource>
@@ -283,6 +308,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_examination.resx">
       <DependentUpon>frm_examination.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_login.resx">
+      <DependentUpon>frm_login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_LookUpExamination.resx">
       <DependentUpon>frm_LookUpExamination.cs</DependentUpon>
@@ -308,6 +336,12 @@
     <EmbeddedResource Include="frm_popupLUMedication.resx">
       <DependentUpon>frm_popupLUMedication.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_report_med.resx">
+      <DependentUpon>frm_report_med.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_report_service.resx">
+      <DependentUpon>frm_report_service.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_report_ultrasound.resx">
       <DependentUpon>frm_report_ultrasound.cs</DependentUpon>
     </EmbeddedResource>
@@ -329,6 +363,9 @@
     <EmbeddedResource Include="frm_ultrasound.resx">
       <DependentUpon>frm_ultrasound.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_users.resx">
+      <DependentUpon>frm_users.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_xray.resx">
       <DependentUpon>frm_xray.cs</DependentUpon>
     </EmbeddedResource>
@@ -345,13 +382,61 @@
     <EmbeddedResource Include="Report1.rdlc" />
     <EmbeddedResource Include="Report2.rdlc" />
     <EmbeddedResource Include="Report3.rdlc" />
-    <EmbeddedResource Include="z_test_1.resx">
-      <DependentUpon>z_test_1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="z_test_print.resx">
-      <DependentUpon>z_test_print.cs</DependentUpon>
-    </EmbeddedResource>
+    <EmbeddedResource Include="Report4.rdlc" />
+    <None Include="DataSetMed.xsc">
+      <DependentUpon>DataSetMed.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetMed.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetMed.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetMed.xss">
+      <DependentUpon>DataSetMed.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetService.xsc">
+      <DependentUpon>DataSetService.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetService.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetService.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetService.xss">
+      <DependentUpon>DataSetService.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\DataSetMed.datasource" />
+    <None Include="Properties\DataSources\DataSetService.datasource" />
+    <None Include="Properties\DataSources\Db.datasource" />
+    <None Include="Properties\DataSources\frm_diagnoses.datasource" />
+    <None Include="Properties\DataSources\frm_dtnote.datasource" />
+    <None Include="Properties\DataSources\frm_ecgg.datasource" />
+    <None Include="Properties\DataSources\frm_examination.datasource" />
+    <None Include="Properties\DataSources\frm_login.datasource" />
+    <None Include="Properties\DataSources\frm_LookUpMedication.datasource" />
+    <None Include="Properties\DataSources\frm_LookUpResult.datasource" />
+    <None Include="Properties\DataSources\frm_LookUpService.datasource" />
+    <None Include="Properties\DataSources\frm_med.datasource" />
+    <None Include="Properties\DataSources\frm_nav.datasource" />
+    <None Include="Properties\DataSources\frm_patients.datasource" />
+    <None Include="Properties\DataSources\frm_popupLUMedication.datasource" />
+    <None Include="Properties\DataSources\frm_report_ultrasound.datasource" />
+    <None Include="Properties\DataSources\frm_report_xray.datasource" />
+    <None Include="Properties\DataSources\frm_service.datasource" />
+    <None Include="Properties\DataSources\frm_statistic.datasource" />
+    <None Include="Properties\DataSources\frm_template.datasource" />
+    <None Include="Properties\DataSources\frm_test.datasource" />
+    <None Include="Properties\DataSources\frm_ultrasound.datasource" />
+    <None Include="Properties\DataSources\frm_xray.datasource" />
+    <None Include="Properties\DataSources\lb_chitietphieukham.datasource" />
+    <None Include="Properties\DataSources\LoadExam.datasource" />
+    <None Include="Properties\DataSources\Program.datasource" />
+    <None Include="Properties\DataSources\QuanLyPhongKham.Properties.Resources.datasource" />
+    <None Include="Properties\DataSources\QuanLyPhongKham.Properties.Settings.datasource" />
+    <None Include="Properties\DataSources\SqlServerTypes.Utilities.datasource" />
+    <None Include="Properties\DataSources\TemplateGroup.datasource" />
+    <None Include="Properties\DataSources\TemplateItem.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

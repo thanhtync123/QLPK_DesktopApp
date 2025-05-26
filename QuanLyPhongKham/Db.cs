@@ -144,6 +144,22 @@ namespace QuanLyPhongKham
             MySqlCommand cmd = CreateCommand(query);
             return cmd.ExecuteReader(CommandBehavior.CloseConnection);
         }
+        public static void ExecuteNonQuery(string query)
+        {
+            try
+            {
+                ResetConnection();
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.ExecuteNonQuery();
+                }
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi SQL: " + ex.Message);
+            }
+        }
 
 
     }

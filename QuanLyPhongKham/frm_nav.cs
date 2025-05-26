@@ -18,7 +18,14 @@ namespace QuanLyPhongKham
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            if (userRole == "user")
+                smi_thongke.Visible = false;
+            else
+                smi_thongke.Visible = true;
+
+
+
+
             Size mysize = new Size(20, 20);
 
           
@@ -189,6 +196,11 @@ namespace QuanLyPhongKham
         private void thốngKêDoanhThuToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddTab(new frm_statistic());
+        }
+
+        private void tàiKhoảnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddTab(new frm_users());
         }
 
         private void AddTab(Form frm)
