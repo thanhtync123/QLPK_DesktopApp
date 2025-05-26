@@ -814,9 +814,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox16</rd:DefaultName>
             <Top>3.39165cm</Top>
-            <Left>12.51373cm</Left>
+            <Left>12.45435cm</Left>
             <Height>1.11763cm</Height>
-            <Width>9.79803cm</Width>
+            <Width>9.3747cm</Width>
             <ZIndex>25</ZIndex>
             <Style>
               <Border>
@@ -969,6 +969,7 @@
                   <TextRun>
                     <Value>Ảnh siêu âm </Value>
                     <Style>
+                      <FontSize>13pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
@@ -989,7 +990,7 @@
             <Top>12.75503cm</Top>
             <Left>2.1482cm</Left>
             <Height>0.6cm</Height>
-            <Width>2.5cm</Width>
+            <Width>3.11383cm</Width>
             <ZIndex>31</ZIndex>
             <Style>
               <Border>
