@@ -149,6 +149,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetService.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSetTest.cs">
+      <DependentUpon>DataSetTest.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetTest.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetTest.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Db.cs" />
     <Compile Include="frm_diagnoses.cs">
       <SubType>Form</SubType>
@@ -239,6 +247,12 @@
     </Compile>
     <Compile Include="frm_report_service.Designer.cs">
       <DependentUpon>frm_report_service.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_report_test.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_report_test.Designer.cs">
+      <DependentUpon>frm_report_test.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_report_ultrasound.cs">
       <SubType>Form</SubType>
@@ -342,6 +356,9 @@
     <EmbeddedResource Include="frm_report_service.resx">
       <DependentUpon>frm_report_service.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_report_test.resx">
+      <DependentUpon>frm_report_test.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_report_ultrasound.resx">
       <DependentUpon>frm_report_ultrasound.cs</DependentUpon>
     </EmbeddedResource>
@@ -383,6 +400,7 @@
     <EmbeddedResource Include="Report2.rdlc" />
     <EmbeddedResource Include="Report3.rdlc" />
     <EmbeddedResource Include="Report4.rdlc" />
+    <EmbeddedResource Include="Report5.rdlc" />
     <None Include="DataSetMed.xsc">
       <DependentUpon>DataSetMed.xsd</DependentUpon>
     </None>
@@ -405,9 +423,21 @@
     <None Include="DataSetService.xss">
       <DependentUpon>DataSetService.xsd</DependentUpon>
     </None>
+    <None Include="DataSetTest.xsc">
+      <DependentUpon>DataSetTest.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetTest.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetTest.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetTest.xss">
+      <DependentUpon>DataSetTest.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\DataSetMed.datasource" />
     <None Include="Properties\DataSources\DataSetService.datasource" />
+    <None Include="Properties\DataSources\DataSetTest.datasource" />
     <None Include="Properties\DataSources\Db.datasource" />
     <None Include="Properties\DataSources\frm_diagnoses.datasource" />
     <None Include="Properties\DataSources\frm_dtnote.datasource" />

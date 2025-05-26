@@ -475,159 +475,45 @@ namespace QuanLyPhongKham
 
         private void btn_print_Click(object sender, EventArgs e)
         {
-            try
-            {
-                // Kiểm tra xem có dữ liệu để in không
-                if (dtgv_service.CurrentRow == null || dtgv_result.Rows.Count == 0)
-                {
-                    MessageBox.Show("Vui lòng chọn dịch vụ và đảm bảo có kết quả để in!");
-                    return;
-                }
 
-                string html = $@"
-<html>
-<head>
-    <style>
-        body {{ font-family: 'Segoe UI', Arial, sans-serif; margin: 10px; color: #333; background-color: #fff; line-height: 1.3; font-size: 12px; }}
-        .header {{ text-align: center; margin-bottom: 8px; }}
-        .hospital-name {{ font-size: 20px; font-weight: bold; color: #2c3e50; margin-bottom: 2px; text-transform: uppercase; }}
-        .hospital-address {{ font-size: 12px; margin-bottom: 0; color: #2c3e50; }}
-        .hospital-phone {{ font-size: 12px; color: #2c3e50; margin-top: 2px; }}
-        .divider {{ border-top: 1px solid #3498db; margin: 5px 0; }}
-        .title {{ text-align: center; font-size: 18px; font-weight: bold; margin: 8px 0; color: #2c3e50; text-transform: uppercase; }}
-        .print-time {{ text-align: right; font-size: 10px; color: #7f8c8d; font-style: italic; margin: 2px 0; }}
-        .section-title {{ font-size: 14px; font-weight: bold; color: #2980b9; margin: 8px 0 5px 0; text-transform: uppercase; border-left: 3px solid #3498db; padding-left: 5px; }}
-        .id-container {{ display: flex; justify-content: space-between; font-size: 12px; margin: 5px 0; }}
-        .info-row {{ display: flex; flex-wrap: wrap; margin: 2px 0; }}
-        .info-item {{ margin-right: 15px; font-size: 12px; white-space: nowrap; }}
-        .info-label {{ font-weight: bold; }}
-        table {{ width: 100%; border-collapse: collapse; margin: 5px 0; font-size: 11px; }}
-        th, td {{ padding: 3px; text-align: left; border: 1px solid #ddd; }}
-        th {{ background-color: #f2f2f2; font-weight: bold; }}
-        .conclusion {{ font-size: 12px; margin-top: 5px; padding: 5px; border-left: 3px solid #e74c3c; }}
-        .signature {{ margin-top: 15px; text-align: right; font-size: 12px; }}
-        .signature-title {{ font-weight: bold; margin-top: 5px; }}
-        .signature-note {{ margin-top: 30px; font-style: italic; }}
-        @media print {{ body {{ margin: 0; }} th {{ background-color: #f8f8f8; }} }}
-    </style>
-</head>
-<body>
-    <div class='header'>
-        <div class='hospital-name'>BỆNH VIỆN ĐA KHOA XYZ</div>
-        <div class='hospital-address'>123 Đường Láng, Quận Đống Đa, Hà Nội</div>
-        <div class='hospital-phone'>Điện thoại: (024) 1234 5678</div>
-    </div>
-    
-    <div class='divider'></div>
-    
-    <div class='title'>PHIẾU KẾT QUẢ XÉT NGHIỆM</div>
-    <div class='print-time'>Thời gian in phiếu: {DateTime.Now:dd/MM/yyyy HH:mm:ss}</div>
-    
-    <div class='id-container'>
-        <div><span class='info-label'>Mã phiếu khám:</span> {txb_id_exam.Text}</div>
-        <div><span class='info-label'>Mã kết quả:</span> {dtgv_service.CurrentRow.Cells["examination_service_id"].Value?.ToString() ?? ""}</div>
-    </div>
-    
-    <div class='section-title'>THÔNG TIN BỆNH NHÂN</div>
-    <div>
-        <div class='info-row'>
-            <div class='info-item'><span class='info-label'>Mã BN:</span> {txb_id_patient.Text}</div>
-            <div class='info-item'><span class='info-label'>Họ tên:</span> <strong>{txb_name.Text}</strong></div>
-            <div class='info-item'><span class='info-label'>Giới tính:</span> {txb_gender.Text}</div>
-            <div class='info-item'><span class='info-label'>Ngày sinh:</span> {txb_dob.Text}</div>
-        </div>
-        <div class='info-row'>
-            <div class='info-item'><span class='info-label'>Điện thoại:</span> {txb_phone.Text}</div>
-            <div class='info-item'><span class='info-label'>Địa chỉ:</span> {txb_address.Text}</div>
-        </div>
-        <div class='info-row'>
-            <div class='info-item'><span class='info-label'>Ngày tiếp nhận:</span> {txb_reception_date.Text}</div>
-            <div class='info-item'><span class='info-label'>Chỉ định:</span> <strong>{txb_service.Text}</strong></div>
-            <div class='info-item'><span class='info-label'>Lý do khám:</span> <em>{txb_reason.Text}</em></div>
-        </div>
-    </div>
-    
-    <div class='section-title'>KẾT QUẢ XÉT NGHIỆM</div>
-    <table>
-        <tr>
-            <th style='width: 20%;'>Nhóm xét nghiệm</th>
-            <th style='width: 25%;'>Tên xét nghiệm</th>
-            <th style='width: 15%;'>Kết quả</th>
-            <th style='width: 15%;'>Đơn vị</th>
-            <th style='width: 20%;'>Giá trị bình thường</th>
-        </tr>";
-
-                // Thêm các dòng dữ liệu từ DataGridView
-                foreach (DataGridViewRow row in dtgv_result.Rows)
-                {
-                    if (row.IsNewRow) continue;
-                    string groupName = row.Cells[0].Value?.ToString() ?? "";
-                    string testName = row.Cells[1].Value?.ToString() ?? "";
-                    string result = row.Cells[2].Value?.ToString() ?? "";
-                    string unit = row.Cells[3].Value?.ToString() ?? "";
-                    string normalRange = row.Cells[4].Value?.ToString() ?? "";
-
-                    html += $@"
-                        <tr>
-                            <td>{groupName}</td>
-                            <td>{testName}</td>
-                            <td>{result}</td>
-                            <td>{unit}</td>
-                            <td>{normalRange}</td>
-                        </tr>";
-                                }
-
-                                html += $@"
-                    </table>
-    
-                    <div class='section-title'>KẾT LUẬN</div>
-                    <div class='conclusion'>
-                        {txb_final_result.Text.Replace(Environment.NewLine, "<br/>")}
-                    </div>
-    
-                    <div class='signature'>
-                        <div>Ngày {DateTime.Now.Day} tháng {DateTime.Now.Month} năm {DateTime.Now.Year}</div>
-                        <div class='signature-title'>CỬ NHÂN XÉT NGHIỆM</div>
-                        <div class='signature-note'>(Ký và ghi rõ họ tên)</div>
-                    </div>
-                </body>
-                </html>";
-
-
-                Form previewForm = new Form
-                {
-                    Text = "Xem trước ",
-                    Width = 800,
-                    Height = 1000,
-                    StartPosition = FormStartPosition.CenterScreen
-                };
-
-                WebBrowser browser = new WebBrowser
-                {
-                    Dock = DockStyle.Fill,
-                    DocumentText = html
-                };
-                System.Windows.Forms.Button printButton = new System.Windows.Forms.Button
-                {
-                    Text = "In phiếu",
-                    Dock = DockStyle.Bottom,
-                    Height = 40
-                };
-
-                printButton.Click += (s, ev) => {
-                    browser.ShowPrintPreviewDialog();  // Hiển thị hộp thoại xem trước bản in của hệ thống
-                };
-
-                previewForm.Controls.Add(browser);
-                previewForm.Controls.Add(printButton);
-                previewForm.ShowDialog();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi chuẩn bị in: " + ex.Message);
-            }
+            var mabn = txb_id_patient.Text;
+            var tenbn = txb_name.Text;
+            var ngaysinh = txb_dob.Text;
+            var chandoan = txb_reason1.Text;
+            var chandoanphu = txb_reason.Text;
+            var diachi = txb_address.Text;
+            var ketqua = txb_final_result.Text;
+            var ngaykham = DateTime.Now.ToString("dd/MM/yyyy");
+            DataTable dt = GetDataTableFromDataGridView(dtgv_result);
+            frm_report_test frm  = new frm_report_test(dt,mabn,tenbn,ngaysinh,chandoan,chandoanphu,diachi,ketqua,ngaykham);
+         
+            frm.ShowDialog();
+          
         }
+        public DataTable GetDataTableFromDataGridView(DataGridView dgv)
+        {
+            DataTable dt = new DataTable();
+            foreach (DataGridViewColumn column in dgv.Columns)
+            {
+                string columnName = column.Name;
+                Type columnType = column.ValueType ?? typeof(string);
+                dt.Columns.Add(columnName, columnType);
+            }
+            foreach (DataGridViewRow row in dgv.Rows)
+            {
+                if (!row.IsNewRow)
+                {
+                    DataRow dr = dt.NewRow();
+                    for (int i = 0; i < dgv.Columns.Count; i++)
+                    {
+                        dr[i] = row.Cells[i].Value ?? DBNull.Value;
+                    }
+                    dt.Rows.Add(dr);
+                }
+            }
+            return dt;
 
+        }
         private void btn_refresh_Click(object sender, EventArgs e)
         {
             dtgv_exam.Rows.Clear();
