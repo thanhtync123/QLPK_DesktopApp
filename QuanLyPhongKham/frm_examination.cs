@@ -545,7 +545,18 @@ VALUES
             var chandoan = cb_diagnoses.Text;
             var chandoanphu = txb_reason.Text;
             var ngaykham = DateTime.Now.ToString("dd/MM/yyyy");
-            frm_report_med frm = new frm_report_med(GetDataTableFromDataGridView(dtgv_med), mabn, tenbn, txb_address.Text, txb_ngaysinh.Text, gioitinh, loidan, chandoan, chandoanphu, ngaykham);
+            frm_report_med frm = new frm_report_med(
+      GetDataTableFromDataGridView(dtgv_med),
+      mabn,
+      tenbn,
+      txb_ngaysinh.Text,   // Ngày sinh
+      txb_address.Text,    // Địa chỉ
+      gioitinh,
+      loidan,
+      chandoan,
+      chandoanphu,
+      ngaykham
+  );
             frm.ShowDialog();
 
 
