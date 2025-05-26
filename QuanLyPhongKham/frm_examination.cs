@@ -521,17 +521,18 @@ VALUES
         }
         private void btn_print_prescription_Click(object sender, EventArgs e)
         {
-            //var mabn = txb_id.Text;
-            //var tenbn = txb_name.Text;
-            //var diachi = txb_address.Text;
-            //var tuoi = txb_age.Text;
-            //var gioitinh = txb_gender.Text;
-            //var loidan = cb_doctornote.Text;
-            //var chandoan = cb_diagnoses.Text;
-            //var chandoanphu = txb_reason.Text;
-            //var ngaykham = DateTime.Now.ToString("dd/MM/yyyy");
-            frm_report_med frm = new frm_report_med(GetDataTableFromDataGridView(dtgv_med));
-          frm.ShowDialog();
+           
+            var mabn = txb_id.Text;
+            var tenbn = txb_name.Text;
+            var diachi = txb_address.Text;
+            var ngaysinh = txb_ngaysinh.Text;
+            var gioitinh = txb_gender.Text;
+            var loidan = cb_doctornote.Text;
+            var chandoan = cb_diagnoses.Text;
+            var chandoanphu = txb_reason.Text;
+            var ngaykham = DateTime.Now.ToString("dd/MM/yyyy");
+            frm_report_med frm = new frm_report_med(GetDataTableFromDataGridView(dtgv_med), mabn, tenbn, txb_address.Text, txb_ngaysinh.Text, gioitinh, loidan, chandoan, chandoanphu, ngaykham);
+            frm.ShowDialog();
 
 
         }

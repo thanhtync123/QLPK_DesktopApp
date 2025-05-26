@@ -58,7 +58,8 @@ namespace QuanLyPhongKham
                 `address`, 
                 `created_at`, 
                 DATE_FORMAT(`updated_at`, '%d/%m/%Y') AS `updated_at`
-            FROM `patients`";
+            FROM `patients`
+            ORDER BY updated_at DESC";
 
             Db.LoadDTGV(dtgv, query);
 

@@ -70,7 +70,7 @@ namespace QuanLyPhongKham
         JOIN examination_services es ON e.id = es.examination_id
         JOIN services s ON es.service_id = s.id
         LEFT JOIN examination_results er ON er.examination_service_id = es.id
-        WHERE DATE(p.updated_at) = CURDATE()
+        WHERE DATE(e.updated_at) = CURDATE()
             AND s.type = @type
     ";
 

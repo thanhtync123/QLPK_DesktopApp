@@ -69,7 +69,7 @@ namespace QuanLyPhongKham
         WHERE 
             (    p.id LIKE '%{keyword}%' OR
                 p.name LIKE '%{keyword}%' OR
-                e.id LIKE '%{keyword}%'; )";
+                e.id LIKE '%{keyword}%' )";
 
             Db.LoadDTGV(dtgv_patient, query);
         }
