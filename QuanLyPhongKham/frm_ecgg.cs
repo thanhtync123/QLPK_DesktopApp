@@ -343,6 +343,9 @@ namespace QuanLyPhongKham
             frm.ShowDialog();
         }
 
+        private void rdn_all_CheckedChanged(object sender, EventArgs e)
+        {
 
+        }
     }
 }
