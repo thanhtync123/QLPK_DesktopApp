@@ -29,41 +29,12 @@ namespace QuanLyPhongKham
             LoadExam.InitialDTGVCommon(dtgv_exam);
 
         }
-        private Timer timer = new Timer();
-        private int? selectedExamId = null;
+
         private void frm_ultrasound_Load(object sender, EventArgs e)
         {
             LoadExam.LoadDTGVCommon(dtgv_exam, "Siêu âm");
             LoadComboboxTemplate();
 
-            // Thiết lập timer tự động reload mỗi 3 giây và lưu trạng thái dòng hiện tại
-            timer.Interval = 3000;
-            timer.Tick += (s, ev) =>
-            {
-                // Lưu id_exam của dòng hiện tại (nếu có)
-                if (dtgv_exam.CurrentRow != null && dtgv_exam.CurrentRow.Cells["id_exam"].Value != null)
-                {
-                    selectedExamId = Convert.ToInt32(dtgv_exam.CurrentRow.Cells["id_exam"].Value);
-                }
-
-                // Reload dữ liệu
-                LoadExam.LoadDTGVCommon(dtgv_exam, "Siêu âm");
-
-                // Khôi phục lựa chọn dòng cũ nếu còn tồn tại
-                if (selectedExamId.HasValue)
-                {
-                    foreach (DataGridViewRow row in dtgv_exam.Rows)
-                    {
-                        if (row.Cells["id_exam"].Value != null && Convert.ToInt32(row.Cells["id_exam"].Value) == selectedExamId)
-                        {
-                            dtgv_exam.CurrentCell = row.Cells[0];
-                            dtgv_exam.Rows[row.Index].Selected = true;
-                            break;
-                        }
-                    }
-                }
-            };
-            timer.Start();
         }
         private int snapCount = 0;
 
@@ -375,7 +346,7 @@ namespace QuanLyPhongKham
             if (e.RowIndex >= 0 && dtgv_exam.Rows[e.RowIndex].Cells["id_exam"].Value != null)
             {
                 DataGridViewRow row = dtgv_exam.Rows[e.RowIndex];
-                selectedExamId = Convert.ToInt32(row.Cells["id_exam"].Value);
+              
                 var id_exam = row.Cells["id_exam"].Value?.ToString();
                 var id_patient = row.Cells["id_patient"].Value?.ToString();
                 var name = row.Cells["name"].Value?.ToString();

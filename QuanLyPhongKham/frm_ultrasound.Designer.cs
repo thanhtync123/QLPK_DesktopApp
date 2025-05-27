@@ -366,7 +366,7 @@
             // wmp
             // 
             this.wmp.Enabled = true;
-            this.wmp.Location = new System.Drawing.Point(341, 316);
+            this.wmp.Location = new System.Drawing.Point(882, 719);
             this.wmp.Name = "wmp";
             this.wmp.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("wmp.OcxState")));
             this.wmp.Size = new System.Drawing.Size(331, 134);
@@ -407,7 +407,6 @@
             this.panel3.Controls.Add(this.label17);
             this.panel3.Controls.Add(this.txb_result);
             this.panel3.Controls.Add(this.txb_phone);
-            this.panel3.Controls.Add(this.wmp);
             this.panel3.Controls.Add(this.SĐT);
             this.panel3.Controls.Add(this.txb_id_exam);
             this.panel3.Controls.Add(this.label16);
@@ -852,6 +851,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pb_4);
             this.Controls.Add(this.pb_3);
+            this.Controls.Add(this.wmp);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frm_ultrasound";
             this.Text = "Siêu âm";

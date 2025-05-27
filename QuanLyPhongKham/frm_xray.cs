@@ -20,37 +20,15 @@ namespace QuanLyPhongKham
         private bool isUserChangingTemplate = true;
         Timer timer = new Timer();
         private int? selectedExamId = null;
+
+   
+
+
         public frm_xray()
         {
             InitializeComponent();
             LoadExam.InitialDTGVCommon(dtgv_exam);
-            timer.Interval = 3000;
-            timer.Tick += (s, e) =>
-            {
-                // Lưu id_exam trước khi reload
-                if (dtgv_exam.CurrentRow != null && dtgv_exam.CurrentRow.Cells["id_exam"].Value != null)
-                {
-                    selectedExamId = Convert.ToInt32(dtgv_exam.CurrentRow.Cells["id_exam"].Value);
-                }
-
-                // Reload dữ liệu
-                LoadExam.LoadDTGVCommon(dtgv_exam, "X-quang");
-
-                // Khôi phục lựa chọn
-                if (selectedExamId.HasValue)
-                {
-                    foreach (DataGridViewRow row in dtgv_exam.Rows)
-                    {
-                        if (row.Cells["id_exam"].Value != null && Convert.ToInt32(row.Cells["id_exam"].Value) == selectedExamId)
-                        {
-                            dtgv_exam.CurrentCell = row.Cells[0]; // Đặt focus vào dòng cũ
-                            dtgv_exam.Rows[row.Index].Selected = true; // Highlight dòng
-                            break;
-                        }
-                    }
-                }
-            };
-            timer.Start();
+            LoadExam.LoadDTGVCommon(dtgv_exam, "X-quang");
         }
         private void frm_xray_Load(object sender, EventArgs e)
         {
