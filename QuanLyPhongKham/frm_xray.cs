@@ -18,19 +18,53 @@ namespace QuanLyPhongKham
     {
 
         private bool isUserChangingTemplate = true;
-
+        Timer timer = new Timer();
+        private int? selectedExamId = null;
         public frm_xray()
         {
             InitializeComponent();
             LoadExam.InitialDTGVCommon(dtgv_exam);
-            LoadExam.LoadDTGVCommon(dtgv_exam, "X-quang"); 
+            timer.Interval = 3000;
+            timer.Tick += (s, e) =>
+            {
+                // Lưu id_exam trước khi reload
+                if (dtgv_exam.CurrentRow != null && dtgv_exam.CurrentRow.Cells["id_exam"].Value != null)
+                {
+                    selectedExamId = Convert.ToInt32(dtgv_exam.CurrentRow.Cells["id_exam"].Value);
+                }
+
+                // Reload dữ liệu
+                LoadExam.LoadDTGVCommon(dtgv_exam, "X-quang");
+
+                // Khôi phục lựa chọn
+                if (selectedExamId.HasValue)
+                {
+                    foreach (DataGridViewRow row in dtgv_exam.Rows)
+                    {
+                        if (row.Cells["id_exam"].Value != null && Convert.ToInt32(row.Cells["id_exam"].Value) == selectedExamId)
+                        {
+                            dtgv_exam.CurrentCell = row.Cells[0]; // Đặt focus vào dòng cũ
+                            dtgv_exam.Rows[row.Index].Selected = true; // Highlight dòng
+                            break;
+                        }
+                    }
+                }
+            };
+            timer.Start();
         }
         private void frm_xray_Load(object sender, EventArgs e)
         {
 
             LoadComboboxTemplate();
             webBrowser1.Visible = false;
-        
+            if(txb_service.Text == "")
+            {
+                btn_edit.Enabled = false;
+                btn_save.Enabled = false;
+              
+                return;
+            }
+
         }
       
         private void LoadDTGV_Service()
@@ -82,6 +116,7 @@ namespace QuanLyPhongKham
             if (e.RowIndex >= 0 && dtgv_exam.Rows[e.RowIndex].Cells["id_exam"].Value != null)
             {
                 DataGridViewRow row = dtgv_exam.Rows[e.RowIndex];
+                selectedExamId = Convert.ToInt32(row.Cells["id_exam"].Value); 
                 var id_exam = row.Cells["id_exam"].Value?.ToString();
                 var id_patient = row.Cells["id_patient"].Value?.ToString();
                 var name = row.Cells["name"].Value?.ToString();

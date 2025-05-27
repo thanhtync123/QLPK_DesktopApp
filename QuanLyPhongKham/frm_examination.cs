@@ -18,74 +18,125 @@ namespace QuanLyPhongKham
     public partial class frm_examination : Form
     {
         int id;
-
-
+        private Timer timer = new Timer();
+        private int? selectedPatientId = null;
         public frm_examination()
         {
             InitializeComponent();
-        }
+            timer.Interval = 3000;
+            timer.Tick += (s, e) =>
+            {
+                // Lưu ID bệnh nhân hiện tại nếu có
+                if (dtgv_patients.CurrentRow != null && dtgv_patients.CurrentRow.Cells["ID"].Value != null)
+                {
+                    selectedPatientId = Convert.ToInt32(dtgv_patients.CurrentRow.Cells["ID"].Value);
+                }
 
+                // Reload dữ liệu
+                LoadGrid();
+
+                // Khôi phục lựa chọn dòng cũ nếu còn tồn tại
+                if (selectedPatientId.HasValue)
+                {
+                    foreach (DataGridViewRow row in dtgv_patients.Rows)
+                    {
+                        if (row.Cells["ID"].Value != null && Convert.ToInt32(row.Cells["ID"].Value) == selectedPatientId)
+                        {
+                            dtgv_patients.CurrentCell = row.Cells[0];
+                            dtgv_patients.Rows[row.Index].Selected = true;
+                            break;
+                        }
+                    }
+                }
+            };
+            timer.Start();
+        }
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            LoadGrid();
+        }
         private void LoadGrid()
         {
-            label27.Visible = false;
+            dtgv_patients.Columns.Clear();
+            dtgv_patients.Columns.Add("ID", "ID");
+            dtgv_patients.Columns.Add("name", "Tên BN");
             dtgv_patients.Columns.Add("date_of_birth", "Ngày sinh");
-            dtgv_patients.Columns["date_of_birth"].Visible = false;
             dtgv_patients.Columns.Add("gender", "Giới tính");
-            dtgv_patients.Columns["gender"].Visible = false;
             dtgv_patients.Columns.Add("phone", "SĐT");
-            dtgv_patients.Columns["phone"].Visible = false;
             dtgv_patients.Columns.Add("address", "Địa chỉ");
-            dtgv_patients.Columns["address"].Visible = false;
+            dtgv_patients.Columns.Add("time_patients", "Thời gian cập nhật");
+            foreach (DataGridViewColumn col in dtgv_patients.Columns)
+                col.Visible = false;
+            dtgv_patients.Columns["ID"].Visible = true;
+            dtgv_patients.Columns["name"].Visible = true;
+            dtgv_patients.Columns["time_patients"].Visible = true;
 
+            // Load data
             dtgv_patients.Rows.Clear();
-
-            string sql = @"SELECT 
-                 id, 
-                 name, 
-                 DATE_FORMAT(date_of_birth, '%d/%m/%Y') AS date_of_birth, 
-                 gender, 
-                 phone, 
-                 address, 
-                 created_at, 
-                 DATE_FORMAT(updated_at, '%H:%i:%s') AS updated_time
-             FROM patients
-             WHERE DATE(updated_at) = CURDATE();";
-
+            string sql = @"SELECT id, name, DATE_FORMAT(date_of_birth, '%d/%m/%Y') AS date_of_birth, gender, phone, address, DATE_FORMAT(updated_at, '%H:%i:%s') AS updated_time 
+                            FROM patients WHERE DATE(updated_at) = CURDATE()
+                            order by updated_time DESC";
             Db.ResetConnection();
             MySqlCommand cmd = Db.CreateCommand(sql);
             MySqlDataReader dr = cmd.ExecuteReader();
 
-            bool hasData = false;
-
             while (dr.Read())
             {
-                hasData = true;
-
-                int i = dtgv_patients.Rows.Add();
-                DataGridViewRow drr = dtgv_patients.Rows[i];
-                drr.Cells["ID"].Value = dr["id"];
-                drr.Cells["name"].Value = dr["name"];
-                drr.Cells["date_of_birth"].Value = dr["date_of_birth"];
-                drr.Cells["gender"].Value = dr["gender"];
-                drr.Cells["phone"].Value = dr["phone"];
-                drr.Cells["address"].Value = dr["address"];
-                drr.Cells["time_patients"].Value = dr["updated_time"];
+                dtgv_patients.Rows.Add(
+                    dr["id"], dr["name"], dr["date_of_birth"], dr["gender"], dr["phone"], dr["address"], dr["updated_time"]);
             }
 
             dr.Close();
             Db.ResetConnection();
 
-            dr.Close();
-            Db.ResetConnection();
+            //dtgv_patients.Rows.Clear();
 
-            if (!hasData)
-            {
-                label27.Text = "Không có bệnh nhân nào được tiếp nhận trong hôm nay.";
-                label27.Visible = true;
-            }
-            else
+            //string sql = @"SELECT 
+            //     id, 
+            //     name, 
+            //     DATE_FORMAT(date_of_birth, '%d/%m/%Y') AS date_of_birth, 
+            //     gender, 
+            //     phone, 
+            //     address, 
+            //     created_at, 
+            //     DATE_FORMAT(updated_at, '%H:%i:%s') AS updated_time
+            // FROM patients
+            // WHERE DATE(updated_at) = CURDATE();";
 
-                label27.Visible = false;
+            //Db.ResetConnection();
+            //MySqlCommand cmd = Db.CreateCommand(sql);
+            //MySqlDataReader dr = cmd.ExecuteReader();
+
+            //bool hasData = false;
+
+            //while (dr.Read())
+            //{
+            //    hasData = true;
+
+            //    int i = dtgv_patients.Rows.Add();
+            //    DataGridViewRow drr = dtgv_patients.Rows[i];
+            //    drr.Cells["ID"].Value = dr["id"];
+            //    drr.Cells["name"].Value = dr["name"];
+            //    drr.Cells["date_of_birth"].Value = dr["date_of_birth"];
+            //    drr.Cells["gender"].Value = dr["gender"];
+            //    drr.Cells["phone"].Value = dr["phone"];
+            //    drr.Cells["address"].Value = dr["address"];
+            //    drr.Cells["time_patients"].Value = dr["updated_time"];
+            //}
+
+            //dr.Close();
+            //Db.ResetConnection();
+
+
+
+            //if (!hasData)
+            //{
+            //    label27.Text = "Không có bệnh nhân nào được tiếp nhận trong hôm nay.";
+            //    label27.Visible = true;
+            //}
+            //else
+
+            //    label27.Visible = false;
 
 
 
@@ -102,6 +153,7 @@ namespace QuanLyPhongKham
             btn_deletemed.Enabled = false;
             cb_diagnoses.SelectedIndex = 0;
             webBrowser1.Visible = false;
+       
 
 
 
@@ -110,6 +162,7 @@ namespace QuanLyPhongKham
         private void dtgv_patients_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             id = Convert.ToInt32(dtgv_patients.CurrentRow.Cells["ID"].Value);
+            selectedPatientId = id; // Lưu ID bệnh nhân hiện tại để khôi phục sau khi reload
             txb_name.Text = dtgv_patients.CurrentRow.Cells["name"].Value.ToString();
             txb_id.Text = id.ToString();
             txb_ngaysinh.Text = dtgv_patients.CurrentRow.Cells["date_of_birth"].Value.ToString();

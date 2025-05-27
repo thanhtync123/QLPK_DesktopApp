@@ -17,6 +17,8 @@ namespace QuanLyPhongKham
     public partial class frm_test : Form
     {
         bool isUserChangingTemplate = false;
+        private Timer timer = new Timer();
+        private int? selectedExamId = null;
         public frm_test()
         {
             InitializeComponent();
@@ -28,7 +30,26 @@ namespace QuanLyPhongKham
             LoadExam.InitialDTGVCommon(dtgv_exam);
             LoadExam.LoadDTGVCommon(dtgv_exam, "Xét nghiệm");
             LoadComboboxTemplate();
-            webBrowser1.Visible = false;
+            timer.Interval = 3000;
+            timer.Tick += (s, ev) =>
+            {
+                if (dtgv_exam.CurrentRow != null && dtgv_exam.CurrentRow.Cells["id_exam"].Value != null)
+                    selectedExamId = Convert.ToInt32(dtgv_exam.CurrentRow.Cells["id_exam"].Value);
+                LoadExam.LoadDTGVCommon(dtgv_exam, "Xét nghiệm");
+                if (selectedExamId.HasValue)
+                {
+                    foreach (DataGridViewRow row in dtgv_exam.Rows)
+                    {
+                        if (row.Cells["id_exam"].Value != null && Convert.ToInt32(row.Cells["id_exam"].Value) == selectedExamId)
+                        {
+                            dtgv_exam.CurrentCell = row.Cells[0];
+                            dtgv_exam.Rows[row.Index].Selected = true;
+                            break;
+                        }
+                    }
+                }
+            };
+            timer.Start();
         }
         private void LoadComboboxTemplate()
         {
@@ -40,10 +61,10 @@ namespace QuanLyPhongKham
         {
             if (e.RowIndex >= 0 && dtgv_exam.Rows[e.RowIndex].Cells["id_exam"].Value != null)
             {
+
                 DataGridViewRow row = dtgv_exam.Rows[e.RowIndex];
-
+                selectedExamId = Convert.ToInt32(row.Cells["id_exam"].Value);
                 var date_of_birth = row.Cells["date_of_birth"].Value?.ToString(); // <-- Thêm dòng này
-
                 Db.SetTextAndMoveCursorToEnd(txb_id_exam, row.Cells["id_exam"].Value?.ToString());
                 Db.SetTextAndMoveCursorToEnd(txb_id_patient, row.Cells["id_patient"].Value?.ToString());
                 Db.SetTextAndMoveCursorToEnd(txb_name, row.Cells["name"].Value?.ToString());
