@@ -96,9 +96,6 @@
                 <TablixColumn>
                   <Width>0.5333in</Width>
                 </TablixColumn>
-                <TablixColumn>
-                  <Width>0.77608in</Width>
-                </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
@@ -342,40 +339,6 @@
                         </Textbox>
                       </CellContents>
                     </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox1">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Đơn giá</Value>
-                                  <Style>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox1</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
@@ -605,45 +568,12 @@
                         </Textbox>
                       </CellContents>
                     </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="price1">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!price.Value</Value>
-                                  <Style />
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>price1</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
                   </TablixCells>
                 </TablixRow>
               </TablixRows>
             </TablixBody>
             <TablixColumnHierarchy>
               <TablixMembers>
-                <TablixMember />
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
@@ -667,7 +597,7 @@
             <Top>3.46819in</Top>
             <Left>0.13796in</Left>
             <Height>0.83332in</Height>
-            <Width>6.01368in</Width>
+            <Width>5.2376in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -694,8 +624,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
-            <Top>1.7316in</Top>
-            <Left>0.72924in</Left>
+            <Top>0.0566in</Top>
+            <Left>4.4459in</Left>
             <Height>0.25in</Height>
             <Width>0.80833in</Width>
             <ZIndex>1</ZIndex>
@@ -716,7 +646,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>  Tên BN: </Value>
+                    <Value> Tên BN: </Value>
                     <Style>
                       <FontSize>13pt</FontSize>
                       <FontWeight>Bold</FontWeight>
@@ -729,8 +659,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
-            <Top>2.00938in</Top>
-            <Left>0.62786in</Left>
+            <Top>1.74202in</Top>
+            <Left>0.53411in</Left>
             <Height>0.25in</Height>
             <Width>0.90971in</Width>
             <ZIndex>2</ZIndex>
@@ -915,8 +845,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_mabn</rd:DefaultName>
-            <Top>1.7316in</Top>
-            <Left>1.61744in</Left>
+            <Top>0.0566in</Top>
+            <Left>5.20911in</Left>
             <Height>0.25in</Height>
             <Width>1.26539in</Width>
             <ZIndex>7</ZIndex>
@@ -947,8 +877,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_tenbn</rd:DefaultName>
-            <Top>2.00938in</Top>
-            <Left>1.61744in</Left>
+            <Top>1.7316in</Top>
+            <Left>1.45771in</Left>
             <Height>0.25in</Height>
             <Width>1.61866in</Width>
             <ZIndex>8</ZIndex>
@@ -982,7 +912,7 @@
             <Top>2.04758in</Top>
             <Left>4.33841in</Left>
             <Height>0.25in</Height>
-            <Width>1.46748in</Width>
+            <Width>1.81323in</Width>
             <ZIndex>9</ZIndex>
             <Style>
               <Border>
@@ -1078,7 +1008,7 @@
             <Top>1.74202in</Top>
             <Left>4.33841in</Left>
             <Height>0.25in</Height>
-            <Width>1.46748in</Width>
+            <Width>1.81323in</Width>
             <ZIndex>12</ZIndex>
             <Style>
               <Border>
@@ -1108,7 +1038,7 @@
             </Paragraphs>
             <rd:DefaultName>txb_ngaykham</rd:DefaultName>
             <Top>4.35707in</Top>
-            <Left>4.78094in</Left>
+            <Left>4.15594in</Left>
             <Height>0.25in</Height>
             <Width>1.3707in</Width>
             <ZIndex>13</ZIndex>
@@ -1151,7 +1081,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox33</rd:DefaultName>
             <Top>4.67651in</Top>
-            <Left>4.75979in</Left>
+            <Left>4.13479in</Left>
             <Height>0.25in</Height>
             <Width>0.525in</Width>
             <ZIndex>14</ZIndex>
@@ -1250,7 +1180,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
             <Top>4.35707in</Top>
-            <Left>3.69034in</Left>
+            <Left>3.06534in</Left>
             <Height>0.25in</Height>
             <Width>1in</Width>
             <ZIndex>17</ZIndex>
@@ -1265,7 +1195,7 @@
             </Style>
           </Textbox>
           <Line Name="Line3">
-            <Top>6.31211cm</Top>
+            <Top>6.08279cm</Top>
             <Left>0.92047cm</Left>
             <Height>0cm</Height>
             <Width>12.9316cm</Width>
@@ -1481,6 +1411,39 @@
             <Height>0.61071cm</Height>
             <Width>16.567cm</Width>
             <ZIndex>23</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox20">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Bác sĩ chỉ định:</Value>
+                    <Style>
+                      <FontSize>14pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox20</rd:DefaultName>
+            <Top>2.46425in</Top>
+            <Left>0.49244in</Left>
+            <Height>0.29167in</Height>
+            <Width>1.575in</Width>
+            <ZIndex>24</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
