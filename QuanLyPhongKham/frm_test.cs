@@ -195,8 +195,27 @@ namespace QuanLyPhongKham
         {
             dtgv_result.Rows.Clear();
             if (cb_template.SelectedIndex > 0)
-
+            {
                 LoadDataToDataGridViewResult();
+                int selectedTemplateId = Convert.ToInt32(cb_template.SelectedValue); 
+                string sql = "SELECT `template_content`,`result_content` FROM `templates` WHERE `id` = @template_id;";
+                Db.ResetConnection();
+                Db.cmd = new MySqlCommand(sql, Db.conn);
+                Db.cmd.Parameters.AddWithValue("@template_id", selectedTemplateId);
+                Db.dr = Db.cmd.ExecuteReader();
+
+                if (Db.dr.Read())
+                {
+                  
+                    txb_final_result.Text = Db.dr["result_content"].ToString();
+                }
+
+
+                Db.dr.Close();
+                Db.ResetConnection();
+            }
+            
+               
 
         }
         private void LoadDataToDataGridViewResult()

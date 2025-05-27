@@ -32,10 +32,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_ultrasound));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_ultrasound));
             this.dtpk_todate = new System.Windows.Forms.DateTimePicker();
             this.rdn_all = new System.Windows.Forms.RadioButton();
             this.rdn_noresult = new System.Windows.Forms.RadioButton();
@@ -54,7 +54,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btn_search = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.wmp = new AxWMPLib.AxWindowsMediaPlayer();
             this.pb_4 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pb_3 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -104,17 +103,18 @@
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.wmp = new AxWMPLib.AxWindowsMediaPlayer();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_exam)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.wmp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_3)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_service)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.wmp)).BeginInit();
             this.SuspendLayout();
             // 
             // dtpk_todate
@@ -175,7 +175,7 @@
             // 
             // btn_upload
             // 
-            this.btn_upload.Location = new System.Drawing.Point(348, 159);
+            this.btn_upload.Location = new System.Drawing.Point(348, 149);
             this.btn_upload.Name = "btn_upload";
             this.btn_upload.Size = new System.Drawing.Size(75, 23);
             this.btn_upload.TabIndex = 59;
@@ -363,16 +363,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Từ ngày";
             // 
-            // wmp
-            // 
-            this.wmp.Enabled = true;
-            this.wmp.Location = new System.Drawing.Point(882, 719);
-            this.wmp.Name = "wmp";
-            this.wmp.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("wmp.OcxState")));
-            this.wmp.Size = new System.Drawing.Size(331, 134);
-            this.wmp.TabIndex = 55;
-            this.wmp.Visible = false;
-            // 
             // pb_4
             // 
             this.pb_4.ImageRotate = 0F;
@@ -381,6 +371,7 @@
             this.pb_4.Size = new System.Drawing.Size(194, 222);
             this.pb_4.TabIndex = 54;
             this.pb_4.TabStop = false;
+            this.pb_4.Visible = false;
             // 
             // pb_3
             // 
@@ -390,6 +381,7 @@
             this.pb_3.Size = new System.Drawing.Size(195, 222);
             this.pb_3.TabIndex = 53;
             this.pb_3.TabStop = false;
+            this.pb_3.Visible = false;
             // 
             // panel1
             // 
@@ -842,6 +834,16 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // wmp
+            // 
+            this.wmp.Enabled = true;
+            this.wmp.Location = new System.Drawing.Point(882, 719);
+            this.wmp.Name = "wmp";
+            this.wmp.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("wmp.OcxState")));
+            this.wmp.Size = new System.Drawing.Size(331, 134);
+            this.wmp.TabIndex = 55;
+            this.wmp.Visible = false;
+            // 
             // frm_ultrasound
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -861,7 +863,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb_2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_exam)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.wmp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_3)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -869,6 +870,7 @@
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_service)).EndInit();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.wmp)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -937,11 +939,11 @@
         private Guna.UI2.WinForms.Guna2PictureBox pb_2;
         private Guna.UI2.WinForms.Guna2PictureBox pb_1;
         private System.Windows.Forms.Button btn_snap;
-        private AxWMPLib.AxWindowsMediaPlayer wmp;
         private System.Windows.Forms.Button btn_resetpicturebox;
         private Guna.UI2.WinForms.Guna2TextBox txb_search;
         private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.Button btn_upload;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private AxWMPLib.AxWindowsMediaPlayer wmp;
     }
 }

@@ -347,15 +347,21 @@ namespace QuanLyPhongKham
             if (isUserChangingTemplate && cb_template.SelectedIndex >= 0 && dtgv_service.CurrentRow != null)
             {
                 int selectedTemplateId = Convert.ToInt32(cb_template.SelectedValue);
-                string sql = "SELECT `template_content` FROM `templates` WHERE `id` = @template_id;";
+                string sql = "SELECT `template_content`,`result_content` FROM `templates` WHERE `id` = @template_id;";
                 Db.ResetConnection();
                 Db.cmd = new MySqlCommand(sql, Db.conn);
                 Db.cmd.Parameters.AddWithValue("@template_id", selectedTemplateId);
                 Db.dr = Db.cmd.ExecuteReader();
 
                 if (Db.dr.Read())
+                {
                     txb_result.Text = Db.dr["template_content"].ToString()
                                 .Replace("\\r\\n", "\r\n"); // chuyển chuỗi '\\r\\n' về ký tự xuống dòng thật
+                    txb_final_result.Text = Db.dr["result_content"].ToString();
+                             
+
+                }
+      
                 Db.dr.Close();
                 Db.ResetConnection();
             }
