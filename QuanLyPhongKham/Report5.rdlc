@@ -60,22 +60,22 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>1.4886in</Width>
+                  <Width>1.32975in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.15752in</Width>
+                  <Width>0.99867in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.87749in</Width>
+                  <Width>0.71864in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.87749in</Width>
+                  <Width>0.71864in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.96515in</Width>
+                  <Width>1.8063in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.87749in</Width>
+                  <Width>0.71864in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -93,7 +93,7 @@
                                 <TextRun>
                                   <Value>Tên xét nghiệm</Value>
                                   <Style>
-                                    <FontSize>14pt</FontSize>
+                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -128,7 +128,7 @@
                                 <TextRun>
                                   <Value>Tên kết quả</Value>
                                   <Style>
-                                    <FontSize>14pt</FontSize>
+                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -163,7 +163,7 @@
                                 <TextRun>
                                   <Value>Kết quả</Value>
                                   <Style>
-                                    <FontSize>14pt</FontSize>
+                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -198,7 +198,7 @@
                                 <TextRun>
                                   <Value>Đơn vị</Value>
                                   <Style>
-                                    <FontSize>14pt</FontSize>
+                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -233,7 +233,7 @@
                                 <TextRun>
                                   <Value>Chỉ số bình thường</Value>
                                   <Style>
-                                    <FontSize>14pt</FontSize>
+                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -268,7 +268,7 @@
                                 <TextRun>
                                   <Value>Ghi chú</Value>
                                   <Style>
-                                    <FontSize>14pt</FontSize>
+                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -540,9 +540,9 @@
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
             <Top>4.28in</Top>
-            <Left>0.15in</Left>
+            <Left>0.025in</Left>
             <Height>0.61667in</Height>
-            <Width>7.24376in</Width>
+            <Width>6.29064in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -971,7 +971,7 @@
             <Top>5.44806in</Top>
             <Left>0.76232in</Left>
             <Height>0.28319in</Height>
-            <Width>6.63144in</Width>
+            <Width>5.55333in</Width>
             <ZIndex>13</ZIndex>
             <Style>
               <Border>
@@ -1249,21 +1249,12 @@
                 </TextRuns>
                 <Style />
               </Paragraph>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value />
-                    <Style />
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox18</rd:DefaultName>
-            <Top>2.90469cm</Top>
-            <Left>0.40765cm</Left>
+            <Top>2.86943cm</Top>
+            <Left>0.3175cm</Left>
             <Height>0.61071cm</Height>
-            <Width>16.14367cm</Width>
+            <Width>16.1225cm</Width>
             <ZIndex>21</ZIndex>
             <Style>
               <Border>
@@ -1312,7 +1303,7 @@
         <Height>5.94792in</Height>
         <Style />
       </Body>
-      <Width>7.39376in</Width>
+      <Width>6.75949in</Width>
       <Page>
         <LeftMargin>1in</LeftMargin>
         <RightMargin>1in</RightMargin>
