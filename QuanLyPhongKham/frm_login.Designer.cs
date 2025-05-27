@@ -31,15 +31,17 @@
             this.btn_login = new System.Windows.Forms.Button();
             this.txb_username = new System.Windows.Forms.TextBox();
             this.txb_password = new System.Windows.Forms.TextBox();
+            this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.guna2ImageButton2 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.SuspendLayout();
             // 
             // btn_login
             // 
-            this.btn_login.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_login.Location = new System.Drawing.Point(153, 92);
-            this.btn_login.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_login.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btn_login.Location = new System.Drawing.Point(145, 201);
+            this.btn_login.Margin = new System.Windows.Forms.Padding(6);
             this.btn_login.Name = "btn_login";
-            this.btn_login.Size = new System.Drawing.Size(138, 39);
+            this.btn_login.Size = new System.Drawing.Size(150, 44);
             this.btn_login.TabIndex = 0;
             this.btn_login.Text = "Đăng nhập";
             this.btn_login.UseVisualStyleBackColor = true;
@@ -47,31 +49,67 @@
             // 
             // txb_username
             // 
-            this.txb_username.Location = new System.Drawing.Point(88, 30);
-            this.txb_username.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_username.Location = new System.Drawing.Point(103, 52);
+            this.txb_username.Margin = new System.Windows.Forms.Padding(6);
             this.txb_username.Name = "txb_username";
-            this.txb_username.Size = new System.Drawing.Size(279, 22);
+            this.txb_username.Size = new System.Drawing.Size(253, 30);
             this.txb_username.TabIndex = 1;
             // 
             // txb_password
             // 
-            this.txb_password.Location = new System.Drawing.Point(88, 62);
-            this.txb_password.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_password.Location = new System.Drawing.Point(103, 140);
+            this.txb_password.Margin = new System.Windows.Forms.Padding(6);
             this.txb_password.Name = "txb_password";
-            this.txb_password.Size = new System.Drawing.Size(279, 22);
+            this.txb_password.Size = new System.Drawing.Size(253, 30);
             this.txb_password.TabIndex = 2;
+            // 
+            // guna2ImageButton1
+            // 
+            this.guna2ImageButton1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ImageButton1.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton1.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton1.Image = global::QuanLyPhongKham.Properties.Resources.user;
+            this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton1.ImageRotate = 0F;
+            this.guna2ImageButton1.Location = new System.Drawing.Point(22, 112);
+            this.guna2ImageButton1.Name = "guna2ImageButton1";
+            this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton1.Size = new System.Drawing.Size(72, 79);
+            this.guna2ImageButton1.TabIndex = 3;
+            this.guna2ImageButton1.UseTransparentBackground = true;
+            // 
+            // guna2ImageButton2
+            // 
+            this.guna2ImageButton2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ImageButton2.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton2.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton2.Image = global::QuanLyPhongKham.Properties.Resources._lock;
+            this.guna2ImageButton2.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton2.ImageRotate = 0F;
+            this.guna2ImageButton2.Location = new System.Drawing.Point(12, 30);
+            this.guna2ImageButton2.Name = "guna2ImageButton2";
+            this.guna2ImageButton2.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton2.Size = new System.Drawing.Size(82, 76);
+            this.guna2ImageButton2.TabIndex = 3;
+            this.guna2ImageButton2.UseTransparentBackground = true;
             // 
             // frm_login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(457, 254);
+            this.BackgroundImage = global::QuanLyPhongKham.Properties.Resources.edit;
+            this.ClientSize = new System.Drawing.Size(686, 397);
+            this.Controls.Add(this.guna2ImageButton2);
+            this.Controls.Add(this.guna2ImageButton1);
             this.Controls.Add(this.txb_password);
             this.Controls.Add(this.txb_username);
             this.Controls.Add(this.btn_login);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "frm_login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frm_login";
+            this.Load += new System.EventHandler(this.frm_login_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -82,5 +120,7 @@
         private System.Windows.Forms.Button btn_login;
         private System.Windows.Forms.TextBox txb_username;
         private System.Windows.Forms.TextBox txb_password;
+        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton1;
+        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton2;
     }
 }
