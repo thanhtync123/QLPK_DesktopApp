@@ -71,7 +71,7 @@
             this.guna2ImageButton1.Image = global::QuanLyPhongKham.Properties.Resources.user;
             this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton1.ImageRotate = 0F;
-            this.guna2ImageButton1.Location = new System.Drawing.Point(22, 112);
+            this.guna2ImageButton1.Location = new System.Drawing.Point(22, 31);
             this.guna2ImageButton1.Name = "guna2ImageButton1";
             this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(64, 64);
             this.guna2ImageButton1.Size = new System.Drawing.Size(72, 79);
@@ -86,10 +86,10 @@
             this.guna2ImageButton2.Image = global::QuanLyPhongKham.Properties.Resources._lock;
             this.guna2ImageButton2.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton2.ImageRotate = 0F;
-            this.guna2ImageButton2.Location = new System.Drawing.Point(12, 30);
+            this.guna2ImageButton2.Location = new System.Drawing.Point(13, 116);
             this.guna2ImageButton2.Name = "guna2ImageButton2";
             this.guna2ImageButton2.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton2.Size = new System.Drawing.Size(82, 76);
+            this.guna2ImageButton2.Size = new System.Drawing.Size(91, 86);
             this.guna2ImageButton2.TabIndex = 3;
             this.guna2ImageButton2.UseTransparentBackground = true;
             // 
