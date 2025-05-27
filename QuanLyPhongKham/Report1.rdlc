@@ -25,8 +25,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
-            <Top>0.62027in</Top>
-            <Left>1.15499in</Left>
+            <Top>2.24527in</Top>
             <Height>0.25in</Height>
             <Width>1.375in</Width>
             <Style>
@@ -59,8 +58,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
-            <Top>0.95014in</Top>
-            <Left>1.15499in</Left>
+            <Top>2.57514in</Top>
             <Height>0.25in</Height>
             <Width>1.375in</Width>
             <ZIndex>1</ZIndex>
@@ -94,8 +92,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
-            <Top>1.26958in</Top>
-            <Left>1.15499in</Left>
+            <Top>2.89458in</Top>
             <Height>0.25in</Height>
             <Width>1.375in</Width>
             <ZIndex>2</ZIndex>
@@ -129,8 +126,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
-            <Top>0.62027in</Top>
-            <Left>4.95583in</Left>
+            <Top>2.24527in</Top>
+            <Left>3.70583in</Left>
             <Height>0.25in</Height>
             <Width>1in</Width>
             <ZIndex>3</ZIndex>
@@ -164,8 +161,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
-            <Top>0.95014in</Top>
-            <Left>4.95583in</Left>
+            <Top>2.57514in</Top>
+            <Left>3.70583in</Left>
             <Height>0.25in</Height>
             <Width>1in</Width>
             <ZIndex>4</ZIndex>
@@ -199,8 +196,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox9</rd:DefaultName>
-            <Top>1.80986in</Top>
-            <Left>1.16541in</Left>
+            <Top>3.43486in</Top>
             <Height>0.25in</Height>
             <Width>1.36458in</Width>
             <ZIndex>5</ZIndex>
@@ -234,8 +230,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
-            <Top>1.80986in</Top>
-            <Left>4.96625in</Left>
+            <Top>3.43486in</Top>
+            <Left>3.71625in</Left>
             <Height>0.25in</Height>
             <Width>1.38542in</Width>
             <ZIndex>6</ZIndex>
@@ -269,8 +265,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox9</rd:DefaultName>
-            <Top>2.39666in</Top>
-            <Left>1.15499in</Left>
+            <Top>4.02166in</Top>
             <Height>0.36459in</Height>
             <Width>1.375in</Width>
             <ZIndex>7</ZIndex>
@@ -316,8 +311,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox9</rd:DefaultName>
-            <Top>3.05986in</Top>
-            <Left>1.15499in</Left>
+            <Top>4.68486in</Top>
             <Height>0.25in</Height>
             <Width>1.375in</Width>
             <ZIndex>8</ZIndex>
@@ -351,8 +345,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox9</rd:DefaultName>
-            <Top>4.95083in</Top>
-            <Left>1.15499in</Left>
+            <Top>6.45083in</Top>
             <Height>0.25in</Height>
             <Width>1.375in</Width>
             <ZIndex>9</ZIndex>
@@ -385,8 +378,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_mabn</rd:DefaultName>
-            <Top>0.62027in</Top>
-            <Left>2.65376in</Left>
+            <Top>2.24527in</Top>
+            <Left>1.40376in</Left>
             <Height>0.25in</Height>
             <Width>2.15972in</Width>
             <ZIndex>10</ZIndex>
@@ -419,8 +412,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_tenbn</rd:DefaultName>
-            <Top>0.95014in</Top>
-            <Left>2.66417in</Left>
+            <Top>2.57514in</Top>
+            <Left>1.41417in</Left>
             <Height>0.25in</Height>
             <Width>2.14931in</Width>
             <ZIndex>11</ZIndex>
@@ -453,8 +446,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_ngaysinh</rd:DefaultName>
-            <Top>1.25916in</Top>
-            <Left>2.66417in</Left>
+            <Top>2.88416in</Top>
+            <Left>1.41417in</Left>
             <Height>0.25in</Height>
             <Width>2.14931in</Width>
             <ZIndex>12</ZIndex>
@@ -487,8 +480,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_chandoan</rd:DefaultName>
-            <Top>1.80986in</Top>
-            <Left>2.66417in</Left>
+            <Top>3.43486in</Top>
+            <Left>1.41417in</Left>
             <Height>0.25in</Height>
             <Width>2.14931in</Width>
             <ZIndex>13</ZIndex>
@@ -521,10 +514,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_chandoanphu</rd:DefaultName>
-            <Top>1.80986in</Top>
-            <Left>6.62944in</Left>
+            <Top>3.43486in</Top>
+            <Left>5.00444in</Left>
             <Height>0.25in</Height>
-            <Width>2.14931in</Width>
+            <Width>1.57765in</Width>
             <ZIndex>14</ZIndex>
             <Style>
               <Border>
@@ -555,8 +548,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_chidinh</rd:DefaultName>
-            <Top>2.39666in</Top>
-            <Left>2.67458in</Left>
+            <Top>4.02166in</Top>
+            <Left>1.42458in</Left>
             <Height>0.36459in</Height>
             <Width>2.14931in</Width>
             <ZIndex>15</ZIndex>
@@ -587,8 +580,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_ketluan</rd:DefaultName>
-            <Top>4.95083in</Top>
-            <Left>2.66417in</Left>
+            <Top>6.45083in</Top>
+            <Left>1.41417in</Left>
             <Height>0.25in</Height>
             <Width>4.22917in</Width>
             <ZIndex>16</ZIndex>
@@ -619,8 +612,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_diachi</rd:DefaultName>
-            <Top>0.62027in</Top>
-            <Left>6.13083in</Left>
+            <Top>2.24527in</Top>
+            <Left>4.75583in</Left>
             <Height>0.25in</Height>
             <Width>1.96181in</Width>
             <ZIndex>17</ZIndex>
@@ -651,8 +644,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_sdt</rd:DefaultName>
-            <Top>0.93972in</Top>
-            <Left>6.13083in</Left>
+            <Top>2.56472in</Top>
+            <Left>4.75583in</Left>
             <Height>0.25in</Height>
             <Width>1.96181in</Width>
             <ZIndex>18</ZIndex>
@@ -683,8 +676,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox11</rd:DefaultName>
-            <Top>5.51889in</Top>
-            <Left>5.75291in</Left>
+            <Top>6.76889in</Top>
+            <Left>3.37791in</Left>
             <Height>0.29167in</Height>
             <Width>3.49043in</Width>
             <ZIndex>19</ZIndex>
@@ -716,8 +709,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox12</rd:DefaultName>
-            <Top>6.06333in</Top>
-            <Left>6.93083in</Left>
+            <Top>7.06333in</Top>
+            <Left>4.93083in</Left>
             <Height>0.325in</Height>
             <Width>0.67916in</Width>
             <ZIndex>20</ZIndex>
@@ -732,8 +725,8 @@
             </Style>
           </Textbox>
           <Line Name="Line2">
-            <Top>1.62236in</Top>
-            <Left>1.505in</Left>
+            <Top>3.24736in</Top>
+            <Left>0.255in</Left>
             <Height>0in</Height>
             <Width>6.58764in</Width>
             <ZIndex>21</ZIndex>
@@ -768,7 +761,7 @@
                 <Top>0.22917in</Top>
                 <Left>1.51959in</Left>
                 <Height>1.4in</Height>
-                <Width>6.11458in</Width>
+                <Width>5.32305in</Width>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -781,10 +774,9 @@
               </Textbox>
             </ReportItems>
             <KeepTogether>true</KeepTogether>
-            <Top>2.83069in</Top>
-            <Left>1.15499in</Left>
+            <Top>4.45569in</Top>
             <Height>1.8875in</Height>
-            <Width>7.87584in</Width>
+            <Width>6.95709in</Width>
             <ZIndex>22</ZIndex>
             <Style>
               <Border>
@@ -792,156 +784,146 @@
               </Border>
             </Style>
           </Rectangle>
+          <Image Name="Image2">
+            <Source>Embedded</Source>
+            <Value>z6635658563659_65b605103972ea7b360ffa67ef3dcb07</Value>
+            <Sizing>FitProportional</Sizing>
+            <Top>0.04798in</Top>
+            <Left>0.09585in</Left>
+            <Height>2.14653in</Height>
+            <Width>1.43973in</Width>
+            <ZIndex>23</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Image>
+          <Textbox Name="Textbox1">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>PHÒNG KHÁM Y KHOA THANH QUYỀN</Value>
+                    <Style>
+                      <FontSize>14pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox1</rd:DefaultName>
+            <Top>0.20645in</Top>
+            <Left>2.12876in</Left>
+            <Height>0.25in</Height>
+            <Width>4.23958in</Width>
+            <ZIndex>24</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <VerticalAlign>Middle</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox2">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Địa chỉ : Số 49, Đường Nguyễn Trãi, Xã Cái Nhum, Tỉnh Vĩnh Long</Value>
+                    <Style>
+                      <FontStyle>Italic</FontStyle>
+                      <FontSize>12pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox2</rd:DefaultName>
+            <Top>0.73354in</Top>
+            <Left>1.66209in</Left>
+            <Height>0.46667in</Height>
+            <Width>5.16666in</Width>
+            <ZIndex>25</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <VerticalAlign>Middle</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox3">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>SĐT : 0907161785</Value>
+                    <Style>
+                      <FontSize>12pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox2</rd:DefaultName>
+            <Top>1.29535in</Top>
+            <Left>3.00724in</Left>
+            <Height>0.25in</Height>
+            <Width>2.49791in</Width>
+            <ZIndex>26</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Line Name="Line1">
+            <Top>0.6641in</Top>
+            <Left>3.00724in</Left>
+            <Height>0in</Height>
+            <Width>2.49791in</Width>
+            <ZIndex>27</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+                <Width>2pt</Width>
+              </Border>
+            </Style>
+          </Line>
         </ReportItems>
-        <Height>6.76042in</Height>
+        <Height>7.47166in</Height>
         <Style />
       </Body>
-      <Width>9.24334in</Width>
+      <Width>7.03501in</Width>
       <Page>
-        <PageHeader>
-          <Height>2.17431in</Height>
-          <PrintOnFirstPage>true</PrintOnFirstPage>
-          <PrintOnLastPage>true</PrintOnLastPage>
-          <ReportItems>
-            <Image Name="Image2">
-              <Source>Embedded</Source>
-              <Value>z6635658563659_65b605103972ea7b360ffa67ef3dcb07</Value>
-              <Sizing>FitProportional</Sizing>
-              <Left>0.39167in</Left>
-              <Height>2.14653in</Height>
-              <Width>2.32515in</Width>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-              </Style>
-            </Image>
-            <Textbox Name="Textbox1">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>PHÒNG KHÁM Y KHOA THANH QUYỀN</Value>
-                      <Style>
-                        <FontSize>14pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Center</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.40847in</Top>
-              <Left>3.67458in</Left>
-              <Height>0.25in</Height>
-              <Width>4.23958in</Width>
-              <ZIndex>1</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <VerticalAlign>Middle</VerticalAlign>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox2">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>Địa chỉ : Số 49, Đường Nguyễn Trãi, Xã Cái Nhum, Tỉnh Vĩnh Long</Value>
-                      <Style>
-                        <FontStyle>Italic</FontStyle>
-                        <FontSize>12pt</FontSize>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Center</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox2</rd:DefaultName>
-              <Top>0.93556in</Top>
-              <Left>3.20791in</Left>
-              <Height>0.46667in</Height>
-              <Width>5.32291in</Width>
-              <ZIndex>2</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <VerticalAlign>Middle</VerticalAlign>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox3">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>SĐT : 0907161785</Value>
-                      <Style>
-                        <FontSize>12pt</FontSize>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Center</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox2</rd:DefaultName>
-              <Top>1.49737in</Top>
-              <Left>4.55306in</Left>
-              <Height>0.25in</Height>
-              <Width>2.49791in</Width>
-              <ZIndex>3</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Line Name="Line1">
-              <Top>0.86612in</Top>
-              <Left>4.55306in</Left>
-              <Height>0in</Height>
-              <Width>2.49791in</Width>
-              <ZIndex>4</ZIndex>
-              <Style>
-                <Border>
-                  <Style>Solid</Style>
-                  <Width>2pt</Width>
-                </Border>
-              </Style>
-            </Line>
-          </ReportItems>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-          </Style>
-        </PageHeader>
         <PageFooter>
           <Height>0.01042in</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
@@ -954,10 +936,10 @@
         </PageFooter>
         <PageHeight>11.69in</PageHeight>
         <PageWidth>8.27in</PageWidth>
-        <LeftMargin>1cm</LeftMargin>
-        <RightMargin>1cm</RightMargin>
-        <TopMargin>1cm</TopMargin>
-        <BottomMargin>1cm</BottomMargin>
+        <LeftMargin>0.3937in</LeftMargin>
+        <RightMargin>0.3937in</RightMargin>
+        <TopMargin>0.3937in</TopMargin>
+        <BottomMargin>0.3937in</BottomMargin>
         <Style />
       </Page>
     </ReportSection>
