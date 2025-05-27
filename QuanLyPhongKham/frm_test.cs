@@ -560,5 +560,10 @@ namespace QuanLyPhongKham
         {
 
         }
+
+        private void txb_gender_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
