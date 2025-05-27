@@ -316,10 +316,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
-            <Top>2.6798in</Top>
-            <Left>0.19172in</Left>
+            <Top>0.285in</Top>
+            <Left>4.63075in</Left>
             <Height>0.25in</Height>
-            <Width>1.375in</Width>
+            <Width>0.71667in</Width>
             <ZIndex>3</ZIndex>
             <Style>
               <Border>
@@ -351,8 +351,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
-            <Top>2.95758in</Top>
-            <Left>0.19172in</Left>
+            <Top>2.65549in</Top>
+            <Left>0.125in</Left>
             <Height>0.25in</Height>
             <Width>1.375in</Width>
             <ZIndex>4</ZIndex>
@@ -537,10 +537,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_mabn</rd:DefaultName>
-            <Top>2.6798in</Top>
-            <Left>1.64659in</Left>
+            <Top>0.285in</Top>
+            <Left>5.44118in</Left>
             <Height>0.25in</Height>
-            <Width>1.83206in</Width>
+            <Width>1.17373in</Width>
             <ZIndex>9</ZIndex>
             <Style>
               <Border>
@@ -569,8 +569,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_tenbn</rd:DefaultName>
-            <Top>2.98189in</Top>
-            <Left>1.64659in</Left>
+            <Top>2.6798in</Top>
+            <Left>1.57987in</Left>
             <Height>0.25in</Height>
             <Width>1.83206in</Width>
             <ZIndex>10</ZIndex>
@@ -1030,11 +1030,44 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
+          <Textbox Name="Textbox20">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Bác sĩ chỉ định:</Value>
+                    <Style>
+                      <FontSize>14pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox20</rd:DefaultName>
+            <Top>3.34995in</Top>
+            <Left>0.01463in</Left>
+            <Height>0.29167in</Height>
+            <Width>1.575in</Width>
+            <ZIndex>23</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
         </ReportItems>
         <Height>6.65361in</Height>
         <Style />
       </Body>
-      <Width>6.82116in</Width>
+      <Width>7.25935in</Width>
       <Page>
         <LeftMargin>1in</LeftMargin>
         <RightMargin>1in</RightMargin>
