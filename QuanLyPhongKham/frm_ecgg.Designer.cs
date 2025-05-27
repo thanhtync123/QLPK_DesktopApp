@@ -105,7 +105,7 @@
             // txb_name
             // 
             this.txb_name.Location = new System.Drawing.Point(123, 10);
-            this.txb_name.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_name.Margin = new System.Windows.Forms.Padding(4);
             this.txb_name.Name = "txb_name";
             this.txb_name.Size = new System.Drawing.Size(331, 30);
             this.txb_name.TabIndex = 44;
@@ -113,7 +113,7 @@
             // txb_final_result
             // 
             this.txb_final_result.Location = new System.Drawing.Point(925, 697);
-            this.txb_final_result.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_final_result.Margin = new System.Windows.Forms.Padding(4);
             this.txb_final_result.Multiline = true;
             this.txb_final_result.Name = "txb_final_result";
             this.txb_final_result.Size = new System.Drawing.Size(515, 94);
@@ -132,7 +132,7 @@
             // txb_result
             // 
             this.txb_result.Location = new System.Drawing.Point(925, 188);
-            this.txb_result.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_result.Margin = new System.Windows.Forms.Padding(4);
             this.txb_result.Multiline = true;
             this.txb_result.Name = "txb_result";
             this.txb_result.Size = new System.Drawing.Size(515, 459);
@@ -141,7 +141,7 @@
             // txb_phone
             // 
             this.txb_phone.Location = new System.Drawing.Point(183, 133);
-            this.txb_phone.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_phone.Margin = new System.Windows.Forms.Padding(4);
             this.txb_phone.Name = "txb_phone";
             this.txb_phone.Size = new System.Drawing.Size(516, 30);
             this.txb_phone.TabIndex = 40;
@@ -159,7 +159,7 @@
             // txb_id_exam
             // 
             this.txb_id_exam.Location = new System.Drawing.Point(925, 57);
-            this.txb_id_exam.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_id_exam.Margin = new System.Windows.Forms.Padding(4);
             this.txb_id_exam.Name = "txb_id_exam";
             this.txb_id_exam.Size = new System.Drawing.Size(155, 30);
             this.txb_id_exam.TabIndex = 38;
@@ -177,7 +177,7 @@
             // txb_reception_date
             // 
             this.txb_reception_date.Location = new System.Drawing.Point(925, 14);
-            this.txb_reception_date.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_reception_date.Margin = new System.Windows.Forms.Padding(4);
             this.txb_reception_date.Name = "txb_reception_date";
             this.txb_reception_date.Size = new System.Drawing.Size(155, 30);
             this.txb_reception_date.TabIndex = 36;
@@ -210,7 +210,7 @@
             this.cb_template.Items.AddRange(new object[] {
             "Chọn biểu mẫu"});
             this.cb_template.Location = new System.Drawing.Point(924, 135);
-            this.cb_template.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_template.Margin = new System.Windows.Forms.Padding(4);
             this.cb_template.Name = "cb_template";
             this.cb_template.Size = new System.Drawing.Size(516, 33);
             this.cb_template.TabIndex = 32;
@@ -259,7 +259,7 @@
             this.panel2.Controls.Add(this.btn_edit);
             this.panel2.Controls.Add(this.btn_save);
             this.panel2.Location = new System.Drawing.Point(4, 4);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1567, 76);
             this.panel2.TabIndex = 0;
@@ -268,7 +268,7 @@
             // 
             this.btn_refresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_refresh.Location = new System.Drawing.Point(365, 9);
-            this.btn_refresh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_refresh.Margin = new System.Windows.Forms.Padding(4);
             this.btn_refresh.Name = "btn_refresh";
             this.btn_refresh.Size = new System.Drawing.Size(124, 37);
             this.btn_refresh.TabIndex = 31;
@@ -280,7 +280,7 @@
             // 
             this.btn_print.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_print.Location = new System.Drawing.Point(253, 9);
-            this.btn_print.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_print.Margin = new System.Windows.Forms.Padding(4);
             this.btn_print.Name = "btn_print";
             this.btn_print.Size = new System.Drawing.Size(95, 37);
             this.btn_print.TabIndex = 30;
@@ -292,7 +292,7 @@
             // 
             this.btn_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_edit.Location = new System.Drawing.Point(141, 9);
-            this.btn_edit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_edit.Margin = new System.Windows.Forms.Padding(4);
             this.btn_edit.Name = "btn_edit";
             this.btn_edit.Size = new System.Drawing.Size(95, 37);
             this.btn_edit.TabIndex = 29;
@@ -304,7 +304,7 @@
             // 
             this.btn_save.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_save.Location = new System.Drawing.Point(31, 9);
-            this.btn_save.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_save.Margin = new System.Windows.Forms.Padding(4);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(95, 37);
             this.btn_save.TabIndex = 28;
@@ -325,7 +325,7 @@
             // txb_service
             // 
             this.txb_service.Location = new System.Drawing.Point(924, 94);
-            this.txb_service.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_service.Margin = new System.Windows.Forms.Padding(4);
             this.txb_service.Name = "txb_service";
             this.txb_service.Size = new System.Drawing.Size(516, 30);
             this.txb_service.TabIndex = 30;
@@ -347,7 +347,7 @@
             this.guna2Panel1.Controls.Add(this.btn_search);
             this.guna2Panel1.Controls.Add(this.label1);
             this.guna2Panel1.Location = new System.Drawing.Point(24, 15);
-            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(4);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(465, 889);
             this.guna2Panel1.TabIndex = 2;
@@ -355,7 +355,7 @@
             // webBrowser2
             // 
             this.webBrowser2.Location = new System.Drawing.Point(71, 325);
-            this.webBrowser2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.webBrowser2.Margin = new System.Windows.Forms.Padding(4);
             this.webBrowser2.MinimumSize = new System.Drawing.Size(27, 25);
             this.webBrowser2.Name = "webBrowser2";
             this.webBrowser2.Size = new System.Drawing.Size(333, 308);
@@ -364,7 +364,7 @@
             // webBrowser1
             // 
             this.webBrowser1.Location = new System.Drawing.Point(36, 382);
-            this.webBrowser1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.webBrowser1.Margin = new System.Windows.Forms.Padding(4);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(27, 25);
             this.webBrowser1.Name = "webBrowser1";
             this.webBrowser1.Size = new System.Drawing.Size(333, 308);
@@ -396,7 +396,7 @@
             this.rdn_all.Checked = true;
             this.rdn_all.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdn_all.Location = new System.Drawing.Point(189, 46);
-            this.rdn_all.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdn_all.Margin = new System.Windows.Forms.Padding(4);
             this.rdn_all.Name = "rdn_all";
             this.rdn_all.Size = new System.Drawing.Size(126, 29);
             this.rdn_all.TabIndex = 49;
@@ -410,7 +410,7 @@
             this.rdn_noresult.AutoSize = true;
             this.rdn_noresult.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdn_noresult.Location = new System.Drawing.Point(189, 111);
-            this.rdn_noresult.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdn_noresult.Margin = new System.Windows.Forms.Padding(4);
             this.rdn_noresult.Name = "rdn_noresult";
             this.rdn_noresult.Size = new System.Drawing.Size(142, 29);
             this.rdn_noresult.TabIndex = 48;
@@ -422,7 +422,7 @@
             this.rdn_resulted.AutoSize = true;
             this.rdn_resulted.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdn_resulted.Location = new System.Drawing.Point(189, 78);
-            this.rdn_resulted.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdn_resulted.Margin = new System.Windows.Forms.Padding(4);
             this.rdn_resulted.Name = "rdn_resulted";
             this.rdn_resulted.Size = new System.Drawing.Size(119, 29);
             this.rdn_resulted.TabIndex = 47;
@@ -435,7 +435,7 @@
             this.dtpk_todate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpk_todate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpk_todate.Location = new System.Drawing.Point(9, 111);
-            this.dtpk_todate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpk_todate.Margin = new System.Windows.Forms.Padding(4);
             this.dtpk_todate.Name = "dtpk_todate";
             this.dtpk_todate.Size = new System.Drawing.Size(151, 30);
             this.dtpk_todate.TabIndex = 36;
@@ -446,7 +446,7 @@
             this.dtpk_fromdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpk_fromdate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpk_fromdate.Location = new System.Drawing.Point(9, 50);
-            this.dtpk_fromdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpk_fromdate.Margin = new System.Windows.Forms.Padding(4);
             this.dtpk_fromdate.Name = "dtpk_fromdate";
             this.dtpk_fromdate.Size = new System.Drawing.Size(151, 30);
             this.dtpk_fromdate.TabIndex = 35;
@@ -489,7 +489,7 @@
             this.dtgv_exam.DefaultCellStyle = dataGridViewCellStyle3;
             this.dtgv_exam.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtgv_exam.Location = new System.Drawing.Point(12, 186);
-            this.dtgv_exam.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtgv_exam.Margin = new System.Windows.Forms.Padding(4);
             this.dtgv_exam.Name = "dtgv_exam";
             this.dtgv_exam.RowHeadersVisible = false;
             this.dtgv_exam.RowHeadersWidth = 51;
@@ -533,7 +533,7 @@
             // 
             this.btn_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_search.Location = new System.Drawing.Point(356, 76);
-            this.btn_search.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_search.Margin = new System.Windows.Forms.Padding(4);
             this.btn_search.Name = "btn_search";
             this.btn_search.Size = new System.Drawing.Size(85, 46);
             this.btn_search.TabIndex = 1;
@@ -591,7 +591,7 @@
             this.dtgv_service.DefaultCellStyle = dataGridViewCellStyle6;
             this.dtgv_service.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtgv_service.Location = new System.Drawing.Point(171, 313);
-            this.dtgv_service.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtgv_service.Margin = new System.Windows.Forms.Padding(4);
             this.dtgv_service.Name = "dtgv_service";
             this.dtgv_service.RowHeadersVisible = false;
             this.dtgv_service.RowHeadersWidth = 51;
@@ -657,7 +657,7 @@
             this.panel3.Controls.Add(this.label5);
             this.panel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel3.Location = new System.Drawing.Point(4, 55);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1567, 812);
             this.panel3.TabIndex = 1;
@@ -665,7 +665,7 @@
             // txb_chandoanchinh
             // 
             this.txb_chandoanchinh.Location = new System.Drawing.Point(183, 176);
-            this.txb_chandoanchinh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_chandoanchinh.Margin = new System.Windows.Forms.Padding(4);
             this.txb_chandoanchinh.Name = "txb_chandoanchinh";
             this.txb_chandoanchinh.Size = new System.Drawing.Size(516, 30);
             this.txb_chandoanchinh.TabIndex = 46;
@@ -683,7 +683,7 @@
             // txb_note
             // 
             this.txb_note.Location = new System.Drawing.Point(181, 254);
-            this.txb_note.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_note.Margin = new System.Windows.Forms.Padding(4);
             this.txb_note.Name = "txb_note";
             this.txb_note.Size = new System.Drawing.Size(519, 30);
             this.txb_note.TabIndex = 27;
@@ -701,7 +701,7 @@
             // txb_reason
             // 
             this.txb_reason.Location = new System.Drawing.Point(183, 217);
-            this.txb_reason.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_reason.Margin = new System.Windows.Forms.Padding(4);
             this.txb_reason.Name = "txb_reason";
             this.txb_reason.Size = new System.Drawing.Size(516, 30);
             this.txb_reason.TabIndex = 25;
@@ -719,7 +719,7 @@
             // txb_address
             // 
             this.txb_address.Location = new System.Drawing.Point(183, 91);
-            this.txb_address.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_address.Margin = new System.Windows.Forms.Padding(4);
             this.txb_address.Name = "txb_address";
             this.txb_address.Size = new System.Drawing.Size(516, 30);
             this.txb_address.TabIndex = 21;
@@ -737,7 +737,7 @@
             // txb_gender
             // 
             this.txb_gender.Location = new System.Drawing.Point(576, 50);
-            this.txb_gender.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_gender.Margin = new System.Windows.Forms.Padding(4);
             this.txb_gender.Name = "txb_gender";
             this.txb_gender.Size = new System.Drawing.Size(123, 30);
             this.txb_gender.TabIndex = 19;
@@ -755,7 +755,7 @@
             // txb_age
             // 
             this.txb_age.Location = new System.Drawing.Point(291, 46);
-            this.txb_age.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_age.Margin = new System.Windows.Forms.Padding(4);
             this.txb_age.Name = "txb_age";
             this.txb_age.Size = new System.Drawing.Size(161, 30);
             this.txb_age.TabIndex = 17;
@@ -763,7 +763,7 @@
             // txb_dob
             // 
             this.txb_dob.Location = new System.Drawing.Point(123, 46);
-            this.txb_dob.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_dob.Margin = new System.Windows.Forms.Padding(4);
             this.txb_dob.Name = "txb_dob";
             this.txb_dob.Size = new System.Drawing.Size(161, 30);
             this.txb_dob.TabIndex = 16;
@@ -781,7 +781,7 @@
             // txb_id_patient
             // 
             this.txb_id_patient.Location = new System.Drawing.Point(576, 11);
-            this.txb_id_patient.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_id_patient.Margin = new System.Windows.Forms.Padding(4);
             this.txb_id_patient.Name = "txb_id_patient";
             this.txb_id_patient.Size = new System.Drawing.Size(123, 30);
             this.txb_id_patient.TabIndex = 14;
@@ -812,7 +812,7 @@
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(473, 15);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1597, 889);
             this.panel1.TabIndex = 3;
@@ -826,7 +826,7 @@
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frm_ecgg";
             this.Text = "Điện tim";
             this.Load += new System.EventHandler(this.frm_ecgg_Load);
