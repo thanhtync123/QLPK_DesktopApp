@@ -1266,7 +1266,7 @@
           </Textbox>
           <Line Name="Line3">
             <Top>6.31211cm</Top>
-            <Left>1.87297cm</Left>
+            <Left>0.92047cm</Left>
             <Height>0cm</Height>
             <Width>12.9316cm</Width>
             <ZIndex>18</ZIndex>
@@ -1296,7 +1296,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox16</rd:DefaultName>
             <Top>3.46179cm</Top>
-            <Left>5.88088cm</Left>
+            <Left>6.19838cm</Left>
             <Height>0.77896cm</Height>
             <Width>4.04505cm</Width>
             <ZIndex>19</ZIndex>
@@ -1476,7 +1476,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox18</rd:DefaultName>
-            <Top>2.74524cm</Top>
+            <Top>3.06274cm</Top>
             <Left>0cm</Left>
             <Height>0.61071cm</Height>
             <Width>16.567cm</Width>
