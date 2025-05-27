@@ -53,7 +53,8 @@ namespace QuanLyPhongKham
         private void dtgv_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             txb_name.Text = dtgv.Rows[e.RowIndex].Cells[0].Value.ToString();
-            txb_password.Text = dtgv.Rows[e.RowIndex].Cells[1].Value.ToString();
+            txb_username.Text = dtgv.Rows[e.RowIndex].Cells[1].Value.ToString();
+            txb_password.Text = dtgv.Rows[e.RowIndex].Cells[2].Value.ToString();
             
         }
     }
