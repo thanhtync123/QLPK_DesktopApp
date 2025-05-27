@@ -597,7 +597,7 @@
             <Top>3.46819in</Top>
             <Left>0.13796in</Left>
             <Height>0.83332in</Height>
-            <Width>5.2376in</Width>
+            <Width>5.23759in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1407,7 +1407,6 @@
             </Paragraphs>
             <rd:DefaultName>Textbox18</rd:DefaultName>
             <Top>3.06274cm</Top>
-            <Left>0cm</Left>
             <Height>0.61071cm</Height>
             <Width>16.567cm</Width>
             <ZIndex>23</ZIndex>
@@ -1455,10 +1454,10 @@
             </Style>
           </Textbox>
         </ReportItems>
-        <Height>4.92651in</Height>
+        <Height>5.35359in</Height>
         <Style />
       </Body>
-      <Width>6.80034in</Width>
+      <Width>6.88367in</Width>
       <Page>
         <PageHeight>11.69in</PageHeight>
         <PageWidth>8.27in</PageWidth>
