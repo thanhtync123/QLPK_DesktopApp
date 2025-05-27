@@ -25,9 +25,9 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
-            <Top>2.24527in</Top>
+            <Left>4.55737in</Left>
             <Height>0.25in</Height>
-            <Width>1.375in</Width>
+            <Width>0.91662in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -378,10 +378,9 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_mabn</rd:DefaultName>
-            <Top>2.24527in</Top>
-            <Left>1.40376in</Left>
+            <Left>5.55866in</Left>
             <Height>0.25in</Height>
-            <Width>2.15972in</Width>
+            <Width>1.30968in</Width>
             <ZIndex>10</ZIndex>
             <Style>
               <Border>
@@ -583,7 +582,7 @@
             <Top>6.45083in</Top>
             <Left>1.41417in</Left>
             <Height>0.25in</Height>
-            <Width>4.22917in</Width>
+            <Width>3.91661in</Width>
             <ZIndex>16</ZIndex>
             <Style>
               <Border>
@@ -775,7 +774,7 @@
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>4.45569in</Top>
-            <Height>1.8875in</Height>
+            <Height>1.8375in</Height>
             <Width>6.95709in</Width>
             <ZIndex>22</ZIndex>
             <Style>
@@ -784,103 +783,6 @@
               </Border>
             </Style>
           </Rectangle>
-          <Textbox Name="txb_mabn2">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=Parameters!txb_mabn.Value</Value>
-                    <Style>
-                      <FontSize>14pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>txb_mabn</rd:DefaultName>
-            <Top>2.72382in</Top>
-            <Left>5.5689in</Left>
-            <Height>0.25in</Height>
-            <Width>1.2481in</Width>
-            <ZIndex>23</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="txb_ngaykham">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=Parameters!txb_ngaykham.Value</Value>
-                    <Style>
-                      <FontSize>14pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>txb_ngaykham</rd:DefaultName>
-            <Top>4.49784in</Top>
-            <Left>3.3893in</Left>
-            <Height>0.25in</Height>
-            <Width>1.51042in</Width>
-            <ZIndex>24</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Textbox1">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>      Mã BN:</Value>
-                    <Style>
-                      <FontSize>13pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox1</rd:DefaultName>
-            <Top>2.72382in</Top>
-            <Left>4.47862in</Left>
-            <Height>0.25in</Height>
-            <Width>1in</Width>
-            <ZIndex>25</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
           <Textbox Name="Textbox16">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
@@ -888,7 +790,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>PHIẾU XÉT NGHIỆM</Value>
+                    <Value>PHIẾU KẾT QUẢ CẬN LÂM SÀNG</Value>
                     <Style>
                       <FontSize>16pt</FontSize>
                       <FontWeight>Bold</FontWeight>
@@ -900,11 +802,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox16</rd:DefaultName>
-            <Top>10.61028cm</Top>
-            <Left>5.68858cm</Left>
-            <Height>0.77896cm</Height>
-            <Width>6.02073cm</Width>
-            <ZIndex>26</ZIndex>
+            <Top>4.27319cm</Top>
+            <Left>3.37478cm</Left>
+            <Height>1.11763cm</Height>
+            <Width>9.3747cm</Width>
+            <ZIndex>23</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -915,7 +817,7 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
-          <Textbox Name="Textbox18">
+          <Textbox Name="Textbox3">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
             <Paragraphs>
@@ -951,11 +853,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
-            <Top>3.56184in</Top>
-            <Left>2.09983in</Left>
+            <Top>1.075in</Top>
+            <Left>1.95073in</Left>
             <Height>0.25in</Height>
             <Width>2.38542in</Width>
-            <ZIndex>27</ZIndex>
+            <ZIndex>24</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -966,7 +868,7 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
-          <Textbox Name="Textbox19">
+          <Textbox Name="Textbox2">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
             <Paragraphs>
@@ -987,11 +889,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
-            <Top>3.37548in</Top>
-            <Left>0.8653in</Left>
+            <Top>0.75555in</Top>
+            <Left>0.7162in</Left>
             <Height>0.25in</Height>
             <Width>4.95625in</Width>
-            <ZIndex>28</ZIndex>
+            <ZIndex>25</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1003,7 +905,7 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
-          <Textbox Name="Textbox20">
+          <Textbox Name="Textbox1">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
             <Paragraphs>
@@ -1039,11 +941,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
-            <Top>2.72382in</Top>
-            <Left>1.23904in</Left>
+            <Left>1.0912in</Left>
             <Height>0.75in</Height>
             <Width>4.23958in</Width>
-            <ZIndex>29</ZIndex>
+            <ZIndex>26</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1055,7 +956,7 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
-          <Textbox Name="Textbox21">
+          <Textbox Name="Textbox18">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
             <Paragraphs>
@@ -1082,11 +983,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox18</rd:DefaultName>
-            <Top>9.82318cm</Top>
-            <Left>0.55374cm</Left>
+            <Top>3.48609cm</Top>
+            <Left>0.23166cm</Left>
             <Height>0.61071cm</Height>
-            <Width>16.14367cm</Width>
-            <ZIndex>30</ZIndex>
+            <Width>15.82418cm</Width>
+            <ZIndex>27</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1101,7 +1002,7 @@
         <Height>7.47166in</Height>
         <Style />
       </Body>
-      <Width>7.03501in</Width>
+      <Width>6.95709in</Width>
       <Page>
         <PageFooter>
           <Height>0.01042in</Height>
