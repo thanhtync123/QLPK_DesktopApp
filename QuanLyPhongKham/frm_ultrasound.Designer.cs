@@ -43,8 +43,6 @@
             this.btn_upload = new System.Windows.Forms.Button();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.txb_search = new Guna.UI2.WinForms.Guna2TextBox();
-            this.btn_resetpicturebox = new System.Windows.Forms.Button();
-            this.btn_snap = new System.Windows.Forms.Button();
             this.pb_2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pb_1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.rdn_resulted = new System.Windows.Forms.RadioButton();
@@ -54,8 +52,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btn_search = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.pb_4 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.pb_3 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.txb_final_result = new System.Windows.Forms.TextBox();
@@ -103,18 +99,18 @@
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.wmp = new AxWMPLib.AxWindowsMediaPlayer();
+            this.pb_3 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.pb_4 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_exam)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_3)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_service)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.wmp)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_4)).BeginInit();
             this.SuspendLayout();
             // 
             // dtpk_todate
@@ -123,7 +119,7 @@
             this.dtpk_todate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpk_todate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpk_todate.Location = new System.Drawing.Point(12, 112);
-            this.dtpk_todate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpk_todate.Margin = new System.Windows.Forms.Padding(4);
             this.dtpk_todate.Name = "dtpk_todate";
             this.dtpk_todate.Size = new System.Drawing.Size(98, 26);
             this.dtpk_todate.TabIndex = 36;
@@ -134,7 +130,7 @@
             this.rdn_all.Checked = true;
             this.rdn_all.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdn_all.Location = new System.Drawing.Point(151, 55);
-            this.rdn_all.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdn_all.Margin = new System.Windows.Forms.Padding(4);
             this.rdn_all.Name = "rdn_all";
             this.rdn_all.Size = new System.Drawing.Size(104, 24);
             this.rdn_all.TabIndex = 49;
@@ -147,7 +143,7 @@
             this.rdn_noresult.AutoSize = true;
             this.rdn_noresult.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdn_noresult.Location = new System.Drawing.Point(151, 112);
-            this.rdn_noresult.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdn_noresult.Margin = new System.Windows.Forms.Padding(4);
             this.rdn_noresult.Name = "rdn_noresult";
             this.rdn_noresult.Size = new System.Drawing.Size(112, 24);
             this.rdn_noresult.TabIndex = 48;
@@ -157,13 +153,13 @@
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(230)))));
+            this.guna2Panel1.Controls.Add(this.pb_4);
+            this.guna2Panel1.Controls.Add(this.pb_3);
             this.guna2Panel1.Controls.Add(this.btn_upload);
             this.guna2Panel1.Controls.Add(this.webBrowser1);
-            this.guna2Panel1.Controls.Add(this.txb_search);
-            this.guna2Panel1.Controls.Add(this.btn_resetpicturebox);
-            this.guna2Panel1.Controls.Add(this.btn_snap);
-            this.guna2Panel1.Controls.Add(this.pb_2);
             this.guna2Panel1.Controls.Add(this.pb_1);
+            this.guna2Panel1.Controls.Add(this.txb_search);
+            this.guna2Panel1.Controls.Add(this.pb_2);
             this.guna2Panel1.Controls.Add(this.rdn_all);
             this.guna2Panel1.Controls.Add(this.rdn_noresult);
             this.guna2Panel1.Controls.Add(this.rdn_resulted);
@@ -175,16 +171,17 @@
             this.guna2Panel1.Controls.Add(this.btn_search);
             this.guna2Panel1.Controls.Add(this.label1);
             this.guna2Panel1.Location = new System.Drawing.Point(13, 15);
-            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(4);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(693, 722);
+            this.guna2Panel1.Size = new System.Drawing.Size(693, 860);
             this.guna2Panel1.TabIndex = 4;
+            this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
             // 
             // btn_upload
             // 
             this.btn_upload.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_upload.Location = new System.Drawing.Point(416, 129);
-            this.btn_upload.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_upload.Location = new System.Drawing.Point(367, 4);
+            this.btn_upload.Margin = new System.Windows.Forms.Padding(4);
             this.btn_upload.Name = "btn_upload";
             this.btn_upload.Size = new System.Drawing.Size(75, 28);
             this.btn_upload.TabIndex = 59;
@@ -195,7 +192,7 @@
             // webBrowser1
             // 
             this.webBrowser1.Location = new System.Drawing.Point(36, 359);
-            this.webBrowser1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.webBrowser1.Margin = new System.Windows.Forms.Padding(4);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(27, 25);
             this.webBrowser1.Name = "webBrowser1";
             this.webBrowser1.Size = new System.Drawing.Size(272, 365);
@@ -221,49 +218,23 @@
             this.txb_search.TabIndex = 57;
             this.txb_search.TextChanged += new System.EventHandler(this.txb_search_TextChanged);
             // 
-            // btn_resetpicturebox
-            // 
-            this.btn_resetpicturebox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_resetpicturebox.Location = new System.Drawing.Point(441, 16);
-            this.btn_resetpicturebox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btn_resetpicturebox.Name = "btn_resetpicturebox";
-            this.btn_resetpicturebox.Size = new System.Drawing.Size(71, 32);
-            this.btn_resetpicturebox.TabIndex = 56;
-            this.btn_resetpicturebox.Text = "Xóa ảnh";
-            this.btn_resetpicturebox.UseVisualStyleBackColor = true;
-            this.btn_resetpicturebox.Visible = false;
-            this.btn_resetpicturebox.Click += new System.EventHandler(this.btn_resetpicturebox_Click);
-            // 
-            // btn_snap
-            // 
-            this.btn_snap.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_snap.Location = new System.Drawing.Point(520, 15);
-            this.btn_snap.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btn_snap.Name = "btn_snap";
-            this.btn_snap.Size = new System.Drawing.Size(71, 32);
-            this.btn_snap.TabIndex = 32;
-            this.btn_snap.Text = "Chụp";
-            this.btn_snap.UseVisualStyleBackColor = true;
-            this.btn_snap.Visible = false;
-            this.btn_snap.Click += new System.EventHandler(this.btn_snap_Click);
-            // 
             // pb_2
             // 
             this.pb_2.ImageRotate = 0F;
-            this.pb_2.Location = new System.Drawing.Point(348, 423);
-            this.pb_2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pb_2.Location = new System.Drawing.Point(367, 223);
+            this.pb_2.Margin = new System.Windows.Forms.Padding(4);
             this.pb_2.Name = "pb_2";
-            this.pb_2.Size = new System.Drawing.Size(331, 282);
+            this.pb_2.Size = new System.Drawing.Size(273, 179);
             this.pb_2.TabIndex = 52;
             this.pb_2.TabStop = false;
             // 
             // pb_1
             // 
             this.pb_1.ImageRotate = 0F;
-            this.pb_1.Location = new System.Drawing.Point(348, 182);
-            this.pb_1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pb_1.Location = new System.Drawing.Point(367, 36);
+            this.pb_1.Margin = new System.Windows.Forms.Padding(4);
             this.pb_1.Name = "pb_1";
-            this.pb_1.Size = new System.Drawing.Size(331, 235);
+            this.pb_1.Size = new System.Drawing.Size(273, 179);
             this.pb_1.TabIndex = 51;
             this.pb_1.TabStop = false;
             // 
@@ -272,7 +243,7 @@
             this.rdn_resulted.AutoSize = true;
             this.rdn_resulted.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdn_resulted.Location = new System.Drawing.Point(151, 82);
-            this.rdn_resulted.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdn_resulted.Margin = new System.Windows.Forms.Padding(4);
             this.rdn_resulted.Name = "rdn_resulted";
             this.rdn_resulted.Size = new System.Drawing.Size(95, 24);
             this.rdn_resulted.TabIndex = 47;
@@ -285,7 +256,7 @@
             this.dtpk_fromdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpk_fromdate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpk_fromdate.Location = new System.Drawing.Point(9, 44);
-            this.dtpk_fromdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpk_fromdate.Margin = new System.Windows.Forms.Padding(4);
             this.dtpk_fromdate.Name = "dtpk_fromdate";
             this.dtpk_fromdate.Size = new System.Drawing.Size(98, 26);
             this.dtpk_fromdate.TabIndex = 35;
@@ -326,8 +297,8 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtgv_exam.DefaultCellStyle = dataGridViewCellStyle3;
             this.dtgv_exam.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dtgv_exam.Location = new System.Drawing.Point(12, 203);
-            this.dtgv_exam.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtgv_exam.Location = new System.Drawing.Point(12, 190);
+            this.dtgv_exam.Margin = new System.Windows.Forms.Padding(4);
             this.dtgv_exam.Name = "dtgv_exam";
             this.dtgv_exam.RowHeadersVisible = false;
             this.dtgv_exam.RowHeadersWidth = 51;
@@ -369,8 +340,8 @@
             // btn_search
             // 
             this.btn_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_search.Location = new System.Drawing.Point(301, 78);
-            this.btn_search.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_search.Location = new System.Drawing.Point(180, 15);
+            this.btn_search.Margin = new System.Windows.Forms.Padding(4);
             this.btn_search.Name = "btn_search";
             this.btn_search.Size = new System.Drawing.Size(75, 32);
             this.btn_search.TabIndex = 1;
@@ -388,34 +359,12 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Từ ngày";
             // 
-            // pb_4
-            // 
-            this.pb_4.ImageRotate = 0F;
-            this.pb_4.Location = new System.Drawing.Point(1231, 911);
-            this.pb_4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.pb_4.Name = "pb_4";
-            this.pb_4.Size = new System.Drawing.Size(194, 222);
-            this.pb_4.TabIndex = 54;
-            this.pb_4.TabStop = false;
-            this.pb_4.Visible = false;
-            // 
-            // pb_3
-            // 
-            this.pb_3.ImageRotate = 0F;
-            this.pb_3.Location = new System.Drawing.Point(963, 911);
-            this.pb_3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.pb_3.Name = "pb_3";
-            this.pb_3.Size = new System.Drawing.Size(195, 222);
-            this.pb_3.TabIndex = 53;
-            this.pb_3.TabStop = false;
-            this.pb_3.Visible = false;
-            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(704, 15);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1341, 722);
             this.panel1.TabIndex = 5;
@@ -456,15 +405,15 @@
             this.panel3.Controls.Add(this.txb_name);
             this.panel3.Controls.Add(this.label5);
             this.panel3.Location = new System.Drawing.Point(4, 46);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1099, 676);
+            this.panel3.Size = new System.Drawing.Size(1085, 804);
             this.panel3.TabIndex = 1;
             // 
             // txb_final_result
             // 
             this.txb_final_result.Location = new System.Drawing.Point(545, 541);
-            this.txb_final_result.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_final_result.Margin = new System.Windows.Forms.Padding(4);
             this.txb_final_result.Multiline = true;
             this.txb_final_result.Name = "txb_final_result";
             this.txb_final_result.Size = new System.Drawing.Size(511, 118);
@@ -483,7 +432,7 @@
             // txb_result
             // 
             this.txb_result.Location = new System.Drawing.Point(545, 136);
-            this.txb_result.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_result.Margin = new System.Windows.Forms.Padding(4);
             this.txb_result.Multiline = true;
             this.txb_result.Name = "txb_result";
             this.txb_result.Size = new System.Drawing.Size(511, 371);
@@ -492,7 +441,7 @@
             // txb_phone
             // 
             this.txb_phone.Location = new System.Drawing.Point(127, 81);
-            this.txb_phone.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_phone.Margin = new System.Windows.Forms.Padding(4);
             this.txb_phone.Name = "txb_phone";
             this.txb_phone.Size = new System.Drawing.Size(368, 20);
             this.txb_phone.TabIndex = 40;
@@ -510,7 +459,7 @@
             // txb_id_exam
             // 
             this.txb_id_exam.Location = new System.Drawing.Point(675, 31);
-            this.txb_id_exam.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_id_exam.Margin = new System.Windows.Forms.Padding(4);
             this.txb_id_exam.Name = "txb_id_exam";
             this.txb_id_exam.Size = new System.Drawing.Size(117, 20);
             this.txb_id_exam.TabIndex = 38;
@@ -528,7 +477,7 @@
             // txb_reception_date
             // 
             this.txb_reception_date.Location = new System.Drawing.Point(675, 5);
-            this.txb_reception_date.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_reception_date.Margin = new System.Windows.Forms.Padding(4);
             this.txb_reception_date.Name = "txb_reception_date";
             this.txb_reception_date.Size = new System.Drawing.Size(117, 20);
             this.txb_reception_date.TabIndex = 36;
@@ -561,7 +510,7 @@
             this.cb_template.Items.AddRange(new object[] {
             "Chọn biểu mẫu"});
             this.cb_template.Location = new System.Drawing.Point(675, 84);
-            this.cb_template.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_template.Margin = new System.Windows.Forms.Padding(4);
             this.cb_template.Name = "cb_template";
             this.cb_template.Size = new System.Drawing.Size(388, 21);
             this.cb_template.TabIndex = 32;
@@ -581,7 +530,7 @@
             // txb_service
             // 
             this.txb_service.Location = new System.Drawing.Point(675, 58);
-            this.txb_service.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_service.Margin = new System.Windows.Forms.Padding(4);
             this.txb_service.Name = "txb_service";
             this.txb_service.Size = new System.Drawing.Size(388, 20);
             this.txb_service.TabIndex = 30;
@@ -624,7 +573,7 @@
             this.dtgv_service.DefaultCellStyle = dataGridViewCellStyle6;
             this.dtgv_service.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtgv_service.Location = new System.Drawing.Point(51, 182);
-            this.dtgv_service.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtgv_service.Margin = new System.Windows.Forms.Padding(4);
             this.dtgv_service.Name = "dtgv_service";
             this.dtgv_service.RowHeadersVisible = false;
             this.dtgv_service.RowHeadersWidth = 51;
@@ -680,7 +629,7 @@
             // txb_note
             // 
             this.txb_note.Location = new System.Drawing.Point(127, 156);
-            this.txb_note.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_note.Margin = new System.Windows.Forms.Padding(4);
             this.txb_note.Name = "txb_note";
             this.txb_note.Size = new System.Drawing.Size(368, 20);
             this.txb_note.TabIndex = 27;
@@ -698,7 +647,7 @@
             // txb_chandoanphu
             // 
             this.txb_chandoanphu.Location = new System.Drawing.Point(127, 130);
-            this.txb_chandoanphu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_chandoanphu.Margin = new System.Windows.Forms.Padding(4);
             this.txb_chandoanphu.Name = "txb_chandoanphu";
             this.txb_chandoanphu.Size = new System.Drawing.Size(368, 20);
             this.txb_chandoanphu.TabIndex = 25;
@@ -716,7 +665,7 @@
             // txb_chandoan
             // 
             this.txb_chandoan.Location = new System.Drawing.Point(127, 107);
-            this.txb_chandoan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_chandoan.Margin = new System.Windows.Forms.Padding(4);
             this.txb_chandoan.Name = "txb_chandoan";
             this.txb_chandoan.Size = new System.Drawing.Size(368, 20);
             this.txb_chandoan.TabIndex = 23;
@@ -734,7 +683,7 @@
             // txb_address
             // 
             this.txb_address.Location = new System.Drawing.Point(127, 58);
-            this.txb_address.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_address.Margin = new System.Windows.Forms.Padding(4);
             this.txb_address.Name = "txb_address";
             this.txb_address.Size = new System.Drawing.Size(368, 20);
             this.txb_address.TabIndex = 21;
@@ -752,7 +701,7 @@
             // txb_gender
             // 
             this.txb_gender.Location = new System.Drawing.Point(445, 31);
-            this.txb_gender.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_gender.Margin = new System.Windows.Forms.Padding(4);
             this.txb_gender.Name = "txb_gender";
             this.txb_gender.Size = new System.Drawing.Size(93, 20);
             this.txb_gender.TabIndex = 19;
@@ -770,7 +719,7 @@
             // txb_age
             // 
             this.txb_age.Location = new System.Drawing.Point(253, 32);
-            this.txb_age.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_age.Margin = new System.Windows.Forms.Padding(4);
             this.txb_age.Name = "txb_age";
             this.txb_age.Size = new System.Drawing.Size(122, 20);
             this.txb_age.TabIndex = 17;
@@ -778,7 +727,7 @@
             // txb_dob
             // 
             this.txb_dob.Location = new System.Drawing.Point(127, 32);
-            this.txb_dob.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_dob.Margin = new System.Windows.Forms.Padding(4);
             this.txb_dob.Name = "txb_dob";
             this.txb_dob.Size = new System.Drawing.Size(122, 20);
             this.txb_dob.TabIndex = 16;
@@ -796,7 +745,7 @@
             // txb_id_patient
             // 
             this.txb_id_patient.Location = new System.Drawing.Point(446, 5);
-            this.txb_id_patient.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_id_patient.Margin = new System.Windows.Forms.Padding(4);
             this.txb_id_patient.Name = "txb_id_patient";
             this.txb_id_patient.Size = new System.Drawing.Size(93, 20);
             this.txb_id_patient.TabIndex = 14;
@@ -814,7 +763,7 @@
             // txb_name
             // 
             this.txb_name.Location = new System.Drawing.Point(127, 6);
-            this.txb_name.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_name.Margin = new System.Windows.Forms.Padding(4);
             this.txb_name.Name = "txb_name";
             this.txb_name.Size = new System.Drawing.Size(254, 20);
             this.txb_name.TabIndex = 12;
@@ -837,7 +786,7 @@
             this.panel2.Controls.Add(this.btn_edit);
             this.panel2.Controls.Add(this.btn_save);
             this.panel2.Location = new System.Drawing.Point(4, 3);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1030, 42);
             this.panel2.TabIndex = 0;
@@ -846,7 +795,7 @@
             // 
             this.btn_refresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_refresh.Location = new System.Drawing.Point(238, 3);
-            this.btn_refresh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_refresh.Margin = new System.Windows.Forms.Padding(4);
             this.btn_refresh.Name = "btn_refresh";
             this.btn_refresh.Size = new System.Drawing.Size(93, 31);
             this.btn_refresh.TabIndex = 31;
@@ -858,7 +807,7 @@
             // 
             this.btn_print.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_print.Location = new System.Drawing.Point(161, 3);
-            this.btn_print.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_print.Margin = new System.Windows.Forms.Padding(4);
             this.btn_print.Name = "btn_print";
             this.btn_print.Size = new System.Drawing.Size(71, 31);
             this.btn_print.TabIndex = 30;
@@ -870,7 +819,7 @@
             // 
             this.btn_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_edit.Location = new System.Drawing.Point(84, 3);
-            this.btn_edit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_edit.Margin = new System.Windows.Forms.Padding(4);
             this.btn_edit.Name = "btn_edit";
             this.btn_edit.Size = new System.Drawing.Size(71, 31);
             this.btn_edit.TabIndex = 29;
@@ -882,7 +831,7 @@
             // 
             this.btn_save.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_save.Location = new System.Drawing.Point(7, 3);
-            this.btn_save.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_save.Margin = new System.Windows.Forms.Padding(4);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(71, 32);
             this.btn_save.TabIndex = 28;
@@ -904,29 +853,35 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // wmp
+            // pb_3
             // 
-            this.wmp.Enabled = true;
-            this.wmp.Location = new System.Drawing.Point(882, 719);
-            this.wmp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.wmp.Name = "wmp";
-            this.wmp.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("wmp.OcxState")));
-            this.wmp.Size = new System.Drawing.Size(331, 134);
-            this.wmp.TabIndex = 55;
-            this.wmp.Visible = false;
+            this.pb_3.ImageRotate = 0F;
+            this.pb_3.Location = new System.Drawing.Point(367, 410);
+            this.pb_3.Margin = new System.Windows.Forms.Padding(4);
+            this.pb_3.Name = "pb_3";
+            this.pb_3.Size = new System.Drawing.Size(273, 179);
+            this.pb_3.TabIndex = 60;
+            this.pb_3.TabStop = false;
+            // 
+            // pb_4
+            // 
+            this.pb_4.ImageRotate = 0F;
+            this.pb_4.Location = new System.Drawing.Point(367, 597);
+            this.pb_4.Margin = new System.Windows.Forms.Padding(4);
+            this.pb_4.Name = "pb_4";
+            this.pb_4.Size = new System.Drawing.Size(273, 179);
+            this.pb_4.TabIndex = 53;
+            this.pb_4.TabStop = false;
             // 
             // frm_ultrasound
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1806, 820);
+            this.ClientSize = new System.Drawing.Size(1806, 968);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.pb_4);
-            this.Controls.Add(this.pb_3);
-            this.Controls.Add(this.wmp);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frm_ultrasound";
             this.Text = "Siêu âm";
             this.Load += new System.EventHandler(this.frm_ultrasound_Load);
@@ -935,14 +890,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb_2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_exam)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_3)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_service)).EndInit();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.wmp)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1006,16 +960,13 @@
         private System.Windows.Forms.TextBox txb_name;
         private System.Windows.Forms.Label label5;
         private Guna.UI2.WinForms.Guna2AnimateWindow guna2AnimateWindow1;
-        private Guna.UI2.WinForms.Guna2PictureBox pb_4;
-        private Guna.UI2.WinForms.Guna2PictureBox pb_3;
         private Guna.UI2.WinForms.Guna2PictureBox pb_2;
         private Guna.UI2.WinForms.Guna2PictureBox pb_1;
-        private System.Windows.Forms.Button btn_snap;
-        private System.Windows.Forms.Button btn_resetpicturebox;
         private Guna.UI2.WinForms.Guna2TextBox txb_search;
         private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.Button btn_upload;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private AxWMPLib.AxWindowsMediaPlayer wmp;
+        private Guna.UI2.WinForms.Guna2PictureBox pb_4;
+        private Guna.UI2.WinForms.Guna2PictureBox pb_3;
     }
 }

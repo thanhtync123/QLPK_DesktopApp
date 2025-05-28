@@ -41,57 +41,7 @@ namespace QuanLyPhongKham
        
         private void btn_snap_Click(object sender, EventArgs e)
         {
-            // Kiểm tra số lần chụp và video đang phát
-            if (snapCount >= 4)
-            {
-                MessageBox.Show("Đã chụp đủ 4 ảnh!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-
-            if (wmp.currentMedia == null)
-            {
-                MessageBox.Show("Không có video nào đang phát!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            try
-            {
-                // Tạm dừng video
-                wmp.Ctlcontrols.pause();
-
-                // Chụp ảnh từ màn hình
-                Bitmap screenshot = new Bitmap(wmp.Width, wmp.Height);
-                using (Graphics g = Graphics.FromImage(screenshot))
-                {
-                    g.CopyFromScreen(wmp.PointToScreen(Point.Empty), Point.Empty, wmp.Size);
-                }
-
-                // Xác định PictureBox để hiển thị ảnh
-                PictureBox currentPb = null;
-                switch (snapCount)
-                {
-                    case 0: currentPb = pb_1; break;
-                    case 1: currentPb = pb_2; break;
-                    case 2: currentPb = pb_3; break;
-                    case 3: currentPb = pb_4; break;
-                }
-
-                // Hiển thị ảnh
-                if (currentPb != null)
-                {
-                    currentPb.Image = screenshot;
-                    currentPb.Visible = true;
-                }
-
-                snapCount++;
-
-                // Tiếp tục phát video
-                wmp.Ctlcontrols.play();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+          
         }
         private void LoadDTGV_Service()
         {
@@ -137,6 +87,8 @@ namespace QuanLyPhongKham
 
         private string imageUrl1 = null;
         private string imageUrl2 = null;
+        private string imageUrl3 = null;
+        private string imageUrl4 = null;
         private void btn_upload_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
@@ -150,15 +102,27 @@ namespace QuanLyPhongKham
                 var files = ofd.FileNames;
                 if (files.Length > 0)
                 {
-                    pb_1.Visible = true;
+          
                     imageUrl1 = files[0];
                     pb_1.Image = Image.FromFile(files[0]);
                 }
                 if (files.Length > 1)
                 {
-                    pb_2.Visible = true;
+              
                     imageUrl2= files[1]; 
                     pb_2.Image = Image.FromFile(files[1]);
+                }
+                if (files.Length > 0)
+                {
+              
+                    imageUrl3 = files[2];
+                    pb_3.Image = Image.FromFile(files[2]);
+                }
+                if (files.Length > 1)
+                {
+               
+                    imageUrl4 = files[3];
+                    pb_4.Image = Image.FromFile(files[3]);
                 }
 
 
@@ -254,7 +218,10 @@ namespace QuanLyPhongKham
             string projectDir = Directory.GetParent(Application.StartupPath).Parent.Parent.FullName;
             string imagesDir = Path.Combine(projectDir, "images");
 
-            for (int i = 0; i < paths.Length && i < 2; i++) // chỉ xử lý 2 ảnh
+            PictureBox[] pictureBoxes = { pb_1, pb_2, pb_3, pb_4 };
+            string[] imageUrls = new string[4];
+
+            for (int i = 0; i < paths.Length && i < 4; i++)
             {
                 string fileName = paths[i].Trim();
                 if (!string.IsNullOrEmpty(fileName))
@@ -264,7 +231,7 @@ namespace QuanLyPhongKham
                     {
                         try
                         {
-                            PictureBox pb = (i == 0) ? pb_1 : pb_2;
+                            PictureBox pb = pictureBoxes[i];
                             if (pb.Image != null)
                             {
                                 pb.Image.Dispose();
@@ -272,23 +239,22 @@ namespace QuanLyPhongKham
                             }
                             pb.Image = Image.FromFile(fullPath);
                             pb.Visible = true;
+                            imageUrls[i] = fullPath;
                             snapCount++;
-
-                            // Gán đường dẫn ảnh để in
-                            if (i == 0) imageUrl1 = fullPath;
-                            else if (i == 1) imageUrl2 = fullPath;
                         }
                         catch (Exception ex)
                         {
                             MessageBox.Show($"Lỗi khi đọc ảnh {fullPath}: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
-                    else
-                    {
-                        Console.WriteLine($"File ảnh không tồn tại: {fullPath}");
-                    }
                 }
             }
+
+            // Gán lại các đường dẫn hình ảnh để in
+            imageUrl1 = imageUrls[0];
+            imageUrl2 = imageUrls[1];
+            imageUrl3 = imageUrls[2];
+            imageUrl4 = imageUrls[3];
 
             Console.WriteLine($"Đã hiển thị {snapCount} ảnh");
 
@@ -598,6 +564,9 @@ namespace QuanLyPhongKham
 			LoadExam.LoadDTGVCommon(dtgv_exam, "Siêu âm", keyword);
 		}
 
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
     }
 }
