@@ -101,6 +101,11 @@
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.btn_del = new System.Windows.Forms.Button();
+            this.chb_anh1 = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.chb_anh2 = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.chb_anh3 = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.chb_anh4 = new Guna.UI2.WinForms.Guna2CheckBox();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_3)).BeginInit();
@@ -153,6 +158,11 @@
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(230)))));
+            this.guna2Panel1.Controls.Add(this.chb_anh4);
+            this.guna2Panel1.Controls.Add(this.chb_anh3);
+            this.guna2Panel1.Controls.Add(this.chb_anh2);
+            this.guna2Panel1.Controls.Add(this.chb_anh1);
+            this.guna2Panel1.Controls.Add(this.btn_del);
             this.guna2Panel1.Controls.Add(this.pb_4);
             this.guna2Panel1.Controls.Add(this.pb_3);
             this.guna2Panel1.Controls.Add(this.btn_upload);
@@ -873,6 +883,86 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // btn_del
+            // 
+            this.btn_del.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_del.Location = new System.Drawing.Point(450, 4);
+            this.btn_del.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_del.Name = "btn_del";
+            this.btn_del.Size = new System.Drawing.Size(98, 28);
+            this.btn_del.TabIndex = 61;
+            this.btn_del.Text = "Xóa ảnh";
+            this.btn_del.UseVisualStyleBackColor = true;
+            this.btn_del.Click += new System.EventHandler(this.btn_del_Click);
+            // 
+            // chb_anh1
+            // 
+            this.chb_anh1.AutoSize = true;
+            this.chb_anh1.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chb_anh1.CheckedState.BorderRadius = 0;
+            this.chb_anh1.CheckedState.BorderThickness = 0;
+            this.chb_anh1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chb_anh1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.chb_anh1.Location = new System.Drawing.Point(647, 36);
+            this.chb_anh1.Name = "chb_anh1";
+            this.chb_anh1.Size = new System.Drawing.Size(15, 14);
+            this.chb_anh1.TabIndex = 62;
+            this.chb_anh1.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chb_anh1.UncheckedState.BorderRadius = 0;
+            this.chb_anh1.UncheckedState.BorderThickness = 0;
+            this.chb_anh1.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            // 
+            // chb_anh2
+            // 
+            this.chb_anh2.AutoSize = true;
+            this.chb_anh2.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chb_anh2.CheckedState.BorderRadius = 0;
+            this.chb_anh2.CheckedState.BorderThickness = 0;
+            this.chb_anh2.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chb_anh2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.chb_anh2.Location = new System.Drawing.Point(647, 223);
+            this.chb_anh2.Name = "chb_anh2";
+            this.chb_anh2.Size = new System.Drawing.Size(15, 14);
+            this.chb_anh2.TabIndex = 63;
+            this.chb_anh2.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chb_anh2.UncheckedState.BorderRadius = 0;
+            this.chb_anh2.UncheckedState.BorderThickness = 0;
+            this.chb_anh2.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            // 
+            // chb_anh3
+            // 
+            this.chb_anh3.AutoSize = true;
+            this.chb_anh3.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chb_anh3.CheckedState.BorderRadius = 0;
+            this.chb_anh3.CheckedState.BorderThickness = 0;
+            this.chb_anh3.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chb_anh3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.chb_anh3.Location = new System.Drawing.Point(647, 410);
+            this.chb_anh3.Name = "chb_anh3";
+            this.chb_anh3.Size = new System.Drawing.Size(15, 14);
+            this.chb_anh3.TabIndex = 64;
+            this.chb_anh3.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chb_anh3.UncheckedState.BorderRadius = 0;
+            this.chb_anh3.UncheckedState.BorderThickness = 0;
+            this.chb_anh3.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            // 
+            // chb_anh4
+            // 
+            this.chb_anh4.AutoSize = true;
+            this.chb_anh4.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chb_anh4.CheckedState.BorderRadius = 0;
+            this.chb_anh4.CheckedState.BorderThickness = 0;
+            this.chb_anh4.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chb_anh4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.chb_anh4.Location = new System.Drawing.Point(647, 597);
+            this.chb_anh4.Name = "chb_anh4";
+            this.chb_anh4.Size = new System.Drawing.Size(15, 14);
+            this.chb_anh4.TabIndex = 65;
+            this.chb_anh4.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chb_anh4.UncheckedState.BorderRadius = 0;
+            this.chb_anh4.UncheckedState.BorderThickness = 0;
+            this.chb_anh4.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            // 
             // frm_ultrasound
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -968,5 +1058,10 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private Guna.UI2.WinForms.Guna2PictureBox pb_4;
         private Guna.UI2.WinForms.Guna2PictureBox pb_3;
+        private System.Windows.Forms.Button btn_del;
+        private Guna.UI2.WinForms.Guna2CheckBox chb_anh4;
+        private Guna.UI2.WinForms.Guna2CheckBox chb_anh3;
+        private Guna.UI2.WinForms.Guna2CheckBox chb_anh2;
+        private Guna.UI2.WinForms.Guna2CheckBox chb_anh1;
     }
 }

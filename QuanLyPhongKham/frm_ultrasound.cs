@@ -34,6 +34,10 @@ namespace QuanLyPhongKham
         {
             LoadExam.LoadDTGVCommon(dtgv_exam, "Siêu âm");
             LoadComboboxTemplate();
+            chb_anh1.Checked=true;
+            chb_anh2.Checked = true;
+            chb_anh3.Checked = true;
+            chb_anh4.Checked = true;
 
         }
         private int snapCount = 0;
@@ -146,24 +150,83 @@ namespace QuanLyPhongKham
 
         private void btn_print_Click(object sender, EventArgs e)
         {
-            var mabn = txb_id_patient.Text.Trim();
-            var tenbn = txb_name.Text.Trim();
-            var ngaysinh = txb_dob.Text.Trim();
-            var diachi = txb_address.Text.Trim();
-            var sdt = txb_phone.Text.Trim();
-            var chandoan = txb_chandoan.Text.Trim();
-            var chandoanphu = txb_chandoanphu.Text.Trim();
-            var mota = txb_result.Text.Trim();
-            var ketqua = txb_final_result.Text.Trim();
-            var chidinh = txb_service.Text.Trim();
-                using (frm_report_ultrasound printForm = new frm_report_ultrasound(imageUrl1,imageUrl2,mabn,tenbn,ngaysinh,diachi,sdt,chandoan,chandoanphu,mota,ketqua,chidinh))
+            try
+            {
+                var mabn = txb_id_patient.Text.Trim();
+                var tenbn = txb_name.Text.Trim();
+                var ngaysinh = txb_dob.Text.Trim();
+                var diachi = txb_address.Text.Trim();
+                var sdt = txb_phone.Text.Trim();
+                var chandoan = txb_chandoan.Text.Trim();
+                var chandoanphu = txb_chandoanphu.Text.Trim();
+                var mota = txb_result.Text.Trim();
+                var ketqua = txb_final_result.Text.Trim();
+                var chidinh = txb_service.Text.Trim();
+
+                // Tạo đường dẫn ảnh trống để tránh lỗi URI
+                string projectDir = Directory.GetParent(Application.StartupPath).Parent.Parent.FullName;
+                string emptyImagePath = Path.Combine(projectDir, "Resources", "empty.png");
+
+                // Đảm bảo ảnh trống tồn tại
+                if (!File.Exists(emptyImagePath))
+                {
+                    string resourcesDir = Path.Combine(projectDir, "Resources");
+                    Directory.CreateDirectory(resourcesDir);
+
+                    // Tạo ảnh trống 1x1 pixel
+                    using (Bitmap emptyBmp = new Bitmap(1, 1))
+                    {
+                        using (Graphics g = Graphics.FromImage(emptyBmp))
+                        {
+                            g.Clear(Color.Transparent);
+                        }
+                        emptyBmp.Save(emptyImagePath, System.Drawing.Imaging.ImageFormat.Png);
+                    }
+                }
+
+                // Thu thập các ảnh được chọn vào một danh sách
+                var selectedImages = new List<string>();
+
+                // Chỉ thêm vào danh sách nếu checkbox được chọn và ảnh tồn tại
+                if (chb_anh1.Checked && !string.IsNullOrEmpty(imageUrl1)) selectedImages.Add(imageUrl1);
+                if (chb_anh2.Checked && !string.IsNullOrEmpty(imageUrl2)) selectedImages.Add(imageUrl2);
+                if (chb_anh3.Checked && !string.IsNullOrEmpty(imageUrl3)) selectedImages.Add(imageUrl3);
+                if (chb_anh4.Checked && !string.IsNullOrEmpty(imageUrl4)) selectedImages.Add(imageUrl4);
+
+                // Kiểm tra xem có ảnh nào được chọn không
+                if (selectedImages.Count == 0)
+                {
+                    MessageBox.Show("Vui lòng chọn ít nhất một ảnh để in.", "Thông báo",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Đảm bảo luôn có đủ 4 ảnh để truyền vào báo cáo (thêm ảnh trống nếu cần)
+                while (selectedImages.Count < 4)
+                {
+                    selectedImages.Add(emptyImagePath);
+                }
+
+                // Truyền các ảnh theo thứ tự đã được tái sắp xếp
+                using (frm_report_ultrasound printForm = new frm_report_ultrasound(
+                    selectedImages[0], selectedImages[1], selectedImages[2], selectedImages[3],
+                    mabn, tenbn, ngaysinh, diachi, sdt,
+                    chandoan, chandoanphu, mota, ketqua, chidinh))
                 {
                     printForm.ShowDialog();
                 }
-            
-
-
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi in: {ex.Message}", "Lỗi",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
+
+
+
+
         private void dtgv_service_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -546,6 +609,109 @@ namespace QuanLyPhongKham
         private void guna2Panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+        private void PasteImageFromClipboard()
+        {
+            try
+            {
+                // Kiểm tra xem clipboard có chứa hình ảnh không
+                if (Clipboard.ContainsImage())
+                {
+                    Image img = Clipboard.GetImage();
+                    if (img != null)
+                    {
+                        // Tìm PictureBox trống đầu tiên
+                        PictureBox[] pictureBoxes = { pb_1, pb_2, pb_3, pb_4 };
+                        int targetIndex = -1;
+
+                        for (int i = 0; i < pictureBoxes.Length; i++)
+                        {
+                            if (pictureBoxes[i].Image == null)
+                            {
+                                targetIndex = i;
+                                break;
+                            }
+                        }
+
+                        if (targetIndex != -1)
+                        {
+                            // Gán ảnh vào PictureBox
+                            PictureBox targetPb = pictureBoxes[targetIndex];
+                            targetPb.Image = img;
+                            targetPb.Visible = true;
+
+                            // Lưu ảnh vào file và cập nhật đường dẫn
+                            string projectDir = Directory.GetParent(Application.StartupPath).Parent.Parent.FullName;
+                            string imagesDir = Path.Combine(projectDir, "images");
+                            Directory.CreateDirectory(imagesDir);
+
+                            string fileName = Guid.NewGuid() + ".jpg";
+                            string filePath = Path.Combine(imagesDir, fileName);
+                            img.Save(filePath, System.Drawing.Imaging.ImageFormat.Jpeg);
+
+                            // Cập nhật đường dẫn ảnh tương ứng - cách an toàn
+                            switch (targetIndex)
+                            {
+                                case 0: imageUrl1 = filePath; break;
+                                case 1: imageUrl2 = filePath; break;
+                                case 2: imageUrl3 = filePath; break;
+                                case 3: imageUrl4 = filePath; break;
+                            }
+
+                            // Tăng biến đếm ảnh
+                            snapCount++;
+
+                            MessageBox.Show("Đã paste ảnh thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Tất cả các ô đã có ảnh. Vui lòng xóa ít nhất một ảnh để paste.",
+                                "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Clipboard không chứa hình ảnh.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi paste ảnh: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == (Keys.Control | Keys.V))
+            {
+                PasteImageFromClipboard();
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void btn_del_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn có chắc chắn muốn xóa tất cả ảnh?", "Xác nhận",
+        MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                // Giải phóng bộ nhớ cho các ảnh
+                if (pb_1.Image != null) { pb_1.Image.Dispose(); pb_1.Image = null; }
+                if (pb_2.Image != null) { pb_2.Image.Dispose(); pb_2.Image = null; }
+                if (pb_3.Image != null) { pb_3.Image.Dispose(); pb_3.Image = null; }
+                if (pb_4.Image != null) { pb_4.Image.Dispose(); pb_4.Image = null; }
+
+ 
+
+                // Xóa tất cả đường dẫn
+                imageUrl1 = imageUrl2 = imageUrl3 = imageUrl4 = null;
+
+                // Reset biến đếm ảnh
+                snapCount = 0;
+
+                
+            }
         }
     }
 }
