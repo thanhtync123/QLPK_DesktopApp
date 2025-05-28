@@ -146,24 +146,48 @@ namespace QuanLyPhongKham
 
         private void btn_print_Click(object sender, EventArgs e)
         {
-            var mabn = txb_id_patient.Text.Trim();
-            var tenbn = txb_name.Text.Trim();
-            var ngaysinh = txb_dob.Text.Trim();
-            var diachi = txb_address.Text.Trim();
-            var sdt = txb_phone.Text.Trim();
-            var chandoan = txb_chandoan.Text.Trim();
-            var chandoanphu = txb_chandoanphu.Text.Trim();
-            var mota = txb_result.Text.Trim();
-            var ketqua = txb_final_result.Text.Trim();
-            var chidinh = txb_service.Text.Trim();
-                using (frm_report_ultrasound printForm = new frm_report_ultrasound(imageUrl1,imageUrl2,mabn,tenbn,ngaysinh,diachi,sdt,chandoan,chandoanphu,mota,ketqua,chidinh))
+            try
+            {
+                var mabn = txb_id_patient.Text.Trim();
+                var tenbn = txb_name.Text.Trim();
+                var ngaysinh = txb_dob.Text.Trim();
+                var diachi = txb_address.Text.Trim();
+                var sdt = txb_phone.Text.Trim();
+                var chandoan = txb_chandoan.Text.Trim();
+                var chandoanphu = txb_chandoanphu.Text.Trim();
+                var mota = txb_result.Text.Trim();
+                var ketqua = txb_final_result.Text.Trim();
+                var chidinh = txb_service.Text.Trim();
+
+                // Đảm bảo có ít nhất 1 ảnh để in
+                if (string.IsNullOrEmpty(imageUrl1) && string.IsNullOrEmpty(imageUrl2) &&
+                    string.IsNullOrEmpty(imageUrl3) && string.IsNullOrEmpty(imageUrl4))
+                {
+                    MessageBox.Show("Cần có ít nhất 1 ảnh để in kết quả.", "Thông báo",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Chuyển đổi null thành chuỗi rỗng để tránh lỗi
+                string url1 = imageUrl1 ?? "";
+                string url2 = imageUrl2 ?? "";
+                string url3 = imageUrl3 ?? "";
+                string url4 = imageUrl4 ?? "";
+
+                using (frm_report_ultrasound printForm = new frm_report_ultrasound(
+                    url1, url2, url3, url4, mabn, tenbn, ngaysinh, diachi, sdt,
+                    chandoan, chandoanphu, mota, ketqua, chidinh))
                 {
                     printForm.ShowDialog();
                 }
-            
-
-
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi in: {ex.Message}", "Lỗi",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
         private void dtgv_service_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -559,22 +583,21 @@ namespace QuanLyPhongKham
                     {
                         // Tìm PictureBox trống đầu tiên
                         PictureBox[] pictureBoxes = { pb_1, pb_2, pb_3, pb_4 };
-                        PictureBox targetPb = null;
                         int targetIndex = -1;
 
                         for (int i = 0; i < pictureBoxes.Length; i++)
                         {
                             if (pictureBoxes[i].Image == null)
                             {
-                                targetPb = pictureBoxes[i];
                                 targetIndex = i;
                                 break;
                             }
                         }
 
-                        if (targetPb != null)
+                        if (targetIndex != -1)
                         {
                             // Gán ảnh vào PictureBox
+                            PictureBox targetPb = pictureBoxes[targetIndex];
                             targetPb.Image = img;
                             targetPb.Visible = true;
 
@@ -587,7 +610,7 @@ namespace QuanLyPhongKham
                             string filePath = Path.Combine(imagesDir, fileName);
                             img.Save(filePath, System.Drawing.Imaging.ImageFormat.Jpeg);
 
-                            // Cập nhật đường dẫn ảnh tương ứng
+                            // Cập nhật đường dẫn ảnh tương ứng - cách an toàn
                             switch (targetIndex)
                             {
                                 case 0: imageUrl1 = filePath; break;
@@ -595,6 +618,9 @@ namespace QuanLyPhongKham
                                 case 2: imageUrl3 = filePath; break;
                                 case 3: imageUrl4 = filePath; break;
                             }
+
+                            // Tăng biến đếm ảnh
+                            snapCount++;
 
                             MessageBox.Show("Đã paste ảnh thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
@@ -615,6 +641,7 @@ namespace QuanLyPhongKham
                 MessageBox.Show($"Lỗi khi paste ảnh: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             if (keyData == (Keys.Control | Keys.V))
@@ -644,7 +671,7 @@ namespace QuanLyPhongKham
                 // Reset biến đếm ảnh
                 snapCount = 0;
 
-                MessageBox.Show("Đã xóa tất cả ảnh!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
             }
         }
     }
