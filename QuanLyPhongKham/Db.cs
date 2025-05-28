@@ -10,7 +10,7 @@ namespace QuanLyPhongKham
 {
     public static class Db
     {
-        public static string connectionString = "Server=localhost;Database=clinic_db2;Uid=root;Pwd=;";
+        public static string connectionString = "Server=192.168.1.100;Database=clinic_db2;Uid=root;Pwd=123456;";
         public static MySqlConnection conn = new MySqlConnection(connectionString);
         public static MySqlCommand cmd;
         public static MySqlDataReader dr;

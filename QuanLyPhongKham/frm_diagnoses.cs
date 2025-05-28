@@ -10,7 +10,7 @@ namespace QuanLyPhongKham
         {
             InitializeComponent();
         }
-        //1
+        
         private void LoadDTGV()
         {
             string query = @"SELECT id, name FROM diagnoses";
