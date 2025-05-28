@@ -703,8 +703,11 @@ VALUES (NULL, @examination_id, @service_id, @price);";
             return dt;
 
         }
-       
 
+        private void guna2ImageButton1_Click(object sender, EventArgs e)
+        {
+
+        }
     } 
 }
 

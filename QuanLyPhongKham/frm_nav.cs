@@ -228,6 +228,11 @@ namespace QuanLyPhongKham
             AddTab(new frm_template());
         }
 
+        private void cậnLâmSàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void AddTab(Form frm)
         {
             int t = KiemTraFormTonTai(frm);
