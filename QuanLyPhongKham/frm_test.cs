@@ -504,8 +504,9 @@ namespace QuanLyPhongKham
             var diachi = txb_address.Text;
             var ketqua = txb_final_result.Text;
             var ngaykham = DateTime.Now.ToString("dd/MM/yyyy");
+            var sdt = txb_phone.Text;
             DataTable dt = GetDataTableFromDataGridView(dtgv_result);
-            frm_report_test frm  = new frm_report_test(dt,mabn,tenbn,ngaysinh,chandoan,chandoanphu,diachi,ketqua,ngaykham);
+            frm_report_test frm  = new frm_report_test(dt,mabn,tenbn,ngaysinh,chandoan,chandoanphu,diachi,ketqua,ngaykham,sdt);
          
             frm.ShowDialog();
           

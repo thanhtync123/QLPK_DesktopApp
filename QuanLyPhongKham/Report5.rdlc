@@ -1258,20 +1258,17 @@
                 <TextRuns>
                   <TextRun>
                     <Value>=Parameters!txb_sdt.Value</Value>
-                    <Style>
-                      <FontFamily>tIMes New Roman</FontFamily>
-                      <FontSize>13pt</FontSize>
-                    </Style>
+                    <Style />
                   </TextRun>
                 </TextRuns>
                 <Style />
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_sdt</rd:DefaultName>
-            <Top>2.67986in</Top>
-            <Left>1.46141in</Left>
+            <Top>2.68472in</Top>
+            <Left>1.47811in</Left>
             <Height>0.25in</Height>
-            <Width>2.18265in</Width>
+            <Width>1in</Width>
             <ZIndex>22</ZIndex>
             <Style>
               <Border>
@@ -1344,6 +1341,12 @@
       <AllowBlank>true</AllowBlank>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
+    <ReportParameter Name="txb_sdt">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
@@ -1389,6 +1392,11 @@
           <ColumnIndex>1</ColumnIndex>
           <RowIndex>2</RowIndex>
           <ParameterName>txb_ketluan</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>2</ColumnIndex>
+          <RowIndex>2</RowIndex>
+          <ParameterName>txb_sdt</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>

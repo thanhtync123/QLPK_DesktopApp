@@ -23,7 +23,8 @@ namespace QuanLyPhongKham
         string diachi;
         string ketqua;
         string ngaykham;
-        public frm_report_test(DataTable dt, string mabn, string tenbn, string ngaysinh, string chandoan, string chandoanphu, string diachi, string ketqua, string ngaykham)
+        string sdt;
+        public frm_report_test(DataTable dt, string mabn, string tenbn, string ngaysinh, string chandoan, string chandoanphu, string diachi, string ketqua, string ngaykham, string sdt)
         {
             InitializeComponent();
 
@@ -36,6 +37,7 @@ namespace QuanLyPhongKham
             this.diachi = diachi;
             this.ketqua = ketqua;
             this.ngaykham = ngaykham;
+            this.sdt = sdt;
         }
 
 
@@ -51,7 +53,7 @@ namespace QuanLyPhongKham
                 var parameters = new ReportParameter[]
                 {
 
-
+                  
                     new ReportParameter("txb_mabn", mabn ?? ""),
                     new ReportParameter("txb_tenbn", tenbn ?? ""),
                     new ReportParameter("txb_ngaysinh", ngaysinh ?? ""),
@@ -60,7 +62,8 @@ namespace QuanLyPhongKham
                     new ReportParameter("txb_diachi", diachi ?? ""),
                        new ReportParameter("txb_ngaykham", ngaykham ?? ""),
                        new ReportParameter("txb_ketluan", ketqua ?? ""),
-                        
+                             new ReportParameter("txb_sdt", sdt ?? "")
+
 
 
                 };
@@ -71,7 +74,7 @@ namespace QuanLyPhongKham
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi: " + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi: " + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
