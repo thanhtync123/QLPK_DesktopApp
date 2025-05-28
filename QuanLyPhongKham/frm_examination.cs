@@ -151,7 +151,7 @@ namespace QuanLyPhongKham
             LoadExamID();
             LoadDTGV_Service();
             btn_deletemed.Enabled = false;
-            cb_diagnoses.SelectedIndex = 0;
+            cbo_diagnoses.SelectedIndex = 0;
             webBrowser1.Visible = false;
        
 
@@ -185,8 +185,8 @@ namespace QuanLyPhongKham
         private void LoadComboboxDiagnoses()
         {
             string query = "SELECT id, name FROM diagnoses order by name asc";
-            Db.LoadComboBoxData(cb_diagnoses, query, "name", "id");
-            cb_diagnoses.SelectedIndex = 0;  // Chọn phần tử đầu tiên sau khi load dữ liệu
+            Db.LoadComboBoxData(cbo_diagnoses, query, "name", "id");
+            cbo_diagnoses.SelectedIndex = 0;  // Chọn phần tử đầu tiên sau khi load dữ liệu
         }
 
         private void LoadComboboxMed()
@@ -341,18 +341,46 @@ namespace QuanLyPhongKham
         {
             try
             {
+                Db.ResetConnection();
+                string diagnosisName = cbo_diagnoses.Text.Trim();
+
+                // Kiểm tra xem chẩn đoán đã có chưa
+                string checkSql = "SELECT id FROM diagnoses WHERE name = @name LIMIT 1;";
+                MySqlCommand checkCmd = new MySqlCommand(checkSql, Db.conn);
+                checkCmd.Parameters.AddWithValue("@name", diagnosisName);
+                object diagnosisResult = checkCmd.ExecuteScalar();
+
+                int diagnosisID;
+
+                if (diagnosisResult != null)
+                {
+                    diagnosisID = Convert.ToInt32(diagnosisResult);
+                }
+                else
+                {
+                    // Nếu chưa có thì thêm mới
+                    string insertDiagnosisSql = "INSERT INTO diagnoses (name, created_at, updated_at) VALUES (@name, current_timestamp(), current_timestamp());";
+                    MySqlCommand insertDiagnosisCmd = new MySqlCommand(insertDiagnosisSql, Db.conn);
+                    insertDiagnosisCmd.Parameters.AddWithValue("@name", diagnosisName);
+                    insertDiagnosisCmd.ExecuteNonQuery();
+
+                    // Lấy ID vừa thêm
+                    string getNewIDSql = "SELECT LAST_INSERT_ID();";
+                    MySqlCommand getNewIDCmd = new MySqlCommand(getNewIDSql, Db.conn);
+                    diagnosisID = Convert.ToInt32(getNewIDCmd.ExecuteScalar());
+                }
+
+                // Thêm phiếu khám
                 string queryExamination = @"
-                    INSERT INTO examinations 
-                    (id, patient_id, reason, diagnosis_id, doctor_note_id, note, pulse, blood_pressure, respiratory_rate, weight, height, temperature, type, created_at, updated_at) 
-                    VALUES 
-                    (NULL, @patient_id, @reason, @diagnosis_id, @doctor_note_id, @note, @pulse, @blood_pressure, @respiratory_rate, @weight, @height, @temperature, @type, current_timestamp(), current_timestamp());";
+        INSERT INTO examinations 
+        (id, patient_id, reason, diagnosis_id, doctor_note_id, note, pulse, blood_pressure, respiratory_rate, weight, height, temperature, type, created_at, updated_at) 
+        VALUES 
+        (NULL, @patient_id, @reason, @diagnosis_id, @doctor_note_id, @note, @pulse, @blood_pressure, @respiratory_rate, @weight, @height, @temperature, @type, current_timestamp(), current_timestamp());";
 
                 MySqlCommand cmd = new MySqlCommand(queryExamination, Db.conn);
-
-                // Gán giá trị cho các parameter
                 cmd.Parameters.AddWithValue("@patient_id", Convert.ToInt16(txb_id.Text));
                 cmd.Parameters.AddWithValue("@reason", lbsdfsf.Text);
-                cmd.Parameters.AddWithValue("@diagnosis_id", Convert.ToInt16(cb_diagnoses.SelectedValue));
+                cmd.Parameters.AddWithValue("@diagnosis_id", diagnosisID);
                 cmd.Parameters.AddWithValue("@doctor_note_id", Convert.ToInt16(cb_doctornote.SelectedValue));
                 cmd.Parameters.AddWithValue("@note", txb_note.Text);
                 cmd.Parameters.AddWithValue("@pulse", txb_pulse.Text);
@@ -364,10 +392,12 @@ namespace QuanLyPhongKham
                 cmd.Parameters.AddWithValue("@type", "toa thuốc");
 
                 cmd.ExecuteNonQuery();
-                string queryGetExamID = "SELECT LAST_INSERT_ID();";
-                cmd = new MySqlCommand(queryGetExamID, Db.conn);
+
+                // Lấy ID phiếu khám
+                cmd = new MySqlCommand("SELECT LAST_INSERT_ID();", Db.conn);
                 int examinationID = Convert.ToInt32(cmd.ExecuteScalar());
 
+                // Lưu thuốc
                 foreach (DataGridViewRow row in dtgv_med.Rows)
                 {
                     if (row.Cells[0].Value != null)
@@ -388,6 +418,7 @@ namespace QuanLyPhongKham
                         cmd.ExecuteNonQuery();
                     }
                 }
+
                 LoadExamID();
                 MessageBox.Show("Thêm phiếu khám và toa thuốc thành công!");
             }
@@ -397,8 +428,9 @@ namespace QuanLyPhongKham
             }
             finally
             {
-                ResetConnection();
+                Db.ResetConnection();
             }
+
         }
         private void ResetConnection()
         {
@@ -452,18 +484,46 @@ namespace QuanLyPhongKham
         {
             try
             {
+                // Mở kết nối
+                Db.ResetConnection();
+
+                // Kiểm tra chẩn đoán đã tồn tại chưa (dùng tham số để tránh lỗi SQL Injection)
+                string checkDiagnosisQuery = "SELECT id FROM diagnoses WHERE name = @name";
+                MySqlCommand cmd = new MySqlCommand(checkDiagnosisQuery, Db.conn);
+                cmd.Parameters.AddWithValue("@name", cbo_diagnoses.Text);
+
+                object result = cmd.ExecuteScalar();
+                int diagnosisId;
+
+                if (result == null)
+                {
+                    // Chẩn đoán chưa tồn tại, thêm mới
+                    string insertDiagnosisQuery = "INSERT INTO diagnoses (name) VALUES (@name)";
+                    cmd = new MySqlCommand(insertDiagnosisQuery, Db.conn);
+                    cmd.Parameters.AddWithValue("@name", cbo_diagnoses.Text);
+                    cmd.ExecuteNonQuery();
+
+                    // Lấy ID mới thêm
+                    cmd = new MySqlCommand("SELECT LAST_INSERT_ID();", Db.conn);
+                    diagnosisId = Convert.ToInt32(cmd.ExecuteScalar());
+                }
+                else
+                {
+                    // Chẩn đoán đã tồn tại, lấy id
+                    diagnosisId = Convert.ToInt32(result);
+                }
+
+                // Thêm phiếu khám
                 string queryExamination = @"
 INSERT INTO examinations 
 (id, patient_id, reason, diagnosis_id, doctor_note_id, note, pulse, blood_pressure, respiratory_rate, weight, height, temperature, type, created_at, updated_at) 
 VALUES 
 (NULL, @patient_id, @reason, @diagnosis_id, @doctor_note_id, @note, @pulse, @blood_pressure, @respiratory_rate, @weight, @height, @temperature, @type, current_timestamp(), current_timestamp());";
 
-                MySqlCommand cmd = new MySqlCommand(queryExamination, Db.conn);
-
-                // Gán giá trị cho các parameter
+                cmd = new MySqlCommand(queryExamination, Db.conn);
                 cmd.Parameters.AddWithValue("@patient_id", Convert.ToInt16(txb_id.Text));
                 cmd.Parameters.AddWithValue("@reason", txb_reason.Text);
-                cmd.Parameters.AddWithValue("@diagnosis_id", Convert.ToInt16(cb_diagnoses.SelectedValue));
+                cmd.Parameters.AddWithValue("@diagnosis_id", diagnosisId);
                 cmd.Parameters.AddWithValue("@doctor_note_id", Convert.ToInt16(cb_doctornote.SelectedValue));
                 cmd.Parameters.AddWithValue("@note", txb_note.Text);
                 cmd.Parameters.AddWithValue("@pulse", txb_pulse.Text);
@@ -475,25 +535,28 @@ VALUES
                 cmd.Parameters.AddWithValue("@type", "chỉ định");
 
                 cmd.ExecuteNonQuery();
-                string queryGetExamID = "SELECT LAST_INSERT_ID();";
-                cmd = new MySqlCommand(queryGetExamID, Db.conn);
+
+                // Lấy ID phiếu khám
+                cmd = new MySqlCommand("SELECT LAST_INSERT_ID();", Db.conn);
                 int examinationID = Convert.ToInt32(cmd.ExecuteScalar());
 
+                // Thêm các dịch vụ chỉ định
                 foreach (DataGridViewRow row in dtgv_service_patient.Rows)
                 {
                     if (row.Cells[0].Value != null)
                     {
-                        string queryMedication = "INSERT INTO `examination_services` " +
-                            "(`id`, `examination_id`, `service_id`, `price`) VALUES " +
-                            "(NULL, @examination_id, @service_id, @price);";
-                        cmd = new MySqlCommand(queryMedication, Db.conn);
+                        string queryService = @"
+INSERT INTO examination_services 
+(id, examination_id, service_id, price) 
+VALUES (NULL, @examination_id, @service_id, @price);";
+                        cmd = new MySqlCommand(queryService, Db.conn);
                         cmd.Parameters.AddWithValue("@examination_id", examinationID);
                         cmd.Parameters.AddWithValue("@service_id", row.Cells[0].Value);
                         cmd.Parameters.AddWithValue("@price", row.Cells[2].Value);
-
                         cmd.ExecuteNonQuery();
                     }
                 }
+
                 LoadExamID();
                 MessageBox.Show("Lưu chỉ định thành công");
             }
@@ -505,6 +568,7 @@ VALUES
             {
                 ResetConnection();
             }
+
         }
         private void UpdateTotalServicePrice()
         {
@@ -576,7 +640,7 @@ VALUES
             var ngaysinh = txb_ngaysinh.Text;
             var gioitinh = txb_gender.Text;
             var loidan = cb_doctornote.Text;
-            var chandoan = cb_diagnoses.Text;
+            var chandoan = cbo_diagnoses.Text;
             var chandoanphu = txb_reason.Text;
             var tongtien = lb_total_price_service.Text;
             var ngaykham = DateTime.Now.ToString("dd/MM/yyyy");
@@ -595,7 +659,7 @@ VALUES
             var ngaysinh = txb_ngaysinh.Text;
             var gioitinh = txb_gender.Text;
             var loidan = cb_doctornote.Text;
-            var chandoan = cb_diagnoses.Text;
+            var chandoan = cbo_diagnoses.Text;
             var chandoanphu = txb_reason.Text;
             var ngaykham = DateTime.Now.ToString("dd/MM/yyyy");
             frm_report_med frm = new frm_report_med(
@@ -639,6 +703,8 @@ VALUES
             return dt;
 
         }
+       
+
     } 
 }
 
