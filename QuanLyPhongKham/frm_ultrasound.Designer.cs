@@ -40,11 +40,13 @@
             this.rdn_all = new System.Windows.Forms.RadioButton();
             this.rdn_noresult = new System.Windows.Forms.RadioButton();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.pb_4 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.pb_3 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.btn_upload = new System.Windows.Forms.Button();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.pb_1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.txb_search = new Guna.UI2.WinForms.Guna2TextBox();
             this.pb_2 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.pb_1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.rdn_resulted = new System.Windows.Forms.RadioButton();
             this.dtpk_fromdate = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
@@ -99,18 +101,16 @@
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.pb_3 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.pb_4 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_exam)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_service)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_4)).BeginInit();
             this.SuspendLayout();
             // 
             // dtpk_todate
@@ -177,6 +177,26 @@
             this.guna2Panel1.TabIndex = 4;
             this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
             // 
+            // pb_4
+            // 
+            this.pb_4.ImageRotate = 0F;
+            this.pb_4.Location = new System.Drawing.Point(367, 597);
+            this.pb_4.Margin = new System.Windows.Forms.Padding(4);
+            this.pb_4.Name = "pb_4";
+            this.pb_4.Size = new System.Drawing.Size(273, 179);
+            this.pb_4.TabIndex = 53;
+            this.pb_4.TabStop = false;
+            // 
+            // pb_3
+            // 
+            this.pb_3.ImageRotate = 0F;
+            this.pb_3.Location = new System.Drawing.Point(367, 410);
+            this.pb_3.Margin = new System.Windows.Forms.Padding(4);
+            this.pb_3.Name = "pb_3";
+            this.pb_3.Size = new System.Drawing.Size(273, 179);
+            this.pb_3.TabIndex = 60;
+            this.pb_3.TabStop = false;
+            // 
             // btn_upload
             // 
             this.btn_upload.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -197,6 +217,16 @@
             this.webBrowser1.Name = "webBrowser1";
             this.webBrowser1.Size = new System.Drawing.Size(272, 365);
             this.webBrowser1.TabIndex = 58;
+            // 
+            // pb_1
+            // 
+            this.pb_1.ImageRotate = 0F;
+            this.pb_1.Location = new System.Drawing.Point(367, 36);
+            this.pb_1.Margin = new System.Windows.Forms.Padding(4);
+            this.pb_1.Name = "pb_1";
+            this.pb_1.Size = new System.Drawing.Size(273, 179);
+            this.pb_1.TabIndex = 51;
+            this.pb_1.TabStop = false;
             // 
             // txb_search
             // 
@@ -227,16 +257,6 @@
             this.pb_2.Size = new System.Drawing.Size(273, 179);
             this.pb_2.TabIndex = 52;
             this.pb_2.TabStop = false;
-            // 
-            // pb_1
-            // 
-            this.pb_1.ImageRotate = 0F;
-            this.pb_1.Location = new System.Drawing.Point(367, 36);
-            this.pb_1.Margin = new System.Windows.Forms.Padding(4);
-            this.pb_1.Name = "pb_1";
-            this.pb_1.Size = new System.Drawing.Size(273, 179);
-            this.pb_1.TabIndex = 51;
-            this.pb_1.TabStop = false;
             // 
             // rdn_resulted
             // 
@@ -853,26 +873,6 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // pb_3
-            // 
-            this.pb_3.ImageRotate = 0F;
-            this.pb_3.Location = new System.Drawing.Point(367, 410);
-            this.pb_3.Margin = new System.Windows.Forms.Padding(4);
-            this.pb_3.Name = "pb_3";
-            this.pb_3.Size = new System.Drawing.Size(273, 179);
-            this.pb_3.TabIndex = 60;
-            this.pb_3.TabStop = false;
-            // 
-            // pb_4
-            // 
-            this.pb_4.ImageRotate = 0F;
-            this.pb_4.Location = new System.Drawing.Point(367, 597);
-            this.pb_4.Margin = new System.Windows.Forms.Padding(4);
-            this.pb_4.Name = "pb_4";
-            this.pb_4.Size = new System.Drawing.Size(273, 179);
-            this.pb_4.TabIndex = 53;
-            this.pb_4.TabStop = false;
-            // 
             // frm_ultrasound
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -887,16 +887,16 @@
             this.Load += new System.EventHandler(this.frm_ultrasound_Load);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_exam)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_service)).EndInit();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pb_3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_4)).EndInit();
             this.ResumeLayout(false);
 
         }
