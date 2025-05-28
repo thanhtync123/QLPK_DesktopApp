@@ -17,7 +17,9 @@ namespace QuanLyPhongKham
     public partial class frm_test : Form
     {
         bool isUserChangingTemplate = false;
-       
+        private int lastClickedRowIndex = -1;
+        private bool isLoadingResults = false;
+
         public frm_test()
         {
             InitializeComponent();
@@ -29,7 +31,7 @@ namespace QuanLyPhongKham
             LoadExam.InitialDTGVCommon(dtgv_exam);
             LoadExam.LoadDTGVCommon(dtgv_exam, "Xét nghiệm");
             LoadComboboxTemplate();
-          
+
         }
         private void LoadComboboxTemplate()
         {
@@ -43,7 +45,7 @@ namespace QuanLyPhongKham
             {
 
                 DataGridViewRow row = dtgv_exam.Rows[e.RowIndex];
-         
+
                 var date_of_birth = row.Cells["date_of_birth"].Value?.ToString(); // <-- Thêm dòng này
                 Db.SetTextAndMoveCursorToEnd(txb_id_exam, row.Cells["id_exam"].Value?.ToString());
                 Db.SetTextAndMoveCursorToEnd(txb_id_patient, row.Cells["id_patient"].Value?.ToString());
@@ -193,11 +195,14 @@ namespace QuanLyPhongKham
 
         private void cb_template_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Only process this if it's not being triggered during result loading
+            if (isLoadingResults) return;
+
             dtgv_result.Rows.Clear();
             if (cb_template.SelectedIndex > 0)
             {
                 LoadDataToDataGridViewResult();
-                int selectedTemplateId = Convert.ToInt32(cb_template.SelectedValue); 
+                int selectedTemplateId = Convert.ToInt32(cb_template.SelectedValue);
                 string sql = "SELECT `template_content`,`result_content` FROM `templates` WHERE `id` = @template_id;";
                 Db.ResetConnection();
                 Db.cmd = new MySqlCommand(sql, Db.conn);
@@ -206,17 +211,12 @@ namespace QuanLyPhongKham
 
                 if (Db.dr.Read())
                 {
-                  
                     txb_final_result.Text = Db.dr["result_content"].ToString();
                 }
-
 
                 Db.dr.Close();
                 Db.ResetConnection();
             }
-            
-               
-
         }
         private void LoadDataToDataGridViewResult()
         {
@@ -303,13 +303,27 @@ namespace QuanLyPhongKham
 
             try
             {
+                // Set flag to indicate we're loading results to prevent interference from other events
+                isLoadingResults = true;
+
                 DataGridViewRow row = dtgv_service.Rows[e.RowIndex];
                 var name_service = row.Cells["name"].Value?.ToString();
                 txb_service.Text = name_service;
 
-                // Clear previous results
-                dtgv_result.Rows.Clear();
-                txb_final_result.Text = string.Empty;
+                // Only clear previous results if we're clicking a different row
+                if (lastClickedRowIndex != e.RowIndex)
+                {
+                    dtgv_result.Rows.Clear();
+                    txb_final_result.Text = string.Empty;
+
+                    // Reset template selection to avoid interference
+                    isUserChangingTemplate = false;
+                    cb_template.SelectedIndex = 0;
+                    isUserChangingTemplate = true;
+                }
+
+                // Update the last clicked row index
+                lastClickedRowIndex = e.RowIndex;
 
                 if (dtgv_service.CurrentRow.Cells["state"].Value.ToString() == "Đã có KQ")
                 {
@@ -317,17 +331,17 @@ namespace QuanLyPhongKham
                     btn_edit.Enabled = true;
 
                     string sql = @"SELECT 
-                es.id AS examination_service_id,
-                er.result AS result,
-                er.template_id,
-                er.final_result
-            FROM 
-                examinations e
-            JOIN examination_services es ON e.id = es.examination_id
-            JOIN services s ON es.service_id = s.id
-            JOIN examination_results er ON er.examination_service_id = es.id
-            WHERE 
-                er.examination_service_id = @examination_service_id";
+                        es.id AS examination_service_id,
+                        er.result AS result,
+                        er.template_id,
+                        er.final_result
+                    FROM 
+                        examinations e
+                    JOIN examination_services es ON e.id = es.examination_id
+                    JOIN services s ON es.service_id = s.id
+                    JOIN examination_results er ON er.examination_service_id = es.id
+                    WHERE 
+                        er.examination_service_id = @examination_service_id";
 
                     var exam_service_id = Convert.ToInt32(dtgv_service.CurrentRow.Cells["examination_service_id"].Value);
 
@@ -340,11 +354,14 @@ namespace QuanLyPhongKham
                         {
                             if (reader.Read())
                             {
+                                // Disable template change events temporarily
                                 isUserChangingTemplate = false;
+
+                                // Clear grid before adding new data
+                                dtgv_result.Rows.Clear();
 
                                 // Display final result
                                 Db.SetTextAndMoveCursorToEnd(txb_final_result, reader["final_result"].ToString());
-
 
                                 // Set template combobox
                                 var templateId = reader["template_id"];
@@ -400,28 +417,33 @@ namespace QuanLyPhongKham
                                 {
                                     MessageBox.Show("Không có dữ liệu kết quả.");
                                 }
-                            }
-                        } // reader sẽ tự động đóng ở đây
-                    } // cmd sẽ tự động đóng ở đây
 
-                    isUserChangingTemplate = true;
+                                // Re-enable template change events when everything is loaded
+                                isUserChangingTemplate = true;
+                            }
+                        }
+                    }
                 }
                 else
                 {
                     btn_save.Enabled = true;
                     btn_edit.Enabled = false;
+
+                    // Need to reset the combo box and clear final result
+                    isUserChangingTemplate = false;
                     cb_template.SelectedIndex = 0;
                     txb_final_result.Text = "";
-
-                    if (cb_template.SelectedIndex > 0)
-                    {
-                        LoadDataToDataGridViewResult();
-                    }
+                    isUserChangingTemplate = true;
                 }
             }
             catch (Exception ex)
             {
-                //MessageBox.Show("Lỗi: " + ex.Message);
+                MessageBox.Show("Lỗi khi tải dữ liệu: " + ex.Message);
+            }
+            finally
+            {
+                // Always reset this flag
+                isLoadingResults = false;
             }
         }
 
@@ -506,10 +528,10 @@ namespace QuanLyPhongKham
             var ngaykham = DateTime.Now.ToString("dd/MM/yyyy");
             var sdt = txb_phone.Text;
             DataTable dt = GetDataTableFromDataGridView(dtgv_result);
-            frm_report_test frm  = new frm_report_test(dt,mabn,tenbn,ngaysinh,chandoan,chandoanphu,diachi,ketqua,ngaykham,sdt);
-         
+            frm_report_test frm = new frm_report_test(dt, mabn, tenbn, ngaysinh, chandoan, chandoanphu, diachi, ketqua, ngaykham, sdt);
+
             frm.ShowDialog();
-          
+
         }
         public DataTable GetDataTableFromDataGridView(DataGridView dgv)
         {
@@ -543,9 +565,9 @@ namespace QuanLyPhongKham
 
         private void txb_search_TextChanged(object sender, EventArgs e)
         {
-			string keyword = txb_search.Text.Trim();
-			LoadExam.LoadDTGVCommon(dtgv_exam, "Xét nghiệm", keyword);
-		}
+            string keyword = txb_search.Text.Trim();
+            LoadExam.LoadDTGVCommon(dtgv_exam, "Xét nghiệm", keyword);
+        }
 
         private void guna2Panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -561,20 +583,7 @@ namespace QuanLyPhongKham
         {
 
         }
-
-        private void txb_gender_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2ImageButton1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }
+
+       
