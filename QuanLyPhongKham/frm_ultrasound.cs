@@ -95,41 +95,55 @@ namespace QuanLyPhongKham
             ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
             ofd.Multiselect = true;
 
-
             if (ofd.ShowDialog() == DialogResult.OK)
             {
-
                 var files = ofd.FileNames;
-                if (files.Length > 0)
+
+                // Xác định picturebox đầu tiên đang trống để thêm ảnh vào
+                PictureBox[] pictureBoxes = { pb_1, pb_2, pb_3, pb_4 };
+                string[] imageUrls = { imageUrl1, imageUrl2, imageUrl3, imageUrl4 };
+
+                int nextEmptyIndex = 0;
+                // Tìm vị trí trống đầu tiên
+                for (int i = 0; i < pictureBoxes.Length; i++)
                 {
-          
-                    imageUrl1 = files[0];
-                    pb_1.Image = Image.FromFile(files[0]);
-                }
-                if (files.Length > 1)
-                {
-              
-                    imageUrl2= files[1]; 
-                    pb_2.Image = Image.FromFile(files[1]);
-                }
-                if (files.Length > 0)
-                {
-              
-                    imageUrl3 = files[2];
-                    pb_3.Image = Image.FromFile(files[2]);
-                }
-                if (files.Length > 1)
-                {
-               
-                    imageUrl4 = files[3];
-                    pb_4.Image = Image.FromFile(files[3]);
+                    if (pictureBoxes[i].Image == null)
+                    {
+                        nextEmptyIndex = i;
+                        break;
+                    }
                 }
 
+                // Thêm các ảnh mới vào các picturebox trống
+                for (int i = 0; i < files.Length && nextEmptyIndex < pictureBoxes.Length; i++, nextEmptyIndex++)
+                {
+                    try
+                    {
+                        if (pictureBoxes[nextEmptyIndex].Image != null)
+                        {
+                            pictureBoxes[nextEmptyIndex].Image.Dispose();
+                        }
 
+                        pictureBoxes[nextEmptyIndex].Image = Image.FromFile(files[i]);
+                        pictureBoxes[nextEmptyIndex].Visible = true;
 
+                        // Lưu đường dẫn ảnh
+                        switch (nextEmptyIndex)
+                        {
+                            case 0: imageUrl1 = files[i]; break;
+                            case 1: imageUrl2 = files[i]; break;
+                            case 2: imageUrl3 = files[i]; break;
+                            case 3: imageUrl4 = files[i]; break;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Lỗi khi tải ảnh: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
-
         }
+
         private void btn_print_Click(object sender, EventArgs e)
         {
             var mabn = txb_id_patient.Text.Trim();
@@ -216,17 +230,30 @@ namespace QuanLyPhongKham
         {
             snapCount = 0;
             string projectDir = Directory.GetParent(Application.StartupPath).Parent.Parent.FullName;
-            string imagesDir = Path.Combine(projectDir, "images");
 
             PictureBox[] pictureBoxes = { pb_1, pb_2, pb_3, pb_4 };
             string[] imageUrls = new string[4];
+
+            // Luôn hiển thị các PictureBox trước, ngay cả khi chưa có ảnh
+            foreach (var pb in pictureBoxes)
+            {
+                pb.Visible = true;
+            }
 
             for (int i = 0; i < paths.Length && i < 4; i++)
             {
                 string fileName = paths[i].Trim();
                 if (!string.IsNullOrEmpty(fileName))
                 {
-                    string fullPath = Path.Combine(imagesDir, fileName);
+                    // Xử lý đường dẫn đúng
+                    string fullPath;
+                    if (fileName.StartsWith("images/"))
+                        fullPath = Path.Combine(projectDir, fileName); // Đường dẫn tương đối
+                    else
+                        fullPath = Path.Combine(projectDir, "images", fileName); // Chỉ tên file
+
+                    Console.WriteLine($"Đang tìm ảnh tại: {fullPath}");
+
                     if (File.Exists(fullPath))
                     {
                         try
@@ -238,7 +265,6 @@ namespace QuanLyPhongKham
                                 pb.Image = null;
                             }
                             pb.Image = Image.FromFile(fullPath);
-                            pb.Visible = true;
                             imageUrls[i] = fullPath;
                             snapCount++;
                         }
@@ -246,6 +272,11 @@ namespace QuanLyPhongKham
                         {
                             MessageBox.Show($"Lỗi khi đọc ảnh {fullPath}: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Không tìm thấy file: {fullPath}");
+                        MessageBox.Show($"Không tìm thấy file ảnh: {fullPath}", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
             }
@@ -257,55 +288,8 @@ namespace QuanLyPhongKham
             imageUrl4 = imageUrls[3];
 
             Console.WriteLine($"Đã hiển thị {snapCount} ảnh");
-
-            //snapCount = 0;
-            //string projectDir = Directory.GetParent(Application.StartupPath).Parent.Parent.FullName;
-            //string imagesDir = Path.Combine(projectDir, "images");
-
-            //for (int i = 0; i < paths.Length && i < 4; i++)
-            //{
-            //    string fileName = paths[i].Trim();
-            //    if (!string.IsNullOrEmpty(fileName))
-            //    {
-            //        string fullPath = Path.Combine(imagesDir, fileName);
-            //        if (File.Exists(fullPath))
-            //        {
-            //            try
-            //            {
-            //                PictureBox pb = null;
-            //                switch (i)
-            //                {
-            //                    case 0: pb = pb_1; break;
-            //                    case 1: pb = pb_2; break;
-            //                    case 2: pb = pb_3; break;
-            //                    case 3: pb = pb_4; break;
-            //                }
-            //                if (pb != null)
-            //                {
-            //                    if (pb.Image != null)
-            //                    {
-            //                        pb.Image.Dispose();
-            //                        pb.Image = null;
-            //                    }
-            //                    pb.Image = Image.FromFile(fullPath);
-            //                    pb.Visible = true;
-            //                    snapCount++;
-            //                }
-            //            }
-            //            catch (Exception ex)
-            //            {
-            //                MessageBox.Show($"Lỗi khi đọc ảnh {fullPath}: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //            }
-            //        }
-            //        else
-            //        {
-            //            Console.WriteLine($"File ảnh không tồn tại: {fullPath}");
-            //        }
-            //    }
-            //}
-
-            //Console.WriteLine($"Đã hiển thị {snapCount} ảnh");
         }
+
 
         private void dtgv_exam_CellClick(object sender, DataGridViewCellEventArgs e) // KHÔNG CẦN TẠO LẠI SỰ KIỆN VÌ ĐÃ TẠO
         {
@@ -354,16 +338,11 @@ namespace QuanLyPhongKham
         // Hàm reset các PictureBox
         private void ResetPictureBoxes()
         {
-            // Xóa tất cả ảnh và ẩn PictureBox
-            pb_1.Image = null;
-            pb_2.Image = null;
-            pb_3.Image = null;
-            pb_4.Image = null;
-
-            pb_1.Visible = false;
-            pb_2.Visible = false;
-            pb_3.Visible = false;
-            pb_4.Visible = false;
+            // Chỉ xóa ảnh, không ẩn PictureBox
+            if (pb_1.Image != null) { pb_1.Image.Dispose(); pb_1.Image = null; }
+            if (pb_2.Image != null) { pb_2.Image.Dispose(); pb_2.Image = null; }
+            if (pb_3.Image != null) { pb_3.Image.Dispose(); pb_3.Image = null; }
+            if (pb_4.Image != null) { pb_4.Image.Dispose(); pb_4.Image = null; }
 
             snapCount = 0;
         }
