@@ -48,32 +48,36 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(33, 105);
+            this.label1.Location = new System.Drawing.Point(44, 129);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 13);
+            this.label1.Size = new System.Drawing.Size(70, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tài khoản:";
             // 
             // txb_username
             // 
-            this.txb_username.Location = new System.Drawing.Point(94, 98);
+            this.txb_username.Location = new System.Drawing.Point(125, 121);
+            this.txb_username.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txb_username.Name = "txb_username";
-            this.txb_username.Size = new System.Drawing.Size(196, 20);
+            this.txb_username.Size = new System.Drawing.Size(260, 22);
             this.txb_username.TabIndex = 1;
             // 
             // txb_password
             // 
-            this.txb_password.Location = new System.Drawing.Point(94, 124);
+            this.txb_password.Location = new System.Drawing.Point(125, 153);
+            this.txb_password.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txb_password.Name = "txb_password";
-            this.txb_password.Size = new System.Drawing.Size(196, 20);
+            this.txb_password.Size = new System.Drawing.Size(260, 22);
             this.txb_password.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(33, 131);
+            this.label2.Location = new System.Drawing.Point(44, 161);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 13);
+            this.label2.Size = new System.Drawing.Size(64, 16);
             this.label2.TabIndex = 2;
             this.label2.Text = "Mật khẩu:";
             // 
@@ -100,10 +104,12 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtgv.DefaultCellStyle = dataGridViewCellStyle3;
             this.dtgv.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dtgv.Location = new System.Drawing.Point(317, 72);
+            this.dtgv.Location = new System.Drawing.Point(423, 89);
+            this.dtgv.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtgv.Name = "dtgv";
             this.dtgv.RowHeadersVisible = false;
-            this.dtgv.Size = new System.Drawing.Size(471, 361);
+            this.dtgv.RowHeadersWidth = 51;
+            this.dtgv.Size = new System.Drawing.Size(628, 444);
             this.dtgv.TabIndex = 4;
             this.dtgv.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgv.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -134,25 +140,28 @@
             this.cb_role.Items.AddRange(new object[] {
             "admin",
             "user"});
-            this.cb_role.Location = new System.Drawing.Point(98, 150);
+            this.cb_role.Location = new System.Drawing.Point(131, 185);
+            this.cb_role.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cb_role.Name = "cb_role";
-            this.cb_role.Size = new System.Drawing.Size(152, 21);
+            this.cb_role.Size = new System.Drawing.Size(201, 24);
             this.cb_role.TabIndex = 5;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(47, 159);
+            this.label3.Location = new System.Drawing.Point(63, 196);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 13);
+            this.label3.Size = new System.Drawing.Size(49, 16);
             this.label3.TabIndex = 6;
             this.label3.Text = "Quyền:";
             // 
             // btn_them
             // 
-            this.btn_them.Location = new System.Drawing.Point(94, 178);
+            this.btn_them.Location = new System.Drawing.Point(125, 219);
+            this.btn_them.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_them.Name = "btn_them";
-            this.btn_them.Size = new System.Drawing.Size(75, 23);
+            this.btn_them.Size = new System.Drawing.Size(100, 28);
             this.btn_them.TabIndex = 7;
             this.btn_them.Text = "Thêm";
             this.btn_them.UseVisualStyleBackColor = true;
@@ -160,9 +169,10 @@
             // 
             // btn_delete
             // 
-            this.btn_delete.Location = new System.Drawing.Point(175, 178);
+            this.btn_delete.Location = new System.Drawing.Point(233, 219);
+            this.btn_delete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_delete.Name = "btn_delete";
-            this.btn_delete.Size = new System.Drawing.Size(75, 23);
+            this.btn_delete.Size = new System.Drawing.Size(100, 28);
             this.btn_delete.TabIndex = 8;
             this.btn_delete.Text = "Xóa";
             this.btn_delete.UseVisualStyleBackColor = true;
@@ -170,25 +180,28 @@
             // 
             // txb_name
             // 
-            this.txb_name.Location = new System.Drawing.Point(94, 72);
+            this.txb_name.Location = new System.Drawing.Point(125, 89);
+            this.txb_name.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txb_name.Name = "txb_name";
-            this.txb_name.Size = new System.Drawing.Size(196, 20);
+            this.txb_name.Size = new System.Drawing.Size(260, 22);
             this.txb_name.TabIndex = 10;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 79);
+            this.label4.Location = new System.Drawing.Point(8, 97);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(85, 13);
+            this.label4.Size = new System.Drawing.Size(103, 16);
             this.label4.TabIndex = 9;
             this.label4.Text = "Tên người dùng:";
             // 
             // frm_users
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ControlBox = false;
             this.Controls.Add(this.txb_name);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btn_delete);
@@ -200,6 +213,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txb_username);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frm_users";
             this.Text = "frm_users";
             this.Load += new System.EventHandler(this.frm_users_Load);
