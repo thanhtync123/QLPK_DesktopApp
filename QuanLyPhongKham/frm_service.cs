@@ -140,5 +140,15 @@ namespace QuanLyPhongKham
             txb_price.Text = "";
            
         }
+
+        private void txb_id_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2ImageButton1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

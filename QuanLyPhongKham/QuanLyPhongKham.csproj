@@ -600,6 +600,51 @@
   <ItemGroup>
     <None Include="Resources\blood-test.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\electrocardiogram.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ultrasound.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\categories.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\diagnose.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\medical-advice.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\medicine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cost.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\google-forms.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lookup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\phieukham.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chidinh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\phieuthuoc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kq.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\analytics.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Web.WebView2.1.0.3179.45\build\Microsoft.Web.WebView2.targets" Condition="Exists('..\packages\Microsoft.Web.WebView2.1.0.3179.45\build\Microsoft.Web.WebView2.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -80,6 +80,16 @@ namespace QuanLyPhongKham
         {
             LoadThongKe();
         }
+
+        private void guna2ImageButton6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2ImageButton8_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

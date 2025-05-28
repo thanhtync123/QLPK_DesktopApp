@@ -235,6 +235,11 @@ namespace QuanLyPhongKham
                    OR type LIKE '%{keyword}%'";
             Db.LoadDTGV(dtgv, query);
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
     public class TemplateItem

@@ -54,7 +54,16 @@
             this.label16 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.guna2ImageButton9 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2ImageButton6 = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.guna2ImageButton7 = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.guna2ImageButton5 = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.guna2ImageButton8 = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.guna2ImageButton4 = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.guna2ImageButton2 = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.guna2ImageButton3 = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
@@ -68,7 +77,9 @@
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.Gold;
+            this.guna2Panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.guna2Panel1.BorderColor = System.Drawing.Color.Yellow;
+            this.guna2Panel1.Controls.Add(this.guna2ImageButton1);
             this.guna2Panel1.Controls.Add(this.label_1);
             this.guna2Panel1.Controls.Add(this.label1);
             this.guna2Panel1.Location = new System.Drawing.Point(521, 158);
@@ -104,6 +115,7 @@
             // 
             this.guna2Panel2.BackColor = System.Drawing.Color.Khaki;
             this.guna2Panel2.BorderColor = System.Drawing.Color.LawnGreen;
+            this.guna2Panel2.Controls.Add(this.guna2ImageButton3);
             this.guna2Panel2.Controls.Add(this.label_2);
             this.guna2Panel2.Controls.Add(this.label4);
             this.guna2Panel2.Location = new System.Drawing.Point(875, 158);
@@ -139,6 +151,7 @@
             // 
             this.guna2Panel3.BackColor = System.Drawing.Color.LemonChiffon;
             this.guna2Panel3.BorderColor = System.Drawing.Color.Yellow;
+            this.guna2Panel3.Controls.Add(this.guna2ImageButton4);
             this.guna2Panel3.Controls.Add(this.label_3);
             this.guna2Panel3.Controls.Add(this.label6);
             this.guna2Panel3.Location = new System.Drawing.Point(1220, 158);
@@ -174,6 +187,7 @@
             // 
             this.guna2Panel4.BackColor = System.Drawing.Color.GreenYellow;
             this.guna2Panel4.BorderColor = System.Drawing.Color.Yellow;
+            this.guna2Panel4.Controls.Add(this.guna2ImageButton5);
             this.guna2Panel4.Controls.Add(this.lb_6);
             this.guna2Panel4.Controls.Add(this.label8);
             this.guna2Panel4.Location = new System.Drawing.Point(1220, 288);
@@ -209,6 +223,7 @@
             // 
             this.guna2Panel5.BackColor = System.Drawing.Color.DarkKhaki;
             this.guna2Panel5.BorderColor = System.Drawing.Color.Yellow;
+            this.guna2Panel5.Controls.Add(this.guna2ImageButton8);
             this.guna2Panel5.Controls.Add(this.lb_5);
             this.guna2Panel5.Controls.Add(this.label10);
             this.guna2Panel5.Location = new System.Drawing.Point(875, 288);
@@ -244,6 +259,7 @@
             // 
             this.guna2Panel6.BackColor = System.Drawing.Color.PaleGoldenrod;
             this.guna2Panel6.BorderColor = System.Drawing.Color.Yellow;
+            this.guna2Panel6.Controls.Add(this.guna2ImageButton2);
             this.guna2Panel6.Controls.Add(this.lb_4);
             this.guna2Panel6.Controls.Add(this.label12);
             this.guna2Panel6.Location = new System.Drawing.Point(521, 288);
@@ -279,6 +295,7 @@
             // 
             this.guna2Panel7.BackColor = System.Drawing.Color.Honeydew;
             this.guna2Panel7.BorderColor = System.Drawing.Color.Yellow;
+            this.guna2Panel7.Controls.Add(this.guna2ImageButton6);
             this.guna2Panel7.Controls.Add(this.lb_8);
             this.guna2Panel7.Controls.Add(this.label14);
             this.guna2Panel7.Location = new System.Drawing.Point(1220, 433);
@@ -314,6 +331,7 @@
             // 
             this.guna2Panel8.BackColor = System.Drawing.Color.LimeGreen;
             this.guna2Panel8.BorderColor = System.Drawing.Color.Yellow;
+            this.guna2Panel8.Controls.Add(this.guna2ImageButton7);
             this.guna2Panel8.Controls.Add(this.lb_7);
             this.guna2Panel8.Controls.Add(this.label16);
             this.guna2Panel8.Location = new System.Drawing.Point(875, 433);
@@ -364,6 +382,22 @@
             this.dateTimePicker2.Size = new System.Drawing.Size(327, 30);
             this.dateTimePicker2.TabIndex = 10;
             // 
+            // guna2ImageButton9
+            // 
+            this.guna2ImageButton9.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ImageButton9.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton9.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton9.Image = global::QuanLyPhongKham.Properties.Resources.calendar;
+            this.guna2ImageButton9.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton9.ImageRotate = 0F;
+            this.guna2ImageButton9.ImageSize = new System.Drawing.Size(30, 30);
+            this.guna2ImageButton9.Location = new System.Drawing.Point(474, 79);
+            this.guna2ImageButton9.Name = "guna2ImageButton9";
+            this.guna2ImageButton9.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton9.Size = new System.Drawing.Size(40, 40);
+            this.guna2ImageButton9.TabIndex = 12;
+            this.guna2ImageButton9.UseTransparentBackground = true;
+            // 
             // guna2Button1
             // 
             this.guna2Button1.AutoRoundedCorners = true;
@@ -374,6 +408,7 @@
             this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.Image = global::QuanLyPhongKham.Properties.Resources.search__1_;
             this.guna2Button1.Location = new System.Drawing.Point(875, 79);
             this.guna2Button1.Margin = new System.Windows.Forms.Padding(4);
             this.guna2Button1.Name = "guna2Button1";
@@ -382,12 +417,136 @@
             this.guna2Button1.Text = "Xem";
             this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
+            // guna2ImageButton6
+            // 
+            this.guna2ImageButton6.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ImageButton6.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton6.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton6.Image = global::QuanLyPhongKham.Properties.Resources.blood_test1;
+            this.guna2ImageButton6.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton6.ImageRotate = 0F;
+            this.guna2ImageButton6.Location = new System.Drawing.Point(213, 12);
+            this.guna2ImageButton6.Name = "guna2ImageButton6";
+            this.guna2ImageButton6.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton6.Size = new System.Drawing.Size(82, 77);
+            this.guna2ImageButton6.TabIndex = 12;
+            this.guna2ImageButton6.UseTransparentBackground = true;
+            this.guna2ImageButton6.Click += new System.EventHandler(this.guna2ImageButton6_Click);
+            // 
+            // guna2ImageButton7
+            // 
+            this.guna2ImageButton7.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ImageButton7.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton7.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton7.Image = global::QuanLyPhongKham.Properties.Resources.ultrasound1;
+            this.guna2ImageButton7.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton7.ImageRotate = 0F;
+            this.guna2ImageButton7.Location = new System.Drawing.Point(209, 12);
+            this.guna2ImageButton7.Name = "guna2ImageButton7";
+            this.guna2ImageButton7.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton7.Size = new System.Drawing.Size(82, 77);
+            this.guna2ImageButton7.TabIndex = 12;
+            this.guna2ImageButton7.UseTransparentBackground = true;
+            // 
+            // guna2ImageButton5
+            // 
+            this.guna2ImageButton5.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ImageButton5.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton5.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton5.Image = global::QuanLyPhongKham.Properties.Resources.electrocardiogram1;
+            this.guna2ImageButton5.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton5.ImageRotate = 0F;
+            this.guna2ImageButton5.Location = new System.Drawing.Point(206, 12);
+            this.guna2ImageButton5.Name = "guna2ImageButton5";
+            this.guna2ImageButton5.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton5.Size = new System.Drawing.Size(82, 77);
+            this.guna2ImageButton5.TabIndex = 12;
+            this.guna2ImageButton5.UseTransparentBackground = true;
+            // 
+            // guna2ImageButton8
+            // 
+            this.guna2ImageButton8.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ImageButton8.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton8.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton8.Image = global::QuanLyPhongKham.Properties.Resources.x_ray1;
+            this.guna2ImageButton8.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton8.ImageRotate = 0F;
+            this.guna2ImageButton8.ImageSize = new System.Drawing.Size(80, 80);
+            this.guna2ImageButton8.Location = new System.Drawing.Point(209, 6);
+            this.guna2ImageButton8.Name = "guna2ImageButton8";
+            this.guna2ImageButton8.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton8.Size = new System.Drawing.Size(82, 86);
+            this.guna2ImageButton8.TabIndex = 12;
+            this.guna2ImageButton8.UseTransparentBackground = true;
+            this.guna2ImageButton8.Click += new System.EventHandler(this.guna2ImageButton8_Click);
+            // 
+            // guna2ImageButton4
+            // 
+            this.guna2ImageButton4.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ImageButton4.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton4.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton4.Image = global::QuanLyPhongKham.Properties.Resources.analytics1;
+            this.guna2ImageButton4.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton4.ImageRotate = 0F;
+            this.guna2ImageButton4.Location = new System.Drawing.Point(216, 10);
+            this.guna2ImageButton4.Name = "guna2ImageButton4";
+            this.guna2ImageButton4.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton4.Size = new System.Drawing.Size(82, 77);
+            this.guna2ImageButton4.TabIndex = 12;
+            this.guna2ImageButton4.UseTransparentBackground = true;
+            // 
+            // guna2ImageButton2
+            // 
+            this.guna2ImageButton2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ImageButton2.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton2.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton2.Image = global::QuanLyPhongKham.Properties.Resources.revenue;
+            this.guna2ImageButton2.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton2.ImageRotate = 0F;
+            this.guna2ImageButton2.Location = new System.Drawing.Point(195, 12);
+            this.guna2ImageButton2.Name = "guna2ImageButton2";
+            this.guna2ImageButton2.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton2.Size = new System.Drawing.Size(82, 77);
+            this.guna2ImageButton2.TabIndex = 12;
+            this.guna2ImageButton2.UseTransparentBackground = true;
+            // 
+            // guna2ImageButton3
+            // 
+            this.guna2ImageButton3.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ImageButton3.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton3.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton3.Image = global::QuanLyPhongKham.Properties.Resources.costmedi;
+            this.guna2ImageButton3.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton3.ImageRotate = 0F;
+            this.guna2ImageButton3.Location = new System.Drawing.Point(209, 10);
+            this.guna2ImageButton3.Name = "guna2ImageButton3";
+            this.guna2ImageButton3.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton3.Size = new System.Drawing.Size(82, 77);
+            this.guna2ImageButton3.TabIndex = 12;
+            this.guna2ImageButton3.UseTransparentBackground = true;
+            // 
+            // guna2ImageButton1
+            // 
+            this.guna2ImageButton1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ImageButton1.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton1.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton1.Image = global::QuanLyPhongKham.Properties.Resources.patient;
+            this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton1.ImageRotate = 0F;
+            this.guna2ImageButton1.Location = new System.Drawing.Point(195, 10);
+            this.guna2ImageButton1.Name = "guna2ImageButton1";
+            this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton1.Size = new System.Drawing.Size(82, 77);
+            this.guna2ImageButton1.TabIndex = 12;
+            this.guna2ImageButton1.UseTransparentBackground = true;
+            // 
             // frm_statistic
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(230)))));
-            this.ClientSize = new System.Drawing.Size(2112, 794);
+            this.ClientSize = new System.Drawing.Size(1942, 794);
+            this.Controls.Add(this.guna2ImageButton9);
             this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.dateTimePicker1);
@@ -453,5 +612,14 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton1;
+        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton2;
+        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton3;
+        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton4;
+        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton5;
+        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton8;
+        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton6;
+        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton7;
+        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton9;
     }
 }
