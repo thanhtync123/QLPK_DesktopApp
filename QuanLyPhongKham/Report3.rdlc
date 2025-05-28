@@ -1301,6 +1301,7 @@
                     <Value>Địa chỉ : Số 49,Đường Nguyễn Trãi,Xã Cái Nhum,Tỉnh Vĩnh Long</Value>
                     <Style>
                       <FontStyle>Italic</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
                       <FontSize>12pt</FontSize>
                       <Color>Red</Color>
                     </Style>
@@ -1337,6 +1338,7 @@
                   <TextRun>
                     <Value>  PHÒNG KHÁM Y KHOA </Value>
                     <Style>
+                      <FontFamily>TImes New Roman</FontFamily>
                       <FontSize>16pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                       <Color>Red</Color>
@@ -1352,6 +1354,7 @@
                   <TextRun>
                     <Value>THANH QUYỀN</Value>
                     <Style>
+                      <FontFamily>TImes New Roman</FontFamily>
                       <FontSize>24pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                       <Color>Red</Color>
