@@ -547,5 +547,105 @@ namespace QuanLyPhongKham
         {
 
         }
+        private void PasteImageFromClipboard()
+        {
+            try
+            {
+                // Kiểm tra xem clipboard có chứa hình ảnh không
+                if (Clipboard.ContainsImage())
+                {
+                    Image img = Clipboard.GetImage();
+                    if (img != null)
+                    {
+                        // Tìm PictureBox trống đầu tiên
+                        PictureBox[] pictureBoxes = { pb_1, pb_2, pb_3, pb_4 };
+                        PictureBox targetPb = null;
+                        int targetIndex = -1;
+
+                        for (int i = 0; i < pictureBoxes.Length; i++)
+                        {
+                            if (pictureBoxes[i].Image == null)
+                            {
+                                targetPb = pictureBoxes[i];
+                                targetIndex = i;
+                                break;
+                            }
+                        }
+
+                        if (targetPb != null)
+                        {
+                            // Gán ảnh vào PictureBox
+                            targetPb.Image = img;
+                            targetPb.Visible = true;
+
+                            // Lưu ảnh vào file và cập nhật đường dẫn
+                            string projectDir = Directory.GetParent(Application.StartupPath).Parent.Parent.FullName;
+                            string imagesDir = Path.Combine(projectDir, "images");
+                            Directory.CreateDirectory(imagesDir);
+
+                            string fileName = Guid.NewGuid() + ".jpg";
+                            string filePath = Path.Combine(imagesDir, fileName);
+                            img.Save(filePath, System.Drawing.Imaging.ImageFormat.Jpeg);
+
+                            // Cập nhật đường dẫn ảnh tương ứng
+                            switch (targetIndex)
+                            {
+                                case 0: imageUrl1 = filePath; break;
+                                case 1: imageUrl2 = filePath; break;
+                                case 2: imageUrl3 = filePath; break;
+                                case 3: imageUrl4 = filePath; break;
+                            }
+
+                            MessageBox.Show("Đã paste ảnh thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Tất cả các ô đã có ảnh. Vui lòng xóa ít nhất một ảnh để paste.",
+                                "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Clipboard không chứa hình ảnh.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi paste ảnh: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == (Keys.Control | Keys.V))
+            {
+                PasteImageFromClipboard();
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void btn_del_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn có chắc chắn muốn xóa tất cả ảnh?", "Xác nhận",
+        MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                // Giải phóng bộ nhớ cho các ảnh
+                if (pb_1.Image != null) { pb_1.Image.Dispose(); pb_1.Image = null; }
+                if (pb_2.Image != null) { pb_2.Image.Dispose(); pb_2.Image = null; }
+                if (pb_3.Image != null) { pb_3.Image.Dispose(); pb_3.Image = null; }
+                if (pb_4.Image != null) { pb_4.Image.Dispose(); pb_4.Image = null; }
+
+ 
+
+                // Xóa tất cả đường dẫn
+                imageUrl1 = imageUrl2 = imageUrl3 = imageUrl4 = null;
+
+                // Reset biến đếm ảnh
+                snapCount = 0;
+
+                MessageBox.Show("Đã xóa tất cả ảnh!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
     }
 }

@@ -101,6 +101,7 @@
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.btn_del = new System.Windows.Forms.Button();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_3)).BeginInit();
@@ -153,6 +154,7 @@
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(230)))));
+            this.guna2Panel1.Controls.Add(this.btn_del);
             this.guna2Panel1.Controls.Add(this.pb_4);
             this.guna2Panel1.Controls.Add(this.pb_3);
             this.guna2Panel1.Controls.Add(this.btn_upload);
@@ -873,6 +875,18 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // btn_del
+            // 
+            this.btn_del.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_del.Location = new System.Drawing.Point(450, 4);
+            this.btn_del.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_del.Name = "btn_del";
+            this.btn_del.Size = new System.Drawing.Size(98, 28);
+            this.btn_del.TabIndex = 61;
+            this.btn_del.Text = "Xóa ảnh";
+            this.btn_del.UseVisualStyleBackColor = true;
+            this.btn_del.Click += new System.EventHandler(this.btn_del_Click);
+            // 
             // frm_ultrasound
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -968,5 +982,6 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private Guna.UI2.WinForms.Guna2PictureBox pb_4;
         private Guna.UI2.WinForms.Guna2PictureBox pb_3;
+        private System.Windows.Forms.Button btn_del;
     }
 }
