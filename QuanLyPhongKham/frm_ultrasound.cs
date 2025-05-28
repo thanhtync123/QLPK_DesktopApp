@@ -34,6 +34,10 @@ namespace QuanLyPhongKham
         {
             LoadExam.LoadDTGVCommon(dtgv_exam, "Siêu âm");
             LoadComboboxTemplate();
+            chb_anh1.Checked=true;
+            chb_anh2.Checked = true;
+            chb_anh3.Checked = true;
+            chb_anh4.Checked = true;
 
         }
         private int snapCount = 0;
@@ -159,23 +163,54 @@ namespace QuanLyPhongKham
                 var ketqua = txb_final_result.Text.Trim();
                 var chidinh = txb_service.Text.Trim();
 
-                // Đảm bảo có ít nhất 1 ảnh để in
-                if (string.IsNullOrEmpty(imageUrl1) && string.IsNullOrEmpty(imageUrl2) &&
-                    string.IsNullOrEmpty(imageUrl3) && string.IsNullOrEmpty(imageUrl4))
+                // Tạo đường dẫn ảnh trống để tránh lỗi URI
+                string projectDir = Directory.GetParent(Application.StartupPath).Parent.Parent.FullName;
+                string emptyImagePath = Path.Combine(projectDir, "Resources", "empty.png");
+
+                // Đảm bảo ảnh trống tồn tại
+                if (!File.Exists(emptyImagePath))
                 {
-                    MessageBox.Show("Cần có ít nhất 1 ảnh để in kết quả.", "Thông báo",
+                    string resourcesDir = Path.Combine(projectDir, "Resources");
+                    Directory.CreateDirectory(resourcesDir);
+
+                    // Tạo ảnh trống 1x1 pixel
+                    using (Bitmap emptyBmp = new Bitmap(1, 1))
+                    {
+                        using (Graphics g = Graphics.FromImage(emptyBmp))
+                        {
+                            g.Clear(Color.Transparent);
+                        }
+                        emptyBmp.Save(emptyImagePath, System.Drawing.Imaging.ImageFormat.Png);
+                    }
+                }
+
+                // Thu thập các ảnh được chọn vào một danh sách
+                var selectedImages = new List<string>();
+
+                // Chỉ thêm vào danh sách nếu checkbox được chọn và ảnh tồn tại
+                if (chb_anh1.Checked && !string.IsNullOrEmpty(imageUrl1)) selectedImages.Add(imageUrl1);
+                if (chb_anh2.Checked && !string.IsNullOrEmpty(imageUrl2)) selectedImages.Add(imageUrl2);
+                if (chb_anh3.Checked && !string.IsNullOrEmpty(imageUrl3)) selectedImages.Add(imageUrl3);
+                if (chb_anh4.Checked && !string.IsNullOrEmpty(imageUrl4)) selectedImages.Add(imageUrl4);
+
+                // Kiểm tra xem có ảnh nào được chọn không
+                if (selectedImages.Count == 0)
+                {
+                    MessageBox.Show("Vui lòng chọn ít nhất một ảnh để in.", "Thông báo",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                // Chuyển đổi null thành chuỗi rỗng để tránh lỗi
-                string url1 = imageUrl1 ?? "";
-                string url2 = imageUrl2 ?? "";
-                string url3 = imageUrl3 ?? "";
-                string url4 = imageUrl4 ?? "";
+                // Đảm bảo luôn có đủ 4 ảnh để truyền vào báo cáo (thêm ảnh trống nếu cần)
+                while (selectedImages.Count < 4)
+                {
+                    selectedImages.Add(emptyImagePath);
+                }
 
+                // Truyền các ảnh theo thứ tự đã được tái sắp xếp
                 using (frm_report_ultrasound printForm = new frm_report_ultrasound(
-                    url1, url2, url3, url4, mabn, tenbn, ngaysinh, diachi, sdt,
+                    selectedImages[0], selectedImages[1], selectedImages[2], selectedImages[3],
+                    mabn, tenbn, ngaysinh, diachi, sdt,
                     chandoan, chandoanphu, mota, ketqua, chidinh))
                 {
                     printForm.ShowDialog();
@@ -187,6 +222,10 @@ namespace QuanLyPhongKham
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
+
+
 
         private void dtgv_service_CellClick(object sender, DataGridViewCellEventArgs e)
         {
