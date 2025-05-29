@@ -19,6 +19,15 @@ namespace QuanLyPhongKham
             btn_delete.Enabled = false;
 
             txb_search.TextChanged += txb_search_TextChanged;
+            dtgv.Columns["id"].Width = 60;
+            dtgv.Columns["name"].Width = 150;
+            dtgv.Columns["unit"].Width = 80;
+            dtgv.Columns["dosage"].Width = 100;
+            dtgv.Columns["route"].Width = 60;
+            dtgv.Columns["times_per_day"].Width = 60;
+            dtgv.Columns["note"].Width = 150;
+            dtgv.Columns["price"].Width = 70;
+
         }
 
         private void LoadDTGV()
