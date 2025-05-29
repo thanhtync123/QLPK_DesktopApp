@@ -32,6 +32,12 @@ namespace QuanLyPhongKham
             dtgv.Columns["name"].HeaderText = "Tên dịch vụ";
             dtgv.Columns["type"].HeaderText = "Loại";
             dtgv.Columns["price"].HeaderText = "Giá";
+
+            dtgv.Columns["id"].Width = 80;       // Mã dịch vụ – ngắn
+            dtgv.Columns["name"].Width = 200;    // Tên dịch vụ – dài hơn
+            dtgv.Columns["type"].Width = 100;    // Loại – trung bình
+            dtgv.Columns["price"].Width = 80;    // Giá – ngắn
+
         }
 
         private Dictionary<string, object> GetFormData()

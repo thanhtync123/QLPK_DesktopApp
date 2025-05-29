@@ -30,6 +30,12 @@ namespace QuanLyPhongKham
             dtgv.Columns["name"].HeaderText = "Tên mẫu";
             dtgv.Columns["type"].HeaderText = "Loại";
             dtgv.Columns["template_content"].HeaderText = "Nội dung mẫu";
+
+            dtgv.Columns["id"].Width = 80;                  // Mã mẫu – ngắn
+            dtgv.Columns["name"].Width = 150;               // Tên mẫu – vừa
+            dtgv.Columns["type"].Width = 100;               // Loại – vừa
+            dtgv.Columns["template_content"].Width = 180;   // Nội dung mẫu – vừa phải
+
         }
 
         private void cb_type_SelectedIndexChanged(object sender, EventArgs e)
