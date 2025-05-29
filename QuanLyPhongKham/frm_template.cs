@@ -19,6 +19,7 @@ namespace QuanLyPhongKham
             txb_id.ReadOnly = true;
             btn_update.Enabled = false;
             btn_delete.Enabled = false;
+   
             LoadDTGV();
         }
 
@@ -84,47 +85,34 @@ namespace QuanLyPhongKham
         {
             if (cb_type.Text == "Xét nghiệm")
             {
-                var groupedResults = new Dictionary<string, List<TemplateItem>>();
+                var items = new List<TemplateItem>();
 
                 foreach (DataGridViewRow row in dtgv_content.Rows)
                 {
                     if (row.IsNewRow) continue;
 
-                    string name = row.Cells[0].Value?.ToString();
-                    string testName = row.Cells[1].Value?.ToString();
-                    string resultValue = row.Cells[2].Value?.ToString();
-                    string unit = row.Cells[3].Value?.ToString();
-                    string normalRange = row.Cells[4].Value?.ToString();
+                    string indication = row.Cells[0].Value?.ToString();
+                    string result = row.Cells[1].Value?.ToString();
+                    string unit = row.Cells[2].Value?.ToString();
+                    string normalRange = row.Cells[3].Value?.ToString();
 
-                    if (!groupedResults.ContainsKey(name))
-                        groupedResults[name] = new List<TemplateItem>();
-
-                    groupedResults[name].Add(new TemplateItem
+                    items.Add(new TemplateItem
                     {
-                        test_name = testName,
-                        result = resultValue,
+                        indication = indication,
+                        result = result,
                         unit = unit,
                         normal_range = normalRange
                     });
                 }
 
-                var templateGroups = new List<TemplateGroup>();
-                foreach (var pair in groupedResults)
-                {
-                    templateGroups.Add(new TemplateGroup
-                    {
-                        name = pair.Key,
-                        results = pair.Value
-                    });
-                }
-
-                return JsonConvert.SerializeObject(templateGroups, Formatting.Indented);
+                return JsonConvert.SerializeObject(items, Formatting.Indented);
             }
             else
             {
                 return txb_content.Text.Trim();
             }
         }
+
 
         private void LoadJsonToDtgvContent(string json)
         {
@@ -135,13 +123,10 @@ namespace QuanLyPhongKham
 
             try
             {
-                var list = JsonConvert.DeserializeObject<List<TemplateGroup>>(json);
-                foreach (var group in list)
+                var list = JsonConvert.DeserializeObject<List<TemplateItem>>(json);
+                foreach (var item in list)
                 {
-                    foreach (var item in group.results)
-                    {
-                        dtgv_content.Rows.Add(group.name, item.test_name, item.result, item.unit, item.normal_range);
-                    }
+                    dtgv_content.Rows.Add(item.indication, item.result, item.unit, item.normal_range);
                 }
             }
             catch (Exception ex)
@@ -149,6 +134,7 @@ namespace QuanLyPhongKham
                 MessageBox.Show("Lỗi khi đọc nội dung xét nghiệm: " + ex.Message);
             }
         }
+
 
         private void ClearForm()
         {
@@ -250,7 +236,7 @@ namespace QuanLyPhongKham
 
     public class TemplateItem
     {
-        public string test_name { get; set; }
+        public string indication { get; set; }     // Chỉ định (gộp tên xét nghiệm + tên kết quả)
         public string result { get; set; }
         public string unit { get; set; }
         public string normal_range { get; set; }

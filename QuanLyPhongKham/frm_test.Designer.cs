@@ -76,12 +76,6 @@
             this.txb_reason1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.dtgv_result = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.t_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.t_rs_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.t_result = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.t_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.t_normal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.t_note = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtgv_service = new Guna.UI2.WinForms.Guna2DataGridView();
             this.examination_service_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -101,6 +95,10 @@
             this.txb_name = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.t_indication = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.t_result = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.t_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.t_normal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_exam)).BeginInit();
@@ -633,12 +631,10 @@
             this.dtgv_result.ColumnHeadersHeight = 35;
             this.dtgv_result.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dtgv_result.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.t_name,
-            this.t_rs_name,
+            this.t_indication,
             this.t_result,
             this.t_unit,
-            this.t_normal,
-            this.t_note});
+            this.t_normal});
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -676,42 +672,6 @@
             this.dtgv_result.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtgv_result.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dtgv_result.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_result_CellContentClick);
-            // 
-            // t_name
-            // 
-            this.t_name.HeaderText = "Tên xét nghiệm";
-            this.t_name.MinimumWidth = 6;
-            this.t_name.Name = "t_name";
-            // 
-            // t_rs_name
-            // 
-            this.t_rs_name.HeaderText = "Tên kết quả";
-            this.t_rs_name.MinimumWidth = 6;
-            this.t_rs_name.Name = "t_rs_name";
-            // 
-            // t_result
-            // 
-            this.t_result.HeaderText = "Kết quả";
-            this.t_result.MinimumWidth = 6;
-            this.t_result.Name = "t_result";
-            // 
-            // t_unit
-            // 
-            this.t_unit.HeaderText = "Đơn vị";
-            this.t_unit.MinimumWidth = 6;
-            this.t_unit.Name = "t_unit";
-            // 
-            // t_normal
-            // 
-            this.t_normal.HeaderText = "Chỉ số bình thường";
-            this.t_normal.MinimumWidth = 6;
-            this.t_normal.Name = "t_normal";
-            // 
-            // t_note
-            // 
-            this.t_note.HeaderText = "Ghi chú";
-            this.t_note.MinimumWidth = 6;
-            this.t_note.Name = "t_note";
             // 
             // dtgv_service
             // 
@@ -919,12 +879,36 @@
             this.panel1.Size = new System.Drawing.Size(1234, 722);
             this.panel1.TabIndex = 3;
             // 
+            // t_indication
+            // 
+            this.t_indication.HeaderText = "Chỉ định";
+            this.t_indication.MinimumWidth = 6;
+            this.t_indication.Name = "t_indication";
+            // 
+            // t_result
+            // 
+            this.t_result.HeaderText = "Kết quả";
+            this.t_result.MinimumWidth = 6;
+            this.t_result.Name = "t_result";
+            // 
+            // t_unit
+            // 
+            this.t_unit.HeaderText = "Đơn vị";
+            this.t_unit.MinimumWidth = 6;
+            this.t_unit.Name = "t_unit";
+            // 
+            // t_normal
+            // 
+            this.t_normal.HeaderText = "Chỉ số bình thường";
+            this.t_normal.MinimumWidth = 6;
+            this.t_normal.Name = "t_normal";
+            // 
             // frm_test
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(230)))));
-            this.ClientSize = new System.Drawing.Size(1455, 855);
+            this.ClientSize = new System.Drawing.Size(1605, 855);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -1000,16 +984,14 @@
         private Guna.UI2.WinForms.Guna2TextBox txb_search;
         private System.Windows.Forms.TextBox txb_reason1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn t_name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn t_rs_name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn t_result;
-        private System.Windows.Forms.DataGridViewTextBoxColumn t_unit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn t_normal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn t_note;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton1;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton5;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton4;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton3;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn t_indication;
+        private System.Windows.Forms.DataGridViewTextBoxColumn t_result;
+        private System.Windows.Forms.DataGridViewTextBoxColumn t_unit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn t_normal;
     }
 }

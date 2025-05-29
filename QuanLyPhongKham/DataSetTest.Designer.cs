@@ -279,17 +279,13 @@ namespace QuanLyPhongKham {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class DataTable1DataTable : global::System.Data.TypedTableBase<DataTable1Row> {
             
-            private global::System.Data.DataColumn columnt_name;
-            
-            private global::System.Data.DataColumn columnt_rs_name;
+            private global::System.Data.DataColumn columnt_indication;
             
             private global::System.Data.DataColumn columnt_result;
             
             private global::System.Data.DataColumn columnt_unit;
             
             private global::System.Data.DataColumn columnt_normal;
-            
-            private global::System.Data.DataColumn columnt_note;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -326,17 +322,9 @@ namespace QuanLyPhongKham {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn t_nameColumn {
+            public global::System.Data.DataColumn t_indicationColumn {
                 get {
-                    return this.columnt_name;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn t_rs_nameColumn {
-                get {
-                    return this.columnt_rs_name;
+                    return this.columnt_indication;
                 }
             }
             
@@ -361,14 +349,6 @@ namespace QuanLyPhongKham {
             public global::System.Data.DataColumn t_normalColumn {
                 get {
                     return this.columnt_normal;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn t_noteColumn {
-                get {
-                    return this.columnt_note;
                 }
             }
             
@@ -409,15 +389,13 @@ namespace QuanLyPhongKham {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DataTable1Row AddDataTable1Row(string t_name, string t_rs_name, string t_result, string t_unit, string t_normal, string t_note) {
+            public DataTable1Row AddDataTable1Row(string t_indication, string t_result, string t_unit, string t_normal) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        t_name,
-                        t_rs_name,
+                        t_indication,
                         t_result,
                         t_unit,
-                        t_normal,
-                        t_note};
+                        t_normal};
                 rowDataTable1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable1Row);
                 return rowDataTable1Row;
@@ -440,29 +418,23 @@ namespace QuanLyPhongKham {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
-                this.columnt_name = base.Columns["t_name"];
-                this.columnt_rs_name = base.Columns["t_rs_name"];
+                this.columnt_indication = base.Columns["t_indication"];
                 this.columnt_result = base.Columns["t_result"];
                 this.columnt_unit = base.Columns["t_unit"];
                 this.columnt_normal = base.Columns["t_normal"];
-                this.columnt_note = base.Columns["t_note"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columnt_name = new global::System.Data.DataColumn("t_name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnt_name);
-                this.columnt_rs_name = new global::System.Data.DataColumn("t_rs_name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnt_rs_name);
+                this.columnt_indication = new global::System.Data.DataColumn("t_indication", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnt_indication);
                 this.columnt_result = new global::System.Data.DataColumn("t_result", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnt_result);
                 this.columnt_unit = new global::System.Data.DataColumn("t_unit", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnt_unit);
                 this.columnt_normal = new global::System.Data.DataColumn("t_normal", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnt_normal);
-                this.columnt_note = new global::System.Data.DataColumn("t_note", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnt_note);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -605,33 +577,17 @@ namespace QuanLyPhongKham {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string t_name {
+            public string t_indication {
                 get {
                     try {
-                        return ((string)(this[this.tableDataTable1.t_nameColumn]));
+                        return ((string)(this[this.tableDataTable1.t_indicationColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'t_name\' in table \'DataTable1\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'t_indication\' in table \'DataTable1\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDataTable1.t_nameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string t_rs_name {
-                get {
-                    try {
-                        return ((string)(this[this.tableDataTable1.t_rs_nameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'t_rs_name\' in table \'DataTable1\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableDataTable1.t_rs_nameColumn] = value;
+                    this[this.tableDataTable1.t_indicationColumn] = value;
                 }
             }
             
@@ -685,42 +641,14 @@ namespace QuanLyPhongKham {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string t_note {
-                get {
-                    try {
-                        return ((string)(this[this.tableDataTable1.t_noteColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'t_note\' in table \'DataTable1\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableDataTable1.t_noteColumn] = value;
-                }
+            public bool Ist_indicationNull() {
+                return this.IsNull(this.tableDataTable1.t_indicationColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Ist_nameNull() {
-                return this.IsNull(this.tableDataTable1.t_nameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Sett_nameNull() {
-                this[this.tableDataTable1.t_nameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Ist_rs_nameNull() {
-                return this.IsNull(this.tableDataTable1.t_rs_nameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Sett_rs_nameNull() {
-                this[this.tableDataTable1.t_rs_nameColumn] = global::System.Convert.DBNull;
+            public void Sett_indicationNull() {
+                this[this.tableDataTable1.t_indicationColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -757,18 +685,6 @@ namespace QuanLyPhongKham {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Sett_normalNull() {
                 this[this.tableDataTable1.t_normalColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Ist_noteNull() {
-                return this.IsNull(this.tableDataTable1.t_noteColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Sett_noteNull() {
-                this[this.tableDataTable1.t_noteColumn] = global::System.Convert.DBNull;
             }
         }
         

@@ -57,7 +57,20 @@ namespace QuanLyPhongKham
         }
         private void LoadGrid()
         {
-           
+
+            dtgv_patients.Columns.Clear();
+            dtgv_patients.Columns.Add("ID", "ID");
+            dtgv_patients.Columns.Add("name", "Tên BN");
+            dtgv_patients.Columns.Add("date_of_birth", "Ngày sinh");
+            dtgv_patients.Columns.Add("gender", "Giới tính");
+            dtgv_patients.Columns.Add("phone", "SĐT");
+            dtgv_patients.Columns.Add("address", "Địa chỉ");
+            dtgv_patients.Columns.Add("time_patients", "Thời gian cập nhật");
+            foreach (DataGridViewColumn col in dtgv_patients.Columns)
+                col.Visible = false;
+            dtgv_patients.Columns["ID"].Visible = true;
+            dtgv_patients.Columns["name"].Visible = true;
+            dtgv_patients.Columns["time_patients"].Visible = true;
 
             // Load data
             dtgv_patients.Rows.Clear();

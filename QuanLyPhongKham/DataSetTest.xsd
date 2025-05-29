@@ -9,18 +9,16 @@
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="DataSetTest" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="DataSetTest" msprop:Generator_DataSetName="DataSetTest">
+  <xs:element name="DataSetTest" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DataSetTest" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSetTest">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
         <xs:element name="DataTable1" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_UserTableName="DataTable1">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="t_name" msprop:Generator_ColumnPropNameInRow="t_name" msprop:Generator_ColumnPropNameInTable="t_nameColumn" msprop:Generator_ColumnVarNameInTable="columnt_name" msprop:Generator_UserColumnName="t_name" type="xs:string" minOccurs="0" />
-              <xs:element name="t_rs_name" msprop:Generator_ColumnPropNameInRow="t_rs_name" msprop:Generator_ColumnPropNameInTable="t_rs_nameColumn" msprop:Generator_ColumnVarNameInTable="columnt_rs_name" msprop:Generator_UserColumnName="t_rs_name" type="xs:string" minOccurs="0" />
+              <xs:element name="t_indication" msprop:Generator_ColumnPropNameInRow="t_indication" msprop:Generator_ColumnPropNameInTable="t_indicationColumn" msprop:Generator_ColumnVarNameInTable="columnt_indication" msprop:Generator_UserColumnName="t_indication" type="xs:string" minOccurs="0" />
               <xs:element name="t_result" msprop:Generator_ColumnPropNameInRow="t_result" msprop:Generator_ColumnPropNameInTable="t_resultColumn" msprop:Generator_ColumnVarNameInTable="columnt_result" msprop:Generator_UserColumnName="t_result" type="xs:string" minOccurs="0" />
               <xs:element name="t_unit" msprop:Generator_ColumnPropNameInRow="t_unit" msprop:Generator_ColumnPropNameInTable="t_unitColumn" msprop:Generator_ColumnVarNameInTable="columnt_unit" msprop:Generator_UserColumnName="t_unit" type="xs:string" minOccurs="0" />
               <xs:element name="t_normal" msprop:Generator_ColumnPropNameInRow="t_normal" msprop:Generator_ColumnPropNameInTable="t_normalColumn" msprop:Generator_ColumnVarNameInTable="columnt_normal" msprop:Generator_UserColumnName="t_normal" type="xs:string" minOccurs="0" />
-              <xs:element name="t_note" msprop:Generator_ColumnPropNameInRow="t_note" msprop:Generator_ColumnPropNameInTable="t_noteColumn" msprop:Generator_ColumnVarNameInTable="columnt_note" msprop:Generator_UserColumnName="t_note" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

@@ -230,72 +230,56 @@ namespace QuanLyPhongKham
             if (Db.dr.HasRows && Db.dr.Read())
             {
                 string jsonData = Db.dr.GetString("template_content");
-                JArray jsonArray = JArray.Parse(jsonData);
-                string previousTestName = string.Empty;
-
-                foreach (var item in jsonArray)
+                try
                 {
-                    string testName = item["name"].ToString();
-                    foreach (var result in item["results"])
+                    var items = JsonConvert.DeserializeObject<List<TemplateItem>>(jsonData);
+                    dtgv_result.Rows.Clear();
+                    foreach (var item in items)
                     {
-                        string resultTestName = result["test_name"].ToString();
-                        string resultValue = result["result"].ToString();
-                        string unit = result["unit"].ToString();
-                        string normalRange = result["normal_range"].ToString();
-
-                        if (testName != previousTestName)
-                        {
-                            dtgv_result.Rows.Add(testName, resultTestName, resultValue, unit, normalRange);
-                            previousTestName = testName;
-                        }
-                        else
-                        {
-                            dtgv_result.Rows.Add("", resultTestName, resultValue, unit, normalRange);
-                        }
+                        dtgv_result.Rows.Add(item.indication, item.result, item.unit, item.normal_range);
                     }
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi phân tích nội dung JSON: " + ex.Message);
+                }
             }
+
             Db.dr.Close();
             Db.ResetConnection();
-
         }
+
 
         private void btn_save_Click(object sender, EventArgs e)
         {
             JArray resultArr = new JArray();
-            JObject group = null;
 
             foreach (DataGridViewRow r in dtgv_result.Rows)
             {
                 if (r.IsNewRow) continue;
-                var gName = r.Cells[0].Value?.ToString();
-                if (!string.IsNullOrWhiteSpace(gName))
+                resultArr.Add(new JObject
                 {
-                    group = new JObject { ["name"] = gName, ["results"] = new JArray() };
-                    resultArr.Add(group);
-                }
-                ((JArray)group["results"]).Add(new JObject
-                {
-                    ["test_name"] = r.Cells[1].Value?.ToString(),
-                    ["result"] = r.Cells[2].Value?.ToString(),
-                    ["unit"] = r.Cells[3].Value?.ToString(),
-                    ["normal_range"] = r.Cells[4].Value?.ToString()
+                    ["indication"] = r.Cells[0].Value?.ToString(),
+                    ["result"] = r.Cells[1].Value?.ToString(),
+                    ["unit"] = r.Cells[2].Value?.ToString(),
+                    ["normal_range"] = r.Cells[3].Value?.ToString()
                 });
             }
 
             var sql = "INSERT INTO examination_results (examination_service_id, template_id, result, final_result) VALUES (@examination_service_id, @template_id, @result, @final_result);";
             var param = new Dictionary<string, object>
-                {
-                    { "@examination_service_id", Convert.ToInt32(dtgv_service.CurrentRow.Cells[0].Value) },
-                    { "@template_id", Convert.ToInt32(cb_template.SelectedValue) },
-                    { "@result", resultArr.ToString(Newtonsoft.Json.Formatting.None) },
-                    { "@final_result", txb_final_result.Text }
-                };
+    {
+        { "@examination_service_id", Convert.ToInt32(dtgv_service.CurrentRow.Cells[0].Value) },
+        { "@template_id", Convert.ToInt32(cb_template.SelectedValue) },
+        { "@result", resultArr.ToString(Newtonsoft.Json.Formatting.None) },
+        { "@final_result", txb_final_result.Text }
+    };
 
             Db.Add(sql, param);
             MessageBox.Show("Đã lưu!");
             LoadDTGV_Service();
         }
+
 
         private void dtgv_service_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
@@ -379,33 +363,16 @@ namespace QuanLyPhongKham
                                     try
                                     {
                                         JArray jsonArray = JArray.Parse(jsonResult);
-                                        string previousTestName = "";
+                                        dtgv_result.Rows.Clear();
 
-                                        foreach (JObject item in jsonArray)
+                                        foreach (JObject result in jsonArray)
                                         {
-                                            string testName = item["name"]?.ToString() ?? "";
+                                            string indication = result["indication"]?.ToString() ?? "";
+                                            string resultValue = result["result"]?.ToString() ?? "";
+                                            string unit = result["unit"]?.ToString() ?? "";
+                                            string normalRange = result["normal_range"]?.ToString() ?? "";
 
-                                            if (item["results"] is JArray resultArray)
-                                            {
-                                                foreach (JObject result in resultArray)
-                                                {
-                                                    string resultTestName = result["test_name"]?.ToString() ?? "";
-                                                    string resultValue = result["result"]?.ToString() ?? "";
-                                                    string unit = result["unit"]?.ToString() ?? "";
-                                                    string normalRange = result["normal_range"]?.ToString() ?? "";
-
-                                                    // Add to DataGridView
-                                                    if (!string.IsNullOrEmpty(testName) && testName != previousTestName)
-                                                    {
-                                                        dtgv_result.Rows.Add(testName, resultTestName, resultValue, unit, normalRange);
-                                                        previousTestName = testName;
-                                                    }
-                                                    else
-                                                    {
-                                                        dtgv_result.Rows.Add("", resultTestName, resultValue, unit, normalRange);
-                                                    }
-                                                }
-                                            }
+                                            dtgv_result.Rows.Add(indication, resultValue, unit, normalRange);
                                         }
                                     }
                                     catch (JsonReaderException ex)
@@ -413,6 +380,7 @@ namespace QuanLyPhongKham
                                         MessageBox.Show("JSON không hợp lệ: " + ex.Message);
                                     }
                                 }
+
                                 else
                                 {
                                     MessageBox.Show("Không có dữ liệu kết quả.");
@@ -451,43 +419,31 @@ namespace QuanLyPhongKham
         {
             try
             {
-                // Kiểm tra xem có hàng được chọn trong dtgv_service không
                 if (dtgv_service.CurrentRow == null)
                 {
                     MessageBox.Show("Vui lòng chọn một dịch vụ để chỉnh sửa!");
                     return;
                 }
 
-                // Thu thập dữ liệu từ DataGridView dtgv_result để tạo JSON
                 JArray resultArr = new JArray();
-                JObject group = null;
-
                 foreach (DataGridViewRow r in dtgv_result.Rows)
                 {
                     if (r.IsNewRow) continue;
-                    var gName = r.Cells[0].Value?.ToString();
-                    if (!string.IsNullOrWhiteSpace(gName))
+                    resultArr.Add(new JObject
                     {
-                        group = new JObject { ["name"] = gName, ["results"] = new JArray() };
-                        resultArr.Add(group);
-                    }
-                    ((JArray)group["results"]).Add(new JObject
-                    {
-                        ["test_name"] = r.Cells[1].Value?.ToString(),
-                        ["result"] = r.Cells[2].Value?.ToString(),
-                        ["unit"] = r.Cells[3].Value?.ToString(),
-                        ["normal_range"] = r.Cells[4].Value?.ToString()
+                        ["indication"] = r.Cells[0].Value?.ToString(),
+                        ["result"] = r.Cells[1].Value?.ToString(),
+                        ["unit"] = r.Cells[2].Value?.ToString(),
+                        ["normal_range"] = r.Cells[3].Value?.ToString()
                     });
                 }
 
-                // Chuẩn bị câu lệnh SQL để cập nhật
                 string sql = @"UPDATE examination_results 
                       SET template_id = @template_id, 
                           result = @result, 
                           final_result = @final_result 
                       WHERE examination_service_id = @examination_service_id";
 
-                // Chuẩn bị tham số cho hàm Update
                 var param = new Dictionary<string, object>
         {
             { "@examination_service_id", Convert.ToInt32(dtgv_service.CurrentRow.Cells["examination_service_id"].Value) },
@@ -496,16 +452,10 @@ namespace QuanLyPhongKham
             { "@final_result", txb_final_result.Text }
         };
 
-                // Gọi hàm Update từ lớp Db
                 Db.Update(sql, param);
-
-                // Thông báo thành công
                 MessageBox.Show("Cập nhật kết quả thành công!");
-
-                // Tải lại DataGridView dịch vụ để cập nhật trạng thái
                 LoadDTGV_Service();
 
-                // Vô hiệu hóa nút sửa và kích hoạt nút lưu nếu cần
                 btn_edit.Enabled = false;
                 btn_save.Enabled = true;
             }
@@ -514,6 +464,7 @@ namespace QuanLyPhongKham
                 MessageBox.Show("Lỗi khi cập nhật kết quả: " + ex.Message);
             }
         }
+
 
         private void btn_print_Click(object sender, EventArgs e)
         {
