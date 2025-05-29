@@ -119,7 +119,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtgv.DefaultCellStyle = dataGridViewCellStyle3;
             this.dtgv.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dtgv.Location = new System.Drawing.Point(0, 89);
+            this.dtgv.Location = new System.Drawing.Point(-55, 118);
             this.dtgv.Margin = new System.Windows.Forms.Padding(4);
             this.dtgv.Name = "dtgv";
             this.dtgv.RowHeadersVisible = false;

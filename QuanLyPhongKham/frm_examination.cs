@@ -708,6 +708,11 @@ VALUES (NULL, @examination_id, @service_id, @price);";
         {
 
         }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
     } 
 }
 
