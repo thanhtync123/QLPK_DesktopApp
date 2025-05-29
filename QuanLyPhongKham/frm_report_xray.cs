@@ -36,7 +36,8 @@ namespace QuanLyPhongKham
 
         private void frm_report_xray_Load(object sender, EventArgs e)
         {
-            
+            var ngaykham = DateTime.Now.ToString("'Ngày' dd 'tháng' MM 'năm' yyyy");
+
             reportViewer1.LocalReport.ReportEmbeddedResource = "QuanLyPhongKham.Report1.rdlc";
             ReportParameter[] parameters = new ReportParameter[]
             {
@@ -49,7 +50,8 @@ namespace QuanLyPhongKham
         new ReportParameter("txb_chandoanphu", chandoanphu),
         new ReportParameter("txb_mota", mota),
         new ReportParameter("txb_ketluan", ketqua),
-        new ReportParameter("txb_chidinh", chidinh)
+        new ReportParameter("txb_chidinh", chidinh),
+             new ReportParameter("txb_ngaykham", ngaykham)
             };
             reportViewer1.LocalReport.SetParameters(parameters);
             reportViewer1.RefreshReport();

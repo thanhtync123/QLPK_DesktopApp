@@ -526,10 +526,14 @@ namespace QuanLyPhongKham
             var chandoanphu = txb_reason.Text;
             var diachi = txb_address.Text;
             var ketqua = txb_final_result.Text;
-            var ngaykham = DateTime.Now.ToString("dd/MM/yyyy");
+            var ngaykham = DateTime.Now.ToString("'Ngày' dd 'tháng' MM 'năm' yyyy");
+            var gioitinh = txb_gender.Text;
+            var chidinh=txb_service.Text;
+
+
             var sdt = txb_phone.Text;
             DataTable dt = GetDataTableFromDataGridView(dtgv_result);
-            frm_report_test frm = new frm_report_test(dt, mabn, tenbn, ngaysinh, chandoan, chandoanphu, diachi, ketqua, ngaykham, sdt);
+            frm_report_test frm = new frm_report_test(dt, mabn, tenbn, ngaysinh, chandoan, chandoanphu, diachi, ketqua, ngaykham, sdt,gioitinh,chidinh);
 
             frm.ShowDialog();
 

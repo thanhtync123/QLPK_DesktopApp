@@ -18,7 +18,11 @@ namespace QuanLyPhongKham
         }
         private void LoadDTGV()
                     {
-            string sql = "SELECT name,username,password,role FROM users";
+            string sql = $@"SELECT 
+                            name as 'Tên người dùng',
+                            username as 'Tài khoản',
+                            password as 'Mật khẩu',
+                            role as 'Quyền' FROM users";
             Db.LoadDTGV(dtgv, sql);
         }
         private void frm_users_Load(object sender, EventArgs e)

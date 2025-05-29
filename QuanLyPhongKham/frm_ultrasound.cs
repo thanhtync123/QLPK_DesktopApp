@@ -163,6 +163,9 @@ namespace QuanLyPhongKham
                 var mota = txb_result.Text.Trim();
                 var ketqua = txb_final_result.Text.Trim();
                 var chidinh = txb_service.Text.Trim();
+                var gioitinh = txb_gender.Text.Trim(); // Sử dụng tuổi để hiển thị giới tính
+                MessageBox.Show(gioitinh + "");
+
 
                 // Tạo đường dẫn ảnh trống để tránh lỗi URI
                 string projectDir = Directory.GetParent(Application.StartupPath).Parent.Parent.FullName;
@@ -212,7 +215,7 @@ namespace QuanLyPhongKham
                 using (frm_report_ultrasound printForm = new frm_report_ultrasound(
                     selectedImages[0], selectedImages[1], selectedImages[2], selectedImages[3],
                     mabn, tenbn, ngaysinh, diachi, sdt,
-                    chandoan, chandoanphu, mota, ketqua, chidinh))
+                    chandoan, chandoanphu, mota, ketqua, chidinh,gioitinh))
                 {
                     printForm.ShowDialog();
                 }

@@ -9,12 +9,12 @@ namespace QuanLyPhongKham
     {
         string _imageUrl1, _imageUrl2, _imageUrl3, _imageUrl4;
         string mabn, tenbn, ngaysinh, diachi, sdt;
-        string chandoan, chandoanphu, mota, ketqua, chidinh;
+        string chandoan, chandoanphu, mota, ketqua, chidinh,gioitinh;
 
         public frm_report_ultrasound(
             string imageUrl1, string imageUrl2, string imageUrl3, string imageUrl4,
             string mabn, string tenbn, string ngaysinh, string diachi, string sdt,
-            string chandoan, string chandoanphu, string mota, string ketqua, string chidinh)
+            string chandoan, string chandoanphu, string mota, string ketqua, string chidinh,string gioitinh)
         {
             InitializeComponent();
             _imageUrl1 = imageUrl1;
@@ -31,10 +31,14 @@ namespace QuanLyPhongKham
             this.mota = mota;
             this.ketqua = ketqua;
             this.chidinh = chidinh;
+            this.gioitinh = gioitinh;
         }
 
         private void frm_report_ultrasound_Load(object sender, EventArgs e)
         {
+            var ngaykham = DateTime.Now.ToString("'Ngày' dd 'tháng' MM 'năm' yyyy");
+
+
             try
             {
                 // Bật hiển thị ảnh từ ngoài
@@ -60,6 +64,8 @@ namespace QuanLyPhongKham
                 reportParams.Add(new ReportParameter("txb_mota", mota ?? ""));
                 reportParams.Add(new ReportParameter("txb_ketluan", ketqua ?? ""));
                 reportParams.Add(new ReportParameter("txb_chidinh", chidinh ?? ""));
+                reportParams.Add(new ReportParameter("txb_ngaykham", ngaykham ??""));
+                reportParams.Add(new ReportParameter("txb_gioitinh", gioitinh ?? ""));
 
                 // Set tất cả các tham số
                 this.reportViewer1.LocalReport.SetParameters(reportParams);

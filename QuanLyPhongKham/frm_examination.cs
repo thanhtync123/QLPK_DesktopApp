@@ -57,19 +57,7 @@ namespace QuanLyPhongKham
         }
         private void LoadGrid()
         {
-            dtgv_patients.Columns.Clear();
-            dtgv_patients.Columns.Add("ID", "ID");
-            dtgv_patients.Columns.Add("name", "Tên BN");
-            dtgv_patients.Columns.Add("date_of_birth", "Ngày sinh");
-            dtgv_patients.Columns.Add("gender", "Giới tính");
-            dtgv_patients.Columns.Add("phone", "SĐT");
-            dtgv_patients.Columns.Add("address", "Địa chỉ");
-            dtgv_patients.Columns.Add("time_patients", "Thời gian cập nhật");
-            foreach (DataGridViewColumn col in dtgv_patients.Columns)
-                col.Visible = false;
-            dtgv_patients.Columns["ID"].Visible = true;
-            dtgv_patients.Columns["name"].Visible = true;
-            dtgv_patients.Columns["time_patients"].Visible = true;
+           
 
             // Load data
             dtgv_patients.Rows.Clear();
@@ -637,13 +625,14 @@ VALUES (NULL, @examination_id, @service_id, @price);";
             var mabn = txb_id.Text;
             var tenbn = txb_name.Text;
             var diachi = txb_address.Text;
-            var ngaysinh = txb_ngaysinh.Text;
+            var ngaysinh = txb_age.Text;
             var gioitinh = txb_gender.Text;
             var loidan = cb_doctornote.Text;
             var chandoan = cbo_diagnoses.Text;
             var chandoanphu = txb_reason.Text;
             var tongtien = lb_total_price_service.Text;
-            var ngaykham = DateTime.Now.ToString("dd/MM/yyyy");
+            var ngaykham = DateTime.Now.ToString("'Ngày' dd 'tháng' MM 'năm' yyyy");
+
             frm_report_service frm = new frm_report_service(
                 GetDataTableFromDataGridView(dtgv_service_patient),
                 mabn, tenbn, diachi, ngaysinh, gioitinh, loidan, chandoan, chandoanphu, ngaykham, tongtien // thêm tongtien
@@ -661,7 +650,8 @@ VALUES (NULL, @examination_id, @service_id, @price);";
             var loidan = cb_doctornote.Text;
             var chandoan = cbo_diagnoses.Text;
             var chandoanphu = txb_reason.Text;
-            var ngaykham = DateTime.Now.ToString("dd/MM/yyyy");
+            var ngaykham = DateTime.Now.ToString("'Ngày' dd 'tháng' MM 'năm' yyyy");
+
             frm_report_med frm = new frm_report_med(
       GetDataTableFromDataGridView(dtgv_med),
       mabn,

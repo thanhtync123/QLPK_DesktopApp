@@ -111,7 +111,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Ngày sinh:</Value>
+                    <Value>Tuổi:</Value>
                     <Style>
                       <FontFamily>Times New Roman</FontFamily>
                       <FontWeight>Bold</FontWeight>
@@ -559,7 +559,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_ketluan</rd:DefaultName>
-            <Top>9.48193cm</Top>
+            <Top>9.50066cm</Top>
             <Left>14.51117cm</Left>
             <Height>3.29427cm</Height>
             <Width>10.41256cm</Width>
@@ -821,42 +821,6 @@
               </Border>
             </Style>
           </Image>
-          <Textbox Name="Textbox19">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>Ngày ... tháng ... năm</Value>
-                    <Style>
-                      <FontFamily>Times New Roman</FontFamily>
-                      <FontSize>12pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Center</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox19</rd:DefaultName>
-            <Top>13.0937cm</Top>
-            <Left>16.71284cm</Left>
-            <Height>0.6cm</Height>
-            <Width>5.38479cm</Width>
-            <ZIndex>26</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
           <Textbox Name="Textbox20">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
@@ -880,7 +844,7 @@
             <Left>18.67076cm</Left>
             <Height>0.75875cm</Height>
             <Width>1.67979cm</Width>
-            <ZIndex>27</ZIndex>
+            <ZIndex>26</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -915,7 +879,7 @@
             <Left>4.28277cm</Left>
             <Height>0.83328cm</Height>
             <Width>5.48979cm</Width>
-            <ZIndex>28</ZIndex>
+            <ZIndex>27</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -934,7 +898,7 @@
             <Left>15.0492cm</Left>
             <Height>3.82761cm</Height>
             <Width>4.72609cm</Width>
-            <ZIndex>29</ZIndex>
+            <ZIndex>28</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -949,7 +913,7 @@
             <Left>19.88113cm</Left>
             <Height>3.82761cm</Height>
             <Width>5.07788cm</Width>
-            <ZIndex>30</ZIndex>
+            <ZIndex>29</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -961,13 +925,43 @@
             <Left>14.44308cm</Left>
             <Height>17.4527cm</Height>
             <Width>0cm</Width>
-            <ZIndex>31</ZIndex>
+            <ZIndex>30</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
               </Border>
             </Style>
           </Line>
+          <Textbox Name="txb_ngaykham">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Parameters!txb_ngaykham.Value</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>txb_ngaykham</rd:DefaultName>
+            <Top>13.06696cm</Top>
+            <Left>16.61266cm</Left>
+            <Height>0.6cm</Height>
+            <Width>5.93958cm</Width>
+            <ZIndex>31</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
         </ReportItems>
         <Height>17.47724cm</Height>
         <Style />
@@ -1066,11 +1060,17 @@
       <DataType>String</DataType>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
+    <ReportParameter Name="txb_ngaykham">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
       <NumberOfColumns>4</NumberOfColumns>
-      <NumberOfRows>6</NumberOfRows>
+      <NumberOfRows>7</NumberOfRows>
       <CellDefinitions>
         <CellDefinition>
           <ColumnIndex>2</ColumnIndex>
@@ -1141,6 +1141,11 @@
           <ColumnIndex>3</ColumnIndex>
           <RowIndex>5</RowIndex>
           <ParameterName>image_param4</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>6</RowIndex>
+          <ParameterName>txb_ngaykham</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>

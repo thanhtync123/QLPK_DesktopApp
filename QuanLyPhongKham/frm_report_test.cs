@@ -24,7 +24,9 @@ namespace QuanLyPhongKham
         string ketqua;
         string ngaykham;
         string sdt;
-        public frm_report_test(DataTable dt, string mabn, string tenbn, string ngaysinh, string chandoan, string chandoanphu, string diachi, string ketqua, string ngaykham, string sdt)
+        string gioitinh;
+        string chidinh;
+        public frm_report_test(DataTable dt, string mabn, string tenbn, string ngaysinh, string chandoan, string chandoanphu, string diachi, string ketqua, string ngaykham, string sdt, string gioitinh, string chidinh)
         {
             InitializeComponent();
 
@@ -38,6 +40,8 @@ namespace QuanLyPhongKham
             this.ketqua = ketqua;
             this.ngaykham = ngaykham;
             this.sdt = sdt;
+            this.gioitinh = gioitinh;
+            this.chidinh = chidinh;
         }
 
 
@@ -62,7 +66,9 @@ namespace QuanLyPhongKham
                     new ReportParameter("txb_diachi", diachi ?? ""),
                        new ReportParameter("txb_ngaykham", ngaykham ?? ""),
                        new ReportParameter("txb_ketluan", ketqua ?? ""),
-                             new ReportParameter("txb_sdt", sdt ?? "")
+                             new ReportParameter("txb_sdt", sdt ?? ""),
+                             new ReportParameter("txb_gioitinh", gioitinh ?? ""),
+                                new ReportParameter("txb_chidinh", chidinh ?? "")
 
 
 
