@@ -360,7 +360,8 @@ namespace QuanLyPhongKham
         {
             var mabn = txb_id_patient.Text.Trim();
             var tenbn = txb_name.Text.Trim();
-            var ngaysinh = txb_dob.Text.Trim(); 
+            //var ngaysinh = txb_dob.Text.Trim();
+            var ngaysinh = (DateTime.Today.Year - DateTime.ParseExact(txb_dob.Text.Trim(), "dd/MM/yyyy", null).Year).ToString();
             var diachi = txb_address.Text.Trim();
             var sdt = txb_phone.Text.Trim();
             var chandoan = txb_reason1.Text.Trim();

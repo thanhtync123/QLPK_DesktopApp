@@ -520,7 +520,8 @@ namespace QuanLyPhongKham
 
             var mabn = txb_id_patient.Text;
             var tenbn = txb_name.Text;
-            var ngaysinh = txb_dob.Text;
+            //  var ngaysinh = txb_dob.Text;
+            var ngaysinh = txb_age.Text;
             var chandoan = txb_reason1.Text;
             var chandoanphu = txb_reason.Text;
             var diachi = txb_address.Text;
