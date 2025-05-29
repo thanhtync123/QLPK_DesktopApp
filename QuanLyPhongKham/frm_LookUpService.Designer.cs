@@ -76,11 +76,11 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dtgv_patient.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dtgv_patient.ColumnHeadersHeight = 4;
+            this.dtgv_patient.ColumnHeadersHeight = 35;
             this.dtgv_patient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
@@ -92,7 +92,7 @@
             this.dtgv_patient.Name = "dtgv_patient";
             this.dtgv_patient.RowHeadersVisible = false;
             this.dtgv_patient.RowHeadersWidth = 51;
-            this.dtgv_patient.Size = new System.Drawing.Size(540, 923);
+            this.dtgv_patient.Size = new System.Drawing.Size(682, 923);
             this.dtgv_patient.TabIndex = 4;
             this.dtgv_patient.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgv_patient.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -106,7 +106,7 @@
             this.dtgv_patient.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtgv_patient.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.dtgv_patient.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.dtgv_patient.ThemeStyle.HeaderStyle.Height = 4;
+            this.dtgv_patient.ThemeStyle.HeaderStyle.Height = 35;
             this.dtgv_patient.ThemeStyle.ReadOnly = false;
             this.dtgv_patient.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgv_patient.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
@@ -141,18 +141,18 @@
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dtgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.dtgv.ColumnHeadersHeight = 4;
+            this.dtgv.ColumnHeadersHeight = 35;
             this.dtgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtgv.DefaultCellStyle = dataGridViewCellStyle6;
             this.dtgv.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dtgv.Location = new System.Drawing.Point(603, 75);
+            this.dtgv.Location = new System.Drawing.Point(706, 75);
             this.dtgv.Margin = new System.Windows.Forms.Padding(4);
             this.dtgv.Name = "dtgv";
             this.dtgv.RowHeadersVisible = false;
@@ -171,7 +171,7 @@
             this.dtgv.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtgv.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.dtgv.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.dtgv.ThemeStyle.HeaderStyle.Height = 4;
+            this.dtgv.ThemeStyle.HeaderStyle.Height = 35;
             this.dtgv.ThemeStyle.ReadOnly = false;
             this.dtgv.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgv.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
@@ -185,7 +185,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(603, 37);
+            this.label1.Location = new System.Drawing.Point(701, 46);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 25);

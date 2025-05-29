@@ -77,6 +77,16 @@
             this.txb_unit = new Guna.UI2.WinForms.Guna2TextBox();
             this.cb_medname = new Guna.UI2.WinForms.Guna2ComboBox();
             this.dtgv_med = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.id_med = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.med_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dosage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.route = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.times = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.med_note = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalpricepermed = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.guna2ImageButton8 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2ImageButton7 = new Guna.UI2.WinForms.Guna2ImageButton();
@@ -139,16 +149,6 @@
             this.label27 = new System.Windows.Forms.Label();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.cbo_diagnoses = new System.Windows.Forms.ComboBox();
-            this.id_med = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.med_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dosage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.route = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.times = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.med_note = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalpricepermed = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2TabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txb_quantity)).BeginInit();
@@ -170,12 +170,12 @@
             this.txb_name.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txb_name.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txb_name.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txb_name.Location = new System.Drawing.Point(425, 8);
-            this.txb_name.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txb_name.Location = new System.Drawing.Point(691, 10);
+            this.txb_name.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txb_name.Name = "txb_name";
             this.txb_name.PlaceholderText = "";
             this.txb_name.SelectedText = "";
-            this.txb_name.Size = new System.Drawing.Size(231, 38);
+            this.txb_name.Size = new System.Drawing.Size(375, 49);
             this.txb_name.TabIndex = 1;
             // 
             // txb_ngaysinh
@@ -189,12 +189,12 @@
             this.txb_ngaysinh.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txb_ngaysinh.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txb_ngaysinh.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txb_ngaysinh.Location = new System.Drawing.Point(780, 9);
-            this.txb_ngaysinh.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txb_ngaysinh.Location = new System.Drawing.Point(1268, 12);
+            this.txb_ngaysinh.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txb_ngaysinh.Name = "txb_ngaysinh";
             this.txb_ngaysinh.PlaceholderText = "";
             this.txb_ngaysinh.SelectedText = "";
-            this.txb_ngaysinh.Size = new System.Drawing.Size(191, 38);
+            this.txb_ngaysinh.Size = new System.Drawing.Size(310, 49);
             this.txb_ngaysinh.TabIndex = 2;
             // 
             // txb_age
@@ -208,12 +208,12 @@
             this.txb_age.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txb_age.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txb_age.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txb_age.Location = new System.Drawing.Point(1061, 6);
-            this.txb_age.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txb_age.Location = new System.Drawing.Point(1724, 8);
+            this.txb_age.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txb_age.Name = "txb_age";
             this.txb_age.PlaceholderText = "";
             this.txb_age.SelectedText = "";
-            this.txb_age.Size = new System.Drawing.Size(73, 38);
+            this.txb_age.Size = new System.Drawing.Size(119, 49);
             this.txb_age.TabIndex = 3;
             // 
             // txb_gender
@@ -227,12 +227,12 @@
             this.txb_gender.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txb_gender.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txb_gender.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txb_gender.Location = new System.Drawing.Point(1007, 70);
-            this.txb_gender.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txb_gender.Location = new System.Drawing.Point(1636, 91);
+            this.txb_gender.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txb_gender.Name = "txb_gender";
             this.txb_gender.PlaceholderText = "";
             this.txb_gender.SelectedText = "";
-            this.txb_gender.Size = new System.Drawing.Size(128, 38);
+            this.txb_gender.Size = new System.Drawing.Size(208, 49);
             this.txb_gender.TabIndex = 4;
             // 
             // txb_address
@@ -246,12 +246,12 @@
             this.txb_address.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txb_address.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txb_address.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txb_address.Location = new System.Drawing.Point(529, 70);
-            this.txb_address.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txb_address.Location = new System.Drawing.Point(860, 91);
+            this.txb_address.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txb_address.Name = "txb_address";
             this.txb_address.PlaceholderText = "";
             this.txb_address.SelectedText = "";
-            this.txb_address.Size = new System.Drawing.Size(313, 38);
+            this.txb_address.Size = new System.Drawing.Size(509, 49);
             this.txb_address.TabIndex = 5;
             // 
             // txb_id
@@ -265,12 +265,12 @@
             this.txb_id.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txb_id.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txb_id.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txb_id.Location = new System.Drawing.Point(185, 9);
-            this.txb_id.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txb_id.Location = new System.Drawing.Point(301, 12);
+            this.txb_id.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txb_id.Name = "txb_id";
             this.txb_id.PlaceholderText = "";
             this.txb_id.SelectedText = "";
-            this.txb_id.Size = new System.Drawing.Size(91, 38);
+            this.txb_id.Size = new System.Drawing.Size(148, 49);
             this.txb_id.TabIndex = 6;
             // 
             // label1
@@ -776,6 +776,76 @@
             this.dtgv_med.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dtgv_med.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_med_CellClick);
             // 
+            // id_med
+            // 
+            this.id_med.FillWeight = 45.75164F;
+            this.id_med.HeaderText = "Mã thuốc";
+            this.id_med.MinimumWidth = 6;
+            this.id_med.Name = "id_med";
+            // 
+            // med_name
+            // 
+            this.med_name.FillWeight = 588.2351F;
+            this.med_name.HeaderText = "Tên thuốc";
+            this.med_name.MinimumWidth = 6;
+            this.med_name.Name = "med_name";
+            // 
+            // unit
+            // 
+            this.unit.FillWeight = 45.75164F;
+            this.unit.HeaderText = "Đơn vị";
+            this.unit.MinimumWidth = 6;
+            this.unit.Name = "unit";
+            // 
+            // dosage
+            // 
+            this.dosage.FillWeight = 45.75164F;
+            this.dosage.HeaderText = "Liều dùng";
+            this.dosage.MinimumWidth = 6;
+            this.dosage.Name = "dosage";
+            // 
+            // route
+            // 
+            this.route.FillWeight = 45.75164F;
+            this.route.HeaderText = "Đường dùng";
+            this.route.MinimumWidth = 6;
+            this.route.Name = "route";
+            // 
+            // times
+            // 
+            this.times.FillWeight = 45.75164F;
+            this.times.HeaderText = "Số lần / ngày";
+            this.times.MinimumWidth = 6;
+            this.times.Name = "times";
+            // 
+            // med_note
+            // 
+            this.med_note.FillWeight = 45.75164F;
+            this.med_note.HeaderText = "Ghi chú";
+            this.med_note.MinimumWidth = 6;
+            this.med_note.Name = "med_note";
+            // 
+            // quantity
+            // 
+            this.quantity.FillWeight = 45.75164F;
+            this.quantity.HeaderText = "Số lượng";
+            this.quantity.MinimumWidth = 6;
+            this.quantity.Name = "quantity";
+            // 
+            // price
+            // 
+            this.price.FillWeight = 45.75164F;
+            this.price.HeaderText = "Đơn giá";
+            this.price.MinimumWidth = 6;
+            this.price.Name = "price";
+            // 
+            // totalpricepermed
+            // 
+            this.totalpricepermed.FillWeight = 45.75164F;
+            this.totalpricepermed.HeaderText = "Thành tiền";
+            this.totalpricepermed.MinimumWidth = 6;
+            this.totalpricepermed.Name = "totalpricepermed";
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.guna2ImageButton8);
@@ -791,7 +861,7 @@
             this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage2.Size = new System.Drawing.Size(1681, 606);
+            this.tabPage2.Size = new System.Drawing.Size(1681, 616);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Chỉ định Cận lâm sàng";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -1315,12 +1385,12 @@
             this.txb_pulse.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txb_pulse.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txb_pulse.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txb_pulse.Location = new System.Drawing.Point(1260, 6);
-            this.txb_pulse.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txb_pulse.Location = new System.Drawing.Point(2048, 8);
+            this.txb_pulse.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txb_pulse.Name = "txb_pulse";
             this.txb_pulse.PlaceholderText = "";
             this.txb_pulse.SelectedText = "";
-            this.txb_pulse.Size = new System.Drawing.Size(172, 38);
+            this.txb_pulse.Size = new System.Drawing.Size(280, 49);
             this.txb_pulse.TabIndex = 18;
             // 
             // txb_temperature
@@ -1334,12 +1404,12 @@
             this.txb_temperature.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txb_temperature.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txb_temperature.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txb_temperature.Location = new System.Drawing.Point(1260, 70);
-            this.txb_temperature.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txb_temperature.Location = new System.Drawing.Point(2048, 91);
+            this.txb_temperature.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txb_temperature.Name = "txb_temperature";
             this.txb_temperature.PlaceholderText = "";
             this.txb_temperature.SelectedText = "";
-            this.txb_temperature.Size = new System.Drawing.Size(172, 38);
+            this.txb_temperature.Size = new System.Drawing.Size(280, 49);
             this.txb_temperature.TabIndex = 17;
             // 
             // label7
@@ -1397,12 +1467,12 @@
             this.txb_blood_pressure.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txb_blood_pressure.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txb_blood_pressure.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txb_blood_pressure.Location = new System.Drawing.Point(1538, 7);
-            this.txb_blood_pressure.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txb_blood_pressure.Location = new System.Drawing.Point(2499, 9);
+            this.txb_blood_pressure.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txb_blood_pressure.Name = "txb_blood_pressure";
             this.txb_blood_pressure.PlaceholderText = "";
             this.txb_blood_pressure.SelectedText = "";
-            this.txb_blood_pressure.Size = new System.Drawing.Size(172, 38);
+            this.txb_blood_pressure.Size = new System.Drawing.Size(280, 49);
             this.txb_blood_pressure.TabIndex = 24;
             // 
             // txb_respiratory_rate
@@ -1416,12 +1486,12 @@
             this.txb_respiratory_rate.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txb_respiratory_rate.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txb_respiratory_rate.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txb_respiratory_rate.Location = new System.Drawing.Point(1538, 68);
-            this.txb_respiratory_rate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txb_respiratory_rate.Location = new System.Drawing.Point(2499, 88);
+            this.txb_respiratory_rate.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txb_respiratory_rate.Name = "txb_respiratory_rate";
             this.txb_respiratory_rate.PlaceholderText = "";
             this.txb_respiratory_rate.SelectedText = "";
-            this.txb_respiratory_rate.Size = new System.Drawing.Size(172, 38);
+            this.txb_respiratory_rate.Size = new System.Drawing.Size(280, 49);
             this.txb_respiratory_rate.TabIndex = 23;
             // 
             // label24
@@ -1506,12 +1576,12 @@
             this.txb_exam_id.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txb_exam_id.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txb_exam_id.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txb_exam_id.Location = new System.Drawing.Point(304, 70);
-            this.txb_exam_id.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txb_exam_id.Location = new System.Drawing.Point(494, 91);
+            this.txb_exam_id.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txb_exam_id.Name = "txb_exam_id";
             this.txb_exam_id.PlaceholderText = "";
             this.txb_exam_id.SelectedText = "";
-            this.txb_exam_id.Size = new System.Drawing.Size(91, 38);
+            this.txb_exam_id.Size = new System.Drawing.Size(148, 49);
             this.txb_exam_id.TabIndex = 31;
             // 
             // printPreviewDialog1
@@ -1664,76 +1734,6 @@
             this.cbo_diagnoses.Name = "cbo_diagnoses";
             this.cbo_diagnoses.Size = new System.Drawing.Size(839, 33);
             this.cbo_diagnoses.TabIndex = 39;
-            // 
-            // id_med
-            // 
-            this.id_med.FillWeight = 45.75164F;
-            this.id_med.HeaderText = "Mã thuốc";
-            this.id_med.MinimumWidth = 6;
-            this.id_med.Name = "id_med";
-            // 
-            // med_name
-            // 
-            this.med_name.FillWeight = 588.2351F;
-            this.med_name.HeaderText = "Tên thuốc";
-            this.med_name.MinimumWidth = 6;
-            this.med_name.Name = "med_name";
-            // 
-            // unit
-            // 
-            this.unit.FillWeight = 45.75164F;
-            this.unit.HeaderText = "Đơn vị";
-            this.unit.MinimumWidth = 6;
-            this.unit.Name = "unit";
-            // 
-            // dosage
-            // 
-            this.dosage.FillWeight = 45.75164F;
-            this.dosage.HeaderText = "Liều dùng";
-            this.dosage.MinimumWidth = 6;
-            this.dosage.Name = "dosage";
-            // 
-            // route
-            // 
-            this.route.FillWeight = 45.75164F;
-            this.route.HeaderText = "Đường dùng";
-            this.route.MinimumWidth = 6;
-            this.route.Name = "route";
-            // 
-            // times
-            // 
-            this.times.FillWeight = 45.75164F;
-            this.times.HeaderText = "Số lần / ngày";
-            this.times.MinimumWidth = 6;
-            this.times.Name = "times";
-            // 
-            // med_note
-            // 
-            this.med_note.FillWeight = 45.75164F;
-            this.med_note.HeaderText = "Ghi chú";
-            this.med_note.MinimumWidth = 6;
-            this.med_note.Name = "med_note";
-            // 
-            // quantity
-            // 
-            this.quantity.FillWeight = 45.75164F;
-            this.quantity.HeaderText = "Số lượng";
-            this.quantity.MinimumWidth = 6;
-            this.quantity.Name = "quantity";
-            // 
-            // price
-            // 
-            this.price.FillWeight = 45.75164F;
-            this.price.HeaderText = "Đơn giá";
-            this.price.MinimumWidth = 6;
-            this.price.Name = "price";
-            // 
-            // totalpricepermed
-            // 
-            this.totalpricepermed.FillWeight = 45.75164F;
-            this.totalpricepermed.HeaderText = "Thành tiền";
-            this.totalpricepermed.MinimumWidth = 6;
-            this.totalpricepermed.Name = "totalpricepermed";
             // 
             // frm_examination
             // 
