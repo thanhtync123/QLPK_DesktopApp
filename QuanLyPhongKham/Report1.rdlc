@@ -155,7 +155,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>BÁC SĨ CHẨN ĐOÁN</Value>
+                    <Value>BÁC SĨ CĐHA</Value>
                     <Style>
                       <FontFamily>tIMes New Roman</FontFamily>
                       <FontSize>12pt</FontSize>
@@ -170,7 +170,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox12</rd:DefaultName>
             <Top>5.12567in</Top>
-            <Left>4.60359in</Left>
+            <Left>4.35359in</Left>
             <Height>0.325in</Height>
             <Width>2.10295in</Width>
             <ZIndex>3</ZIndex>
@@ -456,7 +456,7 @@
             </Paragraphs>
             <rd:DefaultName>txb_ngaykham</rd:DefaultName>
             <Top>4.87567in</Top>
-            <Left>4.44728in</Left>
+            <Left>4.19728in</Left>
             <Height>0.25in</Height>
             <Width>2.4467in</Width>
             <ZIndex>10</ZIndex>
@@ -1053,11 +1053,12 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Mô tả:</Value>
+                                  <Value>MÔ TẢ:</Value>
                                   <Style>
                                     <FontFamily>Times New Roman</FontFamily>
                                     <FontSize>13pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
+                                    <Color>Red</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1065,12 +1066,6 @@
                             </Paragraph>
                             <Paragraph>
                               <TextRuns>
-                                <TextRun>
-                                  <Value xml:space="preserve">         </Value>
-                                  <Style>
-                                    <FontSize>13pt</FontSize>
-                                  </Style>
-                                </TextRun>
                                 <TextRun>
                                   <Value>=Parameters!txb_mota.Value</Value>
                                   <Style>
@@ -1083,11 +1078,12 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Kết luận:</Value>
+                                  <Value />
                                   <Style>
                                     <FontFamily>Times New Roman</FontFamily>
                                     <FontSize>13pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
+                                    <Color>Red</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1096,13 +1092,27 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value xml:space="preserve">         </Value>
+                                  <Value>KẾT LUẬN: </Value>
                                   <Style>
+                                    <FontFamily>Times New Roman</FontFamily>
                                     <FontSize>13pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>Red</Color>
                                   </Style>
                                 </TextRun>
                                 <TextRun>
                                   <Value>=Parameters!txb_ketluan.Value</Value>
+                                  <Style>
+                                    <FontSize>13pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value xml:space="preserve">              </Value>
                                   <Style>
                                     <FontSize>13pt</FontSize>
                                   </Style>
@@ -1228,6 +1238,42 @@
             <Height>0.25in</Height>
             <Width>2.66405in</Width>
             <ZIndex>30</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox11">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>BS.CKI - NGUYỄN THANH QUYỀN</Value>
+                    <Style>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox11</rd:DefaultName>
+            <Top>6.04042in</Top>
+            <Left>4.03298in</Left>
+            <Height>0.25in</Height>
+            <Width>2.90235in</Width>
+            <ZIndex>31</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
