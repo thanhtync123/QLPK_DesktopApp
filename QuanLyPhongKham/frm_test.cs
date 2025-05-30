@@ -97,6 +97,7 @@ namespace QuanLyPhongKham
                 drr.Cells["state"].Value = Db.dr["state"];
                 drr.Cells["examination_service_id"].Value = Db.dr["examination_service_id"];
             }
+            dtgv_service.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells; // hoặc DisplayedCells
 
             Db.dr.Close();
             Db.ResetConnection();

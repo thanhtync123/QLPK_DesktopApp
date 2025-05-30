@@ -10,7 +10,7 @@
             <Value>=Parameters!image_param1.Value</Value>
             <Sizing>FitProportional</Sizing>
             <Top>0.87227cm</Top>
-            <Left>14.97866cm</Left>
+            <Left>14.87283cm</Left>
             <Height>3.82761cm</Height>
             <Width>4.72608cm</Width>
             <Style>
@@ -23,8 +23,8 @@
             <Source>External</Source>
             <Value>=Parameters!image_param2.Value</Value>
             <Sizing>FitProportional</Sizing>
-            <Top>0.87227cm</Top>
-            <Left>19.84585cm</Left>
+            <Top>0.90755cm</Top>
+            <Left>19.70474cm</Left>
             <Height>3.82761cm</Height>
             <Width>5.07788cm</Width>
             <ZIndex>1</ZIndex>
@@ -229,7 +229,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox9</rd:DefaultName>
-            <Top>2.46794in</Top>
+            <Top>3.34294in</Top>
             <Left>0.82903cm</Left>
             <Height>0.25in</Height>
             <Width>0.72222in</Width>
@@ -264,7 +264,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox9</rd:DefaultName>
-            <Top>2.9518in</Top>
+            <Top>3.8268in</Top>
             <Left>1.0407cm</Left>
             <Height>0.25in</Height>
             <Width>0.63888in</Width>
@@ -311,7 +311,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox9</rd:DefaultName>
-            <Top>3.2018in</Top>
+            <Top>4.0768in</Top>
             <Left>1.0407cm</Left>
             <Height>0.25in</Height>
             <Width>0.63888in</Width>
@@ -437,7 +437,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_chandoan</rd:DefaultName>
-            <Top>6.25403cm</Top>
+            <Top>8.47653cm</Top>
             <Left>2.66346cm</Left>
             <Height>0.635cm</Height>
             <Width>10.29165cm</Width>
@@ -467,7 +467,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_chandoanphu</rd:DefaultName>
-            <Top>6.72147cm</Top>
+            <Top>8.94397cm</Top>
             <Left>2.66346cm</Left>
             <Height>0.635cm</Height>
             <Width>10.22964cm</Width>
@@ -497,7 +497,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_chidinh</rd:DefaultName>
-            <Top>7.49758cm</Top>
+            <Top>9.72008cm</Top>
             <Left>2.57183cm</Left>
             <Height>0.635cm</Height>
             <Width>10.32127cm</Width>
@@ -527,7 +527,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_mota</rd:DefaultName>
-            <Top>8.20313cm</Top>
+            <Top>10.42563cm</Top>
             <Left>2.57183cm</Left>
             <Height>4.55894cm</Height>
             <Width>10.35654cm</Width>
@@ -635,10 +635,10 @@
             </Style>
           </Textbox>
           <Line Name="Line2">
-            <Top>6.09217cm</Top>
-            <Left>0.05756cm</Left>
+            <Top>7.94425cm</Top>
+            <Left>0.635cm</Left>
             <Height>0cm</Height>
-            <Width>14.38552cm</Width>
+            <Width>13.80808cm</Width>
             <ZIndex>20</ZIndex>
             <Style>
               <Border>
@@ -828,7 +828,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Ký tên</Value>
+                    <Value>Bác sĩ siêu âm</Value>
                     <Style>
                       <FontFamily>Times New Roman</FontFamily>
                       <FontSize>12pt</FontSize>
@@ -840,10 +840,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox20</rd:DefaultName>
-            <Top>13.70224cm</Top>
-            <Left>18.67076cm</Left>
+            <Top>13.73752cm</Top>
+            <Left>18.35326cm</Left>
             <Height>0.75875cm</Height>
-            <Width>1.67979cm</Width>
+            <Width>3.24083cm</Width>
             <ZIndex>26</ZIndex>
             <Style>
               <Border>
@@ -894,10 +894,10 @@
             <Source>External</Source>
             <Value>=Parameters!image_param3.Value</Value>
             <Sizing>FitProportional</Sizing>
-            <Top>4.87627cm</Top>
-            <Left>15.0492cm</Left>
+            <Top>4.80571cm</Top>
+            <Left>14.87283cm</Left>
             <Height>3.82761cm</Height>
-            <Width>4.72609cm</Width>
+            <Width>4.72608cm</Width>
             <ZIndex>28</ZIndex>
             <Style>
               <Border>
@@ -909,8 +909,8 @@
             <Source>External</Source>
             <Value>=Parameters!image_param4.Value</Value>
             <Sizing>FitProportional</Sizing>
-            <Top>4.84099cm</Top>
-            <Left>19.88113cm</Left>
+            <Top>4.80571cm</Top>
+            <Left>19.70474cm</Left>
             <Height>3.82761cm</Height>
             <Width>5.07788cm</Width>
             <ZIndex>29</ZIndex>
@@ -943,7 +943,9 @@
                     <Style />
                   </TextRun>
                 </TextRuns>
-                <Style />
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_ngaykham</rd:DefaultName>

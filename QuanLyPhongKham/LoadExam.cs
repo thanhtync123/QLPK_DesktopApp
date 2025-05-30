@@ -113,8 +113,9 @@ namespace QuanLyPhongKham
 				drr.Cells["note"].Value = Db.dr["note"];
 				drr.Cells["time_exam"].Value = Db.dr["time_exam"];
 			}
+            dtgv_exam.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells; // hoặc DisplayedCells
 
-			Db.dr.Close();
+            Db.dr.Close();
 			Db.ResetConnection();
 		}
 

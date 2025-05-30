@@ -371,7 +371,8 @@ namespace QuanLyPhongKham
         {
             var mabn = txb_id_patient.Text.Trim();
             var tenbn = txb_name.Text.Trim();
-            var ngaysinh = txb_dob.Text.Trim();
+            var ngaysinh = DateTime.Today.Year - DateTime.ParseExact(txb_dob.Text, "dd/MM/yyyy", null).Year - (DateTime.Today < DateTime.ParseExact(txb_dob.Text, "dd/MM/yyyy", null).AddYears(DateTime.Today.Year - DateTime.ParseExact(txb_dob.Text, "dd/MM/yyyy", null).Year) ? 1 : 0)+"";
+            var gioitinh = txb_gender.Text.Trim();
             var diachi = txb_address.Text.Trim();
             var sdt = txb_phone.Text.Trim();
             var chandoan = txb_chandoanchinh.Text.Trim();
@@ -379,7 +380,7 @@ namespace QuanLyPhongKham
             var mota = txb_result.Text.Trim();
             var ketqua = txb_final_result.Text.Trim();
             var chidinh = txb_service.Text.Trim();
-            var frm = new frm_report_xray(mabn, tenbn, ngaysinh, diachi, sdt, chandoan, chandoanphu, mota, ketqua, chidinh);
+            var frm = new frm_report_xray(mabn, tenbn, ngaysinh, diachi, sdt, chandoan, chandoanphu, mota, ketqua, chidinh,gioitinh);
             frm.ShowDialog();
         }
 

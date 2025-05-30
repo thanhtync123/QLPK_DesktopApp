@@ -13,9 +13,9 @@ namespace QuanLyPhongKham
 {
     public partial class frm_report_xray : Form
     {
-        private string mabn, tenbn, ngaysinh, diachi, sdt, chandoan, chandoanphu, mota, ketqua, chidinh;
+        private string mabn, tenbn, ngaysinh, diachi, sdt, chandoan, chandoanphu, mota, ketqua, chidinh,gioitinh;
 
-        public frm_report_xray(string mabn, string tenbn, string ngaysinh, string diachi, string sdt, string chandoan, string chandoanphu, string mota, string ketqua, string chidinh)
+        public frm_report_xray(string mabn, string tenbn, string ngaysinh, string diachi, string sdt, string chandoan, string chandoanphu, string mota, string ketqua, string chidinh,string gioitinh)
         {
             InitializeComponent();
             this.mabn = mabn;
@@ -28,6 +28,7 @@ namespace QuanLyPhongKham
             this.mota = mota;
             this.ketqua = ketqua;
             this.chidinh = chidinh;
+            this.gioitinh = gioitinh;
         }
         public frm_report_xray()
         {
@@ -51,7 +52,8 @@ namespace QuanLyPhongKham
         new ReportParameter("txb_mota", mota),
         new ReportParameter("txb_ketluan", ketqua),
         new ReportParameter("txb_chidinh", chidinh),
-             new ReportParameter("txb_ngaykham", ngaykham)
+             new ReportParameter("txb_ngaykham", ngaykham),
+             new ReportParameter("txb_gioitinh", gioitinh)
             };
             reportViewer1.LocalReport.SetParameters(parameters);
             reportViewer1.RefreshReport();

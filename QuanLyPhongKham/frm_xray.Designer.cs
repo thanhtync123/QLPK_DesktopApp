@@ -38,7 +38,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_xray));
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.txb_search = new Guna.UI2.WinForms.Guna2TextBox();
             this.rdn_all = new System.Windows.Forms.RadioButton();
             this.rdn_noresult = new System.Windows.Forms.RadioButton();
@@ -50,6 +49,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btn_search = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.txb_reason1 = new System.Windows.Forms.TextBox();
@@ -108,7 +108,6 @@
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(230)))));
             this.guna2Panel1.Controls.Add(this.guna2ImageButton1);
-            this.guna2Panel1.Controls.Add(this.webBrowser1);
             this.guna2Panel1.Controls.Add(this.txb_search);
             this.guna2Panel1.Controls.Add(this.rdn_all);
             this.guna2Panel1.Controls.Add(this.rdn_noresult);
@@ -120,9 +119,9 @@
             this.guna2Panel1.Controls.Add(this.label2);
             this.guna2Panel1.Controls.Add(this.btn_search);
             this.guna2Panel1.Controls.Add(this.label1);
-            this.guna2Panel1.Location = new System.Drawing.Point(11, 0);
+            this.guna2Panel1.Location = new System.Drawing.Point(8, 0);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(357, 720);
+            this.guna2Panel1.Size = new System.Drawing.Size(563, 720);
             this.guna2Panel1.TabIndex = 0;
             // 
             // guna2ImageButton1
@@ -141,14 +140,6 @@
             this.guna2ImageButton1.Size = new System.Drawing.Size(20, 20);
             this.guna2ImageButton1.TabIndex = 51;
             this.guna2ImageButton1.UseTransparentBackground = true;
-            // 
-            // webBrowser1
-            // 
-            this.webBrowser1.Location = new System.Drawing.Point(27, 416);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(250, 250);
-            this.webBrowser1.TabIndex = 45;
             // 
             // txb_search
             // 
@@ -210,7 +201,7 @@
             this.dtpk_todate.CustomFormat = "dd/MM/yyyy";
             this.dtpk_todate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpk_todate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpk_todate.Location = new System.Drawing.Point(9, 133);
+            this.dtpk_todate.Location = new System.Drawing.Point(9, 106);
             this.dtpk_todate.Name = "dtpk_todate";
             this.dtpk_todate.Size = new System.Drawing.Size(98, 26);
             this.dtpk_todate.TabIndex = 36;
@@ -242,6 +233,7 @@
             // 
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dtgv_exam.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dtgv_exam.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -254,8 +246,8 @@
             this.dtgv_exam.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
@@ -265,7 +257,7 @@
             this.dtgv_exam.Name = "dtgv_exam";
             this.dtgv_exam.RowHeadersVisible = false;
             this.dtgv_exam.RowHeadersWidth = 51;
-            this.dtgv_exam.Size = new System.Drawing.Size(343, 536);
+            this.dtgv_exam.Size = new System.Drawing.Size(402, 536);
             this.dtgv_exam.TabIndex = 9;
             this.dtgv_exam.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgv_exam.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -294,7 +286,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(6, 110);
+            this.label2.Location = new System.Drawing.Point(6, 83);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(77, 20);
             this.label2.TabIndex = 3;
@@ -321,6 +313,14 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Từ ngày";
             // 
+            // webBrowser1
+            // 
+            this.webBrowser1.Location = new System.Drawing.Point(50, 605);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(250, 250);
+            this.webBrowser1.TabIndex = 45;
+            // 
             // panel1
             // 
             this.panel1.Location = new System.Drawing.Point(0, 61);
@@ -332,6 +332,7 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(230)))));
             this.panel3.Controls.Add(this.txb_reason1);
+            this.panel3.Controls.Add(this.webBrowser1);
             this.panel3.Controls.Add(this.label10);
             this.panel3.Controls.Add(this.txb_name);
             this.panel3.Controls.Add(this.txb_final_result);
@@ -361,9 +362,9 @@
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.label5);
             this.panel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel3.Location = new System.Drawing.Point(371, 37);
+            this.panel3.Location = new System.Drawing.Point(463, 36);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1411, 798);
+            this.panel3.Size = new System.Drawing.Size(1424, 851);
             this.panel3.TabIndex = 1;
             // 
             // txb_reason1
@@ -378,7 +379,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(7, 179);
+            this.label10.Location = new System.Drawing.Point(10, 182);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(118, 20);
             this.label10.TabIndex = 45;
@@ -395,17 +396,17 @@
             // txb_final_result
             // 
             this.txb_final_result.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_final_result.Location = new System.Drawing.Point(501, 545);
+            this.txb_final_result.Location = new System.Drawing.Point(548, 553);
             this.txb_final_result.Multiline = true;
             this.txb_final_result.Name = "txb_final_result";
-            this.txb_final_result.Size = new System.Drawing.Size(907, 233);
+            this.txb_final_result.Size = new System.Drawing.Size(772, 225);
             this.txb_final_result.TabIndex = 43;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(497, 522);
+            this.label17.Location = new System.Drawing.Point(485, 548);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(67, 20);
             this.label17.TabIndex = 42;
@@ -414,10 +415,10 @@
             // txb_result
             // 
             this.txb_result.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_result.Location = new System.Drawing.Point(544, 144);
+            this.txb_result.Location = new System.Drawing.Point(548, 15);
             this.txb_result.Multiline = true;
             this.txb_result.Name = "txb_result";
-            this.txb_result.Size = new System.Drawing.Size(756, 403);
+            this.txb_result.Size = new System.Drawing.Size(772, 530);
             this.txb_result.TabIndex = 41;
             // 
             // txb_phone
@@ -441,16 +442,16 @@
             // txb_id_exam
             // 
             this.txb_id_exam.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_id_exam.Location = new System.Drawing.Point(665, 42);
+            this.txb_id_exam.Location = new System.Drawing.Point(131, 243);
             this.txb_id_exam.Name = "txb_id_exam";
-            this.txb_id_exam.Size = new System.Drawing.Size(117, 26);
+            this.txb_id_exam.Size = new System.Drawing.Size(226, 26);
             this.txb_id_exam.TabIndex = 38;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(550, 42);
+            this.label16.Location = new System.Drawing.Point(16, 243);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(117, 20);
             this.label16.TabIndex = 37;
@@ -459,16 +460,16 @@
             // txb_reception_date
             // 
             this.txb_reception_date.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_reception_date.Location = new System.Drawing.Point(665, 7);
+            this.txb_reception_date.Location = new System.Drawing.Point(131, 208);
             this.txb_reception_date.Name = "txb_reception_date";
-            this.txb_reception_date.Size = new System.Drawing.Size(117, 26);
+            this.txb_reception_date.Size = new System.Drawing.Size(226, 26);
             this.txb_reception_date.TabIndex = 36;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(552, 7);
+            this.label15.Location = new System.Drawing.Point(18, 208);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(115, 20);
             this.label15.TabIndex = 35;
@@ -482,7 +483,7 @@
             this.cb_template.FormattingEnabled = true;
             this.cb_template.Items.AddRange(new object[] {
             "Chọn biểu mẫu"});
-            this.cb_template.Location = new System.Drawing.Point(665, 107);
+            this.cb_template.Location = new System.Drawing.Point(131, 308);
             this.cb_template.Name = "cb_template";
             this.cb_template.Size = new System.Drawing.Size(388, 28);
             this.cb_template.TabIndex = 32;
@@ -493,7 +494,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(589, 108);
+            this.label13.Location = new System.Drawing.Point(55, 309);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(76, 20);
             this.label13.TabIndex = 31;
@@ -502,7 +503,7 @@
             // txb_service
             // 
             this.txb_service.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_service.Location = new System.Drawing.Point(665, 75);
+            this.txb_service.Location = new System.Drawing.Point(131, 276);
             this.txb_service.Name = "txb_service";
             this.txb_service.ReadOnly = true;
             this.txb_service.Size = new System.Drawing.Size(388, 26);
@@ -512,7 +513,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(596, 75);
+            this.label14.Location = new System.Drawing.Point(62, 276);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(66, 20);
             this.label14.TabIndex = 29;
@@ -546,11 +547,11 @@
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtgv_service.DefaultCellStyle = dataGridViewCellStyle6;
             this.dtgv_service.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dtgv_service.Location = new System.Drawing.Point(9, 211);
+            this.dtgv_service.Location = new System.Drawing.Point(36, 356);
             this.dtgv_service.Name = "dtgv_service";
             this.dtgv_service.RowHeadersVisible = false;
             this.dtgv_service.RowHeadersWidth = 51;
-            this.dtgv_service.Size = new System.Drawing.Size(530, 522);
+            this.dtgv_service.Size = new System.Drawing.Size(483, 343);
             this.dtgv_service.TabIndex = 28;
             this.dtgv_service.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgv_service.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -602,7 +603,7 @@
             // txb_reason
             // 
             this.txb_reason.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_reason.Location = new System.Drawing.Point(131, 179);
+            this.txb_reason.Location = new System.Drawing.Point(131, 176);
             this.txb_reason.Name = "txb_reason";
             this.txb_reason.Size = new System.Drawing.Size(407, 26);
             this.txb_reason.TabIndex = 25;
@@ -719,9 +720,9 @@
             this.panel2.Controls.Add(this.btn_print);
             this.panel2.Controls.Add(this.btn_edit);
             this.panel2.Controls.Add(this.btn_save);
-            this.panel2.Location = new System.Drawing.Point(368, 0);
+            this.panel2.Location = new System.Drawing.Point(369, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1414, 38);
+            this.panel2.Size = new System.Drawing.Size(1549, 41);
             this.panel2.TabIndex = 0;
             // 
             // guna2ImageButton5
@@ -851,7 +852,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SeaShell;
-            this.ClientSize = new System.Drawing.Size(1455, 827);
+            this.ClientSize = new System.Drawing.Size(1918, 827);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.guna2Panel1);
