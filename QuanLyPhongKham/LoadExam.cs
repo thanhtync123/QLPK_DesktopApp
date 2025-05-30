@@ -13,6 +13,8 @@ namespace QuanLyPhongKham
         // Phương thức khởi tạo DataGridView
         public static void InitialDTGVCommon(DataGridView dtgv_exam)
         {
+            dtgv_exam.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+
             dtgv_exam.Columns.Add("id_patient", "Mã BN");
             dtgv_exam.Columns.Add("name", "Họ tên");
             dtgv_exam.Columns.Add("id_exam", "Mã phiếu khám");
@@ -26,11 +28,11 @@ namespace QuanLyPhongKham
             dtgv_exam.Columns.Add("note", "Ghi chú");
             dtgv_exam.Columns.Add("time_exam", "Thời gian cấp phiếu");
 
-            string[] columnsToHide = {
-             "gender", "date_of_birth", "phone",
-            "address", "updated_at", "reason", "diagnosis", "note"
-        };
 
+            string[] columnsToHide = {
+        "gender", "date_of_birth", "phone",
+        "address", "updated_at", "reason", "diagnosis", "note"
+    };
             foreach (string columnName in columnsToHide)
                 dtgv_exam.Columns[columnName].Visible = false;
         }

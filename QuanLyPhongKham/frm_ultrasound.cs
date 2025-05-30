@@ -165,7 +165,7 @@ namespace QuanLyPhongKham
                 var ketqua = txb_final_result.Text.Trim();
                 var chidinh = txb_service.Text.Trim();
                 var gioitinh = txb_gender.Text.Trim(); // Sử dụng tuổi để hiển thị giới tính
-                MessageBox.Show(gioitinh + "");
+            
 
 
                 // Tạo đường dẫn ảnh trống để tránh lỗi URI
@@ -619,65 +619,57 @@ namespace QuanLyPhongKham
         {
             try
             {
-                // Kiểm tra xem clipboard có chứa hình ảnh không
-                if (Clipboard.ContainsImage())
+                Image img = Clipboard.GetImage();
+                if (img != null)
                 {
-                    Image img = Clipboard.GetImage();
-                    if (img != null)
+                    // Tìm PictureBox trống đầu tiên
+                    PictureBox[] pictureBoxes = { pb_1, pb_2, pb_3, pb_4 };
+                    int targetIndex = -1;
+
+                    for (int i = 0; i < pictureBoxes.Length; i++)
                     {
-                        // Tìm PictureBox trống đầu tiên
-                        PictureBox[] pictureBoxes = { pb_1, pb_2, pb_3, pb_4 };
-                        int targetIndex = -1;
-
-                        for (int i = 0; i < pictureBoxes.Length; i++)
+                        if (pictureBoxes[i].Image == null)
                         {
-                            if (pictureBoxes[i].Image == null)
-                            {
-                                targetIndex = i;
-                                break;
-                            }
-                        }
-
-                        if (targetIndex != -1)
-                        {
-                            // Gán ảnh vào PictureBox
-                            PictureBox targetPb = pictureBoxes[targetIndex];
-                            targetPb.Image = img;
-                            targetPb.Visible = true;
-
-                            // Lưu ảnh vào file và cập nhật đường dẫn
-                            string projectDir = Directory.GetParent(Application.StartupPath).Parent.Parent.FullName;
-                            string imagesDir = Path.Combine(projectDir, "images");
-                            Directory.CreateDirectory(imagesDir);
-
-                            string fileName = Guid.NewGuid() + ".jpg";
-                            string filePath = Path.Combine(imagesDir, fileName);
-                            img.Save(filePath, System.Drawing.Imaging.ImageFormat.Jpeg);
-
-                            // Cập nhật đường dẫn ảnh tương ứng - cách an toàn
-                            switch (targetIndex)
-                            {
-                                case 0: imageUrl1 = filePath; break;
-                                case 1: imageUrl2 = filePath; break;
-                                case 2: imageUrl3 = filePath; break;
-                                case 3: imageUrl4 = filePath; break;
-                            }
-
-                            // Tăng biến đếm ảnh
-                            snapCount++;
-
-                            MessageBox.Show("Đã paste ảnh thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Tất cả các ô đã có ảnh. Vui lòng xóa ít nhất một ảnh để paste.",
-                                "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            targetIndex = i;
+                            break;
                         }
                     }
-                }
-                else
-                {
-                    MessageBox.Show("Clipboard không chứa hình ảnh.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                    if (targetIndex != -1)
+                    {
+                        // Gán ảnh vào PictureBox
+                        PictureBox targetPb = pictureBoxes[targetIndex];
+                        targetPb.Image = img;
+                        targetPb.Visible = true;
+
+                        // Lưu ảnh vào file và cập nhật đường dẫn
+                        string projectDir = Directory.GetParent(Application.StartupPath).Parent.Parent.FullName;
+                        string imagesDir = Path.Combine(projectDir, "images");
+                        Directory.CreateDirectory(imagesDir);
+
+                        string fileName = Guid.NewGuid() + ".jpg";
+                        string filePath = Path.Combine(imagesDir, fileName);
+                        img.Save(filePath, System.Drawing.Imaging.ImageFormat.Jpeg);
+
+                        // Cập nhật đường dẫn ảnh tương ứng - cách an toàn
+                        switch (targetIndex)
+                        {
+                            case 0: imageUrl1 = filePath; break;
+                            case 1: imageUrl2 = filePath; break;
+                            case 2: imageUrl3 = filePath; break;
+                            case 3: imageUrl4 = filePath; break;
+                        }
+
+                        // Tăng biến đếm ảnh
+                        snapCount++;
+
+                        MessageBox.Show("Đã paste ảnh thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Tất cả các ô đã có ảnh. Vui lòng xóa ít nhất một ảnh để paste.",
+                            "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
             }
             catch (Exception ex)
@@ -686,12 +678,90 @@ namespace QuanLyPhongKham
             }
         }
 
+        private void PasteTextFromClipboard()
+        {
+            try
+            {
+                string text = Clipboard.GetText();
+                
+                // Xác định control đang focus để paste text vào đó
+                Control focusedControl = this.ActiveControl;
+                
+                if (focusedControl is TextBox)
+                {
+                    // Nếu control là TextBox, paste text vào đó
+                    TextBox textBox = (TextBox)focusedControl;
+                    int selectionStart = textBox.SelectionStart;
+                    string currentText = textBox.Text;
+                    
+                    // Chèn text từ clipboard vào vị trí con trỏ
+                    textBox.Text = currentText.Substring(0, selectionStart) + text + 
+                        currentText.Substring(selectionStart + textBox.SelectionLength);
+                    
+                    // Di chuyển con trỏ đến cuối phần văn bản mới chèn
+                    textBox.SelectionStart = selectionStart + text.Length;
+                    
+                    // Thông báo (tùy chọn - có thể bỏ nếu không muốn hiện thông báo)
+                    // MessageBox.Show("Đã paste văn bản thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (focusedControl is ComboBox && ((ComboBox)focusedControl).DropDownStyle != ComboBoxStyle.DropDownList)
+                {
+                    // Nếu là ComboBox có thể edit
+                    ComboBox comboBox = (ComboBox)focusedControl;
+                    comboBox.Text = text;
+                }
+                else
+                {
+                    // Nếu không có control phù hợp đang focus, thử paste vào control kết quả
+                    if (txb_result.Focused || txb_result.ContainsFocus)
+                    {
+                        int selectionStart = txb_result.SelectionStart;
+                        txb_result.Text = txb_result.Text.Substring(0, selectionStart) + text + 
+                            txb_result.Text.Substring(selectionStart + txb_result.SelectionLength);
+                        txb_result.SelectionStart = selectionStart + text.Length;
+                    }
+                    else if (txb_final_result.Focused || txb_final_result.ContainsFocus)
+                    {
+                        int selectionStart = txb_final_result.SelectionStart;
+                        txb_final_result.Text = txb_final_result.Text.Substring(0, selectionStart) + text + 
+                            txb_final_result.Text.Substring(selectionStart + txb_final_result.SelectionLength);
+                        txb_final_result.SelectionStart = selectionStart + text.Length;
+                    }
+                    else
+                    {
+                        // Nếu không có TextBox nào được focus, thông báo cho người dùng
+                        MessageBox.Show("Vui lòng đặt con trỏ vào ô văn bản trước khi dán.", 
+                            "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi paste văn bản: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             if (keyData == (Keys.Control | Keys.V))
             {
-                PasteImageFromClipboard();
-                return true;
+                // Check what type of content is in the clipboard and handle accordingly
+                if (Clipboard.ContainsImage())
+                {
+                    PasteImageFromClipboard();
+                    return true;
+                }
+                else if (Clipboard.ContainsText())
+                {
+                    PasteTextFromClipboard();
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Clipboard không chứa nội dung hỗ trợ (ảnh hoặc văn bản).", 
+                        "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return true;
+                }
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }

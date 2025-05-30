@@ -716,6 +716,11 @@ VALUES (NULL, @examination_id, @service_id, @price);";
         {
 
         }
+
+        private void btn_layphieukham_Click(object sender, EventArgs e)
+        {
+
+        }
     } 
 }
 

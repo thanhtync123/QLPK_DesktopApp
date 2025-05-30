@@ -20,16 +20,29 @@ namespace QuanLyPhongKham
         {
             InitializeComponent();
             LoadExam.InitialDTGVCommon(dtgv_exam); // Khởi tạo DataGridView
-     
         }
 
+        private void StopAutoRefreshWhenSearching()
+        {
+            // Stop the timer if we're searching for historical data
+            if (dtpk_fromdate.Value.Date < DateTime.Today || dtpk_todate.Value.Date < DateTime.Today)
+            {
+                timer.Stop();
+            }
+            else if (!timer.Enabled)
+            {
+                timer.Start();
+            }
+        }
 
         private void frm_ecgg_Load(object sender, EventArgs e)
         {
+            // Set default date range to current day
+            dtpk_fromdate.Value = DateTime.Today;
+            dtpk_todate.Value = DateTime.Today;
 
             LoadExam.LoadDTGVCommon(dtgv_exam, "Điện tim");
             LoadComboboxTemplate();
-
 
             // Thiết lập timer tự động reload mỗi 3 giây và lưu trạng thái dòng hiện tại
             timer.Interval = 3000;
@@ -37,9 +50,7 @@ namespace QuanLyPhongKham
             {
                 // Lưu id_exam của dòng hiện tại (nếu có)
                 if (dtgv_exam.CurrentRow != null && dtgv_exam.CurrentRow.Cells["id_exam"].Value != null)
-                
                     selectedExamId = Convert.ToInt32(dtgv_exam.CurrentRow.Cells["id_exam"].Value);
-                
 
                 // Reload dữ liệu
                 LoadExam.LoadDTGVCommon(dtgv_exam, "Điện tim");
