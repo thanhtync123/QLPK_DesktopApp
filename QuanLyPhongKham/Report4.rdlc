@@ -29,6 +29,10 @@
           <DataField>price2</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="notes2">
+          <DataField>notes2</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DataSetService</rd:DataSetName>
@@ -48,7 +52,10 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>2.95555in</Width>
+                  <Width>1.68549in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>2.11807in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -79,7 +86,40 @@
                           <rd:DefaultName>Textbox3</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox14">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Ghi chú</Value>
+                                  <Style>
+                                    <FontSize>13pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox14</rd:DefaultName>
+                          <Style>
+                            <Border>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -118,7 +158,39 @@
                           <rd:DefaultName>name_service2</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="notes2">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!notes2.Value</Value>
+                                  <Style>
+                                    <FontSize>13pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>notes2</rd:DefaultName>
+                          <Style>
+                            <Border>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -136,6 +208,7 @@
             <TablixColumnHierarchy>
               <TablixMembers>
                 <TablixMember />
+                <TablixMember />
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
@@ -149,10 +222,10 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
-            <Top>4.6623in</Top>
-            <Left>2.44706in</Left>
+            <Top>4.58989in</Top>
+            <Left>2.00378in</Left>
             <Height>0.5in</Height>
-            <Width>2.95555in</Width>
+            <Width>3.80356in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -168,18 +241,22 @@
                   <TextRun>
                     <Value>=Parameters!txb_ngaykham.Value</Value>
                     <Style>
+                      <FontFamily>times New Roman</FontFamily>
                       <FontSize>12pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
                 </TextRuns>
-                <Style />
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_ngaykham</rd:DefaultName>
-            <Top>5.60674in</Top>
-            <Left>4.26567in</Left>
+            <Top>5.74267in</Top>
+            <Left>3.89068in</Left>
             <Height>0.25in</Height>
-            <Width>2.28125in</Width>
+            <Width>2.65624in</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -200,7 +277,8 @@
                   <TextRun>
                     <Value>Mã BN: </Value>
                     <Style>
-                      <FontSize>12pt</FontSize>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>14pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
@@ -212,9 +290,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
             <Top>2.82252in</Top>
-            <Left>1.28292in</Left>
+            <Left>1.16834in</Left>
             <Height>0.25in</Height>
-            <Width>0.70973in</Width>
+            <Width>0.82431in</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
@@ -233,7 +311,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>  Tên BN: </Value>
+                    <Value>  Họ tên: </Value>
                     <Style>
                       <FontFamily>Times New Roman</FontFamily>
                       <FontSize>14pt</FontSize>
@@ -334,10 +412,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox9</rd:DefaultName>
-            <Top>3.46836in</Top>
+            <Top>3.39892in</Top>
             <Left>0.50728in</Left>
             <Height>0.25in</Height>
-            <Width>1.55209in</Width>
+            <Width>1.48537in</Width>
             <ZIndex>5</ZIndex>
             <Style>
               <Border>
@@ -367,7 +445,7 @@
             </Paragraphs>
             <rd:DefaultName>txb_mabn</rd:DefaultName>
             <Top>2.82252in</Top>
-            <Left>2.00653in</Left>
+            <Left>1.99265in</Left>
             <Height>0.25in</Height>
             <Width>1.22382in</Width>
             <ZIndex>6</ZIndex>
@@ -392,6 +470,7 @@
                     <Style>
                       <FontFamily>times New Roman</FontFamily>
                       <FontSize>14pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -399,8 +478,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_tenbn</rd:DefaultName>
-            <Top>2.51696in</Top>
-            <Left>2.04473in</Left>
+            <Top>2.53779in</Top>
+            <Left>1.99265in</Left>
             <Height>0.25in</Height>
             <Width>1.83206in</Width>
             <ZIndex>7</ZIndex>
@@ -432,10 +511,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_chandoan</rd:DefaultName>
-            <Top>3.44753in</Top>
-            <Left>2.12535in</Left>
+            <Top>3.39197in</Top>
+            <Left>1.99265in</Left>
             <Height>0.25in</Height>
-            <Width>3.62719in</Width>
+            <Width>3.93969in</Width>
             <ZIndex>8</ZIndex>
             <Style>
               <Border>
@@ -465,10 +544,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_chandoanphu</rd:DefaultName>
-            <Top>3.69753in</Top>
-            <Left>2.13922in</Left>
+            <Top>3.64197in</Top>
+            <Left>2.01696in</Left>
             <Height>0.25in</Height>
-            <Width>3.61332in</Width>
+            <Width>3.92582in</Width>
             <ZIndex>9</ZIndex>
             <Style>
               <Border>
@@ -533,10 +612,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_loidan</rd:DefaultName>
-            <Top>4.11766in</Top>
-            <Left>2.13922in</Left>
+            <Top>3.89197in</Top>
+            <Left>2.01696in</Left>
             <Height>0.69792in</Height>
-            <Width>3.61332in</Width>
+            <Width>3.92582in</Width>
             <ZIndex>11</ZIndex>
             <Style>
               <Border>
@@ -569,8 +648,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
-            <Top>4.12808in</Top>
-            <Left>0.67395in</Left>
+            <Top>3.89197in</Top>
+            <Left>0.60723in</Left>
             <Height>0.25in</Height>
             <Width>1.38542in</Width>
             <ZIndex>12</ZIndex>
@@ -608,7 +687,7 @@
             <Top>3.10725in</Top>
             <Left>0.50728in</Left>
             <Height>0.29167in</Height>
-            <Width>1.575in</Width>
+            <Width>1.48537in</Width>
             <ZIndex>13</ZIndex>
             <Style>
               <Border>
@@ -710,7 +789,7 @@
             </Paragraphs>
             <rd:DefaultName>txb_ngaysinh</rd:DefaultName>
             <Top>2.51696in</Top>
-            <Left>4.91845in</Left>
+            <Left>4.88142in</Left>
             <Height>0.23611in</Height>
             <Width>2.18563in</Width>
             <ZIndex>16</ZIndex>

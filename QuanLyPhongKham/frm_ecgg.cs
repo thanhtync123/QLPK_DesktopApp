@@ -14,7 +14,7 @@ namespace QuanLyPhongKham
     public partial class frm_ecgg : Form
     {
         private bool isUserChangingTemplate = true;
-        private Timer timer = new Timer();
+
         private int? selectedExamId = null;
         public frm_ecgg()
         {
@@ -22,18 +22,7 @@ namespace QuanLyPhongKham
             LoadExam.InitialDTGVCommon(dtgv_exam); // Khởi tạo DataGridView
         }
 
-        private void StopAutoRefreshWhenSearching()
-        {
-            // Stop the timer if we're searching for historical data
-            if (dtpk_fromdate.Value.Date < DateTime.Today || dtpk_todate.Value.Date < DateTime.Today)
-            {
-                timer.Stop();
-            }
-            else if (!timer.Enabled)
-            {
-                timer.Start();
-            }
-        }
+
 
         private void frm_ecgg_Load(object sender, EventArgs e)
         {
@@ -44,18 +33,14 @@ namespace QuanLyPhongKham
             LoadExam.LoadDTGVCommon(dtgv_exam, "Điện tim");
             LoadComboboxTemplate();
 
-            // Thiết lập timer tự động reload mỗi 3 giây và lưu trạng thái dòng hiện tại
-            timer.Interval = 3000;
-            timer.Tick += (s, ev) =>
-            {
-                // Lưu id_exam của dòng hiện tại (nếu có)
+
                 if (dtgv_exam.CurrentRow != null && dtgv_exam.CurrentRow.Cells["id_exam"].Value != null)
                     selectedExamId = Convert.ToInt32(dtgv_exam.CurrentRow.Cells["id_exam"].Value);
 
-                // Reload dữ liệu
+    
                 LoadExam.LoadDTGVCommon(dtgv_exam, "Điện tim");
 
-                // Khôi phục lựa chọn dòng cũ nếu còn tồn tại
+  
                 if (selectedExamId.HasValue)
                 {
                     foreach (DataGridViewRow row in dtgv_exam.Rows)
@@ -68,8 +53,7 @@ namespace QuanLyPhongKham
                         }
                     }
                 }
-            };
-            timer.Start();
+        
         }
         private void LoadComboboxTemplate()
         {
@@ -114,12 +98,6 @@ namespace QuanLyPhongKham
 
         }
         private void btn_search_Click(object sender, EventArgs e)
-        {
-            string keyword = txb_search.Text.Trim();
-            LoadExam.LoadDTGVCommon(dtgv_exam, "Điện tim", keyword);
-        }
-
-        private void txb_search_TextChanged(object sender, EventArgs e)
         {
             var from_date = dtpk_fromdate.Text;
             var to_date = dtpk_todate.Text;
@@ -220,6 +198,13 @@ namespace QuanLyPhongKham
 
             else
                 MessageBox.Show("Không có dữ liệu nào được thêm.");
+        }
+
+        private void txb_search_TextChanged(object sender, EventArgs e)
+        {
+            string keyword = txb_search.Text.Trim();
+            LoadExam.LoadDTGVCommon(dtgv_exam, "Điện tim", keyword);
+           
         }
 
         private void btn_edit_Click(object sender, EventArgs e)

@@ -76,25 +76,25 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>0.70943in</Width>
+                  <Width>0.73072in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.43966in</Width>
+                  <Width>0.55917in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.7358in</Width>
+                  <Width>0.83008in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.83097in</Width>
+                  <Width>0.85226in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.70955in</Width>
+                  <Width>0.55964in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.27888in</Width>
+                  <Width>1.30017in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.5333in</Width>
+                  <Width>0.55459in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -124,7 +124,6 @@
                           <rd:DefaultName>Textbox9</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -158,7 +157,6 @@
                           <rd:DefaultName>Textbox13</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -192,7 +190,6 @@
                           <rd:DefaultName>Textbox27</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -226,7 +223,6 @@
                           <rd:DefaultName>Textbox25</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -260,7 +256,6 @@
                           <rd:DefaultName>Textbox23</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -294,7 +289,6 @@
                           <rd:DefaultName>Textbox21</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -328,7 +322,6 @@
                           <rd:DefaultName>Textbox19</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -365,7 +358,6 @@
                           <rd:DefaultName>med_name</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -397,7 +389,6 @@
                           <rd:DefaultName>unit</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -429,7 +420,6 @@
                           <rd:DefaultName>dosage</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -461,7 +451,6 @@
                           <rd:DefaultName>route</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -493,7 +482,6 @@
                           <rd:DefaultName>times</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -525,7 +513,6 @@
                           <rd:DefaultName>med_note</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -557,7 +544,6 @@
                           <rd:DefaultName>quantity</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -595,9 +581,9 @@
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
             <Top>4.48555in</Top>
-            <Left>0.5609in</Left>
+            <Left>0.69632in</Left>
             <Height>0.83332in</Height>
-            <Width>5.23759in</Width>
+            <Width>5.38665in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -625,8 +611,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
-            <Top>2.75292in</Top>
-            <Left>3.30983in</Left>
+            <Top>2.77327in</Top>
+            <Left>3.37799in</Left>
             <Height>0.25in</Height>
             <Width>0.83611in</Width>
             <ZIndex>1</ZIndex>
@@ -647,7 +633,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value> Tên BN: </Value>
+                    <Value> Họ tên: </Value>
                     <Style>
                       <FontFamily>Times New Roman</FontFamily>
                       <FontSize>12pt</FontSize>
@@ -1018,7 +1004,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_diachi</rd:DefaultName>
-            <Top>2.75938in</Top>
+            <Top>2.7698in</Top>
             <Left>1.50565in</Left>
             <Height>0.25in</Height>
             <Width>1.81323in</Width>
@@ -1072,8 +1058,10 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Ký tên</Value>
+                    <Value>Bác sỹ</Value>
                     <Style>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
@@ -1085,6 +1073,8 @@
                   <TextRun>
                     <Value />
                     <Style>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
@@ -1093,8 +1083,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox33</rd:DefaultName>
-            <Top>5.69387in</Top>
-            <Left>4.30773in</Left>
+            <Top>5.62443in</Top>
+            <Left>4.3532in</Left>
             <Height>0.25in</Height>
             <Width>0.525in</Width>
             <ZIndex>14</ZIndex>
@@ -1407,7 +1397,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
             <Top>0.23172in</Top>
-            <Left>2.21411in</Left>
+            <Left>2.08911in</Left>
             <Height>0.75in</Height>
             <Width>3.16248in</Width>
             <ZIndex>22</ZIndex>
@@ -1462,7 +1452,7 @@
             <Value>f18fdb2000d9b587ecc8</Value>
             <Sizing>FitProportional</Sizing>
             <Top>0.30544cm</Top>
-            <Left>1.17034in</Left>
+            <Left>1.04534in</Left>
             <Height>0.98611in</Height>
             <Width>1.04376in</Width>
             <ZIndex>24</ZIndex>

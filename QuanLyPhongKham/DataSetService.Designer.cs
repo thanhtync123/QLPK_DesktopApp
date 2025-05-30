@@ -285,6 +285,8 @@ namespace QuanLyPhongKham {
             
             private global::System.Data.DataColumn columnprice2;
             
+            private global::System.Data.DataColumn columnnotes2;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public DataTable1DataTable() {
@@ -344,6 +346,14 @@ namespace QuanLyPhongKham {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn notes2Column {
+                get {
+                    return this.columnnotes2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -379,12 +389,13 @@ namespace QuanLyPhongKham {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DataTable1Row AddDataTable1Row(string id_service2, string name_service2, string price2) {
+            public DataTable1Row AddDataTable1Row(string id_service2, string name_service2, string price2, string notes2) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id_service2,
                         name_service2,
-                        price2};
+                        price2,
+                        notes2};
                 rowDataTable1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable1Row);
                 return rowDataTable1Row;
@@ -410,6 +421,7 @@ namespace QuanLyPhongKham {
                 this.columnid_service2 = base.Columns["id_service2"];
                 this.columnname_service2 = base.Columns["name_service2"];
                 this.columnprice2 = base.Columns["price2"];
+                this.columnnotes2 = base.Columns["notes2"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -421,6 +433,8 @@ namespace QuanLyPhongKham {
                 base.Columns.Add(this.columnname_service2);
                 this.columnprice2 = new global::System.Data.DataColumn("price2", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnprice2);
+                this.columnnotes2 = new global::System.Data.DataColumn("notes2", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnotes2);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -611,6 +625,22 @@ namespace QuanLyPhongKham {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string notes2 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.notes2Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'notes2\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.notes2Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Isid_service2Null() {
                 return this.IsNull(this.tableDataTable1.id_service2Column);
             }
@@ -643,6 +673,18 @@ namespace QuanLyPhongKham {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Setprice2Null() {
                 this[this.tableDataTable1.price2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isnotes2Null() {
+                return this.IsNull(this.tableDataTable1.notes2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setnotes2Null() {
+                this[this.tableDataTable1.notes2Column] = global::System.Convert.DBNull;
             }
         }
         

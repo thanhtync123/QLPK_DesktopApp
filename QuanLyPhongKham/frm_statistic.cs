@@ -33,45 +33,46 @@ namespace QuanLyPhongKham
 
             // Số ca X-quang
             string query5 = $@"
-        SELECT COUNT(*) 
-        FROM examination_services es
-        JOIN services s ON es.service_id = s.id
-        WHERE s.type = 'X-quang' AND es.created_at BETWEEN '{fromDate}' AND '{toDate}'";
+                SELECT COUNT(*) 
+                FROM examination_services es
+                JOIN services s ON es.service_id = s.id
+                WHERE s.type = 'X-quang' AND es.created_at BETWEEN '{fromDate}' AND '{toDate}'";
             lb_5.Text = Db.Scalar(query5).ToString();
 
             // Số ca Điện tim
             string query6 = $@"
-        SELECT COUNT(*) 
-        FROM examination_services es
-        JOIN services s ON es.service_id = s.id
-        WHERE s.type = 'Điện tim' AND es.created_at BETWEEN '{fromDate}' AND '{toDate}'";
+                SELECT COUNT(*) 
+                FROM examination_services es
+                JOIN services s ON es.service_id = s.id
+                WHERE s.type = 'Điện tim' AND es.created_at BETWEEN '{fromDate}' AND '{toDate}'";
             lb_6.Text = Db.Scalar(query6).ToString();
 
             // Số ca Siêu âm
             string query7 = $@"
-        SELECT COUNT(*) 
-        FROM examination_services es
-        JOIN services s ON es.service_id = s.id
-        WHERE s.type = 'Siêu âm' AND es.created_at BETWEEN '{fromDate}' AND '{toDate}'";
+                SELECT COUNT(*) 
+                FROM examination_services es
+                JOIN services s ON es.service_id = s.id
+                WHERE s.type = 'Siêu âm' AND es.created_at BETWEEN '{fromDate}' AND '{toDate}'";
             lb_7.Text = Db.Scalar(query7).ToString();
 
             // Số ca Xét nghiệm
             string query8 = $@"
-        SELECT COUNT(*) 
-        FROM examination_services es
-        JOIN services s ON es.service_id = s.id
-        WHERE s.type = 'Xét nghiệm' AND es.created_at BETWEEN '{fromDate}' AND '{toDate}'";
+                SELECT COUNT(*) 
+                FROM examination_services es
+                JOIN services s ON es.service_id = s.id
+                WHERE s.type = 'Xét nghiệm' AND es.created_at BETWEEN '{fromDate}' AND '{toDate}'";
             lb_8.Text = Db.Scalar(query8).ToString();
         }
-
 
         private void frm_statistic_Load(object sender, EventArgs e)
         {
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
             dateTimePicker1.CustomFormat = "dd/MM/yyyy";
+            dateTimePicker1.Value = DateTime.Today; // 👈 Mặc định là hôm nay
 
             dateTimePicker2.Format = DateTimePickerFormat.Custom;
             dateTimePicker2.CustomFormat = "dd/MM/yyyy";
+            dateTimePicker2.Value = DateTime.Today; // 👈 Mặc định là hôm nay
 
             LoadThongKe();
         }
@@ -83,20 +84,12 @@ namespace QuanLyPhongKham
 
         private void guna2ImageButton6_Click(object sender, EventArgs e)
         {
-
+            // Có thể xử lý thêm ở đây nếu cần
         }
 
         private void guna2ImageButton8_Click(object sender, EventArgs e)
         {
-
+            // Có thể xử lý thêm ở đây nếu cần
         }
     }
 }
-
-
-
-
-
-
-
-
