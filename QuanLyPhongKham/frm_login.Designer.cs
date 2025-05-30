@@ -53,7 +53,7 @@
             this.txb_username.Location = new System.Drawing.Point(103, 52);
             this.txb_username.Margin = new System.Windows.Forms.Padding(6);
             this.txb_username.Name = "txb_username";
-            this.txb_username.Size = new System.Drawing.Size(253, 30);
+            this.txb_username.Size = new System.Drawing.Size(253, 26);
             this.txb_username.TabIndex = 1;
             // 
             // txb_password
@@ -61,8 +61,9 @@
             this.txb_password.Location = new System.Drawing.Point(103, 140);
             this.txb_password.Margin = new System.Windows.Forms.Padding(6);
             this.txb_password.Name = "txb_password";
-            this.txb_password.Size = new System.Drawing.Size(253, 30);
+            this.txb_password.Size = new System.Drawing.Size(253, 26);
             this.txb_password.TabIndex = 2;
+            this.txb_password.UseSystemPasswordChar = true;
             // 
             // guna2ImageButton1
             // 
@@ -111,7 +112,7 @@
             // 
             // frm_login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::QuanLyPhongKham.Properties.Resources.edit;
             this.ClientSize = new System.Drawing.Size(686, 397);

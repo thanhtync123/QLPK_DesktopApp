@@ -19,7 +19,12 @@ namespace QuanLyPhongKham
         private void Form1_Load(object sender, EventArgs e)
         {
             if (userRole == "user")
+            {
                 smi_thongke.Visible = false;
+                smi_users.Visible = false;
+
+            }    
+               
             else
                 smi_thongke.Visible = true;
 
