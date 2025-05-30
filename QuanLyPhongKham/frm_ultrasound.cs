@@ -155,6 +155,7 @@ namespace QuanLyPhongKham
                 var mabn = txb_id_patient.Text.Trim();
                 var tenbn = txb_name.Text.Trim();
                 //var ngaysinh = txb_dob.Text.Trim();
+           
                 var ngaysinh = txb_age.Text;
                 var diachi = txb_address.Text.Trim();
                 var sdt = txb_phone.Text.Trim();
@@ -722,5 +723,7 @@ namespace QuanLyPhongKham
         {
 
         }
+
+
     }
 }

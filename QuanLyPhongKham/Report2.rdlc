@@ -44,6 +44,7 @@
                     <Value>Mô tả:</Value>
                     <Style>
                       <FontFamily>times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
@@ -58,6 +59,7 @@
                     <Value />
                     <Style>
                       <FontFamily>times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
@@ -123,7 +125,10 @@
                 <TextRuns>
                   <TextRun>
                     <Value>=Parameters!txb_mota.Value</Value>
-                    <Style />
+                    <Style>
+                      <FontFamily>times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                    </Style>
                   </TextRun>
                 </TextRuns>
                 <Style />
@@ -153,7 +158,10 @@
                 <TextRuns>
                   <TextRun>
                     <Value>=Parameters!txb_ketluan.Value</Value>
-                    <Style />
+                    <Style>
+                      <FontFamily>times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                    </Style>
                   </TextRun>
                 </TextRuns>
                 <Style>
@@ -164,7 +172,7 @@
             <rd:DefaultName>txb_ketluan</rd:DefaultName>
             <Top>9.50066cm</Top>
             <Left>14.51117cm</Left>
-            <Height>3.29427cm</Height>
+            <Height>2.15656cm</Height>
             <Width>10.41256cm</Width>
             <ZIndex>5</ZIndex>
             <Style>
@@ -341,7 +349,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox20</rd:DefaultName>
-            <Top>13.73752cm</Top>
+            <Top>12.25722cm</Top>
             <Left>18.35326cm</Left>
             <Height>0.75875cm</Height>
             <Width>3.24083cm</Width>
@@ -450,7 +458,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_ngaykham</rd:DefaultName>
-            <Top>13.06696cm</Top>
+            <Top>11.65722cm</Top>
             <Left>16.61266cm</Left>
             <Height>0.6cm</Height>
             <Width>5.93958cm</Width>
@@ -475,6 +483,7 @@
                     <Value>Chẩn đoán:</Value>
                     <Style>
                       <FontFamily>times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
@@ -486,9 +495,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox9</rd:DefaultName>
             <Top>2.85124in</Top>
-            <Left>0.33712cm</Left>
+            <Left>0.05959cm</Left>
             <Height>0.25in</Height>
-            <Width>0.76446in</Width>
+            <Width>1.11331in</Width>
             <ZIndex>16</ZIndex>
             <Style>
               <Border>
@@ -510,6 +519,7 @@
                     <Value>=Parameters!txb_chandoan.Value</Value>
                     <Style>
                       <FontFamily>tIMes New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -520,9 +530,9 @@
             </Paragraphs>
             <rd:DefaultName>txb_chandoan</rd:DefaultName>
             <Top>2.84777in</Top>
-            <Left>0.95274in</Left>
+            <Left>1.14024in</Left>
             <Height>0.25in</Height>
-            <Width>4.53907in</Width>
+            <Width>4.10157in</Width>
             <ZIndex>17</ZIndex>
             <Style>
               <Border>
@@ -544,6 +554,7 @@
                     <Value>=Parameters!txb_chandoanphu.Value</Value>
                     <Style>
                       <FontFamily>tIMes New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -554,9 +565,9 @@
             </Paragraphs>
             <rd:DefaultName>txb_chandoanphu</rd:DefaultName>
             <Top>3.09777in</Top>
-            <Left>0.95274in</Left>
+            <Left>1.14024in</Left>
             <Height>0.25in</Height>
-            <Width>4.53907in</Width>
+            <Width>4.10157in</Width>
             <ZIndex>18</ZIndex>
             <Style>
               <Border>
@@ -578,6 +589,7 @@
                     <Value>=Parameters!txb_mabn.Value</Value>
                     <Style>
                       <FontFamily>times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -586,7 +598,7 @@
             </Paragraphs>
             <rd:DefaultName>txb_mabn</rd:DefaultName>
             <Top>2.05251in</Top>
-            <Left>4.93594in</Left>
+            <Left>4.81094in</Left>
             <Height>0.25in</Height>
             <Width>0.81872in</Width>
             <ZIndex>19</ZIndex>
@@ -610,6 +622,7 @@
                     <Value>Mã BN:</Value>
                     <Style>
                       <FontFamily>times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
@@ -621,7 +634,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
             <Top>2.05251in</Top>
-            <Left>4.48455in</Left>
+            <Left>4.10955in</Left>
             <Height>0.23611in</Height>
             <Width>0.67361in</Width>
             <ZIndex>20</ZIndex>
@@ -645,6 +658,7 @@
                     <Value>Bác sĩ chỉ định:</Value>
                     <Style>
                       <FontFamily>times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
@@ -655,7 +669,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox20</rd:DefaultName>
-            <Top>2.53873in</Top>
+            <Top>2.55261in</Top>
             <Height>0.23959in</Height>
             <Width>4.90499in</Width>
             <ZIndex>21</ZIndex>
@@ -679,6 +693,7 @@
                     <Value>Họ tên: </Value>
                     <Style>
                       <FontFamily>times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
@@ -713,6 +728,7 @@
                     <Value>Tuổi:</Value>
                     <Style>
                       <FontFamily>times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
@@ -724,7 +740,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
             <Top>1.76084in</Top>
-            <Left>7.34877cm</Left>
+            <Left>5.76127cm</Left>
             <Height>0.25in</Height>
             <Width>0.84114in</Width>
             <ZIndex>23</ZIndex>
@@ -748,6 +764,7 @@
                     <Value>Địa chỉ:</Value>
                     <Style>
                       <FontFamily>times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
@@ -782,6 +799,7 @@
                     <Value>SĐT:</Value>
                     <Style>
                       <FontFamily>times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
@@ -793,7 +811,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
             <Top>2.03862in</Top>
-            <Left>2.98464in</Left>
+            <Left>2.35964in</Left>
             <Height>0.25in</Height>
             <Width>0.78097in</Width>
             <ZIndex>25</ZIndex>
@@ -817,6 +835,7 @@
                     <Value>=Parameters!txb_tenbn.Value</Value>
                     <Style>
                       <FontFamily>tIMes New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
@@ -852,6 +871,7 @@
                     <Value>=Parameters!txb_ngaysinh.Value</Value>
                     <Style>
                       <FontFamily>tIMes New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -862,7 +882,7 @@
             </Paragraphs>
             <rd:DefaultName>txb_ngaysinh</rd:DefaultName>
             <Top>1.76084in</Top>
-            <Left>3.73436in</Left>
+            <Left>3.10936in</Left>
             <Height>0.25in</Height>
             <Width>1.39527in</Width>
             <ZIndex>27</ZIndex>
@@ -886,6 +906,7 @@
                     <Value>=Parameters!txb_diachi.Value</Value>
                     <Style>
                       <FontFamily>tIMes New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -918,6 +939,7 @@
                     <Value>=Parameters!txb_sdt.Value</Value>
                     <Style>
                       <FontFamily>TIMes New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -926,7 +948,7 @@
             </Paragraphs>
             <rd:DefaultName>txb_sdt</rd:DefaultName>
             <Top>2.03862in</Top>
-            <Left>3.76561in</Left>
+            <Left>3.14061in</Left>
             <Height>0.25in</Height>
             <Width>1.39527in</Width>
             <ZIndex>29</ZIndex>
@@ -950,6 +972,7 @@
                     <Value>Giới tính:</Value>
                     <Style>
                       <FontFamily>times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
@@ -961,7 +984,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
             <Top>1.76084in</Top>
-            <Left>4.53757in</Left>
+            <Left>4.16257in</Left>
             <Height>0.25in</Height>
             <Width>0.78097in</Width>
             <ZIndex>30</ZIndex>
@@ -985,6 +1008,7 @@
                     <Value>=Parameters!txb_gioitinh.Value</Value>
                     <Style>
                       <FontFamily>TIMEs New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -993,7 +1017,7 @@
             </Paragraphs>
             <rd:DefaultName>txb_gioitinh</rd:DefaultName>
             <Top>4.47253cm</Top>
-            <Left>12.80556cm</Left>
+            <Left>12.48806cm</Left>
             <Height>0.635cm</Height>
             <Width>2.3549cm</Width>
             <ZIndex>31</ZIndex>
@@ -1017,6 +1041,7 @@
                     <Value>Chỉ định:</Value>
                     <Style>
                       <FontFamily>times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
@@ -1049,6 +1074,7 @@
                     <Value>=Parameters!txb_chidinh.Value</Value>
                     <Style>
                       <FontFamily>times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
