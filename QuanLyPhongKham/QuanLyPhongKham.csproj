@@ -164,6 +164,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataSetFake.cs">
+      <DependentUpon>DataSetFake.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetFake.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetFake.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSetMed.cs">
       <DependentUpon>DataSetMed.xsd</DependentUpon>
     </Compile>
@@ -429,6 +437,17 @@
     <EmbeddedResource Include="Report3.rdlc" />
     <EmbeddedResource Include="Report4.rdlc" />
     <EmbeddedResource Include="Report5.rdlc" />
+    <None Include="DataSetFake.xsc">
+      <DependentUpon>DataSetFake.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetFake.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetFake.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetFake.xss">
+      <DependentUpon>DataSetFake.xsd</DependentUpon>
+    </None>
     <None Include="DataSetMed.xsc">
       <DependentUpon>DataSetMed.xsd</DependentUpon>
     </None>
@@ -463,6 +482,7 @@
       <DependentUpon>DataSetTest.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\DataSetFake.datasource" />
     <None Include="Properties\DataSources\DataSetMed.datasource" />
     <None Include="Properties\DataSources\DataSetService.datasource" />
     <None Include="Properties\DataSources\DataSetTest.datasource" />
