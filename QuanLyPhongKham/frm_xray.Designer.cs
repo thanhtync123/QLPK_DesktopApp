@@ -38,6 +38,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_xray));
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.txb_search = new Guna.UI2.WinForms.Guna2TextBox();
             this.rdn_all = new System.Windows.Forms.RadioButton();
             this.rdn_noresult = new System.Windows.Forms.RadioButton();
@@ -49,7 +50,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btn_search = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.txb_reason1 = new System.Windows.Forms.TextBox();
@@ -69,6 +69,10 @@
             this.txb_service = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.dtgv_service = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.examination_service_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.state = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txb_reason = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txb_address = new System.Windows.Forms.TextBox();
@@ -93,10 +97,6 @@
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
-            this.examination_service_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.state = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_exam)).BeginInit();
             this.panel3.SuspendLayout();
@@ -141,6 +141,14 @@
             this.guna2ImageButton1.Size = new System.Drawing.Size(20, 20);
             this.guna2ImageButton1.TabIndex = 51;
             this.guna2ImageButton1.UseTransparentBackground = true;
+            // 
+            // webBrowser1
+            // 
+            this.webBrowser1.Location = new System.Drawing.Point(310, 579);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(250, 203);
+            this.webBrowser1.TabIndex = 45;
             // 
             // txb_search
             // 
@@ -313,14 +321,6 @@
             this.label1.Size = new System.Drawing.Size(65, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Từ ngày";
-            // 
-            // webBrowser1
-            // 
-            this.webBrowser1.Location = new System.Drawing.Point(310, 579);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(250, 203);
-            this.webBrowser1.TabIndex = 45;
             // 
             // panel1
             // 
@@ -527,7 +527,7 @@
             this.dtgv_service.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.None;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -541,8 +541,8 @@
             this.state});
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
@@ -576,6 +576,34 @@
             this.dtgv_service.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtgv_service.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dtgv_service.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_service_CellClick);
+            // 
+            // examination_service_id
+            // 
+            this.examination_service_id.HeaderText = "Mã Phiếu KQ";
+            this.examination_service_id.MinimumWidth = 6;
+            this.examination_service_id.Name = "examination_service_id";
+            this.examination_service_id.Width = 70;
+            // 
+            // id
+            // 
+            this.id.HeaderText = "Mã chỉ định";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.Width = 80;
+            // 
+            // name
+            // 
+            this.name.HeaderText = "Tên chỉ định";
+            this.name.MinimumWidth = 6;
+            this.name.Name = "name";
+            this.name.Width = 240;
+            // 
+            // state
+            // 
+            this.state.HeaderText = "Trạng thái";
+            this.state.MinimumWidth = 6;
+            this.state.Name = "state";
+            this.state.Width = 120;
             // 
             // txb_reason
             // 
@@ -823,34 +851,6 @@
             this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
-            // 
-            // examination_service_id
-            // 
-            this.examination_service_id.HeaderText = "Mã Phiếu KQ";
-            this.examination_service_id.MinimumWidth = 6;
-            this.examination_service_id.Name = "examination_service_id";
-            this.examination_service_id.Width = 70;
-            // 
-            // id
-            // 
-            this.id.HeaderText = "Mã chỉ định";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.Width = 80;
-            // 
-            // name
-            // 
-            this.name.HeaderText = "Tên chỉ định";
-            this.name.MinimumWidth = 6;
-            this.name.Name = "name";
-            this.name.Width = 240;
-            // 
-            // state
-            // 
-            this.state.HeaderText = "Trạng thái";
-            this.state.MinimumWidth = 6;
-            this.state.Name = "state";
-            this.state.Width = 120;
             // 
             // frm_xray
             // 
