@@ -23,7 +23,8 @@ namespace QuanLyPhongKham
         private string chandoanphu;
         private string ngaykham;
         private string tongtien;
-
+        private string sdt;
+        //     mabn, tenbn, diachi, ngaysinh, gioitinh, loidan, chandoan, chandoanphu, ngaykham, tongtien
         private DataTable _dtService;
 
         public frm_report_service(
@@ -37,7 +38,8 @@ namespace QuanLyPhongKham
             string chandoan,
             string chandoanphu,
             string ngaykham,
-            string tongtien)
+            string tongtien,
+            string sdt)
         {
             InitializeComponent();
             _dtService = dtService;
@@ -51,8 +53,9 @@ namespace QuanLyPhongKham
             this.chandoanphu = chandoanphu;
             this.ngaykham = ngaykham;
             this.tongtien = tongtien;
+            this.sdt = sdt;
         }
-
+      //  mabn, tenbn, diachi, ngaysinh, gioitinh, loidan, chandoan, chandoanphu, ngaykham, tongtien
         private void frm_report_service_Load(object sender, EventArgs e)
         {
             try
@@ -67,13 +70,14 @@ namespace QuanLyPhongKham
                     new ReportParameter("txb_tenbn", tenbn ?? ""),
                     new ReportParameter("txb_ngaysinh", ngaysinh ?? ""),
                     new ReportParameter("txb_chandoan", chandoan ?? ""),
-                             new ReportParameter("txb_tongtien", tongtien ?? ""),
+ 
                     new ReportParameter("txb_chandoanphu", chandoanphu ?? ""),
                     new ReportParameter("txb_diachi", diachi ?? ""),
-                    new ReportParameter("txb_sdt", gioitinh ?? ""), 
+                    new ReportParameter("txb_sdt",  sdt?? ""),
                     new ReportParameter("txb_ngaykham", ngaykham ?? ""),
                     new ReportParameter("txb_loidan", loidan ?? ""),
-                    new ReportParameter("txb_tongtien", "") 
+                    new ReportParameter("txb_tongtien", tongtien ?? ""),
+                             new ReportParameter("txb_gioitinh", gioitinh??"")
                 };
                 reportViewer1.LocalReport.SetParameters(parameters);
 

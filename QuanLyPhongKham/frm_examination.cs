@@ -13,6 +13,7 @@ using MySql.Data.MySqlClient;
 using static System.ComponentModel.Design.ObjectSelectorEditor;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Drawing.Printing;
+using System.CodeDom;
 namespace QuanLyPhongKham
 {
     public partial class frm_examination : Form
@@ -172,6 +173,8 @@ namespace QuanLyPhongKham
             txb_age.Text = (currentYear - lastFourChars).ToString();
             txb_address.Text = dtgv_patients.CurrentRow.Cells["address"].Value.ToString();
             txb_gender.Text = dtgv_patients.CurrentRow.Cells["gender"].Value.ToString();
+            txb_phone.Text = dtgv_patients.CurrentRow.Cells["phone"].Value.ToString();
+
 
 
         }
@@ -627,7 +630,7 @@ VALUES (NULL, @examination_id, @service_id, @price);";
             txb_unit.Text = "";
 
         }
-
+        
 
 
 
@@ -645,10 +648,11 @@ VALUES (NULL, @examination_id, @service_id, @price);";
             var chandoanphu = txb_reason.Text;
             var tongtien = lb_total_price_service.Text;
             var ngaykham = DateTime.Now.ToString("'Ngày' dd 'tháng' MM 'năm' yyyy");
+            var sdt = txb_phone.Text;
 
             frm_report_service frm = new frm_report_service(
                 GetDataTableFromDataGridView(dtgv_service_patient),
-                mabn, tenbn, diachi, ngaysinh, gioitinh, loidan, chandoan, chandoanphu, ngaykham, tongtien // thêm tongtien
+                mabn, tenbn, diachi, ngaysinh, gioitinh, loidan, chandoan, chandoanphu, ngaykham, tongtien,sdt // thêm tongtien
             );
             frm.ShowDialog();
         }
