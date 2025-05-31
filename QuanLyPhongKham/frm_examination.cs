@@ -67,6 +67,13 @@ namespace QuanLyPhongKham
             dtgv_patients.Columns.Add("phone", "SĐT");
             dtgv_patients.Columns.Add("address", "Địa chỉ");
             dtgv_patients.Columns.Add("time_patients", "Thời gian cập nhật");
+            //
+            dtgv_patients.Columns.Add("pulse", "Mạch");
+            dtgv_patients.Columns.Add("blood_pressure", "Huyết áp");
+            dtgv_patients.Columns.Add("respiratory_rate", "Nhịp thở");
+            dtgv_patients.Columns.Add("weight", "Cân nặng");
+            dtgv_patients.Columns.Add("height", "Chiều cao");
+            dtgv_patients.Columns.Add("temperature", "Nhiệt độ");
             foreach (DataGridViewColumn col in dtgv_patients.Columns)
                 col.Visible = false;
             dtgv_patients.Columns["ID"].Visible = true;
@@ -75,7 +82,20 @@ namespace QuanLyPhongKham
 
             // Load data
             dtgv_patients.Rows.Clear();
-            string sql = @"SELECT id, name, DATE_FORMAT(date_of_birth, '%d/%m/%Y') AS date_of_birth, gender, phone, address, DATE_FORMAT(updated_at, '%H:%i:%s') AS updated_time 
+            string sql = @"SELECT 
+                            id, 
+                            name, 
+                            DATE_FORMAT(date_of_birth, '%d/%m/%Y') AS date_of_birth, 
+                            gender, 
+                            phone, 
+                            address, 
+                            DATE_FORMAT(updated_at, '%H:%i:%s') AS updated_time, 
+                            pulse,
+                            blood_pressure,
+                            respiratory_rate,
+                            weight,
+                            height, 
+                            temperature
                             FROM patients WHERE DATE(updated_at) = CURDATE()
                             order by updated_time DESC";
             Db.ResetConnection();
@@ -85,7 +105,19 @@ namespace QuanLyPhongKham
             while (dr.Read())
             {
                 dtgv_patients.Rows.Add(
-                    dr["id"], dr["name"], dr["date_of_birth"], dr["gender"], dr["phone"], dr["address"], dr["updated_time"]);
+                       dr["id"],
+                       dr["name"],
+                       dr["date_of_birth"],
+                       dr["gender"],
+                       dr["phone"],
+                       dr["address"],
+                       dr["updated_time"],
+                       dr["pulse"],
+                       dr["blood_pressure"],
+                       dr["respiratory_rate"],
+                       dr["weight"],
+                       dr["height"],
+                       dr["temperature"]);
             }
 
             dr.Close();
@@ -175,6 +207,12 @@ namespace QuanLyPhongKham
             txb_gender.Text = dtgv_patients.CurrentRow.Cells["gender"].Value.ToString();
             txb_phone.Text = dtgv_patients.CurrentRow.Cells["phone"].Value.ToString();
 
+            txb_pulse.Text = dtgv_patients.CurrentRow.Cells["pulse"].Value.ToString();
+            txb_blood_pressure.Text = dtgv_patients.CurrentRow.Cells["blood_pressure"].Value.ToString();
+            txb_respiratory_rate.Text = dtgv_patients.CurrentRow.Cells["respiratory_rate"].Value.ToString();
+            txb_weight.Text = dtgv_patients.CurrentRow.Cells["weight"].Value.ToString();
+            txb_height.Text = dtgv_patients.CurrentRow.Cells["height"].Value.ToString();
+            txb_temperature.Text = dtgv_patients.CurrentRow.Cells["temperature"].Value.ToString();
 
 
         }

@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txb_name = new System.Windows.Forms.TextBox();
             this.dtpk_dob = new System.Windows.Forms.DateTimePicker();
             this.rdn_male = new System.Windows.Forms.RadioButton();
@@ -60,25 +60,37 @@
             this.guna2ImageButton3 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2ImageButton2 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.label24 = new System.Windows.Forms.Label();
+            this.txb_height = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.txb_blood_pressure = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txb_pulse = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txb_temperature = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.txb_respiratory_rate = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.txb_weight = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv)).BeginInit();
             this.SuspendLayout();
             // 
             // txb_name
             // 
             this.txb_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_name.Location = new System.Drawing.Point(122, 50);
+            this.txb_name.Location = new System.Drawing.Point(75, 55);
             this.txb_name.Margin = new System.Windows.Forms.Padding(6);
             this.txb_name.Name = "txb_name";
-            this.txb_name.Size = new System.Drawing.Size(142, 30);
+            this.txb_name.Size = new System.Drawing.Size(225, 26);
             this.txb_name.TabIndex = 1;
             // 
             // dtpk_dob
             // 
             this.dtpk_dob.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpk_dob.Location = new System.Drawing.Point(122, 95);
+            this.dtpk_dob.Location = new System.Drawing.Point(94, 95);
             this.dtpk_dob.Margin = new System.Windows.Forms.Padding(6);
             this.dtpk_dob.Name = "dtpk_dob";
-            this.dtpk_dob.Size = new System.Drawing.Size(142, 30);
+            this.dtpk_dob.Size = new System.Drawing.Size(142, 26);
             this.dtpk_dob.TabIndex = 2;
             // 
             // rdn_male
@@ -88,7 +100,7 @@
             this.rdn_male.Location = new System.Drawing.Point(381, 98);
             this.rdn_male.Margin = new System.Windows.Forms.Padding(6);
             this.rdn_male.Name = "rdn_male";
-            this.rdn_male.Size = new System.Drawing.Size(74, 29);
+            this.rdn_male.Size = new System.Drawing.Size(60, 24);
             this.rdn_male.TabIndex = 5;
             this.rdn_male.TabStop = true;
             this.rdn_male.Text = "Nam";
@@ -101,7 +113,7 @@
             this.rdn_female.Location = new System.Drawing.Point(490, 98);
             this.rdn_female.Margin = new System.Windows.Forms.Padding(6);
             this.rdn_female.Name = "rdn_female";
-            this.rdn_female.Size = new System.Drawing.Size(58, 29);
+            this.rdn_female.Size = new System.Drawing.Size(47, 24);
             this.rdn_female.TabIndex = 6;
             this.rdn_female.TabStop = true;
             this.rdn_female.Text = "Nữ";
@@ -113,7 +125,7 @@
             this.txb_phone.Location = new System.Drawing.Point(381, 13);
             this.txb_phone.Margin = new System.Windows.Forms.Padding(6);
             this.txb_phone.Name = "txb_phone";
-            this.txb_phone.Size = new System.Drawing.Size(142, 30);
+            this.txb_phone.Size = new System.Drawing.Size(238, 26);
             this.txb_phone.TabIndex = 8;
             // 
             // txb_address
@@ -122,47 +134,48 @@
             this.txb_address.Location = new System.Drawing.Point(381, 55);
             this.txb_address.Margin = new System.Windows.Forms.Padding(6);
             this.txb_address.Name = "txb_address";
-            this.txb_address.Size = new System.Drawing.Size(191, 30);
+            this.txb_address.Size = new System.Drawing.Size(451, 26);
             this.txb_address.TabIndex = 10;
             // 
             // txb_id
             // 
             this.txb_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_id.Location = new System.Drawing.Point(122, 15);
+            this.txb_id.Location = new System.Drawing.Point(94, 15);
             this.txb_id.Margin = new System.Windows.Forms.Padding(6);
             this.txb_id.Name = "txb_id";
-            this.txb_id.Size = new System.Drawing.Size(74, 30);
+            this.txb_id.Size = new System.Drawing.Size(103, 26);
             this.txb_id.TabIndex = 12;
             // 
             // dtgv
             // 
-            dataGridViewCellStyle46.BackColor = System.Drawing.Color.White;
-            this.dtgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle46;
-            dataGridViewCellStyle47.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle47.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle47.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle47.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle47.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle47.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle47.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle47;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dtgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dtgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dtgv.ColumnHeadersHeight = 35;
             this.dtgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle48.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle48.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle48.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle48.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle48.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle48.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle48.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgv.DefaultCellStyle = dataGridViewCellStyle48;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgv.DefaultCellStyle = dataGridViewCellStyle3;
             this.dtgv.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dtgv.Location = new System.Drawing.Point(31, 141);
+            this.dtgv.Location = new System.Drawing.Point(4, 251);
             this.dtgv.Margin = new System.Windows.Forms.Padding(6);
             this.dtgv.Name = "dtgv";
             this.dtgv.RowHeadersVisible = false;
             this.dtgv.RowHeadersWidth = 51;
-            this.dtgv.Size = new System.Drawing.Size(1473, 421);
+            this.dtgv.Size = new System.Drawing.Size(1816, 552);
             this.dtgv.TabIndex = 13;
             this.dtgv.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgv.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -190,20 +203,20 @@
             // txb_search
             // 
             this.txb_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_search.Location = new System.Drawing.Point(802, 102);
+            this.txb_search.Location = new System.Drawing.Point(1002, 203);
             this.txb_search.Margin = new System.Windows.Forms.Padding(6);
             this.txb_search.Name = "txb_search";
-            this.txb_search.Size = new System.Drawing.Size(514, 30);
+            this.txb_search.Size = new System.Drawing.Size(438, 26);
             this.txb_search.TabIndex = 15;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(676, 103);
+            this.label7.Location = new System.Drawing.Point(893, 209);
             this.label7.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(91, 25);
+            this.label7.Size = new System.Drawing.Size(71, 20);
             this.label7.TabIndex = 14;
             this.label7.Text = "Tìm kiếm";
             // 
@@ -271,10 +284,10 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(46, 55);
+            this.label8.Location = new System.Drawing.Point(18, 55);
             this.label8.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(69, 25);
+            this.label8.Size = new System.Drawing.Size(57, 20);
             this.label8.TabIndex = 0;
             this.label8.Text = "Họ tên";
             // 
@@ -282,10 +295,10 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(28, 98);
+            this.label9.Location = new System.Drawing.Point(0, 98);
             this.label9.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(99, 25);
+            this.label9.Size = new System.Drawing.Size(78, 20);
             this.label9.TabIndex = 3;
             this.label9.Text = "Ngày sinh";
             // 
@@ -296,7 +309,7 @@
             this.label10.Location = new System.Drawing.Point(289, 97);
             this.label10.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(82, 25);
+            this.label10.Size = new System.Drawing.Size(67, 20);
             this.label10.TabIndex = 4;
             this.label10.Text = "Giới tính";
             // 
@@ -307,7 +320,7 @@
             this.label11.Location = new System.Drawing.Point(320, 15);
             this.label11.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(53, 25);
+            this.label11.Size = new System.Drawing.Size(41, 20);
             this.label11.TabIndex = 7;
             this.label11.Text = "SĐT";
             // 
@@ -315,10 +328,10 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(299, 54);
+            this.label12.Location = new System.Drawing.Point(312, 61);
             this.label12.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(71, 25);
+            this.label12.Size = new System.Drawing.Size(57, 20);
             this.label12.TabIndex = 9;
             this.label12.Text = "Địa chỉ";
             // 
@@ -326,10 +339,10 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(80, 17);
+            this.label13.Location = new System.Drawing.Point(52, 17);
             this.label13.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(31, 25);
+            this.label13.Size = new System.Drawing.Size(26, 20);
             this.label13.TabIndex = 11;
             this.label13.Text = "ID";
             // 
@@ -461,20 +474,212 @@
             this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton1.ImageRotate = 0F;
             this.guna2ImageButton1.ImageSize = new System.Drawing.Size(20, 20);
-            this.guna2ImageButton1.Location = new System.Drawing.Point(761, 89);
+            this.guna2ImageButton1.Location = new System.Drawing.Point(965, 188);
             this.guna2ImageButton1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.guna2ImageButton1.Name = "guna2ImageButton1";
             this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton1.Size = new System.Drawing.Size(38, 52);
+            this.guna2ImageButton1.Size = new System.Drawing.Size(26, 52);
             this.guna2ImageButton1.TabIndex = 21;
             this.guna2ImageButton1.UseTransparentBackground = true;
             // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(634, 215);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(80, 20);
+            this.label24.TabIndex = 42;
+            this.label24.Text = "Chiều cao";
+            // 
+            // txb_height
+            // 
+            this.txb_height.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txb_height.DefaultText = "   cm";
+            this.txb_height.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txb_height.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txb_height.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txb_height.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txb_height.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txb_height.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txb_height.ForeColor = System.Drawing.Color.Black;
+            this.txb_height.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txb_height.Location = new System.Drawing.Point(720, 193);
+            this.txb_height.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txb_height.Name = "txb_height";
+            this.txb_height.PlaceholderText = "";
+            this.txb_height.SelectedText = "";
+            this.txb_height.Size = new System.Drawing.Size(164, 40);
+            this.txb_height.TabIndex = 39;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(339, 155);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(73, 20);
+            this.label23.TabIndex = 37;
+            this.label23.Text = "Huyết áp";
+            // 
+            // txb_blood_pressure
+            // 
+            this.txb_blood_pressure.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txb_blood_pressure.DefaultText = "  mmHg";
+            this.txb_blood_pressure.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txb_blood_pressure.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txb_blood_pressure.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txb_blood_pressure.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txb_blood_pressure.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txb_blood_pressure.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txb_blood_pressure.ForeColor = System.Drawing.Color.Black;
+            this.txb_blood_pressure.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txb_blood_pressure.Location = new System.Drawing.Point(419, 141);
+            this.txb_blood_pressure.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txb_blood_pressure.Name = "txb_blood_pressure";
+            this.txb_blood_pressure.PlaceholderText = "";
+            this.txb_blood_pressure.SelectedText = "";
+            this.txb_blood_pressure.Size = new System.Drawing.Size(210, 40);
+            this.txb_blood_pressure.TabIndex = 36;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(336, 216);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(68, 20);
+            this.label21.TabIndex = 34;
+            this.label21.Text = "Nhiệt độ";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(58, 155);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(48, 20);
+            this.label1.TabIndex = 33;
+            this.label1.Text = "Mạch";
+            // 
+            // txb_pulse
+            // 
+            this.txb_pulse.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txb_pulse.DefaultText = "  Lần / phút";
+            this.txb_pulse.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txb_pulse.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txb_pulse.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txb_pulse.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txb_pulse.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txb_pulse.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txb_pulse.ForeColor = System.Drawing.Color.Black;
+            this.txb_pulse.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txb_pulse.Location = new System.Drawing.Point(122, 141);
+            this.txb_pulse.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txb_pulse.Name = "txb_pulse";
+            this.txb_pulse.PlaceholderText = "";
+            this.txb_pulse.SelectedText = "";
+            this.txb_pulse.Size = new System.Drawing.Size(210, 40);
+            this.txb_pulse.TabIndex = 32;
+            // 
+            // txb_temperature
+            // 
+            this.txb_temperature.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txb_temperature.DefaultText = "  °C";
+            this.txb_temperature.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txb_temperature.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txb_temperature.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txb_temperature.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txb_temperature.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txb_temperature.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txb_temperature.ForeColor = System.Drawing.Color.Black;
+            this.txb_temperature.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txb_temperature.Location = new System.Drawing.Point(417, 196);
+            this.txb_temperature.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txb_temperature.Name = "txb_temperature";
+            this.txb_temperature.PlaceholderText = "";
+            this.txb_temperature.SelectedText = "";
+            this.txb_temperature.Size = new System.Drawing.Size(210, 40);
+            this.txb_temperature.TabIndex = 31;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(636, 164);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(68, 20);
+            this.label22.TabIndex = 44;
+            this.label22.Text = "Nhịp thở";
+            // 
+            // txb_respiratory_rate
+            // 
+            this.txb_respiratory_rate.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txb_respiratory_rate.DefaultText = "  Lần/phút";
+            this.txb_respiratory_rate.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txb_respiratory_rate.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txb_respiratory_rate.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txb_respiratory_rate.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txb_respiratory_rate.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txb_respiratory_rate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txb_respiratory_rate.ForeColor = System.Drawing.Color.Black;
+            this.txb_respiratory_rate.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txb_respiratory_rate.Location = new System.Drawing.Point(720, 144);
+            this.txb_respiratory_rate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txb_respiratory_rate.Name = "txb_respiratory_rate";
+            this.txb_respiratory_rate.PlaceholderText = "";
+            this.txb_respiratory_rate.SelectedText = "";
+            this.txb_respiratory_rate.Size = new System.Drawing.Size(210, 40);
+            this.txb_respiratory_rate.TabIndex = 43;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(42, 217);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(78, 20);
+            this.label25.TabIndex = 46;
+            this.label25.Text = "Cân nặng";
+            // 
+            // txb_weight
+            // 
+            this.txb_weight.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txb_weight.DefaultText = "  kg";
+            this.txb_weight.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txb_weight.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txb_weight.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txb_weight.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txb_weight.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txb_weight.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txb_weight.ForeColor = System.Drawing.Color.Black;
+            this.txb_weight.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txb_weight.Location = new System.Drawing.Point(122, 196);
+            this.txb_weight.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txb_weight.Name = "txb_weight";
+            this.txb_weight.PlaceholderText = "";
+            this.txb_weight.SelectedText = "";
+            this.txb_weight.Size = new System.Drawing.Size(208, 41);
+            this.txb_weight.TabIndex = 45;
+            // 
             // frm_patients
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(230)))));
-            this.ClientSize = new System.Drawing.Size(1540, 587);
+            this.ClientSize = new System.Drawing.Size(1827, 830);
+            this.Controls.Add(this.label25);
+            this.Controls.Add(this.txb_weight);
+            this.Controls.Add(this.label22);
+            this.Controls.Add(this.txb_respiratory_rate);
+            this.Controls.Add(this.label24);
+            this.Controls.Add(this.txb_height);
+            this.Controls.Add(this.label23);
+            this.Controls.Add(this.txb_blood_pressure);
+            this.Controls.Add(this.label21);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txb_pulse);
+            this.Controls.Add(this.txb_temperature);
             this.Controls.Add(this.guna2ImageButton6);
             this.Controls.Add(this.guna2ImageButton8);
             this.Controls.Add(this.guna2ImageButton7);
@@ -546,5 +751,17 @@
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton6;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton7;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton8;
+        private System.Windows.Forms.Label label24;
+        private Guna.UI2.WinForms.Guna2TextBox txb_height;
+        private System.Windows.Forms.Label label23;
+        private Guna.UI2.WinForms.Guna2TextBox txb_blood_pressure;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label1;
+        private Guna.UI2.WinForms.Guna2TextBox txb_pulse;
+        private Guna.UI2.WinForms.Guna2TextBox txb_temperature;
+        private System.Windows.Forms.Label label22;
+        private Guna.UI2.WinForms.Guna2TextBox txb_respiratory_rate;
+        private System.Windows.Forms.Label label25;
+        private Guna.UI2.WinForms.Guna2TextBox txb_weight;
     }
 }
