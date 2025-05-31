@@ -52,13 +52,13 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>1.20889in</Width>
+                  <Width>1.13172in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>3.1851in</Width>
+                  <Width>3.10793in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.03133in</Width>
+                  <Width>1.79998in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -294,9 +294,9 @@
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
             <Top>3.93989in</Top>
-            <Left>0.27578in</Left>
+            <Left>0.50728in</Left>
             <Height>0.5in</Height>
-            <Width>6.42532in</Width>
+            <Width>6.03964in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1232,6 +1232,40 @@
             <Height>0.635cm</Height>
             <Width>2.3549cm</Width>
             <ZIndex>27</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox12">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Bác sĩ chỉ định</Value>
+                    <Style>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox12</rd:DefaultName>
+            <Top>14.97753cm</Top>
+            <Left>12.0142cm</Left>
+            <Height>0.6cm</Height>
+            <Width>3.37696cm</Width>
+            <ZIndex>28</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
