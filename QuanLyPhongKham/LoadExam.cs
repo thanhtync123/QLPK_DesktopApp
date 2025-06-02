@@ -13,7 +13,7 @@ namespace QuanLyPhongKham
         // Phương thức khởi tạo DataGridView
         public static void InitialDTGVCommon(DataGridView dtgv_exam)
         {
-            dtgv_exam.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+         
 
             dtgv_exam.Columns.Add("id_patient", "Mã BN");
             dtgv_exam.Columns.Add("name", "Họ tên");
@@ -26,15 +26,19 @@ namespace QuanLyPhongKham
             dtgv_exam.Columns.Add("reason", "Lý do khám");
             dtgv_exam.Columns.Add("diagnosis", "Chẩn đoán");
             dtgv_exam.Columns.Add("note", "Ghi chú");
-            dtgv_exam.Columns.Add("time_exam", "Thời gian cấp phiếu");
+            dtgv_exam.Columns.Add("time_exam", "Cấp phiếu lúc");
 
-
+            dtgv_exam.Columns["id_patient"].Width = 50;
+            dtgv_exam.Columns["id_exam"].Width = 50;
+            dtgv_exam.Columns["name"].Width = 180;
+            dtgv_exam.Columns["time_exam"].Width = 130;
             string[] columnsToHide = {
         "gender", "date_of_birth", "phone",
         "address", "updated_at", "reason", "diagnosis", "note"
     };
             foreach (string columnName in columnsToHide)
                 dtgv_exam.Columns[columnName].Visible = false;
+
         }
 
 
@@ -115,7 +119,7 @@ namespace QuanLyPhongKham
 				drr.Cells["note"].Value = Db.dr["note"];
 				drr.Cells["time_exam"].Value = Db.dr["time_exam"];
 			}
-            dtgv_exam.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells; // hoặc DisplayedCells
+            
 
             Db.dr.Close();
 			Db.ResetConnection();

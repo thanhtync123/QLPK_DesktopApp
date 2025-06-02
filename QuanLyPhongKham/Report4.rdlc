@@ -293,10 +293,10 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
-            <Top>3.93989in</Top>
+            <Top>4.13572in</Top>
             <Left>0.50728in</Left>
             <Height>0.5in</Height>
-            <Width>6.03964in</Width>
+            <Width>6.03963in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -324,7 +324,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_ngaykham</rd:DefaultName>
-            <Top>5.00934in</Top>
+            <Top>5.20517in</Top>
             <Left>3.89068in</Left>
             <Height>0.25in</Height>
             <Width>2.65624in</Width>
@@ -375,7 +375,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox9</rd:DefaultName>
-            <Top>3.39059in</Top>
+            <Top>3.58642in</Top>
             <Left>0.31561in</Left>
             <Height>0.25in</Height>
             <Width>1.0687in</Width>
@@ -408,7 +408,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_chandoan</rd:DefaultName>
-            <Top>3.40448in</Top>
+            <Top>3.60031in</Top>
             <Left>1.39196in</Left>
             <Height>0.25in</Height>
             <Width>3.93969in</Width>
@@ -441,7 +441,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_chandoanphu</rd:DefaultName>
-            <Top>3.55448in</Top>
+            <Top>3.75031in</Top>
             <Left>1.39196in</Left>
             <Height>0.25in</Height>
             <Width>3.90915in</Width>
@@ -477,7 +477,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox20</rd:DefaultName>
-            <Top>3.09892in</Top>
+            <Top>3.29475in</Top>
             <Left>0.50728in</Left>
             <Height>0.29167in</Height>
             <Width>1.48537in</Width>
@@ -1127,7 +1127,7 @@
             <rd:DefaultName>txb_diachi</rd:DefaultName>
             <Top>2.77392in</Top>
             <Left>1.3555in</Left>
-            <Height>0.25in</Height>
+            <Height>0.52083in</Height>
             <Width>2.18265in</Width>
             <ZIndex>24</ZIndex>
             <Style>
@@ -1261,7 +1261,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox12</rd:DefaultName>
-            <Top>13.35872cm</Top>
+            <Top>13.85614cm</Top>
             <Left>12.05722cm</Left>
             <Height>0.6cm</Height>
             <Width>3.37696cm</Width>

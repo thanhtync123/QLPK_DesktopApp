@@ -74,82 +74,58 @@ namespace QuanLyPhongKham
     `weight`, 
     `height`, 
     `temperature`, 
-    DATE_FORMAT(`created_at`, '%d/%m/%Y %H:%i') AS `created_at`, 
-    DATE_FORMAT(`updated_at`, '%d/%m/%Y %H:%i') AS `updated_at`
+    DATE_FORMAT(`created_at`, '%d/%m/%Y %H:%i') AS `created_at_format`, 
+    DATE_FORMAT(`updated_at`, '%d/%m/%Y %H:%i') AS `updated_at_format`,
+    `updated_at`
 FROM `patients`
-ORDER BY updated_at DESC";
+ORDER BY `updated_at` DESC";
 
             Db.LoadDTGV(dtgv, query);
 
-            dtgv.Columns["id"].HeaderText = "Mã BN";
-            dtgv.Columns["name"].HeaderText = "Họ tên";
-            dtgv.Columns["date_of_birth"].HeaderText = "Ngày sinh";
-            dtgv.Columns["gender"].HeaderText = "Giới tính";
-            dtgv.Columns["phone"].HeaderText = "SĐT";
-            dtgv.Columns["address"].HeaderText = "Địa chỉ";
-            dtgv.Columns["pulse"].HeaderText = "Mạch";
-            dtgv.Columns["blood_pressure"].HeaderText = "Huyết áp";
-            dtgv.Columns["respiratory_rate"].HeaderText = "Nhịp thở";
-            dtgv.Columns["weight"].HeaderText = "Cân nặng";
-            dtgv.Columns["height"].HeaderText = "Chiều cao";
-            dtgv.Columns["temperature"].HeaderText = "Nhiệt độ";
-            dtgv.Columns["created_at"].HeaderText = "Ngày tạo";
-            dtgv.Columns["updated_at"].HeaderText = "Cập nhật lúc";
-            dtgv.Columns["created_at"].DefaultCellStyle.Format = "dd/MM/yyyy";
-            
-            dtgv.Columns["id"].Width = 80;
-            dtgv.Columns["name"].Width = 200;
-            dtgv.Columns["date_of_birth"].Width = 120;
-            dtgv.Columns["gender"].Width = 80;
-            dtgv.Columns["phone"].Width = 130;
-            dtgv.Columns["address"].Width = 200;
-            dtgv.Columns["pulse"].Width = 115;
-            dtgv.Columns["blood_pressure"].Width = 115;
-            dtgv.Columns["respiratory_rate"].Width = 115;
-            dtgv.Columns["weight"].Width = 115;
-            dtgv.Columns["height"].Width = 115;
-            dtgv.Columns["temperature"].Width = 115;
-            dtgv.Columns["created_at"].Width = 140;
-            dtgv.Columns["updated_at"].Width = 170;
+            // Thiết lập tiêu đề và độ rộng
+            dtgv.Columns["id"].HeaderText = "Mã BN"; dtgv.Columns["id"].Width = 80;
+            dtgv.Columns["name"].HeaderText = "Họ tên"; dtgv.Columns["name"].Width = 200;
+            dtgv.Columns["date_of_birth"].HeaderText = "Ngày sinh"; dtgv.Columns["date_of_birth"].Width = 120;
+            dtgv.Columns["gender"].HeaderText = "Giới tính"; dtgv.Columns["gender"].Width = 80;
+            dtgv.Columns["phone"].HeaderText = "SĐT"; dtgv.Columns["phone"].Width = 130;
+            dtgv.Columns["address"].HeaderText = "Địa chỉ"; dtgv.Columns["address"].Width = 200;
+            dtgv.Columns["pulse"].HeaderText = "Mạch"; dtgv.Columns["pulse"].Width = 115;
+            dtgv.Columns["blood_pressure"].HeaderText = "Huyết áp"; dtgv.Columns["blood_pressure"].Width = 115;
+            dtgv.Columns["respiratory_rate"].HeaderText = "Nhịp thở"; dtgv.Columns["respiratory_rate"].Width = 115;
+            dtgv.Columns["weight"].HeaderText = "Cân nặng"; dtgv.Columns["weight"].Width = 115;
+            dtgv.Columns["height"].HeaderText = "Chiều cao"; dtgv.Columns["height"].Width = 115;
+            dtgv.Columns["temperature"].HeaderText = "Nhiệt độ"; dtgv.Columns["temperature"].Width = 115;
+            dtgv.Columns["created_at_format"].HeaderText = "Ngày tạo"; dtgv.Columns["created_at_format"].Width = 140;
+            dtgv.Columns["updated_at_format"].HeaderText = "Cập nhật lúc"; dtgv.Columns["updated_at_format"].Width = 170;
 
-
+            // Ẩn cột gốc updated_at
+            dtgv.Columns["updated_at"].Visible = false;
 
             dtgv.EnableHeadersVisualStyles = false;
             dtgv.AllowUserToAddRows = false;
 
-            // Thêm sự kiện CellFormatting
+            // Tô màu cho cả 'name' và 'updated_at_format' nếu được cập nhật hôm nay
             dtgv.CellFormatting += (s, e) =>
             {
                 if (e.RowIndex >= 0)
                 {
-                    var updatedAtValue = dtgv.Rows[e.RowIndex].Cells["updated_at"].Value?.ToString();
-                    string todayStr = DateTime.Today.ToString("dd/MM/yyyy");
-
-                    bool isToday = false;
-
-                    if (!string.IsNullOrEmpty(updatedAtValue))
+                    var updatedAtRaw = dtgv.Rows[e.RowIndex].Cells["updated_at"].Value?.ToString();
+                    if (!string.IsNullOrEmpty(updatedAtRaw) && DateTime.TryParse(updatedAtRaw, out DateTime updatedDate))
                     {
-                        // Lấy phần ngày: substring đầu 10 ký tự "dd/MM/yyyy"
-                        string updatedDateOnly = updatedAtValue.Length >= 10 ? updatedAtValue.Substring(0, 10) : updatedAtValue;
-
-                        isToday = (updatedDateOnly == todayStr);
+                        if (updatedDate.Date == DateTime.Today)
+                        {
+                            string colName = dtgv.Columns[e.ColumnIndex].Name;
+                            if (colName == "name" || colName == "updated_at_format")
+                            {
+                                e.CellStyle.BackColor = Color.PaleGreen;
+                                e.CellStyle.ForeColor = Color.Black;
+                                e.CellStyle.Font = new Font(e.CellStyle.Font, FontStyle.Bold);
+                            }
+                        }
                     }
-
-                    if ((dtgv.Columns[e.ColumnIndex].Name == "updated_at" || dtgv.Columns[e.ColumnIndex].Name == "name") && isToday)
-                    {
-                        e.CellStyle.BackColor = Color.PaleGreen;  // xanh lá nhẹ nhàng
-                        e.CellStyle.ForeColor = Color.Black;      // chữ màu đen dễ đọc
-                        e.CellStyle.Font = new Font(e.CellStyle.Font, FontStyle.Bold);
-                    }
-                    else
-                    {
-                        e.CellStyle.BackColor = Color.White;
-                        e.CellStyle.ForeColor = Color.Black;
-                        e.CellStyle.Font = new Font(e.CellStyle.Font, FontStyle.Regular);
-                    }
-
                 }
             };
+
 
 
 
@@ -285,19 +261,32 @@ WHERE id = @id";
             string escapedKeyword = MySqlHelper.EscapeString(keyword); // nếu bạn dùng MySql.Data
 
             string query = $@"SELECT 
-                `id`, 
-                `name`, 
-                DATE_FORMAT(`date_of_birth`, '%d/%m/%Y') AS `date_of_birth`, 
-                `gender`, 
-                `phone`, 
-                `address`, 
-                `created_at`, 
-                DATE_FORMAT(`updated_at`, '%d/%m/%Y') AS `updated_at`
-            FROM `patients`
-            WHERE `id` LIKE '%{escapedKeyword}%' OR `name` LIKE '%{escapedKeyword}%'";
+        `id`, 
+        `name`, 
+        DATE_FORMAT(`date_of_birth`, '%d/%m/%Y') AS `date_of_birth`, 
+        `gender`, 
+        `phone`, 
+        `address`, 
+        `pulse`, 
+        `blood_pressure`, 
+        `respiratory_rate`, 
+        `weight`, 
+        `height`, 
+        `temperature`, 
+        DATE_FORMAT(`created_at`, '%d/%m/%Y %H:%i') AS `created_at_format`, 
+        DATE_FORMAT(`updated_at`, '%d/%m/%Y %H:%i') AS `updated_at_format`,
+        `updated_at`
+    FROM `patients`
+    WHERE `id` LIKE '%{escapedKeyword}%' OR `name` LIKE '%{escapedKeyword}%'
+    ORDER BY `updated_at` DESC";
 
             Db.LoadDTGV(dtgv, query);
+
+            // Ẩn cột raw updated_at để dùng cho xử lý nhưng không hiển thị
+            if (dtgv.Columns.Contains("updated_at"))
+                dtgv.Columns["updated_at"].Visible = false;
         }
+
 
         private void txb_search_TextChanged(object sender, EventArgs e)
         {
