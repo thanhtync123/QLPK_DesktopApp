@@ -231,8 +231,7 @@ namespace QuanLyPhongKham
 
 
 
-
-        private void dtgv_service_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dtgv_service_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
@@ -294,6 +293,7 @@ namespace QuanLyPhongKham
                 }
             }
         }
+ 
         private void LoadImagesFromPaths(string[] paths)
         {
             snapCount = 0;
