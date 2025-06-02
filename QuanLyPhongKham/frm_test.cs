@@ -107,15 +107,7 @@ namespace QuanLyPhongKham
 
         }
 
-        private void dtgv_service_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = dtgv_service.Rows[e.RowIndex];
-                var name_service = row.Cells["name"].Value?.ToString();
-                txb_service.Text = name_service;
-            }
-        }
+
 
         private void btn_search_Click(object sender, EventArgs e)
         {
@@ -282,9 +274,7 @@ namespace QuanLyPhongKham
             MessageBox.Show("Đã lưu!");
             LoadDTGV_Service();
         }
-
-
-        private void dtgv_service_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        private void dtgv_service_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
 
@@ -417,6 +407,12 @@ namespace QuanLyPhongKham
                 isLoadingResults = false;
             }
         }
+        private void dtgv_service_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+
 
         private void btn_edit_Click(object sender, EventArgs e)
         {
@@ -542,6 +538,7 @@ namespace QuanLyPhongKham
         {
 
         }
+
 
     }
 }
