@@ -39,7 +39,8 @@ namespace QuanLyPhongKham
             Db.LoadComboBoxData(cb_template, query, "name", "id");
             cb_template.Text = "Chọn biểu mẫu";
         }
-        private void dtgv_exam_CellClick(object sender, DataGridViewCellEventArgs e)
+
+        private void dtgv_exam_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && dtgv_exam.Rows[e.RowIndex].Cells["id_exam"].Value != null)
             {
@@ -66,6 +67,7 @@ namespace QuanLyPhongKham
             }
 
         }
+
 
         private void LoadDTGV_Service()
         {
@@ -540,6 +542,7 @@ namespace QuanLyPhongKham
         {
 
         }
+
     }
 }
 

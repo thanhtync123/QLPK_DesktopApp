@@ -241,8 +241,7 @@ namespace QuanLyPhongKham
             dtgv_exam.Rows.Clear();
             LoadExam.LoadDTGVCommon(dtgv_exam, "Điện tim");
         }
-
-        private void dtgv_exam_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dtgv_exam_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && dtgv_exam.Rows[e.RowIndex].Cells["id_exam"].Value != null)
             {
@@ -266,7 +265,7 @@ namespace QuanLyPhongKham
                 var dob = DateTime.ParseExact(date_of_birth, "dd/MM/yyyy", null);
                 var age = DateTime.Now.Year - dob.Year - (DateTime.Now < dob.AddYears(DateTime.Now.Year - dob.Year) ? 1 : 0);
                 txb_age.Text = age.ToString() + " tuổi"; ;
-                txb_chandoanchinh.Text = diagnosis+"";
+                txb_chandoanchinh.Text = diagnosis + "";
                 Db.SetTextAndMoveCursorToEnd(txb_phone, phone);
                 Db.SetTextAndMoveCursorToEnd(txb_address, address);
                 Db.SetTextAndMoveCursorToEnd(txb_reception_date, updated_at);
@@ -277,6 +276,7 @@ namespace QuanLyPhongKham
                 LoadDTGV_Service();
             }
         }
+
 
         private void dtgv_service_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -389,5 +389,7 @@ namespace QuanLyPhongKham
         {
 
         }
+
+
     }
 }

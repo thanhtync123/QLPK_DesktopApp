@@ -357,14 +357,12 @@ namespace QuanLyPhongKham
 
             Console.WriteLine($"Đã hiển thị {snapCount} ảnh");
         }
-
-
-        private void dtgv_exam_CellClick(object sender, DataGridViewCellEventArgs e) // KHÔNG CẦN TẠO LẠI SỰ KIỆN VÌ ĐÃ TẠO
+        private void dtgv_exam_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && dtgv_exam.Rows[e.RowIndex].Cells["id_exam"].Value != null)
             {
                 DataGridViewRow row = dtgv_exam.Rows[e.RowIndex];
-              
+
                 var id_exam = row.Cells["id_exam"].Value?.ToString();
                 var id_patient = row.Cells["id_patient"].Value?.ToString();
                 var name = row.Cells["name"].Value?.ToString();
@@ -376,7 +374,7 @@ namespace QuanLyPhongKham
                 var reason = row.Cells["reason"].Value?.ToString();
                 var diagnosis = row.Cells["diagnosis"].Value?.ToString();
                 var note = row.Cells["note"].Value?.ToString();
-             
+
                 Db.SetTextAndMoveCursorToEnd(txb_id_exam, id_exam);
                 Db.SetTextAndMoveCursorToEnd(txb_name, name);
                 Db.SetTextAndMoveCursorToEnd(txb_gender, gender);
@@ -396,6 +394,7 @@ namespace QuanLyPhongKham
             }
         }
 
+ 
 
 
 
