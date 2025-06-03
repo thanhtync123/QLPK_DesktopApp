@@ -203,7 +203,6 @@
             this.txb_service.ReadOnly = true;
             this.txb_service.Size = new System.Drawing.Size(338, 26);
             this.txb_service.TabIndex = 30;
-            this.txb_service.Visible = false;
             // 
             // panel2
             // 
