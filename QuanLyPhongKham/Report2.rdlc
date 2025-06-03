@@ -70,7 +70,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox9</rd:DefaultName>
-            <Top>4.26576in</Top>
+            <Top>3.77271in</Top>
             <Left>0.18385cm</Left>
             <Height>0.25in</Height>
             <Width>0.89024in</Width>
@@ -140,9 +140,9 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_mota</rd:DefaultName>
-            <Top>10.83503cm</Top>
+            <Top>9.47685cm</Top>
             <Left>2.51458cm</Left>
-            <Height>7.01957cm</Height>
+            <Height>8.15728cm</Height>
             <Width>10.34846cm</Width>
             <ZIndex>4</ZIndex>
             <Style>
@@ -389,7 +389,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox9</rd:DefaultName>
-            <Top>3.77075in</Top>
+            <Top>3.2777in</Top>
             <Left>0.18385cm</Left>
             <Height>0.25in</Height>
             <Width>0.95643in</Width>
@@ -424,7 +424,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_chandoan</rd:DefaultName>
-            <Top>3.76727in</Top>
+            <Top>3.27422in</Top>
             <Left>0.96262in</Left>
             <Height>0.25in</Height>
             <Width>4.10157in</Width>
@@ -459,7 +459,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_chandoanphu</rd:DefaultName>
-            <Top>4.01727in</Top>
+            <Top>3.52422in</Top>
             <Left>0.96262in</Left>
             <Height>0.25in</Height>
             <Width>4.10157in</Width>
@@ -543,42 +543,6 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
-          <Textbox Name="Textbox22">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>Bác sĩ chỉ định:</Value>
-                    <Style>
-                      <FontFamily>times New Roman</FontFamily>
-                      <FontSize>12pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Left</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox20</rd:DefaultName>
-            <Top>3.47212in</Top>
-            <Left>0.07238in</Left>
-            <Height>0.23959in</Height>
-            <Width>4.90499in</Width>
-            <ZIndex>18</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
           <Textbox Name="Textbox5">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
@@ -604,7 +568,7 @@
             <Left>0.18383cm</Left>
             <Height>0.25in</Height>
             <Width>0.78792in</Width>
-            <ZIndex>19</ZIndex>
+            <ZIndex>18</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -640,7 +604,7 @@
             <Left>5.94511cm</Left>
             <Height>0.25in</Height>
             <Width>0.84114in</Width>
-            <ZIndex>20</ZIndex>
+            <ZIndex>19</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -676,7 +640,7 @@
             <Left>0.07238in</Left>
             <Height>0.25in</Height>
             <Width>0.78792in</Width>
-            <ZIndex>21</ZIndex>
+            <ZIndex>20</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -712,7 +676,7 @@
             <Left>2.43201in</Left>
             <Height>0.25in</Height>
             <Width>0.78097in</Width>
-            <ZIndex>22</ZIndex>
+            <ZIndex>21</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -748,7 +712,7 @@
             <Left>0.87519in</Left>
             <Height>0.25in</Height>
             <Width>2.03295in</Width>
-            <ZIndex>23</ZIndex>
+            <ZIndex>22</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -783,7 +747,7 @@
             <Left>3.18173in</Left>
             <Height>0.25in</Height>
             <Width>1.39527in</Width>
-            <ZIndex>24</ZIndex>
+            <ZIndex>23</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -814,9 +778,9 @@
             <rd:DefaultName>txb_diachi</rd:DefaultName>
             <Top>2.69423in</Top>
             <Left>0.87519in</Left>
-            <Height>0.45833in</Height>
+            <Height>0.27778in</Height>
             <Width>1.72234in</Width>
-            <ZIndex>25</ZIndex>
+            <ZIndex>24</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -849,7 +813,7 @@
             <Left>3.21298in</Left>
             <Height>0.25in</Height>
             <Width>1.39527in</Width>
-            <ZIndex>26</ZIndex>
+            <ZIndex>25</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -885,7 +849,7 @@
             <Left>4.23494in</Left>
             <Height>0.25in</Height>
             <Width>0.78097in</Width>
-            <ZIndex>27</ZIndex>
+            <ZIndex>26</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -918,7 +882,7 @@
             <Left>12.6719cm</Left>
             <Height>0.635cm</Height>
             <Width>2.3549cm</Width>
-            <ZIndex>28</ZIndex>
+            <ZIndex>27</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -948,11 +912,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox25</rd:DefaultName>
-            <Top>8.14863cm</Top>
+            <Top>7.53128cm</Top>
             <Left>0.18383cm</Left>
             <Height>0.6cm</Height>
             <Width>2.00132cm</Width>
-            <ZIndex>29</ZIndex>
+            <ZIndex>28</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -982,11 +946,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_chidinh</rd:DefaultName>
-            <Top>8.1839cm</Top>
+            <Top>7.56655cm</Top>
             <Left>2.22299cm</Left>
             <Height>0.6cm</Height>
             <Width>6.25549cm</Width>
-            <ZIndex>30</ZIndex>
+            <ZIndex>29</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1024,7 +988,7 @@
             <Left>1.3413in</Left>
             <Height>0.25in</Height>
             <Width>1.09113in</Width>
-            <ZIndex>31</ZIndex>
+            <ZIndex>30</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1094,7 +1058,7 @@
             <Left>0.03614in</Left>
             <Height>0.48965in</Height>
             <Width>5.60884in</Width>
-            <ZIndex>32</ZIndex>
+            <ZIndex>31</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1148,7 +1112,7 @@
             <Left>1.77612in</Left>
             <Height>0.75in</Height>
             <Width>3.16248in</Width>
-            <ZIndex>33</ZIndex>
+            <ZIndex>32</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1184,7 +1148,7 @@
             <Left>0.635cm</Left>
             <Height>0.7871cm</Height>
             <Width>13.63269cm</Width>
-            <ZIndex>34</ZIndex>
+            <ZIndex>33</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1202,7 +1166,7 @@
             <Left>0.73235in</Left>
             <Height>0.98611in</Height>
             <Width>1.04376in</Width>
-            <ZIndex>35</ZIndex>
+            <ZIndex>34</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1217,7 +1181,7 @@
             <Left>0.75798in</Left>
             <Height>0.25in</Height>
             <Width>0.27083in</Width>
-            <ZIndex>36</ZIndex>
+            <ZIndex>35</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1232,7 +1196,7 @@
             <Left>1.05658in</Left>
             <Height>0.25in</Height>
             <Width>0.27083in</Width>
-            <ZIndex>37</ZIndex>
+            <ZIndex>36</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1247,7 +1211,7 @@
             <Left>2.34059in</Left>
             <Height>0.23198in</Height>
             <Width>0.25694in</Width>
-            <ZIndex>38</ZIndex>
+            <ZIndex>37</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1281,7 +1245,7 @@
             <Left>2.59754in</Left>
             <Height>0.25in</Height>
             <Width>2.66405in</Width>
-            <ZIndex>39</ZIndex>
+            <ZIndex>38</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1316,7 +1280,7 @@
             <Left>7.2467in</Left>
             <Height>0.25in</Height>
             <Width>2.56188in</Width>
-            <ZIndex>40</ZIndex>
+            <ZIndex>39</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
