@@ -496,7 +496,10 @@ namespace QuanLyPhongKham
                     var idService = selectedRow.Cells["id_service"].Value?.ToString();
                     var nameService = selectedRow.Cells["service_name"].Value?.ToString();
                     var priceService = selectedRow.Cells["price1"].Value?.ToString();
-
+                    if (decimal.TryParse(priceService, out decimal price))
+                    
+                        priceService = price.ToString("N0"); // Format với N0
+                    
                     int rowIndex = dtgv_service_patient.Rows.Add();
                     dtgv_service_patient.Rows[rowIndex].Cells["id_service2"].Value = idService;
                     dtgv_service_patient.Rows[rowIndex].Cells["name_service2"].Value = nameService;
