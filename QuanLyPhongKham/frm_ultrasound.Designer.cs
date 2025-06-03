@@ -784,6 +784,7 @@
             this.txb_service.Location = new System.Drawing.Point(121, 305);
             this.txb_service.Margin = new System.Windows.Forms.Padding(4);
             this.txb_service.Name = "txb_service";
+            this.txb_service.ReadOnly = true;
             this.txb_service.Size = new System.Drawing.Size(388, 26);
             this.txb_service.TabIndex = 30;
             // 

@@ -71,7 +71,7 @@ namespace QuanLyPhongKham
 
         private void LoadDTGV_Service()
         {
-            string sql = @"SELECT s.id, s.name, es.id AS examination_service_id,
+            string sql = @"SELECT distinct s.id, s.name, es.id AS examination_service_id,
                       CASE 
                           WHEN er.id IS NOT NULL THEN 'Đã có KQ'
                           ELSE 'Chưa có KQ'
