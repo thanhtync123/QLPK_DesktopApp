@@ -70,7 +70,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox9</rd:DefaultName>
-            <Top>3.77271in</Top>
+            <Top>3.64771in</Top>
             <Left>0.18385cm</Left>
             <Height>0.25in</Height>
             <Width>0.89024in</Width>
@@ -124,7 +124,6 @@
           </Textbox>
           <Textbox Name="txb_mota">
             <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
             <Paragraphs>
               <Paragraph>
                 <TextRuns>
@@ -140,10 +139,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_mota</rd:DefaultName>
-            <Top>9.47685cm</Top>
+            <Top>9.15935cm</Top>
             <Left>2.51458cm</Left>
             <Height>8.15728cm</Height>
-            <Width>10.34846cm</Width>
+            <Width>11.11575cm</Width>
             <ZIndex>4</ZIndex>
             <Style>
               <Border>
@@ -279,7 +278,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox21</rd:DefaultName>
-            <Top>5.26924cm</Top>
+            <Top>4.95174cm</Top>
             <Left>4.4666cm</Left>
             <Height>0.83328cm</Height>
             <Width>5.48979cm</Width>
@@ -389,7 +388,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox9</rd:DefaultName>
-            <Top>3.2777in</Top>
+            <Top>3.1527in</Top>
             <Left>0.18385cm</Left>
             <Height>0.25in</Height>
             <Width>0.95643in</Width>
@@ -424,7 +423,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_chandoan</rd:DefaultName>
-            <Top>3.27422in</Top>
+            <Top>3.14922in</Top>
             <Left>0.96262in</Left>
             <Height>0.25in</Height>
             <Width>4.10157in</Width>
@@ -459,7 +458,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_chandoanphu</rd:DefaultName>
-            <Top>3.52422in</Top>
+            <Top>3.39922in</Top>
             <Left>0.96262in</Left>
             <Height>0.25in</Height>
             <Width>4.10157in</Width>
@@ -492,7 +491,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_mabn</rd:DefaultName>
-            <Top>2.72201in</Top>
+            <Top>2.59701in</Top>
             <Left>4.88331in</Left>
             <Height>0.25in</Height>
             <Width>0.81872in</Width>
@@ -528,7 +527,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
-            <Top>2.72201in</Top>
+            <Top>2.59701in</Top>
             <Left>4.18192in</Left>
             <Height>0.23611in</Height>
             <Width>0.67361in</Width>
@@ -564,7 +563,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
-            <Top>2.43034in</Top>
+            <Top>2.30534in</Top>
             <Left>0.18383cm</Left>
             <Height>0.25in</Height>
             <Width>0.78792in</Width>
@@ -600,7 +599,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
-            <Top>2.43034in</Top>
+            <Top>2.30534in</Top>
             <Left>5.94511cm</Left>
             <Height>0.25in</Height>
             <Width>0.84114in</Width>
@@ -636,7 +635,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
-            <Top>2.70812in</Top>
+            <Top>2.58312in</Top>
             <Left>0.07238in</Left>
             <Height>0.25in</Height>
             <Width>0.78792in</Width>
@@ -672,7 +671,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
-            <Top>2.70812in</Top>
+            <Top>2.58312in</Top>
             <Left>2.43201in</Left>
             <Height>0.25in</Height>
             <Width>0.78097in</Width>
@@ -708,7 +707,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_tenbn</rd:DefaultName>
-            <Top>2.43034in</Top>
+            <Top>2.30534in</Top>
             <Left>0.87519in</Left>
             <Height>0.25in</Height>
             <Width>2.03295in</Width>
@@ -743,7 +742,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_ngaysinh</rd:DefaultName>
-            <Top>2.43034in</Top>
+            <Top>2.30534in</Top>
             <Left>3.18173in</Left>
             <Height>0.25in</Height>
             <Width>1.39527in</Width>
@@ -776,7 +775,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_diachi</rd:DefaultName>
-            <Top>2.69423in</Top>
+            <Top>2.56923in</Top>
             <Left>0.87519in</Left>
             <Height>0.27778in</Height>
             <Width>1.72234in</Width>
@@ -809,7 +808,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_sdt</rd:DefaultName>
-            <Top>2.70812in</Top>
+            <Top>2.58312in</Top>
             <Left>3.21298in</Left>
             <Height>0.25in</Height>
             <Width>1.39527in</Width>
@@ -845,7 +844,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
-            <Top>2.43034in</Top>
+            <Top>2.30534in</Top>
             <Left>4.23494in</Left>
             <Height>0.25in</Height>
             <Width>0.78097in</Width>
@@ -878,7 +877,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_gioitinh</rd:DefaultName>
-            <Top>6.17307cm</Top>
+            <Top>5.85557cm</Top>
             <Left>12.6719cm</Left>
             <Height>0.635cm</Height>
             <Width>2.3549cm</Width>
@@ -912,7 +911,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox25</rd:DefaultName>
-            <Top>7.53128cm</Top>
+            <Top>7.21378cm</Top>
             <Left>0.18383cm</Left>
             <Height>0.6cm</Height>
             <Width>2.00132cm</Width>
@@ -946,7 +945,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_chidinh</rd:DefaultName>
-            <Top>7.56655cm</Top>
+            <Top>7.24905cm</Top>
             <Left>2.22299cm</Left>
             <Height>0.6cm</Height>
             <Width>6.25549cm</Width>
