@@ -679,6 +679,7 @@ VALUES (NULL, @examination_id, @service_id, @price);";
             txb_quantity.Value = 1;
             txb_totalpricepermed.Text = "0";
             txb_times.Text = "";
+            
             txb_dosage.Text = "";
             txb_price.Text = "";
             txb_mednote.Text = "";
@@ -723,6 +724,7 @@ VALUES (NULL, @examination_id, @service_id, @price);";
             var loidan = cb_doctornote.Text;
             var chandoan = cbo_diagnoses.Text;
             var chandoanphu = txb_reason.Text;
+            var tongtien = lb_totalprice.Text;
             var ngaykham = DateTime.Now.ToString("'Ngày' dd 'tháng' MM 'năm' yyyy");
 
             frm_report_med frm = new frm_report_med(
@@ -735,7 +737,9 @@ VALUES (NULL, @examination_id, @service_id, @price);";
       loidan,
       chandoan,
       chandoanphu,
-      ngaykham
+      ngaykham,
+      tongtien
+      
   );
             frm.ShowDialog();
 

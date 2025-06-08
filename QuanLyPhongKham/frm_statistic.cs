@@ -23,9 +23,15 @@ namespace QuanLyPhongKham
             string query2 = $"SELECT IFNULL(SUM(price * quantity), 0) FROM examination_medications WHERE created_at BETWEEN '{fromDate}' AND '{toDate}'";
             label_2.Text = string.Format("{0:N0} VND", Db.Scalar(query2));
 
-            // Doanh thu dịch vụ
-            string query3 = $"SELECT IFNULL(SUM(price), 0) FROM examination_services WHERE created_at BETWEEN '{fromDate}' AND '{toDate}'";
+            // Doanh thu dịch vụ (dựa trên bảng services vì price trong examination_services là null)
+            string query3 = $@"
+    SELECT IFNULL(SUM(s.price), 0)
+    FROM examination_services es
+    JOIN services s ON es.service_id = s.id
+    WHERE es.created_at BETWEEN '{fromDate}' AND '{toDate}'
+";
             label_3.Text = string.Format("{0:N0} VND", Db.Scalar(query3));
+
 
             // Tổng doanh thu
             double tong = Convert.ToDouble(Db.Scalar(query2)) + Convert.ToDouble(Db.Scalar(query3));
