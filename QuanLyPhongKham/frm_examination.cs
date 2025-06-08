@@ -58,6 +58,7 @@ namespace QuanLyPhongKham
         {
             LoadGrid();
         }
+
         private void LoadGrid()
         {
 
@@ -180,6 +181,8 @@ namespace QuanLyPhongKham
 
         private void frm_examination_Load(object sender, EventArgs e)
         {
+           
+
             LoadGrid();
             LoadComboboxDiagnoses();
             LoadComboboxDoctorNote();
