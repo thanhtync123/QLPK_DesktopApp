@@ -50,6 +50,8 @@ namespace QuanLyPhongKham
                     }
                 }
             };
+            dtgv_patients.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+
             timer.Start();
         }
         private void Timer_Tick(object sender, EventArgs e)
@@ -66,7 +68,7 @@ namespace QuanLyPhongKham
             dtgv_patients.Columns.Add("gender", "Giới tính");
             dtgv_patients.Columns.Add("phone", "SĐT");
             dtgv_patients.Columns.Add("address", "Địa chỉ");
-            dtgv_patients.Columns.Add("time_patients", "Thời gian cập nhật");
+            dtgv_patients.Columns.Add("time_patients", "Tiếp nhận lúc");
             //
             dtgv_patients.Columns.Add("pulse", "Mạch");
             dtgv_patients.Columns.Add("blood_pressure", "Huyết áp");
@@ -273,7 +275,7 @@ namespace QuanLyPhongKham
                 if (Db.conn.State != ConnectionState.Open)
                     Db.ResetConnection(); // dùng Db.ResetConnection() nếu đã viết sẵn trong Db.cs
 
-                string query = "SELECT id, name, unit, dosage, route, times_per_day, note, price FROM medications WHERE id = @id";
+                string query = "SELECT id, name, unit, dosage, route, times_per_day, note, price FROM medications WHERE id = @id order by name" ;
                 int selectedId = Convert.ToInt32(cb_medname.SelectedValue);
 
                 Db.cmd = new MySqlCommand(query, Db.conn);
@@ -318,6 +320,16 @@ namespace QuanLyPhongKham
 
             else
                 MessageBox.Show("Vui lòng chọn một hàng để xóa.");
+
+            decimal total = 0;
+            foreach (DataGridViewRow row in dtgv_med.Rows)
+
+                if (row.Cells[9].Value != null && decimal.TryParse(row.Cells[9].Value.ToString(), out decimal rowTotal))
+
+                    total += rowTotal;
+
+
+            lb_totalprice.Text = "Tổng tiền: " + total.ToString("N0") + " đ";
 
         }
 
@@ -714,8 +726,8 @@ VALUES (NULL, @examination_id, @service_id, @price);";
       GetDataTableFromDataGridView(dtgv_med),
       mabn,
       tenbn,
-      txb_ngaysinh.Text,   // Ngày sinh
-      txb_address.Text,    // Địa chỉ
+      txb_ngaysinh.Text,   
+      txb_address.Text,    
       gioitinh,
       loidan,
       chandoan,
@@ -751,6 +763,37 @@ VALUES (NULL, @examination_id, @service_id, @price);";
             return dt;
 
         }
+        private void btn_pre_service_Click(object sender, EventArgs e)
+        {
+            dtgv_service_patient.Rows.Clear();
+            frm_popupLUService frm = new frm_popupLUService();
+      
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                foreach (var row in frm.AllRows)
+                {
+                    int index = dtgv_service_patient.Rows.Add();
+                    for (int i = 0; i <= 2; i++)
+                        dtgv_service_patient.Rows[index].Cells[i].Value = row.Cells[i].Value;
+                    dtgv_service_patient.Rows[index].Cells[4].Value = "-";
+
+
+                }
+                decimal total = 0;
+      
+                foreach (DataGridViewRow row in dtgv_service_patient.Rows)
+                {
+                    if (row.IsNewRow) continue; // Bỏ qua dòng trắng cuối cùng
+
+                    if (decimal.TryParse(row.Cells[2].Value?.ToString(), out decimal value))
+
+                        total += value;
+
+                }
+         
+                lb_total_price_service.Text = total.ToString("N0") + " đ"; // Ví dụ: 100,000 đ
+            }
+        }
 
         private void guna2ImageButton1_Click(object sender, EventArgs e)
         {
@@ -766,6 +809,8 @@ VALUES (NULL, @examination_id, @service_id, @price);";
         {
 
         }
+
+
     } 
 }
 
