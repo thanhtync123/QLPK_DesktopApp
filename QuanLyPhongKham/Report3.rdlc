@@ -611,7 +611,7 @@
             <Top>2.53022in</Top>
             <Left>0.13475in</Left>
             <Height>0.46874in</Height>
-            <Width>5.20902in</Width>
+            <Width>5.20901in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1478,10 +1478,6 @@
       <Page>
         <PageHeight>8.27in</PageHeight>
         <PageWidth>5.83in</PageWidth>
-        <LeftMargin>1in</LeftMargin>
-        <RightMargin>1in</RightMargin>
-        <TopMargin>1in</TopMargin>
-        <BottomMargin>1in</BottomMargin>
         <Style />
       </Page>
     </ReportSection>
