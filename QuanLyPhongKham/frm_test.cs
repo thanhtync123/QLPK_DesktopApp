@@ -399,7 +399,7 @@ namespace QuanLyPhongKham
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi tải dữ liệu: " + ex.Message);
+                //MessageBox.Show("Lỗi khi tải dữ liệu: " + ex.Message);
             }
             finally
             {
