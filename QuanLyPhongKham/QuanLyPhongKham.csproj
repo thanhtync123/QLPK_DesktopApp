@@ -164,6 +164,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CurrentUser.cs" />
     <Compile Include="DataSetFake.cs">
       <DependentUpon>DataSetFake.xsd</DependentUpon>
     </Compile>

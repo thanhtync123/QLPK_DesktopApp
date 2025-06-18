@@ -31,6 +31,7 @@ namespace QuanLyPhongKham
             LoadExam.InitialDTGVCommon(dtgv_exam);
             LoadExam.LoadDTGVCommon(dtgv_exam, "Xét nghiệm");
             LoadComboboxTemplate();
+            
 
         }
         private void LoadComboboxTemplate()
@@ -191,13 +192,12 @@ namespace QuanLyPhongKham
         private void cb_template_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Only process this if it's not being triggered during result loading
-            if (isLoadingResults) return;
+            //if (isLoadingResults) return;
 
-            dtgv_result.Rows.Clear();
-            if (cb_template.SelectedIndex > 0)
+            //dtgv_result.Rows.Clear();
+            if (cb_template.SelectedValue != null && int.TryParse(cb_template.SelectedValue.ToString(), out int selectedTemplateId))
             {
                 LoadDataToDataGridViewResult();
-                int selectedTemplateId = Convert.ToInt32(cb_template.SelectedValue);
                 string sql = "SELECT `template_content`,`result_content` FROM `templates` WHERE `id` = @template_id;";
                 Db.ResetConnection();
                 Db.cmd = new MySqlCommand(sql, Db.conn);
@@ -479,11 +479,11 @@ namespace QuanLyPhongKham
             var ngaykham = DateTime.Now.ToString("'Ngày' dd 'tháng' MM 'năm' yyyy");
             var gioitinh = txb_gender.Text;
             var chidinh=txb_service.Text;
-
+            var nhanvien=CurrentUser.UserName;
 
             var sdt = txb_phone.Text;
             DataTable dt = GetDataTableFromDataGridView(dtgv_result);
-            frm_report_test frm = new frm_report_test(dt, mabn, tenbn, ngaysinh, chandoan, chandoanphu, diachi, ketqua, ngaykham, sdt,gioitinh,chidinh);
+            frm_report_test frm = new frm_report_test(dt, mabn, tenbn, ngaysinh, chandoan, chandoanphu, diachi, ketqua, ngaykham, sdt,gioitinh,chidinh,nhanvien);
 
             frm.ShowDialog();
 

@@ -24,22 +24,31 @@ namespace QuanLyPhongKham
             {
                 Db.ResetConnection();
 
-                string query = "SELECT role FROM users WHERE username = @username AND password = @password";
+                string query = "SELECT role, name FROM users WHERE username = @username AND password = @password";
                 MySqlCommand cmd = new MySqlCommand(query, Db.conn);
                 cmd.Parameters.AddWithValue("@username", txb_username.Text);
                 cmd.Parameters.AddWithValue("@password", txb_password.Text);
 
-                object role = cmd.ExecuteScalar();
-                Db.conn.Close();
+                MySqlDataReader reader = cmd.ExecuteReader();
 
-                if (role != null)
+                if (reader.Read())
                 {
-                    frm_nav frm = new frm_nav(role.ToString());
+                    string role = reader["role"].ToString();
+                    string name = reader["name"].ToString();
+
+                    CurrentUser.UserName = name;
+
+                    reader.Close();
+                    Db.conn.Close();
+
+                    frm_nav frm = new frm_nav(role);
                     frm.ShowDialog();
                     this.Close();
                 }
                 else
                 {
+                    reader.Close();
+                    Db.conn.Close();
                     MessageBox.Show("Tài khoản hoặc mật khẩu không đúng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -47,6 +56,7 @@ namespace QuanLyPhongKham
             {
                 MessageBox.Show("Lỗi đăng nhập: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
 
         private void frm_login_Load(object sender, EventArgs e)
