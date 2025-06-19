@@ -386,7 +386,7 @@ namespace QuanLyPhongKham
                     }
                 }
                 else
-                {
+                {   
                     btn_save.Enabled = true;
                     btn_edit.Enabled = false;
 
