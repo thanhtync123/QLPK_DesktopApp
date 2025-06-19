@@ -154,8 +154,6 @@ namespace QuanLyPhongKham
             {
                 var mabn = txb_id_patient.Text.Trim();
                 var tenbn = txb_name.Text.Trim();
-                //var ngaysinh = txb_dob.Text.Trim();
-           
                 var ngaysinh = txb_age.Text;
                 var diachi = txb_address.Text.Trim();
                 var sdt = txb_phone.Text.Trim();
@@ -164,21 +162,17 @@ namespace QuanLyPhongKham
                 var mota = txb_result.Text.Trim();
                 var ketqua = txb_final_result.Text.Trim();
                 var chidinh = txb_service.Text.Trim();
-                var gioitinh = txb_gender.Text.Trim(); // Sử dụng tuổi để hiển thị giới tính
-            
+                var gioitinh = txb_gender.Text.Trim();
 
+                // Thư mục Resources nằm cạnh file exe
+                string resourceDir = Path.Combine(Application.StartupPath, "Resources");
+                Directory.CreateDirectory(resourceDir);
 
-                // Tạo đường dẫn ảnh trống để tránh lỗi URI
-                string projectDir = Directory.GetParent(Application.StartupPath).Parent.Parent.FullName;
-                string emptyImagePath = Path.Combine(projectDir, "Resources", "empty.png");
+                string emptyImagePath = Path.Combine(resourceDir, "empty.png");
 
-                // Đảm bảo ảnh trống tồn tại
+                // Tạo ảnh trống nếu chưa tồn tại
                 if (!File.Exists(emptyImagePath))
                 {
-                    string resourcesDir = Path.Combine(projectDir, "Resources");
-                    Directory.CreateDirectory(resourcesDir);
-
-                    // Tạo ảnh trống 1x1 pixel
                     using (Bitmap emptyBmp = new Bitmap(1, 1))
                     {
                         using (Graphics g = Graphics.FromImage(emptyBmp))
@@ -189,16 +183,20 @@ namespace QuanLyPhongKham
                     }
                 }
 
-                // Thu thập các ảnh được chọn vào một danh sách
+                // Hàm chuyển đường dẫn tương đối về tuyệt đối
+                string GetAbsoluteImagePath(string relativePath)
+                {
+                    return Path.Combine(Application.StartupPath, relativePath.Replace("/", "\\"));
+                }
+
+                // Danh sách ảnh được chọn
                 var selectedImages = new List<string>();
 
-                // Chỉ thêm vào danh sách nếu checkbox được chọn và ảnh tồn tại
-                if (chb_anh1.Checked && !string.IsNullOrEmpty(imageUrl1)) selectedImages.Add(imageUrl1);
-                if (chb_anh2.Checked && !string.IsNullOrEmpty(imageUrl2)) selectedImages.Add(imageUrl2);
-                if (chb_anh3.Checked && !string.IsNullOrEmpty(imageUrl3)) selectedImages.Add(imageUrl3);
-                if (chb_anh4.Checked && !string.IsNullOrEmpty(imageUrl4)) selectedImages.Add(imageUrl4);
+                if (chb_anh1.Checked && !string.IsNullOrEmpty(imageUrl1)) selectedImages.Add(GetAbsoluteImagePath(imageUrl1));
+                if (chb_anh2.Checked && !string.IsNullOrEmpty(imageUrl2)) selectedImages.Add(GetAbsoluteImagePath(imageUrl2));
+                if (chb_anh3.Checked && !string.IsNullOrEmpty(imageUrl3)) selectedImages.Add(GetAbsoluteImagePath(imageUrl3));
+                if (chb_anh4.Checked && !string.IsNullOrEmpty(imageUrl4)) selectedImages.Add(GetAbsoluteImagePath(imageUrl4));
 
-                // Kiểm tra xem có ảnh nào được chọn không
                 if (selectedImages.Count == 0)
                 {
                     MessageBox.Show("Vui lòng chọn ít nhất một ảnh để in.", "Thông báo",
@@ -206,17 +204,16 @@ namespace QuanLyPhongKham
                     return;
                 }
 
-                // Đảm bảo luôn có đủ 4 ảnh để truyền vào báo cáo (thêm ảnh trống nếu cần)
+                // Bổ sung ảnh trống nếu chưa đủ 4 ảnh
                 while (selectedImages.Count < 4)
                 {
                     selectedImages.Add(emptyImagePath);
                 }
 
-                // Truyền các ảnh theo thứ tự đã được tái sắp xếp
                 using (frm_report_ultrasound printForm = new frm_report_ultrasound(
                     selectedImages[0], selectedImages[1], selectedImages[2], selectedImages[3],
                     mabn, tenbn, ngaysinh, diachi, sdt,
-                    chandoan, chandoanphu, mota, ketqua, chidinh,gioitinh))
+                    chandoan, chandoanphu, mota, ketqua, chidinh, gioitinh))
                 {
                     printForm.ShowDialog();
                 }
@@ -227,6 +224,7 @@ namespace QuanLyPhongKham
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
 
 
@@ -242,7 +240,7 @@ namespace QuanLyPhongKham
 
                 if (dtgv_service.CurrentRow.Cells["state"].Value.ToString() == "Đã có KQ")
                 {
-                    btn_save.Enabled = false;
+                    btn_save.Enabled =false;
                     btn_edit.Enabled = true;
 
                     string sql = @"SELECT 
@@ -293,16 +291,15 @@ namespace QuanLyPhongKham
                 }
             }
         }
- 
+
         private void LoadImagesFromPaths(string[] paths)
         {
             snapCount = 0;
-            string projectDir = Directory.GetParent(Application.StartupPath).Parent.Parent.FullName;
 
             PictureBox[] pictureBoxes = { pb_1, pb_2, pb_3, pb_4 };
             string[] imageUrls = new string[4];
 
-            // Luôn hiển thị các PictureBox trước, ngay cả khi chưa có ảnh
+            // Luôn hiển thị PictureBox
             foreach (var pb in pictureBoxes)
             {
                 pb.Visible = true;
@@ -313,12 +310,7 @@ namespace QuanLyPhongKham
                 string fileName = paths[i].Trim();
                 if (!string.IsNullOrEmpty(fileName))
                 {
-                    // Xử lý đường dẫn đúng
-                    string fullPath;
-                    if (fileName.StartsWith("images/"))
-                        fullPath = Path.Combine(projectDir, fileName); // Đường dẫn tương đối
-                    else
-                        fullPath = Path.Combine(projectDir, "images", fileName); // Chỉ tên file
+                    string fullPath = Path.Combine(Application.StartupPath, fileName.Replace("/", "\\"));
 
                     Console.WriteLine($"Đang tìm ảnh tại: {fullPath}");
 
@@ -327,13 +319,14 @@ namespace QuanLyPhongKham
                         try
                         {
                             PictureBox pb = pictureBoxes[i];
-                            if (pb.Image != null)
+                            pb.Image?.Dispose();
+
+                            using (var tempBmp = new Bitmap(fullPath))
                             {
-                                pb.Image.Dispose();
-                                pb.Image = null;
+                                pb.Image = new Bitmap(tempBmp); // clone để tránh file lock
                             }
-                            pb.Image = Image.FromFile(fullPath);
-                            imageUrls[i] = fullPath;
+
+                            imageUrls[i] = fileName; // lưu lại đường dẫn tương đối
                             snapCount++;
                         }
                         catch (Exception ex)
@@ -349,7 +342,7 @@ namespace QuanLyPhongKham
                 }
             }
 
-            // Gán lại các đường dẫn hình ảnh để in
+            // Gán lại các biến đường dẫn
             imageUrl1 = imageUrls[0];
             imageUrl2 = imageUrls[1];
             imageUrl3 = imageUrls[2];
@@ -357,6 +350,7 @@ namespace QuanLyPhongKham
 
             Console.WriteLine($"Đã hiển thị {snapCount} ảnh");
         }
+
         private void dtgv_exam_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && dtgv_exam.Rows[e.RowIndex].Cells["id_exam"].Value != null)
@@ -493,8 +487,9 @@ namespace QuanLyPhongKham
         {
             try
             {
-                string projectDir = Directory.GetParent(Application.StartupPath).Parent.Parent.FullName;
-                string imagesDir = Path.Combine(projectDir, "images");
+                //string projectDir = Directory.GetParent(Application.StartupPath).Parent.Parent.FullName;
+                // string imagesDir = Path.Combine(projectDir, "images");
+                string imagesDir = Path.Combine(Application.StartupPath, "images");
                 Directory.CreateDirectory(imagesDir);  // tạo nếu chưa có
 
                 var pbs = new[] { pb_1, pb_2, pb_3, pb_4 };
@@ -531,8 +526,7 @@ namespace QuanLyPhongKham
         {
             try
             {
-                string projectDir = Directory.GetParent(Application.StartupPath).Parent.Parent.FullName;
-                string folder = Path.Combine(projectDir, "images");
+                string folder = Path.Combine(Application.StartupPath, "images");
                 Directory.CreateDirectory(folder);
 
                 var pbs = new[] { pb_1, pb_2, pb_3, pb_4 };
@@ -540,7 +534,7 @@ namespace QuanLyPhongKham
                 {
                     string name = Guid.NewGuid() + ".jpg";
                     p.Image.Save(Path.Combine(folder, name), System.Drawing.Imaging.ImageFormat.Jpeg);
-                    return name;
+                    return $"images/{name}"; // Lưu đường dẫn tương đối
                 }).ToList();
 
                 string filePaths = string.Join(",", imgs);
@@ -561,10 +555,8 @@ namespace QuanLyPhongKham
             {
                 MessageBox.Show("Lỗi: " + ex.Message);
             }
-
-
-
         }
+
 
 
 
@@ -641,10 +633,11 @@ namespace QuanLyPhongKham
                         targetPb.Image = img;
                         targetPb.Visible = true;
 
+
+
                         // Lưu ảnh vào file và cập nhật đường dẫn
-                        string projectDir = Directory.GetParent(Application.StartupPath).Parent.Parent.FullName;
-                        string imagesDir = Path.Combine(projectDir, "images");
-                        Directory.CreateDirectory(imagesDir);
+                        string imagesDir = Path.Combine(Application.StartupPath, "images");
+                        Directory.CreateDirectory(imagesDir);  // đảm bảo thư mục tồn tại
 
                         string fileName = Guid.NewGuid() + ".jpg";
                         string filePath = Path.Combine(imagesDir, fileName);
