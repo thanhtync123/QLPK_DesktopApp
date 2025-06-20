@@ -600,7 +600,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
             <Top>2.30534in</Top>
-            <Left>5.94511cm</Left>
+            <Left>7.21511cm</Left>
             <Height>0.25in</Height>
             <Width>0.84114in</Width>
             <ZIndex>19</ZIndex>
@@ -707,10 +707,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_tenbn</rd:DefaultName>
-            <Top>2.30534in</Top>
+            <Top>2.31923in</Top>
             <Left>0.87519in</Left>
             <Height>0.25in</Height>
-            <Width>2.03295in</Width>
+            <Width>2.46003in</Width>
             <ZIndex>22</ZIndex>
             <Style>
               <Border>
@@ -743,7 +743,7 @@
             </Paragraphs>
             <rd:DefaultName>txb_ngaysinh</rd:DefaultName>
             <Top>2.30534in</Top>
-            <Left>3.18173in</Left>
+            <Left>3.68173in</Left>
             <Height>0.25in</Height>
             <Width>1.39527in</Width>
             <ZIndex>23</ZIndex>
@@ -948,7 +948,7 @@
             <Top>7.24905cm</Top>
             <Left>2.22299cm</Left>
             <Height>0.6cm</Height>
-            <Width>6.25549cm</Width>
+            <Width>10.64005cm</Width>
             <ZIndex>29</ZIndex>
             <Style>
               <Border>

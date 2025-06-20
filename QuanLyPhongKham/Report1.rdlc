@@ -64,8 +64,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox9</rd:DefaultName>
-            <Top>3.85079in</Top>
-            <Left>0.85808cm</Left>
+            <Top>3.61467in</Top>
+            <Left>0.85806cm</Left>
             <Height>0.25in</Height>
             <Width>1.13946in</Width>
             <Style>
@@ -98,8 +98,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_chandoan</rd:DefaultName>
-            <Top>3.8612in</Top>
-            <Left>1.47729in</Left>
+            <Top>3.62508in</Top>
+            <Left>1.47728in</Left>
             <Height>0.25in</Height>
             <Width>5.37282in</Width>
             <ZIndex>1</ZIndex>
@@ -133,8 +133,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_chandoanphu</rd:DefaultName>
-            <Top>4.1112in</Top>
-            <Left>1.47729in</Left>
+            <Top>3.87508in</Top>
+            <Left>1.47728in</Left>
             <Height>0.25in</Height>
             <Width>5.38553in</Width>
             <ZIndex>2</ZIndex>
@@ -539,42 +539,6 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
-          <Textbox Name="Textbox22">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>Bác sĩ chỉ định:</Value>
-                    <Style>
-                      <FontFamily>Times New Roman</FontFamily>
-                      <FontSize>12pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Left</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox20</rd:DefaultName>
-            <Top>3.6112in</Top>
-            <Left>0.33782in</Left>
-            <Height>0.23959in</Height>
-            <Width>4.90499in</Width>
-            <ZIndex>13</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
           <Textbox Name="Textbox5">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
@@ -600,7 +564,7 @@
             <Left>0.85808cm</Left>
             <Height>0.25in</Height>
             <Width>0.78792in</Width>
-            <ZIndex>14</ZIndex>
+            <ZIndex>13</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -636,7 +600,7 @@
             <Left>8.3454cm</Left>
             <Height>0.25in</Height>
             <Width>0.84114in</Width>
-            <ZIndex>15</ZIndex>
+            <ZIndex>14</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -672,7 +636,7 @@
             <Left>0.33782in</Left>
             <Height>0.25in</Height>
             <Width>0.78792in</Width>
-            <ZIndex>16</ZIndex>
+            <ZIndex>15</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -708,7 +672,7 @@
             <Left>3.50201in</Left>
             <Height>0.25in</Height>
             <Width>0.78097in</Width>
-            <ZIndex>17</ZIndex>
+            <ZIndex>16</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -744,7 +708,7 @@
             <Left>1.19519in</Left>
             <Height>0.25in</Height>
             <Width>2.03295in</Width>
-            <ZIndex>18</ZIndex>
+            <ZIndex>17</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -779,7 +743,7 @@
             <Left>4.12673in</Left>
             <Height>0.25in</Height>
             <Width>1.39527in</Width>
-            <ZIndex>19</ZIndex>
+            <ZIndex>18</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -812,7 +776,7 @@
             <Left>1.19519in</Left>
             <Height>0.45833in</Height>
             <Width>2.18265in</Width>
-            <ZIndex>20</ZIndex>
+            <ZIndex>19</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -845,7 +809,7 @@
             <Left>4.28298in</Left>
             <Height>0.25in</Height>
             <Width>1.39527in</Width>
-            <ZIndex>21</ZIndex>
+            <ZIndex>20</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -881,7 +845,7 @@
             <Left>4.92994in</Left>
             <Height>0.25in</Height>
             <Width>0.78097in</Width>
-            <ZIndex>22</ZIndex>
+            <ZIndex>21</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -914,7 +878,7 @@
             <Left>14.43719cm</Left>
             <Height>0.635cm</Height>
             <Width>2.3549cm</Width>
-            <ZIndex>23</ZIndex>
+            <ZIndex>22</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -948,7 +912,7 @@
             <Left>0.85807cm</Left>
             <Height>0.6cm</Height>
             <Width>2.00132cm</Width>
-            <ZIndex>24</ZIndex>
+            <ZIndex>23</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -981,8 +945,8 @@
             <Top>8.57242cm</Top>
             <Left>3.03578cm</Left>
             <Height>0.6cm</Height>
-            <Width>6.25549cm</Width>
-            <ZIndex>25</ZIndex>
+            <Width>14.36348cm</Width>
+            <ZIndex>24</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1158,7 +1122,7 @@
             <Left>0.45938in</Left>
             <Height>0.61458in</Height>
             <Width>6.40344in</Width>
-            <ZIndex>26</ZIndex>
+            <ZIndex>25</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1173,7 +1137,7 @@
             <Left>1.57993in</Left>
             <Height>0.30556in</Height>
             <Width>0.27083in</Width>
-            <ZIndex>27</ZIndex>
+            <ZIndex>26</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1188,7 +1152,7 @@
             <Left>1.86466in</Left>
             <Height>0.30556in</Height>
             <Width>0.27083in</Width>
-            <ZIndex>28</ZIndex>
+            <ZIndex>27</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1203,7 +1167,7 @@
             <Left>3.14867in</Left>
             <Height>0.26389in</Height>
             <Width>0.25694in</Width>
-            <ZIndex>29</ZIndex>
+            <ZIndex>28</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1237,7 +1201,7 @@
             <Left>3.40562in</Left>
             <Height>0.25in</Height>
             <Width>2.66405in</Width>
-            <ZIndex>30</ZIndex>
+            <ZIndex>29</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1273,7 +1237,7 @@
             <Left>4.03298in</Left>
             <Height>0.25in</Height>
             <Width>2.90235in</Width>
-            <ZIndex>31</ZIndex>
+            <ZIndex>30</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
