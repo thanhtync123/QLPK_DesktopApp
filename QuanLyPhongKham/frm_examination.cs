@@ -243,7 +243,7 @@ namespace QuanLyPhongKham
         private void LoadComboboxMed()
         {
             string query = "SELECT id, name FROM medications order by name asc";
-            Db.LoadComboBoxData(comboBox1, query, "name", "id");
+            Db.LoadComboBoxData(cbo_medname, query, "name", "id");
 
 
         }
@@ -251,8 +251,8 @@ namespace QuanLyPhongKham
         private void btn_addmed_Click(object sender, EventArgs e)
         {
             int rowIndex = dtgv_med.Rows.Add();
-            dtgv_med.Rows[rowIndex].Cells[0].Value = comboBox1.SelectedValue;
-            dtgv_med.Rows[rowIndex].Cells[1].Value = comboBox1.Text;
+            dtgv_med.Rows[rowIndex].Cells[0].Value = cbo_medname.SelectedValue;
+            dtgv_med.Rows[rowIndex].Cells[1].Value = cbo_medname.Text;
             dtgv_med.Rows[rowIndex].Cells[2].Value = txb_unit.Text;
             dtgv_med.Rows[rowIndex].Cells[3].Value = txb_dosage.Text;
             dtgv_med.Rows[rowIndex].Cells[4].Value = txb_route.Text;
@@ -308,13 +308,13 @@ namespace QuanLyPhongKham
         }
         private void cb_medname_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBox1.SelectedIndex != 0)
+            if (cbo_medname.SelectedIndex != 0)
             {
                 if (Db.conn.State != ConnectionState.Open)
                     Db.ResetConnection(); // dùng Db.ResetConnection() nếu đã viết sẵn trong Db.cs
 
                 string query = "SELECT id, name, unit, dosage, route, times_per_day, note, price FROM medications WHERE id = @id order by name" ;
-                int selectedId = Convert.ToInt32(comboBox1.SelectedValue);
+                int selectedId = Convert.ToInt32(cbo_medname.SelectedValue);
 
                 Db.cmd = new MySqlCommand(query, Db.conn);
                 Db.cmd.Parameters.AddWithValue("@id", selectedId);
