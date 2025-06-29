@@ -20,6 +20,8 @@ namespace QuanLyPhongKham
         private readonly string _ngaykham;
         private readonly string _tongtien;
         private readonly string _sdt;
+        private readonly string _thuoc;
+        private readonly string _taikham;
 
         // Constructor nhận DataTable và các thông tin bệnh nhân (nếu cần)
         public frm_report_med(
@@ -34,7 +36,9 @@ namespace QuanLyPhongKham
             string chandoanphu = "",
             string ngaykham = "",
             string tongtien = "",
-            string sdt = ""
+            string sdt = "",
+            string thuoc="",
+            string taikham=""
 
         )
         {
@@ -51,6 +55,8 @@ namespace QuanLyPhongKham
             _ngaykham = ngaykham;
             _tongtien = tongtien;
             _sdt = sdt;
+            _thuoc = thuoc;
+            _taikham = taikham;
         }
 
         private void frm_report_med_Load(object sender, EventArgs e)
@@ -76,7 +82,9 @@ namespace QuanLyPhongKham
                     new ReportParameter("txb_chandoanphu", _chandoanphu ?? ""),
                     new ReportParameter("txb_ngaykham", _ngaykham ?? ""),
                     new ReportParameter("txb_tongtien", _tongtien ?? "")    ,
-                        new ReportParameter("txb_sdt", _sdt ?? "")
+                        new ReportParameter("txb_sdt", _sdt ?? ""),
+                        new ReportParameter("txb_med", _thuoc ?? ""),
+                         new ReportParameter("txb_taikham", _taikham ?? "")
                 };
                 reportViewer1.LocalReport.SetParameters(parameters);
 

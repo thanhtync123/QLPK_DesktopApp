@@ -14,6 +14,8 @@ using static System.ComponentModel.Design.ObjectSelectorEditor;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Drawing.Printing;
 using System.CodeDom;
+using System.Text.RegularExpressions;
+
 namespace QuanLyPhongKham
 {
     public partial class frm_examination : Form
@@ -24,6 +26,8 @@ namespace QuanLyPhongKham
         public frm_examination()
         {
             InitializeComponent();
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDown;
+
             timer.Interval = 3000;
             timer.Tick += (s, e) =>
             {
@@ -239,7 +243,7 @@ namespace QuanLyPhongKham
         private void LoadComboboxMed()
         {
             string query = "SELECT id, name FROM medications order by name asc";
-            Db.LoadComboBoxData(cb_medname, query, "name", "id");
+            Db.LoadComboBoxData(comboBox1, query, "name", "id");
 
 
         }
@@ -247,8 +251,8 @@ namespace QuanLyPhongKham
         private void btn_addmed_Click(object sender, EventArgs e)
         {
             int rowIndex = dtgv_med.Rows.Add();
-            dtgv_med.Rows[rowIndex].Cells[0].Value = cb_medname.SelectedValue;
-            dtgv_med.Rows[rowIndex].Cells[1].Value = cb_medname.Text;
+            dtgv_med.Rows[rowIndex].Cells[0].Value = comboBox1.SelectedValue;
+            dtgv_med.Rows[rowIndex].Cells[1].Value = comboBox1.Text;
             dtgv_med.Rows[rowIndex].Cells[2].Value = txb_unit.Text;
             dtgv_med.Rows[rowIndex].Cells[3].Value = txb_dosage.Text;
             dtgv_med.Rows[rowIndex].Cells[4].Value = txb_route.Text;
@@ -268,18 +272,49 @@ namespace QuanLyPhongKham
 
 
             lb_totalprice.Text = "Tổng tiền: " + total.ToString("N0") + " đ";
+            TinhNgayTaiKham();
+           
+         
+
 
         }
+        private void TinhNgayTaiKham()
+        {
+            int maxDays = 0;
 
+            for (int i = 0; i < dtgv_med.Rows.Count; i++)
+            {
+                if (dtgv_med.Rows[i].IsNewRow) continue;
+
+                var quantityStr = dtgv_med.Rows[i].Cells["quantity"].Value?.ToString() ?? "0";
+                var usage = dtgv_med.Rows[i].Cells["med_note"].Value?.ToString() ?? "";
+
+                int quantity = int.TryParse(quantityStr, out int q) ? q : 0;
+
+                // Regex: tìm các từ "sáng", "trưa", "chiều", "tối" không phân biệt hoa thường
+                var matches = Regex.Matches(usage, @"\b(sáng|trưa|chiều|tối)\b", RegexOptions.IgnoreCase);
+                int timesPerDay = matches.Count;
+
+                if (timesPerDay == 0) timesPerDay = 1;
+
+                int days = (int)Math.Ceiling((double)quantity / timesPerDay);
+
+                if (days > maxDays)
+                    maxDays = days;
+            }
+
+            DateTime ngayTaiKham = DateTime.Today.AddDays(maxDays);
+            txb_taikham.Text = checkBox1.Checked ? ngayTaiKham.ToString("dd/MM/yyyy") : "Không";
+        }
         private void cb_medname_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cb_medname.SelectedIndex != 0)
+            if (comboBox1.SelectedIndex != 0)
             {
                 if (Db.conn.State != ConnectionState.Open)
                     Db.ResetConnection(); // dùng Db.ResetConnection() nếu đã viết sẵn trong Db.cs
 
                 string query = "SELECT id, name, unit, dosage, route, times_per_day, note, price FROM medications WHERE id = @id order by name" ;
-                int selectedId = Convert.ToInt32(cb_medname.SelectedValue);
+                int selectedId = Convert.ToInt32(comboBox1.SelectedValue);
 
                 Db.cmd = new MySqlCommand(query, Db.conn);
                 Db.cmd.Parameters.AddWithValue("@id", selectedId);
@@ -333,6 +368,7 @@ namespace QuanLyPhongKham
 
 
             lb_totalprice.Text = "Tổng tiền: " + total.ToString("N0") + " đ";
+            TinhNgayTaiKham();
 
         }
 
@@ -725,8 +761,30 @@ VALUES (NULL, @examination_id, @service_id, @price);";
             var chandoan = cbo_diagnoses.Text;
             var chandoanphu = txb_reason.Text;
             var tongtien = lb_totalprice.Text;
+            var taikham = txb_taikham.Text;
             var ngaykham = DateTime.Now.ToString("'Ngày' dd 'tháng' MM 'năm' yyyy");
             var sdt = txb_phone.Text;
+            List<string> medList = new List<string>();
+
+            for (int i = 0; i < dtgv_med.Rows.Count; i++)
+            {
+                if (dtgv_med.Rows[i].IsNewRow) continue;
+                var name = dtgv_med.Rows[i].Cells["med_name"].Value?.ToString() ?? "";
+                var quantity = dtgv_med.Rows[i].Cells["quantity"].Value?.ToString() ?? "";
+                var usage = dtgv_med.Rows[i].Cells["med_note"].Value?.ToString() ?? "";
+                var unit =  dtgv_med.Rows[i].Cells["unit"].Value?.ToString() ?? "";
+                // Căn lề phải tên thuốc cho đều (giả sử tối đa 30 ký tự, bạn có thể điều chỉnh)
+                string line1 = $"{i + 1}/ {name.PadRight(30)} {quantity} {unit}";
+                string line2 = $"   {usage}";
+
+                medList.Add(line1);
+                medList.Add(line2);
+            }
+
+            string thuocChiTiet = string.Join("\n", medList);
+
+
+
 
             frm_report_med frm = new frm_report_med(
               GetDataTableFromDataGridView(dtgv_med),
@@ -740,7 +798,9 @@ VALUES (NULL, @examination_id, @service_id, @price);";
               chandoanphu,
               ngaykham,
               tongtien,
-              sdt
+              sdt,
+              thuocChiTiet,
+              taikham
       
           );
             frm.ShowDialog();
@@ -803,7 +863,14 @@ VALUES (NULL, @examination_id, @service_id, @price);";
                 lb_total_price_service.Text = total.ToString("N0") + " đ"; // Ví dụ: 100,000 đ
             }
         }
-
+        private void dtgv_med_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            TinhNgayTaiKham();
+        }
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            TinhNgayTaiKham();
+        }
         private void guna2ImageButton1_Click(object sender, EventArgs e)
         {
 
