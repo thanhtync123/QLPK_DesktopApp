@@ -42,11 +42,11 @@ namespace QuanLyPhongKham
         }
 
 
-		public static void LoadDTGVCommon(DataGridView dtgv_exam, string type, string search = "")
-		{
-			dtgv_exam.Rows.Clear(); // Xóa dữ liệu cũ trước khi load lại
+        public static void LoadDTGVCommon(DataGridView dtgv_exam, string type, string search = "")
+        {
+            dtgv_exam.Rows.Clear(); // Xóa dữ liệu cũ trước khi load lại
 
-			string sql = @"
+            string sql = @"
         SELECT 
             DATE_FORMAT(e.updated_at, '%d/%m/%Y %H:%i') AS time_exam,
             DATE_FORMAT(p.date_of_birth, '%d/%m/%Y') AS date_of_birth,
@@ -76,55 +76,59 @@ namespace QuanLyPhongKham
         JOIN examination_services es ON e.id = es.examination_id
         JOIN services s ON es.service_id = s.id
         LEFT JOIN examination_results er ON er.examination_service_id = es.id
-        WHERE DATE(e.updated_at) = CURDATE()
-             s.type = @type
+        WHERE s.type = @type
     ";
 
-			if (!string.IsNullOrEmpty(search))
-			{
-				sql += @" AND (
-                    p.id LIKE @search OR 
-                    p.name LIKE @search OR 
-                    e.id LIKE @search
-                )";
-			}
+            if (string.IsNullOrEmpty(search))
+            {
+                // Mặc định: chỉ lấy trong ngày hiện tại
+                sql += " AND DATE(e.updated_at) = CURDATE()";
+            }
+            else
+            {
+                // Khi tìm kiếm: bỏ lọc ngày, tìm theo từ khóa
+                sql += @" AND (
+            p.id LIKE @search OR 
+            p.name LIKE @search OR 
+            e.id LIKE @search
+        )";
+            }
 
-			sql += " GROUP BY e.id";
+            sql += " GROUP BY e.id";
 
-			Db.conn = new MySqlConnection(Db.connectionString);
-			Db.ResetConnection();
-			Db.cmd = new MySqlCommand(sql, Db.conn);
-			Db.cmd.Parameters.AddWithValue("@type", type);
-			if (!string.IsNullOrEmpty(search))
-			{
-				Db.cmd.Parameters.AddWithValue("@search", "%" + search + "%");
-			}
+            Db.conn = new MySqlConnection(Db.connectionString);
+            Db.ResetConnection();
+            Db.cmd = new MySqlCommand(sql, Db.conn);
+            Db.cmd.Parameters.AddWithValue("@type", type);
+            if (!string.IsNullOrEmpty(search))
+            {
+                Db.cmd.Parameters.AddWithValue("@search", "%" + search + "%");
+            }
 
-			Db.dr = Db.cmd.ExecuteReader();
+            Db.dr = Db.cmd.ExecuteReader();
 
-			while (Db.dr.Read())
-			{
-				int i = dtgv_exam.Rows.Add();
-				DataGridViewRow drr = dtgv_exam.Rows[i];
-				drr.Cells["id_exam"].Value = Db.dr["id_exam"];
-				drr.Cells["id_patient"].Value = Db.dr["id_patient"];
-				drr.Cells["name"].Value = Db.dr["name"];
-				drr.Cells["gender"].Value = Db.dr["gender"];
-				drr.Cells["date_of_birth"].Value = Db.dr["date_of_birth"];
-				drr.Cells["phone"].Value = Db.dr["phone"];
-				drr.Cells["address"].Value = Db.dr["address"];
-				drr.Cells["updated_at"].Value = Db.dr["updated_at"];
-				drr.Cells["reason"].Value = Db.dr["reason"];
-				drr.Cells["diagnosis"].Value = Db.dr["diagnosis"];
-				drr.Cells["note"].Value = Db.dr["note"];
-				drr.Cells["time_exam"].Value = Db.dr["time_exam"];
-			}
-            
+            while (Db.dr.Read())
+            {
+                int i = dtgv_exam.Rows.Add();
+                DataGridViewRow drr = dtgv_exam.Rows[i];
+                drr.Cells["id_exam"].Value = Db.dr["id_exam"];
+                drr.Cells["id_patient"].Value = Db.dr["id_patient"];
+                drr.Cells["name"].Value = Db.dr["name"];
+                drr.Cells["gender"].Value = Db.dr["gender"];
+                drr.Cells["date_of_birth"].Value = Db.dr["date_of_birth"];
+                drr.Cells["phone"].Value = Db.dr["phone"];
+                drr.Cells["address"].Value = Db.dr["address"];
+                drr.Cells["updated_at"].Value = Db.dr["updated_at"];
+                drr.Cells["reason"].Value = Db.dr["reason"];
+                drr.Cells["diagnosis"].Value = Db.dr["diagnosis"];
+                drr.Cells["note"].Value = Db.dr["note"];
+                drr.Cells["time_exam"].Value = Db.dr["time_exam"];
+            }
 
             Db.dr.Close();
-			Db.ResetConnection();
-		}
+            Db.ResetConnection();
+        }
 
 
-	}
+    }
 }
