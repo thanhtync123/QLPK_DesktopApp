@@ -990,6 +990,11 @@
                                     <Color>Red</Color>
                                   </Style>
                                 </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                            <Paragraph>
+                              <TextRuns>
                                 <TextRun>
                                   <Value>=Parameters!txb_mota.Value</Value>
                                   <Style>
@@ -1030,6 +1035,13 @@
                             </Paragraph>
                             <Paragraph>
                               <TextRuns>
+                                <TextRun>
+                                  <Value>- </Value>
+                                  <Style>
+                                    <FontFamily>Times New Roman</FontFamily>
+                                    <FontSize>13pt</FontSize>
+                                  </Style>
+                                </TextRun>
                                 <TextRun>
                                   <Value>=Parameters!txb_ketluan.Value</Value>
                                   <Style>
