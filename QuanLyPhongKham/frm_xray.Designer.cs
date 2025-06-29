@@ -267,7 +267,7 @@
             this.dtgv_exam.RowHeadersVisible = false;
             this.dtgv_exam.RowHeadersWidth = 51;
             this.dtgv_exam.RowTemplate.Height = 35;
-            this.dtgv_exam.Size = new System.Drawing.Size(400, 530);
+            this.dtgv_exam.Size = new System.Drawing.Size(421, 530);
             this.dtgv_exam.TabIndex = 9;
             this.dtgv_exam.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgv_exam.ThemeStyle.AlternatingRowsStyle.Font = null;

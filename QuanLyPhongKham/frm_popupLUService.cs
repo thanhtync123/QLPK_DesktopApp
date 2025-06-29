@@ -30,7 +30,8 @@ namespace QuanLyPhongKham
                         JOIN patients p ON e.patient_id = p.id
                         JOIN examination_services es ON e.id = es.examination_id
                         JOIN services s ON es.service_id = s.id
-                        GROUP BY e.id, p.id, p.name;
+                        GROUP BY e.id, p.id, p.name
+                        ORDER BY e.id DESC;
                         ";
             Db.LoadDTGV(dtgv_exam_service, sql);
             dtgv_exam_service.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;

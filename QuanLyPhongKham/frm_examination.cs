@@ -26,7 +26,9 @@ namespace QuanLyPhongKham
         public frm_examination()
         {
             InitializeComponent();
-      
+
+
+
 
             timer.Interval = 3000;
             timer.Tick += (s, e) =>
@@ -143,7 +145,7 @@ namespace QuanLyPhongKham
             LoadGrid();
             LoadComboboxDiagnoses();
             LoadComboboxDoctorNote();
-            LoadComboboxMed();
+            LoadComboboxMedication();
             LoadExamID();
             LoadDTGV_Service();
             btn_deletemed.Enabled = false;
@@ -193,19 +195,19 @@ namespace QuanLyPhongKham
             cbo_diagnoses.SelectedIndex = 0;  // Chọn phần tử đầu tiên sau khi load dữ liệu
         }
 
-        private void LoadComboboxMed()
+
+        private void LoadComboboxMedication()
         {
             string query = "SELECT id, name FROM medications order by name asc";
-            Db.LoadComboBoxData(cbo_medname, query, "name", "id");
-
+            Db.LoadComboBoxData(cb_medname2, query, "name", "id");
 
         }
 
         private void btn_addmed_Click(object sender, EventArgs e)
         {
             int rowIndex = dtgv_med.Rows.Add();
-            dtgv_med.Rows[rowIndex].Cells[0].Value = cbo_medname.SelectedValue;
-            dtgv_med.Rows[rowIndex].Cells[1].Value = cbo_medname.Text;
+            dtgv_med.Rows[rowIndex].Cells[0].Value = cb_medname2.SelectedValue;
+            dtgv_med.Rows[rowIndex].Cells[1].Value = cb_medname2.Text;
             dtgv_med.Rows[rowIndex].Cells[2].Value = txb_unit.Text;
             dtgv_med.Rows[rowIndex].Cells[3].Value = txb_dosage.Text;
             dtgv_med.Rows[rowIndex].Cells[4].Value = txb_route.Text;
@@ -261,13 +263,18 @@ namespace QuanLyPhongKham
         }
         private void cb_medname_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbo_medname.SelectedIndex != 0)
+           
+        }
+        private void cb_medname2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (cb_medname2.SelectedIndex != 0)
             {
                 if (Db.conn.State != ConnectionState.Open)
                     Db.ResetConnection(); // dùng Db.ResetConnection() nếu đã viết sẵn trong Db.cs
 
                 string query = "SELECT id, name, unit, dosage, route, times_per_day, note, price FROM medications WHERE id = @id order by name";
-                int selectedId = Convert.ToInt32(cbo_medname.SelectedValue);
+                int selectedId = Convert.ToInt32(cb_medname2.SelectedValue);
 
                 Db.cmd = new MySqlCommand(query, Db.conn);
                 Db.cmd.Parameters.AddWithValue("@id", selectedId);
@@ -291,11 +298,6 @@ namespace QuanLyPhongKham
                 Db.dr.Close();
                 Db.ResetConnection();
             }
-        }
-        private void cb_medname2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-
         }
         private void txb_quantity_ValueChanged(object sender, EventArgs e)
         {
@@ -619,6 +621,10 @@ VALUES (NULL, @examination_id, @service_id, @price);";
             }
 
         }
+        private void btn_tinhtien_Click(object sender, EventArgs e)
+        {
+            UpdateTotalServicePrice();
+        }
         private void UpdateTotalServicePrice()
         {
             decimal total = 0;
@@ -816,6 +822,7 @@ VALUES (NULL, @examination_id, @service_id, @price);";
                 lb_total_price_service.Text = total.ToString("N0") + " đ"; // Ví dụ: 100,000 đ
             }
         }
+
         private void dtgv_med_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             TinhNgayTaiKham();
@@ -830,11 +837,6 @@ VALUES (NULL, @examination_id, @service_id, @price);";
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_layphieukham_Click(object sender, EventArgs e)
         {
 
         }
