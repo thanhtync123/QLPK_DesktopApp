@@ -130,54 +130,7 @@ namespace QuanLyPhongKham
             dr.Close();
             Db.ResetConnection();
 
-            //dtgv_patients.Rows.Clear();
-
-            //string sql = @"SELECT 
-            //     id, 
-            //     name, 
-            //     DATE_FORMAT(date_of_birth, '%d/%m/%Y') AS date_of_birth, 
-            //     gender, 
-            //     phone, 
-            //     address, 
-            //     created_at, 
-            //     DATE_FORMAT(updated_at, '%H:%i:%s') AS updated_time
-            // FROM patients
-            // WHERE DATE(updated_at) = CURDATE();";
-
-            //Db.ResetConnection();
-            //MySqlCommand cmd = Db.CreateCommand(sql);
-            //MySqlDataReader dr = cmd.ExecuteReader();
-
-            //bool hasData = false;
-
-            //while (dr.Read())
-            //{
-            //    hasData = true;
-
-            //    int i = dtgv_patients.Rows.Add();
-            //    DataGridViewRow drr = dtgv_patients.Rows[i];
-            //    drr.Cells["ID"].Value = dr["id"];
-            //    drr.Cells["name"].Value = dr["name"];
-            //    drr.Cells["date_of_birth"].Value = dr["date_of_birth"];
-            //    drr.Cells["gender"].Value = dr["gender"];
-            //    drr.Cells["phone"].Value = dr["phone"];
-            //    drr.Cells["address"].Value = dr["address"];
-            //    drr.Cells["time_patients"].Value = dr["updated_time"];
-            //}
-
-            //dr.Close();
-            //Db.ResetConnection();
-
-
-
-            //if (!hasData)
-            //{
-            //    label27.Text = "Không có bệnh nhân nào được tiếp nhận trong hôm nay.";
-            //    label27.Visible = true;
-            //}
-            //else
-
-            //    label27.Visible = false;
+            
 
 
 
@@ -195,7 +148,7 @@ namespace QuanLyPhongKham
             LoadDTGV_Service();
             btn_deletemed.Enabled = false;
             cbo_diagnoses.SelectedIndex = 0;
-            webBrowser1.Visible = false;
+    
        
 
 
@@ -225,7 +178,7 @@ namespace QuanLyPhongKham
 
 
         }
-
+        //1
         private void LoadComboboxDoctorNote()
         {
 
@@ -313,7 +266,7 @@ namespace QuanLyPhongKham
                 if (Db.conn.State != ConnectionState.Open)
                     Db.ResetConnection(); // dùng Db.ResetConnection() nếu đã viết sẵn trong Db.cs
 
-                string query = "SELECT id, name, unit, dosage, route, times_per_day, note, price FROM medications WHERE id = @id order by name" ;
+                string query = "SELECT id, name, unit, dosage, route, times_per_day, note, price FROM medications WHERE id = @id order by name";
                 int selectedId = Convert.ToInt32(cbo_medname.SelectedValue);
 
                 Db.cmd = new MySqlCommand(query, Db.conn);
@@ -338,12 +291,12 @@ namespace QuanLyPhongKham
                 Db.dr.Close();
                 Db.ResetConnection();
             }
-
-
-
+        }
+        private void cb_medname2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
 
         }
-
         private void txb_quantity_ValueChanged(object sender, EventArgs e)
         {
             int quantity = Convert.ToInt32(txb_quantity.Value);
