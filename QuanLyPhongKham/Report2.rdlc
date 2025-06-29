@@ -565,9 +565,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
             <Top>2.18034in</Top>
-            <Left>7.85011cm</Left>
+            <Left>8.20688cm</Left>
             <Height>0.25in</Height>
-            <Width>0.84114in</Width>
+            <Width>0.45068in</Width>
             <ZIndex>18</ZIndex>
             <Style>
               <Border>
@@ -708,7 +708,7 @@
             </Paragraphs>
             <rd:DefaultName>txb_ngaysinh</rd:DefaultName>
             <Top>2.18034in</Top>
-            <Left>3.93173in</Left>
+            <Left>3.68173in</Left>
             <Height>0.25in</Height>
             <Width>1.39527in</Width>
             <ZIndex>22</ZIndex>
