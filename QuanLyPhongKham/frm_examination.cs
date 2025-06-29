@@ -26,7 +26,7 @@ namespace QuanLyPhongKham
         public frm_examination()
         {
             InitializeComponent();
-            comboBox1.DropDownStyle = ComboBoxStyle.DropDown;
+      
 
             timer.Interval = 3000;
             timer.Tick += (s, e) =>
