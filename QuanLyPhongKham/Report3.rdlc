@@ -608,7 +608,7 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
-            <Top>2.53022in</Top>
+            <Top>2.78022in</Top>
             <Left>0.13475in</Left>
             <Height>0.46874in</Height>
             <Width>5.20901in</Width>
@@ -792,7 +792,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox9</rd:DefaultName>
-            <Top>2.28022in</Top>
+            <Top>2.53022in</Top>
             <Left>0.125in</Left>
             <Height>0.25in</Height>
             <Width>1.01607in</Width>
@@ -920,7 +920,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_chandoan</rd:DefaultName>
-            <Top>2.28022in</Top>
+            <Top>2.53022in</Top>
             <Left>1.01607in</Left>
             <Height>0.25in</Height>
             <Width>3.74769in</Width>
@@ -987,7 +987,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_ngaykham</rd:DefaultName>
-            <Top>3.00288in</Top>
+            <Top>3.25288in</Top>
             <Left>3.55892in</Left>
             <Height>0.25in</Height>
             <Width>2.07903in</Width>
@@ -1032,7 +1032,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox33</rd:DefaultName>
-            <Top>3.21468in</Top>
+            <Top>3.46468in</Top>
             <Left>4.29157in</Left>
             <Height>0.25in</Height>
             <Width>0.525in</Width>
@@ -1066,7 +1066,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_loidan</rd:DefaultName>
-            <Top>3.24895in</Top>
+            <Top>3.49895in</Top>
             <Left>0.93545in</Left>
             <Height>0.6813in</Height>
             <Width>2.38331in</Width>
@@ -1101,7 +1101,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
-            <Top>3.23507in</Top>
+            <Top>3.48507in</Top>
             <Left>0.31045in</Left>
             <Height>0.25in</Height>
             <Width>1.03471in</Width>
@@ -1172,7 +1172,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox11</rd:DefaultName>
-            <Top>3.74969in</Top>
+            <Top>3.99969in</Top>
             <Left>3.30553in</Left>
             <Height>0.25in</Height>
             <Width>2.33242in</Width>
@@ -1205,7 +1205,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_tongtien</rd:DefaultName>
-            <Top>2.99895in</Top>
+            <Top>3.24895in</Top>
             <Left>0.31045in</Left>
             <Height>0.25in</Height>
             <Width>1.68388in</Width>
@@ -1470,6 +1470,73 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
+          <Textbox Name="Textbox15">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>SĐT:</Value>
+                    <Style>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Right</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox4</rd:DefaultName>
+            <Top>2.28022in</Top>
+            <Left>0.1223in</Left>
+            <Height>0.25in</Height>
+            <Width>0.62988in</Width>
+            <ZIndex>23</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="txb_sdt">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Parameters!txb_sdt.Value</Value>
+                    <Style>
+                      <FontFamily>times New Roman</FontFamily>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>txb_sdt</rd:DefaultName>
+            <Top>2.28022in</Top>
+            <Left>0.76607in</Left>
+            <Height>0.25in</Height>
+            <Width>2.55269in</Width>
+            <ZIndex>24</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
         </ReportItems>
         <Height>6.31887in</Height>
         <Style />
@@ -1535,6 +1602,12 @@
       <AllowBlank>true</AllowBlank>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
+    <ReportParameter Name="txb_sdt">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
@@ -1585,6 +1658,11 @@
           <ColumnIndex>1</ColumnIndex>
           <RowIndex>2</RowIndex>
           <ParameterName>txb_tongtien</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>2</ColumnIndex>
+          <RowIndex>2</RowIndex>
+          <ParameterName>txb_sdt</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>

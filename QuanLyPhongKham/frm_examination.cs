@@ -726,21 +726,23 @@ VALUES (NULL, @examination_id, @service_id, @price);";
             var chandoanphu = txb_reason.Text;
             var tongtien = lb_totalprice.Text;
             var ngaykham = DateTime.Now.ToString("'Ngày' dd 'tháng' MM 'năm' yyyy");
+            var sdt = txb_phone.Text;
 
             frm_report_med frm = new frm_report_med(
-      GetDataTableFromDataGridView(dtgv_med),
-      mabn,
-      tenbn,
-      txb_ngaysinh.Text,   
-      txb_address.Text,    
-      gioitinh,
-      loidan,
-      chandoan,
-      chandoanphu,
-      ngaykham,
-      tongtien
+              GetDataTableFromDataGridView(dtgv_med),
+              mabn,
+              tenbn,
+              txb_ngaysinh.Text,   
+              txb_address.Text,    
+              gioitinh,
+              loidan,
+              chandoan,
+              chandoanphu,
+              ngaykham,
+              tongtien,
+              sdt
       
-  );
+          );
             frm.ShowDialog();
 
 
