@@ -72,7 +72,7 @@
             <rd:DefaultName>Textbox9</rd:DefaultName>
             <Top>3.27422in</Top>
             <Left>0.18385cm</Left>
-            <Height>0.25in</Height>
+            <Height>0.22222in</Height>
             <Width>0.89024in</Width>
             <ZIndex>2</ZIndex>
             <Style>
@@ -139,9 +139,9 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_mota</rd:DefaultName>
-            <Top>8.95152cm</Top>
+            <Top>8.88096cm</Top>
             <Left>0.18385cm</Left>
-            <Height>9.26037cm</Height>
+            <Height>9.33092cm</Height>
             <Width>14.01328cm</Width>
             <ZIndex>4</ZIndex>
             <Style>
