@@ -34,26 +34,26 @@ namespace QuanLyPhongKham
             LoadComboboxTemplate();
 
 
-                if (dtgv_exam.CurrentRow != null && dtgv_exam.CurrentRow.Cells["id_exam"].Value != null)
-                    selectedExamId = Convert.ToInt32(dtgv_exam.CurrentRow.Cells["id_exam"].Value);
+            if (dtgv_exam.CurrentRow != null && dtgv_exam.CurrentRow.Cells["id_exam"].Value != null)
+                selectedExamId = Convert.ToInt32(dtgv_exam.CurrentRow.Cells["id_exam"].Value);
 
-    
-                LoadExam.LoadDTGVCommon(dtgv_exam, "Điện tim");
 
-  
-                if (selectedExamId.HasValue)
+            LoadExam.LoadDTGVCommon(dtgv_exam, "Điện tim");
+
+
+            if (selectedExamId.HasValue)
+            {
+                foreach (DataGridViewRow row in dtgv_exam.Rows)
                 {
-                    foreach (DataGridViewRow row in dtgv_exam.Rows)
+                    if (row.Cells["id_exam"].Value != null && Convert.ToInt32(row.Cells["id_exam"].Value) == selectedExamId)
                     {
-                        if (row.Cells["id_exam"].Value != null && Convert.ToInt32(row.Cells["id_exam"].Value) == selectedExamId)
-                        {
-                            dtgv_exam.CurrentCell = row.Cells[0];
-                            dtgv_exam.Rows[row.Index].Selected = true;
-                            break;
-                        }
+                        dtgv_exam.CurrentCell = row.Cells[0];
+                        dtgv_exam.Rows[row.Index].Selected = true;
+                        break;
                     }
                 }
-        
+            }
+
         }
         private void LoadComboboxTemplate()
         {
@@ -98,6 +98,10 @@ namespace QuanLyPhongKham
 
         }
         private void btn_search_Click(object sender, EventArgs e)
+        {
+            SearchExam();
+        }
+        private void SearchExam()
         {
             var from_date = dtpk_fromdate.Text;
             var to_date = dtpk_todate.Text;
@@ -204,7 +208,7 @@ namespace QuanLyPhongKham
         {
             string keyword = txb_search.Text.Trim();
             LoadExam.LoadDTGVCommon(dtgv_exam, "Điện tim", keyword);
-           
+
         }
 
         private void btn_edit_Click(object sender, EventArgs e)
@@ -243,6 +247,7 @@ namespace QuanLyPhongKham
         }
         private void dtgv_exam_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
+            btn_delete.Enabled = true;
             if (e.RowIndex >= 0 && dtgv_exam.Rows[e.RowIndex].Cells["id_exam"].Value != null)
             {
                 DataGridViewRow row = dtgv_exam.Rows[e.RowIndex];
@@ -354,10 +359,10 @@ namespace QuanLyPhongKham
                     txb_result.Text = Db.dr["template_content"].ToString()
                                 .Replace("\\r\\n", "\r\n"); // chuyển chuỗi '\\r\\n' về ký tự xuống dòng thật
                     txb_final_result.Text = Db.dr["result_content"].ToString();
-                             
+
 
                 }
-      
+
                 Db.dr.Close();
                 Db.ResetConnection();
             }
@@ -367,7 +372,7 @@ namespace QuanLyPhongKham
         {
             var mabn = txb_id_patient.Text.Trim();
             var tenbn = txb_name.Text.Trim();
-            var ngaysinh = DateTime.Today.Year - DateTime.ParseExact(txb_dob.Text, "dd/MM/yyyy", null).Year - (DateTime.Today < DateTime.ParseExact(txb_dob.Text, "dd/MM/yyyy", null).AddYears(DateTime.Today.Year - DateTime.ParseExact(txb_dob.Text, "dd/MM/yyyy", null).Year) ? 1 : 0)+"";
+            var ngaysinh = DateTime.Today.Year - DateTime.ParseExact(txb_dob.Text, "dd/MM/yyyy", null).Year - (DateTime.Today < DateTime.ParseExact(txb_dob.Text, "dd/MM/yyyy", null).AddYears(DateTime.Today.Year - DateTime.ParseExact(txb_dob.Text, "dd/MM/yyyy", null).Year) ? 1 : 0) + "";
             var gioitinh = txb_gender.Text.Trim();
             var diachi = txb_address.Text.Trim();
             var sdt = txb_phone.Text.Trim();
@@ -376,7 +381,7 @@ namespace QuanLyPhongKham
             var mota = txb_result.Text.Trim();
             var ketqua = txb_final_result.Text.Trim();
             var chidinh = txb_service.Text.Trim();
-            var frm = new frm_report_xray(mabn, tenbn, ngaysinh, diachi, sdt, chandoan, chandoanphu, mota, ketqua, chidinh,gioitinh);
+            var frm = new frm_report_xray(mabn, tenbn, ngaysinh, diachi, sdt, chandoan, chandoanphu, mota, ketqua, chidinh, gioitinh);
             frm.ShowDialog();
         }
 
@@ -390,6 +395,33 @@ namespace QuanLyPhongKham
 
         }
 
-
+        private void btn_delete_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(dtgv_exam.CurrentRow.Cells["id_exam"].Value);
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa không?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                String query = $@"DELETE FROM `examinations` WHERE id = {id} ";
+                MySqlCommand cmd = new MySqlCommand(query, Db.conn);
+                cmd.ExecuteNonQuery();
+                SearchExam();
+                txb_address.Text = "";
+                txb_age.Text = "";
+                txb_dob.Text = "";
+                txb_final_result.Text = "";
+                txb_gender.Text = "";
+                txb_id_exam.Text = "";
+                txb_id_patient.Text = "";
+                txb_name.Text = "";
+                txb_phone.Text = "";
+                txb_reason.Text = "";
+                txb_chandoanchinh.Text = "";
+                txb_reception_date.Text = "";
+                txb_result.Text = "";
+                txb_service.Text = "";
+                cb_template.Text = "Chọn biểu mẫu";
+                dtgv_service.Rows.Clear();
+            }
+        }
     }
 }

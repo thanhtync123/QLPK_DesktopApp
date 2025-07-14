@@ -91,7 +91,7 @@ namespace QuanLyPhongKham
         private void dtgv_exam_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // reason = chẩn đoán phụ
-           
+            btn_delete.Enabled = true;
             if (e.RowIndex >= 0 && dtgv_exam.Rows[e.RowIndex].Cells["id_exam"].Value != null)
             {
                 DataGridViewRow row = dtgv_exam.Rows[e.RowIndex];
@@ -277,10 +277,8 @@ namespace QuanLyPhongKham
                 MessageBox.Show("Không có dữ liệu nào được sửa.");
         }
 
-
-		private void btn_search_Click(object sender, EventArgs e)
+        private void SearchExam()
         {
-          
             var from_date = dtpk_fromdate.Text;
             var to_date = dtpk_todate.Text;
 
@@ -309,18 +307,18 @@ namespace QuanLyPhongKham
               AND STR_TO_DATE(@to_date, '%d/%m/%Y')
     ";
 
-            if (rdn_all.Checked )
+            if (rdn_all.Checked)
             {
                 query += "";
-            }    
-            if (rdn_resulted.Checked )
+            }
+            if (rdn_resulted.Checked)
             {
-            
+
                 query += " AND er.id IS NOT NULL ";
             }
-            else if (rdn_noresult.Checked )
+            else if (rdn_noresult.Checked)
             {
-      
+
                 query += " AND er.id IS NULL ";
             }
 
@@ -353,6 +351,11 @@ namespace QuanLyPhongKham
 
             Db.dr.Close();
             Db.ResetConnection();
+        }
+		private void btn_search_Click(object sender, EventArgs e)
+        {
+
+            SearchExam();
         }
 
 
@@ -387,6 +390,33 @@ namespace QuanLyPhongKham
 			LoadExam.LoadDTGVCommon(dtgv_exam, "X-quang", keyword);
 		}
 
-
+        private void btn_delete_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(dtgv_exam.CurrentRow.Cells["id_exam"].Value);
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa không?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                String query = $@"DELETE FROM `examinations` WHERE id = {id} ";
+                MySqlCommand cmd = new MySqlCommand(query, Db.conn);
+                cmd.ExecuteNonQuery();
+                SearchExam();
+                txb_address.Text = "";
+                txb_age.Text = "";
+                txb_dob.Text = "";
+                txb_final_result.Text = "";
+                txb_gender.Text = "";
+                txb_id_exam.Text = "";
+                txb_id_patient.Text = "";
+                txb_name.Text = "";
+                txb_phone.Text = "";
+                txb_reason.Text = "";
+                txb_reason1.Text = "";
+                txb_reception_date.Text = "";
+                txb_result.Text = "";
+                txb_service.Text = "";
+                cb_template.Text = "Chọn biểu mẫu";
+                dtgv_service.Rows.Clear();
+            }
+        }
     }
 }

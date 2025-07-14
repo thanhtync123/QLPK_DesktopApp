@@ -353,6 +353,7 @@ namespace QuanLyPhongKham
 
         private void dtgv_exam_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
+            btn_delete.Enabled = true;
             if (e.RowIndex >= 0 && dtgv_exam.Rows[e.RowIndex].Cells["id_exam"].Value != null)
             {
                 DataGridViewRow row = dtgv_exam.Rows[e.RowIndex];
@@ -409,6 +410,10 @@ namespace QuanLyPhongKham
         }
         private void btn_search_Click(object sender, EventArgs e)
         {
+            SearchExam();
+        }
+        private void SearchExam()
+        {
             var from_date = dtpk_fromdate.Text;
             var to_date = dtpk_todate.Text;
 
@@ -438,19 +443,19 @@ namespace QuanLyPhongKham
     ";
 
             if (rdn_all.Checked)
-            
+
                 query += "";
-            
+
             if (rdn_resulted.Checked)
-            
+
 
                 query += " AND er.id IS NOT NULL ";
-            
+
             else if (rdn_noresult.Checked)
-            
+
 
                 query += " AND er.id IS NULL ";
-            
+
 
             Db.conn = new MySqlConnection(Db.connectionString);
             Db.ResetConnection();
@@ -482,7 +487,6 @@ namespace QuanLyPhongKham
             Db.dr.Close();
             Db.ResetConnection();
         }
-
         private void btn_save_Click(object sender, EventArgs e)
         {
             try
@@ -786,6 +790,33 @@ namespace QuanLyPhongKham
 
         }
 
-
+        private void btn_delete_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(dtgv_exam.CurrentRow.Cells["id_exam"].Value);
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa không?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                String query = $@"DELETE FROM `examinations` WHERE id = {id} ";
+                MySqlCommand cmd = new MySqlCommand(query, Db.conn);
+                cmd.ExecuteNonQuery();
+                SearchExam();
+                txb_address.Text = "";
+                txb_age.Text = "";
+                txb_dob.Text = "";
+                txb_final_result.Text = "";
+                txb_gender.Text = "";
+                txb_id_exam.Text = "";
+                txb_id_patient.Text = "";
+                txb_name.Text = "";
+                txb_phone.Text = "";
+                txb_chandoan.Text = "";
+                txb_chandoanphu.Text = "";
+                txb_reception_date.Text = "";
+                txb_result.Text = "";
+                txb_service.Text = "";
+                cb_template.Text = "Chọn biểu mẫu";
+                dtgv_service.Rows.Clear();
+            }
+        }
     }
 }

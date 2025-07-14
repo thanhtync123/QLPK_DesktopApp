@@ -48,6 +48,7 @@
             this.btn_save = new System.Windows.Forms.Button();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btn_delete = new System.Windows.Forms.Button();
             this.dtgv_exam = new Guna.UI2.WinForms.Guna2DataGridView();
             this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.txb_search = new Guna.UI2.WinForms.Guna2TextBox();
@@ -238,6 +239,7 @@
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(230)))));
+            this.guna2Panel1.Controls.Add(this.btn_delete);
             this.guna2Panel1.Controls.Add(this.dtgv_exam);
             this.guna2Panel1.Controls.Add(this.guna2ImageButton1);
             this.guna2Panel1.Controls.Add(this.txb_search);
@@ -255,6 +257,18 @@
             this.guna2Panel1.Size = new System.Drawing.Size(471, 805);
             this.guna2Panel1.TabIndex = 2;
             this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
+            // 
+            // btn_delete
+            // 
+            this.btn_delete.Enabled = false;
+            this.btn_delete.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_delete.Location = new System.Drawing.Point(338, 28);
+            this.btn_delete.Name = "btn_delete";
+            this.btn_delete.Size = new System.Drawing.Size(107, 33);
+            this.btn_delete.TabIndex = 56;
+            this.btn_delete.Text = "Xóa phiếu";
+            this.btn_delete.UseVisualStyleBackColor = true;
+            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
             // 
             // dtgv_exam
             // 
@@ -280,12 +294,12 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtgv_exam.DefaultCellStyle = dataGridViewCellStyle3;
             this.dtgv_exam.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dtgv_exam.Location = new System.Drawing.Point(37, 192);
+            this.dtgv_exam.Location = new System.Drawing.Point(4, 170);
             this.dtgv_exam.Name = "dtgv_exam";
             this.dtgv_exam.RowHeadersVisible = false;
             this.dtgv_exam.RowHeadersWidth = 51;
             this.dtgv_exam.RowTemplate.Height = 35;
-            this.dtgv_exam.Size = new System.Drawing.Size(400, 530);
+            this.dtgv_exam.Size = new System.Drawing.Size(452, 552);
             this.dtgv_exam.TabIndex = 55;
             this.dtgv_exam.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgv_exam.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -343,7 +357,7 @@
             this.txb_search.Name = "txb_search";
             this.txb_search.PlaceholderText = "Mã BN / Tên BN / Mã Phiếu Khám";
             this.txb_search.SelectedText = "";
-            this.txb_search.Size = new System.Drawing.Size(268, 24);
+            this.txb_search.Size = new System.Drawing.Size(324, 24);
             this.txb_search.TabIndex = 51;
             this.txb_search.TextChanged += new System.EventHandler(this.txb_search_TextChanged);
             // 
@@ -907,7 +921,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(230)))));
-            this.ClientSize = new System.Drawing.Size(1420, 822);
+            this.ClientSize = new System.Drawing.Size(1386, 788);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -991,5 +1005,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txb_name;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btn_delete;
     }
 }
