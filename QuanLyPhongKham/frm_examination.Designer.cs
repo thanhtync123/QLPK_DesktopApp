@@ -34,8 +34,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -47,6 +45,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_examination));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txb_name = new Guna.UI2.WinForms.Guna2TextBox();
             this.txb_ngaysinh = new Guna.UI2.WinForms.Guna2TextBox();
             this.txb_age = new Guna.UI2.WinForms.Guna2TextBox();
@@ -61,39 +61,36 @@
             this.label6 = new System.Windows.Forms.Label();
             this.guna2TabControl1 = new Guna.UI2.WinForms.Guna2TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.cb_medname2 = new System.Windows.Forms.ComboBox();
             this.txb_taikham = new Guna.UI2.WinForms.Guna2TextBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label29 = new System.Windows.Forms.Label();
-            this.guna2ImageButton3 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2ImageButton6 = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.btn_insert_examination = new Guna.UI2.WinForms.Guna2Button();
             this.lb_totalprice = new System.Windows.Forms.Label();
-            this.guna2ImageButton5 = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.guna2ImageButton3 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.txb_quantity = new Guna.UI2.WinForms.Guna2NumericUpDown();
             this.label19 = new System.Windows.Forms.Label();
             this.guna2ImageButton4 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.txb_totalpricepermed = new Guna.UI2.WinForms.Guna2TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.txb_price = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2ImageButton5 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.label17 = new System.Windows.Forms.Label();
             this.btn_refresh = new System.Windows.Forms.Button();
-            this.guna2ImageButton2 = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.btn_print_prescription = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.txb_mednote = new Guna.UI2.WinForms.Guna2TextBox();
-            this.btn_add_examination = new System.Windows.Forms.Button();
-            this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.guna2ImageButton2 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.label15 = new System.Windows.Forms.Label();
             this.txb_times = new Guna.UI2.WinForms.Guna2TextBox();
-            this.btn_pre_prescription = new System.Windows.Forms.Button();
+            this.btn_add_examination = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
             this.txb_route = new Guna.UI2.WinForms.Guna2TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.txb_dosage = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.txb_unit = new Guna.UI2.WinForms.Guna2TextBox();
-            this.btn_deletemed = new System.Windows.Forms.Button();
             this.dtgv_med = new Guna.UI2.WinForms.Guna2DataGridView();
             this.id_med = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.med_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -105,8 +102,12 @@
             this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalpricepermed = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_print_prescription = new System.Windows.Forms.Button();
+            this.btn_pre_prescription = new System.Windows.Forms.Button();
+            this.btn_deletemed = new System.Windows.Forms.Button();
             this.btn_addmed = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btn_tinhtien = new System.Windows.Forms.Button();
             this.btn_pre_service = new System.Windows.Forms.Button();
             this.guna2ImageButton8 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2ImageButton7 = new Guna.UI2.WinForms.Guna2ImageButton();
@@ -116,11 +117,6 @@
             this.label26 = new System.Windows.Forms.Label();
             this.btn_save_examination_service = new System.Windows.Forms.Button();
             this.dtgv_service_patient = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.id_service2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name_service2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.notes2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.delete_service = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtgv_service = new Guna.UI2.WinForms.Guna2DataGridView();
             this.id_service = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.service_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -149,7 +145,6 @@
             this.txb_note = new Guna.UI2.WinForms.Guna2TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.cbo_diagnoses = new System.Windows.Forms.ComboBox();
-            this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.txb_phone = new Guna.UI2.WinForms.Guna2TextBox();
             this.label22 = new System.Windows.Forms.Label();
@@ -160,8 +155,12 @@
             this.txb_weight = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.cb_doctornote = new System.Windows.Forms.ComboBox();
-            this.cb_medname2 = new System.Windows.Forms.ComboBox();
-            this.btn_tinhtien = new System.Windows.Forms.Button();
+            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_service2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name_service2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.notes2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.delete_service = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2TabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txb_quantity)).BeginInit();
@@ -358,10 +357,10 @@
             this.guna2TabControl1.Controls.Add(this.tabPage1);
             this.guna2TabControl1.Controls.Add(this.tabPage2);
             this.guna2TabControl1.ItemSize = new System.Drawing.Size(180, 40);
-            this.guna2TabControl1.Location = new System.Drawing.Point(372, 252);
+            this.guna2TabControl1.Location = new System.Drawing.Point(372, 255);
             this.guna2TabControl1.Name = "guna2TabControl1";
             this.guna2TabControl1.SelectedIndex = 0;
-            this.guna2TabControl1.Size = new System.Drawing.Size(1532, 507);
+            this.guna2TabControl1.Size = new System.Drawing.Size(1532, 598);
             this.guna2TabControl1.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty;
             this.guna2TabControl1.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(52)))), ((int)(((byte)(70)))));
             this.guna2TabControl1.TabButtonHoverState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
@@ -387,46 +386,57 @@
             this.tabPage1.Controls.Add(this.txb_taikham);
             this.tabPage1.Controls.Add(this.checkBox1);
             this.tabPage1.Controls.Add(this.label29);
-            this.tabPage1.Controls.Add(this.guna2ImageButton3);
             this.tabPage1.Controls.Add(this.guna2ImageButton6);
-            this.tabPage1.Controls.Add(this.btn_insert_examination);
             this.tabPage1.Controls.Add(this.lb_totalprice);
-            this.tabPage1.Controls.Add(this.guna2ImageButton5);
+            this.tabPage1.Controls.Add(this.guna2ImageButton3);
             this.tabPage1.Controls.Add(this.txb_quantity);
             this.tabPage1.Controls.Add(this.label19);
             this.tabPage1.Controls.Add(this.guna2ImageButton4);
             this.tabPage1.Controls.Add(this.txb_totalpricepermed);
             this.tabPage1.Controls.Add(this.label20);
             this.tabPage1.Controls.Add(this.txb_price);
+            this.tabPage1.Controls.Add(this.guna2ImageButton5);
             this.tabPage1.Controls.Add(this.label17);
             this.tabPage1.Controls.Add(this.btn_refresh);
-            this.tabPage1.Controls.Add(this.guna2ImageButton2);
-            this.tabPage1.Controls.Add(this.btn_print_prescription);
             this.tabPage1.Controls.Add(this.label18);
             this.tabPage1.Controls.Add(this.txb_mednote);
-            this.tabPage1.Controls.Add(this.btn_add_examination);
-            this.tabPage1.Controls.Add(this.guna2ImageButton1);
+            this.tabPage1.Controls.Add(this.guna2ImageButton2);
             this.tabPage1.Controls.Add(this.label15);
             this.tabPage1.Controls.Add(this.txb_times);
-            this.tabPage1.Controls.Add(this.btn_pre_prescription);
+            this.tabPage1.Controls.Add(this.btn_add_examination);
             this.tabPage1.Controls.Add(this.label16);
             this.tabPage1.Controls.Add(this.txb_route);
             this.tabPage1.Controls.Add(this.label14);
             this.tabPage1.Controls.Add(this.txb_dosage);
+            this.tabPage1.Controls.Add(this.guna2ImageButton1);
             this.tabPage1.Controls.Add(this.label13);
             this.tabPage1.Controls.Add(this.label12);
             this.tabPage1.Controls.Add(this.txb_unit);
-            this.tabPage1.Controls.Add(this.btn_deletemed);
             this.tabPage1.Controls.Add(this.dtgv_med);
+            this.tabPage1.Controls.Add(this.btn_print_prescription);
+            this.tabPage1.Controls.Add(this.btn_pre_prescription);
+            this.tabPage1.Controls.Add(this.btn_deletemed);
             this.tabPage1.Controls.Add(this.btn_addmed);
             this.tabPage1.Location = new System.Drawing.Point(184, 4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1344, 499);
+            this.tabPage1.Size = new System.Drawing.Size(1344, 590);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Đơn thuốc";
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            // 
+            // cb_medname2
+            // 
+            this.cb_medname2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cb_medname2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cb_medname2.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_medname2.FormattingEnabled = true;
+            this.cb_medname2.Location = new System.Drawing.Point(37, 6);
+            this.cb_medname2.Name = "cb_medname2";
+            this.cb_medname2.Size = new System.Drawing.Size(232, 27);
+            this.cb_medname2.TabIndex = 49;
+            this.cb_medname2.SelectedIndexChanged += new System.EventHandler(this.cb_medname2_SelectedIndexChanged);
             // 
             // txb_taikham
             // 
@@ -440,7 +450,7 @@
             this.txb_taikham.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txb_taikham.ForeColor = System.Drawing.Color.Black;
             this.txb_taikham.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txb_taikham.Location = new System.Drawing.Point(13, 386);
+            this.txb_taikham.Location = new System.Drawing.Point(13, 300);
             this.txb_taikham.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txb_taikham.Name = "txb_taikham";
             this.txb_taikham.PlaceholderText = "";
@@ -453,7 +463,7 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Checked = true;
             this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(83, 368);
+            this.checkBox1.Location = new System.Drawing.Point(83, 282);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(15, 14);
             this.checkBox1.TabIndex = 56;
@@ -464,28 +474,11 @@
             // 
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(6, 365);
+            this.label29.Location = new System.Drawing.Point(6, 279);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(77, 20);
             this.label29.TabIndex = 55;
             this.label29.Text = "Tái khám:";
-            // 
-            // guna2ImageButton3
-            // 
-            this.guna2ImageButton3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ImageButton3.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton3.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton3.Image = global::QuanLyPhongKham.Properties.Resources.document;
-            this.guna2ImageButton3.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageButton3.ImageRotate = 0F;
-            this.guna2ImageButton3.ImageSize = new System.Drawing.Size(20, 20);
-            this.guna2ImageButton3.Location = new System.Drawing.Point(13, 8);
-            this.guna2ImageButton3.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2ImageButton3.Name = "guna2ImageButton3";
-            this.guna2ImageButton3.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton3.Size = new System.Drawing.Size(16, 15);
-            this.guna2ImageButton3.TabIndex = 54;
-            this.guna2ImageButton3.UseTransparentBackground = true;
             // 
             // guna2ImageButton6
             // 
@@ -496,27 +489,13 @@
             this.guna2ImageButton6.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton6.ImageRotate = 0F;
             this.guna2ImageButton6.ImageSize = new System.Drawing.Size(20, 20);
-            this.guna2ImageButton6.Location = new System.Drawing.Point(185, 461);
+            this.guna2ImageButton6.Location = new System.Drawing.Point(81, 410);
             this.guna2ImageButton6.Margin = new System.Windows.Forms.Padding(2);
             this.guna2ImageButton6.Name = "guna2ImageButton6";
             this.guna2ImageButton6.PressedState.ImageSize = new System.Drawing.Size(64, 64);
             this.guna2ImageButton6.Size = new System.Drawing.Size(18, 15);
             this.guna2ImageButton6.TabIndex = 54;
             this.guna2ImageButton6.UseTransparentBackground = true;
-            // 
-            // btn_insert_examination
-            // 
-            this.btn_insert_examination.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_insert_examination.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_insert_examination.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_insert_examination.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_insert_examination.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btn_insert_examination.ForeColor = System.Drawing.Color.White;
-            this.btn_insert_examination.Location = new System.Drawing.Point(70, 518);
-            this.btn_insert_examination.Name = "btn_insert_examination";
-            this.btn_insert_examination.Size = new System.Drawing.Size(106, 36);
-            this.btn_insert_examination.TabIndex = 49;
-            this.btn_insert_examination.Text = "Lưu";
             // 
             // lb_totalprice
             // 
@@ -528,29 +507,29 @@
             this.lb_totalprice.TabIndex = 48;
             this.lb_totalprice.Text = "Tổng cộng";
             // 
-            // guna2ImageButton5
+            // guna2ImageButton3
             // 
-            this.guna2ImageButton5.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ImageButton5.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton5.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton5.Image = global::QuanLyPhongKham.Properties.Resources.printer;
-            this.guna2ImageButton5.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageButton5.ImageRotate = 0F;
-            this.guna2ImageButton5.ImageSize = new System.Drawing.Size(20, 20);
-            this.guna2ImageButton5.Location = new System.Drawing.Point(105, 460);
-            this.guna2ImageButton5.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2ImageButton5.Name = "guna2ImageButton5";
-            this.guna2ImageButton5.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton5.Size = new System.Drawing.Size(18, 15);
-            this.guna2ImageButton5.TabIndex = 54;
-            this.guna2ImageButton5.UseTransparentBackground = true;
+            this.guna2ImageButton3.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ImageButton3.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton3.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton3.Image = global::QuanLyPhongKham.Properties.Resources.document;
+            this.guna2ImageButton3.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton3.ImageRotate = 0F;
+            this.guna2ImageButton3.ImageSize = new System.Drawing.Size(20, 20);
+            this.guna2ImageButton3.Location = new System.Drawing.Point(8, 341);
+            this.guna2ImageButton3.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2ImageButton3.Name = "guna2ImageButton3";
+            this.guna2ImageButton3.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton3.Size = new System.Drawing.Size(16, 15);
+            this.guna2ImageButton3.TabIndex = 54;
+            this.guna2ImageButton3.UseTransparentBackground = true;
             // 
             // txb_quantity
             // 
             this.txb_quantity.BackColor = System.Drawing.Color.Transparent;
             this.txb_quantity.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txb_quantity.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txb_quantity.Location = new System.Drawing.Point(194, 78);
+            this.txb_quantity.Location = new System.Drawing.Point(194, 34);
             this.txb_quantity.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txb_quantity.Minimum = new decimal(new int[] {
             1,
@@ -571,7 +550,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(33, 333);
+            this.label19.Location = new System.Drawing.Point(33, 255);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(75, 20);
             this.label19.TabIndex = 44;
@@ -586,7 +565,7 @@
             this.guna2ImageButton4.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton4.ImageRotate = 0F;
             this.guna2ImageButton4.ImageSize = new System.Drawing.Size(20, 20);
-            this.guna2ImageButton4.Location = new System.Drawing.Point(11, 460);
+            this.guna2ImageButton4.Location = new System.Drawing.Point(5, 409);
             this.guna2ImageButton4.Margin = new System.Windows.Forms.Padding(2);
             this.guna2ImageButton4.Name = "guna2ImageButton4";
             this.guna2ImageButton4.PressedState.ImageSize = new System.Drawing.Size(64, 64);
@@ -606,7 +585,7 @@
             this.txb_totalpricepermed.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txb_totalpricepermed.ForeColor = System.Drawing.Color.Black;
             this.txb_totalpricepermed.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txb_totalpricepermed.Location = new System.Drawing.Point(114, 322);
+            this.txb_totalpricepermed.Location = new System.Drawing.Point(114, 244);
             this.txb_totalpricepermed.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txb_totalpricepermed.Name = "txb_totalpricepermed";
             this.txb_totalpricepermed.PlaceholderText = "";
@@ -618,7 +597,7 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(40, 209);
+            this.label20.Location = new System.Drawing.Point(40, 155);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(64, 20);
             this.label20.TabIndex = 42;
@@ -636,7 +615,7 @@
             this.txb_price.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txb_price.ForeColor = System.Drawing.Color.Black;
             this.txb_price.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txb_price.Location = new System.Drawing.Point(114, 198);
+            this.txb_price.Location = new System.Drawing.Point(114, 144);
             this.txb_price.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txb_price.Name = "txb_price";
             this.txb_price.PlaceholderText = "";
@@ -644,11 +623,28 @@
             this.txb_price.Size = new System.Drawing.Size(154, 31);
             this.txb_price.TabIndex = 41;
             // 
+            // guna2ImageButton5
+            // 
+            this.guna2ImageButton5.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ImageButton5.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton5.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton5.Image = global::QuanLyPhongKham.Properties.Resources.printer;
+            this.guna2ImageButton5.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton5.ImageRotate = 0F;
+            this.guna2ImageButton5.ImageSize = new System.Drawing.Size(20, 20);
+            this.guna2ImageButton5.Location = new System.Drawing.Point(201, 342);
+            this.guna2ImageButton5.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2ImageButton5.Name = "guna2ImageButton5";
+            this.guna2ImageButton5.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton5.Size = new System.Drawing.Size(18, 15);
+            this.guna2ImageButton5.TabIndex = 54;
+            this.guna2ImageButton5.UseTransparentBackground = true;
+            // 
             // label17
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(124, 83);
+            this.label17.Location = new System.Drawing.Point(124, 39);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(72, 20);
             this.label17.TabIndex = 40;
@@ -658,47 +654,18 @@
             // 
             this.btn_refresh.BackColor = System.Drawing.Color.Transparent;
             this.btn_refresh.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_refresh.Location = new System.Drawing.Point(183, 454);
+            this.btn_refresh.Location = new System.Drawing.Point(79, 403);
             this.btn_refresh.Name = "btn_refresh";
             this.btn_refresh.Size = new System.Drawing.Size(91, 28);
             this.btn_refresh.TabIndex = 52;
             this.btn_refresh.Text = "  Làm mới";
             this.btn_refresh.UseVisualStyleBackColor = false;
             // 
-            // guna2ImageButton2
-            // 
-            this.guna2ImageButton2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ImageButton2.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton2.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton2.Image = global::QuanLyPhongKham.Properties.Resources.trash;
-            this.guna2ImageButton2.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageButton2.ImageRotate = 0F;
-            this.guna2ImageButton2.ImageSize = new System.Drawing.Size(20, 20);
-            this.guna2ImageButton2.Location = new System.Drawing.Point(147, 426);
-            this.guna2ImageButton2.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2ImageButton2.Name = "guna2ImageButton2";
-            this.guna2ImageButton2.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton2.Size = new System.Drawing.Size(18, 15);
-            this.guna2ImageButton2.TabIndex = 54;
-            this.guna2ImageButton2.UseTransparentBackground = true;
-            // 
-            // btn_print_prescription
-            // 
-            this.btn_print_prescription.BackColor = System.Drawing.Color.Transparent;
-            this.btn_print_prescription.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_print_prescription.Location = new System.Drawing.Point(98, 454);
-            this.btn_print_prescription.Name = "btn_print_prescription";
-            this.btn_print_prescription.Size = new System.Drawing.Size(75, 28);
-            this.btn_print_prescription.TabIndex = 51;
-            this.btn_print_prescription.Text = "In";
-            this.btn_print_prescription.UseVisualStyleBackColor = false;
-            this.btn_print_prescription.Click += new System.EventHandler(this.btn_print_prescription_Click);
-            // 
             // label18
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(40, 169);
+            this.label18.Location = new System.Drawing.Point(40, 123);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(64, 20);
             this.label18.TabIndex = 38;
@@ -716,7 +683,7 @@
             this.txb_mednote.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txb_mednote.ForeColor = System.Drawing.Color.Black;
             this.txb_mednote.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txb_mednote.Location = new System.Drawing.Point(114, 158);
+            this.txb_mednote.Location = new System.Drawing.Point(114, 112);
             this.txb_mednote.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txb_mednote.Name = "txb_mednote";
             this.txb_mednote.PlaceholderText = "";
@@ -724,41 +691,28 @@
             this.txb_mednote.Size = new System.Drawing.Size(154, 31);
             this.txb_mednote.TabIndex = 37;
             // 
-            // btn_add_examination
+            // guna2ImageButton2
             // 
-            this.btn_add_examination.BackColor = System.Drawing.Color.Transparent;
-            this.btn_add_examination.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_add_examination.Location = new System.Drawing.Point(6, 454);
-            this.btn_add_examination.Name = "btn_add_examination";
-            this.btn_add_examination.Size = new System.Drawing.Size(73, 28);
-            this.btn_add_examination.TabIndex = 50;
-            this.btn_add_examination.Text = "  Lưu";
-            this.btn_add_examination.UseVisualStyleBackColor = false;
-            this.btn_add_examination.Click += new System.EventHandler(this.btn_add_examination_Click);
-            // 
-            // guna2ImageButton1
-            // 
-            this.guna2ImageButton1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ImageButton1.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton1.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton1.Image = global::QuanLyPhongKham.Properties.Resources.add;
-            this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageButton1.ImageRotate = 0F;
-            this.guna2ImageButton1.ImageSize = new System.Drawing.Size(20, 20);
-            this.guna2ImageButton1.Location = new System.Drawing.Point(16, 426);
-            this.guna2ImageButton1.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2ImageButton1.Name = "guna2ImageButton1";
-            this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton1.Size = new System.Drawing.Size(16, 15);
-            this.guna2ImageButton1.TabIndex = 54;
-            this.guna2ImageButton1.UseTransparentBackground = true;
-            this.guna2ImageButton1.Click += new System.EventHandler(this.guna2ImageButton1_Click);
+            this.guna2ImageButton2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ImageButton2.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton2.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton2.Image = global::QuanLyPhongKham.Properties.Resources.trash;
+            this.guna2ImageButton2.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton2.ImageRotate = 0F;
+            this.guna2ImageButton2.ImageSize = new System.Drawing.Size(20, 20);
+            this.guna2ImageButton2.Location = new System.Drawing.Point(136, 375);
+            this.guna2ImageButton2.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2ImageButton2.Name = "guna2ImageButton2";
+            this.guna2ImageButton2.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton2.Size = new System.Drawing.Size(18, 15);
+            this.guna2ImageButton2.TabIndex = 54;
+            this.guna2ImageButton2.UseTransparentBackground = true;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(37, 293);
+            this.label15.Location = new System.Drawing.Point(37, 221);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(67, 20);
             this.label15.TabIndex = 36;
@@ -776,7 +730,7 @@
             this.txb_times.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txb_times.ForeColor = System.Drawing.Color.Black;
             this.txb_times.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txb_times.Location = new System.Drawing.Point(114, 282);
+            this.txb_times.Location = new System.Drawing.Point(114, 210);
             this.txb_times.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txb_times.Name = "txb_times";
             this.txb_times.PlaceholderText = "";
@@ -784,23 +738,23 @@
             this.txb_times.Size = new System.Drawing.Size(154, 31);
             this.txb_times.TabIndex = 35;
             // 
-            // btn_pre_prescription
+            // btn_add_examination
             // 
-            this.btn_pre_prescription.BackColor = System.Drawing.Color.Transparent;
-            this.btn_pre_prescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_pre_prescription.Location = new System.Drawing.Point(8, 2);
-            this.btn_pre_prescription.Name = "btn_pre_prescription";
-            this.btn_pre_prescription.Size = new System.Drawing.Size(191, 28);
-            this.btn_pre_prescription.TabIndex = 53;
-            this.btn_pre_prescription.Text = "Chọn toa thuốc cũ";
-            this.btn_pre_prescription.UseVisualStyleBackColor = false;
-            this.btn_pre_prescription.Click += new System.EventHandler(this.btn_pre_prescription_Click);
+            this.btn_add_examination.BackColor = System.Drawing.Color.Transparent;
+            this.btn_add_examination.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_add_examination.Location = new System.Drawing.Point(0, 403);
+            this.btn_add_examination.Name = "btn_add_examination";
+            this.btn_add_examination.Size = new System.Drawing.Size(73, 28);
+            this.btn_add_examination.TabIndex = 50;
+            this.btn_add_examination.Text = "  Lưu";
+            this.btn_add_examination.UseVisualStyleBackColor = false;
+            this.btn_add_examination.Click += new System.EventHandler(this.btn_add_examination_Click);
             // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(10, 124);
+            this.label16.Location = new System.Drawing.Point(10, 86);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(97, 20);
             this.label16.TabIndex = 34;
@@ -818,7 +772,7 @@
             this.txb_route.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txb_route.ForeColor = System.Drawing.Color.Black;
             this.txb_route.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txb_route.Location = new System.Drawing.Point(114, 118);
+            this.txb_route.Location = new System.Drawing.Point(114, 80);
             this.txb_route.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txb_route.Name = "txb_route";
             this.txb_route.PlaceholderText = "";
@@ -830,7 +784,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(25, 251);
+            this.label14.Location = new System.Drawing.Point(25, 188);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(79, 20);
             this.label14.TabIndex = 32;
@@ -848,7 +802,7 @@
             this.txb_dosage.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txb_dosage.ForeColor = System.Drawing.Color.Black;
             this.txb_dosage.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txb_dosage.Location = new System.Drawing.Point(114, 240);
+            this.txb_dosage.Location = new System.Drawing.Point(114, 177);
             this.txb_dosage.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txb_dosage.Name = "txb_dosage";
             this.txb_dosage.PlaceholderText = "";
@@ -856,11 +810,29 @@
             this.txb_dosage.Size = new System.Drawing.Size(154, 31);
             this.txb_dosage.TabIndex = 31;
             // 
+            // guna2ImageButton1
+            // 
+            this.guna2ImageButton1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ImageButton1.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton1.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton1.Image = global::QuanLyPhongKham.Properties.Resources.add;
+            this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton1.ImageRotate = 0F;
+            this.guna2ImageButton1.ImageSize = new System.Drawing.Size(20, 20);
+            this.guna2ImageButton1.Location = new System.Drawing.Point(5, 375);
+            this.guna2ImageButton1.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2ImageButton1.Name = "guna2ImageButton1";
+            this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton1.Size = new System.Drawing.Size(16, 15);
+            this.guna2ImageButton1.TabIndex = 54;
+            this.guna2ImageButton1.UseTransparentBackground = true;
+            this.guna2ImageButton1.Click += new System.EventHandler(this.guna2ImageButton1_Click);
+            // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(1, 51);
+            this.label13.Location = new System.Drawing.Point(1, 13);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(36, 20);
             this.label13.TabIndex = 30;
@@ -870,7 +842,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(11, 80);
+            this.label12.Location = new System.Drawing.Point(11, 36);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(53, 20);
             this.label12.TabIndex = 29;
@@ -888,25 +860,13 @@
             this.txb_unit.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txb_unit.ForeColor = System.Drawing.Color.Black;
             this.txb_unit.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txb_unit.Location = new System.Drawing.Point(70, 78);
+            this.txb_unit.Location = new System.Drawing.Point(70, 34);
             this.txb_unit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txb_unit.Name = "txb_unit";
             this.txb_unit.PlaceholderText = "";
             this.txb_unit.SelectedText = "";
             this.txb_unit.Size = new System.Drawing.Size(54, 31);
             this.txb_unit.TabIndex = 28;
-            // 
-            // btn_deletemed
-            // 
-            this.btn_deletemed.BackColor = System.Drawing.Color.Transparent;
-            this.btn_deletemed.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_deletemed.Location = new System.Drawing.Point(139, 420);
-            this.btn_deletemed.Name = "btn_deletemed";
-            this.btn_deletemed.Size = new System.Drawing.Size(130, 28);
-            this.btn_deletemed.TabIndex = 47;
-            this.btn_deletemed.Text = "Xóa thuốc";
-            this.btn_deletemed.UseVisualStyleBackColor = false;
-            this.btn_deletemed.Click += new System.EventHandler(this.btn_deletemed_Click);
             // 
             // dtgv_med
             // 
@@ -1047,11 +1007,47 @@
             this.totalpricepermed.MinimumWidth = 6;
             this.totalpricepermed.Name = "totalpricepermed";
             // 
+            // btn_print_prescription
+            // 
+            this.btn_print_prescription.BackColor = System.Drawing.Color.Transparent;
+            this.btn_print_prescription.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_print_prescription.Location = new System.Drawing.Point(194, 336);
+            this.btn_print_prescription.Name = "btn_print_prescription";
+            this.btn_print_prescription.Size = new System.Drawing.Size(75, 28);
+            this.btn_print_prescription.TabIndex = 51;
+            this.btn_print_prescription.Text = "In";
+            this.btn_print_prescription.UseVisualStyleBackColor = false;
+            this.btn_print_prescription.Click += new System.EventHandler(this.btn_print_prescription_Click);
+            // 
+            // btn_pre_prescription
+            // 
+            this.btn_pre_prescription.BackColor = System.Drawing.Color.Transparent;
+            this.btn_pre_prescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_pre_prescription.Location = new System.Drawing.Point(3, 335);
+            this.btn_pre_prescription.Name = "btn_pre_prescription";
+            this.btn_pre_prescription.Size = new System.Drawing.Size(191, 28);
+            this.btn_pre_prescription.TabIndex = 53;
+            this.btn_pre_prescription.Text = "Chọn toa thuốc cũ";
+            this.btn_pre_prescription.UseVisualStyleBackColor = false;
+            this.btn_pre_prescription.Click += new System.EventHandler(this.btn_pre_prescription_Click);
+            // 
+            // btn_deletemed
+            // 
+            this.btn_deletemed.BackColor = System.Drawing.Color.Transparent;
+            this.btn_deletemed.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_deletemed.Location = new System.Drawing.Point(128, 369);
+            this.btn_deletemed.Name = "btn_deletemed";
+            this.btn_deletemed.Size = new System.Drawing.Size(130, 28);
+            this.btn_deletemed.TabIndex = 47;
+            this.btn_deletemed.Text = "Xóa thuốc";
+            this.btn_deletemed.UseVisualStyleBackColor = false;
+            this.btn_deletemed.Click += new System.EventHandler(this.btn_deletemed_Click);
+            // 
             // btn_addmed
             // 
             this.btn_addmed.BackColor = System.Drawing.Color.Transparent;
             this.btn_addmed.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_addmed.Location = new System.Drawing.Point(11, 420);
+            this.btn_addmed.Location = new System.Drawing.Point(0, 369);
             this.btn_addmed.Name = "btn_addmed";
             this.btn_addmed.Size = new System.Drawing.Size(115, 28);
             this.btn_addmed.TabIndex = 45;
@@ -1075,10 +1071,21 @@
             this.tabPage2.Location = new System.Drawing.Point(184, 4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1344, 499);
+            this.tabPage2.Size = new System.Drawing.Size(1344, 590);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Chỉ định Cận lâm sàng";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btn_tinhtien
+            // 
+            this.btn_tinhtien.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_tinhtien.Location = new System.Drawing.Point(826, 6);
+            this.btn_tinhtien.Name = "btn_tinhtien";
+            this.btn_tinhtien.Size = new System.Drawing.Size(87, 24);
+            this.btn_tinhtien.TabIndex = 56;
+            this.btn_tinhtien.Text = "Tính tiền";
+            this.btn_tinhtien.UseVisualStyleBackColor = true;
+            this.btn_tinhtien.Click += new System.EventHandler(this.btn_tinhtien_Click);
             // 
             // btn_pre_service
             // 
@@ -1196,6 +1203,7 @@
             this.dtgv_service_patient.ColumnHeadersHeight = 45;
             this.dtgv_service_patient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dtgv_service_patient.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.STT,
             this.id_service2,
             this.name_service2,
             this.price2,
@@ -1239,45 +1247,6 @@
             this.dtgv_service_patient.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtgv_service_patient.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dtgv_service_patient.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_service_patient_CellClick);
-            // 
-            // id_service2
-            // 
-            this.id_service2.HeaderText = "Mã CĐ";
-            this.id_service2.MinimumWidth = 6;
-            this.id_service2.Name = "id_service2";
-            this.id_service2.Width = 60;
-            // 
-            // name_service2
-            // 
-            this.name_service2.HeaderText = "Tên chỉ định";
-            this.name_service2.MinimumWidth = 6;
-            this.name_service2.Name = "name_service2";
-            this.name_service2.Width = 210;
-            // 
-            // price2
-            // 
-            dataGridViewCellStyle6.Format = "N0";
-            this.price2.DefaultCellStyle = dataGridViewCellStyle6;
-            this.price2.HeaderText = "Thành tiền";
-            this.price2.MinimumWidth = 6;
-            this.price2.Name = "price2";
-            this.price2.Width = 125;
-            // 
-            // notes2
-            // 
-            this.notes2.HeaderText = "Ghi chú";
-            this.notes2.MinimumWidth = 6;
-            this.notes2.Name = "notes2";
-            this.notes2.Width = 170;
-            // 
-            // delete_service
-            // 
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.delete_service.DefaultCellStyle = dataGridViewCellStyle7;
-            this.delete_service.HeaderText = "Xóa";
-            this.delete_service.MinimumWidth = 6;
-            this.delete_service.Name = "delete_service";
-            this.delete_service.Width = 50;
             // 
             // dtgv_service
             // 
@@ -1685,16 +1654,6 @@
             this.cbo_diagnoses.Size = new System.Drawing.Size(630, 28);
             this.cbo_diagnoses.TabIndex = 39;
             // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.ForeColor = System.Drawing.Color.Red;
-            this.label27.Location = new System.Drawing.Point(12, 239);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(41, 13);
-            this.label27.TabIndex = 37;
-            this.label27.Text = "label27";
-            // 
             // label28
             // 
             this.label28.AutoSize = true;
@@ -1832,28 +1791,51 @@
             this.cb_doctornote.Size = new System.Drawing.Size(713, 29);
             this.cb_doctornote.TabIndex = 48;
             // 
-            // cb_medname2
+            // STT
             // 
-            this.cb_medname2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cb_medname2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cb_medname2.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cb_medname2.FormattingEnabled = true;
-            this.cb_medname2.Location = new System.Drawing.Point(37, 44);
-            this.cb_medname2.Name = "cb_medname2";
-            this.cb_medname2.Size = new System.Drawing.Size(232, 27);
-            this.cb_medname2.TabIndex = 49;
-            this.cb_medname2.SelectedIndexChanged += new System.EventHandler(this.cb_medname2_SelectedIndexChanged);
+            this.STT.HeaderText = "STT";
+            this.STT.Name = "STT";
+            this.STT.Width = 50;
             // 
-            // btn_tinhtien
+            // id_service2
             // 
-            this.btn_tinhtien.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_tinhtien.Location = new System.Drawing.Point(826, 6);
-            this.btn_tinhtien.Name = "btn_tinhtien";
-            this.btn_tinhtien.Size = new System.Drawing.Size(87, 24);
-            this.btn_tinhtien.TabIndex = 56;
-            this.btn_tinhtien.Text = "Tính tiền";
-            this.btn_tinhtien.UseVisualStyleBackColor = true;
-            this.btn_tinhtien.Click += new System.EventHandler(this.btn_tinhtien_Click);
+            this.id_service2.HeaderText = "Mã CĐ";
+            this.id_service2.MinimumWidth = 6;
+            this.id_service2.Name = "id_service2";
+            this.id_service2.Visible = false;
+            this.id_service2.Width = 60;
+            // 
+            // name_service2
+            // 
+            this.name_service2.HeaderText = "Tên chỉ định";
+            this.name_service2.MinimumWidth = 6;
+            this.name_service2.Name = "name_service2";
+            this.name_service2.Width = 210;
+            // 
+            // price2
+            // 
+            dataGridViewCellStyle6.Format = "N0";
+            this.price2.DefaultCellStyle = dataGridViewCellStyle6;
+            this.price2.HeaderText = "Thành tiền";
+            this.price2.MinimumWidth = 6;
+            this.price2.Name = "price2";
+            this.price2.Width = 125;
+            // 
+            // notes2
+            // 
+            this.notes2.HeaderText = "Ghi chú";
+            this.notes2.MinimumWidth = 6;
+            this.notes2.Name = "notes2";
+            this.notes2.Width = 170;
+            // 
+            // delete_service
+            // 
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.delete_service.DefaultCellStyle = dataGridViewCellStyle7;
+            this.delete_service.HeaderText = "Xóa";
+            this.delete_service.MinimumWidth = 6;
+            this.delete_service.Name = "delete_service";
+            this.delete_service.Width = 50;
             // 
             // frm_examination
             // 
@@ -1862,7 +1844,7 @@
             this.AutoScroll = true;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(230)))));
-            this.ClientSize = new System.Drawing.Size(1934, 753);
+            this.ClientSize = new System.Drawing.Size(1386, 753);
             this.Controls.Add(this.cb_doctornote);
             this.Controls.Add(this.label25);
             this.Controls.Add(this.txb_weight);
@@ -1873,7 +1855,6 @@
             this.Controls.Add(this.label28);
             this.Controls.Add(this.txb_phone);
             this.Controls.Add(this.cbo_diagnoses);
-            this.Controls.Add(this.label27);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.txb_note);
             this.Controls.Add(this.label10);
@@ -1956,7 +1937,6 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Button btn_print_prescription;
         private System.Windows.Forms.Button btn_add_examination;
-        private Guna.UI2.WinForms.Guna2Button btn_insert_examination;
         private System.Windows.Forms.Label lb_totalprice;
         private System.Windows.Forms.Button btn_deletemed;
         private Guna.UI2.WinForms.Guna2NumericUpDown txb_quantity;
@@ -1995,7 +1975,6 @@
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton4;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton7;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton8;
-        private System.Windows.Forms.Label label27;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn time_patients;
         private System.Windows.Forms.Label label28;
@@ -2012,11 +1991,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn price1;
         private System.Windows.Forms.DataGridViewTextBoxColumn add_service;
         private System.Windows.Forms.Button btn_pre_service;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_service2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn name_service2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn price2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn notes2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn delete_service;
         private Guna.UI2.WinForms.Guna2DataGridView dtgv_med;
         private System.Windows.Forms.Label label14;
         private Guna.UI2.WinForms.Guna2TextBox txb_dosage;
@@ -2037,5 +2011,11 @@
         private System.Windows.Forms.ComboBox cb_doctornote;
         private System.Windows.Forms.ComboBox cb_medname2;
         private System.Windows.Forms.Button btn_tinhtien;
+        private System.Windows.Forms.DataGridViewTextBoxColumn STT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_service2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name_service2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn notes2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn delete_service;
     }
 }

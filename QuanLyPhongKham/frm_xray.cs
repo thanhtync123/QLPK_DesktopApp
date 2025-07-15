@@ -124,6 +124,10 @@ namespace QuanLyPhongKham
                 //Db.SetTextAndMoveCursorToEnd(txb_note, note);
 
                 LoadDTGV_Service();
+                txb_service.Text = "";
+                cb_template.Text = "Chọn biểu mẫu";
+                txb_result.Text = "";
+                txb_final_result.Text = "";
             }
 
         }

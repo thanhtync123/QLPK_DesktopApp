@@ -64,7 +64,13 @@ namespace QuanLyPhongKham
         {
             LoadGrid();
         }
-
+        private void UpdateSTT()
+        {
+            for (int i = 0; i < dtgv_service_patient.Rows.Count; i++)
+            {
+                dtgv_service_patient.Rows[i].Cells["STT"].Value = i + 1;
+            }
+        }
         private void LoadGrid()
         {
 
@@ -512,6 +518,7 @@ namespace QuanLyPhongKham
                     dtgv_service_patient.Rows[rowIndex].Cells["price2"].Value = priceService;
                     dtgv_service_patient.Rows[rowIndex].Cells["delete_service"].Value = "-";
                     UpdateTotalServicePrice();
+                    UpdateSTT(); // Cập nhật số thứ tự trong DataGridView dịch vụ chỉ định
 
 
                 }

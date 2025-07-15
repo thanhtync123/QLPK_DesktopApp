@@ -384,6 +384,10 @@ namespace QuanLyPhongKham
                 Db.SetTextAndMoveCursorToEnd(txb_chandoanphu, reason);
                 Db.SetTextAndMoveCursorToEnd(txb_id_patient, id_patient);
                 Db.SetTextAndMoveCursorToEnd(txb_note, note);
+                txb_service.Text = "";
+                cb_template.Text = "Chọn biểu mẫu";
+                txb_result.Text = "";
+                txb_final_result.Text = "";
 
                 LoadDTGV_Service();
             }

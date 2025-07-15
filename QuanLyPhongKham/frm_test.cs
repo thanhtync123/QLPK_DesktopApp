@@ -66,6 +66,10 @@ namespace QuanLyPhongKham
                 txb_age.Text = age.ToString() + " tuổi";
 
                 LoadDTGV_Service();
+                txb_service.Text = "";
+                cb_template.Text = "Chọn biểu mẫu";
+               // txb_result.Text = "";
+                txb_final_result.Text = "";
             }
 
         }
