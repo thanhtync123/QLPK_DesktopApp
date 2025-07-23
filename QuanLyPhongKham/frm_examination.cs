@@ -151,10 +151,11 @@ namespace QuanLyPhongKham
             LoadGrid();
             LoadComboboxDiagnoses();
             LoadComboboxDoctorNote();
-            LoadComboboxMedication();
             LoadExamID();
             LoadDTGV_Service();
-            btn_deletemed.Enabled = false;
+            LoadDTGV_Med();
+
+            
             cbo_diagnoses.SelectedIndex = 0;
     
        
@@ -202,140 +203,24 @@ namespace QuanLyPhongKham
         }
 
 
-        private void LoadComboboxMedication()
-        {
-            string query = "SELECT id, name FROM medications order by name asc";
-            Db.LoadComboBoxData(cb_medname2, query, "name", "id");
 
-        }
 
         private void btn_addmed_Click(object sender, EventArgs e)
         {
-            int rowIndex = dtgv_med.Rows.Add();
-            dtgv_med.Rows[rowIndex].Cells[0].Value = cb_medname2.SelectedValue;
-            dtgv_med.Rows[rowIndex].Cells[1].Value = cb_medname2.Text;
-            dtgv_med.Rows[rowIndex].Cells[2].Value = txb_unit.Text;
-            dtgv_med.Rows[rowIndex].Cells[3].Value = txb_dosage.Text;
-            dtgv_med.Rows[rowIndex].Cells[4].Value = txb_route.Text;
-            dtgv_med.Rows[rowIndex].Cells[5].Value = txb_times.Text;
-            dtgv_med.Rows[rowIndex].Cells[6].Value = txb_mednote.Text;
-            dtgv_med.Rows[rowIndex].Cells[7].Value = txb_quantity.Text;
-            dtgv_med.Rows[rowIndex].Cells[8].Value = txb_price.Text;
-            dtgv_med.Rows[rowIndex].Cells[9].Value = txb_totalpricepermed.Text;
-            lb_totalprice.Text = "Tổng tiền";
-
-            decimal total = 0;
-            foreach (DataGridViewRow row in dtgv_med.Rows)
-
-                if (row.Cells[9].Value != null && decimal.TryParse(row.Cells[9].Value.ToString(), out decimal rowTotal))
-
-                    total += rowTotal;
-
-
-            lb_totalprice.Text = "Tổng tiền: " + total.ToString("N0") + " đ";
-            TinhNgayTaiKham();
+          
            
          
 
 
         }
-        private void TinhNgayTaiKham()
-        {
-            int maxDays = 0;
-
-            for (int i = 0; i < dtgv_med.Rows.Count; i++)
-            {
-                if (dtgv_med.Rows[i].IsNewRow) continue;
-
-                var quantityStr = dtgv_med.Rows[i].Cells["quantity"].Value?.ToString() ?? "0";
-                var usage = dtgv_med.Rows[i].Cells["med_note"].Value?.ToString() ?? "";
-
-                int quantity = int.TryParse(quantityStr, out int q) ? q : 0;
-
-                // Regex: tìm các từ "sáng", "trưa", "chiều", "tối" không phân biệt hoa thường
-                var matches = Regex.Matches(usage, @"\b(sáng|trưa|chiều|tối)\b", RegexOptions.IgnoreCase);
-                int timesPerDay = matches.Count;
-
-                if (timesPerDay == 0) timesPerDay = 1;
-
-                int days = (int)Math.Ceiling((double)quantity / timesPerDay);
-
-                if (days > maxDays)
-                    maxDays = days;
-            }
-
-            DateTime ngayTaiKham = DateTime.Today.AddDays(maxDays);
-            txb_taikham.Text = checkBox1.Checked ? ngayTaiKham.ToString("dd/MM/yyyy") : "Không";
-        }
-        private void cb_medname_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           
-        }
-        private void cb_medname2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            if (cb_medname2.SelectedIndex != 0)
-            {
-                if (Db.conn.State != ConnectionState.Open)
-                    Db.ResetConnection(); // dùng Db.ResetConnection() nếu đã viết sẵn trong Db.cs
-
-                string query = "SELECT id, name, unit, dosage, route, times_per_day, note, price FROM medications WHERE id = @id order by name";
-                int selectedId = Convert.ToInt32(cb_medname2.SelectedValue);
-
-                Db.cmd = new MySqlCommand(query, Db.conn);
-                Db.cmd.Parameters.AddWithValue("@id", selectedId);
-                Db.dr = Db.cmd.ExecuteReader();
-
-                if (Db.dr.Read())
-                {
-                    txb_unit.Text = Db.dr["unit"].ToString();
-                    txb_dosage.Text = Db.dr["dosage"].ToString();
-                    txb_route.Text = Db.dr["route"].ToString();
-                    txb_times.Text = Db.dr["times_per_day"].ToString();
-                    txb_mednote.Text = Db.dr["note"].ToString();
-                    txb_price.Text = Db.dr["price"].ToString();
-                    txb_quantity.Text = "1";
-                }
-
-                int quantity = Convert.ToInt32(txb_quantity.Value);
-                int price = Convert.ToInt32(txb_price.Text);
-                txb_totalpricepermed.Text = (quantity * price).ToString();
-
-                Db.dr.Close();
-                Db.ResetConnection();
-            }
-        }
-        private void txb_quantity_ValueChanged(object sender, EventArgs e)
-        {
-            int quantity = Convert.ToInt32(txb_quantity.Value);
-            int price = Convert.ToInt32(txb_price.Text);
-            txb_totalpricepermed.Text = quantity * price + "";
-        }
-
-        private void btn_deletemed_Click(object sender, EventArgs e)
-        {
-            if (dtgv_med.SelectedRows.Count > 0)
-                dtgv_med.Rows.RemoveAt(dtgv_med.SelectedRows[0].Index);
-
-            else
-                MessageBox.Show("Vui lòng chọn một hàng để xóa.");
-
-            decimal total = 0;
-            foreach (DataGridViewRow row in dtgv_med.Rows)
-
-                if (row.Cells[9].Value != null && decimal.TryParse(row.Cells[9].Value.ToString(), out decimal rowTotal))
-
-                    total += rowTotal;
+     
 
 
-            lb_totalprice.Text = "Tổng tiền: " + total.ToString("N0") + " đ";
-            TinhNgayTaiKham();
-
-        }
+     
 
         private void dtgv_med_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            btn_deletemed.Enabled = true;
+           
         }
         private void LoadExamID()
         {
@@ -357,6 +242,24 @@ namespace QuanLyPhongKham
             var keyword = txb_search.Text.Trim();
             LoadDTGV_Service(keyword);
 
+        }
+        private void LoadDTGV_Med()
+        {
+            ResetConnection();
+            string query = @"SELECT `id`, `name`, `note`, `price` FROM `medications` order by name";
+            Db.cmd = new MySqlCommand(query, Db.conn);
+            Db.dr = Db.cmd.ExecuteReader();
+            while (Db.dr.Read())
+            {
+                int i = dtgv_med.Rows.Add();
+                DataGridViewRow drr = dtgv_med.Rows[i];
+                drr.Cells["id_med"].Value = Db.dr["id"];
+                drr.Cells["med_name"].Value = Db.dr["name"];
+                drr.Cells["price"].Value = Db.dr["price"];
+                drr.Cells["note"].Value = Db.dr["note"];
+                drr.Cells["add_med"].Value = "+";
+            }
+            Db.dr.Close();
         }
 
         private void LoadDTGV_Service(String keyword = "")
@@ -452,26 +355,7 @@ namespace QuanLyPhongKham
                 int examinationID = Convert.ToInt32(cmd.ExecuteScalar());
 
                 // Lưu thuốc
-                foreach (DataGridViewRow row in dtgv_med.Rows)
-                {
-                    if (row.Cells[0].Value != null)
-                    {
-                        string queryMedication = "INSERT INTO examination_medications (examination_id, medication_id, unit, dosage, route, times, note, quantity, price, created_at, updated_at) " +
-                                                 "VALUES (@examination_id, @medication_id, @unit, @dosage, @route, @times, @note, @quantity, @price, current_timestamp(), current_timestamp());";
-                        cmd = new MySqlCommand(queryMedication, Db.conn);
-                        cmd.Parameters.AddWithValue("@examination_id", examinationID);
-                        cmd.Parameters.AddWithValue("@medication_id", row.Cells[0].Value);
-                        cmd.Parameters.AddWithValue("@unit", row.Cells[2].Value);
-                        cmd.Parameters.AddWithValue("@dosage", row.Cells[3].Value);
-                        cmd.Parameters.AddWithValue("@route", row.Cells[4].Value);
-                        cmd.Parameters.AddWithValue("@times", row.Cells[5].Value);
-                        cmd.Parameters.AddWithValue("@note", row.Cells[6].Value);
-                        cmd.Parameters.AddWithValue("@quantity", row.Cells[7].Value);
-                        cmd.Parameters.AddWithValue("@price", row.Cells[8].Value);
-
-                        cmd.ExecuteNonQuery();
-                    }
-                }
+              
 
                 LoadExamID();
                 MessageBox.Show("Thêm phiếu khám và toa thuốc thành công!");
@@ -650,45 +534,9 @@ VALUES (NULL, @examination_id, @service_id, @price);";
 
             lb_total_price_service.Text = total.ToString("N0");
         }
-        private void btn_pre_prescription_Click(object sender, EventArgs e)
-        {
-            decimal total = 0;
-            frm_popupLUMedication frm = new frm_popupLUMedication();
-            if (frm.ShowDialog() == DialogResult.OK)
-            {
-                foreach (var row in frm.AllRows)
-                {
-                    int index = dtgv_med.Rows.Add();
-                    for (int i = 0; i < row.Cells.Count; i++)
-                        dtgv_med.Rows[index].Cells[i].Value = row.Cells[i].Value;
+     
 
 
-                }
-                foreach (DataGridViewRow row in dtgv_med.Rows)
-
-                    if (row.Cells[9].Value != null && decimal.TryParse(row.Cells[9].Value.ToString(), out decimal rowTotal))
-
-                        total += rowTotal;
-
-
-                lb_totalprice.Text = "Tổng tiền: " + total.ToString("N0") + " đ";
-            }
-        }
-
-        private void btn_refresh_Click(object sender, EventArgs e)
-        {
-            dtgv_med.Rows.Clear();
-            txb_quantity.Value = 1;
-            txb_totalpricepermed.Text = "0";
-            txb_times.Text = "";
-            
-            txb_dosage.Text = "";
-            txb_price.Text = "";
-            txb_mednote.Text = "";
-            txb_route.Text = "";
-            txb_unit.Text = "";
-
-        }
         
 
 
@@ -715,64 +563,10 @@ VALUES (NULL, @examination_id, @service_id, @price);";
             );
             frm.ShowDialog();
         }
-        private void btn_print_prescription_Click(object sender, EventArgs e)
-        {
-           
-            var mabn = txb_id.Text;
-            var tenbn = txb_name.Text;
-            var diachi = txb_address.Text;
-            var ngaysinh = txb_ngaysinh.Text;
-            var gioitinh = txb_gender.Text;
-            var loidan = cb_doctornote.Text;
-            var chandoan = cbo_diagnoses.Text;
-            var chandoanphu = txb_reason.Text;
-            var tongtien = lb_totalprice.Text;
-            var taikham = txb_taikham.Text;
-            var ngaykham = DateTime.Now.ToString("'Ngày' dd 'tháng' MM 'năm' yyyy");
-            var sdt = txb_phone.Text;
-            List<string> medList = new List<string>();
-
-            for (int i = 0; i < dtgv_med.Rows.Count; i++)
-            {
-                if (dtgv_med.Rows[i].IsNewRow) continue;
-                var name = dtgv_med.Rows[i].Cells["med_name"].Value?.ToString() ?? "";
-                var quantity = dtgv_med.Rows[i].Cells["quantity"].Value?.ToString() ?? "";
-                var usage = dtgv_med.Rows[i].Cells["med_note"].Value?.ToString() ?? "";
-                var unit =  dtgv_med.Rows[i].Cells["unit"].Value?.ToString() ?? "";
-                // Căn lề phải tên thuốc cho đều (giả sử tối đa 30 ký tự, bạn có thể điều chỉnh)
-                string line1 = $"{i + 1}/ {name.PadRight(30)} {quantity} {unit}";
-                string line2 = $"   {usage}";
-
-                medList.Add(line1);
-                medList.Add(line2);
-            }
-
-            string thuocChiTiet = string.Join("\n", medList);
+       
 
 
-
-
-            frm_report_med frm = new frm_report_med(
-              GetDataTableFromDataGridView(dtgv_med),
-              mabn,
-              tenbn,
-              txb_ngaysinh.Text,   
-              txb_address.Text,    
-              gioitinh,
-              loidan,
-              chandoan,
-              chandoanphu,
-              ngaykham,
-              tongtien,
-              sdt,
-              thuocChiTiet,
-              taikham
-      
-          );
-            frm.ShowDialog();
-
-
-        }
+        
 
         public DataTable GetDataTableFromDataGridView(DataGridView dgv)
         {
@@ -830,26 +624,18 @@ VALUES (NULL, @examination_id, @service_id, @price);";
             }
         }
 
-        private void dtgv_med_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        private void dtgv_med_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            TinhNgayTaiKham();
-        }
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            TinhNgayTaiKham();
-        }
-        private void guna2ImageButton1_Click(object sender, EventArgs e)
-        {
+            if (e.RowIndex < 0 || dtgv_med.Columns[e.ColumnIndex].Name != "add_med") return;
 
+            int r = dtgv_patient_med.Rows.Add();
+            dtgv_patient_med.Rows[r].Cells["id_med_2"].Value = dtgv_med.Rows[e.RowIndex].Cells["id_med"].Value;
+            dtgv_patient_med.Rows[r].Cells["med_name_2"].Value = dtgv_med.Rows[e.RowIndex].Cells["med_name"].Value;
+            dtgv_patient_med.Rows[r].Cells["price_2"].Value = dtgv_med.Rows[e.RowIndex].Cells["price"].Value;
+            dtgv_patient_med.Rows[r].Cells["note_2"].Value = dtgv_med.Rows[e.RowIndex].Cells["note"].Value;
         }
 
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-    } 
+    }
 }
 
 
