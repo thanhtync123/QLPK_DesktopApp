@@ -19,44 +19,22 @@ namespace QuanLyPhongKham
             btn_delete.Enabled = false;
 
             txb_search.TextChanged += txb_search_TextChanged;
+
             dtgv.Columns["id"].Width = 60;
             dtgv.Columns["name"].Width = 150;
             dtgv.Columns["unit"].Width = 80;
-            dtgv.Columns["dosage"].Width = 100;
-            dtgv.Columns["route"].Width = 60;
-            dtgv.Columns["times_per_day"].Width = 60;
             dtgv.Columns["note"].Width = 150;
-            dtgv.Columns["price"].Width = 70;
-
         }
 
         private void LoadDTGV()
         {
-            string query = @"SELECT id, name, unit, dosage, route, times_per_day, note, price FROM medications";
+            string query = @"SELECT id, name, unit, note FROM medications ORDER BY name";
             Db.LoadDTGV(dtgv, query);
 
             dtgv.Columns["id"].HeaderText = "Mã thuốc";
             dtgv.Columns["name"].HeaderText = "Tên thuốc";
             dtgv.Columns["unit"].HeaderText = "Đơn vị";
-            dtgv.Columns["dosage"].HeaderText = "Liều dùng";
-            dtgv.Columns["route"].HeaderText = "Đường dùng";
-            dtgv.Columns["times_per_day"].HeaderText = "Số lần/ngày";
             dtgv.Columns["note"].HeaderText = "Ghi chú";
-            dtgv.Columns["price"].HeaderText = "Giá";
-        }
-
-        private Dictionary<string, object> GetFormData()
-        {
-            return new Dictionary<string, object>
-            {
-                { "@name", txb_name.Text.Trim() },
-                { "@unit", txb_unit.Text.Trim() },
-                { "@dosage", txb_dosage.Text.Trim() },
-                { "@route", txb_route.Text.Trim() },
-                { "@times_per_day", txb_times.Text.Trim() },
-                { "@note", txb_note.Text.Trim() },
-                { "@price", txb_price.Text.Trim() }
-            };
         }
 
         private void ClearForm()
@@ -64,12 +42,7 @@ namespace QuanLyPhongKham
             txb_id.Clear();
             txb_name.Clear();
             txb_unit.Clear();
-            txb_dosage.Clear();
-            txb_route.Clear();
-            txb_times.Clear();
             txb_note.Clear();
-            txb_price.Clear();
-
             btn_add.Enabled = true;
             btn_update.Enabled = false;
             btn_delete.Enabled = false;
@@ -79,15 +52,11 @@ namespace QuanLyPhongKham
         {
             if (e.RowIndex >= 0)
             {
-                DataGridViewRow row = dtgv.Rows[e.RowIndex];
+                var row = dtgv.Rows[e.RowIndex];
                 txb_id.Text = row.Cells["id"].Value.ToString();
                 txb_name.Text = row.Cells["name"].Value.ToString();
                 txb_unit.Text = row.Cells["unit"].Value.ToString();
-                txb_dosage.Text = row.Cells["dosage"].Value.ToString();
-                txb_route.Text = row.Cells["route"].Value.ToString();
-                txb_times.Text = row.Cells["times_per_day"].Value.ToString();
                 txb_note.Text = row.Cells["note"].Value.ToString();
-                txb_price.Text = row.Cells["price"].Value.ToString();
 
                 btn_add.Enabled = false;
                 btn_update.Enabled = true;
@@ -97,8 +66,9 @@ namespace QuanLyPhongKham
 
         private void btn_add_Click(object sender, EventArgs e)
         {
-            string query = @"INSERT INTO medications (name, unit, dosage, route, times_per_day, note, price) 
-                             VALUES (@name, @unit, @dosage, @route, @times_per_day, @note, @price)";
+            string query = @"INSERT INTO medications 
+                             (id, name, unit, note, price, created_at, updated_at) 
+                             VALUES (NULL, @name, @unit, @note, NULL, CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP())";
             Db.Add(query, GetFormData());
             LoadDTGV();
             ClearForm();
@@ -113,13 +83,11 @@ namespace QuanLyPhongKham
             }
 
             string query = @"UPDATE medications 
-                             SET name = @name, unit = @unit, dosage = @dosage, route = @route, 
-                                 times_per_day = @times_per_day, note = @note, price = @price 
+                             SET name = @name, unit = @unit, note = @note, updated_at = CURRENT_TIMESTAMP()
                              WHERE id = @id";
             var data = GetFormData();
             data.Add("@id", txb_id.Text.Trim());
             Db.Update(query, data);
-
             LoadDTGV();
             ClearForm();
         }
@@ -136,12 +104,8 @@ namespace QuanLyPhongKham
             if (confirm == DialogResult.Yes)
             {
                 string query = "DELETE FROM medications WHERE id = @id";
-                var data = new Dictionary<string, object>
-                {
-                    { "@id", txb_id.Text.Trim() }
-                };
+                var data = new Dictionary<string, object> { { "@id", txb_id.Text.Trim() } };
                 Db.Delete(query, data);
-
                 LoadDTGV();
                 ClearForm();
             }
@@ -151,7 +115,7 @@ namespace QuanLyPhongKham
         {
             string keyword = MySql.Data.MySqlClient.MySqlHelper.EscapeString(txb_search.Text.Trim());
             string query = $@"
-                SELECT id, name, unit, dosage, route, times_per_day, note, price 
+                SELECT id, name, unit, note 
                 FROM medications 
                 WHERE id LIKE '%{keyword}%' OR name LIKE '%{keyword}%'";
             Db.LoadDTGV(dtgv, query);
@@ -159,19 +123,17 @@ namespace QuanLyPhongKham
 
         private void btn_refresh_Click(object sender, EventArgs e)
         {
-            txb_id.Text = "";
-            txb_name.Text = "";
-            txb_note.Text = "";
-            txb_price.Text = "";
-            txb_route.Text = "";
-            txb_search.Text = "";
-            txb_search.Text = "";
-            txb_times.Text = "";
-            txb_unit.Text = "";
-            txb_id.Text = "";
-            btn_add.Enabled = true;
-            btn_delete.Enabled = false;
-            
+            ClearForm();
+        }
+
+        private Dictionary<string, object> GetFormData()
+        {
+            return new Dictionary<string, object>
+            {
+                { "@name", txb_name.Text.Trim() },
+                { "@unit", txb_unit.Text.Trim() },
+                { "@note", txb_note.Text.Trim() }
+            };
         }
     }
 }

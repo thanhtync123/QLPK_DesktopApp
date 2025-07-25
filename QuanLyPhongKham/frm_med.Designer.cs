@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txb_id = new System.Windows.Forms.TextBox();
@@ -43,16 +43,8 @@
             this.txb_name = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txb_unit = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txb_dosage = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txb_times = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txb_route = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txb_note = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txb_price = new System.Windows.Forms.TextBox();
             this.btn_refresh = new System.Windows.Forms.Button();
             this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2ImageButton2 = new Guna.UI2.WinForms.Guna2ImageButton();
@@ -103,7 +95,7 @@
             // btn_delete
             // 
             this.btn_delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_delete.Location = new System.Drawing.Point(232, 371);
+            this.btn_delete.Location = new System.Drawing.Point(233, 303);
             this.btn_delete.Name = "btn_delete";
             this.btn_delete.Size = new System.Drawing.Size(75, 28);
             this.btn_delete.TabIndex = 34;
@@ -114,7 +106,7 @@
             // btn_update
             // 
             this.btn_update.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_update.Location = new System.Drawing.Point(151, 371);
+            this.btn_update.Location = new System.Drawing.Point(152, 303);
             this.btn_update.Name = "btn_update";
             this.btn_update.Size = new System.Drawing.Size(75, 28);
             this.btn_update.TabIndex = 33;
@@ -125,7 +117,7 @@
             // btn_add
             // 
             this.btn_add.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_add.Location = new System.Drawing.Point(70, 371);
+            this.btn_add.Location = new System.Drawing.Point(71, 303);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(75, 28);
             this.btn_add.TabIndex = 32;
@@ -144,26 +136,26 @@
             // 
             // dtgv
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dtgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            this.dtgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dtgv.ColumnHeadersHeight = 35;
             this.dtgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgv.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgv.DefaultCellStyle = dataGridViewCellStyle9;
             this.dtgv.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtgv.Location = new System.Drawing.Point(434, 73);
             this.dtgv.Name = "dtgv";
@@ -220,65 +212,11 @@
             this.txb_unit.Size = new System.Drawing.Size(109, 26);
             this.txb_unit.TabIndex = 39;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(220, 202);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(82, 20);
-            this.label5.TabIndex = 42;
-            this.label5.Text = "Liều lượng";
-            // 
-            // txb_dosage
-            // 
-            this.txb_dosage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_dosage.Location = new System.Drawing.Point(303, 205);
-            this.txb_dosage.Name = "txb_dosage";
-            this.txb_dosage.Size = new System.Drawing.Size(109, 26);
-            this.txb_dosage.TabIndex = 41;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(210, 243);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(67, 20);
-            this.label6.TabIndex = 46;
-            this.label6.Text = "Số ngày";
-            // 
-            // txb_times
-            // 
-            this.txb_times.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_times.Location = new System.Drawing.Point(303, 240);
-            this.txb_times.Name = "txb_times";
-            this.txb_times.Size = new System.Drawing.Size(109, 26);
-            this.txb_times.TabIndex = 45;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(-2, 238);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(97, 20);
-            this.label7.TabIndex = 44;
-            this.label7.Text = "Đường dùng";
-            // 
-            // txb_route
-            // 
-            this.txb_route.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_route.Location = new System.Drawing.Point(95, 240);
-            this.txb_route.Name = "txb_route";
-            this.txb_route.Size = new System.Drawing.Size(109, 26);
-            this.txb_route.TabIndex = 43;
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(28, 316);
+            this.label8.Location = new System.Drawing.Point(29, 248);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(64, 20);
             this.label8.TabIndex = 48;
@@ -287,33 +225,15 @@
             // txb_note
             // 
             this.txb_note.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_note.Location = new System.Drawing.Point(95, 316);
+            this.txb_note.Location = new System.Drawing.Point(96, 248);
             this.txb_note.Name = "txb_note";
             this.txb_note.Size = new System.Drawing.Size(317, 26);
             this.txb_note.TabIndex = 47;
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(56, 275);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(34, 20);
-            this.label9.TabIndex = 50;
-            this.label9.Text = "Giá";
-            // 
-            // txb_price
-            // 
-            this.txb_price.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_price.Location = new System.Drawing.Point(95, 276);
-            this.txb_price.Name = "txb_price";
-            this.txb_price.Size = new System.Drawing.Size(109, 26);
-            this.txb_price.TabIndex = 49;
-            // 
             // btn_refresh
             // 
             this.btn_refresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_refresh.Location = new System.Drawing.Point(313, 371);
+            this.btn_refresh.Location = new System.Drawing.Point(314, 303);
             this.btn_refresh.Name = "btn_refresh";
             this.btn_refresh.Size = new System.Drawing.Size(98, 28);
             this.btn_refresh.TabIndex = 51;
@@ -331,7 +251,7 @@
             this.guna2ImageButton1.ImageRotate = 0F;
             this.guna2ImageButton1.ImageSize = new System.Drawing.Size(20, 20);
             this.guna2ImageButton1.Location = new System.Drawing.Point(505, 42);
-            this.guna2ImageButton1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2ImageButton1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2ImageButton1.Name = "guna2ImageButton1";
             this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(64, 64);
             this.guna2ImageButton1.Size = new System.Drawing.Size(26, 22);
@@ -347,8 +267,8 @@
             this.guna2ImageButton2.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton2.ImageRotate = 0F;
             this.guna2ImageButton2.ImageSize = new System.Drawing.Size(20, 20);
-            this.guna2ImageButton2.Location = new System.Drawing.Point(70, 375);
-            this.guna2ImageButton2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2ImageButton2.Location = new System.Drawing.Point(71, 307);
+            this.guna2ImageButton2.Margin = new System.Windows.Forms.Padding(2);
             this.guna2ImageButton2.Name = "guna2ImageButton2";
             this.guna2ImageButton2.PressedState.ImageSize = new System.Drawing.Size(64, 64);
             this.guna2ImageButton2.Size = new System.Drawing.Size(26, 22);
@@ -364,8 +284,8 @@
             this.guna2ImageButton3.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton3.ImageRotate = 0F;
             this.guna2ImageButton3.ImageSize = new System.Drawing.Size(20, 20);
-            this.guna2ImageButton3.Location = new System.Drawing.Point(151, 375);
-            this.guna2ImageButton3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2ImageButton3.Location = new System.Drawing.Point(152, 307);
+            this.guna2ImageButton3.Margin = new System.Windows.Forms.Padding(2);
             this.guna2ImageButton3.Name = "guna2ImageButton3";
             this.guna2ImageButton3.PressedState.ImageSize = new System.Drawing.Size(64, 64);
             this.guna2ImageButton3.Size = new System.Drawing.Size(26, 22);
@@ -381,8 +301,8 @@
             this.guna2ImageButton4.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton4.ImageRotate = 0F;
             this.guna2ImageButton4.ImageSize = new System.Drawing.Size(20, 20);
-            this.guna2ImageButton4.Location = new System.Drawing.Point(232, 375);
-            this.guna2ImageButton4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2ImageButton4.Location = new System.Drawing.Point(233, 307);
+            this.guna2ImageButton4.Margin = new System.Windows.Forms.Padding(2);
             this.guna2ImageButton4.Name = "guna2ImageButton4";
             this.guna2ImageButton4.PressedState.ImageSize = new System.Drawing.Size(64, 64);
             this.guna2ImageButton4.Size = new System.Drawing.Size(26, 22);
@@ -398,8 +318,8 @@
             this.guna2ImageButton5.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton5.ImageRotate = 0F;
             this.guna2ImageButton5.ImageSize = new System.Drawing.Size(20, 20);
-            this.guna2ImageButton5.Location = new System.Drawing.Point(314, 375);
-            this.guna2ImageButton5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2ImageButton5.Location = new System.Drawing.Point(315, 307);
+            this.guna2ImageButton5.Margin = new System.Windows.Forms.Padding(2);
             this.guna2ImageButton5.Name = "guna2ImageButton5";
             this.guna2ImageButton5.PressedState.ImageSize = new System.Drawing.Size(64, 64);
             this.guna2ImageButton5.Size = new System.Drawing.Size(26, 22);
@@ -418,16 +338,8 @@
             this.Controls.Add(this.guna2ImageButton2);
             this.Controls.Add(this.guna2ImageButton1);
             this.Controls.Add(this.btn_refresh);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.txb_price);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txb_note);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.txb_times);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.txb_route);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.txb_dosage);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txb_unit);
             this.Controls.Add(this.label3);
@@ -464,16 +376,8 @@
         private System.Windows.Forms.TextBox txb_name;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txb_unit;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txb_dosage;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txb_times;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txb_route;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txb_note;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txb_price;
         private System.Windows.Forms.Button btn_refresh;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton1;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton2;

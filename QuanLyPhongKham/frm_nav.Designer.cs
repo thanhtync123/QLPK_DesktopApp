@@ -50,6 +50,7 @@
             this.smi_thongke = new System.Windows.Forms.ToolStripMenuItem();
             this.smi_users = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.lịchTáiKhámToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,11 +64,12 @@
             this.danhMụcToolStripMenuItem,
             this.traCứuKQToolStripMenuItem,
             this.smi_thongke,
-            this.smi_users});
+            this.smi_users,
+            this.lịchTáiKhámToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1443, 29);
+            this.menuStrip1.Size = new System.Drawing.Size(1370, 29);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -264,11 +266,18 @@
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             this.tabControl1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tabControl1_MouseDown);
             // 
+            // lịchTáiKhámToolStripMenuItem
+            // 
+            this.lịchTáiKhámToolStripMenuItem.Name = "lịchTáiKhámToolStripMenuItem";
+            this.lịchTáiKhámToolStripMenuItem.Size = new System.Drawing.Size(90, 25);
+            this.lịchTáiKhámToolStripMenuItem.Text = "Lịch tái khám";
+            this.lịchTáiKhámToolStripMenuItem.Click += new System.EventHandler(this.lịchTáiKhámToolStripMenuItem_Click);
+            // 
             // frm_nav
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1443, 760);
+            this.ClientSize = new System.Drawing.Size(1370, 749);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -305,6 +314,7 @@
         private System.Windows.Forms.ToolStripMenuItem giáDịchVụToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem biểuMẫuToolStripMenuItem1;
         private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.ToolStripMenuItem lịchTáiKhámToolStripMenuItem;
     }
 }
 
