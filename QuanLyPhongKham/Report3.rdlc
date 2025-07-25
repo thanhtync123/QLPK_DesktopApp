@@ -993,9 +993,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox9</rd:DefaultName>
             <Top>2.4869in</Top>
-            <Left>0.14679in</Left>
+            <Left>0.125in</Left>
             <Height>0.19444in</Height>
-            <Width>1.01607in</Width>
+            <Width>1.03786in</Width>
             <ZIndex>25</ZIndex>
             <Style>
               <Border>
@@ -1028,9 +1028,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
             <Top>3.50515in</Top>
-            <Left>0.13542in</Left>
-            <Height>0.25in</Height>
-            <Width>1.01607in</Width>
+            <Left>0.125in</Left>
+            <Height>0.19792in</Height>
+            <Width>1.04038in</Width>
             <ZIndex>26</ZIndex>
             <Style>
               <Border>
@@ -1061,8 +1061,8 @@
             </Paragraphs>
             <rd:DefaultName>txb_taikham</rd:DefaultName>
             <Top>3.50515in</Top>
-            <Left>1.16538in</Left>
-            <Height>0.25in</Height>
+            <Left>1.17927in</Left>
+            <Height>0.19792in</Height>
             <Width>1.34375in</Width>
             <ZIndex>27</ZIndex>
             <Style>
@@ -1110,9 +1110,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox9</rd:DefaultName>
             <Top>3.31071in</Top>
-            <Left>0.13542in</Left>
+            <Left>0.125in</Left>
             <Height>0.19444in</Height>
-            <Width>1.01607in</Width>
+            <Width>1.02649in</Width>
             <ZIndex>28</ZIndex>
             <Style>
               <Border>
