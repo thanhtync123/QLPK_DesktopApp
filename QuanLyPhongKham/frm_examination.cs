@@ -731,14 +731,14 @@ VALUES
                 current_timestamp()
             );";
             Db.ExecuteNonQuery(insertExaminationQuery);
-            //MessageBox.Show("Thêm phiếu khám thành công!");
+            MessageBox.Show("Thêm phiếu khám thành công!");
 
-
+            string query = "";
             foreach (DataGridViewRow row in dtgv_patient_med.Rows)
             {
                 if (row.IsNewRow) continue; // Bỏ qua dòng trống cuối
 
-                string query = $@"
+                query = $@"
                 INSERT INTO `examination_medications` (
                     `id`, `examination_id`, `medication_id`, `morning`, `afternoon`, `unit`,
                     `days_of_use`, `total_quantity_med`, `note`,`follow_up`,`state`,
@@ -750,7 +750,7 @@ VALUES
                     '{row.Cells["morning"].Value?.ToString()}',
                     '{row.Cells["afternoon"].Value?.ToString()}',
                     '{row.Cells["unit_2"].Value?.ToString()}',
-                    '{row.Cells["days_of_use"].Value?.ToString()}',
+                    '{Convert.ToInt16(row.Cells["days_of_use"].Value?.ToString())}',
                     '{row.Cells["total_quantity"].Value?.ToString()}',
                     '{row.Cells["note_2"].Value?.ToString()}',
                     '{txb_follow_up.Text}',
@@ -761,6 +761,7 @@ VALUES
 
                 Db.ExecuteNonQuery(query);
             }
+          
 
             MessageBox.Show("Thêm toa thành công!");
 
