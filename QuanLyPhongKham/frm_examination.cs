@@ -494,11 +494,11 @@ VALUES
                         string queryService = $@"
                         INSERT INTO examination_services 
                         (id, examination_id, service_id, price) 
-                        VALUES (NULL, {dtgv}, @service_id, @price);";
+                        VALUES (NULL, @examination_id, @service_id, @price);";
                         cmd = new MySqlCommand(queryService, Db.conn);
                         cmd.Parameters.AddWithValue("@examination_id", examinationID);
-                        cmd.Parameters.AddWithValue("@service_id", row.Cells[0].Value);
-                        cmd.Parameters.AddWithValue("@price", row.Cells[2].Value);
+                        cmd.Parameters.AddWithValue("@service_id", row.Cells["id_service2"].Value);
+                        cmd.Parameters.AddWithValue("@price", row.Cells["price2"].Value);
                         cmd.ExecuteNonQuery();
                     }
                 }
