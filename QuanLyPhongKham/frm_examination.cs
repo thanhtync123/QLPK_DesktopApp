@@ -157,7 +157,7 @@ namespace QuanLyPhongKham
             LoadExamID();
             LoadDTGV_Service();
             LoadDTGV_Med();
-
+            Update_FollowUpDate();
 
             cbo_diagnoses.SelectedIndex = 0;
 
