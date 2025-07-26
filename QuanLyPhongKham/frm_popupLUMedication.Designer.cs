@@ -42,6 +42,10 @@
             this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2ImageButton2 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.dtgv_patient_medication = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.c1_examination_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c1_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c1_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c1_update_day = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtgv_detail = new Guna.UI2.WinForms.Guna2DataGridView();
             this.c2_examination_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.c2_medication_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,10 +56,6 @@
             this.c2_days_of_use = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.c2_total_quantity_med = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.c2_note = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c1_examination_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c1_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c1_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c1_update_day = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_patient_medication)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_detail)).BeginInit();
             this.SuspendLayout();
@@ -160,7 +160,6 @@
             this.dtgv_patient_medication.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dtgv_patient_medication.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.None;
             this.dtgv_patient_medication.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.dtgv_patient_medication.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -188,7 +187,7 @@
             this.dtgv_patient_medication.Location = new System.Drawing.Point(12, 57);
             this.dtgv_patient_medication.Name = "dtgv_patient_medication";
             this.dtgv_patient_medication.RowHeadersVisible = false;
-            this.dtgv_patient_medication.Size = new System.Drawing.Size(428, 344);
+            this.dtgv_patient_medication.Size = new System.Drawing.Size(428, 601);
             this.dtgv_patient_medication.TabIndex = 25;
             this.dtgv_patient_medication.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgv_patient_medication.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -214,6 +213,30 @@
             this.dtgv_patient_medication.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_patient_medication_CellClick);
             this.dtgv_patient_medication.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_patient_medication_CellContentClick);
             // 
+            // c1_examination_id
+            // 
+            this.c1_examination_id.HeaderText = "Mã P Khám";
+            this.c1_examination_id.Name = "c1_examination_id";
+            this.c1_examination_id.Width = 50;
+            // 
+            // c1_id
+            // 
+            this.c1_id.HeaderText = "Mã BN";
+            this.c1_id.Name = "c1_id";
+            this.c1_id.Width = 50;
+            // 
+            // c1_name
+            // 
+            this.c1_name.HeaderText = "Tên BN";
+            this.c1_name.Name = "c1_name";
+            this.c1_name.Width = 180;
+            // 
+            // c1_update_day
+            // 
+            this.c1_update_day.HeaderText = "Ngày cấp toa";
+            this.c1_update_day.Name = "c1_update_day";
+            this.c1_update_day.Width = 140;
+            // 
             // dtgv_detail
             // 
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -222,7 +245,6 @@
             this.dtgv_detail.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dtgv_detail.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.None;
             this.dtgv_detail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.dtgv_detail.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Single;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -255,7 +277,7 @@
             this.dtgv_detail.Location = new System.Drawing.Point(446, 56);
             this.dtgv_detail.Name = "dtgv_detail";
             this.dtgv_detail.RowHeadersVisible = false;
-            this.dtgv_detail.Size = new System.Drawing.Size(792, 345);
+            this.dtgv_detail.Size = new System.Drawing.Size(792, 602);
             this.dtgv_detail.TabIndex = 26;
             this.dtgv_detail.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgv_detail.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -334,30 +356,6 @@
             this.c2_note.HeaderText = "Ghi chú";
             this.c2_note.Name = "c2_note";
             this.c2_note.Width = 230;
-            // 
-            // c1_examination_id
-            // 
-            this.c1_examination_id.HeaderText = "Mã P Khám";
-            this.c1_examination_id.Name = "c1_examination_id";
-            this.c1_examination_id.Width = 50;
-            // 
-            // c1_id
-            // 
-            this.c1_id.HeaderText = "Mã BN";
-            this.c1_id.Name = "c1_id";
-            this.c1_id.Width = 50;
-            // 
-            // c1_name
-            // 
-            this.c1_name.HeaderText = "Tên BN";
-            this.c1_name.Name = "c1_name";
-            this.c1_name.Width = 180;
-            // 
-            // c1_update_day
-            // 
-            this.c1_update_day.HeaderText = "Ngày cấp toa";
-            this.c1_update_day.Name = "c1_update_day";
-            this.c1_update_day.Width = 140;
             // 
             // frm_popupLUMedication
             // 

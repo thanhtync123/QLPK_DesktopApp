@@ -734,7 +734,7 @@ VALUES
                 current_timestamp()
             );";
             Db.ExecuteNonQuery(insertExaminationQuery);
-            MessageBox.Show("Thêm phiếu khám thành công!");
+          //  MessageBox.Show("Thêm phiếu khám thành công!");
 
             string query = "";
             foreach (DataGridViewRow row in dtgv_patient_med.Rows)

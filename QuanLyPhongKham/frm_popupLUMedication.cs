@@ -39,7 +39,7 @@ namespace QuanLyPhongKham
             WHERE 
                 e.patient_id = p.id
                 AND p.name LIKE '%{txb_search.Text}%'
-            ORDER BY updated_at desc
+            ORDER BY e.updated_at desc
 ";
             Db.cmd = new MySqlCommand(query, Db.conn);
             Db.dr = Db.cmd.ExecuteReader();
