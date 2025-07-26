@@ -388,6 +388,10 @@
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton2;
         private Guna.UI2.WinForms.Guna2DataGridView dtgv_patient_medication;
         private Guna.UI2.WinForms.Guna2DataGridView dtgv_detail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c1_examination_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c1_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c1_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c1_update_day;
         private System.Windows.Forms.DataGridViewTextBoxColumn c2_examination_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn c2_medication_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn c2_medname;
@@ -397,9 +401,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn c2_days_of_use;
         private System.Windows.Forms.DataGridViewTextBoxColumn c2_total_quantity_med;
         private System.Windows.Forms.DataGridViewTextBoxColumn c2_note;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c1_examination_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c1_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c1_name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c1_update_day;
     }
 }

@@ -628,30 +628,34 @@ namespace QuanLyPhongKham
 
             if (frm.ShowDialog() == DialogResult.OK)
             {
+                int stt = 1;
+
                 foreach (var row in frm.AllRows)
                 {
                     int index = dtgv_service_patient.Rows.Add();
-                    for (int i = 0; i <= 2; i++)
-                        dtgv_service_patient.Rows[index].Cells[i].Value = row.Cells[i].Value;
-                    dtgv_service_patient.Rows[index].Cells[4].Value = "-";
 
-
+                    dtgv_service_patient.Rows[index].Cells[0].Value = row.Cells[0].Value; // Mã chỉ định
+                    dtgv_service_patient.Rows[index].Cells[1].Value = stt++;              // STT
+                    dtgv_service_patient.Rows[index].Cells[2].Value = row.Cells[1].Value; // Tên chỉ định
+                    dtgv_service_patient.Rows[index].Cells[3].Value = row.Cells[2].Value; // Thành tiền
+                    dtgv_service_patient.Rows[index].Cells[4].Value = "";                 // Ghi chú
+                    dtgv_service_patient.Rows[index].Cells[5].Value = "-";                // Thao tác
                 }
-                decimal total = 0;
 
+                // Tính tổng thành tiền
+                decimal total = 0;
                 foreach (DataGridViewRow row in dtgv_service_patient.Rows)
                 {
-                    if (row.IsNewRow) continue; // Bỏ qua dòng trắng cuối cùng
+                    if (row.IsNewRow) continue;
 
-                    if (decimal.TryParse(row.Cells[2].Value?.ToString(), out decimal value))
-
+                    if (decimal.TryParse(row.Cells[3].Value?.ToString(), out decimal value))
                         total += value;
-
                 }
 
-                lb_total_price_service.Text = total.ToString("N0") + " đ"; // Ví dụ: 100,000 đ
+                lb_total_price_service.Text = total.ToString("N0") + " đ";
             }
         }
+
 
         private void dtgv_med_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
@@ -677,36 +681,7 @@ namespace QuanLyPhongKham
         {
             if (e.RowIndex < 0 || e.RowIndex >= dtgv_patient_med.Rows.Count) return;
 
-            var row = dtgv_patient_med.Rows[e.RowIndex];
-            var days_of_useCell = Convert.ToInt16(row.Cells["days_of_use"].Value);
-            var morningCell = Convert.ToInt16(row.Cells["morning"].Value);
-            var afternoonCell = Convert.ToInt16(row.Cells["afternoon"].Value);
-            row.Cells["total_quantity"].Value = days_of_useCell * (morningCell + afternoonCell);
-
-
-            foreach (DataGridViewRow r in dtgv_patient_med.Rows)
-            {
-                if (r.Cells["days_of_use"].Value != null && int.TryParse(r.Cells["days_of_use"].Value.ToString(), out int day))
-                {
-                    if (day > maxDayOfUse)
-                        maxDayOfUse = day;
-                }
-            }
-            lb_dayofuse.Text = maxDayOfUse + "";
-            int total = 50000 * maxDayOfUse;
-            txb_total_price_med.Text = total.ToString("#,##0");
-
-            Update_FollowUpDate();
-
-
-
-
-
-
-
-
-
-
+            UpdateMedicationSummary(); // gọi xử lý
 
         }
 
@@ -760,7 +735,7 @@ namespace QuanLyPhongKham
                 '{txb_temperature.Text}',
                 'toa thuốc',
                 '{txb_follow_up.Text}',
-                '{Convert.ToInt32(txb_total_price_med.Text.Replace(".", ""))}',
+                '{Convert.ToInt32(txb_total_price_med.Text.Replace(",", ""))}',
                 'Chưa gọi',
                 current_timestamp(),
                 current_timestamp()
@@ -917,6 +892,39 @@ namespace QuanLyPhongKham
             }
             Db.dr.Close();
         }
+        private void UpdateMedicationSummary()
+        {
+            foreach (DataGridViewRow row in dtgv_patient_med.Rows)
+            {
+                if (row.IsNewRow) continue;
+
+                int days_of_use = 0, morning = 0, afternoon = 0;
+
+                int.TryParse(row.Cells["days_of_use"].Value?.ToString(), out days_of_use);
+                int.TryParse(row.Cells["morning"].Value?.ToString(), out morning);
+                int.TryParse(row.Cells["afternoon"].Value?.ToString(), out afternoon);
+
+                row.Cells["total_quantity"].Value = days_of_use * (morning + afternoon);
+            }
+
+            int maxDayOfUse = 0;
+            foreach (DataGridViewRow r in dtgv_patient_med.Rows)
+            {
+                if (r.IsNewRow) continue;
+                if (r.Cells["days_of_use"].Value != null &&
+                    int.TryParse(r.Cells["days_of_use"].Value.ToString(), out int day))
+                {
+                    if (day > maxDayOfUse)
+                        maxDayOfUse = day;
+                }
+            }
+
+            lb_dayofuse.Text = maxDayOfUse + "";
+            int total = 50000 * maxDayOfUse;
+            txb_total_price_med.Text = total.ToString("#,##0");
+
+            Update_FollowUpDate();
+        }
 
         private void btn_select_med_Click(object sender, EventArgs e)
         {
@@ -924,10 +932,13 @@ namespace QuanLyPhongKham
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 foreach (var rowData in frm.selectedMedications)
-                {
+                
                      dtgv_patient_med.Rows.Add(rowData);
-                }
+                UpdateMedicationSummary(); // Gọi bên trong IF
+
             }
+ 
+
         }
     }
 }

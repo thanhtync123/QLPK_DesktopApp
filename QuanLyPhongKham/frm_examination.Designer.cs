@@ -38,8 +38,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -51,6 +49,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_examination));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txb_name = new Guna.UI2.WinForms.Guna2TextBox();
             this.txb_ngaysinh = new Guna.UI2.WinForms.Guna2TextBox();
@@ -97,12 +97,6 @@
             this.label26 = new System.Windows.Forms.Label();
             this.btn_save_examination_service = new System.Windows.Forms.Button();
             this.dtgv_service_patient = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.id_service2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name_service2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.notes2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.delete_service = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtgv_service = new Guna.UI2.WinForms.Guna2DataGridView();
             this.id_service = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.service_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -141,13 +135,19 @@
             this.txb_weight = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.cb_doctornote = new System.Windows.Forms.ComboBox();
+            this.id_service2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name_service2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.notes2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.delete_service = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id_med_2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.med_name_2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.morning = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.afternoon = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unit_2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.days_of_use = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.total_quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unit_2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.note_2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.delete_med = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2TabControl1.SuspendLayout();
@@ -556,9 +556,9 @@
             this.med_name_2,
             this.morning,
             this.afternoon,
+            this.unit_2,
             this.days_of_use,
             this.total_quantity,
-            this.unit_2,
             this.note_2,
             this.delete_med});
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -891,52 +891,6 @@
             this.dtgv_service_patient.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtgv_service_patient.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dtgv_service_patient.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_service_patient_CellClick);
-            // 
-            // id_service2
-            // 
-            this.id_service2.HeaderText = "Mã CĐ";
-            this.id_service2.MinimumWidth = 6;
-            this.id_service2.Name = "id_service2";
-            this.id_service2.Visible = false;
-            this.id_service2.Width = 60;
-            // 
-            // STT
-            // 
-            this.STT.HeaderText = "STT";
-            this.STT.Name = "STT";
-            this.STT.Width = 50;
-            // 
-            // name_service2
-            // 
-            this.name_service2.HeaderText = "Tên chỉ định";
-            this.name_service2.MinimumWidth = 6;
-            this.name_service2.Name = "name_service2";
-            this.name_service2.Width = 210;
-            // 
-            // price2
-            // 
-            dataGridViewCellStyle11.Format = "N0";
-            this.price2.DefaultCellStyle = dataGridViewCellStyle11;
-            this.price2.HeaderText = "Thành tiền";
-            this.price2.MinimumWidth = 6;
-            this.price2.Name = "price2";
-            this.price2.Width = 125;
-            // 
-            // notes2
-            // 
-            this.notes2.HeaderText = "Ghi chú";
-            this.notes2.MinimumWidth = 6;
-            this.notes2.Name = "notes2";
-            this.notes2.Width = 170;
-            // 
-            // delete_service
-            // 
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.delete_service.DefaultCellStyle = dataGridViewCellStyle12;
-            this.delete_service.HeaderText = "Xóa";
-            this.delete_service.MinimumWidth = 6;
-            this.delete_service.Name = "delete_service";
-            this.delete_service.Width = 50;
             // 
             // dtgv_service
             // 
@@ -1481,6 +1435,52 @@
             this.cb_doctornote.Size = new System.Drawing.Size(713, 29);
             this.cb_doctornote.TabIndex = 48;
             // 
+            // id_service2
+            // 
+            this.id_service2.HeaderText = "Mã CĐ";
+            this.id_service2.MinimumWidth = 6;
+            this.id_service2.Name = "id_service2";
+            this.id_service2.Visible = false;
+            this.id_service2.Width = 60;
+            // 
+            // STT
+            // 
+            this.STT.HeaderText = "STT";
+            this.STT.Name = "STT";
+            this.STT.Width = 50;
+            // 
+            // name_service2
+            // 
+            this.name_service2.HeaderText = "Tên chỉ định";
+            this.name_service2.MinimumWidth = 6;
+            this.name_service2.Name = "name_service2";
+            this.name_service2.Width = 210;
+            // 
+            // price2
+            // 
+            dataGridViewCellStyle11.Format = "N0";
+            this.price2.DefaultCellStyle = dataGridViewCellStyle11;
+            this.price2.HeaderText = "Thành tiền";
+            this.price2.MinimumWidth = 6;
+            this.price2.Name = "price2";
+            this.price2.Width = 125;
+            // 
+            // notes2
+            // 
+            this.notes2.HeaderText = "Ghi chú";
+            this.notes2.MinimumWidth = 6;
+            this.notes2.Name = "notes2";
+            this.notes2.Width = 170;
+            // 
+            // delete_service
+            // 
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.delete_service.DefaultCellStyle = dataGridViewCellStyle12;
+            this.delete_service.HeaderText = "Xóa";
+            this.delete_service.MinimumWidth = 6;
+            this.delete_service.Name = "delete_service";
+            this.delete_service.Width = 50;
+            // 
             // id_med_2
             // 
             this.id_med_2.HeaderText = "ID Thuốc";
@@ -1509,6 +1509,13 @@
             this.afternoon.Name = "afternoon";
             this.afternoon.Width = 60;
             // 
+            // unit_2
+            // 
+            this.unit_2.FillWeight = 91.08052F;
+            this.unit_2.HeaderText = "Đơn vị";
+            this.unit_2.Name = "unit_2";
+            this.unit_2.Width = 60;
+            // 
             // days_of_use
             // 
             this.days_of_use.FillWeight = 91.08052F;
@@ -1522,13 +1529,6 @@
             this.total_quantity.HeaderText = "Tổng số lượng";
             this.total_quantity.Name = "total_quantity";
             this.total_quantity.Width = 60;
-            // 
-            // unit_2
-            // 
-            this.unit_2.FillWeight = 91.08052F;
-            this.unit_2.HeaderText = "Đơn vị";
-            this.unit_2.Name = "unit_2";
-            this.unit_2.Width = 60;
             // 
             // note_2
             // 
@@ -1689,25 +1689,25 @@
         private System.Windows.Forms.TextBox txb_total_price_med;
         private System.Windows.Forms.Label lb_dayofuse;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_service2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn STT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn name_service2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn price2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn notes2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn delete_service;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_med;
         private System.Windows.Forms.DataGridViewTextBoxColumn med_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn unit;
         private System.Windows.Forms.DataGridViewTextBoxColumn price;
         private System.Windows.Forms.DataGridViewTextBoxColumn note;
         private System.Windows.Forms.DataGridViewTextBoxColumn add_med;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_service2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn STT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name_service2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn notes2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn delete_service;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_med_2;
         private System.Windows.Forms.DataGridViewTextBoxColumn med_name_2;
         private System.Windows.Forms.DataGridViewTextBoxColumn morning;
         private System.Windows.Forms.DataGridViewTextBoxColumn afternoon;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unit_2;
         private System.Windows.Forms.DataGridViewTextBoxColumn days_of_use;
         private System.Windows.Forms.DataGridViewTextBoxColumn total_quantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn unit_2;
         private System.Windows.Forms.DataGridViewTextBoxColumn note_2;
         private System.Windows.Forms.DataGridViewTextBoxColumn delete_med;
     }
