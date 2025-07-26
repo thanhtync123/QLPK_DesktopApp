@@ -637,6 +637,9 @@ VALUES
             dtgv_patient_med.Rows[r].Cells["med_name_2"].Value = dtgv_med.Rows[e.RowIndex].Cells["med_name"].Value;
             dtgv_patient_med.Rows[r].Cells["note_2"].Value = dtgv_med.Rows[e.RowIndex].Cells["note"].Value;
             dtgv_patient_med.Rows[r].Cells["unit_2"].Value = dtgv_med.Rows[e.RowIndex].Cells["unit"].Value;
+            dtgv_patient_med.Rows[r].Cells["morning"].Value = "0";
+            dtgv_patient_med.Rows[r].Cells["afternoon"].Value = "0";
+            dtgv_patient_med.Rows[r].Cells["days_of_use"].Value = "0";
         }
 
         private void dtgv_patient_med_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -746,19 +749,19 @@ VALUES
                 ) VALUES (
                     NULL,
                     '{txb_exam_id.Text}',
-                    '{row.Cells["id_med_2"].Value?.ToString()}',
+                    '{Convert.ToInt16(row.Cells["id_med_2"].Value?.ToString())}',
                     '{row.Cells["morning"].Value?.ToString()}',
                     '{row.Cells["afternoon"].Value?.ToString()}',
                     '{row.Cells["unit_2"].Value?.ToString()}',
                     '{Convert.ToInt16(row.Cells["days_of_use"].Value?.ToString())}',
-                    '{row.Cells["total_quantity"].Value?.ToString()}',
+                    '{Convert.ToInt16(row.Cells["total_quantity"].Value?.ToString())}',
                     '{row.Cells["note_2"].Value?.ToString()}',
                     '{txb_follow_up.Text}',
                     'Chưa gọi',
                     current_timestamp(),
                     current_timestamp()
                 );";
-
+  
                 Db.ExecuteNonQuery(query);
             }
           
@@ -882,6 +885,18 @@ VALUES
                 drr.Cells["add_med"].Value = "+";
             }
             Db.dr.Close();
+        }
+
+        private void btn_select_med_Click(object sender, EventArgs e)
+        {
+            frm_popupLUMedication frm = new frm_popupLUMedication();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                foreach (var rowData in frm.selectedMedications)
+                {
+                     dtgv_patient_med.Rows.Add(rowData);
+                }
+            }
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,124 +17,132 @@ namespace QuanLyPhongKham
         public frm_popupLUMedication()
         {
             InitializeComponent();
-            btn_choose.Enabled = false; // Disable the button initially
+
         }
-        private void LoadDTGV(string keyword = "")
+        public List<object[]> selectedMedications = new List<object[]>();
+
+        private void frm_popupLUMedication_Load(object sender, EventArgs e)
         {
+            LoadDTGV_Patient_Medication();
+        }
+        private void LoadDTGV_Patient_Medication()
+        {
+            Db.ResetConnection();
             string query = $@"
-    SELECT
-        e.id AS examination_id,
-        p.name AS patient_name,
-        e.created_at AS ngay_tao,
-        SUM(CAST(em.price AS UNSIGNED) * em.quantity) AS total_price
-    FROM examinations e
-    JOIN patients p ON e.patient_id = p.id
-    JOIN examination_medications em ON e.id = em.examination_id
-    WHERE p.name LIKE '%{keyword}%'
-    GROUP BY e.id, p.name, e.created_at
-    ORDER BY e.id DESC;
+            SELECT 
+                e.id,
+                e.patient_id,
+                p.name,
+                DATE_FORMAT(e.updated_at, '%d/%m/%Y %H:%i') AS updated_at
+            FROM 
+                examinations e, patients p
+            WHERE 
+                e.patient_id = p.id
+                AND p.name LIKE '%{txb_search.Text}%'
+            ORDER BY updated_at desc
 ";
+            Db.cmd = new MySqlCommand(query, Db.conn);
+            Db.dr = Db.cmd.ExecuteReader();
+            dtgv_patient_medication.Rows.Clear(); // Xóa dữ liệu cũ trong DataGridView
+            while (Db.dr.Read())
+            {
+                int i = dtgv_patient_medication.Rows.Add();
+                DataGridViewRow drr = dtgv_patient_medication.Rows[i];
 
-            Db.LoadDTGV(dtgv, query); // Load dữ liệu vào DataGridView
+                drr.Cells["c1_examination_id"].Value = Db.dr["id"];             // Mã phiếu khám
+                drr.Cells["c1_id"].Value = Db.dr["patient_id"];                 // ID bệnh nhân
+                drr.Cells["c1_name"].Value = Db.dr["name"];                     // Tên bệnh nhân
+                drr.Cells["c1_update_day"].Value = Db.dr["updated_at"];         // Ngày cập nhật (đã định dạng)
+            }
 
-            // Đặt header text sau khi load dữ liệu
-            dtgv.Columns["examination_id"].HeaderText = "Mã khám";
-            dtgv.Columns["patient_name"].HeaderText = "Tên bệnh nhân";
-            dtgv.Columns["ngay_tao"].HeaderText = "Ngày tạo";
-            dtgv.Columns["total_price"].HeaderText = "Tổng tiền";
-            dtgv.Columns["total_price"].DefaultCellStyle.Format = "N0"; // Định dạng số
+            Db.dr.Close();
 
-            // Thiết lập auto size và wrap sau khi load dữ liệu và đặt header
-            dtgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dtgv.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-            dtgv.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-
-            // Refresh DataGridView để chắc chắn cập nhật giao diện
-            dtgv.Refresh();
-        }
-
-        // Load chi tiết phiếu thuốc theo examination_id
-        private void LoadChiTietPhieuThuoc(int examinationId)
-        {
-            string query = $@"
-        SELECT
-            m.id AS 'Mã Phiếu khám',
-            m.name AS 'Tên thuốc',
-            em.unit AS 'Đơn vị',
-            em.dosage as 'Liều dùng',
-            em.route as 'Đường dùng',
-            em.times as 'Số lần uống / ngày',
-            IFNULL(em.note, '') 'AS Ghi chú',
-            em.quantity as 'Số lượng',
-            em.price as 'Đơn giá',
-            ROUND(em.quantity * em.price, 0) AS 'Tổng tiền'
-        FROM examination_medications em
-        JOIN medications m ON em.medication_id = m.id
-        WHERE em.examination_id = {examinationId};
-    ";
-            dtgv_med.Columns.Clear();
-
-            // Load dữ liệu vào DataGridView chi tiết
-            Db.LoadDTGV(dtgv_med, query);
-
-            // Tùy chỉnh hiển thị
-            dtgv_med.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dtgv_med.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-            dtgv_med.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-
-            // Định dạng số nếu cần
-            if (dtgv_med.Columns.Contains("price"))
-                dtgv_med.Columns["price"].DefaultCellStyle.Format = "N0";
-            if (dtgv_med.Columns.Contains("totalpricepermed"))
-                dtgv_med.Columns["totalpricepermed"].DefaultCellStyle.Format = "N0";
-            btn_choose.Enabled = true; // Enable the button when a row is selected
         }
 
         private void txb_search_TextChanged(object sender, EventArgs e)
         {
-            string keyword = MySql.Data.MySqlClient.MySqlHelper.EscapeString(txb_search.Text.Trim());
-            LoadDTGV(keyword);
+            LoadDTGV_Patient_Medication();
         }
 
-        private void frm_popupLUMedication_Load(object sender, EventArgs e)
+        private void dtgv_patient_medication_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            LoadDTGV();
-            dtgv.ColumnHeadersHeight = 50;
+            int id_exam = Convert.ToInt32(dtgv_patient_medication.CurrentRow.Cells["c1_examination_id"].Value);
 
-            dtgv.Columns["examination_id"].HeaderText = "Mã khám";
-            dtgv.Columns["patient_name"].HeaderText = "Tên bệnh nhân";
-            dtgv.Columns["ngay_tao"].HeaderText = "Ngày tạo";
-            dtgv.Columns["total_price"].HeaderText = "Tổng tiền";
+            Db.ResetConnection();
+            string query = $@"
+                SELECT 
+                em.id AS id,
+                em.examination_id AS examination_id,
+                m.id AS med_id,
+                m.name,
+                em.morning,
+                em.afternoon,
+                em.unit,
+                em.days_of_use,
+                em.total_quantity_med,
+                em.note
+            FROM 
+                examination_medications em, examinations e, medications m
+            WHERE 
+                em.examination_id = e.id
+                AND em.medication_id = m.id
+                AND em.examination_id = {id_exam}
 
-        }
-
-        private void dtgv_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
+            ";
+            Db.cmd = new MySqlCommand(query, Db.conn);
+            Db.dr = Db.cmd.ExecuteReader();
+            dtgv_detail.Rows.Clear(); // Xóa dữ liệu cũ trong DataGridView
+            while (Db.dr.Read())
             {
-                int examinationId = Convert.ToInt32(dtgv.Rows[e.RowIndex].Cells["examination_id"].Value);
-                LoadChiTietPhieuThuoc(examinationId);
+                int i = dtgv_detail.Rows.Add();
+                DataGridViewRow drr = dtgv_detail.Rows[i];
+
+                drr.Cells["c2_examination_id"].Value = Db.dr["examination_id"];
+                drr.Cells["c2_medication_id"].Value = Db.dr["med_id"];
+                drr.Cells["c2_medname"].Value = Db.dr["name"];
+                drr.Cells["c2_morning"].Value = Db.dr["morning"];
+                drr.Cells["c2_afternoon"].Value = Db.dr["afternoon"];
+                drr.Cells["c2_unit"].Value = Db.dr["unit"];
+                drr.Cells["c2_days_of_use"].Value = Db.dr["days_of_use"];
+                drr.Cells["c2_total_quantity_med"].Value = Db.dr["total_quantity_med"];
+                drr.Cells["c2_note"].Value = Db.dr["note"];
             }
-        }
-        public List<DataGridViewRow> AllRows
-        {
-            get
-            {
-                List<DataGridViewRow> rows = new List<DataGridViewRow>();
-                foreach (DataGridViewRow row in dtgv_med.Rows)
-                {
-                    if (!row.IsNewRow)  // loại bỏ dòng mới (dòng trắng để nhập)
-                        rows.Add(row);
-                }
-                return rows;
-            }
+
+
+            Db.dr.Close();
+
+
         }
 
         private void btn_choose_Click(object sender, EventArgs e)
         {
+            foreach (DataGridViewRow row in dtgv_detail.Rows)
+            {
+                if (row.IsNewRow) continue; // Bỏ qua dòng trống cuối cùng
+
+                object[] rowData = new object[]
+                {
+        row.Cells["c2_medication_id"].Value,
+        row.Cells["c2_medname"].Value,
+        row.Cells["c2_morning"].Value,
+        row.Cells["c2_afternoon"].Value,
+        row.Cells["c2_unit"].Value,
+        row.Cells["c2_days_of_use"].Value,
+        row.Cells["c2_total_quantity_med"].Value,
+        row.Cells["c2_note"].Value
+                };
+
+                selectedMedications.Add(rowData);
+            }
+
             this.DialogResult = DialogResult.OK;
- 
             this.Close();
+
+        }
+
+        private void dtgv_patient_medication_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

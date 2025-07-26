@@ -49,8 +49,8 @@
             this.traCứuKếtQuảToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.smi_thongke = new System.Windows.Forms.ToolStripMenuItem();
             this.smi_users = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
             this.lịchTáiKhámToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -255,6 +255,13 @@
             this.smi_users.Text = "Tài khoản";
             this.smi_users.Click += new System.EventHandler(this.tàiKhoảnToolStripMenuItem_Click);
             // 
+            // lịchTáiKhámToolStripMenuItem
+            // 
+            this.lịchTáiKhámToolStripMenuItem.Name = "lịchTáiKhámToolStripMenuItem";
+            this.lịchTáiKhámToolStripMenuItem.Size = new System.Drawing.Size(90, 25);
+            this.lịchTáiKhámToolStripMenuItem.Text = "Lịch tái khám";
+            this.lịchTáiKhámToolStripMenuItem.Click += new System.EventHandler(this.lịchTáiKhámToolStripMenuItem_Click);
+            // 
             // tabControl1
             // 
             this.tabControl1.Location = new System.Drawing.Point(1, 32);
@@ -265,13 +272,6 @@
             this.tabControl1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControl1_DrawItem);
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             this.tabControl1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tabControl1_MouseDown);
-            // 
-            // lịchTáiKhámToolStripMenuItem
-            // 
-            this.lịchTáiKhámToolStripMenuItem.Name = "lịchTáiKhámToolStripMenuItem";
-            this.lịchTáiKhámToolStripMenuItem.Size = new System.Drawing.Size(90, 25);
-            this.lịchTáiKhámToolStripMenuItem.Text = "Lịch tái khám";
-            this.lịchTáiKhámToolStripMenuItem.Click += new System.EventHandler(this.lịchTáiKhámToolStripMenuItem_Click);
             // 
             // frm_nav
             // 
