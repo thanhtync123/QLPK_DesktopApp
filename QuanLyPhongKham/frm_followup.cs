@@ -20,7 +20,7 @@ namespace QuanLyPhongKham
 
         private void frm_followup_Load(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Đang sửa chữa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Db.ResetConnection();
             string query = $@"SELECT 
                             p.id, 
