@@ -760,7 +760,7 @@ namespace QuanLyPhongKham
                 '{txb_temperature.Text}',
                 'toa thuốc',
                 '{txb_follow_up.Text}',
-                '{Convert.ToInt32(txb_total_price_med.Text.Replace(",", ""))}',
+                '{Convert.ToInt32(txb_total_price_med.Text.Replace(".", ""))}',
                 'Chưa gọi',
                 current_timestamp(),
                 current_timestamp()
