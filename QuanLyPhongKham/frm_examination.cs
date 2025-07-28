@@ -302,6 +302,7 @@ namespace QuanLyPhongKham
         {
             try
             {
+              
                 Db.ResetConnection();
                 string diagnosisName = cbo_diagnoses.Text.Trim();
 
@@ -428,10 +429,11 @@ namespace QuanLyPhongKham
 
         private void btn_save_examination_service_Click(object sender, EventArgs e)
         {
-          
+            
             try
             {
                 Db.ResetConnection(); // Mở kết nối một lần
+             
 
                 int diagnosisId;
 
@@ -526,6 +528,7 @@ namespace QuanLyPhongKham
 
                 LoadExamID();
                 MessageBox.Show("Lưu chỉ định thành công");
+
             }
             catch (Exception ex)
             {
@@ -695,84 +698,76 @@ namespace QuanLyPhongKham
 
         private void btn_save_med_Click(object sender, EventArgs e)
         {
-            if (txb_name.Text == "" )
+            if (txb_name.Text == "")
             {
                 MessageBox.Show("Vui lòng điền đầy đủ thông tin bệnh nhân và phiếu khám!");
                 return;
             }
-            string insertExaminationQuery = $@"
-            INSERT INTO `examinations` (
-                `id`,
-                `patient_id`,
-                `reason`,
-                `diagnosis_id`,
-                `doctor_note_id`,
-                `note`,
-                `pulse`,
-                `blood_pressure`,
-                `respiratory_rate`,
-                `weight`,
-                `height`,
-                `temperature`,
-                `type`,
-                `follow_up`,
-                `price`,
-                `state`,
-                `created_at`,
-                `updated_at`
-            ) VALUES (
-                NULL,
-                '{txb_id.Text}',
-                NULL,
-                '{cbo_diagnoses.SelectedValue}',
-                '{cb_doctornote.SelectedValue}',
-                '{txb_note.Text}',
-                '{txb_pulse.Text}',
-                '{txb_blood_pressure.Text}',   
-                '{txb_respiratory_rate.Text}',
-                '{txb_weight.Text}',
-                '{txb_height.Text}',
-                '{txb_temperature.Text}',
-                'toa thuốc',
-                '{txb_follow_up.Text}',
-                '{Convert.ToInt32(txb_total_price_med.Text.Replace(",", ""))}',
-                'Chưa gọi',
-                current_timestamp(),
-                current_timestamp()
-            );";
-            Db.ExecuteNonQuery(insertExaminationQuery);
-          //  MessageBox.Show("Thêm phiếu khám thành công!");
 
-            string query = "";
-            foreach (DataGridViewRow row in dtgv_patient_med.Rows)
+            try
             {
-                if (row.IsNewRow) continue; // Bỏ qua dòng trống cuối
+                string insertExaminationQuery = $@"
+    INSERT INTO `examinations` (
+        `id`, `patient_id`, `reason`, `diagnosis_id`, `doctor_note_id`, `note`,
+        `pulse`, `blood_pressure`, `respiratory_rate`, `weight`, `height`,
+        `temperature`, `type`, `follow_up`, `price`, `state`, `created_at`, `updated_at`
+    ) VALUES (
+        NULL,
+        '{txb_id.Text}',
+        NULL,
+        '{cbo_diagnoses.SelectedValue}',
+        '{cb_doctornote.SelectedValue}',
+        '{txb_note.Text}',
+        '{txb_pulse.Text}',
+        '{txb_blood_pressure.Text}',
+        '{txb_respiratory_rate.Text}',
+        '{txb_weight.Text}',
+        '{txb_height.Text}',
+        '{txb_temperature.Text}',
+        'toa thuốc',
+        '{txb_follow_up.Text}',
+        '{Convert.ToInt32(txb_total_price_med.Text.Replace(",", ""))}',
+        'Chưa gọi',
+        current_timestamp(),
+        current_timestamp()
+    );";
 
-                query = $@"
-                INSERT INTO `examination_medications` (
-                    `id`, `examination_id`, `medication_id`, `morning`, `afternoon`, `unit`,
-                    `days_of_use`, `total_quantity_med`, `note`,
-                    `created_at`, `updated_at`
-                ) VALUES (
-                    NULL,
-                    '{txb_exam_id.Text}',
-                    '{Convert.ToInt16(row.Cells["id_med_2"].Value?.ToString())}',
-                    '{row.Cells["morning"].Value?.ToString()}',
-                    '{row.Cells["afternoon"].Value?.ToString()}',
-                    '{row.Cells["unit_2"].Value?.ToString()}',
-                    '{Convert.ToInt16(row.Cells["days_of_use"].Value?.ToString())}',
-                    '{Convert.ToInt16(row.Cells["total_quantity"].Value?.ToString())}',
-                    '{row.Cells["note_2"].Value?.ToString()}',
-             
-                    current_timestamp(),
-                    current_timestamp()
-                );";
-  
-                Db.ExecuteNonQuery(query);
+                Db.ExecuteNonQuery(insertExaminationQuery);
+
+                string query = "";
+                foreach (DataGridViewRow row in dtgv_patient_med.Rows)
+                {
+                    if (row.IsNewRow) continue; // Bỏ qua dòng trống cuối
+
+                    query = $@"
+        INSERT INTO `examination_medications` (
+            `id`, `examination_id`, `medication_id`, `morning`, `afternoon`, `unit`,
+            `days_of_use`, `total_quantity_med`, `note`,
+            `created_at`, `updated_at`
+        ) VALUES (
+            NULL,
+            '{txb_exam_id.Text}',
+            '{Convert.ToInt16(row.Cells["id_med_2"].Value?.ToString())}',
+            '{row.Cells["morning"].Value?.ToString()}',
+            '{row.Cells["afternoon"].Value?.ToString()}',
+            '{row.Cells["unit_2"].Value?.ToString()}',
+            '{Convert.ToInt16(row.Cells["days_of_use"].Value?.ToString())}',
+            '{Convert.ToInt16(row.Cells["total_quantity"].Value?.ToString())}',
+            '{row.Cells["note_2"].Value?.ToString()}',
+            current_timestamp(),
+            current_timestamp()
+        );";
+
+                    Db.ExecuteNonQuery(query);
+                }
+                LoadExamID();
+                MessageBox.Show("Thêm toa thành công!");
             }
-          
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi:\n" + ex.Message);
+            }
 
-            MessageBox.Show("Thêm toa thành công!");
 
 
 

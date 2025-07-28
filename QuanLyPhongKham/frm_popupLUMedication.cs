@@ -39,6 +39,7 @@ namespace QuanLyPhongKham
             WHERE 
                 e.patient_id = p.id
                 AND p.name LIKE '%{txb_search.Text}%'
+                AND e.type = 'toa thuốc'
             ORDER BY e.updated_at desc
 ";
             Db.cmd = new MySqlCommand(query, Db.conn);
