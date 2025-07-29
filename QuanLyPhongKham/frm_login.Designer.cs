@@ -113,8 +113,7 @@
             // frm_login
             // 
             this.AcceptButton = this.btn_login;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = global::QuanLyPhongKham.Properties.Resources.edit;
             this.ClientSize = new System.Drawing.Size(686, 397);
             this.Controls.Add(this.guna2ImageButton3);

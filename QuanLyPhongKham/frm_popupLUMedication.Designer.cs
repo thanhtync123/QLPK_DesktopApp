@@ -211,7 +211,6 @@
             this.dtgv_patient_medication.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtgv_patient_medication.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dtgv_patient_medication.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_patient_medication_CellClick);
-         
             // 
             // c1_examination_id
             // 
@@ -359,8 +358,7 @@
             // 
             // frm_popupLUMedication
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1250, 736);
             this.Controls.Add(this.dtgv_detail);
             this.Controls.Add(this.dtgv_patient_medication);

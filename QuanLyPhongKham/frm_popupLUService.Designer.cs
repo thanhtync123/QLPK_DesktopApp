@@ -194,8 +194,7 @@
             // 
             // frm_popupLUService
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1361, 557);
             this.Controls.Add(this.dtgv_detail);
             this.Controls.Add(this.dtgv_exam_service);

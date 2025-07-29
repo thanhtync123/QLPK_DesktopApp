@@ -55,12 +55,12 @@
             this.txb_search.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txb_search.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txb_search.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txb_search.Location = new System.Drawing.Point(37, 19);
-            this.txb_search.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txb_search.Location = new System.Drawing.Point(28, 15);
+            this.txb_search.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txb_search.Name = "txb_search";
             this.txb_search.PlaceholderText = "";
             this.txb_search.SelectedText = "";
-            this.txb_search.Size = new System.Drawing.Size(376, 43);
+            this.txb_search.Size = new System.Drawing.Size(282, 35);
             this.txb_search.TabIndex = 5;
             this.txb_search.TextChanged += new System.EventHandler(this.txb_search_TextChanged);
             // 
@@ -87,12 +87,11 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtgv_patient.DefaultCellStyle = dataGridViewCellStyle3;
             this.dtgv_patient.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dtgv_patient.Location = new System.Drawing.Point(16, 75);
-            this.dtgv_patient.Margin = new System.Windows.Forms.Padding(4);
+            this.dtgv_patient.Location = new System.Drawing.Point(12, 61);
             this.dtgv_patient.Name = "dtgv_patient";
             this.dtgv_patient.RowHeadersVisible = false;
             this.dtgv_patient.RowHeadersWidth = 51;
-            this.dtgv_patient.Size = new System.Drawing.Size(682, 923);
+            this.dtgv_patient.Size = new System.Drawing.Size(512, 750);
             this.dtgv_patient.TabIndex = 4;
             this.dtgv_patient.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgv_patient.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -120,10 +119,9 @@
             // btn_delete
             // 
             this.btn_delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_delete.Location = new System.Drawing.Point(456, 19);
-            this.btn_delete.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_delete.Location = new System.Drawing.Point(342, 15);
             this.btn_delete.Name = "btn_delete";
-            this.btn_delete.Size = new System.Drawing.Size(100, 43);
+            this.btn_delete.Size = new System.Drawing.Size(75, 35);
             this.btn_delete.TabIndex = 6;
             this.btn_delete.Text = "Xóa";
             this.btn_delete.UseVisualStyleBackColor = true;
@@ -152,12 +150,11 @@
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtgv.DefaultCellStyle = dataGridViewCellStyle6;
             this.dtgv.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dtgv.Location = new System.Drawing.Point(706, 75);
-            this.dtgv.Margin = new System.Windows.Forms.Padding(4);
+            this.dtgv.Location = new System.Drawing.Point(530, 61);
             this.dtgv.Name = "dtgv";
             this.dtgv.RowHeadersVisible = false;
             this.dtgv.RowHeadersWidth = 51;
-            this.dtgv.Size = new System.Drawing.Size(777, 923);
+            this.dtgv.Size = new System.Drawing.Size(583, 750);
             this.dtgv.TabIndex = 7;
             this.dtgv.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgv.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -185,10 +182,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(701, 46);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(526, 37);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 25);
+            this.label1.Size = new System.Drawing.Size(79, 20);
             this.label1.TabIndex = 8;
             this.label1.Text = "Tổng tiền:";
             // 
@@ -201,19 +197,19 @@
             this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton1.ImageRotate = 0F;
             this.guna2ImageButton1.ImageSize = new System.Drawing.Size(20, 20);
-            this.guna2ImageButton1.Location = new System.Drawing.Point(461, 23);
+            this.guna2ImageButton1.Location = new System.Drawing.Point(346, 19);
+            this.guna2ImageButton1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.guna2ImageButton1.Name = "guna2ImageButton1";
             this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton1.Size = new System.Drawing.Size(28, 31);
+            this.guna2ImageButton1.Size = new System.Drawing.Size(21, 25);
             this.guna2ImageButton1.TabIndex = 9;
             this.guna2ImageButton1.UseTransparentBackground = true;
             // 
             // frm_LookUpService
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(230)))));
-            this.ClientSize = new System.Drawing.Size(1940, 1023);
+            this.ClientSize = new System.Drawing.Size(1040, 640);
             this.Controls.Add(this.guna2ImageButton1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtgv);
@@ -221,7 +217,6 @@
             this.Controls.Add(this.txb_search);
             this.Controls.Add(this.dtgv_patient);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frm_LookUpService";
             this.Text = "Tra cứu phiếu chỉ định";
             this.Load += new System.EventHandler(this.frm_LookUpService_Load);

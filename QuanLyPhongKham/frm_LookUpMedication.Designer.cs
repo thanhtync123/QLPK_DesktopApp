@@ -57,12 +57,12 @@
             this.txb_search.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txb_search.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txb_search.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txb_search.Location = new System.Drawing.Point(16, 15);
-            this.txb_search.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txb_search.Location = new System.Drawing.Point(12, 12);
+            this.txb_search.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txb_search.Name = "txb_search";
             this.txb_search.PlaceholderText = "";
             this.txb_search.SelectedText = "";
-            this.txb_search.Size = new System.Drawing.Size(376, 44);
+            this.txb_search.Size = new System.Drawing.Size(282, 36);
             this.txb_search.TabIndex = 3;
             this.txb_search.TextChanged += new System.EventHandler(this.txb_search_TextChanged);
             // 
@@ -89,12 +89,11 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtgv.DefaultCellStyle = dataGridViewCellStyle3;
             this.dtgv.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dtgv.Location = new System.Drawing.Point(16, 66);
-            this.dtgv.Margin = new System.Windows.Forms.Padding(4);
+            this.dtgv.Location = new System.Drawing.Point(12, 54);
             this.dtgv.Name = "dtgv";
             this.dtgv.RowHeadersVisible = false;
             this.dtgv.RowHeadersWidth = 51;
-            this.dtgv.Size = new System.Drawing.Size(484, 926);
+            this.dtgv.Size = new System.Drawing.Size(363, 752);
             this.dtgv.TabIndex = 2;
             this.dtgv.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgv.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -149,12 +148,11 @@
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtgv_chitietphieuthuoc.DefaultCellStyle = dataGridViewCellStyle6;
             this.dtgv_chitietphieuthuoc.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dtgv_chitietphieuthuoc.Location = new System.Drawing.Point(508, 66);
-            this.dtgv_chitietphieuthuoc.Margin = new System.Windows.Forms.Padding(4);
+            this.dtgv_chitietphieuthuoc.Location = new System.Drawing.Point(381, 54);
             this.dtgv_chitietphieuthuoc.Name = "dtgv_chitietphieuthuoc";
             this.dtgv_chitietphieuthuoc.RowHeadersVisible = false;
             this.dtgv_chitietphieuthuoc.RowHeadersWidth = 51;
-            this.dtgv_chitietphieuthuoc.Size = new System.Drawing.Size(1135, 926);
+            this.dtgv_chitietphieuthuoc.Size = new System.Drawing.Size(851, 752);
             this.dtgv_chitietphieuthuoc.TabIndex = 5;
             this.dtgv_chitietphieuthuoc.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgv_chitietphieuthuoc.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -181,10 +179,9 @@
             // btn_delete
             // 
             this.btn_delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_delete.Location = new System.Drawing.Point(400, 15);
-            this.btn_delete.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_delete.Location = new System.Drawing.Point(300, 12);
             this.btn_delete.Name = "btn_delete";
-            this.btn_delete.Size = new System.Drawing.Size(100, 44);
+            this.btn_delete.Size = new System.Drawing.Size(75, 36);
             this.btn_delete.TabIndex = 4;
             this.btn_delete.Text = "Xóa";
             this.btn_delete.UseVisualStyleBackColor = true;
@@ -193,10 +190,9 @@
             // btn_choose
             // 
             this.btn_choose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_choose.Location = new System.Drawing.Point(508, 15);
-            this.btn_choose.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_choose.Location = new System.Drawing.Point(381, 12);
             this.btn_choose.Name = "btn_choose";
-            this.btn_choose.Size = new System.Drawing.Size(204, 44);
+            this.btn_choose.Size = new System.Drawing.Size(153, 36);
             this.btn_choose.TabIndex = 6;
             this.btn_choose.Text = "Chọn toa thuốc";
             this.btn_choose.UseVisualStyleBackColor = true;
@@ -210,10 +206,11 @@
             this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton1.ImageRotate = 0F;
             this.guna2ImageButton1.ImageSize = new System.Drawing.Size(20, 20);
-            this.guna2ImageButton1.Location = new System.Drawing.Point(407, 22);
+            this.guna2ImageButton1.Location = new System.Drawing.Point(305, 18);
+            this.guna2ImageButton1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.guna2ImageButton1.Name = "guna2ImageButton1";
             this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton1.Size = new System.Drawing.Size(23, 28);
+            this.guna2ImageButton1.Size = new System.Drawing.Size(17, 23);
             this.guna2ImageButton1.TabIndex = 7;
             this.guna2ImageButton1.UseTransparentBackground = true;
             // 
@@ -226,19 +223,19 @@
             this.guna2ImageButton2.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton2.ImageRotate = 0F;
             this.guna2ImageButton2.ImageSize = new System.Drawing.Size(20, 20);
-            this.guna2ImageButton2.Location = new System.Drawing.Point(518, 22);
+            this.guna2ImageButton2.Location = new System.Drawing.Point(388, 18);
+            this.guna2ImageButton2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.guna2ImageButton2.Name = "guna2ImageButton2";
             this.guna2ImageButton2.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton2.Size = new System.Drawing.Size(23, 28);
+            this.guna2ImageButton2.Size = new System.Drawing.Size(17, 23);
             this.guna2ImageButton2.TabIndex = 7;
             this.guna2ImageButton2.UseTransparentBackground = true;
             // 
             // frm_LookUpMedication
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(230)))));
-            this.ClientSize = new System.Drawing.Size(1940, 1047);
+            this.ClientSize = new System.Drawing.Size(1040, 640);
             this.Controls.Add(this.guna2ImageButton2);
             this.Controls.Add(this.guna2ImageButton1);
             this.Controls.Add(this.btn_choose);
@@ -247,7 +244,6 @@
             this.Controls.Add(this.txb_search);
             this.Controls.Add(this.dtgv);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frm_LookUpMedication";
             this.Text = "Tra cứu phiếu thuốc";
             this.Load += new System.EventHandler(this.frm_LookUpMedication_Load);

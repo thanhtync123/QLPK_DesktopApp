@@ -1548,12 +1548,11 @@
             // 
             // frm_examination
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(230)))));
-            this.ClientSize = new System.Drawing.Size(1386, 787);
+            this.ClientSize = new System.Drawing.Size(1403, 804);
             this.Controls.Add(this.cb_doctornote);
             this.Controls.Add(this.label25);
             this.Controls.Add(this.txb_weight);
