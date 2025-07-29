@@ -257,13 +257,15 @@
             // 
             // lịchTáiKhámToolStripMenuItem
             // 
+            this.lịchTáiKhámToolStripMenuItem.Image = global::QuanLyPhongKham.Properties.Resources.calendar;
             this.lịchTáiKhámToolStripMenuItem.Name = "lịchTáiKhámToolStripMenuItem";
-            this.lịchTáiKhámToolStripMenuItem.Size = new System.Drawing.Size(90, 25);
+            this.lịchTáiKhámToolStripMenuItem.Size = new System.Drawing.Size(110, 25);
             this.lịchTáiKhámToolStripMenuItem.Text = "Lịch tái khám";
             this.lịchTáiKhámToolStripMenuItem.Click += new System.EventHandler(this.lịchTáiKhámToolStripMenuItem_Click);
             // 
             // tabControl1
             // 
+            this.tabControl1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(1, 32);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;

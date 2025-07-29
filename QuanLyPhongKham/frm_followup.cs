@@ -16,24 +16,56 @@ namespace QuanLyPhongKham
         }
         private void LoadDTGV()
         {
-            dtgv.Rows.Clear(); //
+            dtgv.Rows.Clear();
             Db.ResetConnection();
 
+            string whereConditions = "e.follow_up != 'Không' AND e.type = 'toa thuốc'";
+            string searchName = txb_search.Text.Trim();
+            if (!string.IsNullOrEmpty(searchName))
+            {
+                whereConditions += $" AND p.name LIKE '%{searchName}%'";
+            }
+
+            // Lọc theo thời gian
+            string selectedTime = cb_time.SelectedItem?.ToString();
+            if (selectedTime == "Hôm nay")
+            {
+                string today = DateTime.Today.ToString("dd/MM/yyyy");
+                whereConditions += $" AND e.follow_up = '{today}'";
+            }
+            else if (selectedTime == "Trong 3 ngày tới")
+            {
+                DateTime today = DateTime.Today;
+                DateTime to = today.AddDays(3);
+                whereConditions += $" AND STR_TO_DATE(e.follow_up, '%d/%m/%Y') BETWEEN STR_TO_DATE('{today:dd/MM/yyyy}', '%d/%m/%Y') AND STR_TO_DATE('{to:dd/MM/yyyy}', '%d/%m/%Y')";
+            }
+            else if (selectedTime == "Đã trễ")
+            {
+                DateTime today = DateTime.Today;
+                whereConditions += $" AND STR_TO_DATE(e.follow_up, '%d/%m/%Y') < STR_TO_DATE('{today:dd/MM/yyyy}', '%d/%m/%Y')";
+            }
+
+            // Lọc theo trạng thái
+            string selectedState = cb_state.SelectedItem?.ToString();
+            if (selectedState == "Đã gọi")
+            {
+                whereConditions += " AND e.state = 'Đã gọi'";
+            }
+            else if (selectedState == "Chưa gọi")
+            {
+                whereConditions += " AND (e.state IS NULL OR e.state != 'Đã gọi')";
+            }
+
             string query = $@"
-                SELECT 
-                    e.id,
-                    e.patient_id, 
-                    p.name, 
-                    p.address, 
-                    p.phone, 
-                    e.follow_up, 
-                    e.state,
-                    DATE_FORMAT(e.updated_at, '%d/%m/%Y %H:%i') AS updated_at
-                FROM examinations e
-                JOIN patients p ON e.patient_id = p.id
-                WHERE e.follow_up != 'Không' AND e.type = 'toa thuốc' and p.name LIKE '%{txb_search.Text}%'
-                ORDER BY e.updated_at DESC
-            ";
+        SELECT 
+            e.id, e.patient_id, p.name, p.address, p.phone,
+            e.follow_up, e.state,
+            DATE_FORMAT(e.updated_at, '%d/%m/%Y %H:%i') AS updated_at
+        FROM examinations e
+        JOIN patients p ON e.patient_id = p.id
+        WHERE {whereConditions}
+        ORDER BY e.created_at DESC
+    ";
 
             Db.cmd = new MySqlCommand(query, Db.conn);
             Db.dr = Db.cmd.ExecuteReader();
@@ -41,7 +73,7 @@ namespace QuanLyPhongKham
             while (Db.dr.Read())
             {
                 int i = dtgv.Rows.Add();
-                DataGridViewRow drr = dtgv.Rows[i];
+                var drr = dtgv.Rows[i];
                 drr.Cells["c_exam_id"].Value = Db.dr["id"];
                 drr.Cells["c_id"].Value = Db.dr["patient_id"];
                 drr.Cells["c_name"].Value = Db.dr["name"];
@@ -51,35 +83,34 @@ namespace QuanLyPhongKham
                 drr.Cells["c_followup_date"].Value = Db.dr["follow_up"];
                 drr.Cells["c_state"].Value = Db.dr["state"];
 
-                // Xử lý highlight cột follow_up theo ngày
+                // Highlight theo ngày
                 string followUpStr = Db.dr["follow_up"].ToString();
                 if (DateTime.TryParseExact(followUpStr, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime followUpDate))
                 {
+                    var cell = drr.Cells["c_followup_date"];
                     DateTime today = DateTime.Today;
                     TimeSpan diff = followUpDate.Date - today;
 
-                    var cell = drr.Cells["c_followup_date"];
                     cell.Style.ForeColor = Color.Black;
                     cell.Style.Font = new Font(dtgv.Font, FontStyle.Bold);
+
                     if (diff.Days == 0)
                     {
-                        // Hôm nay: đỏ nhạt
-                        cell.Style.BackColor = Color.FromArgb(255, 204, 204);
+                        cell.Style.BackColor = Color.FromArgb(255, 77, 77);
+                        cell.Style.ForeColor = Color.White;
                     }
                     else if (diff.Days > 0 && diff.Days <= 3)
                     {
-                        // Trong 3 ngày tới: vàng nhạt
-                        cell.Style.BackColor = Color.FromArgb(255, 255, 192);
+                        cell.Style.BackColor = Color.FromArgb(255, 215, 0);
                     }
                     else if (diff.Days < 0)
                     {
-                        // Trễ hẹn: cam nhạt
-                        cell.Style.BackColor = Color.FromArgb(255, 229, 204);
+                        cell.Style.BackColor = Color.FromArgb(153, 0, 76);
+                        cell.Style.ForeColor = Color.White;
                     }
-
                 }
 
-                // Xử lý trạng thái
+                // Trạng thái
                 string state = Db.dr["state"].ToString().Trim().ToLower();
                 if (state == "đã gọi")
                 {
@@ -94,10 +125,22 @@ namespace QuanLyPhongKham
             }
 
             Db.dr.Close();
-            Db.dr.Close();
         }
+
         private void frm_followup_Load(object sender, EventArgs e)
         {
+
+            cb_time.Items.AddRange(new string[] { "Tất cả", "Hôm nay", "Trong 3 ngày tới", "Đã trễ" });
+            cb_state.Items.AddRange(new string[] { "Tất cả", "Đã gọi", "Chưa gọi" });
+            cb_time.SelectedIndex = 0;
+            cb_state.SelectedIndex = 0;
+            lb_today.BackColor = Color.FromArgb(255, 77, 77);       // Hôm nay: đỏ
+            lb_3day.BackColor = Color.FromArgb(255, 215, 0);       // Trong 3 ngày: vàng
+            lb_late.BackColor = Color.FromArgb(153, 0, 76);        // Trễ hẹn: tím đậm
+            lb_today.ForeColor = Color.White;
+            lb_3day.ForeColor = Color.Black;
+            lb_late.ForeColor = Color.White;
+
             LoadDTGV();
         }
 
@@ -119,6 +162,16 @@ namespace QuanLyPhongKham
         {
             LoadDTGV();
 
+        }
+
+        private void cb_state_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadDTGV();
+        }
+
+        private void cb_time_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadDTGV();
         }
     }
 }
