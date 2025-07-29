@@ -465,17 +465,17 @@ namespace QuanLyPhongKham
 
                 // 3. Thêm phiếu khám
                 string queryExamination = $@"
-        INSERT INTO examinations (
-            id, patient_id, reason, diagnosis_id, doctor_note_id, note, 
-            pulse, blood_pressure, respiratory_rate, weight, height, temperature, 
-            type, follow_up, price, state, created_at, updated_at
-        ) 
-        VALUES (
-            NULL, 
-            @patient_id, @reason, @diagnosis_id, @doctor_note_id, @note,
-            @pulse, @blood_pressure, @respiratory_rate, @weight, @height, @temperature,
-            'chỉ định', NULL, @price, 'Chưa gọi', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP()
-        );";
+                    INSERT INTO examinations (
+                        id, patient_id, reason, diagnosis_id, doctor_note_id, note, 
+                        pulse, blood_pressure, respiratory_rate, weight, height, temperature, 
+                        type, follow_up, price, state, created_at, updated_at
+                    ) 
+                    VALUES (
+                        NULL, 
+                        @patient_id, @reason, @diagnosis_id, @doctor_note_id, @note,
+                        @pulse, @blood_pressure, @respiratory_rate, @weight, @height, @temperature,
+                        'chỉ định', NULL, @price, 'Chưa gọi', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP()
+                    );";
 
                 using (MySqlCommand cmdExam = new MySqlCommand(queryExamination, Db.conn))
                 {
@@ -669,9 +669,9 @@ namespace QuanLyPhongKham
             dtgv_patient_med.Rows[r].Cells["med_name_2"].Value = dtgv_med.Rows[e.RowIndex].Cells["med_name"].Value;
             dtgv_patient_med.Rows[r].Cells["note_2"].Value = dtgv_med.Rows[e.RowIndex].Cells["note"].Value;
             dtgv_patient_med.Rows[r].Cells["unit_2"].Value = dtgv_med.Rows[e.RowIndex].Cells["unit"].Value;
-            dtgv_patient_med.Rows[r].Cells["morning"].Value = "0";
-            dtgv_patient_med.Rows[r].Cells["afternoon"].Value = "0";
-            dtgv_patient_med.Rows[r].Cells["days_of_use"].Value = "0";
+            dtgv_patient_med.Rows[r].Cells["morning"].Value = "";
+            dtgv_patient_med.Rows[r].Cells["afternoon"].Value = "";
+            dtgv_patient_med.Rows[r].Cells["days_of_use"].Value = "";
         }
 
         private void dtgv_patient_med_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -707,57 +707,75 @@ namespace QuanLyPhongKham
             try
             {
                 string insertExaminationQuery = $@"
-    INSERT INTO `examinations` (
-        `id`, `patient_id`, `reason`, `diagnosis_id`, `doctor_note_id`, `note`,
-        `pulse`, `blood_pressure`, `respiratory_rate`, `weight`, `height`,
-        `temperature`, `type`, `follow_up`, `price`, `state`, `created_at`, `updated_at`
-    ) VALUES (
-        NULL,
-        '{txb_id.Text}',
-        NULL,
-        '{cbo_diagnoses.SelectedValue}',
-        '{cb_doctornote.SelectedValue}',
-        '{txb_note.Text}',
-        '{txb_pulse.Text}',
-        '{txb_blood_pressure.Text}',
-        '{txb_respiratory_rate.Text}',
-        '{txb_weight.Text}',
-        '{txb_height.Text}',
-        '{txb_temperature.Text}',
-        'toa thuốc',
-        '{txb_follow_up.Text}',
-        '{Convert.ToInt32(txb_total_price_med.Text.Replace(".", ""))}',
-        'Chưa gọi',
-        current_timestamp(),
-        current_timestamp()
-    );";
+                    INSERT INTO `examinations` (
+                        `id`, `patient_id`, `reason`, `diagnosis_id`, `doctor_note_id`, `note`,
+                        `pulse`, `blood_pressure`, `respiratory_rate`, `weight`, `height`,
+                        `temperature`, `type`, `follow_up`, `price`, `state`, `created_at`, `updated_at`
+                    ) VALUES (
+                        NULL,
+                        '{txb_id.Text}',
+                        NULL,
+                        '{cbo_diagnoses.SelectedValue}',
+                        '{cb_doctornote.SelectedValue}',
+                        '{txb_note.Text}',
+                        '{txb_pulse.Text}',
+                        '{txb_blood_pressure.Text}',
+                        '{txb_respiratory_rate.Text}',
+                        '{txb_weight.Text}',
+                        '{txb_height.Text}',
+                        '{txb_temperature.Text}',
+                        'toa thuốc',
+                        '{txb_follow_up.Text}',
+                        '{Convert.ToInt32(txb_total_price_med.Text.Replace(".", ""))}',
+                        'Chưa gọi',
+                        current_timestamp(),
+                        current_timestamp()
+                    );";
 
                 Db.ExecuteNonQuery(insertExaminationQuery);
 
                 string query = "";
                 foreach (DataGridViewRow row in dtgv_patient_med.Rows)
                 {
-                    if (row.IsNewRow) continue; // Bỏ qua dòng trống cuối
+                    if (row.IsNewRow) continue;
 
-                    query = $@"
-        INSERT INTO `examination_medications` (
-            `id`, `examination_id`, `medication_id`, `morning`, `afternoon`, `unit`,
-            `days_of_use`, `total_quantity_med`, `note`,
-            `created_at`, `updated_at`
-        ) VALUES (
-            NULL,
-            '{txb_exam_id.Text}',
-            '{Convert.ToInt16(row.Cells["id_med_2"].Value?.ToString())}',
-            '{row.Cells["morning"].Value?.ToString()}',
-            '{row.Cells["afternoon"].Value?.ToString()}',
-            '{row.Cells["unit_2"].Value?.ToString()}',
-            '{Convert.ToInt16(row.Cells["days_of_use"].Value?.ToString())}',
-            '{Convert.ToInt16(row.Cells["total_quantity"].Value?.ToString())}',
-            '{row.Cells["note_2"].Value?.ToString()}',
-            current_timestamp(),
-            current_timestamp()
-        );";
+                    string medId = row.Cells["id_med_2"].Value?.ToString()?.Trim();
+                    string morningStr = row.Cells["morning"].Value?.ToString()?.Trim();
+                    string afternoonStr = row.Cells["afternoon"].Value?.ToString()?.Trim();
+                    string unit = row.Cells["unit_2"].Value?.ToString()?.Trim();
+                    string note = row.Cells["note_2"].Value?.ToString()?.Trim();
 
+                    string dayStr = row.Cells["days_of_use"].Value?.ToString()?.Trim();
+                    string totalStr = row.Cells["total_quantity"].Value?.ToString()?.Trim();
+
+                    // Xử lý NULL an toàn cho các số nguyên
+                    string morning = string.IsNullOrEmpty(morningStr) ? "NULL" : morningStr;
+                    string afternoon = string.IsNullOrEmpty(afternoonStr) ? "NULL" : afternoonStr;
+                    string days_of_use = string.IsNullOrEmpty(dayStr) ? "NULL" : dayStr;
+                    string total_quantity = string.IsNullOrEmpty(totalStr) ? "NULL" : totalStr;
+
+                    // Escape các giá trị chuỗi để tránh lỗi nếu có dấu nháy đơn
+                    unit = unit?.Replace("'", "''");
+                    note = note?.Replace("'", "''");
+
+                     query = $@"
+                        INSERT INTO `examination_medications` (
+                            `id`, `examination_id`, `medication_id`, `morning`, `afternoon`, `unit`,
+                            `days_of_use`, `total_quantity_med`, `note`,
+                            `created_at`, `updated_at`
+                        ) VALUES (
+                            NULL,
+                            '{txb_exam_id.Text}',
+                            '{medId}',
+                            {morning},
+                            {afternoon},
+                            '{unit}',
+                            {days_of_use},
+                            {total_quantity},
+                            '{note}',
+                            current_timestamp(),
+                            current_timestamp()
+                        );";
                     Db.ExecuteNonQuery(query);
                 }
                 LoadExamID();
@@ -854,7 +872,7 @@ namespace QuanLyPhongKham
 
             var frm = new frm_report_med(
                 mabn, tenbn, ngaysinh, diachi, loidan,
-                chandoan, chandoanphu, ngaykham, // thêm chandoanphu vào đây
+                chandoan, chandoanphu, ngaykham, 
                 tongtien, sdt, thuoc, taikham, songaythuoc
             );
 
@@ -903,7 +921,7 @@ namespace QuanLyPhongKham
                 row.Cells["total_quantity"].Value = total_med > 0 ? (object)total_med : "";
             }
 
-         
+            maxDayOfUse = 0;
             foreach (DataGridViewRow r in dtgv_patient_med.Rows)
             {
                 if (r.IsNewRow) continue;
@@ -931,12 +949,17 @@ namespace QuanLyPhongKham
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 foreach (var rowData in frm.selectedMedications)
-                
                      dtgv_patient_med.Rows.Add(rowData);
-                UpdateMedicationSummary(); // Gọi bên trong IF
+                UpdateMedicationSummary(); 
 
             }
  
+
+        }
+
+        private void dtgv_med_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+
 
         }
     }
