@@ -50,9 +50,9 @@
             this.c2_examination_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.c2_medication_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.c2_medname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c2_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.c2_morning = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.c2_afternoon = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c2_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.c2_days_of_use = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.c2_total_quantity_med = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.c2_note = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -211,7 +211,7 @@
             this.dtgv_patient_medication.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtgv_patient_medication.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dtgv_patient_medication.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_patient_medication_CellClick);
-            this.dtgv_patient_medication.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_patient_medication_CellContentClick);
+         
             // 
             // c1_examination_id
             // 
@@ -259,9 +259,9 @@
             this.c2_examination_id,
             this.c2_medication_id,
             this.c2_medname,
+            this.c2_unit,
             this.c2_morning,
             this.c2_afternoon,
-            this.c2_unit,
             this.c2_days_of_use,
             this.c2_total_quantity_med,
             this.c2_note});
@@ -321,6 +321,12 @@
             this.c2_medname.Name = "c2_medname";
             this.c2_medname.Width = 300;
             // 
+            // c2_unit
+            // 
+            this.c2_unit.HeaderText = "ĐV";
+            this.c2_unit.Name = "c2_unit";
+            this.c2_unit.Width = 70;
+            // 
             // c2_morning
             // 
             this.c2_morning.HeaderText = "Sáng";
@@ -332,12 +338,6 @@
             this.c2_afternoon.HeaderText = "Chiều";
             this.c2_afternoon.Name = "c2_afternoon";
             this.c2_afternoon.Width = 50;
-            // 
-            // c2_unit
-            // 
-            this.c2_unit.HeaderText = "ĐV";
-            this.c2_unit.Name = "c2_unit";
-            this.c2_unit.Width = 70;
             // 
             // c2_days_of_use
             // 
@@ -395,9 +395,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn c2_examination_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn c2_medication_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn c2_medname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c2_unit;
         private System.Windows.Forms.DataGridViewTextBoxColumn c2_morning;
         private System.Windows.Forms.DataGridViewTextBoxColumn c2_afternoon;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c2_unit;
         private System.Windows.Forms.DataGridViewTextBoxColumn c2_days_of_use;
         private System.Windows.Forms.DataGridViewTextBoxColumn c2_total_quantity_med;
         private System.Windows.Forms.DataGridViewTextBoxColumn c2_note;

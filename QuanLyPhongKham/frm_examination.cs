@@ -833,7 +833,7 @@ namespace QuanLyPhongKham
                 if (morning > 0)
                     dosages.Add($"Sáng uống {morning:00} {unit}");
                 if (afternoon > 0)
-                    dosages.Add($"chiều uống {afternoon:00} {unit}");
+                    dosages.Add($"Chiều uống {afternoon:00} {unit}");
 
                 string dosageLine = string.Join(", ", dosages);
 
@@ -899,7 +899,8 @@ namespace QuanLyPhongKham
                 int.TryParse(row.Cells["morning"].Value?.ToString(), out morning);
                 int.TryParse(row.Cells["afternoon"].Value?.ToString(), out afternoon);
 
-                row.Cells["total_quantity"].Value = days_of_use * (morning + afternoon);
+                int total_med = days_of_use * (morning + afternoon);
+                row.Cells["total_quantity"].Value = total_med > 0 ? (object)total_med : "";
             }
 
             int maxDayOfUse = 0;
@@ -924,6 +925,7 @@ namespace QuanLyPhongKham
         private void btn_select_med_Click(object sender, EventArgs e)
         {
             frm_popupLUMedication frm = new frm_popupLUMedication();
+            dtgv_patient_med.Rows.Clear();
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 foreach (var rowData in frm.selectedMedications)

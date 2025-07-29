@@ -123,14 +123,14 @@ namespace QuanLyPhongKham
 
                 object[] rowData = new object[]
                 {
-        row.Cells["c2_medication_id"].Value,
-        row.Cells["c2_medname"].Value,
-        row.Cells["c2_morning"].Value,
-        row.Cells["c2_afternoon"].Value,
-        row.Cells["c2_unit"].Value,
-        row.Cells["c2_days_of_use"].Value,
-        row.Cells["c2_total_quantity_med"].Value,
-        row.Cells["c2_note"].Value
+                    row.Cells["c2_medication_id"].Value,
+                    row.Cells["c2_medname"].Value,
+                    row.Cells["c2_unit"].Value,
+                    row.Cells["c2_morning"].Value,
+                    row.Cells["c2_afternoon"].Value,
+                    row.Cells["c2_days_of_use"].Value,
+                    row.Cells["c2_total_quantity_med"].Value,
+                    row.Cells["c2_note"].Value
                 };
 
                 selectedMedications.Add(rowData);
@@ -141,9 +141,6 @@ namespace QuanLyPhongKham
 
         }
 
-        private void dtgv_patient_medication_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
-        }
     }
 }
