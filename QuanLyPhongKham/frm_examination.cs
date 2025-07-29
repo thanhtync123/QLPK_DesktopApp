@@ -490,7 +490,7 @@ namespace QuanLyPhongKham
                     cmdExam.Parameters.AddWithValue("@weight", txb_weight.Text.Trim());
                     cmdExam.Parameters.AddWithValue("@height", txb_height.Text.Trim());
                     cmdExam.Parameters.AddWithValue("@temperature", txb_temperature.Text.Trim());
-                    cmdExam.Parameters.AddWithValue("@price", lb_total_price_service.Text.Replace(",", "").Replace(" đ", "").Trim());
+                    cmdExam.Parameters.AddWithValue("@price", lb_total_price_service.Text.Replace(".", "").Replace(" đ", "").Trim());
 
                     cmdExam.ExecuteNonQuery();
                 }
@@ -533,6 +533,8 @@ namespace QuanLyPhongKham
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi: " + ex.Message);
+               
+                
             }
             finally
             {
@@ -960,6 +962,16 @@ namespace QuanLyPhongKham
         private void dtgv_med_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
 
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtgv_service_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }
