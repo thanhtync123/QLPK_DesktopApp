@@ -20,26 +20,10 @@ namespace QuanLyPhongKham
 
         private void frm_followup_Load(object sender, EventArgs e)
         {
-            MessageBox.Show("Đang sửa chữa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Db.ResetConnection();
-            string query = $@"SELECT 
-                            p.id, 
-                            p.name, 
-                            p.address, 
-                            p.phone, 
-                          DATE_FORMAT(em.updated_at, '%d/%m/%Y %H:%i:%s') as updated_at,
+            string query = $@"
 
-                            em.follow_up, 
-                            em.state 
-                        FROM 
-                            patients p, 
-                            examination_medications em, 
-                            examinations e 
-                        WHERE 
-                            p.id = e.patient_id 
-                            AND em.examination_id = e.id 
-                        GROUP BY 
-                            em.examination_id;
+
                         ";
             Db.cmd = new MySqlCommand(query, Db.conn);
             Db.dr = Db.cmd.ExecuteReader();

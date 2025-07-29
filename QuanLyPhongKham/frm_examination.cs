@@ -903,7 +903,7 @@ namespace QuanLyPhongKham
                 row.Cells["total_quantity"].Value = total_med > 0 ? (object)total_med : "";
             }
 
-            int maxDayOfUse = 0;
+         
             foreach (DataGridViewRow r in dtgv_patient_med.Rows)
             {
                 if (r.IsNewRow) continue;
@@ -918,6 +918,8 @@ namespace QuanLyPhongKham
             lb_dayofuse.Text = maxDayOfUse + "";
             int total = 50000 * maxDayOfUse;
             txb_total_price_med.Text = total.ToString("#,##0");
+            txb_follow_up.Text = DateTime.Today.AddDays(maxDayOfUse).ToString("dd/MM/yyyy");
+
 
             Update_FollowUpDate();
         }
