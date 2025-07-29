@@ -15,7 +15,8 @@ namespace QuanLyPhongKham
         [STAThread]
         static void Main()
         {
-
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("vi-VN");
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("vi-VN");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
