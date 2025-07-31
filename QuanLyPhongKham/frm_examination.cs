@@ -191,11 +191,9 @@ namespace QuanLyPhongKham
             LoadGrid();
             LoadComboboxDiagnoses();
             LoadComboboxDoctorNote();
-
             LoadDTGV_Service();
             LoadDTGV_Med();
             Update_FollowUpDate();
-
             cbo_diagnoses.SelectedIndex = 0;
 
 
@@ -208,7 +206,7 @@ namespace QuanLyPhongKham
         {
             LoadExamID();
             id = Convert.ToInt32(dtgv_patients.CurrentRow.Cells["ID"].Value);
-            selectedPatientId = id; // Lưu ID bệnh nhân hiện tại để khôi phục sau khi reload
+            selectedPatientId = id;
             txb_name.Text = dtgv_patients.CurrentRow.Cells["name"].Value.ToString();
             txb_id.Text = id.ToString();
             txb_ngaysinh.Text = dtgv_patients.CurrentRow.Cells["date_of_birth"].Value.ToString();
@@ -225,7 +223,7 @@ namespace QuanLyPhongKham
             txb_height.Text = dtgv_patients.CurrentRow.Cells["height"].Value.ToString();
             txb_temperature.Text = dtgv_patients.CurrentRow.Cells["temperature"].Value.ToString();
             if (dtgv_patients.CurrentRow.Cells["last_diagnoses_id"].Value == null || dtgv_patients.CurrentRow.Cells["last_diagnoses_id"].Value == DBNull.Value)
-                cbo_diagnoses.SelectedIndex = -1; // Nếu không có giá trị thì bỏ chọn
+                cbo_diagnoses.SelectedIndex = -1;
             else cbo_diagnoses.SelectedValue = dtgv_patients.CurrentRow.Cells["last_diagnoses_id"].Value.ToString();
 
 
@@ -242,7 +240,7 @@ namespace QuanLyPhongKham
         {
             string query = "SELECT id, name FROM diagnoses order by name asc";
             Db.LoadComboBoxData(cbo_diagnoses, query, "name", "id");
-            cbo_diagnoses.SelectedIndex = 0;  // Chọn phần tử đầu tiên sau khi load dữ liệu
+            cbo_diagnoses.SelectedIndex = 0;
         }
 
 
@@ -743,11 +741,6 @@ namespace QuanLyPhongKham
             if (txb_name.Text == "")
             {
                 MessageBox.Show("Vui lòng điền đầy đủ thông tin bệnh nhân và phiếu khám!");
-                return;
-            }
-            if (cbo_diagnoses.SelectedIndex == -1)
-            {
-                MessageBox.Show("Vui lòng chọn chẩn đoán cho!");
                 return;
             }
             if (dtgv_patient_med.Rows.Count == 1)

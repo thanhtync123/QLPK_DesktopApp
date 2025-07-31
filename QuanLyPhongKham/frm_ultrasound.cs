@@ -822,5 +822,49 @@ namespace QuanLyPhongKham
                 dtgv_service.Rows.Clear();
             }
         }
+
+        private void btn_delimg1_Click(object sender, EventArgs e)
+        {
+            if (pb_1.Image != null)
+            {
+                pb_1.Image.Dispose();
+                pb_1.Image = null;
+                imageUrl1 = null;
+                if (snapCount > 0) snapCount--;
+            }
+        }
+
+        private void btn_delimg2_Click(object sender, EventArgs e)
+        {
+            if (pb_2.Image != null)
+            {
+                pb_2.Image.Dispose();
+                pb_2.Image = null;
+                imageUrl2 = null;
+                if (snapCount > 0) snapCount--;
+            }
+        }
+
+        private void btn_delimg3_Click(object sender, EventArgs e)
+        {
+            if (pb_3.Image != null)
+            {
+                pb_3.Image.Dispose();
+                pb_3.Image = null;
+                imageUrl3 = null;
+                if (snapCount > 0) snapCount--;
+            }
+        }
+
+        private void btn_delimg4_Click(object sender, EventArgs e)
+        {
+            if (pb_4.Image != null)
+            {
+                pb_4.Image.Dispose();
+                pb_4.Image = null;
+                imageUrl4 = null;
+                if (snapCount > 0) snapCount--;
+            }
+        }
     }
 }
