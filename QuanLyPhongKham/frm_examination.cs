@@ -194,7 +194,7 @@ namespace QuanLyPhongKham
             LoadDTGV_Service();
             LoadDTGV_Med();
             Update_FollowUpDate();
-            cbo_diagnoses.SelectedIndex = 0;
+
 
 
 
@@ -223,7 +223,7 @@ namespace QuanLyPhongKham
             txb_height.Text = dtgv_patients.CurrentRow.Cells["height"].Value.ToString();
             txb_temperature.Text = dtgv_patients.CurrentRow.Cells["temperature"].Value.ToString();
             if (dtgv_patients.CurrentRow.Cells["last_diagnoses_id"].Value == null || dtgv_patients.CurrentRow.Cells["last_diagnoses_id"].Value == DBNull.Value)
-                cbo_diagnoses.SelectedIndex = -1;
+                cbo_diagnoses.SelectedIndex = 0;
             else cbo_diagnoses.SelectedValue = dtgv_patients.CurrentRow.Cells["last_diagnoses_id"].Value.ToString();
 
 
