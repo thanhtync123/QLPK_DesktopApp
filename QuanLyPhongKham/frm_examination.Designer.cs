@@ -151,6 +151,7 @@
             this.txb_weight = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.cb_doctornote = new System.Windows.Forms.ComboBox();
+            this.lb_d0 = new System.Windows.Forms.Label();
             this.guna2TabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_patient_med)).BeginInit();
@@ -783,7 +784,7 @@
             this.tabPage2.Location = new System.Drawing.Point(184, 4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1344, 612);
+            this.tabPage2.Size = new System.Drawing.Size(1283, 612);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Chỉ định Cận lâm sàng";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -1558,6 +1559,15 @@
             this.cb_doctornote.Size = new System.Drawing.Size(434, 29);
             this.cb_doctornote.TabIndex = 48;
             // 
+            // lb_d0
+            // 
+            this.lb_d0.AutoSize = true;
+            this.lb_d0.Location = new System.Drawing.Point(647, 121);
+            this.lb_d0.Name = "lb_d0";
+            this.lb_d0.Size = new System.Drawing.Size(41, 13);
+            this.lb_d0.TabIndex = 49;
+            this.lb_d0.Text = "label14";
+            // 
             // frm_examination
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1565,6 +1575,7 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(230)))));
             this.ClientSize = new System.Drawing.Size(1386, 788);
+            this.Controls.Add(this.lb_d0);
             this.Controls.Add(this.cb_doctornote);
             this.Controls.Add(this.label25);
             this.Controls.Add(this.txb_weight);
@@ -1721,5 +1732,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn price;
         private System.Windows.Forms.DataGridViewTextBoxColumn note;
         private System.Windows.Forms.DataGridViewTextBoxColumn add_med;
+        private System.Windows.Forms.Label lb_d0;
     }
 }

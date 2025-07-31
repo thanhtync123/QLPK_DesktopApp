@@ -194,6 +194,8 @@ namespace QuanLyPhongKham
             LoadDTGV_Service();
             LoadDTGV_Med();
             Update_FollowUpDate();
+            lb_d0.Text = "";
+           
 
 
 
@@ -223,12 +225,18 @@ namespace QuanLyPhongKham
             txb_height.Text = dtgv_patients.CurrentRow.Cells["height"].Value.ToString();
             txb_temperature.Text = dtgv_patients.CurrentRow.Cells["temperature"].Value.ToString();
             if (dtgv_patients.CurrentRow.Cells["last_diagnoses_id"].Value == null || dtgv_patients.CurrentRow.Cells["last_diagnoses_id"].Value == DBNull.Value)
-                cbo_diagnoses.SelectedIndex = 0;
-            else cbo_diagnoses.SelectedValue = dtgv_patients.CurrentRow.Cells["last_diagnoses_id"].Value.ToString();
+                cbo_diagnoses.SelectedIndex = 0; 
+            else
+                cbo_diagnoses.SelectedValue = dtgv_patients.CurrentRow.Cells["last_diagnoses_id"].Value.ToString();
+            var idVal = dtgv_patients.CurrentRow.Cells["last_diagnoses_id"].Value;
+            var nameVal = dtgv_patients.CurrentRow.Cells["last_diagnoses_name"].Value;
+            if (idVal != null && idVal != DBNull.Value && (nameVal == null || nameVal == DBNull.Value || nameVal.ToString().Trim() == ""))
+                lb_d0.Text = "Lần khám trước: Tên chẩn đoán được bỏ trống";
+            else lb_d0.Text = "";
+            
 
 
         }
-        //1
         private void LoadComboboxDoctorNote()
         {
 
