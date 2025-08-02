@@ -727,7 +727,7 @@
             this.dtgv_med.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtgv_med.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dtgv_med.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_med_CellClick_1);
-            this.dtgv_med.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dtgv_med_CellFormatting);
+    
             // 
             // id_med
             // 
@@ -1065,7 +1065,7 @@
             this.dtgv_service.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtgv_service.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dtgv_service.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_service_CellClick);
-            this.dtgv_service.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_service_CellContentClick);
+       
             // 
             // id_service
             // 

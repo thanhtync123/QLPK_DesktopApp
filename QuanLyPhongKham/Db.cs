@@ -11,8 +11,8 @@ namespace QuanLyPhongKham
     public static class Db
     {
 
-      // public static string connectionString = "Server=localhost;Database=clinic_db2;Uid=root;Pwd=;";
-       public static string connectionString = "Server=192.168.2.100;Database=clinic_db2;Uid=root;Pwd=123456;";
+       public static string connectionString = "Server=localhost;Database=clinic_db2;Uid=root;Pwd=;";
+      // public static string connectionString = "Server=192.168.2.100;Database=clinic_db2;Uid=root;Pwd=123456;";
 
         public static MySqlConnection conn = new MySqlConnection(connectionString);
         public static MySqlCommand cmd;
@@ -23,10 +23,23 @@ namespace QuanLyPhongKham
         }
         public static void ResetConnection()
         {
+            // Nếu connection chưa khởi tạo
+            if (conn == null)
+            {
+                conn = new MySqlConnection(connectionString);
+            }
+
+            // Nếu connection đã mở → đóng lại
             if (conn.State == ConnectionState.Open)
+            {
                 conn.Close();
+            }
+
+            // Nếu connection đã đóng hoặc chưa mở → mở ra
             if (conn.State != ConnectionState.Open)
+            {
                 conn.Open();
+            }
 
         }
         public static void LoadComboBoxData(ComboBox comboBox, string query, string displayMember, string valueMember)
@@ -149,18 +162,18 @@ namespace QuanLyPhongKham
         {
             try
             {
-                ResetConnection();
-                using (MySqlCommand cmd = new MySqlCommand(query, conn))
-                {
-                    cmd.ExecuteNonQuery();
-                }
-                conn.Close();
+                if (conn.State != ConnectionState.Open)
+                    conn.Open(); // ← Đảm bảo mở kết nối
+
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi SQL: " + ex.Message);
+                MessageBox.Show("Lỗi ExecuteNonQuery: " + ex.Message);
             }
         }
+
 
 
     }
