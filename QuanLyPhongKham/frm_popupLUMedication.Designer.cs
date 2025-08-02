@@ -114,6 +114,7 @@
             this.btn_delete.TabIndex = 9;
             this.btn_delete.Text = "   Xóa";
             this.btn_delete.UseVisualStyleBackColor = true;
+            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
             // 
             // guna2ImageButton1
             // 

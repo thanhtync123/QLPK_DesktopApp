@@ -39,6 +39,7 @@
             this.btn_choose = new System.Windows.Forms.Button();
             this.dtgv_exam_service = new Guna.UI2.WinForms.Guna2DataGridView();
             this.dtgv_detail = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.btn_delete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_exam_service)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_detail)).BeginInit();
             this.SuspendLayout();
@@ -52,7 +53,7 @@
             this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton1.ImageRotate = 0F;
             this.guna2ImageButton1.ImageSize = new System.Drawing.Size(20, 20);
-            this.guna2ImageButton1.Location = new System.Drawing.Point(315, 17);
+            this.guna2ImageButton1.Location = new System.Drawing.Point(413, 17);
             this.guna2ImageButton1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2ImageButton1.Name = "guna2ImageButton1";
             this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(64, 64);
@@ -83,7 +84,7 @@
             // btn_choose
             // 
             this.btn_choose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_choose.Location = new System.Drawing.Point(304, 12);
+            this.btn_choose.Location = new System.Drawing.Point(402, 12);
             this.btn_choose.Name = "btn_choose";
             this.btn_choose.Size = new System.Drawing.Size(160, 36);
             this.btn_choose.TabIndex = 27;
@@ -192,10 +193,22 @@
             this.dtgv_detail.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtgv_detail.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
+            // btn_delete
+            // 
+            this.btn_delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_delete.Location = new System.Drawing.Point(295, 12);
+            this.btn_delete.Name = "btn_delete";
+            this.btn_delete.Size = new System.Drawing.Size(101, 36);
+            this.btn_delete.TabIndex = 32;
+            this.btn_delete.Text = "Xóa";
+            this.btn_delete.UseVisualStyleBackColor = true;
+            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
+            // 
             // frm_popupLUService
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1361, 557);
+            this.Controls.Add(this.btn_delete);
             this.Controls.Add(this.dtgv_detail);
             this.Controls.Add(this.dtgv_exam_service);
             this.Controls.Add(this.guna2ImageButton1);
@@ -216,5 +229,6 @@
         private System.Windows.Forms.Button btn_choose;
         private Guna.UI2.WinForms.Guna2DataGridView dtgv_exam_service;
         private Guna.UI2.WinForms.Guna2DataGridView dtgv_detail;
+        private System.Windows.Forms.Button btn_delete;
     }
 }

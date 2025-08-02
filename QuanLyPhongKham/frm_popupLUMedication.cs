@@ -24,6 +24,7 @@ namespace QuanLyPhongKham
         private void frm_popupLUMedication_Load(object sender, EventArgs e)
         {
             LoadDTGV_Patient_Medication();
+            btn_delete.Enabled = false;
         }
         private void LoadDTGV_Patient_Medication()
         {
@@ -64,20 +65,21 @@ namespace QuanLyPhongKham
         {
             LoadDTGV_Patient_Medication();
         }
-
+        int id_exam = 0;
         private void dtgv_patient_medication_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int id_exam = Convert.ToInt32(dtgv_patient_medication.CurrentRow.Cells["c1_examination_id"].Value);
+            btn_delete.Enabled = true;
+            id_exam = Convert.ToInt32(dtgv_patient_medication.CurrentRow.Cells["c1_examination_id"].Value);
 
             Db.ResetConnection();
             string query = $@"
-                SELECT 
+               SELECT 
                 em.id AS id,
                 em.examination_id AS examination_id,
                 m.id AS med_id,
                 m.name,
-                em.morning,
-                em.afternoon,
+                REPLACE(CAST(em.morning AS CHAR), '.', ',') AS morning,
+                REPLACE(CAST(em.afternoon AS CHAR), '.', ',') AS afternoon,
                 em.unit,
                 em.days_of_use,
                 em.total_quantity_med,
@@ -88,7 +90,6 @@ namespace QuanLyPhongKham
                 em.examination_id = e.id
                 AND em.medication_id = m.id
                 AND em.examination_id = {id_exam}
-
             ";
             Db.cmd = new MySqlCommand(query, Db.conn);
             Db.dr = Db.cmd.ExecuteReader();
@@ -101,8 +102,8 @@ namespace QuanLyPhongKham
                 drr.Cells["c2_examination_id"].Value = Db.dr["examination_id"];
                 drr.Cells["c2_medication_id"].Value = Db.dr["med_id"];
                 drr.Cells["c2_medname"].Value = Db.dr["name"];
-                drr.Cells["c2_morning"].Value = Db.dr["morning"];
-                drr.Cells["c2_afternoon"].Value = Db.dr["afternoon"];
+                drr.Cells["c2_morning"].Value = Db.dr["morning"].ToString().Replace(".", ",");
+                drr.Cells["c2_afternoon"].Value = Db.dr["afternoon"].ToString().Replace(".", ",");
                 drr.Cells["c2_unit"].Value = Db.dr["unit"];
                 drr.Cells["c2_days_of_use"].Value = Db.dr["days_of_use"];
                 drr.Cells["c2_total_quantity_med"].Value = Db.dr["total_quantity_med"];
@@ -141,6 +142,37 @@ namespace QuanLyPhongKham
 
         }
 
+        private void btn_delete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var result = MessageBox.Show("Bạn có chắc chắn muốn xóa toa thuốc này không?",
+                            "Xác nhận xóa",
+                            MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Question);
+
+
+                if (result == DialogResult.Yes)
+                {
+                    string query = $@"
+                DELETE FROM examinations
+                WHERE id = {id_exam}";
+                    Db.ExecuteNonQuery(query);
+
+                    // Gợi ý: có thể ẩn/đóng form hoặc làm mới dữ liệu
+                    // this.Close(); // nếu muốn đóng
+                    // hoặc chỉ làm mới grid cha
+
+                    LoadDTGV_Patient_Medication();
+                    dtgv_detail.Rows.Clear(); // Xóa dữ liệu cũ trong DataGridView chi tiết
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi xóa: " + ex.Message);
+            }
+        }
 
     }
 }

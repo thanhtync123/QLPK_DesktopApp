@@ -21,25 +21,35 @@ namespace QuanLyPhongKham
 
         private void frm_popupLUService_Load(object sender, EventArgs e)
         {
+            btn_delete.Enabled = false;
+            LoadDTGV_Patient_Service(); 
+
+
+        }
+        private void LoadDTGV_Patient_Service()
+        {
             string sql = $@"SELECT 
-                            e.id AS 'Mã phiếu khám',
-                            p.id AS 'Mã BN',
-                            p.name AS 'Tên BN',
-                            MIN(DATE_FORMAT(e.updated_at, '%d/%m/%Y %H:%i:%s')) AS 'Ngày cấp dịch vụ'
-                        FROM examinations e
-                        JOIN patients p ON e.patient_id = p.id
-                        JOIN examination_services es ON e.id = es.examination_id
-                        JOIN services s ON es.service_id = s.id
-                        GROUP BY e.id, p.id, p.name
-                        ORDER BY e.id DESC;
+                e.id AS 'Mã phiếu khám',
+                p.id AS 'Mã BN',
+                p.name AS 'Tên BN',
+                MIN(DATE_FORMAT(e.updated_at, '%d/%m/%Y %H:%i:%s')) AS 'Ngày cấp dịch vụ'
+            FROM examinations e
+            JOIN patients p ON e.patient_id = p.id
+            JOIN examination_services es ON e.id = es.examination_id
+            JOIN services s ON es.service_id = s.id
+            WHERE e.type = 'chỉ định'
+            GROUP BY e.id, p.id, p.name
+            ORDER BY e.id DESC;
+
                         ";
             Db.LoadDTGV(dtgv_exam_service, sql);
             dtgv_exam_service.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-
         }
+        int id = 0;
         private void dtgv_exam_service_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            var id = dtgv_exam_service.Rows[e.RowIndex].Cells[0].Value.ToString();
+            btn_delete.Enabled = true;
+             id = Convert.ToInt16(dtgv_exam_service.Rows[e.RowIndex].Cells[0].Value.ToString());
             string sql = $@"SELECT s.id as 'Mã CĐ',s.name as 'Tên chỉ định',s.price as 'Giá'
                         FROM examinations e, services s, examination_services es
                         WHERE s.id = es.service_id
@@ -79,6 +89,34 @@ namespace QuanLyPhongKham
                     
                         ";
             Db.LoadDTGV(dtgv_exam_service, sql);
+        }
+
+        private void btn_delete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var result = MessageBox.Show("Bạn có chắc chắn muốn xóa toa thuốc này không?",
+                            "Xác nhận xóa",
+                            MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Question);
+
+
+                if (result == DialogResult.Yes)
+                {
+                    string query = $@"
+                DELETE FROM examinations
+                WHERE id = {id}";
+                    Db.ExecuteNonQuery(query);
+                    LoadDTGV_Patient_Service();
+                    dtgv_detail.DataSource = null;
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi xóa: " + ex.Message);
+            }
         }
     }
 }

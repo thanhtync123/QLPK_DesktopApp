@@ -70,9 +70,8 @@ namespace QuanLyPhongKham
         private void UpdateSTT()
         {
             for (int i = 0; i < dtgv_service_patient.Rows.Count; i++)
-            {
                 dtgv_service_patient.Rows[i].Cells["STT"].Value = i + 1;
-            }
+
         }
         private void LoadGrid()
         {
@@ -166,10 +165,9 @@ namespace QuanLyPhongKham
 
                 // Tô màu cả dòng theo giá trị state
                 if (state == "Mới đăng ký")
-                {
                     row.DefaultCellStyle.BackColor = Color.LightGreen;
-     
-                }
+
+
 
             }
 
@@ -195,12 +193,6 @@ namespace QuanLyPhongKham
             LoadDTGV_Med();
             Update_FollowUpDate();
             lb_d0.Text = "";
-           
-
-
-
-
-
 
         }
 
@@ -225,7 +217,7 @@ namespace QuanLyPhongKham
             txb_height.Text = dtgv_patients.CurrentRow.Cells["height"].Value.ToString();
             txb_temperature.Text = dtgv_patients.CurrentRow.Cells["temperature"].Value.ToString();
             if (dtgv_patients.CurrentRow.Cells["last_diagnoses_id"].Value == null || dtgv_patients.CurrentRow.Cells["last_diagnoses_id"].Value == DBNull.Value)
-                cbo_diagnoses.SelectedIndex = 0; 
+                cbo_diagnoses.SelectedIndex = 0;
             else
                 cbo_diagnoses.SelectedValue = dtgv_patients.CurrentRow.Cells["last_diagnoses_id"].Value.ToString();
             var idVal = dtgv_patients.CurrentRow.Cells["last_diagnoses_id"].Value;
@@ -233,7 +225,7 @@ namespace QuanLyPhongKham
             if (idVal != null && idVal != DBNull.Value && (nameVal == null || nameVal == DBNull.Value || nameVal.ToString().Trim() == ""))
                 lb_d0.Text = "Lần khám trước: Tên chẩn đoán được bỏ trống";
             else lb_d0.Text = "";
-            
+
 
 
         }
@@ -819,12 +811,22 @@ namespace QuanLyPhongKham
                     if (row.IsNewRow) continue;
 
                     string medId = row.Cells["id_med_2"].Value?.ToString()?.Trim();
-                    string morning = string.IsNullOrEmpty(row.Cells["morning"].Value?.ToString()) ? "NULL" : row.Cells["morning"].Value.ToString();
-                    string afternoon = string.IsNullOrEmpty(row.Cells["afternoon"].Value?.ToString()) ? "NULL" : row.Cells["afternoon"].Value.ToString();
+                    string morning = string.IsNullOrEmpty(row.Cells["morning"].Value?.ToString())
+                      ? "NULL"
+                      : row.Cells["morning"].Value.ToString().Replace(",", ".");
+
+                    string afternoon = string.IsNullOrEmpty(row.Cells["afternoon"].Value?.ToString())
+                        ? "NULL"
+                        : row.Cells["afternoon"].Value.ToString().Replace(",", ".");
+
+                    string total = string.IsNullOrEmpty(row.Cells["total_quantity"].Value?.ToString())
+                        ? "NULL"
+                        : row.Cells["total_quantity"].Value.ToString().Replace(",", ".");
+
                     string unit = row.Cells["unit_2"].Value?.ToString()?.Replace("'", "''");
                     string note = row.Cells["note_2"].Value?.ToString()?.Replace("'", "''");
                     string days = string.IsNullOrEmpty(row.Cells["days_of_use"].Value?.ToString()) ? "NULL" : row.Cells["days_of_use"].Value.ToString();
-                    string total = string.IsNullOrEmpty(row.Cells["total_quantity"].Value?.ToString()) ? "NULL" : row.Cells["total_quantity"].Value.ToString();
+
 
                     string insertMed = $@"
             INSERT INTO `examination_medications` (
@@ -855,13 +857,6 @@ namespace QuanLyPhongKham
             {
                 MessageBox.Show("Đã xảy ra lỗi:\n" + ex.Message);
             }
-
-
-
-
-
-
-
 
         }
         private void Update_FollowUpDate()
@@ -990,8 +985,13 @@ namespace QuanLyPhongKham
                 float.TryParse(row.Cells["afternoon"].Value?.ToString(), out afternoon);
 
                 float total_med = days_of_use * (morning + afternoon);
-                row.Cells["total_quantity"].Value = total_med > 0 ? (object)total_med : "";
+                float total_rounded = (float)Math.Ceiling(total_med);
+
+                row.Cells["total_quantity"].Value = total_med > 0
+                    ? total_rounded.ToString("0")
+                    : "";
             }
+
 
             maxDayOfUse = 0;
             foreach (DataGridViewRow r in dtgv_patient_med.Rows)
@@ -1028,6 +1028,28 @@ namespace QuanLyPhongKham
 
 
         }
+
+        private void dtgv_patient_med_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            if (dtgv_patient_med.CurrentCell.ColumnIndex == dtgv_patient_med.Columns["morning"].Index ||
+                dtgv_patient_med.CurrentCell.ColumnIndex == dtgv_patient_med.Columns["afternoon"].Index)
+
+                if (e.Control is System.Windows.Forms.TextBox tb)
+                {
+                    tb.KeyPress -= textBox1_KeyPress;
+                    tb.KeyPress += textBox1_KeyPress;
+                }
+
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != ',')
+                e.Handled = true;
+            if (e.KeyChar == ',' && (sender as System.Windows.Forms.TextBox).Text.Contains(','))
+                e.Handled = true;
+        }
+
 
     }
 }
