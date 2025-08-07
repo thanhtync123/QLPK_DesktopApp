@@ -93,7 +93,7 @@
             this.dtgv.Location = new System.Drawing.Point(22, 109);
             this.dtgv.Name = "dtgv";
             this.dtgv.RowHeadersVisible = false;
-            this.dtgv.Size = new System.Drawing.Size(1198, 487);
+            this.dtgv.Size = new System.Drawing.Size(1520, 487);
             this.dtgv.TabIndex = 0;
             this.dtgv.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgv.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -240,6 +240,7 @@
             // 
             this.c_diagnoses.HeaderText = "Chẩn đoán";
             this.c_diagnoses.Name = "c_diagnoses";
+            this.c_diagnoses.Width = 300;
             // 
             // c_day_create
             // 

@@ -303,7 +303,9 @@ namespace QuanLyPhongKham
                 drr.Cells["note"].Value = Db.dr["note"];
                 drr.Cells["unit"].Value = Db.dr["unit"];
                 drr.Cells["add_med"].Value = "+";
+                drr.Cells["add_med"].Style.Font = new Font("Times New Roman", 22, FontStyle.Bold);
             }
+
             Db.dr.Close();
         }
 
