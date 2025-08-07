@@ -59,10 +59,11 @@ namespace QuanLyPhongKham
             string query = $@"
         SELECT 
             e.id, e.patient_id, p.name, p.address, p.phone,
-            e.follow_up, e.state,
+            e.follow_up, e.state,d.name AS diagnosis_name,
             DATE_FORMAT(e.updated_at, '%d/%m/%Y %H:%i') AS updated_at
         FROM examinations e
         JOIN patients p ON e.patient_id = p.id
+        JOIN diagnoses d ON e.diagnosis_id = d.id
         WHERE {whereConditions}
         ORDER BY e.created_at DESC
     ";
@@ -79,6 +80,7 @@ namespace QuanLyPhongKham
                 drr.Cells["c_name"].Value = Db.dr["name"];
                 drr.Cells["c_address"].Value = Db.dr["address"];
                 drr.Cells["c_phone"].Value = Db.dr["phone"];
+                drr.Cells["c_diagnoses"].Value = Db.dr["diagnosis_name"];
                 drr.Cells["c_day_create"].Value = Db.dr["updated_at"];
                 drr.Cells["c_followup_date"].Value = Db.dr["follow_up"];
                 drr.Cells["c_state"].Value = Db.dr["state"];

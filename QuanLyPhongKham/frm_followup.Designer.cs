@@ -32,15 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dtgv = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.c_exam_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_address = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_day_create = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_followup_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_state = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_action = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txb_search = new System.Windows.Forms.TextBox();
             this.cb_time = new System.Windows.Forms.ComboBox();
             this.cb_state = new System.Windows.Forms.ComboBox();
@@ -50,6 +41,16 @@
             this.lb_today = new System.Windows.Forms.Label();
             this.lb_3day = new System.Windows.Forms.Label();
             this.lb_late = new System.Windows.Forms.Label();
+            this.c_exam_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_diagnoses = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_day_create = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_followup_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_state = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_action = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,6 +76,7 @@
             this.c_name,
             this.c_address,
             this.c_phone,
+            this.c_diagnoses,
             this.c_day_create,
             this.c_followup_date,
             this.c_state,
@@ -91,7 +93,7 @@
             this.dtgv.Location = new System.Drawing.Point(22, 109);
             this.dtgv.Name = "dtgv";
             this.dtgv.RowHeadersVisible = false;
-            this.dtgv.Size = new System.Drawing.Size(1164, 487);
+            this.dtgv.Size = new System.Drawing.Size(1198, 487);
             this.dtgv.TabIndex = 0;
             this.dtgv.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgv.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -115,57 +117,6 @@
             this.dtgv.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtgv.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dtgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_CellClick);
-            // 
-            // c_exam_id
-            // 
-            this.c_exam_id.HeaderText = "Mã PK";
-            this.c_exam_id.Name = "c_exam_id";
-            this.c_exam_id.Visible = false;
-            // 
-            // c_id
-            // 
-            this.c_id.HeaderText = "Mã BN";
-            this.c_id.Name = "c_id";
-            this.c_id.Width = 50;
-            // 
-            // c_name
-            // 
-            this.c_name.HeaderText = "Họ tên ";
-            this.c_name.Name = "c_name";
-            this.c_name.Width = 200;
-            // 
-            // c_address
-            // 
-            this.c_address.HeaderText = "Địa chỉ";
-            this.c_address.Name = "c_address";
-            this.c_address.Width = 240;
-            // 
-            // c_phone
-            // 
-            this.c_phone.HeaderText = "SĐT";
-            this.c_phone.Name = "c_phone";
-            // 
-            // c_day_create
-            // 
-            this.c_day_create.HeaderText = "Ngày khám";
-            this.c_day_create.Name = "c_day_create";
-            this.c_day_create.Width = 200;
-            // 
-            // c_followup_date
-            // 
-            this.c_followup_date.HeaderText = "Ngày tái khám";
-            this.c_followup_date.Name = "c_followup_date";
-            this.c_followup_date.Width = 147;
-            // 
-            // c_state
-            // 
-            this.c_state.HeaderText = "Trạng thái";
-            this.c_state.Name = "c_state";
-            // 
-            // c_action
-            // 
-            this.c_action.HeaderText = "Thao tác";
-            this.c_action.Name = "c_action";
             // 
             // txb_search
             // 
@@ -256,10 +207,66 @@
             this.lb_late.TabIndex = 9;
             this.lb_late.Text = "Trễ hẹn";
             // 
+            // c_exam_id
+            // 
+            this.c_exam_id.HeaderText = "Mã PK";
+            this.c_exam_id.Name = "c_exam_id";
+            this.c_exam_id.Visible = false;
+            // 
+            // c_id
+            // 
+            this.c_id.HeaderText = "Mã BN";
+            this.c_id.Name = "c_id";
+            this.c_id.Width = 50;
+            // 
+            // c_name
+            // 
+            this.c_name.HeaderText = "Họ tên ";
+            this.c_name.Name = "c_name";
+            this.c_name.Width = 200;
+            // 
+            // c_address
+            // 
+            this.c_address.HeaderText = "Địa chỉ";
+            this.c_address.Name = "c_address";
+            this.c_address.Width = 240;
+            // 
+            // c_phone
+            // 
+            this.c_phone.HeaderText = "SĐT";
+            this.c_phone.Name = "c_phone";
+            // 
+            // c_diagnoses
+            // 
+            this.c_diagnoses.HeaderText = "Chẩn đoán";
+            this.c_diagnoses.Name = "c_diagnoses";
+            // 
+            // c_day_create
+            // 
+            this.c_day_create.HeaderText = "Ngày khám";
+            this.c_day_create.Name = "c_day_create";
+            this.c_day_create.Width = 200;
+            // 
+            // c_followup_date
+            // 
+            this.c_followup_date.HeaderText = "Ngày tái khám";
+            this.c_followup_date.Name = "c_followup_date";
+            this.c_followup_date.Width = 147;
+            // 
+            // c_state
+            // 
+            this.c_state.HeaderText = "Trạng thái";
+            this.c_state.Name = "c_state";
+            // 
+            // c_action
+            // 
+            this.c_action.HeaderText = "Thao tác";
+            this.c_action.Name = "c_action";
+            // 
             // frm_followup
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1198, 658);
+            this.ClientSize = new System.Drawing.Size(1221, 658);
             this.Controls.Add(this.lb_late);
             this.Controls.Add(this.lb_3day);
             this.Controls.Add(this.lb_today);
@@ -283,15 +290,6 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2DataGridView dtgv;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_exam_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_address;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_phone;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_day_create;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_followup_date;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_state;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_action;
         private System.Windows.Forms.TextBox txb_search;
         private System.Windows.Forms.ComboBox cb_time;
         private System.Windows.Forms.ComboBox cb_state;
@@ -301,5 +299,15 @@
         private System.Windows.Forms.Label lb_today;
         private System.Windows.Forms.Label lb_3day;
         private System.Windows.Forms.Label lb_late;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_exam_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_address;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_phone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_diagnoses;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_day_create;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_followup_date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_state;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_action;
     }
 }

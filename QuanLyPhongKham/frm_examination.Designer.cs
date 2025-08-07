@@ -152,6 +152,7 @@
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.cb_doctornote = new System.Windows.Forms.ComboBox();
             this.lb_d0 = new System.Windows.Forms.Label();
+            this.chb_print_money = new System.Windows.Forms.CheckBox();
             this.guna2TabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_patient_med)).BeginInit();
@@ -373,6 +374,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.chb_print_money);
             this.tabPage1.Controls.Add(this.lb_dayofuse);
             this.tabPage1.Controls.Add(this.label13);
             this.tabPage1.Controls.Add(this.txb_follow_up);
@@ -399,7 +401,7 @@
             // 
             this.lb_dayofuse.AutoSize = true;
             this.lb_dayofuse.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_dayofuse.Location = new System.Drawing.Point(460, 45);
+            this.lb_dayofuse.Location = new System.Drawing.Point(496, 45);
             this.lb_dayofuse.Name = "lb_dayofuse";
             this.lb_dayofuse.Size = new System.Drawing.Size(17, 19);
             this.lb_dayofuse.TabIndex = 68;
@@ -409,7 +411,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(364, 45);
+            this.label13.Location = new System.Drawing.Point(400, 45);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(98, 19);
             this.label13.TabIndex = 67;
@@ -418,7 +420,7 @@
             // txb_follow_up
             // 
             this.txb_follow_up.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_follow_up.Location = new System.Drawing.Point(663, 8);
+            this.txb_follow_up.Location = new System.Drawing.Point(699, 8);
             this.txb_follow_up.Name = "txb_follow_up";
             this.txb_follow_up.Size = new System.Drawing.Size(149, 26);
             this.txb_follow_up.TabIndex = 66;
@@ -430,7 +432,7 @@
             this.chb_follow_up.Checked = true;
             this.chb_follow_up.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chb_follow_up.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chb_follow_up.Location = new System.Drawing.Point(575, 10);
+            this.chb_follow_up.Location = new System.Drawing.Point(611, 10);
             this.chb_follow_up.Name = "chb_follow_up";
             this.chb_follow_up.Size = new System.Drawing.Size(84, 23);
             this.chb_follow_up.TabIndex = 65;
@@ -450,7 +452,7 @@
             // txb_total_price_med
             // 
             this.txb_total_price_med.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_total_price_med.Location = new System.Drawing.Point(435, 8);
+            this.txb_total_price_med.Location = new System.Drawing.Point(471, 8);
             this.txb_total_price_med.Name = "txb_total_price_med";
             this.txb_total_price_med.Size = new System.Drawing.Size(134, 26);
             this.txb_total_price_med.TabIndex = 62;
@@ -459,7 +461,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(364, 15);
+            this.label12.Location = new System.Drawing.Point(400, 15);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(65, 19);
             this.label12.TabIndex = 61;
@@ -1567,6 +1569,19 @@
             this.lb_d0.TabIndex = 49;
             this.lb_d0.Text = "label14";
             // 
+            // chb_print_money
+            // 
+            this.chb_print_money.AutoSize = true;
+            this.chb_print_money.Checked = true;
+            this.chb_print_money.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chb_print_money.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chb_print_money.Location = new System.Drawing.Point(281, 8);
+            this.chb_print_money.Name = "chb_print_money";
+            this.chb_print_money.Size = new System.Drawing.Size(116, 23);
+            this.chb_print_money.TabIndex = 69;
+            this.chb_print_money.Text = "In kèm giá tiền";
+            this.chb_print_money.UseVisualStyleBackColor = true;
+            // 
             // frm_examination
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1732,5 +1747,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn note;
         private System.Windows.Forms.DataGridViewTextBoxColumn add_med;
         private System.Windows.Forms.Label lb_d0;
+        private System.Windows.Forms.CheckBox chb_print_money;
     }
 }

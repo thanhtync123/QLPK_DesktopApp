@@ -77,6 +77,7 @@ namespace QuanLyPhongKham
         {
 
             dtgv_patients.Columns.Clear();
+            dtgv_patients.Columns.Add("STT", "STT");
             dtgv_patients.Columns.Add("ID", "ID");
             dtgv_patients.Columns.Add("name", "Tên BN");
             dtgv_patients.Columns.Add("date_of_birth", "Ngày sinh");
@@ -95,7 +96,8 @@ namespace QuanLyPhongKham
             dtgv_patients.Columns.Add("state", "Tình trạng");
             foreach (DataGridViewColumn col in dtgv_patients.Columns)
                 col.Visible = false;
-            dtgv_patients.Columns["ID"].Visible = true;
+            dtgv_patients.Columns["STT"].Visible = true;
+            //dtgv_patients.Columns["ID"].Visible = true;
             dtgv_patients.Columns["name"].Visible = true;
             dtgv_patients.Columns["time_patients"].Visible = true;
             dtgv_patients.Columns["state"].Visible = true;
@@ -142,6 +144,7 @@ namespace QuanLyPhongKham
                 string state = (lastDiagnosesId == null || lastDiagnosesId == DBNull.Value) ? "Mới đăng ký" : "Đã từng khám";
 
                 int rowIndex = dtgv_patients.Rows.Add(
+                    dtgv_patients.Rows.Count,
                     dr["id"],
                     dr["name"],
                     dr["date_of_birth"],
@@ -886,7 +889,7 @@ namespace QuanLyPhongKham
             var loidan = cb_doctornote.Text;
             var chandoan = cbo_diagnoses.Text;
             var chandoanphu = txb_reason.Text;
-            var tongtien = txb_total_price_med.Text;
+            string tongtien = chb_print_money.Checked ? txb_total_price_med.Text : "";
             var ngaykham = DateTime.Now.ToString("'Ngày' dd 'tháng' MM 'năm' yyyy");
             var sdt = txb_phone.Text;
             var taikham = txb_follow_up.Text;
