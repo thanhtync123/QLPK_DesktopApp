@@ -65,6 +65,7 @@ namespace QuanLyPhongKham
 
                 var parameters = new ReportParameter[]
                 {
+                   
                     new ReportParameter("txb_mabn", _mabn ?? ""),
                     new ReportParameter("txb_tenbn", _tenbn ?? ""),
                     new ReportParameter("txb_ngaysinh", _ngaysinh ?? ""),

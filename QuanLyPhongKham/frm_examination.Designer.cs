@@ -31,7 +31,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -53,6 +52,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_examination));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txb_name = new Guna.UI2.WinForms.Guna2TextBox();
             this.txb_ngaysinh = new Guna.UI2.WinForms.Guna2TextBox();
             this.txb_age = new Guna.UI2.WinForms.Guna2TextBox();
@@ -67,6 +67,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.guna2TabControl1 = new Guna.UI2.WinForms.Guna2TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.chb_print_money = new System.Windows.Forms.CheckBox();
             this.lb_dayofuse = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.txb_follow_up = new System.Windows.Forms.TextBox();
@@ -80,15 +81,6 @@
             this.btn_print_med = new System.Windows.Forms.Button();
             this.btn_save_med = new System.Windows.Forms.Button();
             this.dtgv_patient_med = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.id_med_2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.med_name_2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unit_2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.morning = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.afternoon = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.days_of_use = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.total_quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.note_2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.delete_med = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtgv_med = new Guna.UI2.WinForms.Guna2DataGridView();
             this.id_med = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.med_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -152,7 +144,15 @@
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.cb_doctornote = new System.Windows.Forms.ComboBox();
             this.lb_d0 = new System.Windows.Forms.Label();
-            this.chb_print_money = new System.Windows.Forms.CheckBox();
+            this.id_med_2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.med_name_2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unit_2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.morning = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.afternoon = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.days_of_use = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.total_quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.note_2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.delete_med = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2TabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_patient_med)).BeginInit();
@@ -397,6 +397,19 @@
             this.tabPage1.Text = "Đơn thuốc";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // chb_print_money
+            // 
+            this.chb_print_money.AutoSize = true;
+            this.chb_print_money.Checked = true;
+            this.chb_print_money.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chb_print_money.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chb_print_money.Location = new System.Drawing.Point(281, 8);
+            this.chb_print_money.Name = "chb_print_money";
+            this.chb_print_money.Size = new System.Drawing.Size(116, 23);
+            this.chb_print_money.TabIndex = 69;
+            this.chb_print_money.Text = "In kèm giá tiền";
+            this.chb_print_money.UseVisualStyleBackColor = true;
+            // 
             // lb_dayofuse
             // 
             this.lb_dayofuse.AutoSize = true;
@@ -605,71 +618,6 @@
             this.dtgv_patient_med.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_patient_med_CellValueChanged);
             this.dtgv_patient_med.CurrentCellDirtyStateChanged += new System.EventHandler(this.dtgv_patient_med_CurrentCellDirtyStateChanged);
             this.dtgv_patient_med.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dtgv_patient_med_EditingControlShowing);
-            // 
-            // id_med_2
-            // 
-            this.id_med_2.HeaderText = "ID Thuốc";
-            this.id_med_2.Name = "id_med_2";
-            this.id_med_2.Visible = false;
-            this.id_med_2.Width = 92;
-            // 
-            // med_name_2
-            // 
-            this.med_name_2.FillWeight = 162.4366F;
-            this.med_name_2.HeaderText = "Tên thuốc";
-            this.med_name_2.Name = "med_name_2";
-            this.med_name_2.Width = 200;
-            // 
-            // unit_2
-            // 
-            this.unit_2.FillWeight = 91.08052F;
-            this.unit_2.HeaderText = "Đơn vị";
-            this.unit_2.Name = "unit_2";
-            this.unit_2.Width = 60;
-            // 
-            // morning
-            // 
-            this.morning.FillWeight = 91.08052F;
-            this.morning.HeaderText = "Sáng";
-            this.morning.Name = "morning";
-            this.morning.Width = 60;
-            // 
-            // afternoon
-            // 
-            this.afternoon.FillWeight = 91.08052F;
-            this.afternoon.HeaderText = "Chiều";
-            this.afternoon.Name = "afternoon";
-            this.afternoon.Width = 60;
-            // 
-            // days_of_use
-            // 
-            this.days_of_use.FillWeight = 91.08052F;
-            this.days_of_use.HeaderText = "Số ngày";
-            this.days_of_use.Name = "days_of_use";
-            this.days_of_use.Width = 60;
-            // 
-            // total_quantity
-            // 
-            this.total_quantity.FillWeight = 91.08052F;
-            this.total_quantity.HeaderText = "Tổng số lượng";
-            this.total_quantity.Name = "total_quantity";
-            this.total_quantity.Width = 60;
-            // 
-            // note_2
-            // 
-            this.note_2.FillWeight = 91.08052F;
-            this.note_2.HeaderText = "Ghi chú";
-            this.note_2.Name = "note_2";
-            this.note_2.Width = 200;
-            // 
-            // delete_med
-            // 
-            dataGridViewCellStyle3.NullValue = "-";
-            this.delete_med.DefaultCellStyle = dataGridViewCellStyle3;
-            this.delete_med.FillWeight = 91.08052F;
-            this.delete_med.HeaderText = "Thao tác";
-            this.delete_med.Name = "delete_med";
-            this.delete_med.Width = 50;
             // 
             // dtgv_med
             // 
@@ -1569,18 +1517,70 @@
             this.lb_d0.TabIndex = 49;
             this.lb_d0.Text = "label14";
             // 
-            // chb_print_money
+            // id_med_2
             // 
-            this.chb_print_money.AutoSize = true;
-            this.chb_print_money.Checked = true;
-            this.chb_print_money.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chb_print_money.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chb_print_money.Location = new System.Drawing.Point(281, 8);
-            this.chb_print_money.Name = "chb_print_money";
-            this.chb_print_money.Size = new System.Drawing.Size(116, 23);
-            this.chb_print_money.TabIndex = 69;
-            this.chb_print_money.Text = "In kèm giá tiền";
-            this.chb_print_money.UseVisualStyleBackColor = true;
+            this.id_med_2.HeaderText = "ID Thuốc";
+            this.id_med_2.Name = "id_med_2";
+            this.id_med_2.Visible = false;
+            this.id_med_2.Width = 92;
+            // 
+            // med_name_2
+            // 
+            this.med_name_2.FillWeight = 162.4366F;
+            this.med_name_2.HeaderText = "Tên thuốc";
+            this.med_name_2.Name = "med_name_2";
+            this.med_name_2.Width = 200;
+            // 
+            // unit_2
+            // 
+            this.unit_2.FillWeight = 91.08052F;
+            this.unit_2.HeaderText = "Đơn vị";
+            this.unit_2.Name = "unit_2";
+            this.unit_2.Width = 60;
+            // 
+            // morning
+            // 
+            this.morning.FillWeight = 91.08052F;
+            this.morning.HeaderText = "Sáng";
+            this.morning.Name = "morning";
+            this.morning.Width = 60;
+            // 
+            // afternoon
+            // 
+            this.afternoon.FillWeight = 91.08052F;
+            this.afternoon.HeaderText = "Chiều";
+            this.afternoon.Name = "afternoon";
+            this.afternoon.Width = 60;
+            // 
+            // days_of_use
+            // 
+            this.days_of_use.FillWeight = 91.08052F;
+            this.days_of_use.HeaderText = "Số ngày";
+            this.days_of_use.Name = "days_of_use";
+            this.days_of_use.Width = 60;
+            // 
+            // total_quantity
+            // 
+            this.total_quantity.FillWeight = 91.08052F;
+            this.total_quantity.HeaderText = "Tổng số lượng";
+            this.total_quantity.Name = "total_quantity";
+            this.total_quantity.Width = 60;
+            // 
+            // note_2
+            // 
+            this.note_2.FillWeight = 91.08052F;
+            this.note_2.HeaderText = "Ghi chú";
+            this.note_2.Name = "note_2";
+            this.note_2.Width = 150;
+            // 
+            // delete_med
+            // 
+            dataGridViewCellStyle3.NullValue = "-";
+            this.delete_med.DefaultCellStyle = dataGridViewCellStyle3;
+            this.delete_med.FillWeight = 91.08052F;
+            this.delete_med.HeaderText = "Thao tác";
+            this.delete_med.Name = "delete_med";
+            this.delete_med.Width = 50;
             // 
             // frm_examination
             // 
@@ -1731,6 +1731,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn price2;
         private System.Windows.Forms.DataGridViewTextBoxColumn notes2;
         private System.Windows.Forms.DataGridViewTextBoxColumn delete_service;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_med;
+        private System.Windows.Forms.DataGridViewTextBoxColumn med_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn note;
+        private System.Windows.Forms.DataGridViewTextBoxColumn add_med;
+        private System.Windows.Forms.Label lb_d0;
+        private System.Windows.Forms.CheckBox chb_print_money;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_med_2;
         private System.Windows.Forms.DataGridViewTextBoxColumn med_name_2;
         private System.Windows.Forms.DataGridViewTextBoxColumn unit_2;
@@ -1740,13 +1748,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn total_quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn note_2;
         private System.Windows.Forms.DataGridViewTextBoxColumn delete_med;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_med;
-        private System.Windows.Forms.DataGridViewTextBoxColumn med_name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn unit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn price;
-        private System.Windows.Forms.DataGridViewTextBoxColumn note;
-        private System.Windows.Forms.DataGridViewTextBoxColumn add_med;
-        private System.Windows.Forms.Label lb_d0;
-        private System.Windows.Forms.CheckBox chb_print_money;
     }
 }
