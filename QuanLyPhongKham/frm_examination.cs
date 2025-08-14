@@ -820,9 +820,18 @@ namespace QuanLyPhongKham
                       ? "NULL"
                       : row.Cells["morning"].Value.ToString().Replace(",", ".");
 
+               
+                   
+                    string noon = string.IsNullOrEmpty(row.Cells["noon"].Value?.ToString())
+                          ? "NULL"
+                          : row.Cells["noon"].Value.ToString().Replace(",", ".");
                     string afternoon = string.IsNullOrEmpty(row.Cells["afternoon"].Value?.ToString())
+                   ? "NULL"
+                   : row.Cells["afternoon"].Value.ToString().Replace(",", ".");
+
+                    string evening = string.IsNullOrEmpty(row.Cells["evening"].Value?.ToString())
                         ? "NULL"
-                        : row.Cells["afternoon"].Value.ToString().Replace(",", ".");
+                        : row.Cells["evening"].Value.ToString().Replace(",", ".");
 
                     string total = string.IsNullOrEmpty(row.Cells["total_quantity"].Value?.ToString())
                         ? "NULL"
@@ -835,14 +844,16 @@ namespace QuanLyPhongKham
 
                     string insertMed = $@"
             INSERT INTO `examination_medications` (
-                `id`, `examination_id`, `medication_id`, `morning`, `afternoon`, `unit`,
+                `id`, `examination_id`, `medication_id`, `morning`,`noon`, `afternoon`,`evening`, `unit`,
                 `days_of_use`, `total_quantity_med`, `note`, `created_at`, `updated_at`
             ) VALUES (
                 NULL,
                 '{txb_exam_id.Text}',
                 '{medId}',
                 {morning},
+                {noon},
                 {afternoon},
+                {evening},
                 '{unit}',
                 {days},
                 {total},
@@ -906,13 +917,21 @@ namespace QuanLyPhongKham
                 string medName = row.Cells["med_name_2"].Value?.ToString().Trim() ?? "";
                 string totalQty = row.Cells["total_quantity"].Value?.ToString().Trim() ?? "";
                 string unit = row.Cells["unit_2"].Value?.ToString().Trim() ?? "";
+                string note = row.Cells["note_2"].Value?.ToString().Trim() ?? "";
 
                 string morningStr = row.Cells["morning"].Value?.ToString().Trim() ?? "0";
                 string afternoonStr = row.Cells["afternoon"].Value?.ToString().Trim() ?? "0";
-                string note = row.Cells["note_2"].Value?.ToString().Trim() ?? "";
+                string noonStr = row.Cells["noon"].Value?.ToString().Trim() ?? "0";
+                string eveningStr = row.Cells["evening"].Value?.ToString().Trim() ?? "0";
 
-                int morning = int.TryParse(morningStr, out var m) ? m : 0;
-                int afternoon = int.TryParse(afternoonStr, out var a) ? a : 0;
+
+
+
+                float morning = float.TryParse(morningStr, out var m) ? m : 0;
+                float noon = float.TryParse(noonStr, out var n) ? n : 0;
+                float afternoon = float.TryParse(afternoonStr, out var a) ? a : 0;
+                float evening = float.TryParse(eveningStr, out var ev) ? ev : 0;
+
 
                 // Dòng 1: STT / Tên thuốc + số lượng + đơn vị
                 thuoc += $"{stt}/ {medName,-40}{totalQty} {unit}\r\n";
@@ -920,9 +939,14 @@ namespace QuanLyPhongKham
                 // Dòng 2: Liều dùng
                 List<string> dosages = new List<string>();
                 if (morning > 0)
-                    dosages.Add($"Sáng uống {morning:00} {unit}");
+                    dosages.Add($"Sáng uống {morning:0.##} {unit}");
+                if (noon > 0)
+                    dosages.Add($"Trưa uống {noon:0.##} {unit}");
                 if (afternoon > 0)
-                    dosages.Add($"Chiều uống {afternoon:00} {unit}");
+                    dosages.Add($"Chiều uống {afternoon:0.##} {unit}");
+                if (evening > 0)
+                    dosages.Add($"Tối uống {evening:0.##} {unit}");
+
 
                 string dosageLine = string.Join(", ", dosages);
 
@@ -983,13 +1007,15 @@ namespace QuanLyPhongKham
                 if (row.IsNewRow) continue;
 
                 int days_of_use = 0;
-                float morning = 0f, afternoon = 0f;
+                float morning = 0f,noon = 0f,afternoon = 0f,evening = 0f;
 
                 int.TryParse(row.Cells["days_of_use"].Value?.ToString(), out days_of_use);
                 float.TryParse(row.Cells["morning"].Value?.ToString(), out morning);
+                float.TryParse(row.Cells["noon"].Value?.ToString(), out noon);
                 float.TryParse(row.Cells["afternoon"].Value?.ToString(), out afternoon);
+                float.TryParse(row.Cells["evening"].Value?.ToString(), out evening);
 
-                float total_med = days_of_use * (morning + afternoon);
+                float total_med = days_of_use * (morning + noon + afternoon + evening);
                 float total_rounded = (float)Math.Ceiling(total_med);
 
                 row.Cells["total_quantity"].Value = total_med > 0
@@ -1037,7 +1063,10 @@ namespace QuanLyPhongKham
         private void dtgv_patient_med_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
             if (dtgv_patient_med.CurrentCell.ColumnIndex == dtgv_patient_med.Columns["morning"].Index ||
-                dtgv_patient_med.CurrentCell.ColumnIndex == dtgv_patient_med.Columns["afternoon"].Index)
+                dtgv_patient_med.CurrentCell.ColumnIndex == dtgv_patient_med.Columns["noon"].Index ||
+                dtgv_patient_med.CurrentCell.ColumnIndex == dtgv_patient_med.Columns["afternoon"].Index ||
+                dtgv_patient_med.CurrentCell.ColumnIndex == dtgv_patient_med.Columns["evening"].Index
+                )
 
                 if (e.Control is System.Windows.Forms.TextBox tb)
                 {

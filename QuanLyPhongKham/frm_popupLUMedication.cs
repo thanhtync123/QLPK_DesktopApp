@@ -79,7 +79,9 @@ namespace QuanLyPhongKham
                 m.id AS med_id,
                 m.name,
                 REPLACE(CAST(em.morning AS CHAR), '.', ',') AS morning,
+                REPLACE(CAST(em.noon AS CHAR), '.', ',') AS noon,
                 REPLACE(CAST(em.afternoon AS CHAR), '.', ',') AS afternoon,
+                REPLACE(CAST(em.evening AS CHAR), '.', ',') AS evening,
                 em.unit,
                 em.days_of_use,
                 em.total_quantity_med,
@@ -103,7 +105,9 @@ namespace QuanLyPhongKham
                 drr.Cells["c2_medication_id"].Value = Db.dr["med_id"];
                 drr.Cells["c2_medname"].Value = Db.dr["name"];
                 drr.Cells["c2_morning"].Value = Db.dr["morning"].ToString().Replace(".", ",");
+                drr.Cells["c2_noon"].Value = Db.dr["noon"].ToString().Replace(".", ",");
                 drr.Cells["c2_afternoon"].Value = Db.dr["afternoon"].ToString().Replace(".", ",");
+                drr.Cells["c2_evening"].Value = Db.dr["evening"].ToString().Replace(".", ",");
                 drr.Cells["c2_unit"].Value = Db.dr["unit"];
                 drr.Cells["c2_days_of_use"].Value = Db.dr["days_of_use"];
                 drr.Cells["c2_total_quantity_med"].Value = Db.dr["total_quantity_med"];
@@ -128,7 +132,9 @@ namespace QuanLyPhongKham
                     row.Cells["c2_medname"].Value,
                     row.Cells["c2_unit"].Value,
                     row.Cells["c2_morning"].Value,
+                    row.Cells["c2_noon"].Value,
                     row.Cells["c2_afternoon"].Value,
+                    row.Cells["c2_evening"].Value,
                     row.Cells["c2_days_of_use"].Value,
                     row.Cells["c2_total_quantity_med"].Value,
                     row.Cells["c2_note"].Value

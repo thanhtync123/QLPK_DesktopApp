@@ -52,7 +52,9 @@
             this.c2_medname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.c2_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.c2_morning = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c2_noon = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.c2_afternoon = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c2_evening = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.c2_days_of_use = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.c2_total_quantity_med = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.c2_note = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -261,7 +263,9 @@
             this.c2_medname,
             this.c2_unit,
             this.c2_morning,
+            this.c2_noon,
             this.c2_afternoon,
+            this.c2_evening,
             this.c2_days_of_use,
             this.c2_total_quantity_med,
             this.c2_note});
@@ -319,7 +323,7 @@
             // 
             this.c2_medname.HeaderText = "Tên thuốc";
             this.c2_medname.Name = "c2_medname";
-            this.c2_medname.Width = 300;
+            this.c2_medname.Width = 200;
             // 
             // c2_unit
             // 
@@ -333,11 +337,23 @@
             this.c2_morning.Name = "c2_morning";
             this.c2_morning.Width = 50;
             // 
+            // c2_noon
+            // 
+            this.c2_noon.HeaderText = "Trưa";
+            this.c2_noon.Name = "c2_noon";
+            this.c2_noon.Width = 50;
+            // 
             // c2_afternoon
             // 
             this.c2_afternoon.HeaderText = "Chiều";
             this.c2_afternoon.Name = "c2_afternoon";
             this.c2_afternoon.Width = 50;
+            // 
+            // c2_evening
+            // 
+            this.c2_evening.HeaderText = "Tối";
+            this.c2_evening.Name = "c2_evening";
+            this.c2_evening.Width = 50;
             // 
             // c2_days_of_use
             // 
@@ -396,7 +412,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn c2_medname;
         private System.Windows.Forms.DataGridViewTextBoxColumn c2_unit;
         private System.Windows.Forms.DataGridViewTextBoxColumn c2_morning;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c2_noon;
         private System.Windows.Forms.DataGridViewTextBoxColumn c2_afternoon;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c2_evening;
         private System.Windows.Forms.DataGridViewTextBoxColumn c2_days_of_use;
         private System.Windows.Forms.DataGridViewTextBoxColumn c2_total_quantity_med;
         private System.Windows.Forms.DataGridViewTextBoxColumn c2_note;
