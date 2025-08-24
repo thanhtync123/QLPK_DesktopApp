@@ -42,7 +42,11 @@
             this.btn_delete = new System.Windows.Forms.Button();
             this.txb_name = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.pb_sig = new System.Windows.Forms.PictureBox();
+            this.btn_sigupload = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_sig)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -158,7 +162,7 @@
             // btn_them
             // 
             this.btn_them.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_them.Location = new System.Drawing.Point(143, 197);
+            this.btn_them.Location = new System.Drawing.Point(144, 313);
             this.btn_them.Name = "btn_them";
             this.btn_them.Size = new System.Drawing.Size(75, 32);
             this.btn_them.TabIndex = 7;
@@ -169,7 +173,7 @@
             // btn_delete
             // 
             this.btn_delete.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_delete.Location = new System.Drawing.Point(224, 197);
+            this.btn_delete.Location = new System.Drawing.Point(225, 313);
             this.btn_delete.Name = "btn_delete";
             this.btn_delete.Size = new System.Drawing.Size(75, 32);
             this.btn_delete.TabIndex = 8;
@@ -195,12 +199,44 @@
             this.label4.TabIndex = 9;
             this.label4.Text = "Tên người dùng:";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(66, 198);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(69, 21);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Chữ ký:";
+            // 
+            // pb_sig
+            // 
+            this.pb_sig.Location = new System.Drawing.Point(144, 198);
+            this.pb_sig.Name = "pb_sig";
+            this.pb_sig.Size = new System.Drawing.Size(140, 74);
+            this.pb_sig.TabIndex = 12;
+            this.pb_sig.TabStop = false;
+            // 
+            // btn_sigupload
+            // 
+            this.btn_sigupload.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_sigupload.Location = new System.Drawing.Point(290, 198);
+            this.btn_sigupload.Name = "btn_sigupload";
+            this.btn_sigupload.Size = new System.Drawing.Size(68, 32);
+            this.btn_sigupload.TabIndex = 13;
+            this.btn_sigupload.Text = "Chữ ký";
+            this.btn_sigupload.UseVisualStyleBackColor = true;
+            this.btn_sigupload.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frm_users
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.Info;
             this.ClientSize = new System.Drawing.Size(986, 450);
             this.ControlBox = false;
+            this.Controls.Add(this.btn_sigupload);
+            this.Controls.Add(this.pb_sig);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.txb_name);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btn_delete);
@@ -217,6 +253,7 @@
             this.Text = "Tài khoản";
             this.Load += new System.EventHandler(this.frm_users_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_sig)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -235,5 +272,8 @@
         private System.Windows.Forms.Button btn_delete;
         private System.Windows.Forms.TextBox txb_name;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.PictureBox pb_sig;
+        private System.Windows.Forms.Button btn_sigupload;
     }
 }

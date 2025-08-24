@@ -14,12 +14,12 @@ namespace QuanLyPhongKham
         /// </summary>
         [STAThread]
         static void Main()
-        {
+        { 
             Thread.CurrentThread.CurrentCulture = new CultureInfo("vi-VN");
             Thread.CurrentThread.CurrentUICulture = new CultureInfo("vi-VN");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frm_login());
+            Application.Run(new frm_nav(""));
 
         }
     }

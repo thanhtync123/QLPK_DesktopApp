@@ -196,6 +196,8 @@ namespace QuanLyPhongKham
             LoadDTGV_Med();
             Update_FollowUpDate();
             lb_d0.Text = "";
+            dtgv_service_patient.Rows.Add("", "1", "Công khám", "Miễn phí", "", "-");
+            dtgv_service_patient.Rows.Add("", "2", "Kiểm tra", "Miễn phí", "", "-");
 
         }
 
@@ -548,6 +550,16 @@ namespace QuanLyPhongKham
                 // 5. Thêm các dịch vụ chỉ định
                 foreach (DataGridViewRow row in dtgv_service_patient.Rows)
                 {
+                    if (row.Cells[0].Value == "" || row.Cells[0].Value == null)
+
+                        continue;
+
+                    string serviceName = row.Cells[2].Value?.ToString();
+                    if (serviceName == "Công khám" || serviceName == "Kiểm tra")
+                        continue;
+
+
+
                     if (row.Cells[0].Value != null)
                     {
                         string queryService = @"
@@ -820,8 +832,8 @@ namespace QuanLyPhongKham
                       ? "NULL"
                       : row.Cells["morning"].Value.ToString().Replace(",", ".");
 
-               
-                   
+
+
                     string noon = string.IsNullOrEmpty(row.Cells["noon"].Value?.ToString())
                           ? "NULL"
                           : row.Cells["noon"].Value.ToString().Replace(",", ".");
@@ -1007,7 +1019,7 @@ namespace QuanLyPhongKham
                 if (row.IsNewRow) continue;
 
                 int days_of_use = 0;
-                float morning = 0f,noon = 0f,afternoon = 0f,evening = 0f;
+                float morning = 0f, noon = 0f, afternoon = 0f, evening = 0f;
 
                 int.TryParse(row.Cells["days_of_use"].Value?.ToString(), out days_of_use);
                 float.TryParse(row.Cells["morning"].Value?.ToString(), out morning);

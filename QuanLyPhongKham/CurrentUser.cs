@@ -9,5 +9,8 @@ namespace QuanLyPhongKham
     public static class CurrentUser
     {
         public static string UserName { get; set; }
+        public static string Id { get; set; }
+
+        public static string Signature { get; set; }
     }
 }

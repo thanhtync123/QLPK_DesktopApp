@@ -27,7 +27,7 @@ namespace QuanLyPhongKham
         string gioitinh;
         string chidinh;
         string nhanvien;
-        public frm_report_test(DataTable dt, string mabn, string tenbn, string ngaysinh, string chandoan, string chandoanphu, string diachi, string ketqua, string ngaykham, string sdt, string gioitinh, string chidinh,string nhanvien)
+        public frm_report_test(DataTable dt, string mabn, string tenbn, string ngaysinh, string chandoan, string chandoanphu, string diachi, string ketqua, string ngaykham, string sdt, string gioitinh, string chidinh, string nhanvien)
         {
             InitializeComponent();
 
@@ -52,6 +52,8 @@ namespace QuanLyPhongKham
 
             try
             {
+                reportViewer1.LocalReport.EnableExternalImages = true;
+
                 ReportDataSource rds = new ReportDataSource("DataSet1", _dt);
                 reportViewer1.LocalReport.DataSources.Clear();
                 reportViewer1.LocalReport.DataSources.Add(rds);
@@ -59,7 +61,7 @@ namespace QuanLyPhongKham
                 var parameters = new ReportParameter[]
                 {
 
-                  
+
                     new ReportParameter("txb_mabn", mabn ?? ""),
                     new ReportParameter("txb_tenbn", tenbn ?? ""),
                     new ReportParameter("txb_ngaysinh", ngaysinh ?? ""),
@@ -71,12 +73,13 @@ namespace QuanLyPhongKham
                              new ReportParameter("txb_sdt", sdt ?? ""),
                              new ReportParameter("txb_gioitinh", gioitinh ?? ""),
                                 new ReportParameter("txb_chidinh", chidinh ?? ""),
-                                new ReportParameter("txb_nhanvien", nhanvien ?? "")
-
+                                new ReportParameter("txb_nhanvien", nhanvien ?? ""),
+                             
 
 
                 };
                 reportViewer1.LocalReport.SetParameters(parameters);
+
 
                 reportViewer1.LocalReport.Refresh();
                 reportViewer1.RefreshReport();
@@ -85,6 +88,11 @@ namespace QuanLyPhongKham
             {
                 MessageBox.Show("Lỗi: " + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void reportViewer1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
