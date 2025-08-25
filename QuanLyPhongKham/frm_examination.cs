@@ -945,32 +945,35 @@ namespace QuanLyPhongKham
                 float evening = float.TryParse(eveningStr, out var ev) ? ev : 0;
 
 
-                // Dòng 1: STT / Tên thuốc + số lượng + đơn vị
-                thuoc += $"{stt}/ {medName,-40}{totalQty} {unit}\r\n";
+                // Dòng 1: STT / Tên thuốc + số lượng + đơn vị (đơn vị in nghiêng)
+                thuoc += $"{stt}/ <b>{medName}</b> &nbsp;&nbsp; <b>{totalQty}</b> <i>{unit}</i><br/>";
 
                 // Dòng 2: Liều dùng
                 List<string> dosages = new List<string>();
+
                 if (morning > 0)
-                    dosages.Add($"Sáng uống {morning:0.##} {unit}");
+                    dosages.Add($"<b>Sáng</b> uống {morning:0.##} <i>{unit}</i>");
                 if (noon > 0)
-                    dosages.Add($"Trưa uống {noon:0.##} {unit}");
+                    dosages.Add($"<b>TRƯA</b> uống {noon:0.##} <i>{unit}</i>");
                 if (afternoon > 0)
-                    dosages.Add($"Chiều uống {afternoon:0.##} {unit}");
+                    dosages.Add($"<b>Chiều</b> uống {afternoon:0.##} <i>{unit}</i>");
                 if (evening > 0)
-                    dosages.Add($"Tối uống {evening:0.##} {unit}");
+                    dosages.Add($"<b>TỐI</b> uống {evening:0.##} <i>{unit}</i>");
 
-
+                // Nối liền trên 1 dòng
                 string dosageLine = string.Join(", ", dosages);
 
                 if (!string.IsNullOrWhiteSpace(note))
                     dosageLine += $" ({note})";
 
                 if (!string.IsNullOrWhiteSpace(dosageLine))
-                    thuoc += dosageLine + "\r\n";
+                    thuoc += dosageLine + "<br/>";
 
                 // Cách dòng
-                thuoc += "\r\n";
+                thuoc += "<br/>";
                 stt++;
+
+
             }
 
             // Nếu cần bỏ dòng trắng cuối cùng:

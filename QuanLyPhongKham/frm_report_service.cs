@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -58,6 +59,14 @@ namespace QuanLyPhongKham
       //  mabn, tenbn, diachi, ngaysinh, gioitinh, loidan, chandoan, chandoanphu, ngaykham, tongtien
         private void frm_report_service_Load(object sender, EventArgs e)
         {
+            reportViewer1.LocalReport.EnableExternalImages = true;
+            string folder = Path.Combine(Application.StartupPath, "images");
+            string file = CurrentUser.Signature;
+            string fullPath = Path.Combine(folder, file);
+
+            string filepath = "";
+            if (File.Exists(fullPath))
+                filepath = "file:///" + fullPath.Replace("\\", "/");
             try
             {
                 ReportDataSource rds = new ReportDataSource("DataSet1", _dtService);
@@ -77,7 +86,10 @@ namespace QuanLyPhongKham
                     new ReportParameter("txb_ngaykham", ngaykham ?? ""),
                     new ReportParameter("txb_loidan", loidan ?? ""),
                     new ReportParameter("txb_tongtien", tongtien ?? ""),
-                             new ReportParameter("txb_gioitinh", gioitinh??"")
+                             new ReportParameter("txb_gioitinh", gioitinh??""),
+                               new ReportParameter("txb_dtname", CurrentUser.UserName ?? ""),
+  new ReportParameter("pr_sign", filepath ?? "")
+
                 };
                 reportViewer1.LocalReport.SetParameters(parameters);
 

@@ -242,7 +242,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_tenbn</rd:DefaultName>
-            <Top>1.75244in</Top>
+            <Top>1.73508in</Top>
             <Left>0.77649in</Left>
             <Height>0.25in</Height>
             <Width>2.55269in</Width>
@@ -539,41 +539,6 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
-          <Textbox Name="Textbox14">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>BS.CKI - NGUYỄN THANH QUYỀN</Value>
-                    <Style>
-                      <FontFamily>Times New Roman</FontFamily>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Center</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox11</rd:DefaultName>
-            <Top>3.5788in</Top>
-            <Left>2.73529in</Left>
-            <Height>0.25in</Height>
-            <Width>2.65534in</Width>
-            <ZIndex>15</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
           <Textbox Name="txb_tongtien">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
@@ -596,7 +561,7 @@
             <Left>1.15496in</Left>
             <Height>0.2435in</Height>
             <Width>1.68388in</Width>
-            <ZIndex>16</ZIndex>
+            <ZIndex>15</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -641,7 +606,7 @@
             <Left>1.99459in</Left>
             <Height>0.25in</Height>
             <Width>2.09214in</Width>
-            <ZIndex>17</ZIndex>
+            <ZIndex>16</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -705,7 +670,7 @@
             <Left>0.70297in</Left>
             <Height>0.34249in</Height>
             <Width>4.66449in</Width>
-            <ZIndex>18</ZIndex>
+            <ZIndex>17</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -757,7 +722,7 @@
             <Left>1.44295in</Left>
             <Height>0.27083in</Height>
             <Width>3.16248in</Width>
-            <ZIndex>19</ZIndex>
+            <ZIndex>18</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -794,7 +759,7 @@
             <Left>0.89875cm</Left>
             <Height>0.60188cm</Height>
             <Width>13.63269cm</Width>
-            <ZIndex>20</ZIndex>
+            <ZIndex>19</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -845,7 +810,7 @@
             <Left>1.42462in</Left>
             <Height>0.34375in</Height>
             <Width>3.16248in</Width>
-            <ZIndex>21</ZIndex>
+            <ZIndex>20</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -881,7 +846,7 @@
             <Left>2.85696in</Left>
             <Height>0.25in</Height>
             <Width>0.62988in</Width>
-            <ZIndex>22</ZIndex>
+            <ZIndex>21</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -913,7 +878,7 @@
             <Left>3.50073in</Left>
             <Height>0.24305in</Height>
             <Width>1.2348in</Width>
-            <ZIndex>23</ZIndex>
+            <ZIndex>22</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -933,6 +898,7 @@
                 <TextRuns>
                   <TextRun>
                     <Value>=Parameters!txb_med.Value</Value>
+                    <MarkupType>HTML</MarkupType>
                     <Style>
                       <FontStyle>Italic</FontStyle>
                       <FontFamily>times New Roman</FontFamily>
@@ -945,11 +911,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_med</rd:DefaultName>
-            <Top>2.58805in</Top>
-            <Left>1.1073in</Left>
+            <Top>2.57808in</Top>
+            <Left>0.8573in</Left>
             <Height>0.24002in</Height>
             <Width>4.47138in</Width>
-            <ZIndex>24</ZIndex>
+            <ZIndex>23</ZIndex>
             <Style>
               <Border />
               <PaddingLeft>2pt</PaddingLeft>
@@ -996,7 +962,7 @@
             <Left>0.13542in</Left>
             <Height>0.20707in</Height>
             <Width>1.02744in</Width>
-            <ZIndex>25</ZIndex>
+            <ZIndex>24</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1031,7 +997,7 @@
             <Left>0.13637in</Left>
             <Height>0.19792in</Height>
             <Width>1.02649in</Width>
-            <ZIndex>26</ZIndex>
+            <ZIndex>25</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1064,7 +1030,7 @@
             <Left>1.16286in</Left>
             <Height>0.19792in</Height>
             <Width>1.35764in</Width>
-            <ZIndex>27</ZIndex>
+            <ZIndex>26</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1113,7 +1079,7 @@
             <Left>0.13637in</Left>
             <Height>0.19444in</Height>
             <Width>1.02649in</Width>
-            <ZIndex>28</ZIndex>
+            <ZIndex>27</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1145,7 +1111,7 @@
             <Left>1.15496in</Left>
             <Height>0.19444in</Height>
             <Width>1.34123in</Width>
-            <ZIndex>29</ZIndex>
+            <ZIndex>28</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1180,6 +1146,41 @@
             <Left>0.125in</Left>
             <Height>0.23958in</Height>
             <Width>1.01607in</Width>
+            <ZIndex>29</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="txb_dtname">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Parameters!txb_dtname.Value</Value>
+                    <Style>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>txb_dtname</rd:DefaultName>
+            <Top>3.7038in</Top>
+            <Left>2.85696in</Left>
+            <Height>0.25in</Height>
+            <Width>2.53367in</Width>
             <ZIndex>30</ZIndex>
             <Style>
               <Border>
@@ -1191,6 +1192,21 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
+          <Image Name="img_sign">
+            <Source>External</Source>
+            <Value>=Parameters!pr_sign.Value</Value>
+            <Sizing>FitProportional</Sizing>
+            <Top>3.18918in</Top>
+            <Left>3.62573in</Left>
+            <Height>0.51462in</Height>
+            <Width>1.08637in</Width>
+            <ZIndex>31</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Image>
         </ReportItems>
         <Height>6.31887in</Height>
         <Style />
@@ -1280,11 +1296,23 @@
       <AllowBlank>true</AllowBlank>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
+    <ReportParameter Name="txb_dtname">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="pr_sign">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
       <NumberOfColumns>4</NumberOfColumns>
-      <NumberOfRows>4</NumberOfRows>
+      <NumberOfRows>5</NumberOfRows>
       <CellDefinitions>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
@@ -1350,6 +1378,16 @@
           <ColumnIndex>2</ColumnIndex>
           <RowIndex>3</RowIndex>
           <ParameterName>txb_chandoanphu</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>3</ColumnIndex>
+          <RowIndex>3</RowIndex>
+          <ParameterName>txb_dtname</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>4</RowIndex>
+          <ParameterName>pr_sign</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>

@@ -1401,6 +1401,21 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
+          <Image Name="img_sign">
+            <Source>External</Source>
+            <Value>=Parameters!pr_sign.Value</Value>
+            <Sizing>FitProportional</Sizing>
+            <Top>11.18206cm</Top>
+            <Left>12.84814cm</Left>
+            <Height>1.53314cm</Height>
+            <Width>3.94684cm</Width>
+            <ZIndex>31</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Image>
         </ReportItems>
         <Height>19.07399cm</Height>
         <Style />
@@ -1489,6 +1504,12 @@
       <AllowBlank>true</AllowBlank>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
+    <ReportParameter Name="pr_sign">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
@@ -1554,6 +1575,11 @@
           <ColumnIndex>1</ColumnIndex>
           <RowIndex>3</RowIndex>
           <ParameterName>txb_nhanvien</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>2</ColumnIndex>
+          <RowIndex>3</RowIndex>
+          <ParameterName>pr_sign</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>

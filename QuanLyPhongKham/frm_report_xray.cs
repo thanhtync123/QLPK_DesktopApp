@@ -1,6 +1,7 @@
 ﻿using Microsoft.Reporting.WinForms;
 using System;
 using System.Data;
+using System.IO;
 using System.Windows.Forms;
 
 namespace QuanLyPhongKham
@@ -32,6 +33,14 @@ namespace QuanLyPhongKham
 
         private void frm_report_xray_Load(object sender, EventArgs e)
         {
+            reportViewer1.LocalReport.EnableExternalImages = true;
+            string folder = Path.Combine(Application.StartupPath, "images");
+            string file = CurrentUser.Signature;
+            string fullPath = Path.Combine(folder, file);
+
+            string filepath = "";
+            if (File.Exists(fullPath))
+                filepath = "file:///" + fullPath.Replace("\\", "/");
             var ngaykham = DateTime.Now.ToString("'Ngày' dd 'tháng' MM 'năm' yyyy");
 
             // Gán file RDLC
@@ -59,7 +68,9 @@ namespace QuanLyPhongKham
                 new ReportParameter("txb_ketluan", ketqua),
                 new ReportParameter("txb_chidinh", chidinh),
                 new ReportParameter("txb_ngaykham", ngaykham),
-                new ReportParameter("txb_gioitinh", gioitinh)
+                new ReportParameter("txb_gioitinh", gioitinh),
+                new ReportParameter("txb_dtname", CurrentUser.UserName ?? ""),
+                new ReportParameter("pr_sign", filepath ?? "")
             };
 
             reportViewer1.LocalReport.SetParameters(parameters);

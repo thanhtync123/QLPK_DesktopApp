@@ -37,7 +37,13 @@ namespace QuanLyPhongKham
         private void frm_report_ultrasound_Load(object sender, EventArgs e)
         {
             var ngaykham = DateTime.Now.ToString("'Ngày' dd 'tháng' MM 'năm' yyyy");
+            string folder = Path.Combine(Application.StartupPath, "images");
+            string file = CurrentUser.Signature;
+            string fullPath = Path.Combine(folder, file);
 
+            string filepath = "";
+            if (File.Exists(fullPath))
+                filepath = "file:///" + fullPath.Replace("\\", "/");
 
             try
             {
@@ -66,6 +72,8 @@ namespace QuanLyPhongKham
                 reportParams.Add(new ReportParameter("txb_chidinh", chidinh ?? ""));
                 reportParams.Add(new ReportParameter("txb_ngaykham", ngaykham ??""));
                 reportParams.Add(new ReportParameter("txb_gioitinh", gioitinh ?? ""));
+                reportParams.Add(new ReportParameter("txb_dtname", CurrentUser.UserName ?? ""));
+                reportParams.Add(new ReportParameter("pr_sign", filepath ?? ""));
 
                 // Set tất cả các tham số
                 this.reportViewer1.LocalReport.SetParameters(reportParams);

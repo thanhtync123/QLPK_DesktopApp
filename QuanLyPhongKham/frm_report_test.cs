@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -49,6 +50,13 @@ namespace QuanLyPhongKham
 
         private void frm_report_test_Load(object sender, EventArgs e)
         {
+            string folder = Path.Combine(Application.StartupPath, "images");
+            string file = CurrentUser.Signature;
+            string fullPath = Path.Combine(folder, file);
+
+            string filepath = "";
+            if (File.Exists(fullPath))
+                filepath = "file:///" + fullPath.Replace("\\", "/");
 
             try
             {
@@ -74,7 +82,8 @@ namespace QuanLyPhongKham
                              new ReportParameter("txb_gioitinh", gioitinh ?? ""),
                                 new ReportParameter("txb_chidinh", chidinh ?? ""),
                                 new ReportParameter("txb_nhanvien", nhanvien ?? ""),
-                             
+                        new ReportParameter("pr_sign", filepath??"")
+
 
 
                 };

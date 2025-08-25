@@ -1,5 +1,6 @@
 ﻿using Microsoft.Reporting.WinForms;
 using System;
+using System.IO;
 using System.Windows.Forms;
 
 namespace QuanLyPhongKham
@@ -56,9 +57,18 @@ namespace QuanLyPhongKham
 
         private void frm_report_med_Load(object sender, EventArgs e)
         {
+            string folder = Path.Combine(Application.StartupPath, "images");
+            string file = CurrentUser.Signature;
+            string fullPath = Path.Combine(folder, file);
+
+            string filepath = "";
+            if (File.Exists(fullPath))
+                filepath = "file:///" + fullPath.Replace("\\", "/");
+            
             try
             {
                 // Đảm bảo file .rdlc đã gán Build Action = Embedded Resource
+                reportViewer1.LocalReport.EnableExternalImages = true;
                 reportViewer1.LocalReport.ReportEmbeddedResource = "QuanLyPhongKham.Report3.rdlc";
 
                 reportViewer1.LocalReport.DataSources.Clear();
@@ -78,7 +88,9 @@ namespace QuanLyPhongKham
                     new ReportParameter("txb_sdt", _sdt ?? ""),
                     new ReportParameter("txb_med", _thuoc ?? ""),
                     new ReportParameter("txb_taikham", _taikham ?? ""),
-                    new ReportParameter("txb_songaythuoc", _songaythuoc ?? "")
+                    new ReportParameter("txb_songaythuoc", _songaythuoc ?? ""),
+                    new ReportParameter("txb_dtname", CurrentUser.UserName ?? ""),
+                    new ReportParameter("pr_sign", filepath ?? "")
                 };
 
                 reportViewer1.LocalReport.SetParameters(parameters);

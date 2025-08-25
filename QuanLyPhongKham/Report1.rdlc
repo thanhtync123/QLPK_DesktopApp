@@ -1191,17 +1191,16 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
-          <Textbox Name="Textbox11">
+          <Textbox Name="txb_dtname">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
             <Paragraphs>
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>BS.CKI - NGUYỄN THANH QUYỀN</Value>
+                    <Value>=Parameters!txb_dtname.Value</Value>
                     <Style>
                       <FontFamily>Times New Roman</FontFamily>
-                      <FontSize>12pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
@@ -1211,8 +1210,8 @@
                 </Style>
               </Paragraph>
             </Paragraphs>
-            <rd:DefaultName>Textbox11</rd:DefaultName>
-            <Top>5.5439in</Top>
+            <rd:DefaultName>txb_dtname</rd:DefaultName>
+            <Top>5.61334in</Top>
             <Left>3.96243in</Left>
             <Height>0.25in</Height>
             <Width>2.90235in</Width>
@@ -1227,6 +1226,24 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
+          <Image Name="Image5">
+            <Source>External</Source>
+            <Value>=Parameters!pr_sign.Value</Value>
+            <Sizing>FitProportional</Sizing>
+            <Top>4.79042in</Top>
+            <Left>4.50173in</Left>
+            <Height>0.87501in</Height>
+            <Width>1.88426in</Width>
+            <ZIndex>30</ZIndex>
+            <Visibility>
+              <Hidden>=IIF(Parameters!pr_sign.Value = Nothing OR Parameters!pr_sign.Value = "", True, False)</Hidden>
+            </Visibility>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Image>
         </ReportItems>
         <Height>9.79042in</Height>
         <Style />
@@ -1326,11 +1343,23 @@
       <AllowBlank>true</AllowBlank>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
+    <ReportParameter Name="txb_dtname">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="pr_sign">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
       <NumberOfColumns>4</NumberOfColumns>
-      <NumberOfRows>3</NumberOfRows>
+      <NumberOfRows>4</NumberOfRows>
       <CellDefinitions>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
@@ -1391,6 +1420,16 @@
           <ColumnIndex>3</ColumnIndex>
           <RowIndex>2</RowIndex>
           <ParameterName>txb_gioitinh</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>3</RowIndex>
+          <ParameterName>txb_dtname</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>3</RowIndex>
+          <ParameterName>pr_sign</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>
