@@ -419,7 +419,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox33</rd:DefaultName>
             <Top>3.04379in</Top>
-            <Left>3.72133in</Left>
+            <Left>3.84633in</Left>
             <Height>0.25in</Height>
             <Width>0.525in</Width>
             <ZIndex>11</ZIndex>
@@ -914,7 +914,7 @@
             <Top>2.57808in</Top>
             <Left>0.8573in</Left>
             <Height>0.24002in</Height>
-            <Width>4.47138in</Width>
+            <Width>4.72138in</Width>
             <ZIndex>23</ZIndex>
             <Style>
               <Border />
@@ -1195,11 +1195,11 @@
           <Image Name="img_sign">
             <Source>External</Source>
             <Value>=Parameters!pr_sign.Value</Value>
-            <Sizing>FitProportional</Sizing>
-            <Top>3.18918in</Top>
-            <Left>3.62573in</Left>
-            <Height>0.51462in</Height>
-            <Width>1.08637in</Width>
+            <Sizing>Fit</Sizing>
+            <Top>3.02643in</Top>
+            <Left>3.50073in</Left>
+            <Height>1.01764in</Height>
+            <Width>1.56698in</Width>
             <ZIndex>31</ZIndex>
             <Style>
               <Border>

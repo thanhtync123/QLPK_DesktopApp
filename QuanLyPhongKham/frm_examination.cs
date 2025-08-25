@@ -954,11 +954,11 @@ namespace QuanLyPhongKham
                 if (morning > 0)
                     dosages.Add($"<b>Sáng</b> uống {morning:0.##} <i>{unit}</i>");
                 if (noon > 0)
-                    dosages.Add($"<b>TRƯA</b> uống {noon:0.##} <i>{unit}</i>");
+                    dosages.Add($"<b>TRƯA UỐNG {noon:0.##} <i>{unit}</i></b>");
                 if (afternoon > 0)
                     dosages.Add($"<b>Chiều</b> uống {afternoon:0.##} <i>{unit}</i>");
                 if (evening > 0)
-                    dosages.Add($"<b>TỐI</b> uống {evening:0.##} <i>{unit}</i>");
+                    dosages.Add($"<b>TỐI</b> UỐNG {evening:0.##} <i>{unit}</i></b>");
 
                 // Nối liền trên 1 dòng
                 string dosageLine = string.Join(", ", dosages);

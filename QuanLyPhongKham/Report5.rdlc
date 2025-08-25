@@ -1284,10 +1284,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_nhanvien</rd:DefaultName>
-            <Top>12.60055cm</Top>
-            <Left>11.86632cm</Left>
+            <Top>13.23555cm</Top>
+            <Left>11.06085cm</Left>
             <Height>0.6cm</Height>
-            <Width>5.24212cm</Width>
+            <Width>6.75726cm</Width>
             <ZIndex>27</ZIndex>
             <Style>
               <Border>
@@ -1405,10 +1405,10 @@
             <Source>External</Source>
             <Value>=Parameters!pr_sign.Value</Value>
             <Sizing>FitProportional</Sizing>
-            <Top>11.18206cm</Top>
-            <Left>12.84814cm</Left>
-            <Height>1.53314cm</Height>
-            <Width>3.94684cm</Width>
+            <Top>10.86456cm</Top>
+            <Left>12.5542cm</Left>
+            <Height>2.65349cm</Height>
+            <Width>5.51078cm</Width>
             <ZIndex>31</ZIndex>
             <Style>
               <Border>

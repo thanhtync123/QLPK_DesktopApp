@@ -1211,7 +1211,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_dtname</rd:DefaultName>
-            <Top>5.61334in</Top>
+            <Top>5.72792in</Top>
             <Left>3.96243in</Left>
             <Height>0.25in</Height>
             <Width>2.90235in</Width>
@@ -1230,9 +1230,9 @@
             <Source>External</Source>
             <Value>=Parameters!pr_sign.Value</Value>
             <Sizing>FitProportional</Sizing>
-            <Top>4.79042in</Top>
-            <Left>4.50173in</Left>
-            <Height>0.87501in</Height>
+            <Top>4.69859in</Top>
+            <Left>4.62673in</Left>
+            <Height>1.15433in</Height>
             <Width>1.88426in</Width>
             <ZIndex>30</ZIndex>
             <Visibility>
