@@ -67,10 +67,6 @@ namespace QuanLyPhongKham
             row1.CreateCells(dtgv_detail,  "1", "Công khám", "Miễn phí", "", "-");
             AllRows.Add(row1);
 
-            DataGridViewRow row2 = new DataGridViewRow();
-            row2.CreateCells(dtgv_detail, "2", "Kiểm tra", "Miễn phí", "", "-");
-            AllRows.Add(row2);
-
             foreach (DataGridViewRow row in dtgv_detail.Rows)
             {
                 if (!row.IsNewRow)

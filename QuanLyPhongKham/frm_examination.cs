@@ -69,6 +69,7 @@ namespace QuanLyPhongKham
         }
         private void UpdateSTT()
         {
+           
             for (int i = 0; i < dtgv_service_patient.Rows.Count; i++)
                 dtgv_service_patient.Rows[i].Cells["STT"].Value = i + 1;
 
@@ -196,8 +197,8 @@ namespace QuanLyPhongKham
             LoadDTGV_Med();
             Update_FollowUpDate();
             lb_d0.Text = "";
-            dtgv_service_patient.Rows.Add("", "1", "Công khám", "Miễn phí", "", "-");
-            dtgv_service_patient.Rows.Add("", "2", "Kiểm tra", "Miễn phí", "", "-");
+            dtgv_service_patient.Rows.Add("", "-", "Công khám", "Miễn phí", "", "-");
+     
 
         }
 
@@ -1098,7 +1099,6 @@ namespace QuanLyPhongKham
             if (e.KeyChar == ',' && (sender as System.Windows.Forms.TextBox).Text.Contains(','))
                 e.Handled = true;
         }
-
 
     }
 }
