@@ -81,6 +81,12 @@
             this.lb_huyethoc = new System.Windows.Forms.Label();
             this.guna2Panel9 = new Guna.UI2.WinForms.Guna2Panel();
             this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.lb_troponin = new System.Windows.Forms.Label();
+            this.lb_stronggyloides = new System.Windows.Forms.Label();
+            this.lb_toxocara = new System.Windows.Forms.Label();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
@@ -527,7 +533,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(163, 31);
+            this.label2.Location = new System.Drawing.Point(243, 26);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(91, 21);
             this.label2.TabIndex = 13;
@@ -537,7 +543,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(117, 53);
+            this.label3.Location = new System.Drawing.Point(197, 69);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(137, 21);
             this.label3.TabIndex = 14;
@@ -547,7 +553,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(116, 97);
+            this.label5.Location = new System.Drawing.Point(196, 113);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(138, 21);
             this.label5.TabIndex = 15;
@@ -557,7 +563,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(44, 74);
+            this.label7.Location = new System.Drawing.Point(124, 90);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(210, 21);
             this.label7.TabIndex = 16;
@@ -567,7 +573,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(98, 187);
+            this.label9.Location = new System.Drawing.Point(178, 48);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(156, 21);
             this.label9.TabIndex = 20;
@@ -577,7 +583,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(134, 164);
+            this.label11.Location = new System.Drawing.Point(214, 180);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(120, 21);
             this.label11.TabIndex = 19;
@@ -587,7 +593,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(174, 140);
+            this.label13.Location = new System.Drawing.Point(254, 156);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(80, 21);
             this.label13.TabIndex = 18;
@@ -597,7 +603,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(145, 118);
+            this.label15.Location = new System.Drawing.Point(225, 134);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(109, 21);
             this.label15.TabIndex = 17;
@@ -608,7 +614,7 @@
             this.lb_sinhhoa.AutoSize = true;
             this.lb_sinhhoa.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_sinhhoa.ForeColor = System.Drawing.Color.Red;
-            this.lb_sinhhoa.Location = new System.Drawing.Point(256, 187);
+            this.lb_sinhhoa.Location = new System.Drawing.Point(336, 48);
             this.lb_sinhhoa.Name = "lb_sinhhoa";
             this.lb_sinhhoa.Size = new System.Drawing.Size(20, 22);
             this.lb_sinhhoa.TabIndex = 28;
@@ -619,7 +625,7 @@
             this.lb_nuoctieu.AutoSize = true;
             this.lb_nuoctieu.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_nuoctieu.ForeColor = System.Drawing.Color.Red;
-            this.lb_nuoctieu.Location = new System.Drawing.Point(256, 164);
+            this.lb_nuoctieu.Location = new System.Drawing.Point(336, 178);
             this.lb_nuoctieu.Name = "lb_nuoctieu";
             this.lb_nuoctieu.Size = new System.Drawing.Size(20, 22);
             this.lb_nuoctieu.TabIndex = 27;
@@ -630,7 +636,7 @@
             this.lb_testhp.AutoSize = true;
             this.lb_testhp.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_testhp.ForeColor = System.Drawing.Color.Red;
-            this.lb_testhp.Location = new System.Drawing.Point(256, 140);
+            this.lb_testhp.Location = new System.Drawing.Point(336, 156);
             this.lb_testhp.Name = "lb_testhp";
             this.lb_testhp.Size = new System.Drawing.Size(20, 22);
             this.lb_testhp.TabIndex = 26;
@@ -641,7 +647,7 @@
             this.lb_hba1c.AutoSize = true;
             this.lb_hba1c.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_hba1c.ForeColor = System.Drawing.Color.Red;
-            this.lb_hba1c.Location = new System.Drawing.Point(256, 118);
+            this.lb_hba1c.Location = new System.Drawing.Point(336, 134);
             this.lb_hba1c.Name = "lb_hba1c";
             this.lb_hba1c.Size = new System.Drawing.Size(20, 22);
             this.lb_hba1c.TabIndex = 25;
@@ -652,7 +658,7 @@
             this.lb_ktvgb.AutoSize = true;
             this.lb_ktvgb.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_ktvgb.ForeColor = System.Drawing.Color.Red;
-            this.lb_ktvgb.Location = new System.Drawing.Point(256, 74);
+            this.lb_ktvgb.Location = new System.Drawing.Point(336, 90);
             this.lb_ktvgb.Name = "lb_ktvgb";
             this.lb_ktvgb.Size = new System.Drawing.Size(20, 22);
             this.lb_ktvgb.TabIndex = 24;
@@ -663,7 +669,7 @@
             this.lb_vgc.AutoSize = true;
             this.lb_vgc.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_vgc.ForeColor = System.Drawing.Color.Red;
-            this.lb_vgc.Location = new System.Drawing.Point(256, 97);
+            this.lb_vgc.Location = new System.Drawing.Point(336, 113);
             this.lb_vgc.Name = "lb_vgc";
             this.lb_vgc.Size = new System.Drawing.Size(20, 22);
             this.lb_vgc.TabIndex = 23;
@@ -674,7 +680,7 @@
             this.lb_vgb.AutoSize = true;
             this.lb_vgb.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_vgb.ForeColor = System.Drawing.Color.Red;
-            this.lb_vgb.Location = new System.Drawing.Point(256, 53);
+            this.lb_vgb.Location = new System.Drawing.Point(336, 69);
             this.lb_vgb.Name = "lb_vgb";
             this.lb_vgb.Size = new System.Drawing.Size(20, 22);
             this.lb_vgb.TabIndex = 22;
@@ -685,7 +691,7 @@
             this.lb_huyethoc.AutoSize = true;
             this.lb_huyethoc.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_huyethoc.ForeColor = System.Drawing.Color.Red;
-            this.lb_huyethoc.Location = new System.Drawing.Point(256, 30);
+            this.lb_huyethoc.Location = new System.Drawing.Point(336, 25);
             this.lb_huyethoc.Name = "lb_huyethoc";
             this.lb_huyethoc.Size = new System.Drawing.Size(20, 22);
             this.lb_huyethoc.TabIndex = 21;
@@ -695,6 +701,12 @@
             // 
             this.guna2Panel9.BackColor = System.Drawing.Color.Honeydew;
             this.guna2Panel9.BorderColor = System.Drawing.Color.Yellow;
+            this.guna2Panel9.Controls.Add(this.lb_stronggyloides);
+            this.guna2Panel9.Controls.Add(this.lb_toxocara);
+            this.guna2Panel9.Controls.Add(this.lb_troponin);
+            this.guna2Panel9.Controls.Add(this.label20);
+            this.guna2Panel9.Controls.Add(this.label19);
+            this.guna2Panel9.Controls.Add(this.label17);
             this.guna2Panel9.Controls.Add(this.label18);
             this.guna2Panel9.Controls.Add(this.lb_sinhhoa);
             this.guna2Panel9.Controls.Add(this.label2);
@@ -714,7 +726,7 @@
             this.guna2Panel9.Controls.Add(this.lb_ktvgb);
             this.guna2Panel9.Location = new System.Drawing.Point(86, 339);
             this.guna2Panel9.Name = "guna2Panel9";
-            this.guna2Panel9.Size = new System.Drawing.Size(300, 225);
+            this.guna2Panel9.Size = new System.Drawing.Size(551, 305);
             this.guna2Panel9.TabIndex = 13;
             // 
             // label18
@@ -726,6 +738,69 @@
             this.label18.Size = new System.Drawing.Size(76, 20);
             this.label18.TabIndex = 0;
             this.label18.Text = "Chi tiết: ";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(251, 201);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(83, 21);
+            this.label17.TabIndex = 29;
+            this.label17.Text = "Troponin:";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(17, 222);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(317, 21);
+            this.label19.TabIndex = 30;
+            this.label19.Text = "Toxocara canis IgG (Giun đũa chó,mèo):";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(82, 243);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(252, 21);
+            this.label20.TabIndex = 31;
+            this.label20.Text = "Stronggyloides-IgG (Giun lươn):";
+            // 
+            // lb_troponin
+            // 
+            this.lb_troponin.AutoSize = true;
+            this.lb_troponin.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_troponin.ForeColor = System.Drawing.Color.Red;
+            this.lb_troponin.Location = new System.Drawing.Point(336, 200);
+            this.lb_troponin.Name = "lb_troponin";
+            this.lb_troponin.Size = new System.Drawing.Size(20, 22);
+            this.lb_troponin.TabIndex = 32;
+            this.lb_troponin.Text = "a";
+            // 
+            // lb_stronggyloides
+            // 
+            this.lb_stronggyloides.AutoSize = true;
+            this.lb_stronggyloides.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_stronggyloides.ForeColor = System.Drawing.Color.Red;
+            this.lb_stronggyloides.Location = new System.Drawing.Point(336, 242);
+            this.lb_stronggyloides.Name = "lb_stronggyloides";
+            this.lb_stronggyloides.Size = new System.Drawing.Size(20, 22);
+            this.lb_stronggyloides.TabIndex = 34;
+            this.lb_stronggyloides.Text = "a";
+            // 
+            // lb_toxocara
+            // 
+            this.lb_toxocara.AutoSize = true;
+            this.lb_toxocara.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_toxocara.ForeColor = System.Drawing.Color.Red;
+            this.lb_toxocara.Location = new System.Drawing.Point(336, 222);
+            this.lb_toxocara.Name = "lb_toxocara";
+            this.lb_toxocara.Size = new System.Drawing.Size(20, 22);
+            this.lb_toxocara.TabIndex = 33;
+            this.lb_toxocara.Text = "a";
             // 
             // frm_statistic
             // 
@@ -826,5 +901,11 @@
         private System.Windows.Forms.Label lb_huyethoc;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel9;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label lb_stronggyloides;
+        private System.Windows.Forms.Label lb_toxocara;
+        private System.Windows.Forms.Label lb_troponin;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label19;
     }
 }

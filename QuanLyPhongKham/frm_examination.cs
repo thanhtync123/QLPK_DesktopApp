@@ -617,7 +617,39 @@ namespace QuanLyPhongKham
         }
         private void btn_tinhtien_Click(object sender, EventArgs e)
         {
-            UpdateTotalServicePrice();
+            MessageBox.Show("Đang làm");
+            //dtgv_service_patient.Rows.Clear();
+            //frm_popupLUService frm = new frm_popupLUService();
+
+            //if (frm.ShowDialog() == DialogResult.OK)
+            //{
+            //    btn_save_examination_service.Enabled = false;
+            //    int stt = 1;
+            //    txb_exam_id.Text = frm.examId; 
+            //    foreach (var row in frm.AllRows)
+            //    {
+            //        int index = dtgv_service_patient.Rows.Add();
+
+            //        dtgv_service_patient.Rows[index].Cells[0].Value = row.Cells[0].Value; // Mã chỉ định
+            //        dtgv_service_patient.Rows[index].Cells[1].Value = stt++;              // STT
+            //        dtgv_service_patient.Rows[index].Cells[2].Value = row.Cells[1].Value; // Tên chỉ định
+            //        dtgv_service_patient.Rows[index].Cells[3].Value = row.Cells[2].Value; // Thành tiền
+            //        dtgv_service_patient.Rows[index].Cells[4].Value = "";                 // Ghi chú
+            //        dtgv_service_patient.Rows[index].Cells[5].Value = "-";                // Thao tác
+            //    }
+
+            //    // Tính tổng thành tiền
+            //    decimal total = 0;
+            //    foreach (DataGridViewRow row in dtgv_service_patient.Rows)
+            //    {
+            //        if (row.IsNewRow) continue;
+
+            //        if (decimal.TryParse(row.Cells[3].Value?.ToString(), out decimal value))
+            //            total += value;
+            //    }
+
+            //    lb_total_price_service.Text = total.ToString("N0") + " đ";
+            //}
         }
         private void UpdateTotalServicePrice()
         {
@@ -1113,6 +1145,19 @@ namespace QuanLyPhongKham
                 e.Handled = true;
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //foreach (DataGridViewRow row in dtgv_service_patient.Rows)
+            //{
+            //    int id_service = Convert.ToInt16(row.Cells["id_service2"].Value.ToString());
+            //    string query = $@"Select *
+            //                from examination_services es
+            //                where service_id = {id_service}
+            //                and examination_id = {Convert.ToInt16(txb_exam_id.Text)} 
+            //                    ";
+            //}
+            
+        }
     }
 }
 

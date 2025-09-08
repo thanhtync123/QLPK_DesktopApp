@@ -17,7 +17,7 @@ namespace QuanLyPhongKham
             InitializeComponent();
         }
         public List<DataGridViewRow> AllRows { get; private set; } = new List<DataGridViewRow>();
-
+        public string examId { get; set; }
 
         private void frm_popupLUService_Load(object sender, EventArgs e)
         {
@@ -66,7 +66,9 @@ namespace QuanLyPhongKham
             DataGridViewRow row1 = new DataGridViewRow();
             row1.CreateCells(dtgv_detail,  "1", "Công khám", "Miễn phí", "", "-");
             AllRows.Add(row1);
-
+            string examId = dtgv_exam_service.CurrentRow.Cells[0].Value.ToString();
+            if (dtgv_exam_service.CurrentRow != null)
+                this.examId = dtgv_exam_service.CurrentRow.Cells[0].Value.ToString();
             foreach (DataGridViewRow row in dtgv_detail.Rows)
             {
                 if (!row.IsNewRow)
