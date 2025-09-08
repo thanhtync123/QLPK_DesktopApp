@@ -69,9 +69,22 @@ namespace QuanLyPhongKham
         }
         private void UpdateSTT()
         {
-           
-            for (int i = 0; i < dtgv_service_patient.Rows.Count; i++)
-                dtgv_service_patient.Rows[i].Cells["STT"].Value = i + 1;
+            int stt = 1;
+            foreach (DataGridViewRow row in dtgv_service_patient.Rows)
+            {
+               // if (row.IsNewRow) continue; // bỏ qua dòng trống cuối
+
+                if (row.Cells["name_service2"].Value != null &&
+                    row.Cells["name_service2"].Value.ToString() == "Công khám")
+                {
+                    //row.Cells["STT"].Value = "-"; // gán STT = -
+                    continue;
+                }
+
+                row.Cells["STT"].Value = stt;
+                stt++;
+            }
+
 
         }
         private void LoadGrid()
