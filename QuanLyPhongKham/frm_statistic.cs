@@ -77,21 +77,24 @@ WHERE type='chỉ định' AND created_at BETWEEN '{fromDate}' AND '{toDate}'";
                     JOIN services s ON es.service_id = s.id
                     JOIN examination_results er ON es.id = er.examination_service_id
                     WHERE LOWER(s.name) LIKE '%test %viêm gan b%'
-                      AND LOWER(s.name) NOT LIKE '%kháng thể viêm gan b%';
+                      AND LOWER(s.name) NOT LIKE '%kháng thể viêm gan b%'
+                      AND er.created_at BETWEEN '{fromDate}' AND '{toDate}'
                                     ";
             lb_vgb.Text = Db.Scalar(queryTestVGB).ToString();
             string queryTestKhangTheVGB = $@"SELECT COUNT(*)
                     FROM examination_services es
                     JOIN services s ON es.service_id = s.id
                     JOIN examination_results er ON es.id = er.examination_service_id
-                    WHERE LOWER(s.name) LIKE '%kháng thể viêm gan b%';
+                    WHERE LOWER(s.name) LIKE '%kháng thể viêm gan b%'
+                    AND er.created_at BETWEEN '{fromDate}' AND '{toDate}'
                                     ";
             lb_ktvgb.Text = Db.Scalar(queryTestKhangTheVGB).ToString();
             string queryTestVGC = $@"SELECT COUNT(*)
                     FROM examination_services es
                     JOIN services s ON es.service_id = s.id
                     JOIN examination_results er ON es.id = er.examination_service_id
-                    WHERE LOWER(s.name) LIKE '%test %viêm gan c%';
+                    WHERE LOWER(s.name) LIKE '%test %viêm gan c%'
+                    AND er.created_at BETWEEN '{fromDate}' AND '{toDate}'
                                     ";
             lb_vgc.Text = Db.Scalar(queryTestVGC).ToString();
             string queryTestHuyetHoc = $@"SELECT COUNT(*)
@@ -99,6 +102,7 @@ WHERE type='chỉ định' AND created_at BETWEEN '{fromDate}' AND '{toDate}'";
                                         JOIN services s ON es.service_id = s.id
                                         JOIN examination_results er ON es.id = examination_service_id
                                         Where LOWER(s.name) LIKE '%Huyết học%'
+                                        AND er.created_at BETWEEN '{fromDate}' AND '{toDate}'
                                         ";
             lb_huyethoc.Text = Db.Scalar(queryTestHuyetHoc).ToString();
             string queryTestHbA1C = $@"SELECT COUNT(*)
@@ -106,6 +110,7 @@ WHERE type='chỉ định' AND created_at BETWEEN '{fromDate}' AND '{toDate}'";
                                         JOIN services s ON es.service_id = s.id
                                         JOIN examination_results er ON es.id = examination_service_id
                                         Where LOWER(s.name) LIKE '%HbA1C%'
+                                        AND er.created_at BETWEEN '{fromDate}' AND '{toDate}'
                                         ";
             lb_hba1c.Text = Db.Scalar(queryTestHbA1C).ToString();
             string queryTestHP = $@"SELECT COUNT(*)
@@ -113,6 +118,7 @@ WHERE type='chỉ định' AND created_at BETWEEN '{fromDate}' AND '{toDate}'";
                                         JOIN services s ON es.service_id = s.id
                                         JOIN examination_results er ON es.id = examination_service_id
                                         Where LOWER(s.name) LIKE '%HP%' OR LOWER(s.name) LIKE '%H.pylori%'
+                                        AND er.created_at BETWEEN '{fromDate}' AND '{toDate}'
                                         ";
             lb_testhp.Text = Db.Scalar(queryTestHP).ToString();
             string queryTestNuocTieu = $@"SELECT COUNT(*)
@@ -120,6 +126,7 @@ WHERE type='chỉ định' AND created_at BETWEEN '{fromDate}' AND '{toDate}'";
                                         JOIN services s ON es.service_id = s.id
                                         JOIN examination_results er ON es.id = examination_service_id
                                         Where LOWER(s.name) LIKE '%Xét nghiệm nước tiểu%'
+                                        AND er.created_at BETWEEN '{fromDate}' AND '{toDate}'
                                         ";
             lb_nuoctieu.Text = Db.Scalar(queryTestNuocTieu).ToString();
             string querySinhHoa = $@"SELECT COUNT(*)
@@ -134,7 +141,8 @@ WHERE type='chỉ định' AND created_at BETWEEN '{fromDate}' AND '{toDate}'";
                           AND LOWER(s.name) NOT LIKE '%hba1c%'
                           AND LOWER(s.name) NOT LIKE '%hp%'
                           AND LOWER(s.name) NOT LIKE '%h.pylori%'
-                          AND LOWER(s.name) NOT LIKE '%xét nghiệm nước tiểu%';
+                          AND LOWER(s.name) NOT LIKE '%xét nghiệm nước tiểu%'
+                            AND er.created_at BETWEEN '{fromDate}' AND '{toDate}'
                         ";
             lb_sinhhoa.Text = Db.Scalar(querySinhHoa).ToString();
 
