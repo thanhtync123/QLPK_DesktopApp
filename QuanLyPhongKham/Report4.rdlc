@@ -248,7 +248,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!name_service2.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <Format>#,0;(#,0)</Format>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -267,6 +269,7 @@
                             <PaddingBottom>3pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
