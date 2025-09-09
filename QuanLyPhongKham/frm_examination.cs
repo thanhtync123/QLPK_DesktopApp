@@ -72,12 +72,12 @@ namespace QuanLyPhongKham
             int stt = 1;
             foreach (DataGridViewRow row in dtgv_service_patient.Rows)
             {
-               // if (row.IsNewRow) continue; // bỏ qua dòng trống cuối
+                // if (row.IsNewRow) continue; // bỏ qua dòng trống cuối
 
                 if (row.Cells["name_service2"].Value != null &&
                     row.Cells["name_service2"].Value.ToString() == "Công khám")
                 {
-                    //row.Cells["STT"].Value = "-"; // gán STT = -
+                    row.Cells["STT"].Value = "-"; // gán STT = -
                     continue;
                 }
 
@@ -211,13 +211,16 @@ namespace QuanLyPhongKham
             Update_FollowUpDate();
             lb_d0.Text = "";
             dtgv_service_patient.Rows.Add("", "-", "Công khám", "Miễn phí", "", "-");
-     
+            btn_update_examination.Enabled = false;
+
 
         }
 
         private void dtgv_patients_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             LoadExamID();
+            btn_update_examination.Enabled = false;
+            btn_save_examination_service.Enabled = true;
             id = Convert.ToInt32(dtgv_patients.CurrentRow.Cells["ID"].Value);
             selectedPatientId = id;
             txb_name.Text = dtgv_patients.CurrentRow.Cells["name"].Value.ToString();
@@ -617,39 +620,43 @@ namespace QuanLyPhongKham
         }
         private void btn_tinhtien_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Đang làm");
-            //dtgv_service_patient.Rows.Clear();
-            //frm_popupLUService frm = new frm_popupLUService();
 
-            //if (frm.ShowDialog() == DialogResult.OK)
-            //{
-            //    btn_save_examination_service.Enabled = false;
-            //    int stt = 1;
-            //    txb_exam_id.Text = frm.examId; 
-            //    foreach (var row in frm.AllRows)
-            //    {
-            //        int index = dtgv_service_patient.Rows.Add();
+            dtgv_service_patient.Rows.Clear();
+            frm_popupLUService frm = new frm_popupLUService();
 
-            //        dtgv_service_patient.Rows[index].Cells[0].Value = row.Cells[0].Value; // Mã chỉ định
-            //        dtgv_service_patient.Rows[index].Cells[1].Value = stt++;              // STT
-            //        dtgv_service_patient.Rows[index].Cells[2].Value = row.Cells[1].Value; // Tên chỉ định
-            //        dtgv_service_patient.Rows[index].Cells[3].Value = row.Cells[2].Value; // Thành tiền
-            //        dtgv_service_patient.Rows[index].Cells[4].Value = "";                 // Ghi chú
-            //        dtgv_service_patient.Rows[index].Cells[5].Value = "-";                // Thao tác
-            //    }
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                btn_save_examination_service.Enabled = false;
+                btn_update_examination.Enabled = true;
+                int stt = 1;
+                txb_exam_id.Text = frm.examId;
+                foreach (var row in frm.AllRows)
+                {
+                    int index = dtgv_service_patient.Rows.Add();
 
-            //    // Tính tổng thành tiền
-            //    decimal total = 0;
-            //    foreach (DataGridViewRow row in dtgv_service_patient.Rows)
-            //    {
-            //        if (row.IsNewRow) continue;
+                    dtgv_service_patient.Rows[index].Cells[0].Value = row.Cells[0].Value; // Mã chỉ định
+                    if (row.Cells[1].Value.ToString() == "Công khám" || row.Cells[1].Value.ToString() == "Kiểm tra")
+                        dtgv_service_patient.Rows[index].Cells[1].Value = "-"; // gán STT = -
+                    else
+                        dtgv_service_patient.Rows[index].Cells[1].Value = stt++;                // STT
+                    dtgv_service_patient.Rows[index].Cells[2].Value = row.Cells[1].Value; // Tên chỉ định
+                    dtgv_service_patient.Rows[index].Cells[3].Value = row.Cells[2].Value; // Thành tiền
+                    dtgv_service_patient.Rows[index].Cells[4].Value = "";                 // Ghi chú
+                    dtgv_service_patient.Rows[index].Cells[5].Value = "-";                // Thao tác
+                }
 
-            //        if (decimal.TryParse(row.Cells[3].Value?.ToString(), out decimal value))
-            //            total += value;
-            //    }
+                // Tính tổng thành tiền
+                decimal total = 0;
+                foreach (DataGridViewRow row in dtgv_service_patient.Rows)
+                {
+                    if (row.IsNewRow) continue;
 
-            //    lb_total_price_service.Text = total.ToString("N0") + " đ";
-            //}
+                    if (decimal.TryParse(row.Cells[3].Value?.ToString(), out decimal value))
+                        total += value;
+                }
+
+                lb_total_price_service.Text = total.ToString("N0") + " đ";
+            }
         }
         private void UpdateTotalServicePrice()
         {
@@ -741,7 +748,10 @@ namespace QuanLyPhongKham
                     int index = dtgv_service_patient.Rows.Add();
 
                     dtgv_service_patient.Rows[index].Cells[0].Value = row.Cells[0].Value; // Mã chỉ định
-                    dtgv_service_patient.Rows[index].Cells[1].Value = stt++;              // STT
+                    if (row.Cells[1].Value.ToString() == "Công khám" || row.Cells[1].Value.ToString() == "Kiểm tra")
+                        dtgv_service_patient.Rows[index].Cells[1].Value = "-"; // gán STT = -
+                    else
+                        dtgv_service_patient.Rows[index].Cells[1].Value = stt++;              // STT
                     dtgv_service_patient.Rows[index].Cells[2].Value = row.Cells[1].Value; // Tên chỉ định
                     dtgv_service_patient.Rows[index].Cells[3].Value = row.Cells[2].Value; // Thành tiền
                     dtgv_service_patient.Rows[index].Cells[4].Value = "";                 // Ghi chú
@@ -1147,17 +1157,49 @@ namespace QuanLyPhongKham
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //foreach (DataGridViewRow row in dtgv_service_patient.Rows)
-            //{
-            //    int id_service = Convert.ToInt16(row.Cells["id_service2"].Value.ToString());
-            //    string query = $@"Select *
-            //                from examination_services es
-            //                where service_id = {id_service}
-            //                and examination_id = {Convert.ToInt16(txb_exam_id.Text)} 
-            //                    ";
-            //}
-            
+            foreach (DataGridViewRow row in dtgv_service_patient.Rows)
+            {
+                if (row.IsNewRow) continue;
+                if (row.Cells[1].Value.ToString() == "Công khám" || row.Cells[1].Value.ToString() == "Kiểm tra")
+                    continue;
+                int id_service;
+                if (!int.TryParse(row.Cells["id_service2"].Value?.ToString(), out id_service))
+                    continue;
+
+                string checkQuery = $@"Select count(*)
+                            from examination_services es
+                            where service_id = {id_service}
+                            and examination_id = {Convert.ToInt16(txb_exam_id.Text)} 
+                                ";
+                int count = Convert.ToInt32(Db.Scalar(checkQuery));
+
+                if (count == 0)
+                {
+                    if (row.Cells[2].Value.ToString() == "Công khám" || row.Cells[2].Value.ToString() == "Kiểm tra")
+                        continue;
+                    try
+                    {
+                        string insertQuery = $@"
+                        INSERT INTO examination_services(service_id, examination_id)
+                        VALUES({id_service}, {Convert.ToInt16(txb_exam_id.Text)})";
+                        Db.ExecuteNonQuery(insertQuery);
+                        MessageBox.Show("Cập nhật dịch vụ cho phiếu thành công");
+                        btn_save_examination_service.Enabled = true;
+                        btn_update_examination.Enabled = false;
+                     
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi: " + ex.Message);
+
+                    }
+                }
+
+            }
+            LoadExamID();
         }
+
     }
 }
 

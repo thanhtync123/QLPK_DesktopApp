@@ -216,7 +216,8 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=RowNumber(Nothing)</Value>
+                                  <Value>=IIF(Fields!name_service2.Value = "Công khám", "-", 
+     RunningValue(IIF(Fields!name_service2.Value &lt;&gt; "Công khám", 1, Nothing), Sum, Nothing))</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
@@ -269,7 +270,6 @@
                             <PaddingBottom>3pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>

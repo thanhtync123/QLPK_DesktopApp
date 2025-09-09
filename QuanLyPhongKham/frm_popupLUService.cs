@@ -64,7 +64,7 @@ namespace QuanLyPhongKham
         {
             AllRows.Clear();
             DataGridViewRow row1 = new DataGridViewRow();
-            row1.CreateCells(dtgv_detail,  "1", "Công khám", "Miễn phí", "", "-");
+            row1.CreateCells(dtgv_detail,  "", "Công khám", "Miễn phí", "", "-");
             AllRows.Add(row1);
             string examId = dtgv_exam_service.CurrentRow.Cells[0].Value.ToString();
             if (dtgv_exam_service.CurrentRow != null)
