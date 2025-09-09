@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace QuanLyPhongKham
 {
@@ -28,7 +30,8 @@ namespace QuanLyPhongKham
         }
         private void LoadDTGV_Patient_Service()
         {
-            string sql = $@"SELECT 
+            Db.ResetConnection();
+            string query = $@"SELECT 
                 e.id AS 'Mã phiếu khám',
                 p.id AS 'Mã BN',
                 p.name AS 'Tên BN',
@@ -42,20 +45,49 @@ namespace QuanLyPhongKham
             ORDER BY e.id DESC;
 
                         ";
-            Db.LoadDTGV(dtgv_exam_service, sql);
-            dtgv_exam_service.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            Db.cmd = new MySqlCommand(query, Db.conn);
+            Db.dr = Db.cmd.ExecuteReader();
+            dtgv_exam_service.Rows.Clear(); // Xóa dữ liệu cũ trong DataGridView
+            while (Db.dr.Read())
+            {
+                int i = dtgv_exam_service.Rows.Add();
+                DataGridViewRow drr = dtgv_exam_service.Rows[i];
+
+                drr.Cells["id_exam"].Value = Db.dr["Mã phiếu khám"];
+                drr.Cells["id_patient"].Value = Db.dr["Mã BN"];
+                drr.Cells["name_patient"].Value = Db.dr["Tên BN"];
+                drr.Cells["time"].Value = Db.dr["Ngày cấp dịch vụ"];
+
+            }
+
+            Db.dr.Close();
         }
         int id = 0;
         private void dtgv_exam_service_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             btn_delete.Enabled = true;
              id = Convert.ToInt16(dtgv_exam_service.Rows[e.RowIndex].Cells[0].Value.ToString());
-            string sql = $@"SELECT s.id as 'Mã CĐ',s.name as 'Tên chỉ định',s.price as 'Giá'
+            string query = $@"SELECT s.id as 'Mã CĐ',s.name as 'Tên chỉ định',s.price as 'Giá'
                         FROM examinations e, services s, examination_services es
                         WHERE s.id = es.service_id
                         and e.id = es.examination_id
                         and e.id = {id}";
-            Db.LoadDTGV(dtgv_detail, sql);
+            Db.cmd = new MySqlCommand(query, Db.conn);
+            Db.dr = Db.cmd.ExecuteReader();
+            dtgv_detail.Rows.Clear(); // Xóa dữ liệu cũ trong DataGridView
+            while (Db.dr.Read())
+            {
+                int i = dtgv_detail.Rows.Add();
+                DataGridViewRow drr = dtgv_detail.Rows[i];
+
+                drr.Cells["id_service"].Value = Db.dr["Mã CĐ"];
+                drr.Cells["name_service"].Value = Db.dr["Tên chỉ định"];
+                drr.Cells["price"].Value = Db.dr["Giá"];
+
+
+            }
+
+            Db.dr.Close();
 
 
         }
