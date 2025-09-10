@@ -1157,6 +1157,7 @@ namespace QuanLyPhongKham
 
         private void button1_Click(object sender, EventArgs e)
         {
+            bool hasInserted = false;
             foreach (DataGridViewRow row in dtgv_service_patient.Rows)
             {
                 if (row.IsNewRow) continue;
@@ -1183,7 +1184,7 @@ namespace QuanLyPhongKham
                         INSERT INTO examination_services(service_id, examination_id)
                         VALUES({id_service}, {Convert.ToInt16(txb_exam_id.Text)})";
                         Db.ExecuteNonQuery(insertQuery);
-                        MessageBox.Show("Cập nhật dịch vụ cho phiếu thành công");
+                        hasInserted = true;
                         btn_save_examination_service.Enabled = true;
                         btn_update_examination.Enabled = false;
                      
@@ -1197,7 +1198,15 @@ namespace QuanLyPhongKham
                 }
 
             }
-            LoadExamID();
+            if (hasInserted)
+            {
+                MessageBox.Show("Cập nhật dịch vụ cho phiếu thành công");
+                LoadExamID();
+            }
+          
+            
+
+       
         }
 
     }
