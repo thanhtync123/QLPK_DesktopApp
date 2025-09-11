@@ -95,6 +95,9 @@ namespace QuanLyPhongKham
 
                 reportViewer1.LocalReport.Refresh();
                 reportViewer1.RefreshReport();
+                reportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
+                reportViewer1.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.Percent;
+                reportViewer1.ZoomPercent = 75;
             }
             catch (Exception ex)
             {

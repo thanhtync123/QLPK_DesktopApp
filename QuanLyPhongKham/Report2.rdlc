@@ -127,7 +127,7 @@
             <rd:DefaultName>txb_mota</rd:DefaultName>
             <Top>9.75066cm</Top>
             <Left>0.44483cm</Left>
-            <Height>10.15115cm</Height>
+            <Height>7.88653cm</Height>
             <Width>13.35182cm</Width>
             <ZIndex>4</ZIndex>
             <Style>
@@ -312,7 +312,7 @@
           </Image>
           <Line Name="Line1">
             <Left>14.11939cm</Left>
-            <Height>20.88077cm</Height>
+            <Height>19.80677cm</Height>
             <Width>0cm</Width>
             <ZIndex>11</ZIndex>
             <Style>
@@ -1283,7 +1283,7 @@
             </Style>
           </Image>
         </ReportItems>
-        <Height>20.88077cm</Height>
+        <Height>19.80677cm</Height>
         <Style />
       </Body>
       <Width>26.50541cm</Width>
