@@ -62,23 +62,23 @@ namespace QuanLyPhongKham
         private void LoadAllPatients()
         {
             string query = @"SELECT 
-    `id`, 
-    `name`, 
-    DATE_FORMAT(`date_of_birth`, '%d/%m/%Y') AS `date_of_birth`, 
-    `gender`, 
-    `phone`, 
-    `address`, 
-    `pulse`, 
-    `blood_pressure`, 
-    `respiratory_rate`, 
-    `weight`, 
-    `height`, 
-    `temperature`, 
-    DATE_FORMAT(`created_at`, '%d/%m/%Y %H:%i') AS `created_at_format`, 
-    DATE_FORMAT(`updated_at`, '%d/%m/%Y %H:%i') AS `updated_at_format`,
-    `updated_at`
-FROM `patients`
-ORDER BY `updated_at` DESC";
+            `id`, 
+            `name`, 
+            DATE_FORMAT(`date_of_birth`, '%d/%m/%Y') AS `date_of_birth`, 
+            `gender`, 
+            `phone`, 
+            `address`, 
+            `pulse`, 
+            `blood_pressure`, 
+            `respiratory_rate`, 
+            `weight`, 
+            `height`, 
+            `temperature`, 
+            DATE_FORMAT(`created_at`, '%d/%m/%Y %H:%i') AS `created_at_format`, 
+            DATE_FORMAT(`updated_at`, '%d/%m/%Y %H:%i') AS `updated_at_format`,
+            `updated_at`
+        FROM `patients`
+        ORDER BY `updated_at` DESC";
 
             Db.LoadDTGV(dtgv, query);
 
@@ -172,19 +172,19 @@ VALUES
             }
 
             string query = @"UPDATE patients SET 
-    name = @name, 
-    date_of_birth = @date_of_birth, 
-    gender = @gender, 
-    phone = @phone, 
-    address = @address, 
-    pulse = @pulse,
-    blood_pressure = @blood_pressure,
-    respiratory_rate = @respiratory_rate,
-    weight = @weight,
-    height = @height,
-    temperature = @temperature,
-    updated_at = NOW()
-WHERE id = @id";
+                                name = @name, 
+                                date_of_birth = @date_of_birth, 
+                                gender = @gender, 
+                                phone = @phone, 
+                                address = @address, 
+                                pulse = @pulse,
+                                blood_pressure = @blood_pressure,
+                                respiratory_rate = @respiratory_rate,
+                                weight = @weight,
+                                height = @height,
+                                temperature = @temperature,
+                                updated_at = NOW()
+                            WHERE id = @id";
 
 
             var data = GetPatientFormData();
@@ -261,24 +261,24 @@ WHERE id = @id";
             string escapedKeyword = MySqlHelper.EscapeString(keyword); // nếu bạn dùng MySql.Data
 
             string query = $@"SELECT 
-        `id`, 
-        `name`, 
-        DATE_FORMAT(`date_of_birth`, '%d/%m/%Y') AS `date_of_birth`, 
-        `gender`, 
-        `phone`, 
-        `address`, 
-        `pulse`, 
-        `blood_pressure`, 
-        `respiratory_rate`, 
-        `weight`, 
-        `height`, 
-        `temperature`, 
-        DATE_FORMAT(`created_at`, '%d/%m/%Y %H:%i') AS `created_at_format`, 
-        DATE_FORMAT(`updated_at`, '%d/%m/%Y %H:%i') AS `updated_at_format`,
-        `updated_at`
-    FROM `patients`
-    WHERE `id` LIKE '%{escapedKeyword}%' OR `name` LIKE '%{escapedKeyword}%'
-    ORDER BY `updated_at` DESC";
+                `id`, 
+                `name`, 
+                DATE_FORMAT(`date_of_birth`, '%d/%m/%Y') AS `date_of_birth`, 
+                `gender`, 
+                `phone`, 
+                `address`, 
+                `pulse`, 
+                `blood_pressure`, 
+                `respiratory_rate`, 
+                `weight`, 
+                `height`, 
+                `temperature`, 
+                DATE_FORMAT(`created_at`, '%d/%m/%Y %H:%i') AS `created_at_format`, 
+                DATE_FORMAT(`updated_at`, '%d/%m/%Y %H:%i') AS `updated_at_format`,
+                `updated_at`
+            FROM `patients`
+            WHERE `id` LIKE '%{escapedKeyword}%' OR `name` LIKE '%{escapedKeyword}%'
+            ORDER BY `updated_at` DESC";
 
             Db.LoadDTGV(dtgv, query);
 
@@ -301,20 +301,20 @@ WHERE id = @id";
                 return;
             }
 
-            string query = @"UPDATE patients SET 
-            name = @name, 
-            date_of_birth = @date_of_birth, 
-            gender = @gender, 
-            phone = @phone, 
-            address = @address, 
-            pulse = @pulse,
-            blood_pressure = @blood_pressure,
-            respiratory_rate = @respiratory_rate,
-            weight = @weight,
-            height = @height,
-            temperature = @temperature,
-            updated_at = NOW()
-        WHERE id = @id";
+                    string query = @"UPDATE patients SET 
+                    name = @name, 
+                    date_of_birth = @date_of_birth, 
+                    gender = @gender, 
+                    phone = @phone, 
+                    address = @address, 
+                    pulse = @pulse,
+                    blood_pressure = @blood_pressure,
+                    respiratory_rate = @respiratory_rate,
+                    weight = @weight,
+                    height = @height,
+                    temperature = @temperature,
+                    updated_at = NOW()
+                WHERE id = @id";
 
 
             var data = GetPatientFormData();

@@ -90,7 +90,7 @@
             this.dtpk_dob.Location = new System.Drawing.Point(94, 95);
             this.dtpk_dob.Margin = new System.Windows.Forms.Padding(6);
             this.dtpk_dob.Name = "dtpk_dob";
-            this.dtpk_dob.Size = new System.Drawing.Size(142, 26);
+            this.dtpk_dob.Size = new System.Drawing.Size(183, 26);
             this.dtpk_dob.TabIndex = 2;
             // 
             // rdn_male
@@ -630,7 +630,7 @@
             this.txb_respiratory_rate.Name = "txb_respiratory_rate";
             this.txb_respiratory_rate.PlaceholderText = "";
             this.txb_respiratory_rate.SelectedText = "";
-            this.txb_respiratory_rate.Size = new System.Drawing.Size(210, 40);
+            this.txb_respiratory_rate.Size = new System.Drawing.Size(164, 40);
             this.txb_respiratory_rate.TabIndex = 43;
             // 
             // label25
