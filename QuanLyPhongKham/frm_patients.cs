@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
-using System.Globalization;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
@@ -14,102 +13,71 @@ namespace QuanLyPhongKham
         {
             InitializeComponent();
         }
-
-        private Dictionary<string, object> GetPatientFormData()
+        int pageSize = 20;   
+        int currentPage = 1; 
+        int totalRecords;    
+        int totalPages;
+        private void LoadPatients(string keyword = "")
         {
-            return new Dictionary<string, object>
-    {
-        { "@name", txb_name.Text.Trim() },
-        { "@date_of_birth", DateTime.ParseExact(dtpk_dob.Text, "dd/MM/yyyy", null).ToString("yyyy-MM-dd") },
-        { "@gender", rdn_male.Checked ? "Nam" : "Nữ" },
-        { "@phone", txb_phone.Text.Trim() },
-        { "@address", txb_address.Text.Trim() },
-        { "@pulse", txb_pulse.Text.Trim() },
-        { "@blood_pressure", txb_blood_pressure.Text.Trim() },
-        { "@respiratory_rate", txb_respiratory_rate.Text.Trim() },
-        { "@weight", txb_weight.Text.Trim() },
-        { "@height", txb_height.Text.Trim() },
-        { "@temperature", txb_temperature.Text.Trim() }
-    };
-        }
+            string where = "";
+            if (!string.IsNullOrEmpty(keyword))
+            {
+                string escapedKeyword = MySqlHelper.EscapeString(keyword);
+                where = $"WHERE `id` LIKE '%{escapedKeyword}%' OR `name` LIKE '%{escapedKeyword}%'";
+            }
 
-        private void SetButtonState(bool isRowSelected)
-        {
-            btn_add.Enabled = !isRowSelected;
-            btn_update.Enabled = isRowSelected;
-            btn_delete.Enabled = isRowSelected;
-            btn_re_updated.Enabled = isRowSelected;  
-        }
-
-        private void ClearForm()
-        {
-            txb_id.Clear();
-            txb_name.Clear();
-            txb_phone.Clear();
-            txb_address.Clear();
-            dtpk_dob.Value = DateTime.Today;
-            rdn_male.Checked = true;
-            txb_pulse.Text = "  Lần/phút";
-            txb_blood_pressure.Text = "  mmHg";
-            txb_respiratory_rate.Text = "  Lần/phút";
-            txb_weight.Text = "  kg";
-            txb_height.Text = "  cm";
-            txb_temperature.Text = "  °C";
-
-            SetButtonState(false);
-        }
-
-        private void LoadAllPatients()
-        {
-            string query = @"SELECT 
-            `id`, 
-            `name`, 
-            DATE_FORMAT(`date_of_birth`, '%d/%m/%Y') AS `date_of_birth`, 
-            `gender`, 
-            `phone`, 
-            `address`, 
-            `pulse`, 
-            `blood_pressure`, 
-            `respiratory_rate`, 
-            `weight`, 
-            `height`, 
-            `temperature`, 
-            DATE_FORMAT(`created_at`, '%d/%m/%Y %H:%i') AS `created_at_format`, 
-            DATE_FORMAT(`updated_at`, '%d/%m/%Y %H:%i') AS `updated_at_format`,
-            `updated_at`
-        FROM `patients`
-        ORDER BY `updated_at` DESC";
+            string query = $@"
+                SELECT 
+                    `id`, 
+                    `name`, 
+                    DATE_FORMAT(`date_of_birth`, '%d/%m/%Y') AS `date_of_birth`, 
+                    `gender`, 
+                    `phone`, 
+                    `address`, 
+                    `pulse`, 
+                    `blood_pressure`, 
+                    `respiratory_rate`, 
+                    `weight`, 
+                    `height`, 
+                    `temperature`, 
+                    DATE_FORMAT(`created_at`, '%d/%m/%Y %H:%i') AS `created_at_format`, 
+                    DATE_FORMAT(`updated_at`, '%d/%m/%Y %H:%i') AS `updated_at_format`,
+                    `updated_at`
+                FROM `patients`
+                {where}
+                ORDER BY `updated_at` DESC";
 
             Db.LoadDTGV(dtgv, query);
+        }
 
-            // Thiết lập tiêu đề và độ rộng
-            dtgv.Columns["id"].HeaderText = "Mã BN"; dtgv.Columns["id"].Width = 80;
-            dtgv.Columns["name"].HeaderText = "Họ tên"; dtgv.Columns["name"].Width = 200;
-            dtgv.Columns["date_of_birth"].HeaderText = "Ngày sinh"; dtgv.Columns["date_of_birth"].Width = 120;
-            dtgv.Columns["gender"].HeaderText = "Giới tính"; dtgv.Columns["gender"].Width = 80;
-            dtgv.Columns["phone"].HeaderText = "SĐT"; dtgv.Columns["phone"].Width = 130;
-            dtgv.Columns["address"].HeaderText = "Địa chỉ"; dtgv.Columns["address"].Width = 200;
-            dtgv.Columns["pulse"].HeaderText = "Mạch"; dtgv.Columns["pulse"].Width = 115;
-            dtgv.Columns["blood_pressure"].HeaderText = "Huyết áp"; dtgv.Columns["blood_pressure"].Width = 115;
-            dtgv.Columns["respiratory_rate"].HeaderText = "Nhịp thở"; dtgv.Columns["respiratory_rate"].Width = 115;
-            dtgv.Columns["weight"].HeaderText = "Cân nặng"; dtgv.Columns["weight"].Width = 115;
-            dtgv.Columns["height"].HeaderText = "Chiều cao"; dtgv.Columns["height"].Width = 115;
-            dtgv.Columns["temperature"].HeaderText = "Nhiệt độ"; dtgv.Columns["temperature"].Width = 115;
-            dtgv.Columns["created_at_format"].HeaderText = "Ngày tạo"; dtgv.Columns["created_at_format"].Width = 140;
-            dtgv.Columns["updated_at_format"].HeaderText = "Cập nhật lúc"; dtgv.Columns["updated_at_format"].Width = 170;
+        // =========================
+        // SETUP GRID (chỉ 1 lần)
+        // =========================
+        private void SetupGridColumns()
+        {
+            dtgv.AutoGenerateColumns = false;
 
-            // Ẩn cột gốc updated_at
-            dtgv.Columns["updated_at"].Visible = false;
+            dtgv.Columns["id"].DataPropertyName = "id";
+            dtgv.Columns["name"].DataPropertyName = "name";
+            dtgv.Columns["date_of_birth"].DataPropertyName = "date_of_birth";
+            dtgv.Columns["gender"].DataPropertyName = "gender";
+            dtgv.Columns["phone"].DataPropertyName = "phone";
+            dtgv.Columns["address"].DataPropertyName = "address";
+            dtgv.Columns["pulse"].DataPropertyName = "pulse";
+            dtgv.Columns["blood_pressure"].DataPropertyName = "blood_pressure";
+            dtgv.Columns["respiratory_rate"].DataPropertyName = "respiratory_rate";
+            dtgv.Columns["weight"].DataPropertyName = "weight";
+            dtgv.Columns["height"].DataPropertyName = "height";
+            dtgv.Columns["temperature"].DataPropertyName = "temperature";
+            dtgv.Columns["created_at_format"].DataPropertyName = "created_at_format";
+            dtgv.Columns["updated_at_format"].DataPropertyName = "updated_at_format";
 
-            dtgv.EnableHeadersVisualStyles = false;
-            dtgv.AllowUserToAddRows = false;
-
-            // Tô màu cho cả 'name' và 'updated_at_format' nếu được cập nhật hôm nay
+            // highlight hôm nay (gán 1 lần)
             dtgv.CellFormatting += (s, e) =>
             {
                 if (e.RowIndex >= 0)
                 {
-                    var updatedAtRaw = dtgv.Rows[e.RowIndex].Cells["updated_at"].Value?.ToString();
+                    var updatedAtRaw = dtgv.Rows[e.RowIndex].Cells["updated_at_format"].Value?.ToString();
                     if (!string.IsNullOrEmpty(updatedAtRaw) && DateTime.TryParse(updatedAtRaw, out DateTime updatedDate))
                     {
                         if (updatedDate.Date == DateTime.Today)
@@ -125,99 +93,112 @@ namespace QuanLyPhongKham
                     }
                 }
             };
-
-
-
-
         }
 
-
+        // =========================
+        // FORM LOAD
+        // =========================
         private void frm_patients_Load(object sender, EventArgs e)
         {
             dtpk_dob.Format = DateTimePickerFormat.Custom;
             dtpk_dob.CustomFormat = "dd/MM/yyyy";
-            rdn_male.Checked= true;
-
-            LoadAllPatients();
+            rdn_male.Checked = true;
 
             txb_id.ReadOnly = true;
             SetButtonState(false);
 
-            // Gán sự kiện cho ô tìm kiếm
-            txb_search.TextChanged += txb_search_TextChanged;
+            SetupGridColumns();
+            LoadPatients();  
+
         }
-        
+
+        // =========================
+        // CLEAR FORM
+        // =========================
+        private void ClearForm()
+        {
+            txb_id.Clear();
+            txb_name.Clear();
+            dtpk_dob.Value = DateTime.Today;
+            rdn_male.Checked = true;
+            txb_phone.Clear();
+            txb_address.Clear();
+            txb_pulse.Clear();
+            txb_blood_pressure.Clear();
+            txb_respiratory_rate.Clear();
+            txb_weight.Clear();
+            txb_height.Clear();
+            txb_temperature.Clear();
+
+            SetButtonState(false);
+        }
+        private void SetButtonState(bool isEditing)
+        {
+            btn_add.Enabled = !isEditing;
+            btn_update.Enabled = isEditing;
+            btn_delete.Enabled = isEditing;
+            btn_re_updated.Enabled = isEditing;
+        }
+        private Dictionary<string, object> GetPatientFormData()
+        {
+            return new Dictionary<string, object>
+            {
+                {"id", txb_id.Text },
+                {"name", txb_name.Text },
+                {"date_of_birth", dtpk_dob.Value.ToString("yyyy-MM-dd") },
+                {"gender", rdn_male.Checked ? "Nam" : "Nữ" },
+                {"phone", txb_phone.Text },
+                {"address", txb_address.Text },
+                {"pulse", txb_pulse.Text },
+                {"blood_pressure", txb_blood_pressure.Text },
+                {"respiratory_rate", txb_respiratory_rate.Text },
+                {"weight", txb_weight.Text },
+                {"height", txb_height.Text },
+                {"temperature", txb_temperature.Text }
+            };
+        }
         private void btn_add_Click(object sender, EventArgs e)
         {
-
-            string query = @"INSERT INTO patients 
-(name, date_of_birth, gender, phone, address, pulse, blood_pressure, respiratory_rate, weight, height, temperature, created_at)
-VALUES 
-(@name, @date_of_birth, @gender, @phone, @address, @pulse, @blood_pressure, @respiratory_rate, @weight, @height, @temperature, NOW())";
-
-
             var data = GetPatientFormData();
-            Db.Add(query, data);
+            string query = @"INSERT INTO patients 
+                (name, date_of_birth, gender, phone, address, pulse, blood_pressure, respiratory_rate, weight, height, temperature) 
+                VALUES (@name, @date_of_birth, @gender, @phone, @address, @pulse, @blood_pressure, @respiratory_rate, @weight, @height, @temperature)";
 
-            LoadAllPatients();
+            Db.Add(query, data);
             ClearForm();
+            LoadPatients();
         }
 
         private void btn_update_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txb_id.Text))
-            {
-                MessageBox.Show("Vui lòng chọn bệnh nhân để sửa.");
-                return;
-            }
-
-            string query = @"UPDATE patients SET 
-                                name = @name, 
-                                date_of_birth = @date_of_birth, 
-                                gender = @gender, 
-                                phone = @phone, 
-                                address = @address, 
-                                pulse = @pulse,
-                                blood_pressure = @blood_pressure,
-                                respiratory_rate = @respiratory_rate,
-                                weight = @weight,
-                                height = @height,
-                                temperature = @temperature,
-                                updated_at = NOW()
-                            WHERE id = @id";
-
-
             var data = GetPatientFormData();
-            data.Add("@id", txb_id.Text.Trim());
+            string query = @"UPDATE patients 
+                SET name=@name, date_of_birth=@date_of_birth, gender=@gender, phone=@phone, address=@address, pulse=@pulse, 
+                    blood_pressure=@blood_pressure, respiratory_rate=@respiratory_rate, weight=@weight, height=@height, temperature=@temperature, 
+                    updated_at=NOW() 
+                WHERE id=@id";
 
             Db.Update(query, data);
-
-            LoadAllPatients();
             ClearForm();
+            LoadPatients();
         }
 
         private void btn_delete_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txb_id.Text))
-            {
-                MessageBox.Show("Vui lòng chọn bệnh nhân để xóa.");
-                return;
-            }
+            var data = GetPatientFormData();
+            string query = "DELETE FROM patients WHERE id=@id";
 
-            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa bệnh nhân này không?", "Xác nhận", MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes)
-            {
-                string query = "DELETE FROM patients WHERE id = @id";
-                var data = new Dictionary<string, object>
-                {
-                    { "@id", txb_id.Text.Trim() }
-                };
-
-                Db.Delete(query, data);
-                LoadAllPatients();
-                ClearForm();
-            }
+            Db.Delete(query, data);
+            ClearForm();
+            LoadPatients();
         }
+
+        private void btn_refresh_Click(object sender, EventArgs e)
+        {
+            ClearForm();
+            LoadPatients();
+        }
+
 
         private void dtgv_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -227,103 +208,50 @@ VALUES
 
                 txb_id.Text = row.Cells["id"].Value.ToString();
                 txb_name.Text = row.Cells["name"].Value.ToString();
+                dtpk_dob.Value = DateTime.ParseExact(row.Cells["date_of_birth"].Value.ToString(), "dd/MM/yyyy", null);
+                (row.Cells["gender"].Value.ToString() == "Nam" ? rdn_male : rdn_female).Checked = true;
                 txb_phone.Text = row.Cells["phone"].Value.ToString();
                 txb_address.Text = row.Cells["address"].Value.ToString();
-                txb_pulse.Text = row.Cells["pulse"].Value?.ToString();
-                txb_blood_pressure.Text = row.Cells["blood_pressure"].Value?.ToString();
-                txb_respiratory_rate.Text = row.Cells["respiratory_rate"].Value?.ToString();
-                txb_weight.Text = row.Cells["weight"].Value?.ToString();
-                txb_height.Text = row.Cells["height"].Value?.ToString();
-                txb_temperature.Text = row.Cells["temperature"].Value?.ToString();
+                txb_pulse.Text = row.Cells["pulse"].Value.ToString();
+                txb_blood_pressure.Text = row.Cells["blood_pressure"].Value.ToString();
+                txb_respiratory_rate.Text = row.Cells["respiratory_rate"].Value.ToString();
+                txb_weight.Text = row.Cells["weight"].Value.ToString();
+                txb_height.Text = row.Cells["height"].Value.ToString();
+                txb_temperature.Text = row.Cells["temperature"].Value.ToString();
 
-                string dobString = row.Cells["date_of_birth"].Value.ToString();
-                if (DateTime.TryParseExact(dobString, "dd/MM/yyyy", null, DateTimeStyles.None, out DateTime dob))
-                {
-                    dtpk_dob.Value = dob;
-                }
-
-                string gender = row.Cells["gender"].Value.ToString();
-                rdn_male.Checked = (gender == "Nam");
-                rdn_female.Checked = (gender == "Nữ");
-
-                SetButtonState(true);  // Kích hoạt các nút khi có dòng được chọn
+                SetButtonState(true);
             }
-        }
-
-        private void btn_refresh_Click(object sender, EventArgs e)
-        {
-            ClearForm();
-            LoadAllPatients();
-        }
-
-        private void SearchPatients(string keyword)
-        {
-            string escapedKeyword = MySqlHelper.EscapeString(keyword); // nếu bạn dùng MySql.Data
-
-            string query = $@"SELECT 
-                `id`, 
-                `name`, 
-                DATE_FORMAT(`date_of_birth`, '%d/%m/%Y') AS `date_of_birth`, 
-                `gender`, 
-                `phone`, 
-                `address`, 
-                `pulse`, 
-                `blood_pressure`, 
-                `respiratory_rate`, 
-                `weight`, 
-                `height`, 
-                `temperature`, 
-                DATE_FORMAT(`created_at`, '%d/%m/%Y %H:%i') AS `created_at_format`, 
-                DATE_FORMAT(`updated_at`, '%d/%m/%Y %H:%i') AS `updated_at_format`,
-                `updated_at`
-            FROM `patients`
-            WHERE `id` LIKE '%{escapedKeyword}%' OR `name` LIKE '%{escapedKeyword}%'
-            ORDER BY `updated_at` DESC";
-
-            Db.LoadDTGV(dtgv, query);
-
-            // Ẩn cột raw updated_at để dùng cho xử lý nhưng không hiển thị
-            if (dtgv.Columns.Contains("updated_at"))
-                dtgv.Columns["updated_at"].Visible = false;
         }
 
 
         private void txb_search_TextChanged(object sender, EventArgs e)
         {
-            SearchPatients(txb_search.Text.Trim());
+            LoadPatients(txb_search.Text.Trim());
         }
 
         private void btn_re_updated_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txb_id.Text))
-            {
-                MessageBox.Show("Vui lòng chọn bệnh nhân để tái tiếp nhận.");
-                return;
-            }
-
-                    string query = @"UPDATE patients SET 
-                    name = @name, 
-                    date_of_birth = @date_of_birth, 
-                    gender = @gender, 
-                    phone = @phone, 
-                    address = @address, 
-                    pulse = @pulse,
-                    blood_pressure = @blood_pressure,
-                    respiratory_rate = @respiratory_rate,
-                    weight = @weight,
-                    height = @height,
-                    temperature = @temperature,
-                    updated_at = NOW()
-                WHERE id = @id";
-
-
             var data = GetPatientFormData();
-            data.Add("@id", txb_id.Text.Trim());
+            string query = @"UPDATE patients 
+                     SET name=@name, 
+                         date_of_birth=@date_of_birth, 
+                         gender=@gender, 
+                         phone=@phone, 
+                         address=@address, 
+                         pulse=@pulse, 
+                         blood_pressure=@blood_pressure, 
+                         respiratory_rate=@respiratory_rate, 
+                         weight=@weight, 
+                         height=@height, 
+                         temperature=@temperature, 
+                         updated_at=NOW() 
+                     WHERE id=@id";
 
             Db.Update(query, data);
-            MessageBox.Show("Tái tiếp nhận thành công!");
-            LoadAllPatients();
+            MessageBox.Show("Tái tiếp nhận và cập nhật thông tin thành công!");
             ClearForm();
+            LoadPatients();
         }
+
     }
 }
