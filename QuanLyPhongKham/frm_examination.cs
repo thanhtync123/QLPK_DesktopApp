@@ -1,7 +1,6 @@
-﻿using MySql.Data.MySqlClient;
-using Mysqlx.Crud;
-using System;
+﻿using System;
 using System.CodeDom;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +14,8 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+using Mysqlx.Crud;
 using static System.ComponentModel.Design.ObjectSelectorEditor;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
@@ -29,43 +30,39 @@ namespace QuanLyPhongKham
         public frm_examination()
         {
             InitializeComponent();
+            //timer.Interval = 3000;
+            //timer.Tick += (s, e) =>
+            //{
+            //    // Lưu ID bệnh nhân hiện tại nếu có
+            //    if (dtgv_patients.CurrentRow != null && dtgv_patients.CurrentRow.Cells["ID"].Value != null)
+            //    {
+            //        selectedPatientId = Convert.ToInt32(dtgv_patients.CurrentRow.Cells["ID"].Value);
+            //    }
 
+            //    // Reload dữ liệu
+            //    LoadGrid();
 
+            //    // Khôi phục lựa chọn dòng cũ nếu còn tồn tại
+            //    if (selectedPatientId.HasValue)
+            //    {
+            //        foreach (DataGridViewRow row in dtgv_patients.Rows)
+            //        {
+            //            if (row.Cells["ID"].Value != null && Convert.ToInt32(row.Cells["ID"].Value) == selectedPatientId)
+            //            {
+            //                dtgv_patients.CurrentCell = row.Cells[0];
+            //                dtgv_patients.Rows[row.Index].Selected = true;
+            //                break;
+            //            }
+            //        }
+            //    }
+            //};
+            //dtgv_patients.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 
-
-            timer.Interval = 3000;
-            timer.Tick += (s, e) =>
-            {
-                // Lưu ID bệnh nhân hiện tại nếu có
-                if (dtgv_patients.CurrentRow != null && dtgv_patients.CurrentRow.Cells["ID"].Value != null)
-                {
-                    selectedPatientId = Convert.ToInt32(dtgv_patients.CurrentRow.Cells["ID"].Value);
-                }
-
-                // Reload dữ liệu
-                LoadGrid();
-
-                // Khôi phục lựa chọn dòng cũ nếu còn tồn tại
-                if (selectedPatientId.HasValue)
-                {
-                    foreach (DataGridViewRow row in dtgv_patients.Rows)
-                    {
-                        if (row.Cells["ID"].Value != null && Convert.ToInt32(row.Cells["ID"].Value) == selectedPatientId)
-                        {
-                            dtgv_patients.CurrentCell = row.Cells[0];
-                            dtgv_patients.Rows[row.Index].Selected = true;
-                            break;
-                        }
-                    }
-                }
-            };
-            dtgv_patients.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-
-            timer.Start();
+            //timer.Start();
         }
         private void Timer_Tick(object sender, EventArgs e)
         {
-            LoadGrid();
+       //     LoadGrid();
         }
         private void UpdateSTT()
         {
@@ -87,45 +84,42 @@ namespace QuanLyPhongKham
 
 
         }
+        private void SetUpGridPatient()
+        {
+            dtgv_patients.AutoGenerateColumns = false;
+            dtgv_patients.Columns["last_exam_id"].DataPropertyName = "exam_id";
+            dtgv_patients.Columns["STT_P"].DataPropertyName = "STT_P";
+            dtgv_patients.Columns["ID_P"].DataPropertyName = "id"; // từ SQL p.id
+            dtgv_patients.Columns["name_p"].DataPropertyName = "name"; // từ SQL p.name
+            dtgv_patients.Columns["date_of_birth_p"].DataPropertyName = "date_of_birth"; // SQL DATE_FORMAT
+            dtgv_patients.Columns["gender_p"].DataPropertyName = "gender";
+            dtgv_patients.Columns["phone_p"].DataPropertyName = "phone";
+            dtgv_patients.Columns["address_p"].DataPropertyName = "address";
+            dtgv_patients.Columns["pulse_p"].DataPropertyName = "pulse";
+            dtgv_patients.Columns["blood_pressure_p"].DataPropertyName = "blood_pressure";
+            dtgv_patients.Columns["respiratory_rate_p"].DataPropertyName = "respiratory_rate";
+            dtgv_patients.Columns["weight_p"].DataPropertyName = "weight";
+            dtgv_patients.Columns["height_p"].DataPropertyName = "height";
+            dtgv_patients.Columns["temperature_p"].DataPropertyName = "temperature";
+            dtgv_patients.Columns["last_diagnoses_id"].DataPropertyName = "last_diagnoses_id";
+            dtgv_patients.Columns["last_diagnoses_name"].DataPropertyName = "last_diagnoses_name";
+            dtgv_patients.Columns["time_patient"].DataPropertyName = "updated_time"; // SQL DATE_FORMAT
+            dtgv_patients.Columns["state"].DataPropertyName = "state"; 
+        }
+
         private void LoadGrid()
         {
 
-            dtgv_patients.Columns.Clear();
-            dtgv_patients.Columns.Add("STT", "STT");
-            dtgv_patients.Columns.Add("ID", "ID");
-            dtgv_patients.Columns.Add("name", "Tên BN");
-            dtgv_patients.Columns.Add("date_of_birth", "Ngày sinh");
-            dtgv_patients.Columns.Add("gender", "Giới tính");
-            dtgv_patients.Columns.Add("phone", "SĐT");
-            dtgv_patients.Columns.Add("address", "Địa chỉ");
-            dtgv_patients.Columns.Add("time_patients", "Tiếp nhận lúc");
-            dtgv_patients.Columns.Add("pulse", "Mạch");
-            dtgv_patients.Columns.Add("blood_pressure", "Huyết áp");
-            dtgv_patients.Columns.Add("respiratory_rate", "Nhịp thở");
-            dtgv_patients.Columns.Add("weight", "Cân nặng");
-            dtgv_patients.Columns.Add("height", "Chiều cao");
-            dtgv_patients.Columns.Add("temperature", "Nhiệt độ");
-            dtgv_patients.Columns.Add("last_diagnoses_id", "MCĐ cuối");
-            dtgv_patients.Columns.Add("last_diagnoses_name", "TCĐ cuối");
-            dtgv_patients.Columns.Add("state", "Tình trạng");
-            foreach (DataGridViewColumn col in dtgv_patients.Columns)
-                col.Visible = false;
-            dtgv_patients.Columns["STT"].Visible = true;
-            //dtgv_patients.Columns["ID"].Visible = true;
-            dtgv_patients.Columns["name"].Visible = true;
-            dtgv_patients.Columns["time_patients"].Visible = true;
-            dtgv_patients.Columns["state"].Visible = true;
-
-            // Load data
-            dtgv_patients.Rows.Clear();
-            string sql = @"SELECT
+            string sql = @"
+                            SELECT
+							e.id as exam_id,
                             p.id, 
                             p.name, 
                             DATE_FORMAT(p.date_of_birth, '%d/%m/%Y') AS date_of_birth, 
                             p.gender, 
                             p.phone, 
                             p.address, 
-                            DATE_FORMAT(p.updated_at, '%H:%i:%s') AS updated_time, 
+                            DATE_FORMAT(p.updated_at, '%H:%i') AS updated_time, 
                             p.pulse,
                             p.blood_pressure,
                             p.respiratory_rate,
@@ -135,63 +129,14 @@ namespace QuanLyPhongKham
                             e.diagnosis_id AS last_diagnoses_id,
                             d.name AS last_diagnoses_name
                         FROM patients p
-                        LEFT JOIN (
-                            SELECT *
-                            FROM examinations e1
-                            WHERE e1.updated_at = (
-                                SELECT MAX(e2.updated_at)
-                                FROM examinations e2
-                                WHERE e2.patient_id = e1.patient_id
-                            )
-                        ) e ON e.patient_id = p.id
-                        LEFT JOIN diagnoses d ON e.diagnosis_id = d.id
-                        WHERE DATE(p.updated_at) = CURDATE()
-                        ORDER BY p.updated_at ASC;
+                            LEFT JOIN examinations e ON p.id = e.patient_id
+                                AND e.id = (SELECT MAX(e2.id) FROM examinations e2 WHERE e2.patient_id = p.id)
+                            LEFT JOIN diagnoses d ON d.id = e.diagnosis_id
+                            WHERE DATE(p.updated_at) = CURDATE()
+                            GROUP BY p.id
+                            ORDER BY p.updated_at ASC;
                         ";
-            Db.ResetConnection();
-            MySqlCommand cmd = Db.CreateCommand(sql);
-            MySqlDataReader dr = cmd.ExecuteReader();
-
-            while (dr.Read())
-            {
-                object lastDiagnosesId = dr["last_diagnoses_id"];
-                string state = (lastDiagnosesId == null || lastDiagnosesId == DBNull.Value) ? "Mới đăng ký" : "Đã từng khám";
-
-                int rowIndex = dtgv_patients.Rows.Add(
-                    dtgv_patients.Rows.Count,
-                    dr["id"],
-                    dr["name"],
-                    dr["date_of_birth"],
-                    dr["gender"],
-                    dr["phone"],
-                    dr["address"],
-                    dr["updated_time"],
-                    dr["pulse"],
-                    dr["blood_pressure"],
-                    dr["respiratory_rate"],
-                    dr["weight"],
-                    dr["height"],
-                    dr["temperature"],
-                    dr["last_diagnoses_id"],
-                    dr["last_diagnoses_name"],
-                    state
-                );
-
-                // Lấy dòng vừa thêm
-                DataGridViewRow row = dtgv_patients.Rows[rowIndex];
-
-                // Tô màu cả dòng theo giá trị state
-                if (state == "Mới đăng ký")
-                    row.DefaultCellStyle.BackColor = Color.LightGreen;
-
-
-
-            }
-
-
-
-            dr.Close();
-            Db.ResetConnection();
+            Db.LoadDTGV(dtgv_patients, sql);
 
 
 
@@ -201,7 +146,7 @@ namespace QuanLyPhongKham
 
         private void frm_examination_Load(object sender, EventArgs e)
         {
-
+            SetUpGridPatient();
             LoadExamID();
             LoadGrid();
             LoadComboboxDiagnoses();
@@ -212,6 +157,12 @@ namespace QuanLyPhongKham
             lb_d0.Text = "";
             dtgv_service_patient.Rows.Add("", "-", "Công khám", "Miễn phí", "", "-");
             btn_update_examination.Enabled = false;
+    
+            foreach (DataGridViewColumn col in dtgv_patients.Columns)
+            {
+                txb_debug.Text += col.Name + ",";
+            }
+
 
 
         }
@@ -221,23 +172,23 @@ namespace QuanLyPhongKham
             LoadExamID();
             btn_update_examination.Enabled = false;
             btn_save_examination_service.Enabled = true;
-            id = Convert.ToInt32(dtgv_patients.CurrentRow.Cells["ID"].Value);
+            id = Convert.ToInt32(dtgv_patients.CurrentRow.Cells["ID_P"].Value);
             selectedPatientId = id;
-            txb_name.Text = dtgv_patients.CurrentRow.Cells["name"].Value.ToString();
+            txb_name.Text = dtgv_patients.CurrentRow.Cells["name_p"].Value.ToString();
             txb_id.Text = id.ToString();
-            txb_ngaysinh.Text = dtgv_patients.CurrentRow.Cells["date_of_birth"].Value.ToString();
+            txb_ngaysinh.Text = dtgv_patients.CurrentRow.Cells["date_of_birth_p"].Value.ToString();
             int lastFourChars = Convert.ToInt32(txb_ngaysinh.Text.Substring(txb_ngaysinh.Text.Length - 4));
             int currentYear = DateTime.Now.Year;
             txb_age.Text = (currentYear - lastFourChars).ToString();
-            txb_address.Text = dtgv_patients.CurrentRow.Cells["address"].Value.ToString();
-            txb_gender.Text = dtgv_patients.CurrentRow.Cells["gender"].Value.ToString();
-            txb_phone.Text = dtgv_patients.CurrentRow.Cells["phone"].Value.ToString();
-            txb_pulse.Text = dtgv_patients.CurrentRow.Cells["pulse"].Value.ToString();
-            txb_blood_pressure.Text = dtgv_patients.CurrentRow.Cells["blood_pressure"].Value.ToString();
-            txb_respiratory_rate.Text = dtgv_patients.CurrentRow.Cells["respiratory_rate"].Value.ToString();
-            txb_weight.Text = dtgv_patients.CurrentRow.Cells["weight"].Value.ToString();
-            txb_height.Text = dtgv_patients.CurrentRow.Cells["height"].Value.ToString();
-            txb_temperature.Text = dtgv_patients.CurrentRow.Cells["temperature"].Value.ToString();
+            txb_address.Text = dtgv_patients.CurrentRow.Cells["address_p"].Value.ToString();
+            txb_gender.Text = dtgv_patients.CurrentRow.Cells["gender_p"].Value.ToString();
+            txb_phone.Text = dtgv_patients.CurrentRow.Cells["phone_p"].Value.ToString();
+            txb_pulse.Text = dtgv_patients.CurrentRow.Cells["pulse_p"].Value.ToString();
+            txb_blood_pressure.Text = dtgv_patients.CurrentRow.Cells["blood_pressure_p"].Value.ToString();
+            txb_respiratory_rate.Text = dtgv_patients.CurrentRow.Cells["respiratory_rate_p"].Value.ToString();
+            txb_weight.Text = dtgv_patients.CurrentRow.Cells["weight_p"].Value.ToString();
+            txb_height.Text = dtgv_patients.CurrentRow.Cells["height_p"].Value.ToString();
+            txb_temperature.Text = dtgv_patients.CurrentRow.Cells["temperature_p"].Value.ToString();
             if (dtgv_patients.CurrentRow.Cells["last_diagnoses_id"].Value == null || dtgv_patients.CurrentRow.Cells["last_diagnoses_id"].Value == DBNull.Value)
                 cbo_diagnoses.SelectedIndex = 0;
             else
@@ -260,31 +211,13 @@ namespace QuanLyPhongKham
         }
         private void LoadComboboxDiagnoses()
         {
-            string query = "SELECT id, name FROM diagnoses order by name asc";
+            string query = "SELECT id, name FROM diagnoses order by name asc ";
             Db.LoadComboBoxData(cbo_diagnoses, query, "name", "id");
             cbo_diagnoses.SelectedIndex = 0;
         }
 
 
 
-
-        private void btn_addmed_Click(object sender, EventArgs e)
-        {
-
-
-
-
-
-        }
-
-
-
-
-
-        private void dtgv_med_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
         private void LoadExamID()
         {
             ResetConnection();
@@ -295,8 +228,6 @@ namespace QuanLyPhongKham
                 txb_exam_id.Text = Db.dr["exam_id"].ToString();
 
             Db.dr.Close();
-
-
 
         }
         private void txb_search_TextChanged(object sender, EventArgs e)
@@ -377,9 +308,9 @@ namespace QuanLyPhongKham
                 int diagnosisID;
 
                 if (diagnosisResult != null)
-                {
+                
                     diagnosisID = Convert.ToInt32(diagnosisResult);
-                }
+                
                 else
                 {
                     // Nếu chưa có thì thêm mới
@@ -484,9 +415,6 @@ namespace QuanLyPhongKham
                     dtgv_service_patient.Rows.RemoveAt(e.RowIndex);
                     UpdateTotalServicePrice();
                 }
-
-
-
         }
 
         private void btn_save_examination_service_Click(object sender, EventArgs e)
@@ -494,12 +422,8 @@ namespace QuanLyPhongKham
 
             try
             {
-                Db.ResetConnection(); // Mở kết nối một lần
-
-
+                Db.ResetConnection(); 
                 int diagnosisId;
-
-                // 1. Kiểm tra chẩn đoán đã tồn tại
                 using (MySqlCommand cmdCheck = new MySqlCommand("SELECT id FROM diagnoses WHERE name = @name", Db.conn))
                 {
                     cmdCheck.Parameters.AddWithValue("@name", cbo_diagnoses.Text.Trim());
@@ -802,13 +726,6 @@ namespace QuanLyPhongKham
 
         }
 
-        private void dtgv_patient_med_CurrentCellDirtyStateChanged(object sender, EventArgs e)
-        {
-            //if (dtgv_patient_med.IsCurrentCellDirty)
-
-            //    dtgv_patient_med.CommitEdit(DataGridViewDataErrorContexts.Commit);
-
-        }
 
         private void btn_save_med_Click(object sender, EventArgs e)
         {
@@ -852,31 +769,31 @@ namespace QuanLyPhongKham
 
                 // --- Thêm phiếu khám ---
                 string insertExam = $@"
-        INSERT INTO `examinations` (
-            `id`, `patient_id`, `reason`, `diagnosis_id`, `doctor_note_id`, `note`,
-            `pulse`, `blood_pressure`, `respiratory_rate`, `weight`, `height`,
-            `temperature`, `type`, `follow_up`, `price`, `state`, `created_at`, `updated_at`
-        ) VALUES (
-            NULL,
-            '{txb_id.Text}',
-            NULL,
-            '{diagnosisId}',
-            '{cb_doctornote.SelectedValue}',
-            '{txb_note.Text.Replace("'", "''")}',
-            '{txb_pulse.Text}',
-            '{txb_blood_pressure.Text}',
-            '{txb_respiratory_rate.Text}',
-            '{txb_weight.Text}',
-            '{txb_height.Text}',
-            '{txb_temperature.Text}',
-            'toa thuốc',
-            '{txb_follow_up.Text}',
-            '{Convert.ToInt32(txb_total_price_med.Text.Replace(".", ""))}',
-            'Chưa gọi',
-            current_timestamp(),
-            current_timestamp()
-        );
-    ";
+                    INSERT INTO `examinations` (
+                        `id`, `patient_id`, `reason`, `diagnosis_id`, `doctor_note_id`, `note`,
+                        `pulse`, `blood_pressure`, `respiratory_rate`, `weight`, `height`,
+                        `temperature`, `type`, `follow_up`, `price`, `state`, `created_at`, `updated_at`
+                    ) VALUES (
+                        NULL,
+                        '{txb_id.Text}',
+                        NULL,
+                        '{diagnosisId}',
+                        '{cb_doctornote.SelectedValue}',
+                        '{txb_note.Text.Replace("'", "''")}',
+                        '{txb_pulse.Text}',
+                        '{txb_blood_pressure.Text}',
+                        '{txb_respiratory_rate.Text}',
+                        '{txb_weight.Text}',
+                        '{txb_height.Text}',
+                        '{txb_temperature.Text}',
+                        'toa thuốc',
+                        '{txb_follow_up.Text}',
+                        '{Convert.ToInt32(txb_total_price_med.Text.Replace(".", ""))}',
+                        'Chưa gọi',
+                        current_timestamp(),
+                        current_timestamp()
+                    );
+                ";
                 Db.ExecuteNonQuery(insertExam);
 
                 // --- Thêm thuốc ---
@@ -888,9 +805,6 @@ namespace QuanLyPhongKham
                     string morning = string.IsNullOrEmpty(row.Cells["morning"].Value?.ToString())
                       ? "NULL"
                       : row.Cells["morning"].Value.ToString().Replace(",", ".");
-
-
-
                     string noon = string.IsNullOrEmpty(row.Cells["noon"].Value?.ToString())
                           ? "NULL"
                           : row.Cells["noon"].Value.ToString().Replace(",", ".");
@@ -905,12 +819,9 @@ namespace QuanLyPhongKham
                     string total = string.IsNullOrEmpty(row.Cells["total_quantity"].Value?.ToString())
                         ? "NULL"
                         : row.Cells["total_quantity"].Value.ToString().Replace(",", ".");
-
                     string unit = row.Cells["unit_2"].Value?.ToString()?.Replace("'", "''");
                     string note = row.Cells["note_2"].Value?.ToString()?.Replace("'", "''");
                     string days = string.IsNullOrEmpty(row.Cells["days_of_use"].Value?.ToString()) ? "NULL" : row.Cells["days_of_use"].Value.ToString();
-
-
                     string insertMed = $@"
             INSERT INTO `examination_medications` (
                 `id`, `examination_id`, `medication_id`, `morning`,`noon`, `afternoon`,`evening`, `unit`,
@@ -935,8 +846,7 @@ namespace QuanLyPhongKham
                 }
 
                 LoadExamID();
-                MessageBox.Show("Thêm toa thành công!");
-                //Db.ResetConnection(); 
+                MessageBox.Show("Thêm toa thành công!"); 
             }
             catch (Exception ex)
             {
@@ -953,9 +863,9 @@ namespace QuanLyPhongKham
                 txb_follow_up.Text = formattedDate;
             }
             else
-            {
+            
                 txb_follow_up.Text = "Không";
-            }
+            
         }
         private void chb_follow_up_CheckedChanged(object sender, EventArgs e)
         {
@@ -1016,8 +926,6 @@ namespace QuanLyPhongKham
                     dosages.Add($"<b>Chiều</b> uống {afternoon:0.##} <i>{unit}</i>");
                 if (evening > 0)
                     dosages.Add($"<b>TỐI</b> UỐNG {evening:0.##} <i>{unit}</i></b>");
-
-                // Nối liền trên 1 dòng
                 string dosageLine = string.Join(", ", dosages);
 
                 if (!string.IsNullOrWhiteSpace(note))
@@ -1025,15 +933,11 @@ namespace QuanLyPhongKham
 
                 if (!string.IsNullOrWhiteSpace(dosageLine))
                     thuoc += dosageLine + "<br/>";
-
-                // Cách dòng
                 thuoc += "<br/>";
                 stt++;
 
 
             }
-
-            // Nếu cần bỏ dòng trắng cuối cùng:
             thuoc = thuoc.TrimEnd();
 
 
@@ -1207,6 +1111,24 @@ namespace QuanLyPhongKham
        
         }
 
+        private void dtgv_patients_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            if (dtgv_patients.Columns["STT_P"] != null)
+                dtgv_patients.Rows[e.RowIndex].Cells["STT_P"].Value = (e.RowIndex + 1).ToString();
+            var row = dtgv_patients.Rows[e.RowIndex];
+            var cellValue = row.Cells["last_exam_id"].Value;
+
+            if (cellValue == DBNull.Value || cellValue == null)
+                row.Cells["state"].Value = "Khách mới"; 
+            else
+                 row.Cells["state"].Value = "Khám lại";
+            
+
+
+
+        }
+
+       
     }
 }
 
