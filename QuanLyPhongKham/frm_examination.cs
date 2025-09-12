@@ -146,7 +146,7 @@ namespace QuanLyPhongKham
                         ) e ON e.patient_id = p.id
                         LEFT JOIN diagnoses d ON e.diagnosis_id = d.id
                         WHERE DATE(p.updated_at) = CURDATE()
-                        ORDER BY p.updated_at DESC;
+                        ORDER BY p.updated_at ASC;
                         ";
             Db.ResetConnection();
             MySqlCommand cmd = Db.CreateCommand(sql);
@@ -770,6 +770,7 @@ namespace QuanLyPhongKham
 
                 lb_total_price_service.Text = total.ToString("N0") + " đ";
             }
+ 
         }
 
 

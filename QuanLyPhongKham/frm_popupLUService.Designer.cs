@@ -44,10 +44,10 @@
             this.name_patient = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.time = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtgv_detail = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.btn_delete = new System.Windows.Forms.Button();
             this.id_service = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name_service = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_delete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_exam_service)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_detail)).BeginInit();
             this.SuspendLayout();
@@ -190,7 +190,6 @@
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
             this.dtgv_detail.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dtgv_detail.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.None;
-            this.dtgv_detail.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Single;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -241,17 +240,6 @@
             this.dtgv_detail.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtgv_detail.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
-            // btn_delete
-            // 
-            this.btn_delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_delete.Location = new System.Drawing.Point(295, 12);
-            this.btn_delete.Name = "btn_delete";
-            this.btn_delete.Size = new System.Drawing.Size(101, 36);
-            this.btn_delete.TabIndex = 32;
-            this.btn_delete.Text = "Xóa";
-            this.btn_delete.UseVisualStyleBackColor = true;
-            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
-            // 
             // id_service
             // 
             this.id_service.HeaderText = "Mã CĐ";
@@ -272,6 +260,17 @@
             this.price.Name = "price";
             this.price.Width = 200;
             // 
+            // btn_delete
+            // 
+            this.btn_delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_delete.Location = new System.Drawing.Point(295, 12);
+            this.btn_delete.Name = "btn_delete";
+            this.btn_delete.Size = new System.Drawing.Size(101, 36);
+            this.btn_delete.TabIndex = 32;
+            this.btn_delete.Text = "Xóa";
+            this.btn_delete.UseVisualStyleBackColor = true;
+            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
+            // 
             // frm_popupLUService
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -284,6 +283,7 @@
             this.Controls.Add(this.btn_choose);
             this.Name = "frm_popupLUService";
             this.Text = "frm_popupLUService";
+        
             this.Load += new System.EventHandler(this.frm_popupLUService_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_exam_service)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_detail)).EndInit();

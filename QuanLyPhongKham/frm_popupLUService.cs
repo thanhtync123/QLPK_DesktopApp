@@ -156,5 +156,7 @@ namespace QuanLyPhongKham
                 MessageBox.Show("Lỗi khi xóa: " + ex.Message);
             }
         }
+
+
     }
 }

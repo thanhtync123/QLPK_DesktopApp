@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txb_name = new System.Windows.Forms.TextBox();
-            this.dtpk_dob = new System.Windows.Forms.DateTimePicker();
             this.rdn_male = new System.Windows.Forms.RadioButton();
             this.rdn_female = new System.Windows.Forms.RadioButton();
             this.txb_phone = new System.Windows.Forms.TextBox();
@@ -91,6 +90,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.txb_dob = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv)).BeginInit();
             this.SuspendLayout();
             // 
@@ -102,15 +102,6 @@
             this.txb_name.Name = "txb_name";
             this.txb_name.Size = new System.Drawing.Size(225, 26);
             this.txb_name.TabIndex = 1;
-            // 
-            // dtpk_dob
-            // 
-            this.dtpk_dob.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpk_dob.Location = new System.Drawing.Point(94, 95);
-            this.dtpk_dob.Margin = new System.Windows.Forms.Padding(6);
-            this.dtpk_dob.Name = "dtpk_dob";
-            this.dtpk_dob.Size = new System.Drawing.Size(183, 26);
-            this.dtpk_dob.TabIndex = 2;
             // 
             // rdn_male
             // 
@@ -167,17 +158,17 @@
             // 
             // dtgv
             // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.dtgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            this.dtgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dtgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dtgv.ColumnHeadersHeight = 35;
             this.dtgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dtgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -195,15 +186,15 @@
             this.temperature,
             this.created_at_format,
             this.updated_at_format});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgv.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgv.DefaultCellStyle = dataGridViewCellStyle9;
             this.dtgv.GridColor = System.Drawing.Color.Black;
             this.dtgv.Location = new System.Drawing.Point(15, 290);
             this.dtgv.Margin = new System.Windows.Forms.Padding(6);
@@ -426,7 +417,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(289, 97);
+            this.label10.Location = new System.Drawing.Point(303, 97);
             this.label10.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(67, 20);
@@ -794,7 +785,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(289, 261);
+            this.label2.Location = new System.Drawing.Point(389, 261);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(23, 20);
             this.label2.TabIndex = 51;
@@ -820,19 +811,28 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(537, 249);
+            this.button4.Location = new System.Drawing.Point(543, 249);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(35, 32);
             this.button4.TabIndex = 54;
             this.button4.Text = "Trang cuối";
             this.button4.UseVisualStyleBackColor = true;
             // 
+            // txb_dob
+            // 
+            this.txb_dob.Location = new System.Drawing.Point(75, 94);
+            this.txb_dob.Name = "txb_dob";
+            this.txb_dob.Size = new System.Drawing.Size(225, 26);
+            this.txb_dob.TabIndex = 55;
+            this.txb_dob.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txb_dob_KeyPress);
+            // 
             // frm_patients
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(230)))));
-            this.ClientSize = new System.Drawing.Size(1844, 749);
+            this.ClientSize = new System.Drawing.Size(1861, 749);
+            this.Controls.Add(this.txb_dob);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -876,7 +876,6 @@
             this.Controls.Add(this.label10);
             this.Controls.Add(this.rdn_male);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.dtpk_dob);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txb_name);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -893,7 +892,6 @@
 
         #endregion
         private System.Windows.Forms.TextBox txb_name;
-        private System.Windows.Forms.DateTimePicker dtpk_dob;
         private System.Windows.Forms.RadioButton rdn_male;
         private System.Windows.Forms.RadioButton rdn_female;
         private System.Windows.Forms.TextBox txb_phone;
@@ -952,5 +950,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.TextBox txb_dob;
     }
 }

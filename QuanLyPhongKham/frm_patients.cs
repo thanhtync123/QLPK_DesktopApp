@@ -30,7 +30,7 @@ namespace QuanLyPhongKham
                 SELECT 
                     `id`, 
                     `name`, 
-                    DATE_FORMAT(`date_of_birth`, '%d/%m/%Y') AS `date_of_birth`, 
+                    YEAR(date_of_birth) AS date_of_birth,
                     `gender`, 
                     `phone`, 
                     `address`, 
@@ -100,15 +100,13 @@ namespace QuanLyPhongKham
         // =========================
         private void frm_patients_Load(object sender, EventArgs e)
         {
-            dtpk_dob.Format = DateTimePickerFormat.Custom;
-            dtpk_dob.CustomFormat = "dd/MM/yyyy";
-            rdn_male.Checked = true;
 
             txb_id.ReadOnly = true;
             SetButtonState(false);
-
             SetupGridColumns();
-            LoadPatients();  
+            LoadPatients();
+
+
 
         }
 
@@ -119,7 +117,6 @@ namespace QuanLyPhongKham
         {
             txb_id.Clear();
             txb_name.Clear();
-            dtpk_dob.Value = DateTime.Today;
             rdn_male.Checked = true;
             txb_phone.Clear();
             txb_address.Clear();
@@ -145,7 +142,7 @@ namespace QuanLyPhongKham
             {
                 {"id", txb_id.Text },
                 {"name", txb_name.Text },
-                {"date_of_birth", dtpk_dob.Value.ToString("yyyy-MM-dd") },
+                {"date_of_birth", $"{txb_dob.Text}-01-01"},
                 {"gender", rdn_male.Checked ? "Nam" : "Nữ" },
                 {"phone", txb_phone.Text },
                 {"address", txb_address.Text },
@@ -157,13 +154,27 @@ namespace QuanLyPhongKham
                 {"temperature", txb_temperature.Text }
             };
         }
+        private bool CheckForm()
+        {
+            if (txb_dob.Text == "" || Convert.ToInt16(txb_dob.Text) < 1900 || Convert.ToInt16(txb_dob.Text) > DateTime.Now.Year)
+            {
+                MessageBox.Show("Năm sinh không hợp lệ. Vui lòng nhập lại! (từ 1900 đến năm hiện tại)");
+                return false;
+            }
+            if (rdn_female.Checked == false && rdn_male.Checked == false)
+            {
+                MessageBox.Show("Vui lòng chọn giới tính!");
+                return false;
+            }
+            return true;
+        }
         private void btn_add_Click(object sender, EventArgs e)
         {
+            if(!CheckForm()) return;
             var data = GetPatientFormData();
             string query = @"INSERT INTO patients 
                 (name, date_of_birth, gender, phone, address, pulse, blood_pressure, respiratory_rate, weight, height, temperature) 
                 VALUES (@name, @date_of_birth, @gender, @phone, @address, @pulse, @blood_pressure, @respiratory_rate, @weight, @height, @temperature)";
-
             Db.Add(query, data);
             ClearForm();
             LoadPatients();
@@ -171,6 +182,7 @@ namespace QuanLyPhongKham
 
         private void btn_update_Click(object sender, EventArgs e)
         {
+            if (!CheckForm()) return;
             var data = GetPatientFormData();
             string query = @"UPDATE patients 
                 SET name=@name, date_of_birth=@date_of_birth, gender=@gender, phone=@phone, address=@address, pulse=@pulse, 
@@ -195,8 +207,12 @@ namespace QuanLyPhongKham
 
         private void btn_refresh_Click(object sender, EventArgs e)
         {
+  
             ClearForm();
             LoadPatients();
+            txb_dob.Text = "";
+            rdn_male.Checked = false;
+            rdn_female.Checked = false;
         }
 
 
@@ -208,7 +224,7 @@ namespace QuanLyPhongKham
 
                 txb_id.Text = row.Cells["id"].Value.ToString();
                 txb_name.Text = row.Cells["name"].Value.ToString();
-                dtpk_dob.Value = DateTime.ParseExact(row.Cells["date_of_birth"].Value.ToString(), "dd/MM/yyyy", null);
+                txb_dob.Text = row.Cells["date_of_birth"].Value.ToString();
                 (row.Cells["gender"].Value.ToString() == "Nam" ? rdn_male : rdn_female).Checked = true;
                 txb_phone.Text = row.Cells["phone"].Value.ToString();
                 txb_address.Text = row.Cells["address"].Value.ToString();
@@ -231,6 +247,8 @@ namespace QuanLyPhongKham
 
         private void btn_re_updated_Click(object sender, EventArgs e)
         {
+            if (!CheckForm()) return;
+            CheckForm();
             var data = GetPatientFormData();
             string query = @"UPDATE patients 
                      SET name=@name, 
@@ -253,5 +271,13 @@ namespace QuanLyPhongKham
             LoadPatients();
         }
 
+        private void txb_dob_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            //    e.Handled = true;
+            //if (!char.IsControl(e.KeyChar) && txb_dob.Text.Length >= 4)
+            //    e.Handled = true;
+            
+        }
     }
 }
