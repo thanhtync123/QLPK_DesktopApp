@@ -61,8 +61,8 @@ namespace QuanLyPhongKham
                 Db.SetTextAndMoveCursorToEnd(txb_reason, row.Cells["reason"].Value?.ToString());
                 var diagnosis = row.Cells["diagnosis"].Value?.ToString();
                 txb_reason1.Text = diagnosis;
-                var dob = DateTime.ParseExact(date_of_birth, "dd/MM/yyyy", null);
-                var age = DateTime.Now.Year - dob.Year - (DateTime.Now < dob.AddYears(DateTime.Now.Year - dob.Year) ? 1 : 0);
+                var dob = Convert.ToInt16(date_of_birth);
+                var age = (DateTime.Now.Year - dob) == 0 ? 1 : DateTime.Now.Year - dob;
                 txb_age.Text = age.ToString() + " tuổi";
 
                 LoadDTGV_Service();
@@ -131,7 +131,7 @@ namespace QuanLyPhongKham
             p.id AS id_patient,
             p.name,
             p.gender,
-            DATE_FORMAT(p.date_of_birth, '%d/%m/%Y') AS date_of_birth,
+            YEAR(p.date_of_birth) AS date_of_birth,
             p.phone,
             p.address,
             DATE_FORMAT(p.updated_at, '%d/%m/%Y %H:%i') AS updated_at,

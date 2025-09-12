@@ -112,7 +112,7 @@ namespace QuanLyPhongKham
                 Db.SetTextAndMoveCursorToEnd(txb_gender, gender);
                 txb_dob.Text = date_of_birth + "";
                 var dob = Convert.ToInt16(txb_dob.Text);
-                var age =  DateTime.Now.Year-dob;
+                var age = (DateTime.Now.Year - dob) == 0 ? 1 : DateTime.Now.Year - dob;
                 txb_age.Text = age.ToString()+ " tuổi"; ;
                 txb_reason1.Text=diagnosis + "";
 

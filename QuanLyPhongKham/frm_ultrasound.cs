@@ -374,8 +374,8 @@ namespace QuanLyPhongKham
                 Db.SetTextAndMoveCursorToEnd(txb_name, name);
                 Db.SetTextAndMoveCursorToEnd(txb_gender, gender);
                 txb_dob.Text = date_of_birth + "";
-                var dob = DateTime.ParseExact(date_of_birth, "dd/MM/yyyy", null);
-                var age = DateTime.Now.Year - dob.Year - (DateTime.Now < dob.AddYears(DateTime.Now.Year - dob.Year) ? 1 : 0);
+                var dob = Convert.ToInt16(txb_dob.Text);
+                var age = (DateTime.Now.Year - dob) == 0 ? 1 : DateTime.Now.Year - dob;
                 txb_age.Text = age.ToString() + " tuổi"; ;
                 txb_chandoan.Text = diagnosis + "";
                 Db.SetTextAndMoveCursorToEnd(txb_phone, phone);
@@ -428,7 +428,7 @@ namespace QuanLyPhongKham
             p.id AS id_patient,
             p.name,
             p.gender,
-            DATE_FORMAT(p.date_of_birth, '%d/%m/%Y') AS date_of_birth,
+            YEAR(p.date_of_birth) AS date_of_birth,
             p.phone,
             p.address,
             DATE_FORMAT(p.updated_at, '%d/%m/%Y %H:%i') AS updated_at,
