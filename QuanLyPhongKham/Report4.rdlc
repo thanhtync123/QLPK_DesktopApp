@@ -528,7 +528,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Mã BN:</Value>
+                    <Value>Mã KH:</Value>
                     <Style>
                       <FontFamily>Times New Roman</FontFamily>
                       <FontWeight>Bold</FontWeight>

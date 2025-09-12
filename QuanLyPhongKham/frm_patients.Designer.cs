@@ -38,6 +38,7 @@
             this.txb_address = new System.Windows.Forms.TextBox();
             this.txb_id = new System.Windows.Forms.TextBox();
             this.dtgv = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.date_of_birth = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -85,12 +86,13 @@
             this.txb_respiratory_rate = new Guna.UI2.WinForms.Guna2TextBox();
             this.label25 = new System.Windows.Forms.Label();
             this.txb_weight = new Guna.UI2.WinForms.Guna2TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btn_firstpage = new System.Windows.Forms.Button();
+            this.lb_currentpage = new System.Windows.Forms.Label();
+            this.btn_downpage = new System.Windows.Forms.Button();
+            this.btn_uppage = new System.Windows.Forms.Button();
+            this.btn_maxpage = new System.Windows.Forms.Button();
             this.txb_dob = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv)).BeginInit();
             this.SuspendLayout();
             // 
@@ -163,7 +165,7 @@
             this.dtgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -172,6 +174,7 @@
             this.dtgv.ColumnHeadersHeight = 35;
             this.dtgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dtgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.STT,
             this.ID,
             this.name,
             this.date_of_birth,
@@ -202,7 +205,7 @@
             this.dtgv.RowHeadersVisible = false;
             this.dtgv.RowHeadersWidth = 51;
             this.dtgv.RowTemplate.Height = 30;
-            this.dtgv.Size = new System.Drawing.Size(1796, 544);
+            this.dtgv.Size = new System.Drawing.Size(1843, 544);
             this.dtgv.TabIndex = 13;
             this.dtgv.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgv.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -226,10 +229,17 @@
             this.dtgv.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtgv.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dtgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_CellClick);
+            this.dtgv.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dtgv_RowPostPaint);
+            // 
+            // STT
+            // 
+            this.STT.HeaderText = "STT";
+            this.STT.Name = "STT";
+            this.STT.Width = 80;
             // 
             // ID
             // 
-            this.ID.HeaderText = "Mã BN";
+            this.ID.HeaderText = "Mã KH";
             this.ID.Name = "ID";
             this.ID.Width = 80;
             // 
@@ -243,13 +253,13 @@
             // 
             this.date_of_birth.HeaderText = "Ngày sinh";
             this.date_of_birth.Name = "date_of_birth";
-            this.date_of_birth.Width = 120;
+            this.date_of_birth.Width = 90;
             // 
             // gender
             // 
             this.gender.HeaderText = "Giới tính";
             this.gender.Name = "gender";
-            this.gender.Width = 80;
+            this.gender.Width = 90;
             // 
             // phone
             // 
@@ -762,7 +772,7 @@
             this.txb_weight.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txb_weight.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txb_weight.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txb_weight.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txb_weight.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.txb_weight.ForeColor = System.Drawing.Color.Black;
             this.txb_weight.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txb_weight.Location = new System.Drawing.Point(122, 196);
@@ -773,50 +783,59 @@
             this.txb_weight.Size = new System.Drawing.Size(208, 41);
             this.txb_weight.TabIndex = 45;
             // 
-            // button1
+            // btn_firstpage
             // 
-            this.button1.Location = new System.Drawing.Point(423, 249);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(35, 32);
-            this.button1.TabIndex = 47;
-            this.button1.Text = "1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_firstpage.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_firstpage.Location = new System.Drawing.Point(423, 249);
+            this.btn_firstpage.Name = "btn_firstpage";
+            this.btn_firstpage.Size = new System.Drawing.Size(35, 32);
+            this.btn_firstpage.TabIndex = 47;
+            this.btn_firstpage.Text = "1";
+            this.btn_firstpage.UseVisualStyleBackColor = true;
+            this.btn_firstpage.Click += new System.EventHandler(this.btn_firstpage_Click);
             // 
-            // label2
+            // lb_currentpage
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(389, 261);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(23, 20);
-            this.label2.TabIndex = 51;
-            this.label2.Text = "-1";
+            this.lb_currentpage.AutoSize = true;
+            this.lb_currentpage.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_currentpage.Location = new System.Drawing.Point(377, 262);
+            this.lb_currentpage.Name = "lb_currentpage";
+            this.lb_currentpage.Size = new System.Drawing.Size(17, 19);
+            this.lb_currentpage.TabIndex = 51;
+            this.lb_currentpage.Text = "1";
             // 
-            // button2
+            // btn_downpage
             // 
-            this.button2.Location = new System.Drawing.Point(464, 249);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(35, 32);
-            this.button2.TabIndex = 52;
-            this.button2.Text = "<";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btn_downpage.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_downpage.Location = new System.Drawing.Point(464, 249);
+            this.btn_downpage.Name = "btn_downpage";
+            this.btn_downpage.Size = new System.Drawing.Size(35, 32);
+            this.btn_downpage.TabIndex = 52;
+            this.btn_downpage.Text = "<";
+            this.btn_downpage.UseVisualStyleBackColor = true;
+            this.btn_downpage.Click += new System.EventHandler(this.btn_downpage_Click);
             // 
-            // button3
+            // btn_uppage
             // 
-            this.button3.Location = new System.Drawing.Point(502, 249);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(35, 32);
-            this.button3.TabIndex = 53;
-            this.button3.Text = ">";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btn_uppage.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_uppage.Location = new System.Drawing.Point(502, 249);
+            this.btn_uppage.Name = "btn_uppage";
+            this.btn_uppage.Size = new System.Drawing.Size(35, 32);
+            this.btn_uppage.TabIndex = 53;
+            this.btn_uppage.Text = ">";
+            this.btn_uppage.UseVisualStyleBackColor = true;
+            this.btn_uppage.Click += new System.EventHandler(this.btn_uppage_Click);
             // 
-            // button4
+            // btn_maxpage
             // 
-            this.button4.Location = new System.Drawing.Point(543, 249);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(35, 32);
-            this.button4.TabIndex = 54;
-            this.button4.Text = "Trang cuối";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btn_maxpage.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_maxpage.Location = new System.Drawing.Point(543, 249);
+            this.btn_maxpage.Name = "btn_maxpage";
+            this.btn_maxpage.Size = new System.Drawing.Size(48, 32);
+            this.btn_maxpage.TabIndex = 54;
+            this.btn_maxpage.Text = "Max";
+            this.btn_maxpage.UseVisualStyleBackColor = true;
+            this.btn_maxpage.Click += new System.EventHandler(this.btn_maxpage_Click);
             // 
             // txb_dob
             // 
@@ -826,18 +845,29 @@
             this.txb_dob.TabIndex = 55;
             this.txb_dob.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txb_dob_KeyPress);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(336, 262);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(43, 19);
+            this.label2.TabIndex = 56;
+            this.label2.Text = "Trang";
+            // 
             // frm_patients
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(230)))));
             this.ClientSize = new System.Drawing.Size(1861, 749);
-            this.Controls.Add(this.txb_dob);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.txb_dob);
+            this.Controls.Add(this.btn_maxpage);
+            this.Controls.Add(this.btn_uppage);
+            this.Controls.Add(this.btn_downpage);
+            this.Controls.Add(this.lb_currentpage);
+            this.Controls.Add(this.btn_firstpage);
             this.Controls.Add(this.label25);
             this.Controls.Add(this.txb_weight);
             this.Controls.Add(this.label22);
@@ -931,6 +961,13 @@
         private Guna.UI2.WinForms.Guna2TextBox txb_respiratory_rate;
         private System.Windows.Forms.Label label25;
         private Guna.UI2.WinForms.Guna2TextBox txb_weight;
+        private System.Windows.Forms.Button btn_firstpage;
+        private System.Windows.Forms.Label lb_currentpage;
+        private System.Windows.Forms.Button btn_downpage;
+        private System.Windows.Forms.Button btn_uppage;
+        private System.Windows.Forms.Button btn_maxpage;
+        private System.Windows.Forms.TextBox txb_dob;
+        private System.Windows.Forms.DataGridViewTextBoxColumn STT;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn date_of_birth;
@@ -945,11 +982,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn temperature;
         private System.Windows.Forms.DataGridViewTextBoxColumn created_at_format;
         private System.Windows.Forms.DataGridViewTextBoxColumn updated_at_format;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox txb_dob;
     }
 }

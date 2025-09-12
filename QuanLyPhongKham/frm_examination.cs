@@ -1204,9 +1204,6 @@ namespace QuanLyPhongKham
                 MessageBox.Show("Cập nhật dịch vụ cho phiếu thành công");
                 LoadExamID();
             }
-          
-            
-
        
         }
 

@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using Mysqlx.Crud;
 
 namespace QuanLyPhongKham
 {
@@ -13,12 +15,12 @@ namespace QuanLyPhongKham
         {
             InitializeComponent();
         }
-        int pageSize = 20;   
-        int currentPage = 1; 
-        int totalRecords;    
-        int totalPages;
+        int pagesize = 15;
+        int currentpage = 1;
+        int totalpage = 0;
         private void LoadPatients(string keyword = "")
         {
+            var offset = (currentpage - 1) * pagesize;
             string where = "";
             if (!string.IsNullOrEmpty(keyword))
             {
@@ -28,6 +30,7 @@ namespace QuanLyPhongKham
 
             string query = $@"
                 SELECT 
+                    ROW_NUMBER() OVER (ORDER BY updated_at DESC) AS STT,
                     `id`, 
                     `name`, 
                     YEAR(date_of_birth) AS date_of_birth,
@@ -45,7 +48,14 @@ namespace QuanLyPhongKham
                     `updated_at`
                 FROM `patients`
                 {where}
-                ORDER BY `updated_at` DESC";
+                ORDER BY `updated_at` DESC
+            LIMIT {pagesize}
+            OFFSET {offset}
+                         "
+
+            ;
+            //LIMIT { pageSize}
+            //OFFSET { offset}
 
             Db.LoadDTGV(dtgv, query);
         }
@@ -56,7 +66,7 @@ namespace QuanLyPhongKham
         private void SetupGridColumns()
         {
             dtgv.AutoGenerateColumns = false;
-
+            dtgv.Columns["STT"].DataPropertyName = "STT";
             dtgv.Columns["id"].DataPropertyName = "id";
             dtgv.Columns["name"].DataPropertyName = "name";
             dtgv.Columns["date_of_birth"].DataPropertyName = "date_of_birth";
@@ -95,9 +105,7 @@ namespace QuanLyPhongKham
             };
         }
 
-        // =========================
-        // FORM LOAD
-        // =========================
+ 
         private void frm_patients_Load(object sender, EventArgs e)
         {
 
@@ -105,14 +113,13 @@ namespace QuanLyPhongKham
             SetButtonState(false);
             SetupGridColumns();
             LoadPatients();
+            LoadTotalPage();
 
 
 
         }
 
-        // =========================
-        // CLEAR FORM
-        // =========================
+
         private void ClearForm()
         {
             txb_id.Clear();
@@ -234,7 +241,6 @@ namespace QuanLyPhongKham
                 txb_weight.Text = row.Cells["weight"].Value.ToString();
                 txb_height.Text = row.Cells["height"].Value.ToString();
                 txb_temperature.Text = row.Cells["temperature"].Value.ToString();
-
                 SetButtonState(true);
             }
         }
@@ -279,5 +285,57 @@ namespace QuanLyPhongKham
                 e.Handled = true;
 
         }
+        private void LoadTotalPage()
+        {
+            string countQuery = "SELECT COUNT(*) FROM patients";
+            Db.ResetConnection();
+            MySqlCommand cmd = new MySqlCommand(countQuery, Db.conn);
+            int totalRecords = Convert.ToInt32(cmd.ExecuteScalar());
+            totalpage = (int)Math.Ceiling((double)totalRecords / pagesize);
+            Db.ResetConnection();
+        }
+        private void dtgv_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+
+
+        }
+
+        private void btn_firstpage_Click(object sender, EventArgs e)
+        {
+                currentpage=1;
+                LoadPatients(txb_search.Text.Trim());
+            lb_currentpage.Text = currentpage.ToString();
+
+        }
+
+        private void btn_downpage_Click(object sender, EventArgs e)
+        {
+            if(currentpage > 1 )
+            {
+                currentpage--;
+                LoadPatients(txb_search.Text.Trim());
+                lb_currentpage.Text = currentpage.ToString();
+            }
+
+        }
+
+        private void btn_uppage_Click(object sender, EventArgs e)
+        {
+            if (currentpage < totalpage)
+            {
+                currentpage++;
+                LoadPatients(txb_search.Text.Trim());
+                lb_currentpage.Text = currentpage.ToString();
+            }
+
+        }
+
+        private void btn_maxpage_Click(object sender, EventArgs e)
+        {
+            currentpage = totalpage;
+            LoadPatients(txb_search.Text.Trim());
+            lb_currentpage.Text = currentpage.ToString();
+        }
     }
 }
+

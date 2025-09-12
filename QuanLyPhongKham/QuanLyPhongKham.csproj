@@ -352,12 +352,6 @@
     <Compile Include="frm_ultrasound.Designer.cs">
       <DependentUpon>frm_ultrasound.cs</DependentUpon>
     </Compile>
-    <Compile Include="frm_update_examination.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frm_update_examination.Designer.cs">
-      <DependentUpon>frm_update_examination.cs</DependentUpon>
-    </Compile>
     <Compile Include="frm_users.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -447,9 +441,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_ultrasound.resx">
       <DependentUpon>frm_ultrasound.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frm_update_examination.resx">
-      <DependentUpon>frm_update_examination.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_users.resx">
       <DependentUpon>frm_users.cs</DependentUpon>
