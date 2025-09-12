@@ -111,8 +111,8 @@ namespace QuanLyPhongKham
                 Db.SetTextAndMoveCursorToEnd(txb_name, name);
                 Db.SetTextAndMoveCursorToEnd(txb_gender, gender);
                 txb_dob.Text = date_of_birth + "";
-                var dob = DateTime.ParseExact(date_of_birth, "dd/MM/yyyy", null);
-                var age = DateTime.Now.Year - dob.Year - (DateTime.Now < dob.AddYears(DateTime.Now.Year - dob.Year) ? 1 : 0);
+                var dob = Convert.ToInt16(txb_dob.Text);
+                var age =  DateTime.Now.Year-dob;
                 txb_age.Text = age.ToString()+ " tuổi"; ;
                 txb_reason1.Text=diagnosis + "";
 
@@ -293,7 +293,7 @@ namespace QuanLyPhongKham
             p.id AS id_patient,
             p.name,
             p.gender,
-            DATE_FORMAT(p.date_of_birth, '%d/%m/%Y') AS date_of_birth,
+            YEAR(p.date_of_birth) AS date_of_birth,
             p.phone,
             p.address,
             DATE_FORMAT(p.updated_at, '%d/%m/%Y %H:%i') AS updated_at,
@@ -368,7 +368,6 @@ namespace QuanLyPhongKham
         {
             var mabn = txb_id_patient.Text.Trim();
             var tenbn = txb_name.Text.Trim();
-            //var ngaysinh = txb_dob.Text.Trim();
             var gioitinh = txb_gender.Text.Trim();
             var ngaysinh = txb_age.Text.Trim();
             var diachi = txb_address.Text.Trim();
@@ -421,6 +420,16 @@ namespace QuanLyPhongKham
                 cb_template.Text = "Chọn biểu mẫu";
                 dtgv_service.Rows.Clear();
             }
+        }
+
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

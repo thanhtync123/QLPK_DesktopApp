@@ -273,11 +273,11 @@ namespace QuanLyPhongKham
 
         private void txb_dob_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            //    e.Handled = true;
-            //if (!char.IsControl(e.KeyChar) && txb_dob.Text.Length >= 4)
-            //    e.Handled = true;
-            
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                e.Handled = true;
+            if (!char.IsControl(e.KeyChar) && txb_dob.Text.Length >= 4)
+                e.Handled = true;
+
         }
     }
 }

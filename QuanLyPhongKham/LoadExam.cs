@@ -33,8 +33,9 @@ namespace QuanLyPhongKham
             dtgv_exam.Columns["name"].Width = 180;
             dtgv_exam.Columns["time_exam"].Width = 130;
             string[] columnsToHide = {
-        "gender", "date_of_birth", "phone",
-        "address", "updated_at", "reason", "diagnosis", "note"
+        "gender", "phone",
+        "address", "updated_at", "reason", "diagnosis", "note",
+        //"date_of_birth"
     };
             foreach (string columnName in columnsToHide)
                 dtgv_exam.Columns[columnName].Visible = false;
@@ -49,12 +50,11 @@ namespace QuanLyPhongKham
             string sql = @"
         SELECT 
             DATE_FORMAT(e.updated_at, '%d/%m/%Y %H:%i') AS time_exam,
-            DATE_FORMAT(p.date_of_birth, '%d/%m/%Y') AS date_of_birth,
             e.id AS id_exam,
             p.id AS id_patient,
             p.name,
             p.gender,
-            DATE_FORMAT(p.date_of_birth, '%d/%m/%Y') AS date_of_birth,
+            YEAR(p.date_of_birth) AS date_of_birth,
             p.phone,
             p.address,
             DATE_FORMAT(p.updated_at, '%d/%m/%Y %H:%i') AS updated_at,
