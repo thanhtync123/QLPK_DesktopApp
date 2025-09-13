@@ -130,7 +130,9 @@ namespace QuanLyPhongKham
             dtgv_service_patient.Rows.Add("", "-", "Công khám", "Miễn phí", "", "-");
             btn_update_examination.Enabled = false;
             btn_select_med.Enabled = false;
-    
+            btn_tinhtien.Enabled = false;
+            btn_pre_service.Enabled = false;
+
 
         }
 
@@ -138,6 +140,8 @@ namespace QuanLyPhongKham
         {
        
             LoadExamID();
+            btn_tinhtien.Enabled = true;
+            btn_pre_service.Enabled = true;
             btn_select_med.Enabled = true;
             btn_update_examination.Enabled = false;
             btn_save_examination_service.Enabled = true;
@@ -517,7 +521,7 @@ namespace QuanLyPhongKham
 
             dtgv_service_patient.Rows.Clear();
             frm_popupLUService frm = new frm_popupLUService();
-
+            frm.PatientID = Convert.ToInt16(txb_id.Text);
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 btn_save_examination_service.Enabled = false;
@@ -632,6 +636,7 @@ namespace QuanLyPhongKham
         {
             dtgv_service_patient.Rows.Clear();
             frm_popupLUService frm = new frm_popupLUService();
+            frm.PatientID = Convert.ToInt16(txb_id.Text);
 
             if (frm.ShowDialog() == DialogResult.OK)
             {
