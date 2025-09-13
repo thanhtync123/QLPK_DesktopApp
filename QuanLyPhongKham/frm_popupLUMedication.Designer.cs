@@ -58,6 +58,16 @@
             this.c2_days_of_use = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.c2_total_quantity_med = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.c2_note = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lb_state = new System.Windows.Forms.Label();
+            this.chb_viewall = new System.Windows.Forms.CheckBox();
+            this.btn_maxpage = new System.Windows.Forms.Button();
+            this.btn_firstpage = new System.Windows.Forms.Button();
+            this.btn_downpage = new System.Windows.Forms.Button();
+            this.btn_uppage = new System.Windows.Forms.Button();
+            this.lb_page = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lb_totalpage = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_patient_medication)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_detail)).BeginInit();
             this.SuspendLayout();
@@ -187,7 +197,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtgv_patient_medication.DefaultCellStyle = dataGridViewCellStyle3;
             this.dtgv_patient_medication.GridColor = System.Drawing.Color.Black;
-            this.dtgv_patient_medication.Location = new System.Drawing.Point(12, 57);
+            this.dtgv_patient_medication.Location = new System.Drawing.Point(12, 93);
             this.dtgv_patient_medication.Name = "dtgv_patient_medication";
             this.dtgv_patient_medication.RowHeadersVisible = false;
             this.dtgv_patient_medication.Size = new System.Drawing.Size(428, 601);
@@ -278,7 +288,7 @@
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtgv_detail.DefaultCellStyle = dataGridViewCellStyle6;
             this.dtgv_detail.GridColor = System.Drawing.Color.Black;
-            this.dtgv_detail.Location = new System.Drawing.Point(446, 56);
+            this.dtgv_detail.Location = new System.Drawing.Point(446, 92);
             this.dtgv_detail.Name = "dtgv_detail";
             this.dtgv_detail.RowHeadersVisible = false;
             this.dtgv_detail.Size = new System.Drawing.Size(792, 602);
@@ -373,10 +383,127 @@
             this.c2_note.Name = "c2_note";
             this.c2_note.Width = 230;
             // 
+            // lb_state
+            // 
+            this.lb_state.AutoSize = true;
+            this.lb_state.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_state.ForeColor = System.Drawing.Color.Red;
+            this.lb_state.Location = new System.Drawing.Point(603, 55);
+            this.lb_state.Name = "lb_state";
+            this.lb_state.Size = new System.Drawing.Size(49, 19);
+            this.lb_state.TabIndex = 27;
+            this.lb_state.Text = "label1";
+            // 
+            // chb_viewall
+            // 
+            this.chb_viewall.AutoSize = true;
+            this.chb_viewall.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chb_viewall.Location = new System.Drawing.Point(452, 54);
+            this.chb_viewall.Name = "chb_viewall";
+            this.chb_viewall.Size = new System.Drawing.Size(154, 23);
+            this.chb_viewall.TabIndex = 28;
+            this.chb_viewall.Text = "Xem tất cả toa thuốc";
+            this.chb_viewall.UseVisualStyleBackColor = true;
+            this.chb_viewall.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // btn_maxpage
+            // 
+            this.btn_maxpage.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_maxpage.Location = new System.Drawing.Point(339, 54);
+            this.btn_maxpage.Name = "btn_maxpage";
+            this.btn_maxpage.Size = new System.Drawing.Size(48, 32);
+            this.btn_maxpage.TabIndex = 59;
+            this.btn_maxpage.Text = "Max";
+            this.btn_maxpage.UseVisualStyleBackColor = true;
+            this.btn_maxpage.Click += new System.EventHandler(this.btn_maxpage_Click);
+            // 
+            // btn_firstpage
+            // 
+            this.btn_firstpage.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_firstpage.Location = new System.Drawing.Point(219, 54);
+            this.btn_firstpage.Name = "btn_firstpage";
+            this.btn_firstpage.Size = new System.Drawing.Size(35, 32);
+            this.btn_firstpage.TabIndex = 56;
+            this.btn_firstpage.Text = "1";
+            this.btn_firstpage.UseVisualStyleBackColor = true;
+            this.btn_firstpage.Click += new System.EventHandler(this.btn_firstpage_Click);
+            // 
+            // btn_downpage
+            // 
+            this.btn_downpage.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_downpage.Location = new System.Drawing.Point(260, 54);
+            this.btn_downpage.Name = "btn_downpage";
+            this.btn_downpage.Size = new System.Drawing.Size(35, 32);
+            this.btn_downpage.TabIndex = 57;
+            this.btn_downpage.Text = "<";
+            this.btn_downpage.UseVisualStyleBackColor = true;
+            this.btn_downpage.Click += new System.EventHandler(this.btn_downpage_Click);
+            // 
+            // btn_uppage
+            // 
+            this.btn_uppage.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_uppage.Location = new System.Drawing.Point(298, 54);
+            this.btn_uppage.Name = "btn_uppage";
+            this.btn_uppage.Size = new System.Drawing.Size(35, 32);
+            this.btn_uppage.TabIndex = 58;
+            this.btn_uppage.Text = ">";
+            this.btn_uppage.UseVisualStyleBackColor = true;
+            this.btn_uppage.Click += new System.EventHandler(this.btn_uppage_Click);
+            // 
+            // lb_page
+            // 
+            this.lb_page.AutoSize = true;
+            this.lb_page.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_page.Location = new System.Drawing.Point(118, 69);
+            this.lb_page.Name = "lb_page";
+            this.lb_page.Size = new System.Drawing.Size(17, 19);
+            this.lb_page.TabIndex = 60;
+            this.lb_page.Text = "0";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(78, 69);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(43, 19);
+            this.label1.TabIndex = 61;
+            this.label1.Text = "Trang";
+            // 
+            // lb_totalpage
+            // 
+            this.lb_totalpage.AutoSize = true;
+            this.lb_totalpage.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_totalpage.Location = new System.Drawing.Point(160, 69);
+            this.lb_totalpage.Name = "lb_totalpage";
+            this.lb_totalpage.Size = new System.Drawing.Size(17, 19);
+            this.lb_totalpage.TabIndex = 62;
+            this.lb_totalpage.Text = "0";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(141, 69);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(13, 19);
+            this.label3.TabIndex = 63;
+            this.label3.Text = "/";
+            // 
             // frm_popupLUMedication
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1250, 736);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lb_totalpage);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lb_page);
+            this.Controls.Add(this.btn_maxpage);
+            this.Controls.Add(this.btn_uppage);
+            this.Controls.Add(this.btn_downpage);
+            this.Controls.Add(this.btn_firstpage);
+            this.Controls.Add(this.chb_viewall);
+            this.Controls.Add(this.lb_state);
             this.Controls.Add(this.dtgv_detail);
             this.Controls.Add(this.dtgv_patient_medication);
             this.Controls.Add(this.guna2ImageButton2);
@@ -390,6 +517,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_patient_medication)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_detail)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -418,5 +546,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn c2_days_of_use;
         private System.Windows.Forms.DataGridViewTextBoxColumn c2_total_quantity_med;
         private System.Windows.Forms.DataGridViewTextBoxColumn c2_note;
+        private System.Windows.Forms.Label lb_state;
+        private System.Windows.Forms.CheckBox chb_viewall;
+        private System.Windows.Forms.Button btn_maxpage;
+        private System.Windows.Forms.Button btn_firstpage;
+        private System.Windows.Forms.Button btn_downpage;
+        private System.Windows.Forms.Button btn_uppage;
+        private System.Windows.Forms.Label lb_page;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lb_totalpage;
+        private System.Windows.Forms.Label label3;
     }
 }
