@@ -4,13 +4,16 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Printing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+
 
 namespace QuanLyPhongKham
 {
@@ -31,7 +34,7 @@ namespace QuanLyPhongKham
             LoadExam.InitialDTGVCommon(dtgv_exam);
             LoadExam.LoadDTGVCommon(dtgv_exam, "Xét nghiệm");
             LoadComboboxTemplate();
-            
+
 
         }
         private void LoadComboboxTemplate()
@@ -68,7 +71,7 @@ namespace QuanLyPhongKham
                 LoadDTGV_Service();
                 txb_service.Text = "";
                 cb_template.Text = "Chọn biểu mẫu";
-               // txb_result.Text = "";
+                // txb_result.Text = "";
                 txb_final_result.Text = "";
             }
 
@@ -105,7 +108,7 @@ namespace QuanLyPhongKham
                 drr.Cells["state"].Value = Db.dr["state"];
                 drr.Cells["examination_service_id"].Value = Db.dr["examination_service_id"];
             }
-         
+
 
             Db.dr.Close();
             Db.ResetConnection();
@@ -395,7 +398,7 @@ namespace QuanLyPhongKham
                     }
                 }
                 else
-                {   
+                {
                     btn_save.Enabled = true;
                     btn_edit.Enabled = false;
 
@@ -418,7 +421,7 @@ namespace QuanLyPhongKham
         }
         private void dtgv_service_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            
+
         }
 
 
@@ -487,12 +490,12 @@ namespace QuanLyPhongKham
             var ketqua = txb_final_result.Text;
             var ngaykham = DateTime.Now.ToString("'Ngày' dd 'tháng' MM 'năm' yyyy");
             var gioitinh = txb_gender.Text;
-            var chidinh=txb_service.Text;
-            var nhanvien=CurrentUser.UserName;
+            var chidinh = txb_service.Text;
+            var nhanvien = CurrentUser.UserName;
 
             var sdt = txb_phone.Text;
             DataTable dt = GetDataTableFromDataGridView(dtgv_result);
-            frm_report_test frm = new frm_report_test(dt, mabn, tenbn, ngaysinh, chandoan, chandoanphu, diachi, ketqua, ngaykham, sdt,gioitinh,chidinh,nhanvien);
+            frm_report_test frm = new frm_report_test(dt, mabn, tenbn, ngaysinh, chandoan, chandoanphu, diachi, ketqua, ngaykham, sdt, gioitinh, chidinh, nhanvien);
 
             frm.ShowDialog();
 
@@ -521,6 +524,7 @@ namespace QuanLyPhongKham
             return dt;
 
         }
+
         private void btn_refresh_Click(object sender, EventArgs e)
         {
             dtgv_exam.Rows.Clear();
@@ -533,20 +537,7 @@ namespace QuanLyPhongKham
             LoadExam.LoadDTGVCommon(dtgv_exam, "Xét nghiệm", keyword);
         }
 
-        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
-
-        private void dtgv_result_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btn_delete_Click(object sender, EventArgs e)
         {
@@ -570,15 +561,114 @@ namespace QuanLyPhongKham
                 txb_reason.Text = "";
                 txb_reason1.Text = "";
                 txb_reception_date.Text = "";
-             //   txb_result.Text = "";
+                //   txb_result.Text = "";
                 txb_service.Text = "";
                 cb_template.Text = "Chọn biểu mẫu";
                 dtgv_service.Rows.Clear();
             }
         }
+        private bool KetQuaNgoaiChiSo(string ketQuaStr, string csbt, string gioiTinh = "")
+        {
+            if (string.IsNullOrEmpty(ketQuaStr) || string.IsNullOrEmpty(csbt))
+                return false;
+
+            // Chuẩn hóa chuỗi: loại bỏ % / ml, trim, chuyển , thành .
+            ketQuaStr = ketQuaStr.Trim().Replace("%", "").Replace("ml", "").Replace(",", ".");
+            csbt = csbt.Trim().Replace(",", ".");
+
+            // Chuyển kết quả sang số nếu có thể
+            if (!double.TryParse(ketQuaStr, System.Globalization.NumberStyles.Any,
+                System.Globalization.CultureInfo.InvariantCulture, out double ketQua))
+            {
+                // nếu không phải số → kiểm tra text
+                return !string.Equals(ketQuaStr, csbt, StringComparison.OrdinalIgnoreCase);
+            }
+
+            // 1. Khoảng Nam/Nữ
+            // 1. Khoảng Nam/Nữ (cập nhật)
+            if (csbt.Contains("Nam:") || csbt.Contains("Nữ:"))
+            {
+                if (!string.IsNullOrEmpty(gioiTinh))
+                {
+                    string pattern = gioiTinh.StartsWith("Nam", StringComparison.OrdinalIgnoreCase) ?
+                        @"Nam\s*:\s*(\d+(\.\d+)?)\s*-\s*(\d+(\.\d+)?)" :
+                        @"Nữ\s*:\s*(\d+(\.\d+)?)\s*-\s*(\d+(\.\d+)?)";
+
+                    var match = System.Text.RegularExpressions.Regex.Match(csbt, pattern);
+                    if (match.Success)
+                    {
+                        double min = double.Parse(match.Groups[1].Value, System.Globalization.CultureInfo.InvariantCulture);
+                        double max = double.Parse(match.Groups[3].Value, System.Globalization.CultureInfo.InvariantCulture);
+                        return ketQua < min || ketQua > max;
+                    }
+                    else
+                    {
+                        // Không tìm thấy pattern cho giới tính hiện tại
+                        return false;
+                    }
+                }
+                return false;
+            }
 
 
+            // 2. Khoảng min-max chung
+            if (csbt.Contains("-"))
+            {
+                var parts = csbt.Split('-');
+                if (parts.Length == 2 &&
+                    double.TryParse(parts[0], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out double min) &&
+                    double.TryParse(parts[1], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out double max))
+                {
+                    return ketQua < min || ketQua > max;
+                }
+            }
+
+            // 3. Dấu so sánh
+            csbt = csbt.Replace("≤", "<=").Replace("≥", ">=");
+            if (csbt.StartsWith("<=") &&
+                double.TryParse(csbt.Substring(2), System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out double le))
+                return ketQua > le;
+            if (csbt.StartsWith(">=") &&
+                double.TryParse(csbt.Substring(2), System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out double ge))
+                return ketQua < ge;
+            if (csbt.StartsWith("<") &&
+                double.TryParse(csbt.Substring(1), System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out double l))
+                return ketQua >= l;
+            if (csbt.StartsWith(">") &&
+                double.TryParse(csbt.Substring(1), System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out double g))
+                return ketQua <= g;
+            if (csbt.StartsWith("=") &&
+                double.TryParse(csbt.Substring(1), System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out double e))
+                return ketQua != e;
+
+            return false; // mặc định trong khoảng bình thường
+        }
+
+
+
+
+
+
+        private void dtgv_result_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dtgv_result.Columns[e.ColumnIndex].Name == "t_result")
+            {
+                var row = dtgv_result.Rows[e.RowIndex];
+                string ketQuaStr = row.Cells["t_result"].Value?.ToString();
+                string csbt = row.Cells["t_normal"].Value?.ToString();
+                string gioiTinh = txb_gender.Text;
+
+                if (KetQuaNgoaiChiSo(ketQuaStr, csbt, gioiTinh))
+
+                    e.CellStyle.ForeColor = Color.Red;
+
+                else
+
+                    e.CellStyle.ForeColor = Color.Black;
+
+
+            }
+        }
     }
 }
 
-       

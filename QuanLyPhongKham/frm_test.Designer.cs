@@ -256,7 +256,6 @@
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(471, 805);
             this.guna2Panel1.TabIndex = 2;
-            this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
             // 
             // btn_delete
             // 
@@ -272,6 +271,7 @@
             // 
             // dtgv_exam
             // 
+            this.dtgv_exam.AllowUserToAddRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dtgv_exam.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dtgv_exam.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.None;
@@ -459,7 +459,6 @@
             this.label1.Size = new System.Drawing.Size(65, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Từ ngày";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // panel1
             // 
@@ -667,7 +666,7 @@
             this.dtgv_result.ThemeStyle.RowsStyle.Height = 22;
             this.dtgv_result.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtgv_result.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.dtgv_result.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_result_CellContentClick);
+            this.dtgv_result.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dtgv_result_CellFormatting);
             // 
             // t_indication
             // 
@@ -875,9 +874,9 @@
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(34, 46);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(78, 20);
+            this.label7.Size = new System.Drawing.Size(75, 20);
             this.label7.TabIndex = 15;
-            this.label7.Text = "Ngày sinh";
+            this.label7.Text = "Năm sinh";
             // 
             // txb_id_patient
             // 
@@ -920,7 +919,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(230)))));
-            this.ClientSize = new System.Drawing.Size(1386, 788);
+            this.ClientSize = new System.Drawing.Size(1420, 822);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

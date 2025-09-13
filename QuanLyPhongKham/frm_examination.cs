@@ -86,7 +86,7 @@ namespace QuanLyPhongKham
                             MAX(e.id) AS exam_id, 
                             p.id, 
                             p.name, 
-                            DATE_FORMAT(p.date_of_birth, '%d/%m/%Y') AS date_of_birth, 
+                            YEAR(p.date_of_birth) AS date_of_birth, 
                             p.gender, 
                             p.phone, 
                             p.address, 
@@ -1091,21 +1091,26 @@ namespace QuanLyPhongKham
         private void dtgv_patients_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
             if (dtgv_patients.Columns["STT_P"] != null)
-                dtgv_patients.Rows[e.RowIndex].Cells["STT_P"].Value = (e.RowIndex + 1).ToString();
+            {
+                int totalRows = dtgv_patients.Rows.Count;
+                dtgv_patients.Rows[e.RowIndex].Cells["STT_P"].Value = (totalRows - e.RowIndex).ToString();
+            }
+
             var row = dtgv_patients.Rows[e.RowIndex];
             var cellValue = row.Cells["last_exam_id"].Value;
 
             if (cellValue == DBNull.Value || cellValue == null)
-                row.Cells["state"].Value = "Khách mới"; 
+                row.Cells["state"].Value = "Vừa tiếp nhận";
             else
-                 row.Cells["state"].Value = "Khám lại";
-            
+                row.Cells["state"].Value = "Đã từng khám";
+
+
 
 
 
         }
 
-       
+
     }
 }
 

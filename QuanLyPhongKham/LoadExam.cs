@@ -13,8 +13,8 @@ namespace QuanLyPhongKham
         // Phương thức khởi tạo DataGridView
         public static void InitialDTGVCommon(DataGridView dtgv_exam)
         {
-         
 
+            dtgv_exam.Columns.Add("STT", "STT");
             dtgv_exam.Columns.Add("id_patient", "Mã BN");
             dtgv_exam.Columns.Add("name", "Họ tên");
             dtgv_exam.Columns.Add("id_exam", "Mã phiếu khám");
@@ -27,15 +27,15 @@ namespace QuanLyPhongKham
             dtgv_exam.Columns.Add("diagnosis", "Chẩn đoán");
             dtgv_exam.Columns.Add("note", "Ghi chú");
             dtgv_exam.Columns.Add("time_exam", "Cấp phiếu lúc");
-
-            dtgv_exam.Columns["id_patient"].Width = 50;
+     
+            dtgv_exam.Columns["STT"].Width = 50;
             dtgv_exam.Columns["id_exam"].Width = 50;
             dtgv_exam.Columns["name"].Width = 180;
             dtgv_exam.Columns["time_exam"].Width = 130;
             string[] columnsToHide = {
-        "gender", "phone",
+        "gender", "phone","id_patient",
         "address", "updated_at", "reason", "diagnosis", "note",
-        //"date_of_birth"
+        "date_of_birth"
     };
             foreach (string columnName in columnsToHide)
                 dtgv_exam.Columns[columnName].Visible = false;
@@ -45,7 +45,7 @@ namespace QuanLyPhongKham
 
         public static void LoadDTGVCommon(DataGridView dtgv_exam, string type, string search = "")
         {
-            dtgv_exam.Rows.Clear(); // Xóa dữ liệu cũ trước khi load lại
+            dtgv_exam.Rows.Clear(); 
 
             string sql = @"
         SELECT 
@@ -80,13 +80,11 @@ namespace QuanLyPhongKham
     ";
 
             if (string.IsNullOrEmpty(search))
-            {
-                // Mặc định: chỉ lấy trong ngày hiện tại
+            
                 sql += " AND DATE(e.updated_at) = CURDATE()";
-            }
+            
             else
             {
-                // Khi tìm kiếm: bỏ lọc ngày, tìm theo từ khóa
                 sql += @" AND (
             p.id LIKE @search OR 
             p.name LIKE @search OR 
@@ -94,21 +92,22 @@ namespace QuanLyPhongKham
         )";
             }
 
-            sql += " GROUP BY e.id";
+            sql += " GROUP BY e.id ";
+            sql += "ORDER BY e.updated_at DESC";
 
             Db.conn = new MySqlConnection(Db.connectionString);
             Db.ResetConnection();
             Db.cmd = new MySqlCommand(sql, Db.conn);
             Db.cmd.Parameters.AddWithValue("@type", type);
             if (!string.IsNullOrEmpty(search))
-            {
+            
                 Db.cmd.Parameters.AddWithValue("@search", "%" + search + "%");
-            }
+            
 
             Db.dr = Db.cmd.ExecuteReader();
-
             while (Db.dr.Read())
             {
+           
                 int i = dtgv_exam.Rows.Add();
                 DataGridViewRow drr = dtgv_exam.Rows[i];
                 drr.Cells["id_exam"].Value = Db.dr["id_exam"];
@@ -127,6 +126,11 @@ namespace QuanLyPhongKham
 
             Db.dr.Close();
             Db.ResetConnection();
+            int stt = dtgv_exam.Rows.Count;
+            foreach (DataGridViewRow row in dtgv_exam.Rows)
+            {
+                row.Cells["STT"].Value = stt--;
+            }
         }
 
 
