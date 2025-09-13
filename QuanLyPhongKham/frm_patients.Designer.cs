@@ -416,12 +416,12 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(0, 98);
+            this.label9.Location = new System.Drawing.Point(18, 97);
             this.label9.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(78, 20);
+            this.label9.Size = new System.Drawing.Size(75, 20);
             this.label9.TabIndex = 3;
-            this.label9.Text = "Ngày sinh";
+            this.label9.Text = "Năm sinh";
             // 
             // label10
             // 
@@ -757,7 +757,7 @@
             // 
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(42, 217);
+            this.label25.Location = new System.Drawing.Point(38, 216);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(78, 20);
             this.label25.TabIndex = 46;
@@ -839,9 +839,9 @@
             // 
             // txb_dob
             // 
-            this.txb_dob.Location = new System.Drawing.Point(75, 94);
+            this.txb_dob.Location = new System.Drawing.Point(94, 93);
             this.txb_dob.Name = "txb_dob";
-            this.txb_dob.Size = new System.Drawing.Size(225, 26);
+            this.txb_dob.Size = new System.Drawing.Size(91, 26);
             this.txb_dob.TabIndex = 55;
             this.txb_dob.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txb_dob_KeyPress);
             // 

@@ -35,22 +35,22 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_examination));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txb_name = new Guna.UI2.WinForms.Guna2TextBox();
             this.txb_ngaysinh = new Guna.UI2.WinForms.Guna2TextBox();
             this.txb_age = new Guna.UI2.WinForms.Guna2TextBox();
@@ -91,7 +91,19 @@
             this.note_2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.delete_med = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtgv_med = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.id_med = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.med_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.note = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.add_med = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.dtgv_service = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.id_service = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.service_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.add_service = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_update_examination = new System.Windows.Forms.Button();
             this.btn_pre_service = new System.Windows.Forms.Button();
             this.guna2ImageButton8 = new Guna.UI2.WinForms.Guna2ImageButton();
@@ -109,7 +121,6 @@
             this.price2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.notes2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.delete_service = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtgv_service = new Guna.UI2.WinForms.Guna2DataGridView();
             this.dtgv_patients = new Guna.UI2.WinForms.Guna2DataGridView();
             this.last_exam_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.STT_P = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -159,24 +170,13 @@
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.cb_doctornote = new System.Windows.Forms.ComboBox();
             this.lb_d0 = new System.Windows.Forms.Label();
-            this.id_med = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.med_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.note = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.add_med = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_service = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.service_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.add_service = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2TabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_patient_med)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_med)).BeginInit();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgv_service_patient)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_service)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_service_patient)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_patients)).BeginInit();
             this.SuspendLayout();
             // 
@@ -366,10 +366,10 @@
             this.guna2TabControl1.Controls.Add(this.tabPage1);
             this.guna2TabControl1.Controls.Add(this.tabPage2);
             this.guna2TabControl1.ItemSize = new System.Drawing.Size(180, 40);
-            this.guna2TabControl1.Location = new System.Drawing.Point(433, 237);
+            this.guna2TabControl1.Location = new System.Drawing.Point(445, 237);
             this.guna2TabControl1.Name = "guna2TabControl1";
             this.guna2TabControl1.SelectedIndex = 0;
-            this.guna2TabControl1.Size = new System.Drawing.Size(1471, 616);
+            this.guna2TabControl1.Size = new System.Drawing.Size(1459, 616);
             this.guna2TabControl1.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty;
             this.guna2TabControl1.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(52)))), ((int)(((byte)(70)))));
             this.guna2TabControl1.TabButtonHoverState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
@@ -409,7 +409,7 @@
             this.tabPage1.Location = new System.Drawing.Point(184, 4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1283, 608);
+            this.tabPage1.Size = new System.Drawing.Size(1271, 608);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Đơn thuốc";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -722,7 +722,6 @@
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtgv_med.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dtgv_med.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.None;
-            this.dtgv_med.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Single;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -777,6 +776,47 @@
             this.dtgv_med.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dtgv_med.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_med_CellClick_1);
             // 
+            // id_med
+            // 
+            this.id_med.HeaderText = "ID Thuốc";
+            this.id_med.Name = "id_med";
+            this.id_med.Visible = false;
+            this.id_med.Width = 50;
+            // 
+            // med_name
+            // 
+            this.med_name.HeaderText = "Tên thuốc";
+            this.med_name.Name = "med_name";
+            this.med_name.Width = 170;
+            // 
+            // unit
+            // 
+            this.unit.HeaderText = "Đơn vị";
+            this.unit.Name = "unit";
+            this.unit.Width = 80;
+            // 
+            // price
+            // 
+            this.price.HeaderText = "Đơn giá";
+            this.price.Name = "price";
+            this.price.Visible = false;
+            // 
+            // note
+            // 
+            this.note.HeaderText = "Ghi chú";
+            this.note.Name = "note";
+            this.note.Width = 200;
+            // 
+            // add_med
+            // 
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            this.add_med.DefaultCellStyle = dataGridViewCellStyle7;
+            this.add_med.HeaderText = "Thao tác";
+            this.add_med.Name = "add_med";
+            this.add_med.ReadOnly = true;
+            this.add_med.Width = 80;
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.dtgv_service);
@@ -798,6 +838,106 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Chỉ định Cận lâm sàng";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // dtgv_service
+            // 
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            this.dtgv_service.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            this.dtgv_service.BackgroundColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgv_service.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            this.dtgv_service.ColumnHeadersHeight = 45;
+            this.dtgv_service.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dtgv_service.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id_service,
+            this.service_name,
+            this.type,
+            this.price1,
+            this.add_service});
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgv_service.DefaultCellStyle = dataGridViewCellStyle13;
+            this.dtgv_service.GridColor = System.Drawing.Color.Black;
+            this.dtgv_service.Location = new System.Drawing.Point(6, 76);
+            this.dtgv_service.Name = "dtgv_service";
+            this.dtgv_service.RowHeadersVisible = false;
+            this.dtgv_service.RowHeadersWidth = 51;
+            this.dtgv_service.Size = new System.Drawing.Size(531, 443);
+            this.dtgv_service.TabIndex = 0;
+            this.dtgv_service.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dtgv_service.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dtgv_service.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dtgv_service.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dtgv_service.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dtgv_service.ThemeStyle.BackColor = System.Drawing.Color.Gainsboro;
+            this.dtgv_service.ThemeStyle.GridColor = System.Drawing.Color.Black;
+            this.dtgv_service.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.dtgv_service.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dtgv_service.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtgv_service.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.dtgv_service.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dtgv_service.ThemeStyle.HeaderStyle.Height = 45;
+            this.dtgv_service.ThemeStyle.ReadOnly = false;
+            this.dtgv_service.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dtgv_service.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dtgv_service.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtgv_service.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dtgv_service.ThemeStyle.RowsStyle.Height = 22;
+            this.dtgv_service.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dtgv_service.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dtgv_service.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_service_CellClick);
+            // 
+            // id_service
+            // 
+            this.id_service.FillWeight = 152.2843F;
+            this.id_service.HeaderText = "MCĐ";
+            this.id_service.MinimumWidth = 40;
+            this.id_service.Name = "id_service";
+            // 
+            // service_name
+            // 
+            this.service_name.FillWeight = 86.92893F;
+            this.service_name.HeaderText = "Tên chỉ định";
+            this.service_name.MinimumWidth = 180;
+            this.service_name.Name = "service_name";
+            // 
+            // type
+            // 
+            this.type.FillWeight = 86.92893F;
+            this.type.HeaderText = "Loại";
+            this.type.MinimumWidth = 80;
+            this.type.Name = "type";
+            // 
+            // price1
+            // 
+            dataGridViewCellStyle11.Format = "N0";
+            dataGridViewCellStyle11.NullValue = null;
+            this.price1.DefaultCellStyle = dataGridViewCellStyle11;
+            this.price1.FillWeight = 86.92893F;
+            this.price1.HeaderText = "Thành tiền";
+            this.price1.MinimumWidth = 120;
+            this.price1.Name = "price1";
+            // 
+            // add_service
+            // 
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.add_service.DefaultCellStyle = dataGridViewCellStyle12;
+            this.add_service.FillWeight = 86.92893F;
+            this.add_service.HeaderText = "Thêm";
+            this.add_service.MinimumWidth = 60;
+            this.add_service.Name = "add_service";
+            this.add_service.ReadOnly = true;
             // 
             // btn_update_examination
             // 
@@ -1030,66 +1170,6 @@
             this.delete_service.ReadOnly = true;
             this.delete_service.Width = 50;
             // 
-            // dtgv_service
-            // 
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            this.dtgv_service.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
-            this.dtgv_service.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.dtgv_service.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Single;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgv_service.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
-            this.dtgv_service.ColumnHeadersHeight = 45;
-            this.dtgv_service.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.dtgv_service.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id_service,
-            this.service_name,
-            this.type,
-            this.price1,
-            this.add_service});
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgv_service.DefaultCellStyle = dataGridViewCellStyle13;
-            this.dtgv_service.GridColor = System.Drawing.Color.Black;
-            this.dtgv_service.Location = new System.Drawing.Point(6, 76);
-            this.dtgv_service.Name = "dtgv_service";
-            this.dtgv_service.RowHeadersVisible = false;
-            this.dtgv_service.RowHeadersWidth = 51;
-            this.dtgv_service.Size = new System.Drawing.Size(531, 443);
-            this.dtgv_service.TabIndex = 0;
-            this.dtgv_service.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.dtgv_service.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.dtgv_service.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.dtgv_service.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.dtgv_service.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.dtgv_service.ThemeStyle.BackColor = System.Drawing.Color.Gainsboro;
-            this.dtgv_service.ThemeStyle.GridColor = System.Drawing.Color.Black;
-            this.dtgv_service.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.dtgv_service.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dtgv_service.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtgv_service.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.dtgv_service.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.dtgv_service.ThemeStyle.HeaderStyle.Height = 45;
-            this.dtgv_service.ThemeStyle.ReadOnly = false;
-            this.dtgv_service.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.dtgv_service.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dtgv_service.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtgv_service.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.dtgv_service.ThemeStyle.RowsStyle.Height = 22;
-            this.dtgv_service.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dtgv_service.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.dtgv_service.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_service_CellClick);
-            // 
             // dtgv_patients
             // 
             this.dtgv_patients.AllowUserToAddRows = false;
@@ -1133,7 +1213,7 @@
             dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtgv_patients.DefaultCellStyle = dataGridViewCellStyle21;
             this.dtgv_patients.GridColor = System.Drawing.Color.Black;
-            this.dtgv_patients.Location = new System.Drawing.Point(12, 237);
+            this.dtgv_patients.Location = new System.Drawing.Point(6, 237);
             this.dtgv_patients.Name = "dtgv_patients";
             dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Control;
@@ -1146,7 +1226,7 @@
             this.dtgv_patients.RowHeadersVisible = false;
             this.dtgv_patients.RowHeadersWidth = 51;
             this.dtgv_patients.RowTemplate.Height = 35;
-            this.dtgv_patients.Size = new System.Drawing.Size(424, 552);
+            this.dtgv_patients.Size = new System.Drawing.Size(433, 632);
             this.dtgv_patients.TabIndex = 16;
             this.dtgv_patients.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgv_patients.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -1672,95 +1752,13 @@
             this.lb_d0.TabIndex = 49;
             this.lb_d0.Text = "label14";
             // 
-            // id_med
-            // 
-            this.id_med.HeaderText = "ID Thuốc";
-            this.id_med.Name = "id_med";
-            this.id_med.Visible = false;
-            this.id_med.Width = 50;
-            // 
-            // med_name
-            // 
-            this.med_name.HeaderText = "Tên thuốc";
-            this.med_name.Name = "med_name";
-            this.med_name.Width = 170;
-            // 
-            // unit
-            // 
-            this.unit.HeaderText = "Đơn vị";
-            this.unit.Name = "unit";
-            this.unit.Width = 80;
-            // 
-            // price
-            // 
-            this.price.HeaderText = "Đơn giá";
-            this.price.Name = "price";
-            this.price.Visible = false;
-            // 
-            // note
-            // 
-            this.note.HeaderText = "Ghi chú";
-            this.note.Name = "note";
-            this.note.Width = 200;
-            // 
-            // add_med
-            // 
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            this.add_med.DefaultCellStyle = dataGridViewCellStyle7;
-            this.add_med.HeaderText = "Thao tác";
-            this.add_med.Name = "add_med";
-            this.add_med.ReadOnly = true;
-            this.add_med.Width = 80;
-            // 
-            // id_service
-            // 
-            this.id_service.FillWeight = 152.2843F;
-            this.id_service.HeaderText = "MCĐ";
-            this.id_service.MinimumWidth = 40;
-            this.id_service.Name = "id_service";
-            // 
-            // service_name
-            // 
-            this.service_name.FillWeight = 86.92893F;
-            this.service_name.HeaderText = "Tên chỉ định";
-            this.service_name.MinimumWidth = 180;
-            this.service_name.Name = "service_name";
-            // 
-            // type
-            // 
-            this.type.FillWeight = 86.92893F;
-            this.type.HeaderText = "Loại";
-            this.type.MinimumWidth = 80;
-            this.type.Name = "type";
-            // 
-            // price1
-            // 
-            dataGridViewCellStyle11.Format = "N0";
-            dataGridViewCellStyle11.NullValue = null;
-            this.price1.DefaultCellStyle = dataGridViewCellStyle11;
-            this.price1.FillWeight = 86.92893F;
-            this.price1.HeaderText = "Thành tiền";
-            this.price1.MinimumWidth = 120;
-            this.price1.Name = "price1";
-            // 
-            // add_service
-            // 
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.add_service.DefaultCellStyle = dataGridViewCellStyle12;
-            this.add_service.FillWeight = 86.92893F;
-            this.add_service.HeaderText = "Thêm";
-            this.add_service.MinimumWidth = 60;
-            this.add_service.Name = "add_service";
-            this.add_service.ReadOnly = true;
-            // 
             // frm_examination
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(230)))));
-            this.ClientSize = new System.Drawing.Size(1570, 788);
+            this.ClientSize = new System.Drawing.Size(1587, 805);
             this.Controls.Add(this.lb_d0);
             this.Controls.Add(this.cb_doctornote);
             this.Controls.Add(this.label25);
@@ -1811,8 +1809,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_med)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgv_service_patient)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_service)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_service_patient)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_patients)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

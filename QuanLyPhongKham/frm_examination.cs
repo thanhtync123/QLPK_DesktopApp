@@ -83,7 +83,7 @@ namespace QuanLyPhongKham
 
             string sql = @"
                             SELECT
-							e.id as exam_id,
+                            MAX(e.id) AS exam_id, 
                             p.id, 
                             p.name, 
                             DATE_FORMAT(p.date_of_birth, '%d/%m/%Y') AS date_of_birth, 
@@ -97,16 +97,17 @@ namespace QuanLyPhongKham
                             p.weight,
                             p.height, 
                             p.temperature,
-                            e.diagnosis_id AS last_diagnoses_id,
-                            d.name AS last_diagnoses_name
+                            MAX(e.diagnosis_id) AS last_diagnoses_id,  -- Lấy giá trị MAX của e.diagnosis_id
+                            MAX(d.name) AS last_diagnoses_name  -- Lấy giá trị MAX của d.name
                         FROM patients p
                             LEFT JOIN examinations e ON p.id = e.patient_id
                                 AND e.id = (SELECT MAX(e2.id) FROM examinations e2 WHERE e2.patient_id = p.id)
                             LEFT JOIN diagnoses d ON d.id = e.diagnosis_id
-                            WHERE p.updated_at >= CURDATE() 
+                        WHERE p.updated_at >= CURDATE() 
                             AND p.updated_at < CURDATE() + INTERVAL 1 DAY
-                            GROUP BY p.id
-                            ORDER BY p.updated_at ASC;
+                        GROUP BY p.id
+                        ORDER BY p.updated_at DESC;
+
                         ";
             Db.LoadDTGV(dtgv_patients, sql);
 
