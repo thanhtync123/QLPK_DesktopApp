@@ -27,43 +27,14 @@ namespace QuanLyPhongKham
         private Timer timer = new Timer();
         private int? selectedPatientId = null;
         int maxDayOfUse = 0;
+        public static event Action OnExamChanged;
         public frm_examination()
         {
             InitializeComponent();
-            //timer.Interval = 3000;
-            //timer.Tick += (s, e) =>
-            //{
-            //    // Lưu ID bệnh nhân hiện tại nếu có
-            //    if (dtgv_patients.CurrentRow != null && dtgv_patients.CurrentRow.Cells["ID"].Value != null)
-            //    {
-            //        selectedPatientId = Convert.ToInt32(dtgv_patients.CurrentRow.Cells["ID"].Value);
-            //    }
-
-            //    // Reload dữ liệu
-            //    LoadGrid();
-
-            //    // Khôi phục lựa chọn dòng cũ nếu còn tồn tại
-            //    if (selectedPatientId.HasValue)
-            //    {
-            //        foreach (DataGridViewRow row in dtgv_patients.Rows)
-            //        {
-            //            if (row.Cells["ID"].Value != null && Convert.ToInt32(row.Cells["ID"].Value) == selectedPatientId)
-            //            {
-            //                dtgv_patients.CurrentCell = row.Cells[0];
-            //                dtgv_patients.Rows[row.Index].Selected = true;
-            //                break;
-            //            }
-            //        }
-            //    }
-            //};
-            //dtgv_patients.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-
-            //timer.Start();
+            frm_patients.OnPatientChanged += () => LoadGrid();
+        
         }
-        private void Timer_Tick(object sender, EventArgs e)
-        {
-       //     LoadGrid();
-        }
+
         private void UpdateSTT()
         {
             int stt = 1;
@@ -132,7 +103,8 @@ namespace QuanLyPhongKham
                             LEFT JOIN examinations e ON p.id = e.patient_id
                                 AND e.id = (SELECT MAX(e2.id) FROM examinations e2 WHERE e2.patient_id = p.id)
                             LEFT JOIN diagnoses d ON d.id = e.diagnosis_id
-                            WHERE DATE(p.updated_at) = CURDATE()
+                            WHERE p.updated_at >= CURDATE() 
+                            AND p.updated_at < CURDATE() + INTERVAL 1 DAY
                             GROUP BY p.id
                             ORDER BY p.updated_at ASC;
                         ";
@@ -147,29 +119,26 @@ namespace QuanLyPhongKham
         private void frm_examination_Load(object sender, EventArgs e)
         {
             SetUpGridPatient();
-            LoadExamID();
-            LoadGrid();
             LoadComboboxDiagnoses();
             LoadComboboxDoctorNote();
+            LoadExamID();
+            LoadGrid();
             LoadDTGV_Service();
             LoadDTGV_Med();
             Update_FollowUpDate();
             lb_d0.Text = "";
             dtgv_service_patient.Rows.Add("", "-", "Công khám", "Miễn phí", "", "-");
             btn_update_examination.Enabled = false;
+            btn_select_med.Enabled = false;
     
-            foreach (DataGridViewColumn col in dtgv_patients.Columns)
-            {
-                txb_debug.Text += col.Name + ",";
-            }
-
-
 
         }
 
         private void dtgv_patients_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+       
             LoadExamID();
+            btn_select_med.Enabled = true;
             btn_update_examination.Enabled = false;
             btn_save_examination_service.Enabled = true;
             id = Convert.ToInt32(dtgv_patients.CurrentRow.Cells["ID_P"].Value);
@@ -523,6 +492,7 @@ namespace QuanLyPhongKham
 
 
                 LoadExamID();
+                LoadGrid();
                 MessageBox.Show("Lưu chỉ định thành công");
 
             }
@@ -846,6 +816,7 @@ namespace QuanLyPhongKham
                 }
 
                 LoadExamID();
+                LoadGrid(); 
                 MessageBox.Show("Thêm toa thành công!"); 
             }
             catch (Exception ex)
@@ -1024,13 +995,13 @@ namespace QuanLyPhongKham
         private void btn_select_med_Click(object sender, EventArgs e)
         {
             frm_popupLUMedication frm = new frm_popupLUMedication();
+            frm.PatientID = Convert.ToInt16(txb_id.Text);
             dtgv_patient_med.Rows.Clear();
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 foreach (var rowData in frm.selectedMedications)
                     dtgv_patient_med.Rows.Add(rowData);
                 UpdateMedicationSummary();
-
             }
 
 

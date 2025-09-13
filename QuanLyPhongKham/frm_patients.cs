@@ -11,6 +11,7 @@ namespace QuanLyPhongKham
 {
     public partial class frm_patients : Form
     {
+        public static event Action OnPatientChanged;
         public frm_patients()
         {
             InitializeComponent();
@@ -185,6 +186,7 @@ namespace QuanLyPhongKham
             Db.Add(query, data);
             ClearForm();
             LoadPatients();
+            OnPatientChanged?.Invoke(); 
         }
 
         private void btn_update_Click(object sender, EventArgs e)
@@ -200,6 +202,7 @@ namespace QuanLyPhongKham
             Db.Update(query, data);
             ClearForm();
             LoadPatients();
+            OnPatientChanged?.Invoke();
         }
 
         private void btn_delete_Click(object sender, EventArgs e)
@@ -210,6 +213,7 @@ namespace QuanLyPhongKham
             Db.Delete(query, data);
             ClearForm();
             LoadPatients();
+            OnPatientChanged?.Invoke();
         }
 
         private void btn_refresh_Click(object sender, EventArgs e)
@@ -275,6 +279,7 @@ namespace QuanLyPhongKham
             MessageBox.Show("Tái tiếp nhận và cập nhật thông tin thành công!");
             ClearForm();
             LoadPatients();
+            OnPatientChanged?.Invoke();
         }
 
         private void txb_dob_KeyPress(object sender, KeyPressEventArgs e)
