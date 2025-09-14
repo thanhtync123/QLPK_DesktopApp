@@ -122,6 +122,7 @@ namespace QuanLyPhongKham
         private void btn_search_Click(object sender, EventArgs e)
         {
             SearchExam();
+            UpdateSTT();
         }
         private void SearchExam()
         {
@@ -584,7 +585,7 @@ namespace QuanLyPhongKham
                 String query = $@"DELETE FROM `examinations` WHERE id = {id} ";
                 MySqlCommand cmd = new MySqlCommand(query, Db.conn);
                 cmd.ExecuteNonQuery();
-                SearchExam();
+                dtgv_exam.Rows.RemoveAt(dtgv_exam.CurrentRow.Index);
                 txb_address.Text = "";
                 txb_age.Text = "";
                 txb_dob.Text = "";
@@ -603,6 +604,7 @@ namespace QuanLyPhongKham
                 dtgv_service.Rows.Clear();
             }
         }
+
         private bool KetQuaNgoaiChiSo(string ketQuaStr, string csbt, string gioiTinh = "")
         {
             if (string.IsNullOrEmpty(ketQuaStr) || string.IsNullOrEmpty(csbt))
@@ -720,6 +722,14 @@ namespace QuanLyPhongKham
                 else if (input == "AT")
                     dgv.Rows[e.RowIndex].Cells["t_result"].Value = "ÂM TÍNH";
 
+            }
+        }
+        private void UpdateSTT()
+        {
+            int stt = dtgv_exam.Rows.Count;
+            foreach (DataGridViewRow row in dtgv_exam.Rows)
+            {
+                row.Cells["STT"].Value = stt--;
             }
         }
     }

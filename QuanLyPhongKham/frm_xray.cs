@@ -360,6 +360,7 @@ namespace QuanLyPhongKham
         {
 
             SearchExam();
+            UpdateSTT();
         }
 
 
@@ -402,7 +403,7 @@ namespace QuanLyPhongKham
                 String query = $@"DELETE FROM `examinations` WHERE id = {id} ";
                 MySqlCommand cmd = new MySqlCommand(query, Db.conn);
                 cmd.ExecuteNonQuery();
-                SearchExam();
+                dtgv_exam.Rows.RemoveAt(dtgv_exam.CurrentRow.Index);
                 txb_address.Text = "";
                 txb_age.Text = "";
                 txb_dob.Text = "";
@@ -420,16 +421,17 @@ namespace QuanLyPhongKham
                 cb_template.Text = "Chọn biểu mẫu";
                 dtgv_service.Rows.Clear();
             }
-        }
 
-        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        }
+        private void UpdateSTT()
         {
-
+            int stt = dtgv_exam.Rows.Count;
+            foreach (DataGridViewRow row in dtgv_exam.Rows)
+            {
+                row.Cells["STT"].Value = stt--;
+            }
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
     }
 }
