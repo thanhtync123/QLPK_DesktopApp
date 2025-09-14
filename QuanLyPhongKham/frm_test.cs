@@ -35,7 +35,7 @@ namespace QuanLyPhongKham
             LoadExam.LoadDTGVCommon(dtgv_exam, "Xét nghiệm");
             LoadComboboxTemplate();
             btn_save.Enabled = false;
-
+            btn_edit.Enabled = false;
 
         }
         private void LoadComboboxTemplate()
@@ -48,6 +48,8 @@ namespace QuanLyPhongKham
         private void dtgv_exam_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
             btn_delete.Enabled = true;
+            btn_save.Enabled = false;
+            btn_edit.Enabled = false;
             if (e.RowIndex >= 0 && dtgv_exam.Rows[e.RowIndex].Cells["id_exam"].Value != null)
             {
 

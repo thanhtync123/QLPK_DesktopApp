@@ -35,7 +35,9 @@ namespace QuanLyPhongKham
 
             LoadComboboxTemplate();
             webBrowser1.Visible = false;
-            if(txb_service.Text == "")
+            btn_save.Enabled = false;
+            btn_edit.Enabled = false;
+            if (txb_service.Text == "")
             {
                 btn_edit.Enabled = false;
                 btn_save.Enabled = false;
@@ -91,6 +93,8 @@ namespace QuanLyPhongKham
         private void dtgv_exam_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // reason = chẩn đoán phụ
+            btn_edit.Enabled = false;
+            btn_save.Enabled = false;
             btn_delete.Enabled = true;
             if (e.RowIndex >= 0 && dtgv_exam.Rows[e.RowIndex].Cells["id_exam"].Value != null)
             {

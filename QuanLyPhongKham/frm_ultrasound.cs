@@ -38,6 +38,8 @@ namespace QuanLyPhongKham
             chb_anh2.Checked = true;
             chb_anh3.Checked = true;
             chb_anh4.Checked = true;
+            btn_save.Enabled = false;
+            btn_edit.Enabled = false;
 
         }
         private int snapCount = 0;
@@ -354,6 +356,8 @@ namespace QuanLyPhongKham
         private void dtgv_exam_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
             btn_delete.Enabled = true;
+            btn_save.Enabled = false;
+            btn_edit.Enabled = false;
             if (e.RowIndex >= 0 && dtgv_exam.Rows[e.RowIndex].Cells["id_exam"].Value != null)
             {
                 DataGridViewRow row = dtgv_exam.Rows[e.RowIndex];
