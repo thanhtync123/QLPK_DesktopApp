@@ -90,8 +90,8 @@
             this.cậnLâmSàngToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.xQuangToolStripMenuItem,
             this.xétNghiệmToolStripMenuItem,
-            this.điệnTimToolStripMenuItem,
-            this.siêuÂmToolStripMenuItem});
+            this.siêuÂmToolStripMenuItem,
+            this.điệnTimToolStripMenuItem});
             this.cậnLâmSàngToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.cậnLâmSàngToolStripMenuItem.Image = global::QuanLyPhongKham.Properties.Resources.pharmacy;
             this.cậnLâmSàngToolStripMenuItem.Name = "cậnLâmSàngToolStripMenuItem";
@@ -103,7 +103,7 @@
             // 
             this.xQuangToolStripMenuItem.Image = global::QuanLyPhongKham.Properties.Resources.x_ray;
             this.xQuangToolStripMenuItem.Name = "xQuangToolStripMenuItem";
-            this.xQuangToolStripMenuItem.Size = new System.Drawing.Size(159, 26);
+            this.xQuangToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
             this.xQuangToolStripMenuItem.Text = "X - quang";
             this.xQuangToolStripMenuItem.Click += new System.EventHandler(this.xQuangToolStripMenuItem_Click);
             // 
@@ -111,7 +111,7 @@
             // 
             this.xétNghiệmToolStripMenuItem.Image = global::QuanLyPhongKham.Properties.Resources.blood_test;
             this.xétNghiệmToolStripMenuItem.Name = "xétNghiệmToolStripMenuItem";
-            this.xétNghiệmToolStripMenuItem.Size = new System.Drawing.Size(159, 26);
+            this.xétNghiệmToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
             this.xétNghiệmToolStripMenuItem.Text = "Xét nghiệm";
             this.xétNghiệmToolStripMenuItem.Click += new System.EventHandler(this.xétNghiệmToolStripMenuItem_Click);
             // 
@@ -119,7 +119,7 @@
             // 
             this.điệnTimToolStripMenuItem.Image = global::QuanLyPhongKham.Properties.Resources.electrocardiogram;
             this.điệnTimToolStripMenuItem.Name = "điệnTimToolStripMenuItem";
-            this.điệnTimToolStripMenuItem.Size = new System.Drawing.Size(159, 26);
+            this.điệnTimToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
             this.điệnTimToolStripMenuItem.Text = "Điện tim";
             this.điệnTimToolStripMenuItem.Click += new System.EventHandler(this.điệnTimToolStripMenuItem_Click);
             // 
@@ -127,7 +127,7 @@
             // 
             this.siêuÂmToolStripMenuItem.Image = global::QuanLyPhongKham.Properties.Resources.ultrasound;
             this.siêuÂmToolStripMenuItem.Name = "siêuÂmToolStripMenuItem";
-            this.siêuÂmToolStripMenuItem.Size = new System.Drawing.Size(159, 26);
+            this.siêuÂmToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
             this.siêuÂmToolStripMenuItem.Text = "Siêu âm";
             this.siêuÂmToolStripMenuItem.Click += new System.EventHandler(this.siêuÂmToolStripMenuItem_Click);
             // 

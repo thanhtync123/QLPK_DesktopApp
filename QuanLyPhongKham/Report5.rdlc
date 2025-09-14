@@ -33,10 +33,14 @@
           <DataField>t_normal</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="IsAbnormal">
+          <DataField>IsAbnormal</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DataSetTest</rd:DataSetName>
-        <rd:SchemaPath>D:\QLPK_DesktopApp\QLPK_DesktopApp\QuanLyPhongKham\DataSetTest.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\WinForm\QLPK_DesktopApp\QuanLyPhongKham\DataSetTest.xsd</rd:SchemaPath>
         <rd:TableName>DataTable1</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
@@ -709,16 +713,16 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>3.8856cm</Width>
+                  <Width>3.24524cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>3.8856cm</Width>
+                  <Width>3.24524cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.84803cm</Width>
+                  <Width>2.20767cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>5.39719cm</Width>
+                  <Width>5.2308cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -914,7 +918,9 @@
                                 <TextRun>
                                   <Value>=Fields!t_result.Value</Value>
                                   <Style>
-                                    <FontFamily>TImes New Roman</FontFamily>
+                                    <FontFamily>Times New Roman</FontFamily>
+                                    <FontWeight>=IIF(CBool(Fields!IsAbnormal.Value), "Bold", "Normal")</FontWeight>
+                                    <Color>=IIF(Fields!IsAbnormal.Value.ToString() = "True", "Red", "Black")</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -924,7 +930,6 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>t_result</rd:DefaultName>
-                          <ToolTip>=IIf(Fields!t_result.Value = True, "Red", "Black")</ToolTip>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -935,7 +940,6 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -1027,10 +1031,10 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
-            <Top>9.65791cm</Top>
-            <Left>1.65516cm</Left>
+            <Top>9.65792cm</Top>
+            <Left>2.49652cm</Left>
             <Height>1.35875cm</Height>
-            <Width>16.01642cm</Width>
+            <Width>13.92895cm</Width>
             <ZIndex>19</ZIndex>
             <Style>
               <Border>
@@ -1422,7 +1426,7 @@
         <Height>14.92003cm</Height>
         <Style />
       </Body>
-      <Width>18.34532cm</Width>
+      <Width>18.34596cm</Width>
       <Page>
         <PageHeight>29.7cm</PageHeight>
         <PageWidth>21cm</PageWidth>

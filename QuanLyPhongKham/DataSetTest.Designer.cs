@@ -287,6 +287,8 @@ namespace QuanLyPhongKham {
             
             private global::System.Data.DataColumn columnt_normal;
             
+            private global::System.Data.DataColumn columnIsAbnormal;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public DataTable1DataTable() {
@@ -354,6 +356,14 @@ namespace QuanLyPhongKham {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn IsAbnormalColumn {
+                get {
+                    return this.columnIsAbnormal;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -389,13 +399,14 @@ namespace QuanLyPhongKham {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DataTable1Row AddDataTable1Row(string t_indication, string t_result, string t_unit, string t_normal) {
+            public DataTable1Row AddDataTable1Row(string t_indication, string t_result, string t_unit, string t_normal, string IsAbnormal) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         t_indication,
                         t_result,
                         t_unit,
-                        t_normal};
+                        t_normal,
+                        IsAbnormal};
                 rowDataTable1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable1Row);
                 return rowDataTable1Row;
@@ -422,6 +433,7 @@ namespace QuanLyPhongKham {
                 this.columnt_result = base.Columns["t_result"];
                 this.columnt_unit = base.Columns["t_unit"];
                 this.columnt_normal = base.Columns["t_normal"];
+                this.columnIsAbnormal = base.Columns["IsAbnormal"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -435,6 +447,8 @@ namespace QuanLyPhongKham {
                 base.Columns.Add(this.columnt_unit);
                 this.columnt_normal = new global::System.Data.DataColumn("t_normal", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnt_normal);
+                this.columnIsAbnormal = new global::System.Data.DataColumn("IsAbnormal", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIsAbnormal);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -641,6 +655,22 @@ namespace QuanLyPhongKham {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string IsAbnormal {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.IsAbnormalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'IsAbnormal\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.IsAbnormalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Ist_indicationNull() {
                 return this.IsNull(this.tableDataTable1.t_indicationColumn);
             }
@@ -685,6 +715,18 @@ namespace QuanLyPhongKham {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Sett_normalNull() {
                 this[this.tableDataTable1.t_normalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsIsAbnormalNull() {
+                return this.IsNull(this.tableDataTable1.IsAbnormalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetIsAbnormalNull() {
+                this[this.tableDataTable1.IsAbnormalColumn] = global::System.Convert.DBNull;
             }
         }
         

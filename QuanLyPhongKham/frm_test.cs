@@ -34,6 +34,7 @@ namespace QuanLyPhongKham
             LoadExam.InitialDTGVCommon(dtgv_exam);
             LoadExam.LoadDTGVCommon(dtgv_exam, "Xét nghiệm");
             LoadComboboxTemplate();
+            btn_save.Enabled = false;
 
 
         }
@@ -288,6 +289,7 @@ namespace QuanLyPhongKham
         }
         private void dtgv_service_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            btn_save.Enabled = true;
             if (e.RowIndex < 0) return;
 
             try
@@ -500,15 +502,41 @@ namespace QuanLyPhongKham
             frm.ShowDialog();
 
         }
+        //public DataTable GetDataTableFromDataGridView(DataGridView dgv)
+        //{
+        //    DataTable dt = new DataTable();
+        //    foreach (DataGridViewColumn column in dgv.Columns)
+        //    {
+        //        string columnName = column.Name;
+        //        Type columnType = column.ValueType ?? typeof(string);
+        //        dt.Columns.Add(columnName, columnType);
+        //    }
+        //    foreach (DataGridViewRow row in dgv.Rows)
+        //    {
+        //        if (!row.IsNewRow)
+        //        {
+        //            DataRow dr = dt.NewRow();
+        //            for (int i = 0; i < dgv.Columns.Count; i++)
+        //            {
+        //                dr[i] = row.Cells[i].Value ?? DBNull.Value;
+        //            }
+        //            dt.Rows.Add(dr);
+        //        }
+        //    }
+        //    return dt;
+
+        //}
         public DataTable GetDataTableFromDataGridView(DataGridView dgv)
         {
             DataTable dt = new DataTable();
             foreach (DataGridViewColumn column in dgv.Columns)
             {
-                string columnName = column.Name;
-                Type columnType = column.ValueType ?? typeof(string);
-                dt.Columns.Add(columnName, columnType);
+                dt.Columns.Add(column.Name, column.ValueType ?? typeof(string));
             }
+
+            // Thêm cột đánh dấu
+            dt.Columns.Add("IsAbnormal", typeof(bool));
+
             foreach (DataGridViewRow row in dgv.Rows)
             {
                 if (!row.IsNewRow)
@@ -518,12 +546,20 @@ namespace QuanLyPhongKham
                     {
                         dr[i] = row.Cells[i].Value ?? DBNull.Value;
                     }
+
+                    string ketQua = row.Cells["t_result"].Value?.ToString() ?? "";
+                    string csbt = row.Cells["t_normal"].Value?.ToString() ?? "";
+                    string gioiTinh = txb_gender.Text;
+
+                    dr["IsAbnormal"] = KetQuaNgoaiChiSo(ketQua, csbt, gioiTinh);
+
                     dt.Rows.Add(dr);
                 }
             }
-            return dt;
 
+            return dt;
         }
+
 
         private void btn_refresh_Click(object sender, EventArgs e)
         {
@@ -666,6 +702,23 @@ namespace QuanLyPhongKham
 
                     e.CellStyle.ForeColor = Color.Black;
 
+
+            }
+        }
+
+        private void dtgv_result_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.ColumnIndex < 0) return;
+            var dgv = sender as DataGridView;
+            var colName = dgv.Columns[e.ColumnIndex].Name;
+            if (colName == "t_result")
+            {
+                string input = dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Value?.ToString().Trim().ToUpper();
+
+                if (input == "DT")
+                    dgv.Rows[e.RowIndex].Cells["t_result"].Value = "DƯƠNG TÍNH";
+                else if (input == "AT")
+                    dgv.Rows[e.RowIndex].Cells["t_result"].Value = "ÂM TÍNH";
 
             }
         }
