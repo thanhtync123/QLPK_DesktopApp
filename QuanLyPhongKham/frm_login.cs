@@ -20,7 +20,7 @@ namespace QuanLyPhongKham
 
         private void btn_login_Click(object sender, EventArgs e)
         {
-            //1
+            //12112
             try
             {
                 Db.ResetConnection();
