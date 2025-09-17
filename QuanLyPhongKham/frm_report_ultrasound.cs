@@ -78,12 +78,13 @@ namespace QuanLyPhongKham
                 reportParams.Add(new ReportParameter("txb_gioitinh", gioitinh ?? ""));
                 reportParams.Add(new ReportParameter("txb_dtname", CurrentUser.UserName ?? ""));
                 reportParams.Add(new ReportParameter("pr_sign", filepath ?? ""));
-                reportParams.Add(new ReportParameter("txb_businesstype", "PHÒNG KHÁM ĐA KHOA"));
-                reportParams.Add(new ReportParameter("txb_businessname", "THÚY NGA"));
-                reportParams.Add(new ReportParameter("txb_businessservice", "Dịch vụ kinh doanh"));
-                reportParams.Add(new ReportParameter("txb_businessphone", "0123.456.789"));
-                reportParams.Add(new ReportParameter("txb_businessaddress", "123 Đường ABC, Quận 1, TP.HCM"));
-                reportParams.Add(new ReportParameter("txb_businessfb", "Phòng khám y khoa ABC"));
+                reportParams.Add(new ReportParameter("txb_businesstype", AppConfig.businesstype));
+                reportParams.Add(new ReportParameter("txb_businessname", AppConfig.businessname));
+                reportParams.Add(new ReportParameter("txb_businessservice", AppConfig.businessservice));
+                reportParams.Add(new ReportParameter("txb_businessphone", AppConfig.businessphone));
+                reportParams.Add(new ReportParameter("txb_businessaddress", AppConfig.businessaddress));
+                reportParams.Add(new ReportParameter("txb_businessfb", AppConfig.businessfb));
+
 
 
                 // Set tất cả các tham số
