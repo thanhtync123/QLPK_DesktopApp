@@ -79,16 +79,18 @@ namespace QuanLyPhongKham
                     new ReportParameter("txb_tenbn", tenbn ?? ""),
                     new ReportParameter("txb_ngaysinh", ngaysinh ?? ""),
                     new ReportParameter("txb_chandoan", chandoan ?? ""),
- 
                     new ReportParameter("txb_chandoanphu", chandoanphu ?? ""),
                     new ReportParameter("txb_diachi", diachi ?? ""),
                     new ReportParameter("txb_sdt",  sdt?? ""),
                     new ReportParameter("txb_ngaykham", ngaykham ?? ""),
                     new ReportParameter("txb_loidan", loidan ?? ""),
                     new ReportParameter("txb_tongtien", tongtien ?? ""),
-                             new ReportParameter("txb_gioitinh", gioitinh??""),
-                               new ReportParameter("txb_dtname", CurrentUser.UserName ?? ""),
-  new ReportParameter("pr_sign", filepath ?? "")
+                    new ReportParameter("txb_gioitinh", gioitinh??""),
+                    new ReportParameter("txb_dtname", CurrentUser.UserName ?? ""),
+                    new ReportParameter("pr_sign", filepath ?? ""),
+                    new ReportParameter("txb_businesstype", "PHÒNG KHÁM Y KHOA"),
+                    new ReportParameter("txb_businessname", "THÚY NGA"),
+                    new ReportParameter("txb_businessservice","SIÊU ÂM MÀU - KHÁM BỆNH")
 
                 };
                 reportViewer1.LocalReport.SetParameters(parameters);
