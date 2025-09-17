@@ -607,7 +607,7 @@
             this.dtgv_patient_med.DefaultCellStyle = dataGridViewCellStyle4;
             this.dtgv_patient_med.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dtgv_patient_med.GridColor = System.Drawing.Color.Black;
-            this.dtgv_patient_med.Location = new System.Drawing.Point(563, 70);
+            this.dtgv_patient_med.Location = new System.Drawing.Point(352, 86);
             this.dtgv_patient_med.Name = "dtgv_patient_med";
             this.dtgv_patient_med.RowHeadersVisible = false;
             this.dtgv_patient_med.Size = new System.Drawing.Size(758, 444);
@@ -748,7 +748,7 @@
             dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtgv_med.DefaultCellStyle = dataGridViewCellStyle8;
             this.dtgv_med.GridColor = System.Drawing.Color.Black;
-            this.dtgv_med.Location = new System.Drawing.Point(3, 70);
+            this.dtgv_med.Location = new System.Drawing.Point(-184, 86);
             this.dtgv_med.Name = "dtgv_med";
             this.dtgv_med.RowHeadersVisible = false;
             this.dtgv_med.Size = new System.Drawing.Size(559, 454);
@@ -1390,7 +1390,7 @@
             this.txb_pulse.Name = "txb_pulse";
             this.txb_pulse.PlaceholderText = "";
             this.txb_pulse.SelectedText = "";
-            this.txb_pulse.Size = new System.Drawing.Size(210, 40);
+            this.txb_pulse.Size = new System.Drawing.Size(164, 40);
             this.txb_pulse.TabIndex = 18;
             // 
             // txb_temperature
@@ -1437,7 +1437,7 @@
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(1088, 18);
+            this.label23.Location = new System.Drawing.Point(1036, 18);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(73, 20);
             this.label23.TabIndex = 25;
@@ -1455,12 +1455,12 @@
             this.txb_blood_pressure.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txb_blood_pressure.ForeColor = System.Drawing.Color.Black;
             this.txb_blood_pressure.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txb_blood_pressure.Location = new System.Drawing.Point(1168, 4);
+            this.txb_blood_pressure.Location = new System.Drawing.Point(1116, 4);
             this.txb_blood_pressure.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txb_blood_pressure.Name = "txb_blood_pressure";
             this.txb_blood_pressure.PlaceholderText = "";
             this.txb_blood_pressure.SelectedText = "";
-            this.txb_blood_pressure.Size = new System.Drawing.Size(210, 40);
+            this.txb_blood_pressure.Size = new System.Drawing.Size(176, 40);
             this.txb_blood_pressure.TabIndex = 24;
             // 
             // label8
@@ -1632,7 +1632,7 @@
             this.txb_phone.Name = "txb_phone";
             this.txb_phone.PlaceholderText = "";
             this.txb_phone.SelectedText = "";
-            this.txb_phone.Size = new System.Drawing.Size(302, 40);
+            this.txb_phone.Size = new System.Drawing.Size(213, 40);
             this.txb_phone.TabIndex = 40;
             // 
             // label22
@@ -1669,7 +1669,7 @@
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(1088, 76);
+            this.label24.Location = new System.Drawing.Point(1036, 76);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(80, 20);
             this.label24.TabIndex = 45;
@@ -1687,12 +1687,12 @@
             this.txb_height.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txb_height.ForeColor = System.Drawing.Color.Black;
             this.txb_height.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txb_height.Location = new System.Drawing.Point(1174, 57);
+            this.txb_height.Location = new System.Drawing.Point(1116, 57);
             this.txb_height.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txb_height.Name = "txb_height";
             this.txb_height.PlaceholderText = "";
             this.txb_height.SelectedText = "";
-            this.txb_height.Size = new System.Drawing.Size(210, 40);
+            this.txb_height.Size = new System.Drawing.Size(176, 40);
             this.txb_height.TabIndex = 44;
             // 
             // label25
@@ -1722,7 +1722,7 @@
             this.txb_weight.Name = "txb_weight";
             this.txb_weight.PlaceholderText = "";
             this.txb_weight.SelectedText = "";
-            this.txb_weight.Size = new System.Drawing.Size(205, 41);
+            this.txb_weight.Size = new System.Drawing.Size(159, 41);
             this.txb_weight.TabIndex = 46;
             // 
             // guna2BorderlessForm1
@@ -1758,7 +1758,7 @@
             this.AutoScroll = true;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(230)))));
-            this.ClientSize = new System.Drawing.Size(1587, 805);
+            this.ClientSize = new System.Drawing.Size(1386, 788);
             this.Controls.Add(this.lb_d0);
             this.Controls.Add(this.cb_doctornote);
             this.Controls.Add(this.label25);
