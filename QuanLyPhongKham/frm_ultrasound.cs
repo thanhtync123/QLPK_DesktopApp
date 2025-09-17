@@ -748,9 +748,29 @@ namespace QuanLyPhongKham
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
+            int step = 550;
+
+            // xử lý mũi tên
+            if (keyData == Keys.Left)
+            {
+                this.AutoScrollPosition = new Point(
+                    Math.Abs(this.AutoScrollPosition.X) - step,
+                    Math.Abs(this.AutoScrollPosition.Y)
+                );
+                return true;
+            }
+            else if (keyData == Keys.Right)
+            {
+                this.AutoScrollPosition = new Point(
+                    Math.Abs(this.AutoScrollPosition.X) + step,
+                    Math.Abs(this.AutoScrollPosition.Y)
+                );
+                return true;
+            }
+
+            // xử lý Ctrl + V
             if (keyData == (Keys.Control | Keys.V))
             {
-                // Check what type of content is in the clipboard and handle accordingly
                 if (Clipboard.ContainsImage())
                 {
                     PasteImageFromClipboard();
@@ -763,13 +783,16 @@ namespace QuanLyPhongKham
                 }
                 else
                 {
-                    MessageBox.Show("Clipboard không chứa nội dung hỗ trợ (ảnh hoặc văn bản).", 
+                    MessageBox.Show("Clipboard không chứa nội dung hỗ trợ (ảnh hoặc văn bản).",
                         "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return true;
                 }
             }
+
+            // nếu không khớp gì thì để base xử lý
             return base.ProcessCmdKey(ref msg, keyData);
         }
+
 
         private void btn_del_Click(object sender, EventArgs e)
         {
@@ -879,5 +902,6 @@ namespace QuanLyPhongKham
                 if (snapCount > 0) snapCount--;
             }
         }
+
     }
 }

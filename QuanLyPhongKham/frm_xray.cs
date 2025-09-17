@@ -436,6 +436,12 @@ namespace QuanLyPhongKham
             }
         }
 
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (FormScrollHelper.HandleArrowKey(this, keyData))
+                return true;
 
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
     }
 }
