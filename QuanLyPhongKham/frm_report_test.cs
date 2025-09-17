@@ -57,6 +57,8 @@ namespace QuanLyPhongKham
             string filepath = "";
             if (File.Exists(fullPath))
                 filepath = "file:///" + fullPath.Replace("\\", "/");
+            string logoPath = Path.Combine(Application.StartupPath, "images", "logo.png");
+            string logoUri = File.Exists(logoPath) ? "file:///" + logoPath.Replace("\\", "/") : "";
 
             try
             {
@@ -76,13 +78,19 @@ namespace QuanLyPhongKham
                     new ReportParameter("txb_chandoan", chandoan ?? ""),
                     new ReportParameter("txb_chandoanphu", chandoanphu ?? ""),
                     new ReportParameter("txb_diachi", diachi ?? ""),
-                       new ReportParameter("txb_ngaykham", ngaykham ?? ""),
-                       new ReportParameter("txb_ketluan", ketqua ?? ""),
-                             new ReportParameter("txb_sdt", sdt ?? ""),
-                             new ReportParameter("txb_gioitinh", gioitinh ?? ""),
-                                new ReportParameter("txb_chidinh", chidinh ?? ""),
-                                new ReportParameter("txb_nhanvien", nhanvien ?? ""),
-                        new ReportParameter("pr_sign", filepath??"")
+                    new ReportParameter("txb_ngaykham", ngaykham ?? ""),
+                    new ReportParameter("txb_ketluan", ketqua ?? ""),
+                    new ReportParameter("txb_sdt", sdt ?? ""),
+                    new ReportParameter("txb_gioitinh", gioitinh ?? ""),
+                    new ReportParameter("txb_chidinh", chidinh ?? ""),
+                    new ReportParameter("txb_nhanvien", nhanvien ?? ""),
+                    new ReportParameter("pr_sign", filepath??""),
+                    new ReportParameter("txb_businesstype", "PHÒNG KHÁM ĐA KHOA"),
+                    new ReportParameter("txb_businessname", "THÚY NGA"),
+                    new ReportParameter("txb_businessservice", "SIÊU ÂM MÀU - KHÁM BỆNH"),
+                    new ReportParameter("txb_businessaddress", "123 Lê Lợi, Quận 1, TP. HCM"),
+                    new ReportParameter("txb_businessphone", "0931111222"),
+                    new ReportParameter("txb_businessfb", "Phòng khám đa khoa ABC")
 
 
 

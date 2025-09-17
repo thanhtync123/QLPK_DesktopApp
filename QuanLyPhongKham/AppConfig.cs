@@ -11,5 +11,12 @@ namespace QuanLyPhongKham
     {
         public static string AppMode
             => ConfigurationManager.AppSettings["AppMode"] ?? "All";
+        public static string businesstype => ConfigurationManager.AppSettings["BusinessType"];
+        public static string businessname => ConfigurationManager.AppSettings["BusinessName"];
+        public static string businessservice => ConfigurationManager.AppSettings["BusinessService"];
+        public static string businessphone => ConfigurationManager.AppSettings["BusinessPhone"];
+        public static string businessaddress => ConfigurationManager.AppSettings["BusinessAddress"];
+        public static string businessfb => ConfigurationManager.AppSettings["BusinessFB"];
+
     }
 }

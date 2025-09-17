@@ -1049,7 +1049,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>0845 966 989 </Value>
+                    <Value>=Parameters!txb_businessphone.Value</Value>
                     <Style>
                       <FontStyle>Italic</FontStyle>
                       <FontFamily>tIMes New Roman</FontFamily>
@@ -1087,40 +1087,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>  Địa chỉ: Số 49, Đường Nguyễn Trãi, Cái Nhum, Tỉnh Vĩnh Long</Value>
-                    <Style>
-                      <FontFamily>times New Roman</FontFamily>
-                      <FontSize>12pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                      <Color>LimeGreen</Color>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Center</TextAlign>
-                </Style>
-              </Paragraph>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>Cách vòng xoay Trung tâm Y tế Mang Thít 200m, hướng về chợ Cái Nhum.</Value>
-                    <Style>
-                      <FontFamily>times New Roman</FontFamily>
-                      <FontSize>12pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                      <TextDecoration>None</TextDecoration>
-                      <Color>LimeGreen</Color>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Center</TextAlign>
-                </Style>
-              </Paragraph>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value />
+                    <Value>=Parameters!txb_businessaddress.Value</Value>
                     <Style>
                       <FontFamily>times New Roman</FontFamily>
                       <FontSize>12pt</FontSize>
@@ -1158,7 +1125,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>KHÁM BỆNH - SIÊU ÂM MÀU - XÉT NGHIỆM - XQUANG</Value>
+                    <Value>=Parameters!txb_businessservice.Value</Value>
                     <Style>
                       <FontFamily>tIMes New Roman</FontFamily>
                       <FontSize>17pt</FontSize>
@@ -1167,7 +1134,9 @@
                     </Style>
                   </TextRun>
                 </TextRuns>
-                <Style />
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox18</rd:DefaultName>
@@ -1238,7 +1207,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Phòng khám Y khoa Thanh Quyền</Value>
+                    <Value>=Parameters!txb_businessfb.Value</Value>
                     <Style>
                       <FontStyle>Italic</FontStyle>
                       <FontFamily>tIMes New Roman</FontFamily>
@@ -1327,22 +1296,11 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value xml:space="preserve">   </Value>
+                    <Value>=Parameters!txb_businessname.Value</Value>
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Times New Roman</FontFamily>
                       <FontSize>29pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                      <TextDecoration>None</TextDecoration>
-                      <Color>Red</Color>
-                    </Style>
-                  </TextRun>
-                  <TextRun>
-                    <Value>THANH QUYỀN</Value>
-                    <Style>
-                      <FontStyle>Normal</FontStyle>
-                      <FontFamily>Times New Roman</FontFamily>
-                      <FontSize>30pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                       <TextDecoration>None</TextDecoration>
                       <Color>Red</Color>
@@ -1377,7 +1335,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>PHÒNG KHÁM Y KHOA</Value>
+                    <Value>=Parameters!txb_businesstype.Value</Value>
                     <Style>
                       <FontFamily>Times New Roman</FontFamily>
                       <FontSize>19pt</FontSize>
@@ -1416,6 +1374,21 @@
             <Height>2.65349cm</Height>
             <Width>5.51078cm</Width>
             <ZIndex>31</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Image>
+          <Image Name="Image5">
+            <Source>External</Source>
+            <Value>=Parameters!image_logo.Value</Value>
+            <Sizing>FitProportional</Sizing>
+            <Top>0.52599cm</Top>
+            <Left>15.23694cm</Left>
+            <Height>2.74283cm</Height>
+            <Width>2.76842cm</Width>
+            <ZIndex>32</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1516,11 +1489,53 @@
       <AllowBlank>true</AllowBlank>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
+    <ReportParameter Name="txb_businesstype">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="txb_businessname">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="txb_businessservice">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="txb_businessphone">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="txb_businessaddress">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="txb_businessfb">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="image_logo">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
       <NumberOfColumns>4</NumberOfColumns>
-      <NumberOfRows>4</NumberOfRows>
+      <NumberOfRows>6</NumberOfRows>
       <CellDefinitions>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
@@ -1586,6 +1601,41 @@
           <ColumnIndex>2</ColumnIndex>
           <RowIndex>3</RowIndex>
           <ParameterName>pr_sign</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>3</ColumnIndex>
+          <RowIndex>3</RowIndex>
+          <ParameterName>txb_businesstype</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>4</RowIndex>
+          <ParameterName>txb_businessname</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>4</RowIndex>
+          <ParameterName>txb_businessservice</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>2</ColumnIndex>
+          <RowIndex>4</RowIndex>
+          <ParameterName>txb_businessphone</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>3</ColumnIndex>
+          <RowIndex>4</RowIndex>
+          <ParameterName>txb_businessaddress</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>5</RowIndex>
+          <ParameterName>txb_businessfb</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>5</RowIndex>
+          <ParameterName>image_logo</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>
