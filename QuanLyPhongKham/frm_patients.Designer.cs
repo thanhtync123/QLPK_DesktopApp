@@ -38,21 +38,6 @@
             this.txb_address = new System.Windows.Forms.TextBox();
             this.txb_id = new System.Windows.Forms.TextBox();
             this.dtgv = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date_of_birth = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.address = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pulse = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.blood_pressure = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.respiratory_rate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.weight = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.height = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.temperature = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.created_at_format = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.updated_at_format = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txb_search = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btn_add = new System.Windows.Forms.Button();
@@ -93,6 +78,21 @@
             this.btn_maxpage = new System.Windows.Forms.Button();
             this.txb_dob = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date_of_birth = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pulse = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.blood_pressure = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.respiratory_rate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.weight = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.height = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.temperature = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.created_at_format = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.updated_at_format = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv)).BeginInit();
             this.SuspendLayout();
             // 
@@ -199,13 +199,13 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtgv.DefaultCellStyle = dataGridViewCellStyle3;
             this.dtgv.GridColor = System.Drawing.Color.Black;
-            this.dtgv.Location = new System.Drawing.Point(15, 290);
+            this.dtgv.Location = new System.Drawing.Point(122, 284);
             this.dtgv.Margin = new System.Windows.Forms.Padding(6);
             this.dtgv.Name = "dtgv";
             this.dtgv.RowHeadersVisible = false;
             this.dtgv.RowHeadersWidth = 51;
             this.dtgv.RowTemplate.Height = 30;
-            this.dtgv.Size = new System.Drawing.Size(1843, 544);
+            this.dtgv.Size = new System.Drawing.Size(1236, 454);
             this.dtgv.TabIndex = 13;
             this.dtgv.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgv.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -230,95 +230,6 @@
             this.dtgv.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dtgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_CellClick);
             this.dtgv.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dtgv_RowPostPaint);
-            // 
-            // STT
-            // 
-            this.STT.HeaderText = "STT";
-            this.STT.Name = "STT";
-            this.STT.Width = 80;
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "Mã KH";
-            this.ID.Name = "ID";
-            this.ID.Width = 80;
-            // 
-            // name
-            // 
-            this.name.HeaderText = "Họ tên";
-            this.name.Name = "name";
-            this.name.Width = 200;
-            // 
-            // date_of_birth
-            // 
-            this.date_of_birth.HeaderText = "Ngày sinh";
-            this.date_of_birth.Name = "date_of_birth";
-            this.date_of_birth.Width = 90;
-            // 
-            // gender
-            // 
-            this.gender.HeaderText = "Giới tính";
-            this.gender.Name = "gender";
-            this.gender.Width = 90;
-            // 
-            // phone
-            // 
-            this.phone.HeaderText = "SĐT";
-            this.phone.Name = "phone";
-            this.phone.Width = 130;
-            // 
-            // address
-            // 
-            this.address.HeaderText = "Địa chỉ";
-            this.address.Name = "address";
-            this.address.Width = 200;
-            // 
-            // pulse
-            // 
-            this.pulse.HeaderText = "Mạch";
-            this.pulse.Name = "pulse";
-            this.pulse.Width = 115;
-            // 
-            // blood_pressure
-            // 
-            this.blood_pressure.HeaderText = "Huyết áp";
-            this.blood_pressure.Name = "blood_pressure";
-            this.blood_pressure.Width = 115;
-            // 
-            // respiratory_rate
-            // 
-            this.respiratory_rate.HeaderText = "Nhịp thở";
-            this.respiratory_rate.Name = "respiratory_rate";
-            // 
-            // weight
-            // 
-            this.weight.HeaderText = "Cân nặng";
-            this.weight.Name = "weight";
-            this.weight.Width = 115;
-            // 
-            // height
-            // 
-            this.height.HeaderText = "Chiều cao";
-            this.height.Name = "height";
-            this.height.Width = 115;
-            // 
-            // temperature
-            // 
-            this.temperature.HeaderText = "Nhiệt độ";
-            this.temperature.Name = "temperature";
-            this.temperature.Width = 115;
-            // 
-            // created_at_format
-            // 
-            this.created_at_format.HeaderText = "Ngày tạo";
-            this.created_at_format.Name = "created_at_format";
-            this.created_at_format.Width = 140;
-            // 
-            // updated_at_format
-            // 
-            this.updated_at_format.HeaderText = "Cập nhật lúc";
-            this.updated_at_format.Name = "updated_at_format";
-            this.updated_at_format.Width = 170;
             // 
             // txb_search
             // 
@@ -855,6 +766,101 @@
             this.label2.TabIndex = 56;
             this.label2.Text = "Trang";
             // 
+            // STT
+            // 
+            this.STT.HeaderText = "STT";
+            this.STT.Name = "STT";
+            this.STT.Width = 80;
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "Mã KH";
+            this.ID.Name = "ID";
+            this.ID.Width = 80;
+            // 
+            // name
+            // 
+            this.name.HeaderText = "Họ tên";
+            this.name.Name = "name";
+            this.name.Width = 200;
+            // 
+            // date_of_birth
+            // 
+            this.date_of_birth.HeaderText = "Ngày sinh";
+            this.date_of_birth.Name = "date_of_birth";
+            this.date_of_birth.Width = 90;
+            // 
+            // gender
+            // 
+            this.gender.HeaderText = "Giới tính";
+            this.gender.Name = "gender";
+            this.gender.Width = 90;
+            // 
+            // phone
+            // 
+            this.phone.HeaderText = "SĐT";
+            this.phone.Name = "phone";
+            this.phone.Width = 130;
+            // 
+            // address
+            // 
+            this.address.HeaderText = "Địa chỉ";
+            this.address.Name = "address";
+            this.address.Width = 200;
+            // 
+            // pulse
+            // 
+            this.pulse.HeaderText = "Mạch";
+            this.pulse.Name = "pulse";
+            this.pulse.Visible = false;
+            this.pulse.Width = 115;
+            // 
+            // blood_pressure
+            // 
+            this.blood_pressure.HeaderText = "Huyết áp";
+            this.blood_pressure.Name = "blood_pressure";
+            this.blood_pressure.Visible = false;
+            this.blood_pressure.Width = 115;
+            // 
+            // respiratory_rate
+            // 
+            this.respiratory_rate.HeaderText = "Nhịp thở";
+            this.respiratory_rate.Name = "respiratory_rate";
+            this.respiratory_rate.Visible = false;
+            // 
+            // weight
+            // 
+            this.weight.HeaderText = "Cân nặng";
+            this.weight.Name = "weight";
+            this.weight.Visible = false;
+            this.weight.Width = 115;
+            // 
+            // height
+            // 
+            this.height.HeaderText = "Chiều cao";
+            this.height.Name = "height";
+            this.height.Visible = false;
+            this.height.Width = 115;
+            // 
+            // temperature
+            // 
+            this.temperature.HeaderText = "Nhiệt độ";
+            this.temperature.Name = "temperature";
+            this.temperature.Visible = false;
+            this.temperature.Width = 115;
+            // 
+            // created_at_format
+            // 
+            this.created_at_format.HeaderText = "Ngày tạo";
+            this.created_at_format.Name = "created_at_format";
+            this.created_at_format.Width = 140;
+            // 
+            // updated_at_format
+            // 
+            this.updated_at_format.HeaderText = "Cập nhật lúc";
+            this.updated_at_format.Name = "updated_at_format";
+            this.updated_at_format.Width = 170;
+            // 
             // frm_patients
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -967,6 +973,7 @@
         private System.Windows.Forms.Button btn_uppage;
         private System.Windows.Forms.Button btn_maxpage;
         private System.Windows.Forms.TextBox txb_dob;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn STT;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
@@ -982,6 +989,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn temperature;
         private System.Windows.Forms.DataGridViewTextBoxColumn created_at_format;
         private System.Windows.Forms.DataGridViewTextBoxColumn updated_at_format;
-        private System.Windows.Forms.Label label2;
     }
 }
