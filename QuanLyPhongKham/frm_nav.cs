@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -29,7 +30,24 @@ namespace QuanLyPhongKham
                 smi_thongke.Visible = true;
 
 
+            // Đọc config
+            string appMode = AppConfig.AppMode;
 
+            if (appMode == "Ultrasound")
+            {
+                // Ẩn các menu không cần thiết
+                xQuangToolStripMenuItem.Visible = false;
+                điệnTimToolStripMenuItem.Visible = false;
+                xétNghiệmToolStripMenuItem.Visible = false;
+            }
+            else if (appMode == "All")
+            {
+                // Hiện tất cả
+                xQuangToolStripMenuItem.Visible = true;
+                điệnTimToolStripMenuItem.Visible = true;
+                xétNghiệmToolStripMenuItem.Visible = true;
+                siêuÂmToolStripMenuItem.Visible = true;
+            }
 
             Size mysize = new Size(20, 20);
 

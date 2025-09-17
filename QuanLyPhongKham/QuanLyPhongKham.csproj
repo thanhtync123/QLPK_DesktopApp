@@ -171,6 +171,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppConfig.cs" />
     <Compile Include="CurrentUser.cs" />
     <Compile Include="DataSetFake.cs">
       <DependentUpon>DataSetFake.xsd</DependentUpon>
@@ -202,12 +203,6 @@
       <DependentUpon>DataSetTest.xsd</DependentUpon>
     </Compile>
     <Compile Include="Db.cs" />
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormScrollHelper.cs" />
     <Compile Include="frm_diagnoses.cs">
       <SubType>Form</SubType>
@@ -374,9 +369,6 @@
     <Compile Include="LoadExam.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frm_diagnoses.resx">
       <DependentUpon>frm_diagnoses.cs</DependentUpon>
     </EmbeddedResource>

@@ -171,6 +171,16 @@ WHERE type='chỉ định' AND created_at BETWEEN '{fromDate}' AND '{toDate}'";
             dateTimePicker2.CustomFormat = "dd/MM/yyyy";
             dateTimePicker2.Value = DateTime.Today; // 👈 Mặc định là hôm nay
 
+            if (AppConfig.AppMode == "Ultrasound")
+            {
+                pn_detail_test.Visible = false;
+                pn_egg.Visible = false;
+                pn_test.Visible = false;
+                pn_xray.Visible = false;
+
+            }    
+               
+
             LoadThongKe();
         }
 

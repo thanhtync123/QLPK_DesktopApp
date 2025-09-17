@@ -39,11 +39,11 @@
             this.guna2ImageButton4 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.label_3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
+            this.pn_egg = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2ImageButton5 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.lb_6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
+            this.pn_xray = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2ImageButton8 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.lb_5 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -51,14 +51,10 @@
             this.guna2ImageButton2 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.lb_4 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.guna2Panel7 = new Guna.UI2.WinForms.Guna2Panel();
+            this.pn_test = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2ImageButton6 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.lb_8 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2ImageButton7 = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.lb_7 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.guna2ImageButton9 = new Guna.UI2.WinForms.Guna2ImageButton();
@@ -79,23 +75,27 @@
             this.lb_vgc = new System.Windows.Forms.Label();
             this.lb_vgb = new System.Windows.Forms.Label();
             this.lb_huyethoc = new System.Windows.Forms.Label();
-            this.guna2Panel9 = new Guna.UI2.WinForms.Guna2Panel();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.lb_troponin = new System.Windows.Forms.Label();
+            this.pn_detail_test = new Guna.UI2.WinForms.Guna2Panel();
             this.lb_stronggyloides = new System.Windows.Forms.Label();
             this.lb_toxocara = new System.Windows.Forms.Label();
+            this.lb_troponin = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.lb_7 = new System.Windows.Forms.Label();
+            this.guna2ImageButton7 = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
-            this.guna2Panel4.SuspendLayout();
-            this.guna2Panel5.SuspendLayout();
+            this.pn_egg.SuspendLayout();
+            this.pn_xray.SuspendLayout();
             this.guna2Panel6.SuspendLayout();
-            this.guna2Panel7.SuspendLayout();
+            this.pn_test.SuspendLayout();
+            this.pn_detail_test.SuspendLayout();
             this.guna2Panel8.SuspendLayout();
-            this.guna2Panel9.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -229,17 +229,17 @@
             this.label6.TabIndex = 0;
             this.label6.Text = "Doanh thu dịch vụ";
             // 
-            // guna2Panel4
+            // pn_egg
             // 
-            this.guna2Panel4.BackColor = System.Drawing.Color.GreenYellow;
-            this.guna2Panel4.BorderColor = System.Drawing.Color.Yellow;
-            this.guna2Panel4.Controls.Add(this.guna2ImageButton5);
-            this.guna2Panel4.Controls.Add(this.lb_6);
-            this.guna2Panel4.Controls.Add(this.label8);
-            this.guna2Panel4.Location = new System.Drawing.Point(86, 225);
-            this.guna2Panel4.Name = "guna2Panel4";
-            this.guna2Panel4.Size = new System.Drawing.Size(229, 80);
-            this.guna2Panel4.TabIndex = 6;
+            this.pn_egg.BackColor = System.Drawing.Color.GreenYellow;
+            this.pn_egg.BorderColor = System.Drawing.Color.Yellow;
+            this.pn_egg.Controls.Add(this.guna2ImageButton5);
+            this.pn_egg.Controls.Add(this.lb_6);
+            this.pn_egg.Controls.Add(this.label8);
+            this.pn_egg.Location = new System.Drawing.Point(599, 225);
+            this.pn_egg.Name = "pn_egg";
+            this.pn_egg.Size = new System.Drawing.Size(229, 80);
+            this.pn_egg.TabIndex = 6;
             // 
             // guna2ImageButton5
             // 
@@ -278,17 +278,17 @@
             this.label8.TabIndex = 0;
             this.label8.Text = "Số ca điện tim";
             // 
-            // guna2Panel5
+            // pn_xray
             // 
-            this.guna2Panel5.BackColor = System.Drawing.Color.DarkKhaki;
-            this.guna2Panel5.BorderColor = System.Drawing.Color.Yellow;
-            this.guna2Panel5.Controls.Add(this.guna2ImageButton8);
-            this.guna2Panel5.Controls.Add(this.lb_5);
-            this.guna2Panel5.Controls.Add(this.label10);
-            this.guna2Panel5.Location = new System.Drawing.Point(340, 225);
-            this.guna2Panel5.Name = "guna2Panel5";
-            this.guna2Panel5.Size = new System.Drawing.Size(229, 80);
-            this.guna2Panel5.TabIndex = 5;
+            this.pn_xray.BackColor = System.Drawing.Color.DarkKhaki;
+            this.pn_xray.BorderColor = System.Drawing.Color.Yellow;
+            this.pn_xray.Controls.Add(this.guna2ImageButton8);
+            this.pn_xray.Controls.Add(this.lb_5);
+            this.pn_xray.Controls.Add(this.label10);
+            this.pn_xray.Location = new System.Drawing.Point(340, 225);
+            this.pn_xray.Name = "pn_xray";
+            this.pn_xray.Size = new System.Drawing.Size(229, 80);
+            this.pn_xray.TabIndex = 5;
             // 
             // guna2ImageButton8
             // 
@@ -378,17 +378,17 @@
             this.label12.TabIndex = 0;
             this.label12.Text = "Tổng doanh thu";
             // 
-            // guna2Panel7
+            // pn_test
             // 
-            this.guna2Panel7.BackColor = System.Drawing.Color.Honeydew;
-            this.guna2Panel7.BorderColor = System.Drawing.Color.Yellow;
-            this.guna2Panel7.Controls.Add(this.guna2ImageButton6);
-            this.guna2Panel7.Controls.Add(this.lb_8);
-            this.guna2Panel7.Controls.Add(this.label14);
-            this.guna2Panel7.Location = new System.Drawing.Point(855, 225);
-            this.guna2Panel7.Name = "guna2Panel7";
-            this.guna2Panel7.Size = new System.Drawing.Size(229, 80);
-            this.guna2Panel7.TabIndex = 8;
+            this.pn_test.BackColor = System.Drawing.Color.Honeydew;
+            this.pn_test.BorderColor = System.Drawing.Color.Yellow;
+            this.pn_test.Controls.Add(this.guna2ImageButton6);
+            this.pn_test.Controls.Add(this.lb_8);
+            this.pn_test.Controls.Add(this.label14);
+            this.pn_test.Location = new System.Drawing.Point(855, 225);
+            this.pn_test.Name = "pn_test";
+            this.pn_test.Size = new System.Drawing.Size(229, 80);
+            this.pn_test.TabIndex = 8;
             // 
             // guna2ImageButton6
             // 
@@ -427,55 +427,6 @@
             this.label14.Size = new System.Drawing.Size(151, 20);
             this.label14.TabIndex = 0;
             this.label14.Text = "Số ca Xét nghiệm";
-            // 
-            // guna2Panel8
-            // 
-            this.guna2Panel8.BackColor = System.Drawing.Color.LimeGreen;
-            this.guna2Panel8.BorderColor = System.Drawing.Color.Yellow;
-            this.guna2Panel8.Controls.Add(this.guna2ImageButton7);
-            this.guna2Panel8.Controls.Add(this.lb_7);
-            this.guna2Panel8.Controls.Add(this.label16);
-            this.guna2Panel8.Location = new System.Drawing.Point(599, 225);
-            this.guna2Panel8.Name = "guna2Panel8";
-            this.guna2Panel8.Size = new System.Drawing.Size(229, 80);
-            this.guna2Panel8.TabIndex = 7;
-            // 
-            // guna2ImageButton7
-            // 
-            this.guna2ImageButton7.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ImageButton7.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton7.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton7.Image = global::QuanLyPhongKham.Properties.Resources.ultrasound1;
-            this.guna2ImageButton7.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageButton7.ImageRotate = 0F;
-            this.guna2ImageButton7.Location = new System.Drawing.Point(157, 10);
-            this.guna2ImageButton7.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2ImageButton7.Name = "guna2ImageButton7";
-            this.guna2ImageButton7.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton7.Size = new System.Drawing.Size(62, 63);
-            this.guna2ImageButton7.TabIndex = 12;
-            this.guna2ImageButton7.UseTransparentBackground = true;
-            // 
-            // lb_7
-            // 
-            this.lb_7.AutoSize = true;
-            this.lb_7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_7.ForeColor = System.Drawing.Color.Red;
-            this.lb_7.Location = new System.Drawing.Point(20, 37);
-            this.lb_7.Name = "lb_7";
-            this.lb_7.Size = new System.Drawing.Size(89, 25);
-            this.lb_7.TabIndex = 1;
-            this.lb_7.Text = "label15";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(17, 10);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(122, 20);
-            this.label16.TabIndex = 0;
-            this.label16.Text = "Số ca siêu âm";
             // 
             // dateTimePicker1
             // 
@@ -697,88 +648,37 @@
             this.lb_huyethoc.TabIndex = 21;
             this.lb_huyethoc.Text = "a";
             // 
-            // guna2Panel9
+            // pn_detail_test
             // 
-            this.guna2Panel9.BackColor = System.Drawing.Color.Honeydew;
-            this.guna2Panel9.BorderColor = System.Drawing.Color.Yellow;
-            this.guna2Panel9.Controls.Add(this.lb_stronggyloides);
-            this.guna2Panel9.Controls.Add(this.lb_toxocara);
-            this.guna2Panel9.Controls.Add(this.lb_troponin);
-            this.guna2Panel9.Controls.Add(this.label20);
-            this.guna2Panel9.Controls.Add(this.label19);
-            this.guna2Panel9.Controls.Add(this.label17);
-            this.guna2Panel9.Controls.Add(this.label18);
-            this.guna2Panel9.Controls.Add(this.lb_sinhhoa);
-            this.guna2Panel9.Controls.Add(this.label2);
-            this.guna2Panel9.Controls.Add(this.label3);
-            this.guna2Panel9.Controls.Add(this.label5);
-            this.guna2Panel9.Controls.Add(this.lb_nuoctieu);
-            this.guna2Panel9.Controls.Add(this.label7);
-            this.guna2Panel9.Controls.Add(this.label15);
-            this.guna2Panel9.Controls.Add(this.label13);
-            this.guna2Panel9.Controls.Add(this.lb_testhp);
-            this.guna2Panel9.Controls.Add(this.label11);
-            this.guna2Panel9.Controls.Add(this.label9);
-            this.guna2Panel9.Controls.Add(this.lb_huyethoc);
-            this.guna2Panel9.Controls.Add(this.lb_hba1c);
-            this.guna2Panel9.Controls.Add(this.lb_vgb);
-            this.guna2Panel9.Controls.Add(this.lb_vgc);
-            this.guna2Panel9.Controls.Add(this.lb_ktvgb);
-            this.guna2Panel9.Location = new System.Drawing.Point(86, 339);
-            this.guna2Panel9.Name = "guna2Panel9";
-            this.guna2Panel9.Size = new System.Drawing.Size(551, 305);
-            this.guna2Panel9.TabIndex = 13;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(17, 10);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(76, 20);
-            this.label18.TabIndex = 0;
-            this.label18.Text = "Chi tiết: ";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(251, 201);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(83, 21);
-            this.label17.TabIndex = 29;
-            this.label17.Text = "Troponin:";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(17, 222);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(317, 21);
-            this.label19.TabIndex = 30;
-            this.label19.Text = "Toxocara canis IgG (Giun đũa chó,mèo):";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(82, 243);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(252, 21);
-            this.label20.TabIndex = 31;
-            this.label20.Text = "Stronggyloides-IgG (Giun lươn):";
-            // 
-            // lb_troponin
-            // 
-            this.lb_troponin.AutoSize = true;
-            this.lb_troponin.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_troponin.ForeColor = System.Drawing.Color.Red;
-            this.lb_troponin.Location = new System.Drawing.Point(336, 200);
-            this.lb_troponin.Name = "lb_troponin";
-            this.lb_troponin.Size = new System.Drawing.Size(20, 22);
-            this.lb_troponin.TabIndex = 32;
-            this.lb_troponin.Text = "a";
+            this.pn_detail_test.BackColor = System.Drawing.Color.Honeydew;
+            this.pn_detail_test.BorderColor = System.Drawing.Color.Yellow;
+            this.pn_detail_test.Controls.Add(this.lb_stronggyloides);
+            this.pn_detail_test.Controls.Add(this.lb_toxocara);
+            this.pn_detail_test.Controls.Add(this.lb_troponin);
+            this.pn_detail_test.Controls.Add(this.label20);
+            this.pn_detail_test.Controls.Add(this.label19);
+            this.pn_detail_test.Controls.Add(this.label17);
+            this.pn_detail_test.Controls.Add(this.label18);
+            this.pn_detail_test.Controls.Add(this.lb_sinhhoa);
+            this.pn_detail_test.Controls.Add(this.label2);
+            this.pn_detail_test.Controls.Add(this.label3);
+            this.pn_detail_test.Controls.Add(this.label5);
+            this.pn_detail_test.Controls.Add(this.lb_nuoctieu);
+            this.pn_detail_test.Controls.Add(this.label7);
+            this.pn_detail_test.Controls.Add(this.label15);
+            this.pn_detail_test.Controls.Add(this.label13);
+            this.pn_detail_test.Controls.Add(this.lb_testhp);
+            this.pn_detail_test.Controls.Add(this.label11);
+            this.pn_detail_test.Controls.Add(this.label9);
+            this.pn_detail_test.Controls.Add(this.lb_huyethoc);
+            this.pn_detail_test.Controls.Add(this.lb_hba1c);
+            this.pn_detail_test.Controls.Add(this.lb_vgb);
+            this.pn_detail_test.Controls.Add(this.lb_vgc);
+            this.pn_detail_test.Controls.Add(this.lb_ktvgb);
+            this.pn_detail_test.Location = new System.Drawing.Point(86, 339);
+            this.pn_detail_test.Name = "pn_detail_test";
+            this.pn_detail_test.Size = new System.Drawing.Size(551, 305);
+            this.pn_detail_test.TabIndex = 13;
             // 
             // lb_stronggyloides
             // 
@@ -802,20 +702,120 @@
             this.lb_toxocara.TabIndex = 33;
             this.lb_toxocara.Text = "a";
             // 
+            // lb_troponin
+            // 
+            this.lb_troponin.AutoSize = true;
+            this.lb_troponin.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_troponin.ForeColor = System.Drawing.Color.Red;
+            this.lb_troponin.Location = new System.Drawing.Point(336, 200);
+            this.lb_troponin.Name = "lb_troponin";
+            this.lb_troponin.Size = new System.Drawing.Size(20, 22);
+            this.lb_troponin.TabIndex = 32;
+            this.lb_troponin.Text = "a";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(82, 243);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(252, 21);
+            this.label20.TabIndex = 31;
+            this.label20.Text = "Stronggyloides-IgG (Giun lươn):";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(17, 222);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(317, 21);
+            this.label19.TabIndex = 30;
+            this.label19.Text = "Toxocara canis IgG (Giun đũa chó,mèo):";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(251, 201);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(83, 21);
+            this.label17.TabIndex = 29;
+            this.label17.Text = "Troponin:";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(17, 10);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(76, 20);
+            this.label18.TabIndex = 0;
+            this.label18.Text = "Chi tiết: ";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(17, 10);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(122, 20);
+            this.label16.TabIndex = 0;
+            this.label16.Text = "Số ca siêu âm";
+            // 
+            // lb_7
+            // 
+            this.lb_7.AutoSize = true;
+            this.lb_7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_7.ForeColor = System.Drawing.Color.Red;
+            this.lb_7.Location = new System.Drawing.Point(20, 37);
+            this.lb_7.Name = "lb_7";
+            this.lb_7.Size = new System.Drawing.Size(89, 25);
+            this.lb_7.TabIndex = 1;
+            this.lb_7.Text = "label15";
+            // 
+            // guna2ImageButton7
+            // 
+            this.guna2ImageButton7.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ImageButton7.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton7.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton7.Image = global::QuanLyPhongKham.Properties.Resources.ultrasound1;
+            this.guna2ImageButton7.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton7.ImageRotate = 0F;
+            this.guna2ImageButton7.Location = new System.Drawing.Point(157, 10);
+            this.guna2ImageButton7.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2ImageButton7.Name = "guna2ImageButton7";
+            this.guna2ImageButton7.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton7.Size = new System.Drawing.Size(62, 63);
+            this.guna2ImageButton7.TabIndex = 12;
+            this.guna2ImageButton7.UseTransparentBackground = true;
+            // 
+            // guna2Panel8
+            // 
+            this.guna2Panel8.BackColor = System.Drawing.Color.LimeGreen;
+            this.guna2Panel8.BorderColor = System.Drawing.Color.Yellow;
+            this.guna2Panel8.Controls.Add(this.guna2ImageButton7);
+            this.guna2Panel8.Controls.Add(this.lb_7);
+            this.guna2Panel8.Controls.Add(this.label16);
+            this.guna2Panel8.Location = new System.Drawing.Point(86, 225);
+            this.guna2Panel8.Name = "guna2Panel8";
+            this.guna2Panel8.Size = new System.Drawing.Size(229, 80);
+            this.guna2Panel8.TabIndex = 7;
+            // 
             // frm_statistic
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(230)))));
             this.ClientSize = new System.Drawing.Size(1385, 656);
-            this.Controls.Add(this.guna2Panel9);
+            this.Controls.Add(this.pn_detail_test);
             this.Controls.Add(this.guna2ImageButton9);
             this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.guna2Panel7);
+            this.Controls.Add(this.pn_test);
             this.Controls.Add(this.guna2Panel8);
-            this.Controls.Add(this.guna2Panel4);
-            this.Controls.Add(this.guna2Panel5);
+            this.Controls.Add(this.pn_egg);
+            this.Controls.Add(this.pn_xray);
             this.Controls.Add(this.guna2Panel3);
             this.Controls.Add(this.guna2Panel6);
             this.Controls.Add(this.guna2Panel2);
@@ -830,18 +830,18 @@
             this.guna2Panel2.PerformLayout();
             this.guna2Panel3.ResumeLayout(false);
             this.guna2Panel3.PerformLayout();
-            this.guna2Panel4.ResumeLayout(false);
-            this.guna2Panel4.PerformLayout();
-            this.guna2Panel5.ResumeLayout(false);
-            this.guna2Panel5.PerformLayout();
+            this.pn_egg.ResumeLayout(false);
+            this.pn_egg.PerformLayout();
+            this.pn_xray.ResumeLayout(false);
+            this.pn_xray.PerformLayout();
             this.guna2Panel6.ResumeLayout(false);
             this.guna2Panel6.PerformLayout();
-            this.guna2Panel7.ResumeLayout(false);
-            this.guna2Panel7.PerformLayout();
+            this.pn_test.ResumeLayout(false);
+            this.pn_test.PerformLayout();
+            this.pn_detail_test.ResumeLayout(false);
+            this.pn_detail_test.PerformLayout();
             this.guna2Panel8.ResumeLayout(false);
             this.guna2Panel8.PerformLayout();
-            this.guna2Panel9.ResumeLayout(false);
-            this.guna2Panel9.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -857,21 +857,18 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
         private System.Windows.Forms.Label label_3;
         private System.Windows.Forms.Label label6;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
+        private Guna.UI2.WinForms.Guna2Panel pn_egg;
         private System.Windows.Forms.Label lb_6;
         private System.Windows.Forms.Label label8;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
+        private Guna.UI2.WinForms.Guna2Panel pn_xray;
         private System.Windows.Forms.Label lb_5;
         private System.Windows.Forms.Label label10;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel6;
         private System.Windows.Forms.Label lb_4;
         private System.Windows.Forms.Label label12;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel7;
+        private Guna.UI2.WinForms.Guna2Panel pn_test;
         private System.Windows.Forms.Label lb_8;
         private System.Windows.Forms.Label label14;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel8;
-        private System.Windows.Forms.Label lb_7;
-        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
@@ -881,7 +878,6 @@
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton5;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton8;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton6;
-        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton7;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton9;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -899,7 +895,7 @@
         private System.Windows.Forms.Label lb_vgc;
         private System.Windows.Forms.Label lb_vgb;
         private System.Windows.Forms.Label lb_huyethoc;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel9;
+        private Guna.UI2.WinForms.Guna2Panel pn_detail_test;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label lb_stronggyloides;
@@ -907,5 +903,9 @@
         private System.Windows.Forms.Label lb_troponin;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label lb_7;
+        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton7;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel8;
     }
 }
