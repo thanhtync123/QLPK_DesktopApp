@@ -15,7 +15,7 @@ namespace QuanLyPhongKham
         public frm_patients()
         {
             InitializeComponent();
-        }
+        }//123213
         int pagesize = 15;
         int currentpage = 1;
         int totalpage = 0;
