@@ -98,7 +98,7 @@ namespace QuanLyPhongKham
                     new ReportParameter("txb_businessname", AppConfig.businessname),
                     new ReportParameter("txb_businessservice", AppConfig.businessservice),
                     new ReportParameter("txb_businessphone", AppConfig.businessphone),
-                    //new ReportParameter("txb_businessaddress", AppConfig.businessaddress),
+                    new ReportParameter("txb_businessaddress", AppConfig.businessaddress),
                     //new ReportParameter("txb_businessfb", AppConfig.businessfb)
                 };
 

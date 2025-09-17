@@ -85,16 +85,17 @@ namespace QuanLyPhongKham
                     new ReportParameter("txb_chidinh", chidinh ?? ""),
                     new ReportParameter("txb_nhanvien", nhanvien ?? ""),
                     new ReportParameter("pr_sign", filepath??""),
-                    new ReportParameter("txb_businesstype", "PHÒNG KHÁM ĐA KHOA"),
-                    new ReportParameter("txb_businessname", "THÚY NGA"),
-                    new ReportParameter("txb_businessservice", "SIÊU ÂM MÀU - KHÁM BỆNH"),
-                    new ReportParameter("txb_businessaddress", "123 Lê Lợi, Quận 1, TP. HCM"),
-                    new ReportParameter("txb_businessphone", "0931111222"),
-                    new ReportParameter("txb_businessfb", "Phòng khám đa khoa ABC")
+                    new ReportParameter("txb_businesstype", AppConfig.businesstype),
+                    new ReportParameter("txb_businessname", AppConfig.businessname),
+                    new ReportParameter("txb_businessservice", AppConfig.businessservice),
+                    new ReportParameter("txb_businessaddress", AppConfig.businessaddress),
+                    new ReportParameter("txb_businessphone", AppConfig.businessphone),
+                    new ReportParameter("txb_businessfb", AppConfig.businessfb),
 
 
 
-                };
+
+            };
                 reportViewer1.LocalReport.SetParameters(parameters);
 
 

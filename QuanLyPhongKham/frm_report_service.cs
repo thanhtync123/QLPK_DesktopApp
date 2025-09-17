@@ -88,9 +88,9 @@ namespace QuanLyPhongKham
                     new ReportParameter("txb_gioitinh", gioitinh??""),
                     new ReportParameter("txb_dtname", CurrentUser.UserName ?? ""),
                     new ReportParameter("pr_sign", filepath ?? ""),
-                    new ReportParameter("txb_businesstype", "PHÒNG KHÁM Y KHOA"),
-                    new ReportParameter("txb_businessname", "THÚY NGA"),
-                    new ReportParameter("txb_businessservice","SIÊU ÂM MÀU - KHÁM BỆNH")
+                    new ReportParameter("txb_businesstype", AppConfig.businesstype),
+                    new ReportParameter("txb_businessname", AppConfig.businessname),
+                    new ReportParameter("txb_businessservice",AppConfig.businessservice)
 
                 };
                 reportViewer1.LocalReport.SetParameters(parameters);
