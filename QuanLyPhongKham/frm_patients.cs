@@ -16,7 +16,7 @@ namespace QuanLyPhongKham
         {
             InitializeComponent();
         }//123213
-        int pagesize = 15;
+        int pagesize = 10;
         int currentpage = 1;
         int totalpage = 0;
         private void LoadPatients(string keyword = "")
@@ -128,12 +128,12 @@ namespace QuanLyPhongKham
             rdn_male.Checked = true;
             txb_phone.Clear();
             txb_address.Clear();
-            txb_pulse.Clear();
-            txb_blood_pressure.Clear();
-            txb_respiratory_rate.Clear();
-            txb_weight.Clear();
-            txb_height.Clear();
-            txb_temperature.Clear();
+            txb_pulse.Text = " Lần/phút";
+            txb_blood_pressure.Text=" mmHg";
+            txb_respiratory_rate.Text=" Lần/phút";
+            txb_weight.Text=" kg";
+            txb_height.Text=" cm";
+            txb_temperature.Text= " °C";
 
             SetButtonState(false);
         }
