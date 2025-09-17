@@ -1,22 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Linq;  
 using System.Text;
 using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+
 namespace QuanLyPhongKham
 {
     public static class Db
     {
 
-       public static string connectionString = "Server=localhost;Database=clinic_db2;Uid=root;Pwd=;";
-     //  public static string connectionString = "Server=192.168.2.100;Database=clinic_db2;Uid=root;Pwd=123456;";
+        public static string connectionString = ConfigurationManager.ConnectionStrings["ClinicDb"].ConnectionString;
+       // public static string connectionString = "Server=localhost;Database=clinic_db2;Uid=root;Pwd=;";
+      //  public static string connectionString = "Server=192.168.2.100;Database=clinic_db2;Uid=root;Pwd=123456;";
 
         public static MySqlConnection conn = new MySqlConnection(connectionString);
         public static MySqlCommand cmd;
         public static MySqlDataReader dr;
+
         public static MySqlCommand CreateCommand(string query)
         {
             return new MySqlCommand(query, conn);
