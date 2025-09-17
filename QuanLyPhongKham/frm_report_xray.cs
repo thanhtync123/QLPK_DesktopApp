@@ -41,15 +41,15 @@ namespace QuanLyPhongKham
             string filepath = "";
             if (File.Exists(fullPath))
                 filepath = "file:///" + fullPath.Replace("\\", "/");
+            string logoPath = Path.Combine(Application.StartupPath, "images", "logo.png");
+            string logoUri = File.Exists(logoPath) ? "file:///" + logoPath.Replace("\\", "/") : "";
             var ngaykham = DateTime.Now.ToString("'Ngày' dd 'tháng' MM 'năm' yyyy");
 
-            // Gán file RDLC
+    
             reportViewer1.LocalReport.ReportEmbeddedResource = "QuanLyPhongKham.Report1.rdlc";
-
-            // Tạo DataSet giả để tránh lỗi thiếu dữ liệu
             var dtFake = new DataTable("DataSet1");
             dtFake.Columns.Add("t_fake", typeof(string));
-            dtFake.Rows.Add(" "); // Ít nhất 1 dòng để RDLC hiển thị Table
+            dtFake.Rows.Add(" "); 
 
             reportViewer1.LocalReport.DataSources.Clear();
             reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", dtFake));
@@ -70,7 +70,15 @@ namespace QuanLyPhongKham
                 new ReportParameter("txb_ngaykham", ngaykham),
                 new ReportParameter("txb_gioitinh", gioitinh),
                 new ReportParameter("txb_dtname", CurrentUser.UserName ?? ""),
-                new ReportParameter("pr_sign", filepath ?? "")
+                new ReportParameter("pr_sign", filepath ?? ""),
+                new ReportParameter("image_logo", logoUri),
+                new ReportParameter("txb_businesstype", "PHÒNG KHÁM ĐA KHOA"),
+                new ReportParameter("txb_businessname", "THÚY NGA"),
+                new ReportParameter("txb_businessservice", "SIÊU ÂM MÀU - KHÁM BỆNH"),
+                new ReportParameter("txb_businessaddress", "123 Lê Lợi, Quận 1, TP. HCM"),
+                new ReportParameter("txb_businessphone", "0931111222"),
+                new ReportParameter("txb_businessfb", "Phòng khám đa khoa ABC")
+
             };
 
             reportViewer1.LocalReport.SetParameters(parameters);
