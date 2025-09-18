@@ -1,20 +1,24 @@
 ﻿using System;
 using System.Windows.Forms;
+using Mysqlx.Crud;
 
 namespace QuanLyPhongKham
 {
+
     public partial class frm_statistic : Form
     {
         public frm_statistic()
         {
             InitializeComponent();
+
         }
+
 
         private void LoadThongKe()
         {
             string fromDate = dateTimePicker1.Value.ToString("yyyy-MM-dd 00:00:00");
             string toDate = dateTimePicker2.Value.ToString("yyyy-MM-dd 23:59:59");
-
+            LoadDTGVUltraDetail("");
             // Tổng bệnh nhân
             string query1 = $@"
     SELECT COUNT(*) 
@@ -166,7 +170,7 @@ WHERE type='chỉ định' AND created_at BETWEEN '{fromDate}' AND '{toDate}'";
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
             dateTimePicker1.CustomFormat = "dd/MM/yyyy";
             dateTimePicker1.Value = DateTime.Today; // 👈 Mặc định là hôm nay
-
+            setUpDTGVUltraDetail();
             dateTimePicker2.Format = DateTimePickerFormat.Custom;
             dateTimePicker2.CustomFormat = "dd/MM/yyyy";
             dateTimePicker2.Value = DateTime.Today; // 👈 Mặc định là hôm nay
@@ -179,6 +183,10 @@ WHERE type='chỉ định' AND created_at BETWEEN '{fromDate}' AND '{toDate}'";
                 pn_xray.Visible = false;
 
             }    
+            if(AppConfig.AppMode=="All")
+            
+                panel_detail_ultra.Visible = false;
+               
                
 
             LoadThongKe();
@@ -191,12 +199,40 @@ WHERE type='chỉ định' AND created_at BETWEEN '{fromDate}' AND '{toDate}'";
 
         private void guna2ImageButton6_Click(object sender, EventArgs e)
         {
-            // Có thể xử lý thêm ở đây nếu cần
+        
         }
-
+        private void setUpDTGVUltraDetail()
+        {
+            dtgv_detail_ultrasound.AutoGenerateColumns = false;
+            dtgv_detail_ultrasound.Columns["name"].DataPropertyName = "name";
+            dtgv_detail_ultrasound.Columns["quantity"].DataPropertyName = "total_services";
+            dtgv_detail_ultrasound.Columns["money"].DataPropertyName = "total_price"; 
+        }
+        private void LoadDTGVUltraDetail(string keyword)
+        {
+            string fromDate = dateTimePicker1.Value.ToString("yyyy-MM-dd 00:00:00");
+            string toDate = dateTimePicker2.Value.ToString("yyyy-MM-dd 23:59:59");
+            string sql = $@"SELECT 
+                        s.name as name, 
+                        COUNT(*) AS total_services, 
+                        SUM(es.price) AS total_price
+                    FROM examination_services es
+                    JOIN services s ON es.service_id = s.id
+                    WHERE s.type = 'Siêu âm'
+                    AND s.name LIKE '%{txb_search_detail_ultra.Text}%'
+                    AND es.created_at BETWEEN '{fromDate}' AND '{toDate}'
+                    GROUP BY s.name;
+                    ";
+            Db.LoadDTGV(dtgv_detail_ultrasound, sql);
+        }
         private void guna2ImageButton8_Click(object sender, EventArgs e)
         {
-            // Có thể xử lý thêm ở đây nếu cần
+            
+        }
+
+        private void txb_search_detail_ultra_TextChanged(object sender, EventArgs e)
+        {
+            LoadDTGVUltraDetail(txb_search_detail_ultra.Text);
         }
     }
 }

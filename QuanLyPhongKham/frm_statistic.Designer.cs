@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.label_1 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -87,6 +91,13 @@
             this.lb_7 = new System.Windows.Forms.Label();
             this.guna2ImageButton7 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
+            this.panel_detail_ultra = new System.Windows.Forms.Panel();
+            this.label21 = new System.Windows.Forms.Label();
+            this.txb_search_detail_ultra = new System.Windows.Forms.TextBox();
+            this.dtgv_detail_ultrasound = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.money = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
@@ -96,6 +107,8 @@
             this.pn_test.SuspendLayout();
             this.pn_detail_test.SuspendLayout();
             this.guna2Panel8.SuspendLayout();
+            this.panel_detail_ultra.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_detail_ultrasound)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -675,7 +688,7 @@
             this.pn_detail_test.Controls.Add(this.lb_vgb);
             this.pn_detail_test.Controls.Add(this.lb_vgc);
             this.pn_detail_test.Controls.Add(this.lb_ktvgb);
-            this.pn_detail_test.Location = new System.Drawing.Point(86, 339);
+            this.pn_detail_test.Location = new System.Drawing.Point(57, 339);
             this.pn_detail_test.Name = "pn_detail_test";
             this.pn_detail_test.Size = new System.Drawing.Size(551, 305);
             this.pn_detail_test.TabIndex = 13;
@@ -802,11 +815,113 @@
             this.guna2Panel8.Size = new System.Drawing.Size(229, 80);
             this.guna2Panel8.TabIndex = 7;
             // 
+            // panel_detail_ultra
+            // 
+            this.panel_detail_ultra.Controls.Add(this.label21);
+            this.panel_detail_ultra.Controls.Add(this.txb_search_detail_ultra);
+            this.panel_detail_ultra.Controls.Add(this.dtgv_detail_ultrasound);
+            this.panel_detail_ultra.Location = new System.Drawing.Point(656, 339);
+            this.panel_detail_ultra.Name = "panel_detail_ultra";
+            this.panel_detail_ultra.Size = new System.Drawing.Size(566, 367);
+            this.panel_detail_ultra.TabIndex = 17;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(19, 11);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(79, 19);
+            this.label21.TabIndex = 19;
+            this.label21.Text = "Tên dịch vụ";
+            // 
+            // txb_search_detail_ultra
+            // 
+            this.txb_search_detail_ultra.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txb_search_detail_ultra.Location = new System.Drawing.Point(104, 4);
+            this.txb_search_detail_ultra.Name = "txb_search_detail_ultra";
+            this.txb_search_detail_ultra.Size = new System.Drawing.Size(180, 26);
+            this.txb_search_detail_ultra.TabIndex = 18;
+            this.txb_search_detail_ultra.TextChanged += new System.EventHandler(this.txb_search_detail_ultra_TextChanged);
+            // 
+            // dtgv_detail_ultrasound
+            // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.dtgv_detail_ultrasound.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgv_detail_ultrasound.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dtgv_detail_ultrasound.ColumnHeadersHeight = 21;
+            this.dtgv_detail_ultrasound.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dtgv_detail_ultrasound.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.name,
+            this.quantity,
+            this.money});
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgv_detail_ultrasound.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dtgv_detail_ultrasound.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dtgv_detail_ultrasound.Location = new System.Drawing.Point(3, 36);
+            this.dtgv_detail_ultrasound.Name = "dtgv_detail_ultrasound";
+            this.dtgv_detail_ultrasound.RowHeadersVisible = false;
+            this.dtgv_detail_ultrasound.Size = new System.Drawing.Size(548, 316);
+            this.dtgv_detail_ultrasound.TabIndex = 17;
+            this.dtgv_detail_ultrasound.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dtgv_detail_ultrasound.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dtgv_detail_ultrasound.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dtgv_detail_ultrasound.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dtgv_detail_ultrasound.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dtgv_detail_ultrasound.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.dtgv_detail_ultrasound.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dtgv_detail_ultrasound.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.dtgv_detail_ultrasound.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dtgv_detail_ultrasound.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtgv_detail_ultrasound.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.dtgv_detail_ultrasound.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dtgv_detail_ultrasound.ThemeStyle.HeaderStyle.Height = 21;
+            this.dtgv_detail_ultrasound.ThemeStyle.ReadOnly = false;
+            this.dtgv_detail_ultrasound.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dtgv_detail_ultrasound.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dtgv_detail_ultrasound.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtgv_detail_ultrasound.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dtgv_detail_ultrasound.ThemeStyle.RowsStyle.Height = 22;
+            this.dtgv_detail_ultrasound.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dtgv_detail_ultrasound.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            // 
+            // name
+            // 
+            this.name.HeaderText = "Tên dịch vụ";
+            this.name.Name = "name";
+            // 
+            // quantity
+            // 
+            this.quantity.HeaderText = "Số lượng";
+            this.quantity.Name = "quantity";
+            // 
+            // money
+            // 
+            dataGridViewCellStyle3.Format = "#,0";
+            this.money.DefaultCellStyle = dataGridViewCellStyle3;
+            this.money.HeaderText = "Tổng tiền";
+            this.money.Name = "money";
+            // 
             // frm_statistic
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(230)))));
-            this.ClientSize = new System.Drawing.Size(1385, 656);
+            this.ClientSize = new System.Drawing.Size(1392, 766);
+            this.Controls.Add(this.panel_detail_ultra);
             this.Controls.Add(this.pn_detail_test);
             this.Controls.Add(this.guna2ImageButton9);
             this.Controls.Add(this.guna2Button1);
@@ -820,6 +935,7 @@
             this.Controls.Add(this.guna2Panel6);
             this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.guna2Panel1);
+            this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frm_statistic";
             this.Text = "Thống kê tổng quan";
@@ -842,6 +958,9 @@
             this.pn_detail_test.PerformLayout();
             this.guna2Panel8.ResumeLayout(false);
             this.guna2Panel8.PerformLayout();
+            this.panel_detail_ultra.ResumeLayout(false);
+            this.panel_detail_ultra.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_detail_ultrasound)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -907,5 +1026,12 @@
         private System.Windows.Forms.Label lb_7;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton7;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel8;
+        private System.Windows.Forms.Panel panel_detail_ultra;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox txb_search_detail_ultra;
+        private Guna.UI2.WinForms.Guna2DataGridView dtgv_detail_ultrasound;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn money;
     }
 }
