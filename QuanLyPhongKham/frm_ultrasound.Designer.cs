@@ -613,7 +613,9 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(230)))));
+            this.panel3.Controls.Add(this.label17);
             this.panel3.Controls.Add(this.dtgv_service);
+            this.panel3.Controls.Add(this.txb_final_result);
             this.panel3.Controls.Add(this.txb_result);
             this.panel3.Controls.Add(this.txb_phone);
             this.panel3.Controls.Add(this.SĐT);
@@ -745,7 +747,7 @@
             this.txb_result.Margin = new System.Windows.Forms.Padding(4);
             this.txb_result.Multiline = true;
             this.txb_result.Name = "txb_result";
-            this.txb_result.Size = new System.Drawing.Size(550, 658);
+            this.txb_result.Size = new System.Drawing.Size(550, 500);
             this.txb_result.TabIndex = 41;
             // 
             // txb_phone
@@ -1144,7 +1146,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(1241, 732);
+            this.label17.Location = new System.Drawing.Point(514, 512);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(75, 20);
             this.label17.TabIndex = 42;
@@ -1153,7 +1155,7 @@
             // txb_final_result
             // 
             this.txb_final_result.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_final_result.Location = new System.Drawing.Point(1323, 732);
+            this.txb_final_result.Location = new System.Drawing.Point(596, 512);
             this.txb_final_result.Margin = new System.Windows.Forms.Padding(4);
             this.txb_final_result.Multiline = true;
             this.txb_final_result.Name = "txb_final_result";
@@ -1178,9 +1180,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1386, 788);
-            this.Controls.Add(this.label17);
-            this.Controls.Add(this.txb_final_result);
+            this.ClientSize = new System.Drawing.Size(1623, 801);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -1201,7 +1201,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_service)).EndInit();
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
