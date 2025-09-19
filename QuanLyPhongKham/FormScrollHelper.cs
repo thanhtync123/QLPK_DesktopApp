@@ -6,7 +6,7 @@ namespace QuanLyPhongKham
 {
     public static class FormScrollHelper
     {
-        private const int Step = 50; // khoảng cách scroll mỗi lần
+        private const int Step = 30; // khoảng cách scroll mỗi lần
 
         public static bool HandleArrowKey(Form form, Keys keyData)
         {

@@ -14,7 +14,7 @@ namespace QuanLyPhongKham
     {
 
         public static string connectionString = ConfigurationManager.ConnectionStrings["ClinicDb"].ConnectionString;
-       // public static string connectionString = "Server=localhost;Database=clinic_db2;Uid=root;Pwd=;";
+      //  public static string connectionString = "Server=localhost;Database=clinic_db2;Uid=root;Pwd=;";
       //  public static string connectionString = "Server=192.168.2.100;Database=clinic_db2;Uid=root;Pwd=123456;";
 
         public static MySqlConnection conn = new MySqlConnection(connectionString);

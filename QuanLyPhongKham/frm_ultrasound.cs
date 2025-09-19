@@ -748,7 +748,7 @@ namespace QuanLyPhongKham
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-            int step = 550;
+            int step = 50;
 
             // xử lý mũi tên
             if (keyData == Keys.Left)
