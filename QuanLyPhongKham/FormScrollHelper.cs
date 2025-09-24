@@ -17,22 +17,22 @@ namespace QuanLyPhongKham
                 return false; // không can thiệp
             }
 
-            //if (keyData == Keys.Up)
-            //{
-            //    form.AutoScrollPosition = new Point(
-            //        Math.Abs(form.AutoScrollPosition.X),
-            //        Math.Max(0, Math.Abs(form.AutoScrollPosition.Y) - Step)
-            //    );
-            //    return true;
-            //}
-            //else if (keyData == Keys.Down)
-            //{
-            //    form.AutoScrollPosition = new Point(
-            //        Math.Abs(form.AutoScrollPosition.X),
-            //        Math.Abs(form.AutoScrollPosition.Y) + Step
-            //    );
-            //    return true;
-            //}
+            if (keyData == Keys.Up)
+            {
+                form.AutoScrollPosition = new Point(
+                    Math.Abs(form.AutoScrollPosition.X),
+                    Math.Max(0, Math.Abs(form.AutoScrollPosition.Y) - Step)
+                );
+                return true;
+            }
+            else if (keyData == Keys.Down)
+            {
+                form.AutoScrollPosition = new Point(
+                    Math.Abs(form.AutoScrollPosition.X),
+                    Math.Abs(form.AutoScrollPosition.Y) + Step
+                );
+                return true;
+            }
             else if (keyData == Keys.Left)
             {
                 form.AutoScrollPosition = new Point(

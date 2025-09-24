@@ -1112,10 +1112,26 @@ namespace QuanLyPhongKham
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-            if (FormScrollHelper.HandleArrowKey(this, keyData))
-                return true;
+            Control ctl = this.ActiveControl;
+            while (ctl != null)
+            {
+                if (ctl is DataGridView) return base.ProcessCmdKey(ref msg, keyData);
+                ctl = ctl.Parent;
+            }
 
-            return base.ProcessCmdKey(ref msg, keyData);
+            // Scroll Form bằng phím
+            int x = -this.AutoScrollPosition.X;
+            int y = -this.AutoScrollPosition.Y;
+            int step = 30;
+
+            if (keyData == Keys.Left) x = Math.Max(0, x - step);
+            else if (keyData == Keys.Right) x += step;
+            else if (keyData == Keys.Up) y = Math.Max(0, y - step);
+            else if (keyData == Keys.Down) y += step;
+            else return base.ProcessCmdKey(ref msg, keyData);
+
+            this.AutoScrollPosition = new Point(x, y);
+            return true;
         }
 
 
