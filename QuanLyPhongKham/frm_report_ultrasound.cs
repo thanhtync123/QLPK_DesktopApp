@@ -90,6 +90,11 @@ namespace QuanLyPhongKham
                 // Set tất cả các tham số
                 this.reportViewer1.LocalReport.SetParameters(reportParams);
                 this.reportViewer1.RefreshReport();
+                reportViewer1.LocalReport.Refresh();
+                reportViewer1.RefreshReport();
+                reportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
+                reportViewer1.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.Percent;
+                reportViewer1.ZoomPercent = 75;
             }
             catch (Exception ex)
             {

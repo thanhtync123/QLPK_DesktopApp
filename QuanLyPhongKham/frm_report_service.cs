@@ -90,7 +90,8 @@ namespace QuanLyPhongKham
                     new ReportParameter("pr_sign", filepath ?? ""),
                     new ReportParameter("txb_businesstype", AppConfig.businesstype),
                     new ReportParameter("txb_businessname", AppConfig.businessname),
-                    new ReportParameter("txb_businessservice",AppConfig.businessservice)
+                    new ReportParameter("txb_businessservice",AppConfig.businessservice),
+                    new ReportParameter("txb_businessaddress",AppConfig.businessaddress)
 
                 };
                 reportViewer1.LocalReport.SetParameters(parameters);
