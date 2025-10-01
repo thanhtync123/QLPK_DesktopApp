@@ -163,6 +163,14 @@ WHERE type='chỉ định' AND created_at BETWEEN '{fromDate}' AND '{toDate}'";
                         ";
             lb_stronggyloides.Text = Db.Scalar(querystrongyloides).ToString();
 
+            string queryion = $@"SELECT COUNT(*)
+                       from examination_services es
+                        join services s ON s.id = es.service_id
+                        WHERE LOWER(s.name) LIKE '%ion đồ%'
+                          AND es.created_at BETWEEN '{fromDate}' AND '{toDate}'
+                        ";
+            lb_iondo.Text = Db.Scalar(queryion).ToString();
+
         }
 
         private void frm_statistic_Load(object sender, EventArgs e)

@@ -1311,6 +1311,21 @@
               </Border>
             </Style>
           </Image>
+          <Image Name="Image5">
+            <Source>External</Source>
+            <Value>=Parameters!image_logo.Value</Value>
+            <Sizing>FitProportional</Sizing>
+            <Top>0.52599cm</Top>
+            <Left>15.23694cm</Left>
+            <Height>2.74283cm</Height>
+            <Width>2.76842cm</Width>
+            <ZIndex>30</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Image>
         </ReportItems>
         <Height>14.92003cm</Height>
         <Style />
