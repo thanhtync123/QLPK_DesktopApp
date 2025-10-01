@@ -47,6 +47,7 @@ namespace QuanLyPhongKham
 
             string logoPath = Path.Combine(Application.StartupPath, "images", "logo.png");
             string logoUri = File.Exists(logoPath) ? "file:///" + logoPath.Replace("\\", "/") : "";
+    
             try
             {
                 // Bật hiển thị ảnh từ ngoài

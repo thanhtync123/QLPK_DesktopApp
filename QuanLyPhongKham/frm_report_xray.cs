@@ -57,6 +57,7 @@ namespace QuanLyPhongKham
             // Gán các tham số
             ReportParameter[] parameters = new ReportParameter[]
             {
+                new ReportParameter("image_logo", logoUri ?? ""),
                 new ReportParameter("txb_mabn", mabn),
                 new ReportParameter("txb_tenbn", tenbn),
                 new ReportParameter("txb_ngaysinh", ngaysinh),

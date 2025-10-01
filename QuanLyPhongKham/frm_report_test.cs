@@ -60,6 +60,7 @@ namespace QuanLyPhongKham
             string logoPath = Path.Combine(Application.StartupPath, "images", "logo.png");
             string logoUri = File.Exists(logoPath) ? "file:///" + logoPath.Replace("\\", "/") : "";
 
+      
             try
             {
                 reportViewer1.LocalReport.EnableExternalImages = true;
@@ -68,10 +69,12 @@ namespace QuanLyPhongKham
                 reportViewer1.LocalReport.DataSources.Clear();
                 reportViewer1.LocalReport.DataSources.Add(rds);
 
+              
+
                 var parameters = new ReportParameter[]
                 {
 
-
+                    new ReportParameter("image_logo", logoUri ?? ""),
                     new ReportParameter("txb_mabn", mabn ?? ""),
                     new ReportParameter("txb_tenbn", tenbn ?? ""),
                     new ReportParameter("txb_ngaysinh", ngaysinh ?? ""),
@@ -95,12 +98,17 @@ namespace QuanLyPhongKham
 
 
 
+
             };
+
+             
+
                 reportViewer1.LocalReport.SetParameters(parameters);
-
-
                 reportViewer1.LocalReport.Refresh();
                 reportViewer1.RefreshReport();
+                reportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
+                reportViewer1.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.Percent;
+                reportViewer1.ZoomPercent = 75;
             }
             catch (Exception ex)
             {
@@ -111,6 +119,38 @@ namespace QuanLyPhongKham
         private void reportViewer1_Load(object sender, EventArgs e)
         {
 
+        }
+        private void AddImageParameter(System.Collections.Generic.List<ReportParameter> parameters, string paramName, string imageUrl)
+        {
+            // Nếu đường dẫn rỗng hoặc null, sử dụng hình ảnh trống
+            if (string.IsNullOrEmpty(imageUrl))
+            {
+                // Đường dẫn ảnh trống mặc định hoặc để trống
+                parameters.Add(new ReportParameter(paramName, ""));
+                return;
+            }
+
+            try
+            {
+                // Kiểm tra xem đường dẫn có phải là file thực tế không
+                if (File.Exists(imageUrl))
+                {
+                    // Chuyển đổi đường dẫn file thành URI hợp lệ
+                    Uri uri = new Uri(imageUrl);
+                    parameters.Add(new ReportParameter(paramName, uri.AbsoluteUri));
+                }
+                else
+                {
+                    // Nếu không phải file, thử chuyển đổi trực tiếp thành URI
+                    Uri uri = new Uri(imageUrl);
+                    parameters.Add(new ReportParameter(paramName, uri.AbsoluteUri));
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Lỗi khi xử lý ảnh {imageUrl}: {ex.Message}");
+                parameters.Add(new ReportParameter(paramName, ""));
+            }
         }
     }
 }
