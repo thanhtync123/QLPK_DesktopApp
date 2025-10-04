@@ -176,7 +176,7 @@ WHERE type='chỉ định' AND created_at BETWEEN '{fromDate}' AND '{toDate}'";
             string testns1ag = $@"SELECT COUNT(*)
                        from examination_services es
                         join services s ON s.id = es.service_id
-                        WHERE LOWER(s.name) LIKE '%Test NS1 Ag%'
+                        WHERE LOWER(s.name) LIKE '%ns1 ag%'
                           AND es.created_at BETWEEN '{fromDate}' AND '{toDate}'
                         ";
             lb_testns1ag.Text = Db.Scalar(testns1ag).ToString();
