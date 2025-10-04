@@ -80,6 +80,8 @@
             this.lb_vgb = new System.Windows.Forms.Label();
             this.lb_huyethoc = new System.Windows.Forms.Label();
             this.pn_detail_test = new Guna.UI2.WinForms.Guna2Panel();
+            this.lb_iondo = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
             this.lb_stronggyloides = new System.Windows.Forms.Label();
             this.lb_toxocara = new System.Windows.Forms.Label();
             this.lb_troponin = new System.Windows.Forms.Label();
@@ -98,8 +100,8 @@
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.money = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label22 = new System.Windows.Forms.Label();
-            this.lb_iondo = new System.Windows.Forms.Label();
+            this.lb_testns1ag = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
@@ -667,6 +669,8 @@
             // 
             this.pn_detail_test.BackColor = System.Drawing.Color.Honeydew;
             this.pn_detail_test.BorderColor = System.Drawing.Color.Yellow;
+            this.pn_detail_test.Controls.Add(this.lb_testns1ag);
+            this.pn_detail_test.Controls.Add(this.label24);
             this.pn_detail_test.Controls.Add(this.lb_iondo);
             this.pn_detail_test.Controls.Add(this.label22);
             this.pn_detail_test.Controls.Add(this.lb_stronggyloides);
@@ -696,6 +700,27 @@
             this.pn_detail_test.Name = "pn_detail_test";
             this.pn_detail_test.Size = new System.Drawing.Size(551, 305);
             this.pn_detail_test.TabIndex = 13;
+            // 
+            // lb_iondo
+            // 
+            this.lb_iondo.AutoSize = true;
+            this.lb_iondo.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_iondo.ForeColor = System.Drawing.Color.Red;
+            this.lb_iondo.Location = new System.Drawing.Point(482, 25);
+            this.lb_iondo.Name = "lb_iondo";
+            this.lb_iondo.Size = new System.Drawing.Size(20, 22);
+            this.lb_iondo.TabIndex = 36;
+            this.lb_iondo.Text = "a";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(417, 26);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(68, 21);
+            this.label22.TabIndex = 35;
+            this.label22.Text = "Ion Đồ:";
             // 
             // lb_stronggyloides
             // 
@@ -920,26 +945,26 @@
             this.money.HeaderText = "Tổng tiền";
             this.money.Name = "money";
             // 
-            // label22
+            // lb_testns1ag
             // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(417, 26);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(68, 21);
-            this.label22.TabIndex = 35;
-            this.label22.Text = "Ion Đồ:";
+            this.lb_testns1ag.AutoSize = true;
+            this.lb_testns1ag.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_testns1ag.ForeColor = System.Drawing.Color.Red;
+            this.lb_testns1ag.Location = new System.Drawing.Point(482, 48);
+            this.lb_testns1ag.Name = "lb_testns1ag";
+            this.lb_testns1ag.Size = new System.Drawing.Size(20, 22);
+            this.lb_testns1ag.TabIndex = 38;
+            this.lb_testns1ag.Text = "a";
             // 
-            // lb_iondo
+            // label24
             // 
-            this.lb_iondo.AutoSize = true;
-            this.lb_iondo.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_iondo.ForeColor = System.Drawing.Color.Red;
-            this.lb_iondo.Location = new System.Drawing.Point(482, 25);
-            this.lb_iondo.Name = "lb_iondo";
-            this.lb_iondo.Size = new System.Drawing.Size(20, 22);
-            this.lb_iondo.TabIndex = 36;
-            this.lb_iondo.Text = "a";
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(375, 48);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(110, 21);
+            this.label24.TabIndex = 37;
+            this.label24.Text = "Test NS1 Ag:";
             // 
             // frm_statistic
             // 
@@ -1060,5 +1085,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn money;
         private System.Windows.Forms.Label lb_iondo;
         private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label lb_testns1ag;
+        private System.Windows.Forms.Label label24;
     }
 }
