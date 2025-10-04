@@ -1167,21 +1167,6 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
-          <Image Name="Image3">
-            <Source>Embedded</Source>
-            <Value>f18fdb2000d9b587ecc8</Value>
-            <Sizing>FitProportional</Sizing>
-            <Top>1.24034cm</Top>
-            <Left>1.46427in</Left>
-            <Height>1.05903in</Height>
-            <Width>1.08993in</Width>
-            <ZIndex>25</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-            </Style>
-          </Image>
           <Textbox Name="Textbox16">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
@@ -1210,7 +1195,7 @@
             <Left>5.81162cm</Left>
             <Height>1.19019cm</Height>
             <Width>9.44934cm</Width>
-            <ZIndex>26</ZIndex>
+            <ZIndex>25</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1247,7 +1232,7 @@
             <Left>6.76412cm</Left>
             <Height>0.92083cm</Height>
             <Width>8.36699cm</Width>
-            <ZIndex>27</ZIndex>
+            <ZIndex>26</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1266,7 +1251,7 @@
             <Left>13.1892cm</Left>
             <Height>1.93002cm</Height>
             <Width>3.60579cm</Width>
-            <ZIndex>28</ZIndex>
+            <ZIndex>27</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1277,11 +1262,11 @@
             <Source>External</Source>
             <Value>=Parameters!image_logo.Value</Value>
             <Sizing>FitProportional</Sizing>
-            <Top>0.52599cm</Top>
-            <Left>15.23694cm</Left>
+            <Top>1.18745cm</Top>
+            <Left>3.6122cm</Left>
             <Height>2.74283cm</Height>
             <Width>2.76842cm</Width>
-            <ZIndex>29</ZIndex>
+            <ZIndex>28</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
