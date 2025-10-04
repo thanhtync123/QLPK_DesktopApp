@@ -126,6 +126,7 @@ WHERE type='chỉ định' AND created_at BETWEEN '{fromDate}' AND '{toDate}'";
                                         AND es.created_at BETWEEN '{fromDate}' AND '{toDate}'
                                         ";
             lb_nuoctieu.Text = Db.Scalar(queryTestNuocTieu).ToString();
+            //123213
             string querySinhHoa = $@"SELECT COUNT(*)
                        from examination_services es
                         join services s ON s.id = es.service_id
@@ -139,7 +140,7 @@ WHERE type='chỉ định' AND created_at BETWEEN '{fromDate}' AND '{toDate}'";
                           AND LOWER(s.name) NOT LIKE '%h.pylori%'
                           AND LOWER(s.name) NOT LIKE '%xét nghiệm nước tiểu%'
                           AND LOWER(s.name) NOT LIKE '%ion đồ%'
-                          AND LOWER(s.name) NOT LIKE '%Test NS1 Ag%'
+                          AND LOWER(s.name) NOT LIKE '%NS1 Ag%'
                             AND es.created_at BETWEEN '{fromDate}' AND '{toDate}'
                         ";
             lb_sinhhoa.Text = Db.Scalar(querySinhHoa).ToString();
