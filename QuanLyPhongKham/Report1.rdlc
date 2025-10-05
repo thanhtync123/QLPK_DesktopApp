@@ -209,7 +209,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
-            <Top>1.83426in</Top>
+            <Top>1.95926in</Top>
             <Left>2.06953in</Left>
             <Height>0.25in</Height>
             <Width>1.09113in</Width>
@@ -246,7 +246,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
-            <Top>1.37585in</Top>
+            <Top>1.50085in</Top>
             <Left>0.92237in</Left>
             <Height>0.4723in</Height>
             <Width>5.60884in</Width>
@@ -274,7 +274,7 @@
                       <FontFamily>tIMes New Roman</FontFamily>
                       <FontSize>14pt</FontSize>
                       <FontWeight>Bold</FontWeight>
-                      <Color>Red</Color>
+                      <Color>LimeGreen</Color>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -945,7 +945,7 @@
             <Source>Embedded</Source>
             <Value>zaloicon</Value>
             <Sizing>FitProportional</Sizing>
-            <Top>1.83426in</Top>
+            <Top>1.95926in</Top>
             <Left>1.50008in</Left>
             <Height>0.30556in</Height>
             <Width>0.27083in</Width>
@@ -960,7 +960,7 @@
             <Source>Embedded</Source>
             <Value>phoneicon</Value>
             <Sizing>FitProportional</Sizing>
-            <Top>1.83426in</Top>
+            <Top>1.95926in</Top>
             <Left>1.78481in</Left>
             <Height>0.30556in</Height>
             <Width>0.27083in</Width>
@@ -975,7 +975,7 @@
             <Source>Embedded</Source>
             <Value>ID2023_Facebook_icon</Value>
             <Sizing>FitProportional</Sizing>
-            <Top>1.82037in</Top>
+            <Top>1.94537in</Top>
             <Left>3.06882in</Left>
             <Height>0.26389in</Height>
             <Width>0.25694in</Width>
@@ -1009,7 +1009,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
-            <Top>1.83426in</Top>
+            <Top>1.95926in</Top>
             <Left>3.32577in</Left>
             <Height>0.25in</Height>
             <Width>2.66405in</Width>
@@ -1102,7 +1102,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox13</rd:DefaultName>
             <Top>1.49092cm</Top>
-            <Left>5.3009cm</Left>
+            <Left>5.6184cm</Left>
             <Height>1.19019cm</Height>
             <Width>9.44934cm</Width>
             <ZIndex>27</ZIndex>
@@ -1168,6 +1168,43 @@
               </Border>
             </Style>
           </Image>
+          <Textbox Name="Textbox21">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>KHÁM BỆNH - SIÊU ÂM MÀU - XÉT NGHIỆM - XQUANG</Value>
+                    <Style>
+                      <FontFamily>tIMes New Roman</FontFamily>
+                      <FontSize>17pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <Color>Red</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox18</rd:DefaultName>
+            <Top>3.3271cm</Top>
+            <Left>0.78481cm</Left>
+            <Height>0.68127cm</Height>
+            <Width>17.04503cm</Width>
+            <ZIndex>30</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
         </ReportItems>
         <Height>15.31621cm</Height>
         <Style />
