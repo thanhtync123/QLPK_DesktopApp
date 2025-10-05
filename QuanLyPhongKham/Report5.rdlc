@@ -975,43 +975,6 @@
               </Border>
             </Style>
           </Tablix>
-          <Textbox Name="Textbox18">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=Parameters!txb_businessservice.Value</Value>
-                    <Style>
-                      <FontFamily>tIMes New Roman</FontFamily>
-                      <FontSize>17pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                      <Color>LimeGreen</Color>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Center</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox18</rd:DefaultName>
-            <Top>3.7186cm</Top>
-            <Left>1.0641cm</Left>
-            <Height>0.7871cm</Height>
-            <Width>17.04503cm</Width>
-            <ZIndex>18</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
           <Textbox Name="txb_nhanvien">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
@@ -1037,7 +1000,7 @@
             <Left>11.06085cm</Left>
             <Height>0.6cm</Height>
             <Width>6.75726cm</Width>
-            <ZIndex>19</ZIndex>
+            <ZIndex>18</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1048,7 +1011,59 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
-          <Textbox Name="Textbox16">
+          <Image Name="img_sign">
+            <Source>External</Source>
+            <Value>=Parameters!pr_sign.Value</Value>
+            <Sizing>FitProportional</Sizing>
+            <Top>10.96767cm</Top>
+            <Left>13.1892cm</Left>
+            <Height>1.93002cm</Height>
+            <Width>3.60579cm</Width>
+            <ZIndex>19</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Image>
+          <Textbox Name="Textbox18">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>CƠ SỞ XÉT NGHIỆM - CHẨN ĐOÁN HÌNH ẢNH</Value>
+                    <Style>
+                      <FontFamily>tIMes New Roman</FontFamily>
+                      <FontSize>17pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <Color>LimeGreen</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox18</rd:DefaultName>
+            <Top>3.75246cm</Top>
+            <Left>0.86921cm</Left>
+            <Height>0.7871cm</Height>
+            <Width>17.04503cm</Width>
+            <ZIndex>20</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox17">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
             <Paragraphs>
@@ -1072,11 +1087,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox13</rd:DefaultName>
-            <Top>2.3873cm</Top>
-            <Left>6.12912cm</Left>
+            <Top>2.42116cm</Top>
+            <Left>5.93423cm</Left>
             <Height>1.19019cm</Height>
             <Width>9.44934cm</Width>
-            <ZIndex>20</ZIndex>
+            <ZIndex>21</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1087,7 +1102,7 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
-          <Textbox Name="Textbox17">
+          <Textbox Name="Textbox20">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
             <Paragraphs>
@@ -1109,11 +1124,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox16</rd:DefaultName>
-            <Top>1.46647cm</Top>
-            <Left>6.76412cm</Left>
+            <Top>1.50033cm</Top>
+            <Left>6.56923cm</Left>
             <Height>0.92083cm</Height>
             <Width>8.36699cm</Width>
-            <ZIndex>21</ZIndex>
+            <ZIndex>22</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1124,27 +1139,12 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
-          <Image Name="img_sign">
-            <Source>External</Source>
-            <Value>=Parameters!pr_sign.Value</Value>
-            <Sizing>FitProportional</Sizing>
-            <Top>10.96767cm</Top>
-            <Left>13.1892cm</Left>
-            <Height>1.93002cm</Height>
-            <Width>3.60579cm</Width>
-            <ZIndex>22</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-            </Style>
-          </Image>
-          <Image Name="Image5">
+          <Image Name="Image6">
             <Source>External</Source>
             <Value>=Parameters!image_logo.Value</Value>
             <Sizing>FitProportional</Sizing>
-            <Top>0.97577cm</Top>
-            <Left>3.6122cm</Left>
+            <Top>1.00963cm</Top>
+            <Left>3.41731cm</Left>
             <Height>2.74283cm</Height>
             <Width>2.76842cm</Width>
             <ZIndex>23</ZIndex>
@@ -1154,7 +1154,7 @@
               </Border>
             </Style>
           </Image>
-          <Textbox Name="Textbox20">
+          <Textbox Name="Textbox21">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
             <Paragraphs>
@@ -1176,8 +1176,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox18</rd:DefaultName>
-            <Top>4.54098cm</Top>
-            <Left>0.96797cm</Left>
+            <Top>4.57484cm</Top>
+            <Left>0.77308cm</Left>
             <Height>0.68127cm</Height>
             <Width>17.04503cm</Width>
             <ZIndex>24</ZIndex>
