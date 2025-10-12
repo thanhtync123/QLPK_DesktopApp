@@ -393,7 +393,13 @@ namespace QuanLyPhongKham
         private void btn_cancel_reupdated_Click_1(object sender, EventArgs e)
         {
             if (!CheckForm()) return;
-
+            var s = dtgv.CurrentRow.Cells["updated_at_format"].Value?.ToString();
+            if (!s.StartsWith(DateTime.Now.ToString("dd/MM/yyyy")))
+            {
+                MessageBox.Show("Khách hàng không được tiếp nhận trong hôm nay, không thể hủy tiếp nhận");
+                return;
+            }
+            
             CheckForm();
             var data = GetPatientFormData();
             string query = @"UPDATE patients 
