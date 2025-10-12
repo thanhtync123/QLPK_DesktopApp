@@ -1134,7 +1134,18 @@ namespace QuanLyPhongKham
             return true;
         }
 
+        private void btn_cancel_reupdated_Click(object sender, EventArgs e)
+        {
 
+
+            string query = $@"UPDATE patients 
+                         SET updated_at = DATE_SUB(NOW(), INTERVAL 1 DAY)
+                     WHERE id={Convert.ToInt16(txb_id.Text)}";
+
+            Db.ExecuteNonQuery(query);
+            MessageBox.Show("Hủy tiếp nhận thành công!");
+            LoadGrid();
+        }
     }
 }
 

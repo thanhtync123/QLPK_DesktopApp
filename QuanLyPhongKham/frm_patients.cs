@@ -388,9 +388,12 @@ namespace QuanLyPhongKham
                 e.Handled = true;
         }
 
-        private void btn_cancel_reupdated_Click(object sender, EventArgs e)
+
+
+        private void btn_cancel_reupdated_Click_1(object sender, EventArgs e)
         {
             if (!CheckForm()) return;
+
             CheckForm();
             var data = GetPatientFormData();
             string query = @"UPDATE patients 

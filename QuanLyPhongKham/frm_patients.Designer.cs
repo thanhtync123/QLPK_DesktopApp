@@ -95,8 +95,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txb_age = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.btn_cancel_reupdated = new System.Windows.Forms.Button();
             this.guna2ImageButton9 = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.btn_cancel_reupdated = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv)).BeginInit();
             this.SuspendLayout();
             // 
@@ -886,18 +886,6 @@
             this.label3.TabIndex = 57;
             this.label3.Text = "Tuổi";
             // 
-            // btn_cancel_reupdated
-            // 
-            this.btn_cancel_reupdated.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_cancel_reupdated.Location = new System.Drawing.Point(920, 129);
-            this.btn_cancel_reupdated.Margin = new System.Windows.Forms.Padding(6);
-            this.btn_cancel_reupdated.Name = "btn_cancel_reupdated";
-            this.btn_cancel_reupdated.Size = new System.Drawing.Size(176, 46);
-            this.btn_cancel_reupdated.TabIndex = 59;
-            this.btn_cancel_reupdated.Text = "Hủy tiếp nhận";
-            this.btn_cancel_reupdated.UseVisualStyleBackColor = true;
-            this.btn_cancel_reupdated.Click += new System.EventHandler(this.btn_cancel_reupdated_Click);
-            // 
             // guna2ImageButton9
             // 
             this.guna2ImageButton9.BackColor = System.Drawing.Color.Transparent;
@@ -907,13 +895,25 @@
             this.guna2ImageButton9.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton9.ImageRotate = 0F;
             this.guna2ImageButton9.ImageSize = new System.Drawing.Size(20, 20);
-            this.guna2ImageButton9.Location = new System.Drawing.Point(931, 141);
+            this.guna2ImageButton9.Location = new System.Drawing.Point(904, 141);
             this.guna2ImageButton9.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.guna2ImageButton9.Name = "guna2ImageButton9";
             this.guna2ImageButton9.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton9.Size = new System.Drawing.Size(12, 30);
-            this.guna2ImageButton9.TabIndex = 60;
+            this.guna2ImageButton9.Size = new System.Drawing.Size(25, 29);
+            this.guna2ImageButton9.TabIndex = 64;
             this.guna2ImageButton9.UseTransparentBackground = true;
+            // 
+            // btn_cancel_reupdated
+            // 
+            this.btn_cancel_reupdated.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_cancel_reupdated.Location = new System.Drawing.Point(906, 133);
+            this.btn_cancel_reupdated.Margin = new System.Windows.Forms.Padding(6);
+            this.btn_cancel_reupdated.Name = "btn_cancel_reupdated";
+            this.btn_cancel_reupdated.Size = new System.Drawing.Size(138, 42);
+            this.btn_cancel_reupdated.TabIndex = 63;
+            this.btn_cancel_reupdated.Text = "Hủy tiếp nhận";
+            this.btn_cancel_reupdated.UseVisualStyleBackColor = true;
+            this.btn_cancel_reupdated.Click += new System.EventHandler(this.btn_cancel_reupdated_Click_1);
             // 
             // frm_patients
             // 
@@ -1049,7 +1049,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn updated_at_format;
         private System.Windows.Forms.TextBox txb_age;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btn_cancel_reupdated;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton9;
+        private System.Windows.Forms.Button btn_cancel_reupdated;
     }
 }
