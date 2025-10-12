@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txb_name = new System.Windows.Forms.TextBox();
             this.rdn_male = new System.Windows.Forms.RadioButton();
             this.rdn_female = new System.Windows.Forms.RadioButton();
@@ -95,6 +95,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txb_age = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.btn_cancel_reupdated = new System.Windows.Forms.Button();
+            this.guna2ImageButton9 = new Guna.UI2.WinForms.Guna2ImageButton();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv)).BeginInit();
             this.SuspendLayout();
             // 
@@ -162,17 +164,17 @@
             // 
             // dtgv
             // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.dtgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dtgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dtgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dtgv.ColumnHeadersHeight = 35;
             this.dtgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dtgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -191,15 +193,15 @@
             this.temperature,
             this.created_at_format,
             this.updated_at_format});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgv.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgv.DefaultCellStyle = dataGridViewCellStyle3;
             this.dtgv.GridColor = System.Drawing.Color.Black;
             this.dtgv.Location = new System.Drawing.Point(15, 290);
             this.dtgv.Margin = new System.Windows.Forms.Padding(6);
@@ -207,7 +209,7 @@
             this.dtgv.RowHeadersVisible = false;
             this.dtgv.RowHeadersWidth = 51;
             this.dtgv.RowTemplate.Height = 30;
-            this.dtgv.Size = new System.Drawing.Size(1217, 346);
+            this.dtgv.Size = new System.Drawing.Size(1217, 469);
             this.dtgv.TabIndex = 13;
             this.dtgv.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgv.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -884,12 +886,43 @@
             this.label3.TabIndex = 57;
             this.label3.Text = "Tuổi";
             // 
+            // btn_cancel_reupdated
+            // 
+            this.btn_cancel_reupdated.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_cancel_reupdated.Location = new System.Drawing.Point(920, 129);
+            this.btn_cancel_reupdated.Margin = new System.Windows.Forms.Padding(6);
+            this.btn_cancel_reupdated.Name = "btn_cancel_reupdated";
+            this.btn_cancel_reupdated.Size = new System.Drawing.Size(176, 46);
+            this.btn_cancel_reupdated.TabIndex = 59;
+            this.btn_cancel_reupdated.Text = "Hủy tiếp nhận";
+            this.btn_cancel_reupdated.UseVisualStyleBackColor = true;
+            this.btn_cancel_reupdated.Click += new System.EventHandler(this.btn_cancel_reupdated_Click);
+            // 
+            // guna2ImageButton9
+            // 
+            this.guna2ImageButton9.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ImageButton9.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton9.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton9.Image = global::QuanLyPhongKham.Properties.Resources.trash;
+            this.guna2ImageButton9.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton9.ImageRotate = 0F;
+            this.guna2ImageButton9.ImageSize = new System.Drawing.Size(20, 20);
+            this.guna2ImageButton9.Location = new System.Drawing.Point(931, 141);
+            this.guna2ImageButton9.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.guna2ImageButton9.Name = "guna2ImageButton9";
+            this.guna2ImageButton9.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton9.Size = new System.Drawing.Size(12, 30);
+            this.guna2ImageButton9.TabIndex = 60;
+            this.guna2ImageButton9.UseTransparentBackground = true;
+            // 
             // frm_patients
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(230)))));
-            this.ClientSize = new System.Drawing.Size(1370, 749);
+            this.ClientSize = new System.Drawing.Size(1370, 822);
+            this.Controls.Add(this.guna2ImageButton9);
+            this.Controls.Add(this.btn_cancel_reupdated);
             this.Controls.Add(this.txb_age);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -1016,5 +1049,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn updated_at_format;
         private System.Windows.Forms.TextBox txb_age;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btn_cancel_reupdated;
+        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton9;
     }
 }

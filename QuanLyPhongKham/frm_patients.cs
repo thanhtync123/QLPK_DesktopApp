@@ -17,7 +17,7 @@ namespace QuanLyPhongKham
         {
             InitializeComponent();
         }//123213
-        int pagesize = 10;
+        int pagesize = 20;
         int currentpage = 1;
         int totalpage = 0;
         private void LoadPatients(string keyword = "")
@@ -386,6 +386,22 @@ namespace QuanLyPhongKham
                 e.Handled = true;
             if (!char.IsControl(e.KeyChar) && txb_age.Text.Length >= 3)
                 e.Handled = true;
+        }
+
+        private void btn_cancel_reupdated_Click(object sender, EventArgs e)
+        {
+            if (!CheckForm()) return;
+            CheckForm();
+            var data = GetPatientFormData();
+            string query = @"UPDATE patients 
+                         SET updated_at = DATE_SUB(NOW(), INTERVAL 1 DAY)
+                     WHERE id=@id";
+
+            Db.Update(query, data);
+            MessageBox.Show("Hủy tiếp nhận thành công!");
+            ClearForm();
+            LoadPatients();
+            OnPatientChanged?.Invoke();
         }
     }
 }
