@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Printing;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using Mysqlx.Crud;
@@ -340,6 +341,51 @@ namespace QuanLyPhongKham
             currentpage = totalpage;
             LoadPatients(txb_search.Text.Trim());
             lb_currentpage.Text = currentpage.ToString();
+        }
+
+        private void txb_dob_TextChanged(object sender, EventArgs e)
+        {
+ 
+            if (txb_dob.TextLength == 4 && int.TryParse(txb_dob.Text, out int yearOfBirth))
+            {
+                int currentYear = DateTime.Now.Year;
+                int age = currentYear - yearOfBirth;
+                if (age >= 0 && age <= 150)
+                    txb_age.Text = age.ToString();
+                else
+                    txb_age.Text = "";
+            }
+            else
+            
+                txb_age.Text = "";
+            
+        }
+
+        private void txb_age_TextChanged(object sender, EventArgs e)
+        {
+            // Kiểm tra nếu nhập được số tuổi hợp lệ
+            if (int.TryParse(txb_age.Text, out int age))
+            {
+                int currentYear = DateTime.Now.Year;
+                int yearOfBirth = currentYear - age;
+
+                if (yearOfBirth > 1900 && yearOfBirth <= currentYear)
+                    txb_dob.Text = yearOfBirth.ToString();
+                else
+                    txb_dob.Text = "";
+            }
+            else
+            
+                txb_dob.Text = "";
+            
+        }
+
+        private void txb_age_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                e.Handled = true;
+            if (!char.IsControl(e.KeyChar) && txb_age.Text.Length >= 3)
+                e.Handled = true;
         }
     }
 }
