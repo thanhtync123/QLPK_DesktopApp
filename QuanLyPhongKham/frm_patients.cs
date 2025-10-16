@@ -17,7 +17,7 @@ namespace QuanLyPhongKham
         {
             InitializeComponent();
         }//123213
-        int pagesize = 20;
+        int pagesize = 10;
         int currentpage = 1;
         int totalpage = 0;
         private void LoadPatients(string keyword = "")

@@ -209,7 +209,7 @@
             this.dtgv.RowHeadersVisible = false;
             this.dtgv.RowHeadersWidth = 51;
             this.dtgv.RowTemplate.Height = 30;
-            this.dtgv.Size = new System.Drawing.Size(1217, 469);
+            this.dtgv.Size = new System.Drawing.Size(1217, 420);
             this.dtgv.TabIndex = 13;
             this.dtgv.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgv.ThemeStyle.AlternatingRowsStyle.Font = null;
