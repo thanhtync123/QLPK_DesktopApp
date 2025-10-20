@@ -1079,6 +1079,7 @@
             // 
             // dtgv_service_patient
             // 
+            this.dtgv_service_patient.AllowUserToAddRows = false;
             dataGridViewCellStyle18.BackColor = System.Drawing.Color.White;
             this.dtgv_service_patient.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle18;
             this.dtgv_service_patient.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.None;
@@ -1413,6 +1414,7 @@
             // 
             // dtgv_patient_med
             // 
+            this.dtgv_patient_med.AllowUserToAddRows = false;
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle9.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1678,7 +1680,7 @@
             // 
             this.stt_med.HeaderText = "STT";
             this.stt_med.Name = "stt_med";
-            this.stt_med.Width = 30;
+            this.stt_med.Width = 40;
             // 
             // med_name
             // 
@@ -1725,7 +1727,7 @@
             // 
             this.stt_med_patient.HeaderText = "STT";
             this.stt_med_patient.Name = "stt_med_patient";
-            this.stt_med_patient.Width = 30;
+            this.stt_med_patient.Width = 40;
             // 
             // med_name_2
             // 
