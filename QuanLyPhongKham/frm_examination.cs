@@ -217,10 +217,12 @@ namespace QuanLyPhongKham
             string query = @"SELECT `id`, `name`, `note`,`unit`, `price` FROM `medications` order by name";
             Db.cmd = new MySqlCommand(query, Db.conn);
             Db.dr = Db.cmd.ExecuteReader();
+            int stt = 1;
             while (Db.dr.Read())
             {
                 int i = dtgv_med.Rows.Add();
                 DataGridViewRow drr = dtgv_med.Rows[i];
+                drr.Cells["stt_med"].Value = stt++;
                 drr.Cells["id_med"].Value = Db.dr["id"];
                 drr.Cells["med_name"].Value = Db.dr["name"];
                 drr.Cells["price"].Value = Db.dr["price"];
@@ -686,12 +688,18 @@ namespace QuanLyPhongKham
             dtgv_patient_med.Rows[r].Cells["morning"].Value = "";
             dtgv_patient_med.Rows[r].Cells["afternoon"].Value = "";
             dtgv_patient_med.Rows[r].Cells["days_of_use"].Value = "";
+            for (int i = 0; i < dtgv_patient_med.Rows.Count; i++)
+                dtgv_patient_med.Rows[i].Cells["stt_med_patient"].Value = i + 1;
+            
         }
 
         private void dtgv_patient_med_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0 || dtgv_patient_med.Columns[e.ColumnIndex].Name != "delete_med") return;
             dtgv_patient_med.Rows.RemoveAt(e.RowIndex);
+            for (int i = 0; i < dtgv_patient_med.Rows.Count; i++)
+                dtgv_patient_med.Rows[i].Cells["stt_med_patient"].Value = i + 1;
+            
         }
 
         private void dtgv_patient_med_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -1000,6 +1008,8 @@ namespace QuanLyPhongKham
 
         private void btn_select_med_Click(object sender, EventArgs e)
         {
+
+
             frm_popupLUMedication frm = new frm_popupLUMedication();
             frm.PatientID = Convert.ToInt16(txb_id.Text);
             dtgv_patient_med.Rows.Clear();

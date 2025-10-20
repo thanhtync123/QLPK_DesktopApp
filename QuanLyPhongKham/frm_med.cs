@@ -19,8 +19,9 @@ namespace QuanLyPhongKham
             btn_delete.Enabled = false;
 
             txb_search.TextChanged += txb_search_TextChanged;
-
+ 
             dtgv.Columns["id"].Width = 60;
+            dtgv.Columns["stt"].Width = 30;
             dtgv.Columns["name"].Width = 150;
             dtgv.Columns["unit"].Width = 80;
             dtgv.Columns["note"].Width = 150;
@@ -28,9 +29,19 @@ namespace QuanLyPhongKham
 
         private void LoadDTGV()
         {
-            string query = @"SELECT id, name, unit, note FROM medications ORDER BY name";
-            Db.LoadDTGV(dtgv, query);
+            string query = @"
+        SELECT 
+            ROW_NUMBER() OVER (ORDER BY name) AS stt,
+            id,
+            name,
+            unit,
+            note
+        FROM medications
+        ORDER BY name";
 
+            Db.LoadDTGV(dtgv, query);
+            dtgv.Columns["id"].Visible = false;
+            dtgv.Columns["stt"].HeaderText = "STT";
             dtgv.Columns["id"].HeaderText = "Mã thuốc";
             dtgv.Columns["name"].HeaderText = "Tên thuốc";
             dtgv.Columns["unit"].HeaderText = "Đơn vị";

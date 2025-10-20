@@ -135,11 +135,12 @@ namespace QuanLyPhongKham
             Db.cmd = new MySqlCommand(query, Db.conn);
             Db.dr = Db.cmd.ExecuteReader();
             dtgv_detail.Rows.Clear(); // Xóa dữ liệu cũ trong DataGridView
+            int stt = 1;
             while (Db.dr.Read())
             {
                 int i = dtgv_detail.Rows.Add();
                 DataGridViewRow drr = dtgv_detail.Rows[i];
-
+                drr.Cells["stt"].Value = stt++;
                 drr.Cells["c2_examination_id"].Value = Db.dr["examination_id"];
                 drr.Cells["c2_medication_id"].Value = Db.dr["med_id"];
                 drr.Cells["c2_medname"].Value = Db.dr["name"];
@@ -161,13 +162,16 @@ namespace QuanLyPhongKham
 
         private void btn_choose_Click(object sender, EventArgs e)
         {
+            int stt = 1;   
             foreach (DataGridViewRow row in dtgv_detail.Rows)
             {
-                if (row.IsNewRow) continue; 
+                if (row.IsNewRow) continue;
 
                 object[] rowData = new object[]
                 {
+           
                     row.Cells["c2_medication_id"].Value,
+                             stt++,
                     row.Cells["c2_medname"].Value,
                     row.Cells["c2_unit"].Value,
                     row.Cells["c2_morning"].Value,

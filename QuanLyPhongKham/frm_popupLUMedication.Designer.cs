@@ -47,17 +47,6 @@
             this.c1_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.c1_update_day = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtgv_detail = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.c2_examination_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c2_medication_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c2_medname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c2_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c2_morning = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c2_noon = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c2_afternoon = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c2_evening = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c2_days_of_use = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c2_total_quantity_med = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c2_note = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lb_state = new System.Windows.Forms.Label();
             this.chb_viewall = new System.Windows.Forms.CheckBox();
             this.btn_maxpage = new System.Windows.Forms.Button();
@@ -68,6 +57,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lb_totalpage = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.c2_examination_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c2_medication_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c2_medname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c2_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c2_morning = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c2_noon = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c2_afternoon = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c2_evening = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c2_days_of_use = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c2_total_quantity_med = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c2_note = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_patient_medication)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_detail)).BeginInit();
             this.SuspendLayout();
@@ -269,6 +270,7 @@
             this.dtgv_detail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dtgv_detail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.c2_examination_id,
+            this.stt,
             this.c2_medication_id,
             this.c2_medname,
             this.c2_unit,
@@ -291,7 +293,7 @@
             this.dtgv_detail.Location = new System.Drawing.Point(446, 92);
             this.dtgv_detail.Name = "dtgv_detail";
             this.dtgv_detail.RowHeadersVisible = false;
-            this.dtgv_detail.Size = new System.Drawing.Size(792, 602);
+            this.dtgv_detail.Size = new System.Drawing.Size(825, 602);
             this.dtgv_detail.TabIndex = 26;
             this.dtgv_detail.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgv_detail.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -314,74 +316,6 @@
             this.dtgv_detail.ThemeStyle.RowsStyle.Height = 22;
             this.dtgv_detail.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtgv_detail.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            // 
-            // c2_examination_id
-            // 
-            this.c2_examination_id.HeaderText = "Mã phiếu khám";
-            this.c2_examination_id.Name = "c2_examination_id";
-            this.c2_examination_id.Visible = false;
-            this.c2_examination_id.Width = 86;
-            // 
-            // c2_medication_id
-            // 
-            this.c2_medication_id.HeaderText = "Mã thuốc";
-            this.c2_medication_id.Name = "c2_medication_id";
-            this.c2_medication_id.Visible = false;
-            this.c2_medication_id.Width = 97;
-            // 
-            // c2_medname
-            // 
-            this.c2_medname.HeaderText = "Tên thuốc";
-            this.c2_medname.Name = "c2_medname";
-            this.c2_medname.Width = 200;
-            // 
-            // c2_unit
-            // 
-            this.c2_unit.HeaderText = "ĐV";
-            this.c2_unit.Name = "c2_unit";
-            this.c2_unit.Width = 70;
-            // 
-            // c2_morning
-            // 
-            this.c2_morning.HeaderText = "Sáng";
-            this.c2_morning.Name = "c2_morning";
-            this.c2_morning.Width = 50;
-            // 
-            // c2_noon
-            // 
-            this.c2_noon.HeaderText = "Trưa";
-            this.c2_noon.Name = "c2_noon";
-            this.c2_noon.Width = 50;
-            // 
-            // c2_afternoon
-            // 
-            this.c2_afternoon.HeaderText = "Chiều";
-            this.c2_afternoon.Name = "c2_afternoon";
-            this.c2_afternoon.Width = 50;
-            // 
-            // c2_evening
-            // 
-            this.c2_evening.HeaderText = "Tối";
-            this.c2_evening.Name = "c2_evening";
-            this.c2_evening.Width = 50;
-            // 
-            // c2_days_of_use
-            // 
-            this.c2_days_of_use.HeaderText = "Số ngày";
-            this.c2_days_of_use.Name = "c2_days_of_use";
-            this.c2_days_of_use.Width = 50;
-            // 
-            // c2_total_quantity_med
-            // 
-            this.c2_total_quantity_med.HeaderText = "Số lượng";
-            this.c2_total_quantity_med.Name = "c2_total_quantity_med";
-            this.c2_total_quantity_med.Width = 50;
-            // 
-            // c2_note
-            // 
-            this.c2_note.HeaderText = "Ghi chú";
-            this.c2_note.Name = "c2_note";
-            this.c2_note.Width = 230;
             // 
             // lb_state
             // 
@@ -490,10 +424,84 @@
             this.label3.TabIndex = 63;
             this.label3.Text = "/";
             // 
+            // c2_examination_id
+            // 
+            this.c2_examination_id.HeaderText = "Mã phiếu khám";
+            this.c2_examination_id.Name = "c2_examination_id";
+            this.c2_examination_id.Visible = false;
+            this.c2_examination_id.Width = 86;
+            // 
+            // stt
+            // 
+            this.stt.HeaderText = "STT";
+            this.stt.Name = "stt";
+            this.stt.Width = 40;
+            // 
+            // c2_medication_id
+            // 
+            this.c2_medication_id.HeaderText = "Mã thuốc";
+            this.c2_medication_id.Name = "c2_medication_id";
+            this.c2_medication_id.Visible = false;
+            this.c2_medication_id.Width = 97;
+            // 
+            // c2_medname
+            // 
+            this.c2_medname.HeaderText = "Tên thuốc";
+            this.c2_medname.Name = "c2_medname";
+            this.c2_medname.Width = 200;
+            // 
+            // c2_unit
+            // 
+            this.c2_unit.HeaderText = "ĐV";
+            this.c2_unit.Name = "c2_unit";
+            this.c2_unit.Width = 70;
+            // 
+            // c2_morning
+            // 
+            this.c2_morning.HeaderText = "Sáng";
+            this.c2_morning.Name = "c2_morning";
+            this.c2_morning.Width = 50;
+            // 
+            // c2_noon
+            // 
+            this.c2_noon.HeaderText = "Trưa";
+            this.c2_noon.Name = "c2_noon";
+            this.c2_noon.Width = 50;
+            // 
+            // c2_afternoon
+            // 
+            this.c2_afternoon.HeaderText = "Chiều";
+            this.c2_afternoon.Name = "c2_afternoon";
+            this.c2_afternoon.Width = 50;
+            // 
+            // c2_evening
+            // 
+            this.c2_evening.HeaderText = "Tối";
+            this.c2_evening.Name = "c2_evening";
+            this.c2_evening.Width = 50;
+            // 
+            // c2_days_of_use
+            // 
+            this.c2_days_of_use.HeaderText = "Số ngày";
+            this.c2_days_of_use.Name = "c2_days_of_use";
+            this.c2_days_of_use.Width = 50;
+            // 
+            // c2_total_quantity_med
+            // 
+            this.c2_total_quantity_med.HeaderText = "Số lượng";
+            this.c2_total_quantity_med.Name = "c2_total_quantity_med";
+            this.c2_total_quantity_med.Width = 50;
+            // 
+            // c2_note
+            // 
+            this.c2_note.HeaderText = "Ghi chú";
+            this.c2_note.Name = "c2_note";
+            this.c2_note.Width = 250;
+            // 
             // frm_popupLUMedication
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1250, 736);
+            this.ClientSize = new System.Drawing.Size(1283, 736);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lb_totalpage);
             this.Controls.Add(this.label1);
@@ -535,17 +543,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn c1_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn c1_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn c1_update_day;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c2_examination_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c2_medication_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c2_medname;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c2_unit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c2_morning;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c2_noon;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c2_afternoon;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c2_evening;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c2_days_of_use;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c2_total_quantity_med;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c2_note;
         private System.Windows.Forms.Label lb_state;
         private System.Windows.Forms.CheckBox chb_viewall;
         private System.Windows.Forms.Button btn_maxpage;
@@ -556,5 +553,17 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lb_totalpage;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c2_examination_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stt;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c2_medication_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c2_medname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c2_unit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c2_morning;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c2_noon;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c2_afternoon;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c2_evening;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c2_days_of_use;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c2_total_quantity_med;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c2_note;
     }
 }
