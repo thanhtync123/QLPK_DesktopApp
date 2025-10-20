@@ -56,7 +56,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
             <Top>1.54893in</Top>
-            <Left>2.521in</Left>
+            <Left>2.896in</Left>
             <Height>0.25in</Height>
             <Width>1.025in</Width>
             <ZIndex>1</ZIndex>
@@ -162,7 +162,7 @@
             <Top>1.54893in</Top>
             <Left>0.80374in</Left>
             <Height>0.25in</Height>
-            <Width>2.55269in</Width>
+            <Width>2.57559in</Width>
             <ZIndex>4</ZIndex>
             <Style>
               <Border>
@@ -188,7 +188,7 @@
             </Paragraphs>
             <rd:DefaultName>txb_ngaysinh</rd:DefaultName>
             <Top>1.54893in</Top>
-            <Left>3.546in</Left>
+            <Left>3.921in</Left>
             <Height>0.25in</Height>
             <Width>1.29405in</Width>
             <ZIndex>5</ZIndex>
@@ -1003,7 +1003,7 @@
             </Style>
           </Image>
         </ReportItems>
-        <Height>9.18938cm</Height>
+        <Height>9.08355cm</Height>
         <Style />
       </Body>
       <Width>14.20284cm</Width>
