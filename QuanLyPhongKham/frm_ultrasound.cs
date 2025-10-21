@@ -160,7 +160,7 @@ namespace QuanLyPhongKham
                 var diachi = txb_address.Text.Trim();
                 var sdt = txb_phone.Text.Trim();
                 var chandoan = txb_chandoan.Text.Trim();
-                var chandoanphu = txb_chandoanphu.Text.Trim();
+                var chandoanphu = txb_trieuchung.Text.Trim();
                 var mota = txb_result.Text.Trim();
                 var ketqua = txb_final_result.Text.Trim();
                 var chidinh = txb_service.Text.Trim();
@@ -370,7 +370,7 @@ namespace QuanLyPhongKham
                 var phone = row.Cells["phone"].Value?.ToString();
                 var address = row.Cells["address"].Value?.ToString();
                 var updated_at = row.Cells["updated_at"].Value?.ToString();
-                var reason = row.Cells["reason"].Value?.ToString();
+                var symptoms = row.Cells["symptoms"].Value?.ToString();
                 var diagnosis = row.Cells["diagnosis"].Value?.ToString();
                 var note = row.Cells["note"].Value?.ToString();
 
@@ -385,7 +385,7 @@ namespace QuanLyPhongKham
                 Db.SetTextAndMoveCursorToEnd(txb_phone, phone);
                 Db.SetTextAndMoveCursorToEnd(txb_address, address);
                 Db.SetTextAndMoveCursorToEnd(txb_reception_date, updated_at);
-                Db.SetTextAndMoveCursorToEnd(txb_chandoanphu, reason);
+                Db.SetTextAndMoveCursorToEnd(txb_trieuchung, symptoms);
                 Db.SetTextAndMoveCursorToEnd(txb_id_patient, id_patient);
                 Db.SetTextAndMoveCursorToEnd(txb_note, note);
                 txb_service.Text = "";
@@ -842,7 +842,7 @@ namespace QuanLyPhongKham
                 txb_name.Text = "";
                 txb_phone.Text = "";
                 txb_chandoan.Text = "";
-                txb_chandoanphu.Text = "";
+                txb_trieuchung.Text = "";
                 txb_reception_date.Text = "";
                 txb_result.Text = "";
                 txb_service.Text = "";

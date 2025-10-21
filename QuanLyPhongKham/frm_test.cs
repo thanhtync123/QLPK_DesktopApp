@@ -64,7 +64,7 @@ namespace QuanLyPhongKham
                 Db.SetTextAndMoveCursorToEnd(txb_phone, row.Cells["phone"].Value?.ToString());
                 Db.SetTextAndMoveCursorToEnd(txb_address, row.Cells["address"].Value?.ToString());
                 Db.SetTextAndMoveCursorToEnd(txb_reception_date, row.Cells["updated_at"].Value?.ToString());
-                Db.SetTextAndMoveCursorToEnd(txb_reason, row.Cells["reason"].Value?.ToString());
+                Db.SetTextAndMoveCursorToEnd(txb_symptoms, row.Cells["symptoms"].Value?.ToString());
                 var diagnosis = row.Cells["diagnosis"].Value?.ToString();
                 txb_reason1.Text = diagnosis;
                 var dob = Convert.ToInt16(date_of_birth);
@@ -490,7 +490,7 @@ namespace QuanLyPhongKham
             //  var ngaysinh = txb_dob.Text;
             var ngaysinh = txb_age.Text;
             var chandoan = txb_reason1.Text;
-            var chandoanphu = txb_reason.Text;
+            var chandoanphu = txb_symptoms.Text;
             var diachi = txb_address.Text;
             var ketqua = txb_final_result.Text;
             var ngaykham = DateTime.Now.ToString("'Ngày' dd 'tháng' MM 'năm' yyyy");
@@ -597,7 +597,7 @@ namespace QuanLyPhongKham
                 txb_id_patient.Text = "";
                 txb_name.Text = "";
                 txb_phone.Text = "";
-                txb_reason.Text = "";
+                txb_symptoms.Text = "";
                 txb_reason1.Text = "";
                 txb_reception_date.Text = "";
                 //   txb_result.Text = "";

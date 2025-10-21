@@ -44,9 +44,14 @@ namespace QuanLyPhongKham
                     reader.Close();
                     Db.conn.Close();
 
+                    this.Hide(); 
                     frm_nav frm = new frm_nav(role);
-                    frm.ShowDialog();
+                    frm.ShowDialog(); 
                     this.Close();
+
+
+
+
                 }
                 else
                 {
@@ -54,6 +59,7 @@ namespace QuanLyPhongKham
                     Db.conn.Close();
                     MessageBox.Show("Tài khoản hoặc mật khẩu không đúng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+               
             }
             catch (Exception ex)
             {

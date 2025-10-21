@@ -75,7 +75,7 @@
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.state = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txb_reason = new System.Windows.Forms.TextBox();
+            this.txb_symptoms = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txb_address = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -376,7 +376,7 @@
             this.panel3.Controls.Add(this.txb_service);
             this.panel3.Controls.Add(this.label14);
             this.panel3.Controls.Add(this.dtgv_service);
-            this.panel3.Controls.Add(this.txb_reason);
+            this.panel3.Controls.Add(this.txb_symptoms);
             this.panel3.Controls.Add(this.label11);
             this.panel3.Controls.Add(this.txb_address);
             this.panel3.Controls.Add(this.label9);
@@ -406,11 +406,11 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(10, 182);
+            this.label10.Location = new System.Drawing.Point(37, 183);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(101, 19);
+            this.label10.Size = new System.Drawing.Size(80, 19);
             this.label10.TabIndex = 45;
-            this.label10.Text = "Chẩn đoán phụ";
+            this.label10.Text = "Triệu chứng";
             // 
             // txb_name
             // 
@@ -634,13 +634,13 @@
             this.state.Name = "state";
             this.state.Width = 120;
             // 
-            // txb_reason
+            // txb_symptoms
             // 
-            this.txb_reason.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_reason.Location = new System.Drawing.Point(131, 176);
-            this.txb_reason.Name = "txb_reason";
-            this.txb_reason.Size = new System.Drawing.Size(407, 26);
-            this.txb_reason.TabIndex = 25;
+            this.txb_symptoms.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txb_symptoms.Location = new System.Drawing.Point(131, 176);
+            this.txb_symptoms.Name = "txb_symptoms";
+            this.txb_symptoms.Size = new System.Drawing.Size(407, 26);
+            this.txb_symptoms.TabIndex = 25;
             // 
             // label11
             // 
@@ -916,7 +916,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txb_reason;
+        private System.Windows.Forms.TextBox txb_symptoms;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txb_address;
         private System.Windows.Forms.Label label9;

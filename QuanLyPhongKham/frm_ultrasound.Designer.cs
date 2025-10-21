@@ -90,7 +90,7 @@
             this.label14 = new System.Windows.Forms.Label();
             this.txb_note = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.txb_chandoanphu = new System.Windows.Forms.TextBox();
+            this.txb_trieuchung = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txb_chandoan = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -630,7 +630,7 @@
             this.panel3.Controls.Add(this.label14);
             this.panel3.Controls.Add(this.txb_note);
             this.panel3.Controls.Add(this.label12);
-            this.panel3.Controls.Add(this.txb_chandoanphu);
+            this.panel3.Controls.Add(this.txb_trieuchung);
             this.panel3.Controls.Add(this.label11);
             this.panel3.Controls.Add(this.txb_chandoan);
             this.panel3.Controls.Add(this.label10);
@@ -902,14 +902,14 @@
             this.label12.TabIndex = 26;
             this.label12.Text = "Ghi chú";
             // 
-            // txb_chandoanphu
+            // txb_trieuchung
             // 
-            this.txb_chandoanphu.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_chandoanphu.Location = new System.Drawing.Point(121, 169);
-            this.txb_chandoanphu.Margin = new System.Windows.Forms.Padding(4);
-            this.txb_chandoanphu.Name = "txb_chandoanphu";
-            this.txb_chandoanphu.Size = new System.Drawing.Size(368, 26);
-            this.txb_chandoanphu.TabIndex = 25;
+            this.txb_trieuchung.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txb_trieuchung.Location = new System.Drawing.Point(121, 169);
+            this.txb_trieuchung.Margin = new System.Windows.Forms.Padding(4);
+            this.txb_trieuchung.Name = "txb_trieuchung";
+            this.txb_trieuchung.Size = new System.Drawing.Size(368, 26);
+            this.txb_trieuchung.TabIndex = 25;
             // 
             // label11
             // 
@@ -934,11 +934,11 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(0, 172);
+            this.label10.Location = new System.Drawing.Point(20, 171);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(118, 20);
+            this.label10.Size = new System.Drawing.Size(92, 20);
             this.label10.TabIndex = 22;
-            this.label10.Text = "Chẩn đoán phụ";
+            this.label10.Text = "Triệu chứng";
             // 
             // txb_address
             // 
@@ -1241,7 +1241,7 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txb_note;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox txb_chandoanphu;
+        private System.Windows.Forms.TextBox txb_trieuchung;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txb_chandoan;
         private System.Windows.Forms.Label label10;

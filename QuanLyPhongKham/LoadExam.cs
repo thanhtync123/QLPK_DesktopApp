@@ -23,7 +23,7 @@ namespace QuanLyPhongKham
             dtgv_exam.Columns.Add("phone", "SĐT");
             dtgv_exam.Columns.Add("address", "Địa chỉ");
             dtgv_exam.Columns.Add("updated_at", "Ngày cập nhật");
-            dtgv_exam.Columns.Add("reason", "Lý do khám");
+            dtgv_exam.Columns.Add("symptoms", "Triệu chứng");
             dtgv_exam.Columns.Add("diagnosis", "Chẩn đoán");
             dtgv_exam.Columns.Add("note", "Ghi chú");
             dtgv_exam.Columns.Add("time_exam", "Cấp phiếu lúc");
@@ -34,7 +34,7 @@ namespace QuanLyPhongKham
             dtgv_exam.Columns["time_exam"].Width = 130;
             string[] columnsToHide = {
         "gender", "phone","id_patient",
-        "address", "updated_at", "reason", "diagnosis", "note",
+        "address", "updated_at", "symptoms", "diagnosis", "note",
         "date_of_birth"
     };
             foreach (string columnName in columnsToHide)
@@ -58,7 +58,7 @@ namespace QuanLyPhongKham
             p.phone,
             p.address,
             DATE_FORMAT(p.updated_at, '%d/%m/%Y %H:%i') AS updated_at,
-            e.reason,
+            e.symptoms as symptoms,
             d.name AS diagnosis,
             e.note,
             GROUP_CONCAT(DISTINCT s.id) AS service_ids,
@@ -118,7 +118,7 @@ namespace QuanLyPhongKham
                 drr.Cells["phone"].Value = Db.dr["phone"];
                 drr.Cells["address"].Value = Db.dr["address"];
                 drr.Cells["updated_at"].Value = Db.dr["updated_at"];
-                drr.Cells["reason"].Value = Db.dr["reason"];
+                drr.Cells["symptoms"].Value = Db.dr["symptoms"];
                 drr.Cells["diagnosis"].Value = Db.dr["diagnosis"];
                 drr.Cells["note"].Value = Db.dr["note"];
                 drr.Cells["time_exam"].Value = Db.dr["time_exam"];

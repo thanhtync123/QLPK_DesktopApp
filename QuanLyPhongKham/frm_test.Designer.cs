@@ -86,7 +86,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.txb_service = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.txb_reason = new System.Windows.Forms.TextBox();
+            this.txb_symptoms = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txb_address = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -487,7 +487,7 @@
             this.panel3.Controls.Add(this.label13);
             this.panel3.Controls.Add(this.txb_service);
             this.panel3.Controls.Add(this.label14);
-            this.panel3.Controls.Add(this.txb_reason);
+            this.panel3.Controls.Add(this.txb_symptoms);
             this.panel3.Controls.Add(this.label11);
             this.panel3.Controls.Add(this.txb_address);
             this.panel3.Controls.Add(this.label9);
@@ -799,23 +799,23 @@
             this.label14.TabIndex = 29;
             this.label14.Text = "Chỉ định";
             // 
-            // txb_reason
+            // txb_symptoms
             // 
-            this.txb_reason.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_reason.Location = new System.Drawing.Point(140, 180);
-            this.txb_reason.Name = "txb_reason";
-            this.txb_reason.Size = new System.Drawing.Size(337, 26);
-            this.txb_reason.TabIndex = 25;
+            this.txb_symptoms.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txb_symptoms.Location = new System.Drawing.Point(140, 180);
+            this.txb_symptoms.Name = "txb_symptoms";
+            this.txb_symptoms.Size = new System.Drawing.Size(337, 26);
+            this.txb_symptoms.TabIndex = 25;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(-2, 177);
+            this.label11.Location = new System.Drawing.Point(21, 186);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(118, 20);
+            this.label11.Size = new System.Drawing.Size(92, 20);
             this.label11.TabIndex = 24;
-            this.label11.Text = "Chẩn đoán phụ";
+            this.label11.Text = "Triệu chứng";
             // 
             // txb_address
             // 
@@ -991,7 +991,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txb_service;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox txb_reason;
+        private System.Windows.Forms.TextBox txb_symptoms;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txb_address;
         private System.Windows.Forms.Label label9;
