@@ -32,7 +32,7 @@ namespace QuanLyPhongKham
         {
             InitializeComponent();
             frm_patients.OnPatientChanged += () => LoadGrid();
-        
+
         }
 
         private void UpdateSTT()
@@ -59,6 +59,7 @@ namespace QuanLyPhongKham
         {
             dtgv_patients.AutoGenerateColumns = false;
             dtgv_patients.Columns["last_exam_id"].DataPropertyName = "exam_id";
+            dtgv_patients.Columns["symptoms"].DataPropertyName = "symptoms";
             dtgv_patients.Columns["STT_P"].DataPropertyName = "STT_P";
             dtgv_patients.Columns["ID_P"].DataPropertyName = "id"; // từ SQL p.id
             dtgv_patients.Columns["name_p"].DataPropertyName = "name"; // từ SQL p.name
@@ -75,7 +76,7 @@ namespace QuanLyPhongKham
             dtgv_patients.Columns["last_diagnoses_id"].DataPropertyName = "last_diagnoses_id";
             dtgv_patients.Columns["last_diagnoses_name"].DataPropertyName = "last_diagnoses_name";
             dtgv_patients.Columns["time_patient"].DataPropertyName = "updated_time"; // SQL DATE_FORMAT
-            dtgv_patients.Columns["state"].DataPropertyName = "state"; 
+            dtgv_patients.Columns["state"].DataPropertyName = "state";
         }
 
         private void LoadGrid()
@@ -97,6 +98,7 @@ namespace QuanLyPhongKham
                             p.weight,
                             p.height, 
                             p.temperature,
+                            MAX(e.symptoms) as symptoms,
                             MAX(e.diagnosis_id) AS last_diagnoses_id,  -- Lấy giá trị MAX của e.diagnosis_id
                             MAX(d.name) AS last_diagnoses_name  -- Lấy giá trị MAX của d.name
                         FROM patients p
@@ -128,6 +130,7 @@ namespace QuanLyPhongKham
             LoadDTGV_Med();
             Update_FollowUpDate();
             lb_d0.Text = "";
+            lb_d1.Text = "";
             dtgv_service_patient.Rows.Add("", "-", "Công khám", "Miễn phí", "", "-");
             btn_update_examination.Enabled = false;
             btn_select_med.Enabled = false;
@@ -139,7 +142,7 @@ namespace QuanLyPhongKham
 
         private void dtgv_patients_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-       
+
             LoadExamID();
             btn_tinhtien.Enabled = true;
             btn_pre_service.Enabled = true;
@@ -163,6 +166,8 @@ namespace QuanLyPhongKham
             txb_weight.Text = dtgv_patients.CurrentRow.Cells["weight_p"].Value.ToString();
             txb_height.Text = dtgv_patients.CurrentRow.Cells["height_p"].Value.ToString();
             txb_temperature.Text = dtgv_patients.CurrentRow.Cells["temperature_p"].Value.ToString();
+            txb_symptoms.Text = dtgv_patients.CurrentRow.Cells["symptoms"].Value.ToString();
+
             if (dtgv_patients.CurrentRow.Cells["last_diagnoses_id"].Value == null || dtgv_patients.CurrentRow.Cells["last_diagnoses_id"].Value == DBNull.Value)
                 cbo_diagnoses.SelectedIndex = 0;
             else
@@ -172,6 +177,18 @@ namespace QuanLyPhongKham
             if (idVal != null && idVal != DBNull.Value && (nameVal == null || nameVal == DBNull.Value || nameVal.ToString().Trim() == ""))
                 lb_d0.Text = "Lần khám trước: Tên chẩn đoán được bỏ trống";
             else lb_d0.Text = "";
+
+            string state = dtgv_patients.CurrentRow.Cells["state"].Value?.ToString()?.Trim();
+
+            if (state == "Vừa tiếp nhận")
+                lb_d1.Text = "";
+            else
+                lb_d1.Text = dtgv_patients.CurrentRow.Cells["symptoms"].Value == DBNull.Value || dtgv_patients.CurrentRow.Cells["symptoms"].Value.ToString() == ""
+                    ? "Lần khám trước triệu chứng được bỏ trống" : "";
+
+
+
+
 
 
 
@@ -284,9 +301,9 @@ namespace QuanLyPhongKham
                 int diagnosisID;
 
                 if (diagnosisResult != null)
-                
+
                     diagnosisID = Convert.ToInt32(diagnosisResult);
-                
+
                 else
                 {
                     // Nếu chưa có thì thêm mới
@@ -304,13 +321,13 @@ namespace QuanLyPhongKham
                 // Thêm phiếu khám
                 string queryExamination = @"
         INSERT INTO examinations 
-        (id, patient_id, reason, diagnosis_id, doctor_note_id, note, pulse, blood_pressure, respiratory_rate, weight, height, temperature, type, created_at, updated_at) 
+        (id, patient_id, symptoms, diagnosis_id, doctor_note_id, note, pulse, blood_pressure, respiratory_rate, weight, height, temperature, type, created_at, updated_at) 
         VALUES 
-        (NULL, @patient_id, @reason, @diagnosis_id, @doctor_note_id, @note, @pulse, @blood_pressure, @respiratory_rate, @weight, @height, @temperature, @type, current_timestamp(), current_timestamp());";
+        (NULL, @patient_id, @symptoms, @diagnosis_id, @doctor_note_id, @note, @pulse, @blood_pressure, @respiratory_rate, @weight, @height, @temperature, @type, current_timestamp(), current_timestamp());";
 
                 MySqlCommand cmd = new MySqlCommand(queryExamination, Db.conn);
                 cmd.Parameters.AddWithValue("@patient_id", Convert.ToInt16(txb_id.Text));
-                cmd.Parameters.AddWithValue("@reason", lbsdfsf.Text);
+                cmd.Parameters.AddWithValue("@symptoms", txb_symptoms.Text);
                 cmd.Parameters.AddWithValue("@diagnosis_id", diagnosisID);
                 cmd.Parameters.AddWithValue("@doctor_note_id", Convert.ToInt16(cb_doctornote.SelectedValue));
                 cmd.Parameters.AddWithValue("@note", txb_note.Text);
@@ -398,7 +415,7 @@ namespace QuanLyPhongKham
 
             try
             {
-                Db.ResetConnection(); 
+                Db.ResetConnection();
                 int diagnosisId;
                 using (MySqlCommand cmdCheck = new MySqlCommand("SELECT id FROM diagnoses WHERE name = @name", Db.conn))
                 {
@@ -428,13 +445,13 @@ namespace QuanLyPhongKham
                 // 3. Thêm phiếu khám
                 string queryExamination = $@"
                     INSERT INTO examinations (
-                        id, patient_id, reason, diagnosis_id, doctor_note_id, note, 
+                        id, patient_id, symptoms, diagnosis_id, doctor_note_id, note, 
                         pulse, blood_pressure, respiratory_rate, weight, height, temperature, 
                         type, follow_up, price, state, created_at, updated_at
                     ) 
                     VALUES (
                         NULL, 
-                        @patient_id, @reason, @diagnosis_id, @doctor_note_id, @note,
+                        @patient_id,{(txb_symptoms.Text == "" ? "NULL" : $"'{txb_symptoms.Text}'")}, @diagnosis_id, @doctor_note_id, @note,
                         @pulse, @blood_pressure, @respiratory_rate, @weight, @height, @temperature,
                         'chỉ định', NULL, @price, 'Chưa gọi', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP()
                     );";
@@ -442,7 +459,6 @@ namespace QuanLyPhongKham
                 using (MySqlCommand cmdExam = new MySqlCommand(queryExamination, Db.conn))
                 {
                     cmdExam.Parameters.AddWithValue("@patient_id", txb_id.Text);
-                    cmdExam.Parameters.AddWithValue("@reason", txb_reason.Text.Trim());
                     cmdExam.Parameters.AddWithValue("@diagnosis_id", diagnosisId);
                     cmdExam.Parameters.AddWithValue("@doctor_note_id", cb_doctornote.SelectedValue);
                     cmdExam.Parameters.AddWithValue("@note", txb_note.Text.Trim());
@@ -595,14 +611,14 @@ namespace QuanLyPhongKham
             var gioitinh = txb_gender.Text;
             var loidan = cb_doctornote.Text;
             var chandoan = cbo_diagnoses.Text;
-            var chandoanphu = txb_reason.Text;
+            var trieuchung = txb_symptoms.Text;
             var tongtien = lb_total_price_service.Text;
             var ngaykham = DateTime.Now.ToString("'Ngày' dd 'tháng' MM 'năm' yyyy");
             var sdt = txb_phone.Text;
 
             frm_report_service frm = new frm_report_service(
                 GetDataTableFromDataGridView(dtgv_service_patient),
-                mabn, tenbn, diachi, ngaysinh, gioitinh, loidan, chandoan, chandoanphu, ngaykham, tongtien, sdt // thêm tongtien
+                mabn, tenbn, diachi, ngaysinh, gioitinh, loidan, chandoan, trieuchung, ngaykham, tongtien, sdt // thêm tongtien
             );
             frm.ShowDialog();
         }
@@ -672,7 +688,7 @@ namespace QuanLyPhongKham
 
                 lb_total_price_service.Text = total.ToString("N0") + " đ";
             }
- 
+
         }
 
 
@@ -690,7 +706,7 @@ namespace QuanLyPhongKham
             dtgv_patient_med.Rows[r].Cells["days_of_use"].Value = "";
             for (int i = 0; i < dtgv_patient_med.Rows.Count; i++)
                 dtgv_patient_med.Rows[i].Cells["stt_med_patient"].Value = i + 1;
-            
+
         }
 
         private void dtgv_patient_med_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -699,7 +715,7 @@ namespace QuanLyPhongKham
             dtgv_patient_med.Rows.RemoveAt(e.RowIndex);
             for (int i = 0; i < dtgv_patient_med.Rows.Count; i++)
                 dtgv_patient_med.Rows[i].Cells["stt_med_patient"].Value = i + 1;
-            
+
         }
 
         private void dtgv_patient_med_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -721,7 +737,7 @@ namespace QuanLyPhongKham
                 return;
             }
 
-            if (dtgv_patient_med.Rows.Count <= 1)
+            if (dtgv_patient_med.Rows.Count < 1)
             {
                 MessageBox.Show("Vui lòng thêm thuốc vào toa!");
                 return;
@@ -750,17 +766,18 @@ namespace QuanLyPhongKham
                 {
                     diagnosisId = Convert.ToInt32(result);
                 }
-
-                // --- Thêm phiếu khám ---
-                string insertExam = $@"
+                string insertExam = "";
+                try
+                {
+                    insertExam = $@"
                     INSERT INTO `examinations` (
-                        `id`, `patient_id`, `reason`, `diagnosis_id`, `doctor_note_id`, `note`,
+                        `id`, `patient_id`, `symptoms`, `diagnosis_id`, `doctor_note_id`, `note`,
                         `pulse`, `blood_pressure`, `respiratory_rate`, `weight`, `height`,
                         `temperature`, `type`, `follow_up`, `price`, `state`, `created_at`, `updated_at`
                     ) VALUES (
                         NULL,
                         '{txb_id.Text}',
-                        NULL,
+                        {(txb_symptoms.Text == "" ? "NULL" : $"'{txb_symptoms.Text}'")},
                         '{diagnosisId}',
                         '{cb_doctornote.SelectedValue}',
                         '{txb_note.Text.Replace("'", "''")}',
@@ -778,9 +795,13 @@ namespace QuanLyPhongKham
                         current_timestamp()
                     );
                 ";
-                Db.ExecuteNonQuery(insertExam);
+                    Db.ExecuteNonQuery(insertExam);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi thêm phiếu:" + insertExam);
+                }
 
-                // --- Thêm thuốc ---
                 foreach (DataGridViewRow row in dtgv_patient_med.Rows)
                 {
                     if (row.IsNewRow) continue;
@@ -806,7 +827,10 @@ namespace QuanLyPhongKham
                     string unit = row.Cells["unit_2"].Value?.ToString()?.Replace("'", "''");
                     string note = row.Cells["note_2"].Value?.ToString()?.Replace("'", "''");
                     string days = string.IsNullOrEmpty(row.Cells["days_of_use"].Value?.ToString()) ? "NULL" : row.Cells["days_of_use"].Value.ToString();
-                    string insertMed = $@"
+                    string insertMed = "";
+                    try
+                    {
+                        insertMed = $@"
             INSERT INTO `examination_medications` (
                 `id`, `examination_id`, `medication_id`, `morning`,`noon`, `afternoon`,`evening`, `unit`,
                 `days_of_use`, `total_quantity_med`, `note`, `created_at`, `updated_at`
@@ -826,16 +850,27 @@ namespace QuanLyPhongKham
                 current_timestamp()
             );
         ";
-                    Db.ExecuteNonQuery(insertMed);
+                        Db.ExecuteNonQuery(insertMed);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi thêm thuốc:" + insertMed);
+                    }
+
+
+
                 }
 
                 LoadExamID();
-                LoadGrid(); 
-                MessageBox.Show("Thêm toa thành công!"); 
+                LoadGrid();
+                MessageBox.Show("Thêm toa thành công!");
+                // MessageBox.Show(insertExam);
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Đã xảy ra lỗi:\n" + ex.Message);
+
             }
 
         }
@@ -848,9 +883,9 @@ namespace QuanLyPhongKham
                 txb_follow_up.Text = formattedDate;
             }
             else
-            
+
                 txb_follow_up.Text = "Không";
-            
+
         }
         private void chb_follow_up_CheckedChanged(object sender, EventArgs e)
         {
@@ -865,7 +900,7 @@ namespace QuanLyPhongKham
             var ngaysinh = txb_age.Text;
             var loidan = cb_doctornote.Text;
             var chandoan = cbo_diagnoses.Text;
-            var chandoanphu = txb_reason.Text;
+            var chandoanphu = txb_symptoms.Text;
             string tongtien = chb_print_money.Checked ? txb_total_price_med.Text : "";
             var ngaykham = DateTime.Now.ToString("'Ngày' dd 'tháng' MM 'năm' yyyy");
             var sdt = txb_phone.Text;
@@ -1079,7 +1114,7 @@ namespace QuanLyPhongKham
                         hasInserted = true;
                         btn_save_examination_service.Enabled = true;
                         btn_update_examination.Enabled = false;
-                     
+
 
                     }
                     catch (Exception ex)
@@ -1095,7 +1130,7 @@ namespace QuanLyPhongKham
                 MessageBox.Show("Cập nhật dịch vụ cho phiếu thành công");
                 LoadExamID();
             }
-       
+
         }
 
         private void dtgv_patients_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
@@ -1155,6 +1190,11 @@ namespace QuanLyPhongKham
             Db.ExecuteNonQuery(query);
             MessageBox.Show("Hủy tiếp nhận thành công!");
             LoadGrid();
+        }
+
+        private void dtgv_patients_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
