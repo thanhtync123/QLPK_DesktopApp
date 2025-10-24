@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.label_1 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -54,7 +54,6 @@
             this.guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2ImageButton2 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.lb_4 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.pn_test = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2ImageButton6 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.lb_8 = new System.Windows.Forms.Label();
@@ -80,6 +79,8 @@
             this.lb_vgb = new System.Windows.Forms.Label();
             this.lb_huyethoc = new System.Windows.Forms.Label();
             this.pn_detail_test = new Guna.UI2.WinForms.Guna2Panel();
+            this.lb_testns1ag = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
             this.lb_iondo = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.lb_stronggyloides = new System.Windows.Forms.Label();
@@ -100,8 +101,7 @@
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.money = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lb_testns1ag = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
+            this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
@@ -350,9 +350,9 @@
             // 
             this.guna2Panel6.BackColor = System.Drawing.Color.PaleGoldenrod;
             this.guna2Panel6.BorderColor = System.Drawing.Color.Yellow;
+            this.guna2Panel6.Controls.Add(this.guna2ImageButton1);
             this.guna2Panel6.Controls.Add(this.guna2ImageButton2);
             this.guna2Panel6.Controls.Add(this.lb_4);
-            this.guna2Panel6.Controls.Add(this.label12);
             this.guna2Panel6.Location = new System.Drawing.Point(855, 119);
             this.guna2Panel6.Name = "guna2Panel6";
             this.guna2Panel6.Size = new System.Drawing.Size(229, 80);
@@ -384,16 +384,6 @@
             this.lb_4.Size = new System.Drawing.Size(89, 25);
             this.lb_4.TabIndex = 1;
             this.lb_4.Text = "label11";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(17, 10);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(135, 20);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "Tổng doanh thu";
             // 
             // pn_test
             // 
@@ -701,6 +691,27 @@
             this.pn_detail_test.Size = new System.Drawing.Size(551, 305);
             this.pn_detail_test.TabIndex = 13;
             // 
+            // lb_testns1ag
+            // 
+            this.lb_testns1ag.AutoSize = true;
+            this.lb_testns1ag.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_testns1ag.ForeColor = System.Drawing.Color.Red;
+            this.lb_testns1ag.Location = new System.Drawing.Point(482, 48);
+            this.lb_testns1ag.Name = "lb_testns1ag";
+            this.lb_testns1ag.Size = new System.Drawing.Size(20, 22);
+            this.lb_testns1ag.TabIndex = 38;
+            this.lb_testns1ag.Text = "a";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(375, 48);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(110, 21);
+            this.label24.TabIndex = 37;
+            this.label24.Text = "Test NS1 Ag:";
+            // 
             // lb_iondo
             // 
             this.lb_iondo.AutoSize = true;
@@ -875,31 +886,31 @@
             // 
             // dtgv_detail_ultrasound
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            this.dtgv_detail_ultrasound.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgv_detail_ultrasound.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            this.dtgv_detail_ultrasound.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgv_detail_ultrasound.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dtgv_detail_ultrasound.ColumnHeadersHeight = 21;
             this.dtgv_detail_ultrasound.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dtgv_detail_ultrasound.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.name,
             this.quantity,
             this.money});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgv_detail_ultrasound.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgv_detail_ultrasound.DefaultCellStyle = dataGridViewCellStyle8;
             this.dtgv_detail_ultrasound.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtgv_detail_ultrasound.Location = new System.Drawing.Point(3, 36);
             this.dtgv_detail_ultrasound.Name = "dtgv_detail_ultrasound";
@@ -940,31 +951,23 @@
             // 
             // money
             // 
-            dataGridViewCellStyle3.Format = "#,0";
-            this.money.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Format = "#,0";
+            this.money.DefaultCellStyle = dataGridViewCellStyle7;
             this.money.HeaderText = "Tổng tiền";
             this.money.Name = "money";
             // 
-            // lb_testns1ag
+            // guna2ImageButton1
             // 
-            this.lb_testns1ag.AutoSize = true;
-            this.lb_testns1ag.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_testns1ag.ForeColor = System.Drawing.Color.Red;
-            this.lb_testns1ag.Location = new System.Drawing.Point(482, 48);
-            this.lb_testns1ag.Name = "lb_testns1ag";
-            this.lb_testns1ag.Size = new System.Drawing.Size(20, 22);
-            this.lb_testns1ag.TabIndex = 38;
-            this.lb_testns1ag.Text = "a";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(375, 48);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(110, 21);
-            this.label24.TabIndex = 37;
-            this.label24.Text = "Test NS1 Ag:";
+            this.guna2ImageButton1.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton1.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton1.Image = global::QuanLyPhongKham.Properties.Resources.add;
+            this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton1.ImageRotate = 0F;
+            this.guna2ImageButton1.Location = new System.Drawing.Point(21, 4);
+            this.guna2ImageButton1.Name = "guna2ImageButton1";
+            this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton1.Size = new System.Drawing.Size(45, 30);
+            this.guna2ImageButton1.TabIndex = 18;
             // 
             // frm_statistic
             // 
@@ -1034,7 +1037,6 @@
         private System.Windows.Forms.Label label10;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel6;
         private System.Windows.Forms.Label lb_4;
-        private System.Windows.Forms.Label label12;
         private Guna.UI2.WinForms.Guna2Panel pn_test;
         private System.Windows.Forms.Label lb_8;
         private System.Windows.Forms.Label label14;
@@ -1087,5 +1089,6 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label lb_testns1ag;
         private System.Windows.Forms.Label label24;
+        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton1;
     }
 }

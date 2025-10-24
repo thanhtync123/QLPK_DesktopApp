@@ -424,13 +424,11 @@ namespace QuanLyPhongKham
 
                     if (result == null)
                     {
-                        // 2. Nếu chưa có, thêm mới
                         using (MySqlCommand cmdInsert = new MySqlCommand("INSERT INTO diagnoses (name) VALUES (@name)", Db.conn))
                         {
                             cmdInsert.Parameters.AddWithValue("@name", cbo_diagnoses.Text.Trim());
                             cmdInsert.ExecuteNonQuery();
                         }
-
                         using (MySqlCommand cmdGetId = new MySqlCommand("SELECT LAST_INSERT_ID();", Db.conn))
                         {
                             diagnosisId = Convert.ToInt32(cmdGetId.ExecuteScalar());
