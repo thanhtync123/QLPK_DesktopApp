@@ -748,17 +748,15 @@ namespace QuanLyPhongKham
                 int diagnosisId;
                 string diagnosisName = cbo_diagnoses.Text.Trim().Replace("'", "''");
 
-                // --- Kiểm tra chẩn đoán ---
+                // --- Kiểm tra hoặc thêm chẩn đoán ---
                 string checkQuery = $"SELECT id FROM diagnoses WHERE name = '{diagnosisName}'";
                 MySqlCommand cmdCheck = new MySqlCommand(checkQuery, Db.conn);
                 object result = cmdCheck.ExecuteScalar();
 
                 if (result == null)
                 {
-                    // --- Thêm chẩn đoán nếu chưa có ---
                     string insertDiagnosis = $"INSERT INTO diagnoses (name) VALUES ('{diagnosisName}')";
                     Db.ExecuteNonQuery(insertDiagnosis);
-
                     MySqlCommand cmdGetId = new MySqlCommand("SELECT LAST_INSERT_ID();", Db.conn);
                     diagnosisId = Convert.ToInt32(cmdGetId.ExecuteScalar());
                 }
@@ -766,114 +764,103 @@ namespace QuanLyPhongKham
                 {
                     diagnosisId = Convert.ToInt32(result);
                 }
+
+                int examId; // ID thật của phiếu khám
                 string insertExam = "";
+
+                // --- Thêm phiếu khám ---
                 try
                 {
                     insertExam = $@"
-                    INSERT INTO `examinations` (
-                        `id`, `patient_id`, `symptoms`, `diagnosis_id`, `doctor_note_id`, `note`,
-                        `pulse`, `blood_pressure`, `respiratory_rate`, `weight`, `height`,
-                        `temperature`, `type`, `follow_up`, `price`, `state`, `created_at`, `updated_at`
+                INSERT INTO `examinations` (
+                    `id`, `patient_id`, `symptoms`, `diagnosis_id`, `doctor_note_id`, `note`,
+                    `pulse`, `blood_pressure`, `respiratory_rate`, `weight`, `height`,
+                    `temperature`, `type`, `follow_up`, `price`, `state`, `created_at`, `updated_at`
+                ) VALUES (
+                    NULL,
+                    '{txb_id.Text}',
+                    {(txb_symptoms.Text == "" ? "NULL" : $"'{txb_symptoms.Text}'")},
+                    '{diagnosisId}',
+                    '{cb_doctornote.SelectedValue}',
+                    '{txb_note.Text.Replace("'", "''")}',
+                    '{txb_pulse.Text}',
+                    '{txb_blood_pressure.Text}',
+                    '{txb_respiratory_rate.Text}',
+                    '{txb_weight.Text}',
+                    '{txb_height.Text}',
+                    '{txb_temperature.Text}',
+                    'toa thuốc',
+                    '{txb_follow_up.Text}',
+                    '{Convert.ToInt32(txb_total_price_med.Text.Replace(".", ""))}',
+                    'Chưa gọi',
+                    current_timestamp(),
+                    current_timestamp()
+                );
+            ";
+
+                    Db.ExecuteNonQuery(insertExam);
+                    MySqlCommand cmdGetExamId = new MySqlCommand("SELECT LAST_INSERT_ID();", Db.conn);
+                    examId = Convert.ToInt32(cmdGetExamId.ExecuteScalar());
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi thêm phiếu khám:\n" + ex.Message);
+                    return; 
+                }
+                try
+                {
+                    foreach (DataGridViewRow row in dtgv_patient_med.Rows)
+                    {
+                        if (row.IsNewRow) continue;
+
+                        string medId = row.Cells["id_med_2"].Value?.ToString()?.Trim();
+                        string morning = string.IsNullOrEmpty(row.Cells["morning"].Value?.ToString()) ? "NULL" : row.Cells["morning"].Value.ToString().Replace(",", ".");
+                        string noon = string.IsNullOrEmpty(row.Cells["noon"].Value?.ToString()) ? "NULL" : row.Cells["noon"].Value.ToString().Replace(",", ".");
+                        string afternoon = string.IsNullOrEmpty(row.Cells["afternoon"].Value?.ToString()) ? "NULL" : row.Cells["afternoon"].Value.ToString().Replace(",", ".");
+                        string evening = string.IsNullOrEmpty(row.Cells["evening"].Value?.ToString()) ? "NULL" : row.Cells["evening"].Value.ToString().Replace(",", ".");
+                        string total = string.IsNullOrEmpty(row.Cells["total_quantity"].Value?.ToString()) ? "NULL" : row.Cells["total_quantity"].Value.ToString().Replace(",", ".");
+                        string unit = row.Cells["unit_2"].Value?.ToString()?.Replace("'", "''");
+                        string note = row.Cells["note_2"].Value?.ToString()?.Replace("'", "''");
+                        string days = string.IsNullOrEmpty(row.Cells["days_of_use"].Value?.ToString()) ? "NULL" : row.Cells["days_of_use"].Value.ToString();
+
+                        string insertMed = $@"
+                    INSERT INTO `examination_medications` (
+                        `id`, `examination_id`, `medication_id`, `morning`,`noon`, `afternoon`,`evening`, `unit`,
+                        `days_of_use`, `total_quantity_med`, `note`, `created_at`, `updated_at`
                     ) VALUES (
                         NULL,
-                        '{txb_id.Text}',
-                        {(txb_symptoms.Text == "" ? "NULL" : $"'{txb_symptoms.Text}'")},
-                        '{diagnosisId}',
-                        '{cb_doctornote.SelectedValue}',
-                        '{txb_note.Text.Replace("'", "''")}',
-                        '{txb_pulse.Text}',
-                        '{txb_blood_pressure.Text}',
-                        '{txb_respiratory_rate.Text}',
-                        '{txb_weight.Text}',
-                        '{txb_height.Text}',
-                        '{txb_temperature.Text}',
-                        'toa thuốc',
-                        '{txb_follow_up.Text}',
-                        '{Convert.ToInt32(txb_total_price_med.Text.Replace(".", ""))}',
-                        'Chưa gọi',
+                        '{examId}', 
+                        '{medId}',
+                        {morning},
+                        {noon},
+                        {afternoon},
+                        {evening},
+                        '{unit}',
+                        {days},
+                        {total},
+                        '{note}',
                         current_timestamp(),
                         current_timestamp()
                     );
                 ";
-                    Db.ExecuteNonQuery(insertExam);
+                        Db.ExecuteNonQuery(insertMed);
+                    }
+
+                    LoadGrid();
+                    LoadExamID();
+                    MessageBox.Show("Thêm toa thành công!");
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Lỗi thêm phiếu:" + insertExam);
+                    MessageBox.Show("Lỗi thêm thuốc hoặc load dữ liệu:\n" + ex.Message);
                 }
-
-                foreach (DataGridViewRow row in dtgv_patient_med.Rows)
-                {
-                    if (row.IsNewRow) continue;
-
-                    string medId = row.Cells["id_med_2"].Value?.ToString()?.Trim();
-                    string morning = string.IsNullOrEmpty(row.Cells["morning"].Value?.ToString())
-                      ? "NULL"
-                      : row.Cells["morning"].Value.ToString().Replace(",", ".");
-                    string noon = string.IsNullOrEmpty(row.Cells["noon"].Value?.ToString())
-                          ? "NULL"
-                          : row.Cells["noon"].Value.ToString().Replace(",", ".");
-                    string afternoon = string.IsNullOrEmpty(row.Cells["afternoon"].Value?.ToString())
-                   ? "NULL"
-                   : row.Cells["afternoon"].Value.ToString().Replace(",", ".");
-
-                    string evening = string.IsNullOrEmpty(row.Cells["evening"].Value?.ToString())
-                        ? "NULL"
-                        : row.Cells["evening"].Value.ToString().Replace(",", ".");
-
-                    string total = string.IsNullOrEmpty(row.Cells["total_quantity"].Value?.ToString())
-                        ? "NULL"
-                        : row.Cells["total_quantity"].Value.ToString().Replace(",", ".");
-                    string unit = row.Cells["unit_2"].Value?.ToString()?.Replace("'", "''");
-                    string note = row.Cells["note_2"].Value?.ToString()?.Replace("'", "''");
-                    string days = string.IsNullOrEmpty(row.Cells["days_of_use"].Value?.ToString()) ? "NULL" : row.Cells["days_of_use"].Value.ToString();
-                    string insertMed = "";
-                    try
-                    {
-                        insertMed = $@"
-            INSERT INTO `examination_medications` (
-                `id`, `examination_id`, `medication_id`, `morning`,`noon`, `afternoon`,`evening`, `unit`,
-                `days_of_use`, `total_quantity_med`, `note`, `created_at`, `updated_at`
-            ) VALUES (
-                NULL,
-                '{txb_exam_id.Text}',
-                '{medId}',
-                {morning},
-                {noon},
-                {afternoon},
-                {evening},
-                '{unit}',
-                {days},
-                {total},
-                '{note}',
-                current_timestamp(),
-                current_timestamp()
-            );
-        ";
-                        Db.ExecuteNonQuery(insertMed);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Lỗi thêm thuốc:" + insertMed);
-                    }
-
-
-
-                }
-
-                LoadExamID();
-                LoadGrid();
-                MessageBox.Show("Thêm toa thành công!");
-                // MessageBox.Show(insertExam);
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Đã xảy ra lỗi:\n" + ex.Message);
-
             }
-
         }
+
         private void Update_FollowUpDate()
         {
             if (chb_follow_up.Checked)
