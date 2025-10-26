@@ -810,7 +810,8 @@ namespace QuanLyPhongKham
                     foreach (DataGridViewRow row in dtgv_patient_med.Rows)
                     {
                         if (row.IsNewRow) continue;
-
+                        if (row.Cells["id_med_2"].Value == null || string.IsNullOrWhiteSpace(row.Cells["id_med_2"].Value.ToString()))
+                            continue;
                         string medId = row.Cells["id_med_2"].Value?.ToString()?.Trim();
                         string morning = string.IsNullOrEmpty(row.Cells["morning"].Value?.ToString()) ? "NULL" : row.Cells["morning"].Value.ToString().Replace(",", ".");
                         string noon = string.IsNullOrEmpty(row.Cells["noon"].Value?.ToString()) ? "NULL" : row.Cells["noon"].Value.ToString().Replace(",", ".");
@@ -930,7 +931,7 @@ namespace QuanLyPhongKham
                 if (afternoon > 0)
                     dosages.Add($"<b>Chiều</b> uống {afternoon:0.##} <i>{unit}</i>");
                 if (evening > 0)
-                    dosages.Add($"<b>TỐI</b> UỐNG {evening:0.##} <i>{unit}</i></b>");
+                    dosages.Add($"<b>ㅤTỐI UỐNG {evening:0.##} <i>{unit.ToUpper()}</i></b> </b> ");
                 string dosageLine = string.Join(", ", dosages);
 
                 if (!string.IsNullOrWhiteSpace(note))

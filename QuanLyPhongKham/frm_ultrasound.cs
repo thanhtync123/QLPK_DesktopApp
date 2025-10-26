@@ -688,10 +688,7 @@ namespace QuanLyPhongKham
             try
             {
                 string text = Clipboard.GetText();
-                
-                // Xác định control đang focus để paste text vào đó
                 Control focusedControl = this.ActiveControl;
-                
                 if (focusedControl is TextBox)
                 {
                     // Nếu control là TextBox, paste text vào đó
