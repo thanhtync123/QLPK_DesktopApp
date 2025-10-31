@@ -931,7 +931,7 @@ namespace QuanLyPhongKham
                 if (afternoon > 0)
                     dosages.Add($"<b>Chiều</b> uống {afternoon:0.##} <i>{unit}</i>");
                 if (evening > 0)
-                    dosages.Add($"<b>ㅤTỐI UỐNG {evening:0.##} <i>{unit.ToUpper()}</i></b> </b> ");
+                    dosages.Add($"<b>ㅤㅤTỐI UỐNG {evening:0.##} <i>{unit.ToUpper()}</i></b> </b> ");
                 string dosageLine = string.Join(", ", dosages);
 
                 if (!string.IsNullOrWhiteSpace(note))
