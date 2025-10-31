@@ -437,7 +437,7 @@ namespace QuanLyPhongKham
             p.phone,
             p.address,
             DATE_FORMAT(p.updated_at, '%d/%m/%Y %H:%i') AS updated_at,
-            e.reason,
+            e.symptoms,
             d.name AS diagnosis,
             e.note
         FROM examinations e
@@ -487,7 +487,7 @@ namespace QuanLyPhongKham
                 drr.Cells["phone"].Value = Db.dr["phone"];
                 drr.Cells["address"].Value = Db.dr["address"];
                 drr.Cells["updated_at"].Value = Db.dr["updated_at"];
-                drr.Cells["reason"].Value = Db.dr["reason"];
+                drr.Cells["symptoms"].Value = Db.dr["symptoms"];
                 drr.Cells["diagnosis"].Value = Db.dr["diagnosis"];
                 drr.Cells["note"].Value = Db.dr["note"];
                 drr.Cells["time_exam"].Value = Db.dr["time_exam"];
