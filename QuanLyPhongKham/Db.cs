@@ -174,7 +174,10 @@ namespace QuanLyPhongKham
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi ExecuteNonQuery: " + ex.Message);
+                if(ex.Message.Contains("Duplicate entry"))
+                    MessageBox.Show("Dữ liệu bị trùng lặp, vui lòng kiểm tra lại!");
+                else
+                    MessageBox.Show("Lỗi ExecuteNonQuery: " + ex.Message);
             }
         }
 

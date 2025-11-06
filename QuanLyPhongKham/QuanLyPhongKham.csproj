@@ -270,6 +270,12 @@
     <Compile Include="frm_LookUpMedication.Designer.cs">
       <DependentUpon>frm_LookUpMedication.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_medications_set.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_medications_set.Designer.cs">
+      <DependentUpon>frm_medications_set.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_nav.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -401,6 +407,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_LookUpMedication.resx">
       <DependentUpon>frm_LookUpMedication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_medications_set.resx">
+      <DependentUpon>frm_medications_set.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_nav.resx">
       <DependentUpon>frm_nav.cs</DependentUpon>
