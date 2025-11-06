@@ -112,7 +112,7 @@ namespace QuanLyPhongKham
                     {(total_quantity_med == 0 ? "NULL" : total_quantity_med.ToString())},
                     {(string.IsNullOrEmpty(note) ? "NULL" : $"'{note}'")});
                     ";
-
+     
                 Db.ExecuteNonQuery(query);
 
 
