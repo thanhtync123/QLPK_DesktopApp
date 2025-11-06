@@ -1182,6 +1182,18 @@ namespace QuanLyPhongKham
         {
 
         }
+
+        private void btn_openSetMedForm_Click(object sender, EventArgs e)
+        {
+            frm_medications_set frm = new frm_medications_set();
+            dtgv_patient_med.Rows.Clear();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                foreach (var rowData in frm.selectedMedications)
+                    dtgv_patient_med.Rows.Add(rowData);
+                UpdateMedicationSummary();
+            }
+        }
     }
 }
 

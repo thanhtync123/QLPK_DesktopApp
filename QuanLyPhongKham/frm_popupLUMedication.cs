@@ -171,7 +171,7 @@ namespace QuanLyPhongKham
                 {
            
                     row.Cells["c2_medication_id"].Value,
-                             stt++,
+                    stt++,
                     row.Cells["c2_medname"].Value,
                     row.Cells["c2_unit"].Value,
                     row.Cells["c2_morning"].Value,

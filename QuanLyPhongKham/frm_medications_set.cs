@@ -25,19 +25,20 @@ namespace QuanLyPhongKham
         {
             InitializeComponent();
         }
-
+        public List<object[]> selectedMedications = new List<object[]>();
         private void frm_medications_set_Load(object sender, EventArgs e)
         {
             LoadDTGV_Preset_medications_set("");
             btn_delete.Enabled = false;
             btn_edit.Enabled = false;
+            btn_choose.Enabled = false;
             LoadDTGV_Med("");
 
         }
         private void LoadDTGV_Preset_medications_set(string keyword)
         {
             Db.ResetConnection();
-            string query = $@"SELECT * FROM preset_medications_set where name like '%{txb_search.Text}%'";
+            string query = $@"SELECT * FROM preset_medications_set where name like '%{txb_search.Text}%' order by name asc";
             Db.cmd = new MySqlCommand(query, Db.conn);
             Db.dr = Db.cmd.ExecuteReader();
             dtgv_preset_medications_set.Rows.Clear();
@@ -56,7 +57,7 @@ namespace QuanLyPhongKham
         }
         private void LoadDTGV_Med(string keyword)
         {
-            string query = $@"SELECT id, name, unit, note  from medications where name like '%{txb_search_med.Text}%'";
+            string query = $@"SELECT id, name, unit, note  from medications where name like '%{txb_search_med.Text}%' order by name asc";
             Db.cmd = new MySqlCommand(query, Db.conn);
             Db.dr = Db.cmd.ExecuteReader();
             dtgv_medications.Rows.Clear();
@@ -76,7 +77,7 @@ namespace QuanLyPhongKham
         }
         private void AddPresetMedications(int id_set)
         {
-     
+
 
             foreach (DataGridViewRow row in dtgv_preset_medications.Rows)
             {
@@ -101,7 +102,7 @@ namespace QuanLyPhongKham
                     (id_preset_medications_set, id_medications, morning, noon, afternoon, evening, unit, days_of_use, total_quantity_med, note)
                     VALUES
                     ({id_set},
-                    {id_med},
+                    {Convert.ToInt16(id_med)},
                     {(string.IsNullOrEmpty(morning) ? "NULL" : morning)},
                     {(string.IsNullOrEmpty(noon) ? "NULL" : noon)},
                     {(string.IsNullOrEmpty(afternoon) ? "NULL" : afternoon)},
@@ -116,7 +117,7 @@ namespace QuanLyPhongKham
 
 
             }
-           
+
         }
         private void btn_add_Click(object sender, EventArgs e)
         {
@@ -190,7 +191,8 @@ namespace QuanLyPhongKham
             btn_add.Enabled = false;
             btn_delete.Enabled = true;
             btn_edit.Enabled = true;
-         
+            btn_choose.Enabled = true;
+
             string query = $@"
             SELECT  
                 m.id AS id_med, 
@@ -297,6 +299,35 @@ namespace QuanLyPhongKham
 
 
 
+        }
+
+        private void btn_choose_Click(object sender, EventArgs e)
+        {
+            int stt = 1;
+            foreach (DataGridViewRow row in dtgv_preset_medications.Rows)
+            {
+                if (row.IsNewRow) continue;
+
+                object[] rowData = new object[]
+                {
+                  row.Cells["id_med_pm"].Value,
+                    stt++,
+                  row.Cells["name_pm"].Value,
+                  row.Cells["unit"].Value,
+                  row.Cells["morning"].Value,
+                  row.Cells["noon"].Value,
+                  row.Cells["afternoon"].Value,
+                  row.Cells["evening"].Value,
+                  row.Cells["days_of_use"].Value,
+                  row.Cells["total_quantity_med"].Value,
+                  row.Cells["note"].Value
+                };
+
+                selectedMedications.Add(rowData);
+            }
+
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
     }
 }
