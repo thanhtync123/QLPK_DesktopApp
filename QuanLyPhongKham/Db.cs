@@ -178,6 +178,7 @@ namespace QuanLyPhongKham
                     MessageBox.Show("Dữ liệu bị trùng lặp, vui lòng kiểm tra lại!");
                 else
                     MessageBox.Show("Lỗi ExecuteNonQuery: " + ex.Message);
+                return;
             }
         }
 
