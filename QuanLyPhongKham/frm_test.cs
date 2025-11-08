@@ -209,10 +209,7 @@ namespace QuanLyPhongKham
 
         private void cb_template_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Only process this if it's not being triggered during result loading
-            //if (isLoadingResults) return;
-
-            //dtgv_result.Rows.Clear();
+            if (!isUserChangingTemplate) return;
             if (cb_template.SelectedValue != null && int.TryParse(cb_template.SelectedValue.ToString(), out int selectedTemplateId))
             {
                 LoadDataToDataGridViewResult();
@@ -315,7 +312,7 @@ namespace QuanLyPhongKham
 
                     // Reset template selection to avoid interference
                     isUserChangingTemplate = false;
-                    //cb_template.SelectedIndex = 0;
+                    cb_template.SelectedIndex = 0;
                     isUserChangingTemplate = true;
                 }
 
@@ -412,7 +409,7 @@ namespace QuanLyPhongKham
 
                     // Need to reset the combo box and clear final result
                     isUserChangingTemplate = false;
-                //    cb_template.SelectedIndex = 0;
+                    cb_template.SelectedIndex = 0;
                     txb_final_result.Text = "";
                     isUserChangingTemplate = true;
                 }
