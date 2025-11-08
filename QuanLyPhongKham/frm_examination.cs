@@ -1186,6 +1186,7 @@ namespace QuanLyPhongKham
         private void btn_openSetMedForm_Click(object sender, EventArgs e)
         {
             frm_medications_set frm = new frm_medications_set();
+            frm.FormBorderStyle = FormBorderStyle.Fixed3D;
             dtgv_patient_med.Rows.Clear();
             if (frm.ShowDialog() == DialogResult.OK)
             {
