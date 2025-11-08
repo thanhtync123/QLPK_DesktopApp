@@ -143,6 +143,7 @@
             this.txb_phone.Name = "txb_phone";
             this.txb_phone.Size = new System.Drawing.Size(238, 26);
             this.txb_phone.TabIndex = 8;
+            this.txb_phone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txb_phone_KeyPress);
             // 
             // txb_address
             // 

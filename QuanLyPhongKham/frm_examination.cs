@@ -961,6 +961,7 @@ namespace QuanLyPhongKham
         {
             ResetConnection();
             dtgv_med.Rows.Clear();
+            int stt = 1;
             string query = $@"
                         SELECT `id`, `name`, `note`, `unit`, `price`
                         FROM `medications`
@@ -973,6 +974,7 @@ namespace QuanLyPhongKham
             {
                 int i = dtgv_med.Rows.Add();
                 DataGridViewRow drr = dtgv_med.Rows[i];
+                drr.Cells["stt_med"].Value = stt++;
                 drr.Cells["id_med"].Value = Db.dr["id"];
                 drr.Cells["med_name"].Value = Db.dr["name"];
                 drr.Cells["price"].Value = Db.dr["price"];

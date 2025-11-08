@@ -37,6 +37,7 @@ namespace QuanLyPhongKham
             webBrowser1.Visible = false;
             btn_save.Enabled = false;
             btn_edit.Enabled = false;
+            cb_template.Enabled = false;
             if (txb_service.Text == "")
             {
                 btn_edit.Enabled = false;
@@ -92,7 +93,7 @@ namespace QuanLyPhongKham
         }
         private void dtgv_exam_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // reason = chẩn đoán phụ
+            cb_template.Enabled = false;
             btn_edit.Enabled = false;
             btn_save.Enabled = false;
             btn_delete.Enabled = true;
@@ -140,6 +141,7 @@ namespace QuanLyPhongKham
         {
             if (e.RowIndex >= 0)
             {
+                cb_template.Enabled = true;
                 DataGridViewRow row = dtgv_service.Rows[e.RowIndex];
                 var name_service = row.Cells["name"].Value?.ToString();
                 txb_service.Text = name_service;
@@ -442,6 +444,11 @@ namespace QuanLyPhongKham
                 return true;
 
             return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -175,6 +175,11 @@ namespace QuanLyPhongKham
                 MessageBox.Show("Vui lòng chọn giới tính!");
                 return false;
             }
+            if (txb_phone.Text.Length!=10)
+            {
+                MessageBox.Show("SĐT phải 10 số, vui lòng nhập lại");
+                return false;
+            }
             return true;
         }
         private void btn_add_Click(object sender, EventArgs e)
@@ -411,6 +416,14 @@ namespace QuanLyPhongKham
             ClearForm();
             LoadPatients();
             OnPatientChanged?.Invoke();
+        }
+
+        private void txb_phone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            
+                e.Handled = true; 
+            
         }
     }
 }

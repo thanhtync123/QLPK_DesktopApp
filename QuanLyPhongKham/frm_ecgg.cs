@@ -26,13 +26,13 @@ namespace QuanLyPhongKham
 
         private void frm_ecgg_Load(object sender, EventArgs e)
         {
-            // Set default date range to current day
+          
             dtpk_fromdate.Value = DateTime.Today;
             dtpk_todate.Value = DateTime.Today;
 
             LoadExam.LoadDTGVCommon(dtgv_exam, "Điện tim");
             LoadComboboxTemplate();
-
+            cb_template.Enabled = false;
 
             if (dtgv_exam.CurrentRow != null && dtgv_exam.CurrentRow.Cells["id_exam"].Value != null)
                 selectedExamId = Convert.ToInt32(dtgv_exam.CurrentRow.Cells["id_exam"].Value);
@@ -257,6 +257,7 @@ namespace QuanLyPhongKham
         private void dtgv_exam_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
             btn_delete.Enabled = true;
+            cb_template.Enabled = false;
             if (e.RowIndex >= 0 && dtgv_exam.Rows[e.RowIndex].Cells["id_exam"].Value != null)
             {
                 DataGridViewRow row = dtgv_exam.Rows[e.RowIndex];
@@ -299,6 +300,7 @@ namespace QuanLyPhongKham
         {
             if (e.RowIndex >= 0)
             {
+                cb_template.Enabled = true;
                 DataGridViewRow row = dtgv_service.Rows[e.RowIndex];
                 var name_service = row.Cells["name"].Value?.ToString();
                 txb_service.Text = name_service;

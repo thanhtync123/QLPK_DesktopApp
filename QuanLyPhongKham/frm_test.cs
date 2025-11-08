@@ -36,6 +36,7 @@ namespace QuanLyPhongKham
             LoadComboboxTemplate();
             btn_save.Enabled = false;
             btn_edit.Enabled = false;
+            cb_template.Enabled = false;
 
         }
         private void LoadComboboxTemplate()
@@ -47,6 +48,7 @@ namespace QuanLyPhongKham
 
         private void dtgv_exam_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
+            cb_template.Enabled = false;
             btn_delete.Enabled = true;
             btn_save.Enabled = false;
             btn_edit.Enabled = false;
@@ -293,6 +295,7 @@ namespace QuanLyPhongKham
         private void dtgv_service_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             btn_save.Enabled = true;
+            cb_template.Enabled = true;
             if (e.RowIndex < 0) return;
 
             try
@@ -312,14 +315,14 @@ namespace QuanLyPhongKham
 
                     // Reset template selection to avoid interference
                     isUserChangingTemplate = false;
-                    cb_template.SelectedIndex = 0;
+                    //cb_template.SelectedIndex = 0;
                     isUserChangingTemplate = true;
                 }
 
                 // Update the last clicked row index
                 lastClickedRowIndex = e.RowIndex;
 
-                if (dtgv_service.CurrentRow.Cells["state"].Value.ToString() == "Đã có KQ")
+                if (row.Cells["state"].Value.ToString() == "Đã có KQ")
                 {
                     btn_save.Enabled = false;
                     btn_edit.Enabled = true;
@@ -337,7 +340,7 @@ namespace QuanLyPhongKham
                     WHERE 
                         er.examination_service_id = @examination_service_id";
 
-                    var exam_service_id = Convert.ToInt32(dtgv_service.CurrentRow.Cells["examination_service_id"].Value);
+                    var exam_service_id = Convert.ToInt32(row.Cells["examination_service_id"].Value);
 
                     Db.ResetConnection();
                     using (MySqlCommand cmd = new MySqlCommand(sql, Db.conn))
@@ -409,7 +412,7 @@ namespace QuanLyPhongKham
 
                     // Need to reset the combo box and clear final result
                     isUserChangingTemplate = false;
-                    cb_template.SelectedIndex = 0;
+                //    cb_template.SelectedIndex = 0;
                     txb_final_result.Text = "";
                     isUserChangingTemplate = true;
                 }

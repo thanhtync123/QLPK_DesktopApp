@@ -34,6 +34,7 @@ namespace QuanLyPhongKham
         {
             LoadExam.LoadDTGVCommon(dtgv_exam, "Siêu âm");
             LoadComboboxTemplate();
+            cb_template.Enabled = false;
             chb_anh1.Checked=true;
             chb_anh2.Checked = true;
             chb_anh3.Checked = true;
@@ -227,14 +228,11 @@ namespace QuanLyPhongKham
             }
         }
 
-
-
-
-
         private void dtgv_service_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
+                cb_template.Enabled = true;
                 ResetPictureBoxes();
 
                 DataGridViewRow row = dtgv_service.Rows[e.RowIndex];
@@ -355,6 +353,8 @@ namespace QuanLyPhongKham
 
         private void dtgv_exam_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
+
+            cb_template.Enabled = false; 
             btn_delete.Enabled = true;
             btn_save.Enabled = false;
             btn_edit.Enabled = false;
@@ -621,6 +621,12 @@ namespace QuanLyPhongKham
         }
         private void PasteImageFromClipboard()
         {
+            if (string.IsNullOrWhiteSpace(txb_service.Text))
+            {
+                MessageBox.Show("Vui lòng chọn phiếu chỉ định trước khi chèn ảnh!",
+                    "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             try
             {
                 Image img = Clipboard.GetImage();
@@ -685,30 +691,28 @@ namespace QuanLyPhongKham
 
         private void PasteTextFromClipboard()
         {
+
+
             try
             {
                 string text = Clipboard.GetText();
                 Control focusedControl = this.ActiveControl;
                 if (focusedControl is TextBox)
                 {
-                    // Nếu control là TextBox, paste text vào đó
+  
                     TextBox textBox = (TextBox)focusedControl;
                     int selectionStart = textBox.SelectionStart;
                     string currentText = textBox.Text;
                     
-                    // Chèn text từ clipboard vào vị trí con trỏ
                     textBox.Text = currentText.Substring(0, selectionStart) + text + 
                         currentText.Substring(selectionStart + textBox.SelectionLength);
                     
-                    // Di chuyển con trỏ đến cuối phần văn bản mới chèn
+  
                     textBox.SelectionStart = selectionStart + text.Length;
                     
-                    // Thông báo (tùy chọn - có thể bỏ nếu không muốn hiện thông báo)
-                    // MessageBox.Show("Đã paste văn bản thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else if (focusedControl is ComboBox && ((ComboBox)focusedControl).DropDownStyle != ComboBoxStyle.DropDownList)
                 {
-                    // Nếu là ComboBox có thể edit
                     ComboBox comboBox = (ComboBox)focusedControl;
                     comboBox.Text = text;
                 }
@@ -731,7 +735,6 @@ namespace QuanLyPhongKham
                     }
                     else
                     {
-                        // Nếu không có TextBox nào được focus, thông báo cho người dùng
                         MessageBox.Show("Vui lòng đặt con trỏ vào ô văn bản trước khi dán.", 
                             "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -765,7 +768,6 @@ namespace QuanLyPhongKham
                 return true;
             }
 
-            // xử lý Ctrl + V
             if (keyData == (Keys.Control | Keys.V))
             {
                 if (Clipboard.ContainsImage())
