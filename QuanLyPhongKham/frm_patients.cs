@@ -175,11 +175,14 @@ namespace QuanLyPhongKham
                 MessageBox.Show("Vui lòng chọn giới tính!");
                 return false;
             }
-            if (txb_phone.Text.Length!=10)
-            {
-                MessageBox.Show("SĐT phải 10 số, vui lòng nhập lại");
-                return false;
-            }
+            if (!string.IsNullOrWhiteSpace(txb_phone.Text))
+                if (txb_phone.Text.Length != 10)
+                {
+                    MessageBox.Show("SĐT phải có đúng 10 số, vui lòng nhập lại!");
+                    return false;
+                }
+            
+
             return true;
         }
         private void btn_add_Click(object sender, EventArgs e)
