@@ -23,11 +23,14 @@ namespace QuanLyPhongKham
         {
             LoadDTGVService("");
             LoadDTGVServicesSet("");
+            btn_edit.Enabled = false;
+            btn_delete.Enabled = false;
+            lb_total_price.Text = "0";
         }
         private void LoadDTGVService(String keyword)
         {
             Db.ResetConnection();
-            string query = $@"SELECT * FROM services where name like '%{txb_search.Text}%' order by type asc";
+            string query = $@"SELECT * FROM services where name like '%{keyword}%' order by type asc";
             Db.cmd = new MySqlCommand(query, Db.conn);
             Db.dr = Db.cmd.ExecuteReader();
             dtgv_services.Rows.Clear();
@@ -49,7 +52,7 @@ namespace QuanLyPhongKham
         private void LoadDTGVServicesSet(String keyword)
         {
             Db.ResetConnection();
-            string query = $@"SELECT * FROM preset_services_set where name like '%{txb_search.Text}%' order by name asc";
+            string query = $@"SELECT * FROM preset_services_set where name like '%{keyword}%' order by name asc";
             Db.cmd = new MySqlCommand(query, Db.conn);
             Db.dr = Db.cmd.ExecuteReader();
             dtgv_preset_services_set.Rows.Clear();
@@ -74,11 +77,17 @@ namespace QuanLyPhongKham
             dtgv_preset_services.Rows[rowIndex].Cells["name_preset"].Value = dtgv_services.CurrentRow.Cells["name_service"].Value;
             dtgv_preset_services.Rows[rowIndex].Cells["price_preset"].Value = dtgv_services.CurrentRow.Cells["price_service"].Value;
             dtgv_preset_services.Rows[rowIndex].Cells["del_preset"].Value = "-";
+            UpdateTotalPrice();
         }
 
         private void dtgv_preset_services_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dtgv_preset_services.Columns[e.ColumnIndex].Name == "del_preset") dtgv_preset_services.Rows.RemoveAt(e.RowIndex);
+            if (dtgv_preset_services.Columns[e.ColumnIndex].Name == "del_preset")
+            {
+                dtgv_preset_services.Rows.RemoveAt(e.RowIndex);
+                UpdateTotalPrice();
+            }
+        
         }
 
         private void txb_search_TextChanged(object sender, EventArgs e)
@@ -96,6 +105,11 @@ namespace QuanLyPhongKham
             if (String.IsNullOrEmpty(txb_name_services_set.Text))
             {
                 MessageBox.Show("Vui lòng nhập tên gói dịch vụ");
+                return;
+            }
+            if (dtgv_preset_services.Rows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng thêm chỉ định cho gói dịch vụ");
                 return;
             }
 
@@ -118,6 +132,16 @@ namespace QuanLyPhongKham
 
         private void btn_edit_Click(object sender, EventArgs e)
         {
+            if (String.IsNullOrEmpty(txb_name_services_set.Text))
+            {
+                MessageBox.Show("Vui lòng nhập tên gói dịch vụ");
+                return;
+            }
+            if (dtgv_preset_services.Rows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng thêm chỉ định cho gói dịch vụ");
+                return;
+            }
             string query = $@"UPDATE preset_services_set SET name='{txb_name_services_set.Text}' WHERE id={txb_id.Text}";
             Db.ExecuteNonQuery(query);
             AddPreset(Convert.ToInt16(txb_id.Text));
@@ -128,12 +152,17 @@ namespace QuanLyPhongKham
         {
             txb_id.Text = "";
             txb_name_services_set.Text = "";
+            dtgv_preset_services.Rows.Clear();
+            btn_add.Enabled = true;
+            btn_edit.Enabled = false;
+            btn_delete.Enabled = false;
+
 
         }
         private void AddPreset(int id_set)
         {
           
-            string  query = $@" DELETE FROM preset_services where preset_services_set_id = {txb_id.Text} ";
+            string  query = $@" DELETE FROM preset_services where id_preset_services_set = {id_set} ";
             Db.ExecuteNonQuery(query);
             foreach (DataGridViewRow row in dtgv_preset_services.Rows)
             {
@@ -150,13 +179,55 @@ namespace QuanLyPhongKham
                     );
                     ";
                 Db.ExecuteNonQuery(query);
+   
 
             }
+            MessageBox.Show("Thành công");
         }
         private void dtgv_preset_services_set_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             txb_id.Text = dtgv_preset_services_set.CurrentRow.Cells["id"].Value.ToString();
             txb_name_services_set.Text = dtgv_preset_services_set.CurrentRow.Cells["name"].Value.ToString();
+            btn_edit.Enabled = true;
+            btn_delete.Enabled = true;
+            btn_add.Enabled = false;
+            
+            Db.ResetConnection();
+            string query = $@"
+                    SELECT s.id, s.name, s.price, ps.note
+                    FROM preset_services ps
+                    INNER JOIN services s
+                    ON ps.id_preset_services = s.id
+                    WHERE ps.id_preset_services_set = {txb_id.Text}
+                            ";
+            Db.cmd = new MySqlCommand(query, Db.conn);
+            Db.dr = Db.cmd.ExecuteReader();
+            dtgv_preset_services.Rows.Clear();
+            while (Db.dr.Read())
+            {
+                int i = dtgv_preset_services.Rows.Add();
+                DataGridViewRow row = dtgv_preset_services.Rows[i];
+                row.Cells["id_preset"].Value = Db.dr["id"];
+                row.Cells["name_preset"].Value = Db.dr["name"];
+                row.Cells["price_preset"].Value = Db.dr["price"];
+                row.Cells["note_preset"].Value = Db.dr["note"];
+                row.Cells["del_preset"].Value = "-";
+
+
+            }
+
+            Db.dr.Close();
+            UpdateTotalPrice();
         }
+        private void UpdateTotalPrice()
+        {
+            int total = 0;
+            foreach (DataGridViewRow row in dtgv_preset_services.Rows)
+                total += Convert.ToInt32(row.Cells["price_preset"].Value.ToString());
+            lb_total_price.Text = total.ToString("N0");
+        }
+
+
+
     }
 }
