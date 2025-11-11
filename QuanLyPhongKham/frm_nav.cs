@@ -271,6 +271,11 @@ namespace QuanLyPhongKham
             AddTab(new frm_medications_set());
         }
 
+        private void góiDịchVuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddTab(new frm_services_set());
+        }
+
         private void AddTab(Form frm)
         {
             int t = KiemTraFormTonTai(frm);

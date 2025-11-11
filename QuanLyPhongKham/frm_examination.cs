@@ -136,9 +136,44 @@ namespace QuanLyPhongKham
             btn_select_med.Enabled = false;
             btn_tinhtien.Enabled = false;
             btn_pre_service.Enabled = false;
+            loadComboboxServiceSet();
 
 
         }
+        private void loadComboboxServiceSet()
+        {
+            string query = @"
+                SELECT 
+                    pss.id, 
+                    CONCAT(pss.name, ' - ', FORMAT(SUM(s.price), 0)) AS display
+                FROM preset_services ps
+                INNER JOIN services s
+                    ON ps.id_preset_services = s.id
+                INNER JOIN preset_services_set pss
+                    ON ps.id_preset_services_set = pss.id
+                GROUP BY pss.id, pss.name
+    ";
+
+            Db.ResetConnection();
+            MySqlCommand cmd = new MySqlCommand(query, Db.conn);
+            MySqlDataAdapter adt = new MySqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            adt.Fill(dt);
+
+            DataRow dr = dt.NewRow();
+            dr["id"] = 0; 
+            dr["display"] = "-- Chọn gói dịch vụ --";
+            dt.Rows.InsertAt(dr, 0); 
+
+            cb_services_set.DataSource = dt;
+            cb_services_set.DisplayMember = "display"; 
+            cb_services_set.ValueMember = "id"; 
+
+            cb_services_set.SelectedIndex = 0; 
+            Db.conn.Close();
+        }
+
+
 
         private void dtgv_patients_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -663,18 +698,17 @@ namespace QuanLyPhongKham
                 {
                     int index = dtgv_service_patient.Rows.Add();
 
-                    dtgv_service_patient.Rows[index].Cells[0].Value = row.Cells[0].Value; // Mã chỉ định
+                    dtgv_service_patient.Rows[index].Cells[0].Value = row.Cells[0].Value; 
                     if (row.Cells[1].Value.ToString() == "Công khám" || row.Cells[1].Value.ToString() == "Kiểm tra")
-                        dtgv_service_patient.Rows[index].Cells[1].Value = "-"; // gán STT = -
+                        dtgv_service_patient.Rows[index].Cells[1].Value = "-"; 
                     else
-                        dtgv_service_patient.Rows[index].Cells[1].Value = stt++;              // STT
-                    dtgv_service_patient.Rows[index].Cells[2].Value = row.Cells[1].Value; // Tên chỉ định
-                    dtgv_service_patient.Rows[index].Cells[3].Value = row.Cells[2].Value; // Thành tiền
-                    dtgv_service_patient.Rows[index].Cells[4].Value = "";                 // Ghi chú
-                    dtgv_service_patient.Rows[index].Cells[5].Value = "-";                // Thao tác
+                        dtgv_service_patient.Rows[index].Cells[1].Value = stt++;           
+                    dtgv_service_patient.Rows[index].Cells[2].Value = row.Cells[1].Value; 
+                    dtgv_service_patient.Rows[index].Cells[3].Value = row.Cells[2].Value; 
+                    dtgv_service_patient.Rows[index].Cells[4].Value = "";                
+                    dtgv_service_patient.Rows[index].Cells[5].Value = "-";          
                 }
 
-                // Tính tổng thành tiền
                 decimal total = 0;
                 foreach (DataGridViewRow row in dtgv_service_patient.Rows)
                 {
@@ -1197,6 +1231,52 @@ namespace QuanLyPhongKham
                 UpdateMedicationSummary();
             }
         }
+
+        private void cb_services_set_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cb_services_set.SelectedIndex == 0) return;
+
+            Db.ResetConnection();
+
+            string query = $@"
+        SELECT s.id, s.name, s.price, ps.note
+        FROM preset_services ps
+        INNER JOIN services s
+            ON ps.id_preset_services = s.id
+        WHERE ps.id_preset_services_set = {cb_services_set.SelectedValue}
+    ";
+
+            Db.cmd = new MySqlCommand(query, Db.conn);
+            Db.dr = Db.cmd.ExecuteReader();
+
+            dtgv_service_patient.Rows.Clear();
+
+            int firstRow = dtgv_service_patient.Rows.Add();
+            DataGridViewRow rowDefault = dtgv_service_patient.Rows[firstRow];
+            rowDefault.Cells["id_service2"].Value = 0;
+            rowDefault.Cells["STT"].Value = "-"; 
+            rowDefault.Cells["name_service2"].Value = "Công khám";
+            rowDefault.Cells["price2"].Value = "Miễn phí";
+            rowDefault.Cells["notes2"].Value = "";
+            rowDefault.Cells["delete_service"].Value = "-";
+
+            int stt = 1;
+            while (Db.dr.Read())
+            {
+                int i = dtgv_service_patient.Rows.Add();
+                DataGridViewRow row = dtgv_service_patient.Rows[i];
+                row.Cells["id_service2"].Value = Db.dr["id"];
+                row.Cells["STT"].Value = stt++; 
+                row.Cells["name_service2"].Value = Db.dr["name"];
+                row.Cells["price2"].Value = Db.dr["price"];
+                row.Cells["notes2"].Value = Db.dr["note"];
+                row.Cells["delete_service"].Value = "-";
+            }
+
+            Db.dr.Close();
+            UpdateTotalServicePrice();
+        }
+
     }
 }
 
