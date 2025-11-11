@@ -1,21 +1,7 @@
-﻿using System;
-using System.Collections;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Globalization;
-using System.Linq;
-using System.Management.Instrumentation;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.UI.WebControls;
 using System.Windows.Forms;
-using Google.Protobuf.WellKnownTypes;
-using Microsoft.Reporting.Map.WebForms.BingMaps;
-using MySql.Data.MySqlClient;
-using static System.Windows.Forms.Design.AxImporter;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
 namespace QuanLyPhongKham
 {
@@ -328,6 +314,11 @@ namespace QuanLyPhongKham
 
             this.DialogResult = DialogResult.OK;
             this.Close();
+        }
+
+        private void dtgv_medications_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

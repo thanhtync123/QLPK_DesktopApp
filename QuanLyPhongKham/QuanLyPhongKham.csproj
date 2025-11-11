@@ -336,6 +336,12 @@
     <Compile Include="frm_service.Designer.cs">
       <DependentUpon>frm_service.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_service_set.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_service_set.Designer.cs">
+      <DependentUpon>frm_service_set.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_statistic.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -440,6 +446,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_service.resx">
       <DependentUpon>frm_service.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_service_set.resx">
+      <DependentUpon>frm_service_set.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_statistic.resx">
       <DependentUpon>frm_statistic.cs</DependentUpon>
