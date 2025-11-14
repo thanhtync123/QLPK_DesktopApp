@@ -137,8 +137,33 @@ namespace QuanLyPhongKham
             btn_tinhtien.Enabled = false;
             btn_pre_service.Enabled = false;
             loadComboboxServiceSet();
+            loadComboboxMedicationSet();
 
 
+        }
+        private void loadComboboxMedicationSet()
+        {
+            string query = @"
+            select * from preset_medications_set order by name asc
+                     ";
+
+            Db.ResetConnection();
+            MySqlCommand cmd = new MySqlCommand(query, Db.conn);
+            MySqlDataAdapter adt = new MySqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            adt.Fill(dt);
+
+            DataRow dr = dt.NewRow();
+            dr["id"] = 0;
+            dr["name"] = "-- Chọn toa thuốc --";
+            dt.Rows.InsertAt(dr, 0);
+
+            cb_med_set.DataSource = dt;
+            cb_med_set.DisplayMember = "name";
+            cb_med_set.ValueMember = "id";
+
+            cb_med_set.SelectedIndex = 0;
+            Db.conn.Close();
         }
         private void loadComboboxServiceSet()
         {
@@ -1277,6 +1302,45 @@ namespace QuanLyPhongKham
             UpdateTotalServicePrice();
         }
 
+        private void cb_med_set_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cb_med_set.SelectedIndex == 0) return;
+            Db.ResetConnection();
+            string query = $@"
+             select m.id,m.name,pm.morning,pm.noon,pm.afternoon,pm.evening,pm.unit,pm.days_of_use,pm.total_quantity_med,pm.note 
+             from preset_medications pm
+             inner join medications m on m.id = pm.id_medications
+             where id_preset_medications_set = {cb_med_set.SelectedValue}"
+                            ;
+            Db.cmd = new MySqlCommand(query, Db.conn);
+            Db.dr = Db.cmd.ExecuteReader();
+
+            dtgv_patient_med.Rows.Clear();
+            int stt = 1;
+
+            while (Db.dr.Read())
+            {
+                int i = dtgv_patient_med.Rows.Add();
+                DataGridViewRow row = dtgv_patient_med.Rows[i];
+
+                row.Cells["stt_med_patient"].Value = stt++;
+                row.Cells["med_name_2"].Value = Db.dr["name"];
+                row.Cells["morning"].Value = Db.dr["morning"];
+                row.Cells["noon"].Value = Db.dr["noon"];
+                row.Cells["afternoon"].Value = Db.dr["afternoon"];
+                row.Cells["evening"].Value = Db.dr["evening"];
+                row.Cells["unit_2"].Value = Db.dr["unit"];
+                row.Cells["days_of_use"].Value = Db.dr["days_of_use"];
+                row.Cells["total_quantity"].Value = Db.dr["total_quantity_med"];
+                row.Cells["note_2"].Value = Db.dr["note"];
+                row.Cells["delete_med"].Value = "-";
+                row.Cells["id_med_2"].Value = Db.dr["id"];
+            }
+
+
+            Db.dr.Close();
+
+        }
     }
 }
 
