@@ -13,6 +13,8 @@ namespace QuanLyPhongKham
     public partial class frm_patients : Form
     {
         public static event Action OnPatientChanged;
+        private Timer debounceTimer;
+        private string pendingKeyword = "";
         public frm_patients()
         {
             InitializeComponent();
@@ -22,6 +24,7 @@ namespace QuanLyPhongKham
         int totalpage = 0;
         private void LoadPatients(string keyword = "")
         {
+         
             var offset = (currentpage - 1) * pagesize;
             string where = "";
             if (!string.IsNullOrEmpty(keyword))
@@ -54,7 +57,6 @@ namespace QuanLyPhongKham
             LIMIT {pagesize}
             OFFSET {offset}
                          "
-
             ;
             Db.ResetConnection();
             Db.cmd = new MySqlCommand(query, Db.conn);
@@ -64,7 +66,6 @@ namespace QuanLyPhongKham
             {
                 int i = dtgv.Rows.Add();
                 DataGridViewRow row = dtgv.Rows[i];
-
                 row.Cells["STT"].Value = Db.dr["STT"];
                 row.Cells["id"].Value = Db.dr["id"];
                 row.Cells["name"].Value = Db.dr["name"];
@@ -80,6 +81,14 @@ namespace QuanLyPhongKham
                 row.Cells["temperature"].Value = Db.dr["temperature"];
                 row.Cells["created_at_format"].Value = Db.dr["created_at_format"];
                 row.Cells["updated_at_format"].Value = Db.dr["updated_at_format"];
+            }
+            if (dtgv.Rows.Count == 1)
+            {
+                dtgv.Rows.Add();
+                dtgv.Rows[0].Cells["name"].Value = "❌ Không tìm thấy dữ liệu";
+                dtgv.Rows[0].DefaultCellStyle.ForeColor = Color.Red;
+                dtgv.Rows[0].DefaultCellStyle.Font = new Font(dtgv.Font, FontStyle.Italic);
+
             }
 
 
@@ -121,16 +130,30 @@ namespace QuanLyPhongKham
             LoadPatients("");
             LoadTotalPage();
 
+            // KHỞI TẠO DEBOUNCE TIMER
+            debounceTimer = new Timer();
+            debounceTimer.Interval = 300; // debounce 300ms
+            debounceTimer.Tick += DebounceTimer_Tick;
+
 
 
         }
+        private void DebounceTimer_Tick(object sender, EventArgs e)
+        {
+            debounceTimer.Stop();
+            LoadTotalPage(pendingKeyword); 
+            currentpage = 1;             
+            LoadPatients(pendingKeyword);
+        }
+
 
 
         private void ClearForm()
         {
             txb_id.Clear();
             txb_name.Clear();
-            rdn_male.Checked = true;
+            rdn_male.Checked = false;
+            rdn_female.Checked = false;
             txb_phone.Clear();
             txb_address.Clear();
             txb_pulse.Text = " Lần/phút";
@@ -139,6 +162,9 @@ namespace QuanLyPhongKham
             txb_weight.Text=" kg";
             txb_height.Text=" cm";
             txb_temperature.Text= " °C";
+            txb_dob.Text = "";
+            txb_age.Text = "";
+
 
             SetButtonState(false);
         }
@@ -303,15 +329,27 @@ namespace QuanLyPhongKham
                 e.Handled = true;
 
         }
-        private void LoadTotalPage()
+        private void LoadTotalPage(string keyword = "")
         {
-            string countQuery = "SELECT COUNT(*) FROM patients";
+            string where = "";
+            if (!string.IsNullOrEmpty(keyword))
+            {
+                string escapedKeyword = MySqlHelper.EscapeString(keyword);
+                where = $"WHERE `id` LIKE '%{escapedKeyword}%' OR `name` LIKE '%{escapedKeyword}%'";
+            }
+
+            string countQuery = $"SELECT COUNT(*) FROM patients {where}";
             Db.ResetConnection();
             MySqlCommand cmd = new MySqlCommand(countQuery, Db.conn);
             int totalRecords = Convert.ToInt32(cmd.ExecuteScalar());
             totalpage = (int)Math.Ceiling((double)totalRecords / pagesize);
+
+            if (currentpage > totalpage)
+                currentpage = totalpage > 0 ? totalpage : 1;
+
             Db.ResetConnection();
         }
+
         private void dtgv_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
 
@@ -435,7 +473,9 @@ namespace QuanLyPhongKham
 
         private void txb_name_TextChanged(object sender, EventArgs e)
         {
-            LoadPatients(txb_name.Text.Trim());
+            pendingKeyword = txb_name.Text.Trim();
+            debounceTimer.Stop();
+            debounceTimer.Start();   
         }
     }
 }
