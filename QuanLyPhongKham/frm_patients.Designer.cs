@@ -108,6 +108,7 @@
             this.txb_name.Name = "txb_name";
             this.txb_name.Size = new System.Drawing.Size(225, 26);
             this.txb_name.TabIndex = 1;
+            this.txb_name.TextChanged += new System.EventHandler(this.txb_name_TextChanged);
             // 
             // rdn_male
             // 

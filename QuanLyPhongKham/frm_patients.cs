@@ -16,7 +16,7 @@ namespace QuanLyPhongKham
         public frm_patients()
         {
             InitializeComponent();
-        }//123213
+        }
         int pagesize = 10;
         int currentpage = 1;
         int totalpage = 0;
@@ -56,35 +56,36 @@ namespace QuanLyPhongKham
                          "
 
             ;
-            //LIMIT { pageSize}
-            //OFFSET { offset}
+            Db.ResetConnection();
+            Db.cmd = new MySqlCommand(query, Db.conn);
+            Db.dr = Db.cmd.ExecuteReader();
+            dtgv.Rows.Clear();
+            while (Db.dr.Read())
+            {
+                int i = dtgv.Rows.Add();
+                DataGridViewRow row = dtgv.Rows[i];
 
-            Db.LoadDTGV(dtgv, query);
-        }
+                row.Cells["STT"].Value = Db.dr["STT"];
+                row.Cells["id"].Value = Db.dr["id"];
+                row.Cells["name"].Value = Db.dr["name"];
+                row.Cells["date_of_birth"].Value = Db.dr["date_of_birth"];
+                row.Cells["gender"].Value = Db.dr["gender"];
+                row.Cells["phone"].Value = Db.dr["phone"];
+                row.Cells["address"].Value = Db.dr["address"];
+                row.Cells["pulse"].Value = Db.dr["pulse"];
+                row.Cells["blood_pressure"].Value = Db.dr["blood_pressure"];
+                row.Cells["respiratory_rate"].Value = Db.dr["respiratory_rate"];
+                row.Cells["weight"].Value = Db.dr["weight"];
+                row.Cells["height"].Value = Db.dr["height"];
+                row.Cells["temperature"].Value = Db.dr["temperature"];
+                row.Cells["created_at_format"].Value = Db.dr["created_at_format"];
+                row.Cells["updated_at_format"].Value = Db.dr["updated_at_format"];
+            }
 
-        // =========================
-        // SETUP GRID (chỉ 1 lần)
-        // =========================
-        private void SetupGridColumns()
-        {
-            dtgv.AutoGenerateColumns = false;
-            dtgv.Columns["STT"].DataPropertyName = "STT";
-            dtgv.Columns["id"].DataPropertyName = "id";
-            dtgv.Columns["name"].DataPropertyName = "name";
-            dtgv.Columns["date_of_birth"].DataPropertyName = "date_of_birth";
-            dtgv.Columns["gender"].DataPropertyName = "gender";
-            dtgv.Columns["phone"].DataPropertyName = "phone";
-            dtgv.Columns["address"].DataPropertyName = "address";
-            dtgv.Columns["pulse"].DataPropertyName = "pulse";
-            dtgv.Columns["blood_pressure"].DataPropertyName = "blood_pressure";
-            dtgv.Columns["respiratory_rate"].DataPropertyName = "respiratory_rate";
-            dtgv.Columns["weight"].DataPropertyName = "weight";
-            dtgv.Columns["height"].DataPropertyName = "height";
-            dtgv.Columns["temperature"].DataPropertyName = "temperature";
-            dtgv.Columns["created_at_format"].DataPropertyName = "created_at_format";
-            dtgv.Columns["updated_at_format"].DataPropertyName = "updated_at_format";
 
-            // highlight hôm nay (gán 1 lần)
+            Db.dr.Close();
+
+
             dtgv.CellFormatting += (s, e) =>
             {
                 if (e.RowIndex >= 0)
@@ -107,14 +108,17 @@ namespace QuanLyPhongKham
             };
         }
 
+
+
+
+
  
         private void frm_patients_Load(object sender, EventArgs e)
         {
 
             txb_id.ReadOnly = true;
             SetButtonState(false);
-            SetupGridColumns();
-            LoadPatients();
+            LoadPatients("");
             LoadTotalPage();
 
 
@@ -427,6 +431,11 @@ namespace QuanLyPhongKham
             
                 e.Handled = true; 
             
+        }
+
+        private void txb_name_TextChanged(object sender, EventArgs e)
+        {
+            LoadPatients(txb_name.Text.Trim());
         }
     }
 }
