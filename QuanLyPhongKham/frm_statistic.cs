@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 using Mysqlx.Crud;
 
 namespace QuanLyPhongKham
@@ -18,26 +19,24 @@ namespace QuanLyPhongKham
         {
             string fromDate = dateTimePicker1.Value.ToString("yyyy-MM-dd 00:00:00");
             string toDate = dateTimePicker2.Value.ToString("yyyy-MM-dd 23:59:59");
-            LoadDTGVUltraDetail("");
             // Tổng bệnh nhân
             string query1 = $@"
-    SELECT COUNT(*) 
-    FROM patients 
-    WHERE updated_at BETWEEN '{fromDate}' AND '{toDate}'";
+            SELECT COUNT(*) 
+            FROM patients 
+            WHERE updated_at BETWEEN '{fromDate}' AND '{toDate}'";
             label_1.Text = Db.Scalar(query1).ToString();
 
-            // Doanh thu thuốc: Mỗi đơn có nhiều thuốc, nhưng `price` trùng nhau ⇒ lấy MAX(price) theo examination_id, rồi tính tổng
+ 
             string query2 = $@"
             SELECT IFNULL(SUM(price), 0) as total
             FROM `examinations`
             WHERE type='toa thuốc' AND created_at BETWEEN '{fromDate}' AND '{toDate}'";
             label_2.Text = string.Format("{0:N0} VND", Db.Scalar(query2));
 
-            // Doanh thu dịch vụ
             string query3 = $@"
-SELECT IFNULL(SUM(price), 0) as total
-FROM `examinations`
-WHERE type='chỉ định' AND created_at BETWEEN '{fromDate}' AND '{toDate}'";
+            SELECT IFNULL(SUM(price), 0) as total
+            FROM `examinations`
+            WHERE type='chỉ định' AND created_at BETWEEN '{fromDate}' AND '{toDate}'";
             label_3.Text = string.Format("{0:N0} VND", Db.Scalar(query3));
 
             // Tổng doanh thu = thuốc + dịch vụ
@@ -46,10 +45,10 @@ WHERE type='chỉ định' AND created_at BETWEEN '{fromDate}' AND '{toDate}'";
 
             // Số ca X-quang
             string query5 = $@"
-    SELECT COUNT(*) 
-    FROM examination_services es
-    JOIN services s ON es.service_id = s.id
-    WHERE s.type = 'X-quang' AND es.created_at BETWEEN '{fromDate}' AND '{toDate}'";
+                SELECT COUNT(*) 
+                FROM examination_services es
+                JOIN services s ON es.service_id = s.id
+                WHERE s.type = 'X-quang' AND es.created_at BETWEEN '{fromDate}' AND '{toDate}'";
             lb_5.Text = Db.Scalar(query5).ToString();
 
             // Số ca Điện tim
@@ -75,7 +74,7 @@ WHERE type='chỉ định' AND created_at BETWEEN '{fromDate}' AND '{toDate}'";
             JOIN services s ON es.service_id = s.id
             WHERE s.type = 'Xét nghiệm' AND es.created_at BETWEEN '{fromDate}' AND '{toDate}'";
             lb_8.Text = Db.Scalar(query8).ToString();
-            //////////////////////////////////////////////////
+       
             string queryTestVGB = $@"SELECT COUNT(*)
                    from examination_services es
                     join services s ON s.id = es.service_id
@@ -182,17 +181,45 @@ WHERE type='chỉ định' AND created_at BETWEEN '{fromDate}' AND '{toDate}'";
                         ";
             lb_testns1ag.Text = Db.Scalar(testns1ag).ToString();
 
+            string query = $@"
+            SELECT
+                p.id, 
+                p.name,
+                SUM(e.price) as total_per_customer
+            FROM examinations e
+            INNER JOIN patients p ON e.patient_id = p.id
+            WHERE DATE(e.updated_at) BETWEEN '{fromDate}' AND '{toDate}'
+            GROUP BY p.id, p.name;
+                            ";
+            Db.ResetConnection();
+            Db.cmd = new MySqlCommand(query, Db.conn);
+            Db.dr = Db.cmd.ExecuteReader();
+            dtgv_detail.Rows.Clear();
+            int stt = 1;
+            while (Db.dr.Read())
+            {
+
+                int i = dtgv_detail.Rows.Add();
+                DataGridViewRow drr = dtgv_detail.Rows[i];
+                drr.Cells["stt_patient"].Value = stt++;
+                drr.Cells["id_patient"].Value = Db.dr["id"];
+                drr.Cells["name_patient"].Value = Db.dr["name"];
+                drr.Cells["revenue_patient"].Value = Db.dr["total_per_customer"];
+
+            }
+
+            Db.dr.Close();
+
         }
 
         private void frm_statistic_Load(object sender, EventArgs e)
         {
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
             dateTimePicker1.CustomFormat = "dd/MM/yyyy";
-            dateTimePicker1.Value = DateTime.Today; // 👈 Mặc định là hôm nay
-            setUpDTGVUltraDetail();
+            dateTimePicker1.Value = DateTime.Today; 
             dateTimePicker2.Format = DateTimePickerFormat.Custom;
             dateTimePicker2.CustomFormat = "dd/MM/yyyy";
-            dateTimePicker2.Value = DateTime.Today; // 👈 Mặc định là hôm nay
+            dateTimePicker2.Value = DateTime.Today; 
 
             if (AppConfig.AppMode == "Ultrasound")
             {
@@ -204,7 +231,7 @@ WHERE type='chỉ định' AND created_at BETWEEN '{fromDate}' AND '{toDate}'";
             }    
             if(AppConfig.AppMode=="All")
             
-                panel_detail_ultra.Visible = false;
+              
                
                
 
@@ -220,38 +247,98 @@ WHERE type='chỉ định' AND created_at BETWEEN '{fromDate}' AND '{toDate}'";
         {
         
         }
-        private void setUpDTGVUltraDetail()
-        {
-            dtgv_detail_ultrasound.AutoGenerateColumns = false;
-            dtgv_detail_ultrasound.Columns["name"].DataPropertyName = "name";
-            dtgv_detail_ultrasound.Columns["quantity"].DataPropertyName = "total_services";
-            dtgv_detail_ultrasound.Columns["money"].DataPropertyName = "total_price"; 
-        }
-        private void LoadDTGVUltraDetail(string keyword)
+
+        private void dtgv_detail_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             string fromDate = dateTimePicker1.Value.ToString("yyyy-MM-dd 00:00:00");
             string toDate = dateTimePicker2.Value.ToString("yyyy-MM-dd 23:59:59");
-            string sql = $@"SELECT 
-                        s.name as name, 
-                        COUNT(*) AS total_services, 
-                        SUM(es.price) AS total_price
-                    FROM examination_services es
-                    JOIN services s ON es.service_id = s.id
-                    WHERE s.type = 'Siêu âm'
-                    AND s.name LIKE '%{txb_search_detail_ultra.Text}%'
-                    AND es.created_at BETWEEN '{fromDate}' AND '{toDate}'
-                    GROUP BY s.name;
-                    ";
-            Db.LoadDTGV(dtgv_detail_ultrasound, sql);
-        }
-        private void guna2ImageButton8_Click(object sender, EventArgs e)
-        {
-            
+            string query = $@"
+                SELECT e.id,e.type,e.price,e.updated_at
+                FROM examinations e 
+                INNER JOIN patients p ON p.id = e.patient_id
+                WHERE p.id = {Convert.ToInt16(dtgv_detail.CurrentRow.Cells["id_patient"].Value.ToString())}
+                and DATE(e.updated_at) BETWEEN '{fromDate}' AND '{toDate}'
+                            ";
+            Db.ResetConnection();
+            Db.cmd = new MySqlCommand(query, Db.conn);
+            Db.dr = Db.cmd.ExecuteReader();
+            dtgv_service.Rows.Clear();
+            int stt = 1;
+            while (Db.dr.Read())
+            {
+
+                int i = dtgv_service.Rows.Add();
+                DataGridViewRow drr = dtgv_service.Rows[i];
+                drr.Cells["stt_service"].Value = stt++;
+                drr.Cells["id_exam_service"].Value = Db.dr["id"];
+                drr.Cells["type_service"].Value = Db.dr["type"];
+                drr.Cells["revenue_service"].Value = Db.dr["price"];
+                drr.Cells["time_service"].Value = Db.dr["updated_at"];
+
+            }
+
+            Db.dr.Close();
         }
 
-        private void txb_search_detail_ultra_TextChanged(object sender, EventArgs e)
+        private void dtgv_service_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            LoadDTGVUltraDetail(txb_search_detail_ultra.Text);
+            if (e.RowIndex < 0 || e.ColumnIndex < 0) return;
+            int idExam = Convert.ToInt32(dtgv_service.Rows[e.RowIndex].Cells["id_exam_service"].Value);
+            if (dtgv_service.Columns[e.ColumnIndex].Name == "del_service")
+            {
+                int? selectedPatientId = null;
+                if (dtgv_detail.CurrentRow != null)
+                    selectedPatientId = Convert.ToInt32(dtgv_detail.CurrentRow.Cells["id_patient"].Value);
+
+                string queryDelete = $"DELETE FROM examinations WHERE id = {idExam}";
+                Db.cmd = new MySqlCommand(queryDelete, Db.conn);
+                try
+                {
+                    Db.cmd.ExecuteNonQuery();
+                    dtgv_service.Rows.RemoveAt(e.RowIndex);
+                    LoadThongKe();     
+                    if (selectedPatientId.HasValue)
+                        foreach (DataGridViewRow row in dtgv_detail.Rows)
+                        
+                            if (row.Cells["id_patient"].Value != null &&
+                                Convert.ToInt32(row.Cells["id_patient"].Value) == selectedPatientId.Value)
+                            {
+                                row.Selected = true;
+                                dtgv_detail.FirstDisplayedScrollingRowIndex = row.Index;
+                                dtgv_detail.CurrentCell = row.Cells["stt_patient"];
+                                break;
+                            }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi: " + ex.Message);
+                }
+            }
+
+            string query = $@"
+                SELECT e.id, s.name, s.price
+                FROM examinations e
+                INNER JOIN examination_services es ON e.id = es.examination_id
+                INNER JOIN services s ON s.id = es.service_id
+                WHERE e.id = {idExam}";
+
+            Db.ResetConnection();
+            Db.cmd = new MySqlCommand(query, Db.conn);
+            Db.dr = Db.cmd.ExecuteReader();
+
+            dtgv_detail_service.Rows.Clear();
+            int stt = 1;
+            while (Db.dr.Read())
+            {
+                int i = dtgv_detail_service.Rows.Add();
+                var drr = dtgv_detail_service.Rows[i];
+                drr.Cells["price_service_detail"].Value = Db.dr["price"];
+                drr.Cells["service_detail"].Value = Db.dr["name"];
+                drr.Cells["stt_detail"].Value = stt++;
+            }
+
+            Db.dr.Close();
         }
+
     }
 }
