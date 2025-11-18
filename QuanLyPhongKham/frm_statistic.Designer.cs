@@ -37,8 +37,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
@@ -61,7 +61,6 @@
             this.lb_5 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2ImageButton2 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.lb_4 = new System.Windows.Forms.Label();
             this.pn_test = new Guna.UI2.WinForms.Guna2Panel();
@@ -107,13 +106,14 @@
             this.dtgv_detail = new Guna.UI2.WinForms.Guna2DataGridView();
             this.dtgv_service = new Guna.UI2.WinForms.Guna2DataGridView();
             this.dtgv_detail_service = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.stt_detail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.service_detail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price_service_detail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label12 = new System.Windows.Forms.Label();
             this.id_patient = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stt_patient = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name_patient = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.revenue_patient = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stt_detail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.service_detail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price_service_detail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id_exam_service = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stt_service = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.type_service = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -368,26 +368,13 @@
             // 
             this.guna2Panel6.BackColor = System.Drawing.Color.PaleGoldenrod;
             this.guna2Panel6.BorderColor = System.Drawing.Color.Yellow;
-            this.guna2Panel6.Controls.Add(this.guna2ImageButton1);
+            this.guna2Panel6.Controls.Add(this.label12);
             this.guna2Panel6.Controls.Add(this.guna2ImageButton2);
             this.guna2Panel6.Controls.Add(this.lb_4);
             this.guna2Panel6.Location = new System.Drawing.Point(245, 193);
             this.guna2Panel6.Name = "guna2Panel6";
             this.guna2Panel6.Size = new System.Drawing.Size(229, 80);
             this.guna2Panel6.TabIndex = 4;
-            // 
-            // guna2ImageButton1
-            // 
-            this.guna2ImageButton1.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton1.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton1.Image = global::QuanLyPhongKham.Properties.Resources.add;
-            this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageButton1.ImageRotate = 0F;
-            this.guna2ImageButton1.Location = new System.Drawing.Point(12, 4);
-            this.guna2ImageButton1.Name = "guna2ImageButton1";
-            this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton1.Size = new System.Drawing.Size(45, 30);
-            this.guna2ImageButton1.TabIndex = 18;
             // 
             // guna2ImageButton2
             // 
@@ -894,7 +881,7 @@
             this.dtgv_detail.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -952,7 +939,7 @@
             this.dtgv_service.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.None;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -1012,7 +999,7 @@
             this.dtgv_detail_service.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.None;
             dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -1060,6 +1047,35 @@
             this.dtgv_detail_service.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtgv_detail_service.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
+            // stt_detail
+            // 
+            this.stt_detail.HeaderText = "STT";
+            this.stt_detail.Name = "stt_detail";
+            this.stt_detail.Width = 50;
+            // 
+            // service_detail
+            // 
+            this.service_detail.HeaderText = "Dịch vụ";
+            this.service_detail.Name = "service_detail";
+            this.service_detail.Width = 270;
+            // 
+            // price_service_detail
+            // 
+            dataGridViewCellStyle12.Format = "N0";
+            this.price_service_detail.DefaultCellStyle = dataGridViewCellStyle12;
+            this.price_service_detail.HeaderText = "Giá";
+            this.price_service_detail.Name = "price_service_detail";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(7, 10);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(135, 20);
+            this.label12.TabIndex = 13;
+            this.label12.Text = "Tổng doanh thu";
+            // 
             // id_patient
             // 
             this.id_patient.HeaderText = "mã kh";
@@ -1080,29 +1096,12 @@
             // 
             // revenue_patient
             // 
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Red;
             dataGridViewCellStyle3.Format = "N0";
             this.revenue_patient.DefaultCellStyle = dataGridViewCellStyle3;
             this.revenue_patient.HeaderText = "Doanh thu";
             this.revenue_patient.Name = "revenue_patient";
-            // 
-            // stt_detail
-            // 
-            this.stt_detail.HeaderText = "STT";
-            this.stt_detail.Name = "stt_detail";
-            this.stt_detail.Width = 50;
-            // 
-            // service_detail
-            // 
-            this.service_detail.HeaderText = "Dịch vụ";
-            this.service_detail.Name = "service_detail";
-            this.service_detail.Width = 270;
-            // 
-            // price_service_detail
-            // 
-            dataGridViewCellStyle12.Format = "N0";
-            this.price_service_detail.DefaultCellStyle = dataGridViewCellStyle12;
-            this.price_service_detail.HeaderText = "Giá";
-            this.price_service_detail.Name = "price_service_detail";
             // 
             // id_exam_service
             // 
@@ -1123,6 +1122,8 @@
             // 
             // revenue_service
             // 
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Red;
             dataGridViewCellStyle7.Format = "N0";
             this.revenue_service.DefaultCellStyle = dataGridViewCellStyle7;
             this.revenue_service.HeaderText = "Doanh thu";
@@ -1130,6 +1131,8 @@
             // 
             // time_service
             // 
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Blue;
             dataGridViewCellStyle8.Format = "dd/MM/yyyy HH:mm";
             this.time_service.DefaultCellStyle = dataGridViewCellStyle8;
             this.time_service.HeaderText = "Thời gian";
@@ -1167,7 +1170,7 @@
             this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.guna2Panel1);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frm_statistic";
             this.Text = "Thống kê tổng quan";
             this.Load += new System.EventHandler(this.frm_statistic_Load);
@@ -1260,17 +1263,17 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label lb_testns1ag;
         private System.Windows.Forms.Label label24;
-        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton1;
         private Guna.UI2.WinForms.Guna2DataGridView dtgv_detail;
         private Guna.UI2.WinForms.Guna2DataGridView dtgv_service;
         private Guna.UI2.WinForms.Guna2DataGridView dtgv_detail_service;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stt_detail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn service_detail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price_service_detail;
+        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_patient;
         private System.Windows.Forms.DataGridViewTextBoxColumn stt_patient;
         private System.Windows.Forms.DataGridViewTextBoxColumn name_patient;
         private System.Windows.Forms.DataGridViewTextBoxColumn revenue_patient;
-        private System.Windows.Forms.DataGridViewTextBoxColumn stt_detail;
-        private System.Windows.Forms.DataGridViewTextBoxColumn service_detail;
-        private System.Windows.Forms.DataGridViewTextBoxColumn price_service_detail;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_exam_service;
         private System.Windows.Forms.DataGridViewTextBoxColumn stt_service;
         private System.Windows.Forms.DataGridViewTextBoxColumn type_service;

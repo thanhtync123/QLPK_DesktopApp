@@ -1080,8 +1080,11 @@ namespace QuanLyPhongKham
             }
 
             lb_dayofuse.Text = maxDayOfUse + "";
-            int total = 50000 * maxDayOfUse;
-            txb_total_price_med.Text = total.ToString("#,##0");
+            int total = 0;
+            if (rdn_person.Checked)
+                total = 50000 * maxDayOfUse;
+            else total = 40000 * maxDayOfUse;
+                txb_total_price_med.Text = total.ToString("#,##0");
             txb_follow_up.Text = DateTime.Today.AddDays(maxDayOfUse).ToString("dd/MM/yyyy");
 
 
@@ -1131,52 +1134,33 @@ namespace QuanLyPhongKham
 
         private void button1_Click(object sender, EventArgs e)
         {
-            bool hasInserted = false;
-            foreach (DataGridViewRow row in dtgv_service_patient.Rows)
+            try
             {
-                if (row.IsNewRow) continue;
-                if (row.Cells[1].Value.ToString() == "Công khám" || row.Cells[1].Value.ToString() == "Kiểm tra")
-                    continue;
-                int id_service;
-                if (!int.TryParse(row.Cells["id_service2"].Value?.ToString(), out id_service))
-                    continue;
-
-                string checkQuery = $@"Select count(*)
-                            from examination_services es
-                            where service_id = {id_service}
-                            and examination_id = {Convert.ToInt16(txb_exam_id.Text)} 
-                                ";
-                int count = Convert.ToInt32(Db.Scalar(checkQuery));
-
-                if (count == 0)
+                string queryDelete = $@"DELETE FROM examination_services WHERE examination_id = {Convert.ToInt32(txb_exam_id.Text)}";
+                Clipboard.SetText(queryDelete);
+                Db.cmd = new MySqlCommand(queryDelete, Db.conn);
+                Db.cmd.ExecuteNonQuery();
+                foreach (DataGridViewRow row in dtgv_service_patient.Rows)
                 {
-                    if (row.Cells[2].Value.ToString() == "Công khám" || row.Cells[2].Value.ToString() == "Kiểm tra")
+                    if (row.IsNewRow) continue; 
+                    if (row.Cells["name_service2"].Value?.ToString() == "Công khám")
                         continue;
-                    try
-                    {
-                        string insertQuery = $@"
-                        INSERT INTO examination_services(service_id, examination_id)
-                        VALUES({id_service}, {Convert.ToInt16(txb_exam_id.Text)})";
-                        Db.ExecuteNonQuery(insertQuery);
-                        hasInserted = true;
-                        btn_save_examination_service.Enabled = true;
-                        btn_update_examination.Enabled = false;
-
-
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Lỗi: " + ex.Message);
-
-                    }
+                    string queryInsert = $@"
+                    INSERT INTO examination_services (examination_id, service_id) 
+                    VALUES ({Convert.ToInt32(txb_exam_id.Text)}, {Convert.ToInt32(row.Cells["id_service2"].Value)})";
+                    Db.cmd = new MySqlCommand(queryInsert, Db.conn);
+                    Db.cmd.ExecuteNonQuery();
+                 
                 }
-
+                MessageBox.Show("Cập nhật thành công");
             }
-            if (hasInserted)
+            catch (Exception ex)
             {
-                MessageBox.Show("Cập nhật dịch vụ cho phiếu thành công");
-                LoadExamID();
+        
+                MessageBox.Show("Lỗi: " + ex.ToString());
             }
+
+
 
         }
 
@@ -1340,6 +1324,16 @@ namespace QuanLyPhongKham
 
             Db.dr.Close();
 
+        }
+
+        private void rdn_person_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateMedicationSummary();
+        }
+
+        private void rdn_child_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateMedicationSummary();
         }
     }
 }

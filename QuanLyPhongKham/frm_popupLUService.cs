@@ -51,7 +51,13 @@ namespace QuanLyPhongKham
             LoadDTGV_Patient_Service();
             LoadTotalPages();
             lb_page.Text = pageIndex.ToString();
-
+            dtgv_result.Visible = false;
+            txb_finalResult.Visible = false;
+            txb_result.Visible = false;
+            pb_1.Visible=false;
+            pb_2.Visible = false;
+            pb_3.Visible = false;
+            pb_4.Visible = false;
 
         }
         private void LoadDTGV_Patient_Service()
