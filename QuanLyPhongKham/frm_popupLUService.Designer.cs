@@ -34,15 +34,25 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.txb_search = new Guna.UI2.WinForms.Guna2TextBox();
             this.btn_choose = new System.Windows.Forms.Button();
             this.dtgv_exam_service = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.id_exam = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_patient = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name_patient = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.time = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtgv_detail = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.id_service = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name_service = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.state = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.examination_service_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_delete = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.lb_totalpage = new System.Windows.Forms.Label();
@@ -65,16 +75,6 @@
             this.t_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.t_normal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chb_viewall = new System.Windows.Forms.CheckBox();
-            this.id_exam = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_patient = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name_patient = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.time = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_service = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name_service = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.state = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.examination_service_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_exam_service)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_detail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_1)).BeginInit();
@@ -190,6 +190,36 @@
             this.dtgv_exam_service.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_exam_service_CellClick);
             this.dtgv_exam_service.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dtgv_exam_service_CellFormatting);
             // 
+            // id_exam
+            // 
+            this.id_exam.FillWeight = 101.5228F;
+            this.id_exam.HeaderText = "Phiếu";
+            this.id_exam.Name = "id_exam";
+            this.id_exam.Width = 60;
+            // 
+            // id_patient
+            // 
+            this.id_patient.FillWeight = 99.49239F;
+            this.id_patient.HeaderText = "Mã KH";
+            this.id_patient.Name = "id_patient";
+            this.id_patient.Visible = false;
+            this.id_patient.Width = 80;
+            // 
+            // name_patient
+            // 
+            this.name_patient.FillWeight = 99.49239F;
+            this.name_patient.HeaderText = "Tên KH";
+            this.name_patient.Name = "name_patient";
+            this.name_patient.Visible = false;
+            this.name_patient.Width = 250;
+            // 
+            // time
+            // 
+            this.time.FillWeight = 99.49239F;
+            this.time.HeaderText = "Ngày cấp dịch vụ";
+            this.time.Name = "time";
+            this.time.Width = 170;
+            // 
             // dtgv_detail
             // 
             dataGridViewCellStyle14.BackColor = System.Drawing.Color.White;
@@ -249,6 +279,45 @@
             this.dtgv_detail.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dtgv_detail.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_detail_CellClick);
             this.dtgv_detail.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dtgv_detail_CellFormatting);
+            // 
+            // id_service
+            // 
+            this.id_service.HeaderText = "Mã CĐ";
+            this.id_service.Name = "id_service";
+            this.id_service.Visible = false;
+            this.id_service.Width = 80;
+            // 
+            // name_service
+            // 
+            this.name_service.HeaderText = "Tên chỉ định";
+            this.name_service.Name = "name_service";
+            this.name_service.Width = 320;
+            // 
+            // price
+            // 
+            dataGridViewCellStyle16.Format = "N0";
+            this.price.DefaultCellStyle = dataGridViewCellStyle16;
+            this.price.HeaderText = "Giá";
+            this.price.Name = "price";
+            this.price.Visible = false;
+            this.price.Width = 200;
+            // 
+            // type
+            // 
+            this.type.HeaderText = "Loại";
+            this.type.Name = "type";
+            // 
+            // state
+            // 
+            this.state.HeaderText = "Trạng thái";
+            this.state.Name = "state";
+            this.state.Width = 120;
+            // 
+            // examination_service_id
+            // 
+            this.examination_service_id.HeaderText = "Mã phiếu dịch vụ";
+            this.examination_service_id.Name = "examination_service_id";
+            this.examination_service_id.Visible = false;
             // 
             // btn_delete
             // 
@@ -380,6 +449,7 @@
             this.pb_1.Location = new System.Drawing.Point(363, 437);
             this.pb_1.Name = "pb_1";
             this.pb_1.Size = new System.Drawing.Size(217, 155);
+            this.pb_1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_1.TabIndex = 81;
             this.pb_1.TabStop = false;
             // 
@@ -389,6 +459,7 @@
             this.pb_2.Location = new System.Drawing.Point(586, 437);
             this.pb_2.Name = "pb_2";
             this.pb_2.Size = new System.Drawing.Size(217, 155);
+            this.pb_2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_2.TabIndex = 82;
             this.pb_2.TabStop = false;
             // 
@@ -398,6 +469,7 @@
             this.pb_3.Location = new System.Drawing.Point(363, 598);
             this.pb_3.Name = "pb_3";
             this.pb_3.Size = new System.Drawing.Size(217, 155);
+            this.pb_3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_3.TabIndex = 83;
             this.pb_3.TabStop = false;
             // 
@@ -407,6 +479,7 @@
             this.pb_4.Location = new System.Drawing.Point(586, 598);
             this.pb_4.Name = "pb_4";
             this.pb_4.Size = new System.Drawing.Size(217, 155);
+            this.pb_4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_4.TabIndex = 84;
             this.pb_4.TabStop = false;
             // 
@@ -501,75 +574,6 @@
             this.chb_viewall.Text = "checkBox1";
             this.chb_viewall.UseVisualStyleBackColor = true;
             this.chb_viewall.Visible = false;
-            // 
-            // id_exam
-            // 
-            this.id_exam.FillWeight = 101.5228F;
-            this.id_exam.HeaderText = "Phiếu";
-            this.id_exam.Name = "id_exam";
-            this.id_exam.Width = 60;
-            // 
-            // id_patient
-            // 
-            this.id_patient.FillWeight = 99.49239F;
-            this.id_patient.HeaderText = "Mã KH";
-            this.id_patient.Name = "id_patient";
-            this.id_patient.Visible = false;
-            this.id_patient.Width = 80;
-            // 
-            // name_patient
-            // 
-            this.name_patient.FillWeight = 99.49239F;
-            this.name_patient.HeaderText = "Tên KH";
-            this.name_patient.Name = "name_patient";
-            this.name_patient.Visible = false;
-            this.name_patient.Width = 250;
-            // 
-            // time
-            // 
-            this.time.FillWeight = 99.49239F;
-            this.time.HeaderText = "Ngày cấp dịch vụ";
-            this.time.Name = "time";
-            this.time.Width = 170;
-            // 
-            // id_service
-            // 
-            this.id_service.HeaderText = "Mã CĐ";
-            this.id_service.Name = "id_service";
-            this.id_service.Visible = false;
-            this.id_service.Width = 80;
-            // 
-            // name_service
-            // 
-            this.name_service.HeaderText = "Tên chỉ định";
-            this.name_service.Name = "name_service";
-            this.name_service.Width = 320;
-            // 
-            // price
-            // 
-            dataGridViewCellStyle16.Format = "N0";
-            this.price.DefaultCellStyle = dataGridViewCellStyle16;
-            this.price.HeaderText = "Giá";
-            this.price.Name = "price";
-            this.price.Visible = false;
-            this.price.Width = 200;
-            // 
-            // type
-            // 
-            this.type.HeaderText = "Loại";
-            this.type.Name = "type";
-            // 
-            // state
-            // 
-            this.state.HeaderText = "Trạng thái";
-            this.state.Name = "state";
-            this.state.Width = 120;
-            // 
-            // examination_service_id
-            // 
-            this.examination_service_id.HeaderText = "Mã phiếu dịch vụ";
-            this.examination_service_id.Name = "examination_service_id";
-            this.examination_service_id.Visible = false;
             // 
             // frm_popupLUService
             // 
