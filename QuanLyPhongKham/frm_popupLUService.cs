@@ -329,10 +329,18 @@ namespace QuanLyPhongKham
                     for (int i = 0; i < file_path.Length; i++)
                     {
                         string folder = Path.Combine(Application.StartupPath, file_path[i]);
-                        pb_1.ImageLocation = file_path[0];
-                        pb_2.ImageLocation = file_path[1];
-                        pb_3.ImageLocation = file_path[2];
-                        pb_4.ImageLocation = file_path[3];
+                        try
+                        {
+
+                            pb_1.ImageLocation = file_path[0];
+                            pb_2.ImageLocation = file_path[1];
+                            pb_3.ImageLocation = file_path[2];
+                            pb_4.ImageLocation = file_path[3];
+                        }
+                        catch (Exception ex)
+                        {
+                        }
+
 
                     }
 
