@@ -4,11 +4,15 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace QuanLyPhongKham
 {
@@ -26,7 +30,7 @@ namespace QuanLyPhongKham
         {
 
             Db.ResetConnection();
-            string countQuery = "SELECT COUNT(*) FROM examinations WHERE type = 'toa thuốc'";
+            string countQuery = "SELECT COUNT(*) FROM examinations WHERE type = 'chỉ định'";
             if (!chb_viewall.Checked)
                 countQuery += $" AND patient_id = {PatientID} ";
             if (!string.IsNullOrEmpty(txb_search.Text))
@@ -40,7 +44,7 @@ namespace QuanLyPhongKham
         }
         public List<DataGridViewRow> AllRows { get; private set; } = new List<DataGridViewRow>();
         public string examId { get; set; }
-        public int PatientID{ get; set; }
+        public int PatientID { get; set; }
         private void frm_popupLUService_Load(object sender, EventArgs e)
         {
             btn_delete.Enabled = false;
@@ -72,14 +76,14 @@ namespace QuanLyPhongKham
                         ";
             if (!chb_viewall.Checked)
                 query += $" AND p.id = {PatientID} ";
-            if(!string.IsNullOrEmpty(txb_search.Text))
+            if (!string.IsNullOrEmpty(txb_search.Text))
                 query += $" AND (p.name LIKE '%{txb_search.Text}%' OR e.id LIKE '%{txb_search.Text}%') ";
             query += @"
             GROUP BY e.id, p.id, p.name";
             query += $" ORDER BY e.updated_at DESC LIMIT {offset},{pageSize}";
             Db.cmd = new MySqlCommand(query, Db.conn);
             Db.dr = Db.cmd.ExecuteReader();
-            dtgv_exam_service.Rows.Clear(); // Xóa dữ liệu cũ trong DataGridView
+            dtgv_exam_service.Rows.Clear();
             while (Db.dr.Read())
             {
                 int i = dtgv_exam_service.Rows.Add();
@@ -98,15 +102,21 @@ namespace QuanLyPhongKham
         private void dtgv_exam_service_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             btn_delete.Enabled = true;
-             id = Convert.ToInt16(dtgv_exam_service.Rows[e.RowIndex].Cells[0].Value.ToString());
-            string query = $@"SELECT s.id as 'Mã CĐ',s.name as 'Tên chỉ định',s.price as 'Giá'
-                        FROM examinations e, services s, examination_services es
-                        WHERE s.id = es.service_id
-                        and e.id = es.examination_id
-                        and e.id = {id}";
+            id = Convert.ToInt16(dtgv_exam_service.Rows[e.RowIndex].Cells[0].Value.ToString());
+            string query = $@"
+               SELECT s.id as 'Mã CĐ',s.name as 'Tên chỉ định',s.price as 'Giá',s.type,
+             CASE 
+                    WHEN er.examination_service_id IS NULL THEN 'Chưa có KQ'
+                    ELSE 'Đã có KQ'
+                END AS 'Trạng thái',er.examination_service_id,er.result,final_result
+            FROM examinations e
+            INNER JOIN examination_services es ON  es.examination_id=e.id
+            INNER JOIN services s ON s.id=es.service_id
+            LEFT JOIN examination_results er ON er.examination_service_id=es.id
+                Where e.id = {id}";
             Db.cmd = new MySqlCommand(query, Db.conn);
             Db.dr = Db.cmd.ExecuteReader();
-            dtgv_detail.Rows.Clear(); // Xóa dữ liệu cũ trong DataGridView
+            dtgv_detail.Rows.Clear();
             while (Db.dr.Read())
             {
                 int i = dtgv_detail.Rows.Add();
@@ -115,6 +125,9 @@ namespace QuanLyPhongKham
                 drr.Cells["id_service"].Value = Db.dr["Mã CĐ"];
                 drr.Cells["name_service"].Value = Db.dr["Tên chỉ định"];
                 drr.Cells["price"].Value = Db.dr["Giá"];
+                drr.Cells["state"].Value = Db.dr["Trạng thái"];
+                drr.Cells["type"].Value = Db.dr["type"];
+                drr.Cells["examination_service_id"].Value = Db.dr["examination_service_id"];
 
 
             }
@@ -128,7 +141,7 @@ namespace QuanLyPhongKham
         {
             AllRows.Clear();
             DataGridViewRow row1 = new DataGridViewRow();
-            row1.CreateCells(dtgv_detail,  "", "Công khám", "Miễn phí", "", "-");
+            row1.CreateCells(dtgv_detail, "", "Công khám", "Miễn phí", "", "-");
             AllRows.Add(row1);
             string examId = dtgv_exam_service.CurrentRow.Cells[0].Value.ToString();
             if (dtgv_exam_service.CurrentRow != null)
@@ -227,5 +240,256 @@ namespace QuanLyPhongKham
             LoadDTGV_Patient_Service();
 
         }
+        private void ClearForm()
+        {
+            txb_finalResult.Text = "";
+            txb_result.Text = "";
+            dtgv_result.Rows.Clear();
+            pb_1.Image = null;
+            pb_2.Image = null;
+            pb_3.Image = null;
+            pb_4.Image = null;
+        }
+        private void XRayMode()
+        {
+            dtgv_result.Rows.Clear();
+            dtgv_result.Visible = false;
+            pb_1.Image = null;
+            pb_2.Image = null;
+            pb_3.Image = null;
+            pb_4.Image = null;
+            pb_1.Visible = false;
+            pb_2.Visible = false;
+            pb_3.Visible = false;
+            pb_4.Visible = false;
+            txb_finalResult.Visible = true;
+            txb_result.Visible = true;
+        }
+        private void UltrasoundMode()
+        {
+            dtgv_result.Rows.Clear();
+            dtgv_result.Visible = false;
+            pb_1.Visible = true;
+            pb_2.Visible = true;
+            pb_3.Visible = true;
+            pb_4.Visible = true;
+            txb_finalResult.Visible = true;
+            txb_result.Visible = true;
+        }
+        private void TestMode()
+        {
+            dtgv_result.Visible = true;
+            pb_1.Image = null;
+            pb_2.Image = null;
+            pb_3.Image = null;
+            pb_4.Image = null;
+            pb_1.Visible = false;
+            pb_2.Visible = false;
+            pb_3.Visible = false;
+            pb_4.Visible = false;
+            txb_finalResult.Visible = false;
+            txb_result.Visible = false;
+        }
+        private void dtgv_detail_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dtgv_detail.CurrentRow.Cells["state"].Value?.ToString() == "Chưa có KQ")
+                ClearForm();
+
+            int examination_service_id = 0;
+            var cellValue = dtgv_detail.CurrentRow.Cells["examination_service_id"].Value;
+            if (cellValue != null && cellValue != DBNull.Value)
+                examination_service_id = Convert.ToInt32(cellValue);
+
+            Db.ResetConnection();
+            string query = $@"
+                select result,final_result,file_path,s.type
+                from examination_results er
+                inner join examination_services es ON  er.examination_service_id=es.id
+                inner join services s ON es.service_id=s.id
+                where examination_service_id = {examination_service_id}
+                            ";
+            Db.cmd = new MySqlCommand(query, Db.conn);
+            Db.dr = Db.cmd.ExecuteReader();
+            while (Db.dr.Read())
+            {
+                if (Db.dr["type"]?.ToString() == "X-quang")
+                {
+                    XRayMode();
+                    txb_result.Text = Db.dr["result"]?.ToString();
+                    txb_finalResult.Text = Db.dr["final_result"]?.ToString();
+
+
+                }
+                else if (Db.dr["type"]?.ToString() == "Siêu âm")
+                {
+                    UltrasoundMode();
+                    txb_result.Text = Db.dr["result"]?.ToString();
+                    txb_finalResult.Text = Db.dr["final_result"]?.ToString();
+                    string[] file_path = Db.dr["file_path"]?.ToString().Split(',');
+                    for (int i = 0; i < file_path.Length; i++)
+                    {
+                        string folder = Path.Combine(Application.StartupPath, file_path[i]);
+                        pb_1.ImageLocation = file_path[0];
+                        pb_2.ImageLocation = file_path[1];
+                        pb_3.ImageLocation = file_path[2];
+                        pb_4.ImageLocation = file_path[3];
+
+                    }
+
+                }
+                else if (Db.dr["type"]?.ToString() == "Xét nghiệm")
+                {
+                    TestMode();
+                    var list = JArray.Parse(Db.dr["result"].ToString());
+                    dtgv_result.Rows.Clear();
+                    foreach (var item in list)
+                    {
+                        int row = dtgv_result.Rows.Add();
+                        dtgv_result.Rows[row].Cells["t_indication"].Value = item["indication"]?.ToString();
+                        dtgv_result.Rows[row].Cells["t_result"].Value = item["result"]?.ToString();
+                        dtgv_result.Rows[row].Cells["t_unit"].Value = item["unit"]?.ToString();
+                        dtgv_result.Rows[row].Cells["t_normal"].Value = item["normal_range"]?.ToString();
+                    }
+                }
+            }
+
+            Db.dr.Close();
+
+        }
+
+        private void dtgv_result_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+
+            if (dtgv_result.Columns[e.ColumnIndex].Name == "t_result")
+            {
+                var row = dtgv_result.Rows[e.RowIndex];
+                string ketQuaStr = row.Cells["t_result"].Value?.ToString();
+                string csbt = row.Cells["t_normal"].Value?.ToString();
+                string query = $@"
+                        SELECT gender
+                        FROM patients
+                        WHERE id = {Convert.ToInt16(dtgv_exam_service.CurrentRow.Cells["id_patient"].Value.ToString())}
+                    ";
+                MySqlCommand cmd = new MySqlCommand(query, Db.conn);
+                string gioiTinh = cmd.ExecuteScalar().ToString();
+                if (KetQuaNgoaiChiSo(ketQuaStr, csbt, gioiTinh))
+                    e.CellStyle.ForeColor = Color.Red;
+                else
+                    e.CellStyle.ForeColor = Color.Black;
+            }
+        }
+
+        private bool KetQuaNgoaiChiSo(string ketQuaStr, string csbt, string gioiTinh = "")
+        {
+            if (string.IsNullOrEmpty(ketQuaStr) || string.IsNullOrEmpty(csbt))
+                return false;
+            ketQuaStr = ketQuaStr.Trim().Replace("%", "").Replace("ml", "").Replace(",", ".");
+            csbt = csbt.Trim().Replace(",", ".");
+            if (!double.TryParse(ketQuaStr, System.Globalization.NumberStyles.Any,
+                System.Globalization.CultureInfo.InvariantCulture, out double ketQua))
+            {
+                return !string.Equals(ketQuaStr, csbt, StringComparison.OrdinalIgnoreCase);
+            }
+            if (csbt.Contains("Nam:") || csbt.Contains("Nữ:"))
+            {
+                if (!string.IsNullOrEmpty(gioiTinh))
+                {
+                    string pattern = gioiTinh.StartsWith("Nam", StringComparison.OrdinalIgnoreCase) ?
+                        @"Nam\s*:\s*(\d+(\.\d+)?)\s*-\s*(\d+(\.\d+)?)" :
+                        @"Nữ\s*:\s*(\d+(\.\d+)?)\s*-\s*(\d+(\.\d+)?)";
+
+                    var match = System.Text.RegularExpressions.Regex.Match(csbt, pattern);
+                    if (match.Success)
+                    {
+                        double min = double.Parse(match.Groups[1].Value, System.Globalization.CultureInfo.InvariantCulture);
+                        double max = double.Parse(match.Groups[3].Value, System.Globalization.CultureInfo.InvariantCulture);
+                        return ketQua < min || ketQua > max;
+                    }
+                    else
+                    {
+                        // Không tìm thấy pattern cho giới tính hiện tại
+                        return false;
+                    }
+                }
+                return false;
+            }
+            if (csbt.Contains("-"))
+            {
+                var parts = csbt.Split('-');
+                if (parts.Length == 2 &&
+                    double.TryParse(parts[0], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out double min) &&
+                    double.TryParse(parts[1], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out double max))
+                {
+                    return ketQua < min || ketQua > max;
+                }
+            }
+            csbt = csbt.Replace("≤", "<=").Replace("≥", ">=");
+            if (csbt.StartsWith("<=") &&
+                double.TryParse(csbt.Substring(2), System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out double le))
+                return ketQua > le;
+            if (csbt.StartsWith(">=") &&
+                double.TryParse(csbt.Substring(2), System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out double ge))
+                return ketQua < ge;
+            if (csbt.StartsWith("<") &&
+                double.TryParse(csbt.Substring(1), System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out double l))
+                return ketQua >= l;
+            if (csbt.StartsWith(">") &&
+                double.TryParse(csbt.Substring(1), System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out double g))
+                return ketQua <= g;
+            if (csbt.StartsWith("=") &&
+                double.TryParse(csbt.Substring(1), System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out double e))
+                return ketQua != e;
+
+            return false;
+        }
+
+        private void dtgv_exam_service_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            foreach (DataGridViewRow row in dtgv_exam_service.Rows)
+            {
+                var cell = row.Cells["time"];
+                cell.Style.ForeColor = Color.MediumBlue;
+            }
+
+
+
+        }
+
+        private void dtgv_detail_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            foreach (DataGridViewRow row in dtgv_detail.Rows)
+            {
+                var cell = row.Cells["type"];
+
+                switch (cell.Value?.ToString())
+                {
+                    case "Siêu âm":
+                        cell.Style.ForeColor = Color.MediumBlue;
+                        break;
+                    case "X-quang":
+                        cell.Style.ForeColor = Color.DarkOrange;
+                        break;
+                    default:
+                        cell.Style.ForeColor = Color.DarkGreen;
+                        break;
+                }
+
+                var cellState = row.Cells["state"];
+
+                switch (cellState.Value?.ToString())
+                {
+                    case "Chưa có KQ":
+                        cellState.Style.ForeColor = Color.RoyalBlue;
+                        break;
+                    case "Đã có KQ":
+                        cellState.Style.ForeColor = Color.ForestGreen;
+                        break;
+                }
+            }
+
+
+
+        }
     }
 }
+

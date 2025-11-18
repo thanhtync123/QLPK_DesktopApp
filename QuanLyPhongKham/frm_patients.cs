@@ -82,7 +82,7 @@ namespace QuanLyPhongKham
                 row.Cells["created_at_format"].Value = Db.dr["created_at_format"];
                 row.Cells["updated_at_format"].Value = Db.dr["updated_at_format"];
             }
-            if (dtgv.Rows.Count == 1)
+            if (dtgv.Rows.Count == 0)
             {
                 dtgv.Rows.Add();
                 dtgv.Rows[0].Cells["name"].Value = "❌ Không tìm thấy dữ liệu";
