@@ -259,6 +259,7 @@ namespace QuanLyPhongKham
                 WHERE p.id = {Convert.ToInt16(dtgv_detail.CurrentRow.Cells["id_patient"].Value.ToString())}
                 and DATE(e.updated_at) BETWEEN '{fromDate}' AND '{toDate}'
                             ";
+          
             Db.ResetConnection();
             Db.cmd = new MySqlCommand(query, Db.conn);
             Db.dr = Db.cmd.ExecuteReader();
