@@ -1161,6 +1161,7 @@ namespace QuanLyPhongKham
                     WHERE id = {Convert.ToInt32(txb_exam_id.Text)}
                 ";
 
+         
                 Db.cmd = new MySqlCommand(queryUpdatePrice, Db.conn);
                 Db.cmd.ExecuteNonQuery();
                 MessageBox.Show("Cập nhật thành công");
