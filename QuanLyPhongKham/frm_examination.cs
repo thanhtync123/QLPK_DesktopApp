@@ -1137,13 +1137,13 @@ namespace QuanLyPhongKham
             try
             {
                 string queryDelete = $@"DELETE FROM examination_services WHERE examination_id = {Convert.ToInt32(txb_exam_id.Text)}";
-    
+
                 Db.cmd = new MySqlCommand(queryDelete, Db.conn);
                 Db.cmd.ExecuteNonQuery();
                 int total_price_new = 0;
                 foreach (DataGridViewRow row in dtgv_service_patient.Rows)
                 {
-                    if (row.IsNewRow) continue; 
+                    if (row.IsNewRow) continue;
                     if (row.Cells["name_service2"].Value?.ToString() == "Công khám")
                         continue;
                     string queryInsert = $@"
@@ -1151,7 +1151,8 @@ namespace QuanLyPhongKham
                     VALUES ({Convert.ToInt32(txb_exam_id.Text)}, {Convert.ToInt32(row.Cells["id_service2"].Value)})";
                     Db.cmd = new MySqlCommand(queryInsert, Db.conn);
                     Db.cmd.ExecuteNonQuery();
-                    total_price_new += Convert.ToInt32(row.Cells["price2"].Value);
+                    total_price_new = Convert.ToInt32(lb_total_price_service.Text.Replace(".", "").Replace(" đ", ""));
+               
 
                 }
                 string queryUpdatePrice = $@"
@@ -1160,15 +1161,15 @@ namespace QuanLyPhongKham
                     WHERE id = {Convert.ToInt32(txb_exam_id.Text)}
                 ";
 
-                Clipboard.SetText(queryUpdatePrice);
                 Db.cmd = new MySqlCommand(queryUpdatePrice, Db.conn);
                 Db.cmd.ExecuteNonQuery();
                 MessageBox.Show("Cập nhật thành công");
             }
             catch (Exception ex)
             {
-        
+
                 MessageBox.Show("Lỗi: " + ex.ToString());
+                Clipboard.SetText(ex.ToString());
             }
 
 
