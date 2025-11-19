@@ -246,7 +246,7 @@ namespace QuanLyPhongKham
                 lb_d1.Text = dtgv_patients.CurrentRow.Cells["symptoms"].Value == DBNull.Value || dtgv_patients.CurrentRow.Cells["symptoms"].Value.ToString() == ""
                     ? "Lần khám trước triệu chứng được bỏ trống" : "";
 
-
+            loadLastTime();
 
 
 
@@ -575,6 +575,7 @@ namespace QuanLyPhongKham
                 LoadExamID();
                 LoadGrid();
                 MessageBox.Show("Lưu chỉ định thành công");
+                loadLastTime();
 
             }
             catch (Exception ex)
@@ -907,6 +908,7 @@ namespace QuanLyPhongKham
                     LoadGrid();
                     LoadExamID();
                     MessageBox.Show("Thêm toa thành công!");
+                    loadLastTime();
                 }
                 catch (Exception ex)
                 {
@@ -1165,6 +1167,7 @@ namespace QuanLyPhongKham
                 Db.cmd = new MySqlCommand(queryUpdatePrice, Db.conn);
                 Db.cmd.ExecuteNonQuery();
                 MessageBox.Show("Cập nhật thành công");
+                loadLastTime();
             }
             catch (Exception ex)
             {
@@ -1348,6 +1351,70 @@ namespace QuanLyPhongKham
         {
             UpdateMedicationSummary();
         }
+        private void SetLastTime(Label lbDay, Label lbHour, object result)
+        {
+            if (result != null)
+            {
+                DateTime dt = Convert.ToDateTime(result);
+                TimeSpan diff = DateTime.Now - dt;
+
+                if (dt.Date == DateTime.Today)
+                {
+                    lbDay.ForeColor = Color.Green;
+
+                    string timeAgo;
+                    if (diff.TotalSeconds < 60)
+                        timeAgo = $"{(int)diff.TotalSeconds} giây trước";
+                    else if (diff.TotalMinutes < 60)
+                        timeAgo = $"{(int)diff.TotalMinutes} phút trước";
+                    else
+                        timeAgo = $"{(int)diff.TotalHours} giờ trước";
+
+                    lbDay.Text = timeAgo  ;
+                }
+                else
+                {
+                    lbDay.Text = dt.ToString("dd/MM/yyyy");
+                    lbDay.ForeColor = Color.Black;
+                }
+
+                lbHour.Text = dt.ToString("HH:mm");
+            }
+            else
+            {
+                lbDay.Text = "Chưa có";
+                lbHour.Text = "";
+            }
+        }
+        private void loadLastTime()
+        {
+            Db.ResetConnection();
+            string query = $@"
+            SELECT updated_at
+            FROM examinations
+            WHERE patient_id = {Convert.ToInt32(txb_id.Text)}
+              AND type = 'toa thuốc'
+            ORDER BY updated_at DESC
+            LIMIT 1;";
+            Db.cmd = new MySqlCommand(query, Db.conn);
+            object result = Db.cmd.ExecuteScalar();
+            SetLastTime(lb_lastTimeMed_days, lb_lastTimeMed_hours, result);
+
+            // Lấy "chỉ định"
+            query = $@"
+            SELECT updated_at
+            FROM examinations
+            WHERE patient_id = {Convert.ToInt32(txb_id.Text)}
+              AND type = 'chỉ định'
+            ORDER BY updated_at DESC
+            LIMIT 1;";
+            Db.cmd = new MySqlCommand(query, Db.conn);
+            result = Db.cmd.ExecuteScalar();
+            SetLastTime(lb_lastTimeServiceExam_day, lb_lastTimeServiceExam_hours, result);
+
+
+        }
+
     }
 }
 
