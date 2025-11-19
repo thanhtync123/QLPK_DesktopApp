@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using Mysqlx.Crud;
@@ -19,7 +20,6 @@ namespace QuanLyPhongKham
         {
             string fromDate = dateTimePicker1.Value.ToString("yyyy-MM-dd 00:00:00");
             string toDate = dateTimePicker2.Value.ToString("yyyy-MM-dd 23:59:59");
-            // Tổng bệnh nhân
             string query1 = $@"
             SELECT COUNT(*) 
             FROM patients 
@@ -287,6 +287,7 @@ namespace QuanLyPhongKham
             int idExam = Convert.ToInt32(dtgv_service.Rows[e.RowIndex].Cells["id_exam_service"].Value);
             if (dtgv_service.Columns[e.ColumnIndex].Name == "del_service")
             {
+
                 int? selectedPatientId = null;
                 if (dtgv_detail.CurrentRow != null)
                     selectedPatientId = Convert.ToInt32(dtgv_detail.CurrentRow.Cells["id_patient"].Value);
@@ -295,6 +296,20 @@ namespace QuanLyPhongKham
                 Db.cmd = new MySqlCommand(queryDelete, Db.conn);
                 try
                 {
+                    bool haveResult = false;
+                    foreach (DataGridViewRow row in dtgv_detail_service.Rows)
+                        if (row.Cells["state_detail"].Value.ToString() == "Đã có KQ")
+                            haveResult = true;
+                    if (haveResult)
+                    {
+                        var confirm = MessageBox.Show(
+                            "Phiếu này đã có kết quả. Bạn có chắc chắn muốn xóa không?",
+                            "Xác nhận xóa",
+                            MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Warning
+                        );
+                        if (confirm == DialogResult.No) return;
+                    }
                     Db.cmd.ExecuteNonQuery();
                     dtgv_service.Rows.RemoveAt(e.RowIndex);
                     LoadThongKe();     
@@ -317,11 +332,16 @@ namespace QuanLyPhongKham
             }
 
             string query = $@"
-                SELECT e.id, s.name, s.price
-                FROM examinations e
-                INNER JOIN examination_services es ON e.id = es.examination_id
-                INNER JOIN services s ON s.id = es.service_id
-                WHERE e.id = {idExam}";
+                 SELECT e.id, s.name, s.price,            
+                    CASE 
+                            WHEN er.examination_service_id IS NULL THEN 'Chưa có KQ'
+                            ELSE 'Đã có KQ'
+                        END AS 'state'
+                 FROM examinations e
+                 INNER JOIN examination_services es ON e.id = es.examination_id
+                 INNER JOIN services s ON s.id = es.service_id
+                 LEFT JOIN examination_results er ON es.id = er.examination_service_id
+                 WHERE e.id = {idExam}";
 
             Db.ResetConnection();
             Db.cmd = new MySqlCommand(query, Db.conn);
@@ -336,10 +356,26 @@ namespace QuanLyPhongKham
                 drr.Cells["price_service_detail"].Value = Db.dr["price"];
                 drr.Cells["service_detail"].Value = Db.dr["name"];
                 drr.Cells["stt_detail"].Value = stt++;
+                drr.Cells["state_detail"].Value  = Db.dr["state"];
             }
 
             Db.dr.Close();
         }
 
+        private void dtgv_detail_service_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dtgv_detail_service.Columns[e.ColumnIndex].Name == "state_detail")
+                if (e.Value != null && e.Value.ToString() == "Đã có KQ")
+                {
+                    e.CellStyle.ForeColor = Color.Green;  
+                    e.CellStyle.BackColor = Color.LightYellow; 
+                }
+                else
+                {
+                    e.CellStyle.ForeColor = dtgv_detail_service.DefaultCellStyle.ForeColor;
+                    e.CellStyle.BackColor = dtgv_detail_service.DefaultCellStyle.BackColor;
+                }
+            
+        }
     }
 }
