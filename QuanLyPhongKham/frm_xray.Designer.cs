@@ -294,7 +294,7 @@
             this.dtgv_exam.RowHeadersVisible = false;
             this.dtgv_exam.RowHeadersWidth = 51;
             this.dtgv_exam.RowTemplate.Height = 35;
-            this.dtgv_exam.Size = new System.Drawing.Size(421, 530);
+            this.dtgv_exam.Size = new System.Drawing.Size(430, 530);
             this.dtgv_exam.TabIndex = 9;
             this.dtgv_exam.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgv_exam.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -418,7 +418,7 @@
             this.txb_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txb_name.Location = new System.Drawing.Point(93, 21);
             this.txb_name.Name = "txb_name";
-            this.txb_name.Size = new System.Drawing.Size(249, 26);
+            this.txb_name.Size = new System.Drawing.Size(287, 26);
             this.txb_name.TabIndex = 44;
             // 
             // txb_final_result

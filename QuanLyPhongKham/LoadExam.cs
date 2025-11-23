@@ -28,9 +28,9 @@ namespace QuanLyPhongKham
             dtgv_exam.Columns.Add("note", "Ghi chú");
             dtgv_exam.Columns.Add("time_exam", "Cấp phiếu lúc");
      
-            dtgv_exam.Columns["STT"].Width = 50;
+            dtgv_exam.Columns["STT"].Width = 30;
             dtgv_exam.Columns["id_exam"].Width = 50;
-            dtgv_exam.Columns["name"].Width = 180;
+            dtgv_exam.Columns["name"].Width = 215;
             dtgv_exam.Columns["time_exam"].Width = 130;
             string[] columnsToHide = {
         "gender", "phone","id_patient",

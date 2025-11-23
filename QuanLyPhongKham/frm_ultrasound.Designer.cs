@@ -208,7 +208,7 @@
             // 
             // btn_delimg4
             // 
-            this.btn_delimg4.Location = new System.Drawing.Point(688, 674);
+            this.btn_delimg4.Location = new System.Drawing.Point(696, 674);
             this.btn_delimg4.Name = "btn_delimg4";
             this.btn_delimg4.Size = new System.Drawing.Size(24, 20);
             this.btn_delimg4.TabIndex = 72;
@@ -218,7 +218,7 @@
             // 
             // btn_delimg3
             // 
-            this.btn_delimg3.Location = new System.Drawing.Point(688, 491);
+            this.btn_delimg3.Location = new System.Drawing.Point(696, 491);
             this.btn_delimg3.Name = "btn_delimg3";
             this.btn_delimg3.Size = new System.Drawing.Size(24, 20);
             this.btn_delimg3.TabIndex = 71;
@@ -228,7 +228,7 @@
             // 
             // btn_delimg2
             // 
-            this.btn_delimg2.Location = new System.Drawing.Point(685, 310);
+            this.btn_delimg2.Location = new System.Drawing.Point(693, 310);
             this.btn_delimg2.Name = "btn_delimg2";
             this.btn_delimg2.Size = new System.Drawing.Size(24, 20);
             this.btn_delimg2.TabIndex = 70;
@@ -238,7 +238,7 @@
             // 
             // btn_delimg1
             // 
-            this.btn_delimg1.Location = new System.Drawing.Point(688, 118);
+            this.btn_delimg1.Location = new System.Drawing.Point(696, 118);
             this.btn_delimg1.Name = "btn_delimg1";
             this.btn_delimg1.Size = new System.Drawing.Size(24, 20);
             this.btn_delimg1.TabIndex = 69;
@@ -250,7 +250,7 @@
             // 
             this.btn_delete.Enabled = false;
             this.btn_delete.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_delete.Location = new System.Drawing.Point(298, 80);
+            this.btn_delete.Location = new System.Drawing.Point(306, 80);
             this.btn_delete.Name = "btn_delete";
             this.btn_delete.Size = new System.Drawing.Size(107, 33);
             this.btn_delete.TabIndex = 68;
@@ -283,12 +283,12 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtgv_exam.DefaultCellStyle = dataGridViewCellStyle3;
             this.dtgv_exam.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dtgv_exam.Location = new System.Drawing.Point(5, 189);
+            this.dtgv_exam.Location = new System.Drawing.Point(-6, 182);
             this.dtgv_exam.Name = "dtgv_exam";
             this.dtgv_exam.RowHeadersVisible = false;
             this.dtgv_exam.RowHeadersWidth = 51;
             this.dtgv_exam.RowTemplate.Height = 35;
-            this.dtgv_exam.Size = new System.Drawing.Size(400, 530);
+            this.dtgv_exam.Size = new System.Drawing.Size(419, 530);
             this.dtgv_exam.TabIndex = 67;
             this.dtgv_exam.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgv_exam.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -375,7 +375,7 @@
             this.chb_anh4.CheckedState.BorderThickness = 0;
             this.chb_anh4.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.chb_anh4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.chb_anh4.Location = new System.Drawing.Point(688, 598);
+            this.chb_anh4.Location = new System.Drawing.Point(696, 598);
             this.chb_anh4.Name = "chb_anh4";
             this.chb_anh4.Size = new System.Drawing.Size(15, 14);
             this.chb_anh4.TabIndex = 65;
@@ -392,7 +392,7 @@
             this.chb_anh3.CheckedState.BorderThickness = 0;
             this.chb_anh3.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.chb_anh3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.chb_anh3.Location = new System.Drawing.Point(688, 411);
+            this.chb_anh3.Location = new System.Drawing.Point(696, 411);
             this.chb_anh3.Name = "chb_anh3";
             this.chb_anh3.Size = new System.Drawing.Size(15, 14);
             this.chb_anh3.TabIndex = 64;
@@ -409,7 +409,7 @@
             this.chb_anh2.CheckedState.BorderThickness = 0;
             this.chb_anh2.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.chb_anh2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.chb_anh2.Location = new System.Drawing.Point(688, 224);
+            this.chb_anh2.Location = new System.Drawing.Point(696, 224);
             this.chb_anh2.Name = "chb_anh2";
             this.chb_anh2.Size = new System.Drawing.Size(15, 14);
             this.chb_anh2.TabIndex = 63;
@@ -426,7 +426,7 @@
             this.chb_anh1.CheckedState.BorderThickness = 0;
             this.chb_anh1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.chb_anh1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.chb_anh1.Location = new System.Drawing.Point(688, 37);
+            this.chb_anh1.Location = new System.Drawing.Point(696, 37);
             this.chb_anh1.Name = "chb_anh1";
             this.chb_anh1.Size = new System.Drawing.Size(15, 14);
             this.chb_anh1.TabIndex = 62;
@@ -450,7 +450,7 @@
             // pb_4
             // 
             this.pb_4.ImageRotate = 0F;
-            this.pb_4.Location = new System.Drawing.Point(411, 598);
+            this.pb_4.Location = new System.Drawing.Point(419, 598);
             this.pb_4.Margin = new System.Windows.Forms.Padding(4);
             this.pb_4.Name = "pb_4";
             this.pb_4.Size = new System.Drawing.Size(273, 179);
@@ -461,7 +461,7 @@
             // pb_3
             // 
             this.pb_3.ImageRotate = 0F;
-            this.pb_3.Location = new System.Drawing.Point(411, 411);
+            this.pb_3.Location = new System.Drawing.Point(419, 411);
             this.pb_3.Margin = new System.Windows.Forms.Padding(4);
             this.pb_3.Name = "pb_3";
             this.pb_3.Size = new System.Drawing.Size(273, 179);
@@ -493,7 +493,7 @@
             // pb_1
             // 
             this.pb_1.ImageRotate = 0F;
-            this.pb_1.Location = new System.Drawing.Point(412, 37);
+            this.pb_1.Location = new System.Drawing.Point(420, 37);
             this.pb_1.Margin = new System.Windows.Forms.Padding(4);
             this.pb_1.Name = "pb_1";
             this.pb_1.Size = new System.Drawing.Size(273, 179);
@@ -524,7 +524,7 @@
             // pb_2
             // 
             this.pb_2.ImageRotate = 0F;
-            this.pb_2.Location = new System.Drawing.Point(411, 224);
+            this.pb_2.Location = new System.Drawing.Point(419, 224);
             this.pb_2.Margin = new System.Windows.Forms.Padding(4);
             this.pb_2.Name = "pb_2";
             this.pb_2.Size = new System.Drawing.Size(273, 179);
@@ -1019,7 +1019,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(375, 5);
+            this.label6.Location = new System.Drawing.Point(387, 5);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(57, 20);
             this.label6.TabIndex = 13;
@@ -1028,17 +1028,17 @@
             // txb_name
             // 
             this.txb_name.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_name.Location = new System.Drawing.Point(120, 3);
+            this.txb_name.Location = new System.Drawing.Point(80, 1);
             this.txb_name.Margin = new System.Windows.Forms.Padding(4);
             this.txb_name.Name = "txb_name";
-            this.txb_name.Size = new System.Drawing.Size(254, 26);
+            this.txb_name.Size = new System.Drawing.Size(304, 26);
             this.txb_name.TabIndex = 12;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(50, 5);
+            this.label5.Location = new System.Drawing.Point(11, 8);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(62, 20);
             this.label5.TabIndex = 11;
