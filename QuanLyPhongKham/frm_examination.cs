@@ -575,7 +575,6 @@ namespace QuanLyPhongKham
                 LoadExamID();
                 LoadGrid();
                 MessageBox.Show("Lưu chỉ định thành công");
-                dtgv_service_patient.Rows.Clear();
                 loadLastTime();
 
             }
@@ -1143,16 +1142,19 @@ namespace QuanLyPhongKham
                 // 1. LẤY DANH SÁCH DỊCH VỤ TRONG DB
                 //--------------------------------------------------------------------
                 string query = $@"
-        SELECT 
-            es.service_id,
-            CASE 
-                WHEN er.result IS NULL OR er.result = '' THEN 'Chưa có KQ'
-                ELSE 'Đã có KQ'
-            END AS result
-        FROM examinations e
-        JOIN examination_services es ON e.id = es.examination_id
-        LEFT JOIN examination_results er ON es.id = er.examination_service_id
-        WHERE e.id = {txb_exam_id.Text}";
+SELECT 
+    es.service_id,
+    CASE 
+        WHEN MAX(er.result) IS NULL OR MAX(er.result) = '' THEN 'Chưa có KQ'
+        ELSE 'Đã có KQ'
+    END AS result
+FROM examinations e
+JOIN examination_services es ON e.id = es.examination_id
+LEFT JOIN examination_results er ON es.id = er.examination_service_id
+WHERE e.id = {txb_exam_id.Text}
+GROUP BY es.service_id;
+
+";
 
                 Dictionary<int, string> listServicePresent = new Dictionary<int, string>();
 
@@ -1164,7 +1166,9 @@ namespace QuanLyPhongKham
                     int serviceId = reader.GetInt32("service_id");
                     string status = reader.GetString("result");
 
-                    listServicePresent.Add(serviceId, status);
+     
+                        listServicePresent.Add(serviceId, status);
+
                 }
 
                 reader.Close(); // BẮT BUỘC
@@ -1263,7 +1267,7 @@ namespace QuanLyPhongKham
                 //--------------------------------------------------------------------
                 MessageBox.Show("Cập nhật dịch vụ thành công!");
                 loadLastTime();
-                dtgv_service_patient.Rows.Clear();
+     
             }
             catch (Exception ex)
             {

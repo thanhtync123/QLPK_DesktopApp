@@ -1013,3 +1013,20 @@ COMMIT;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
 
+use clinic_db2
+
+select * from examinations
+
+SELECT e.id,es.service_id,
+ CASE 
+        WHEN er.result IS NULL OR er.result = '' THEN 'Chưa có KQ'
+        ELSE 'Đã có KQ'
+    END AS result
+    ,er.final_result
+FROM examinations e
+JOIN examination_services es ON e.id=es.examination_id
+LEFT JOIN examination_results er ON es.id=er.examination_service_id
+Where e.id = 2280
+
+
+
