@@ -10,7 +10,6 @@ namespace QuanLyPhongKham
 {
     public class LoadExam
     {
-        // Phương thức khởi tạo DataGridView
         public static void InitialDTGVCommon(DataGridView dtgv_exam)
         {
 
