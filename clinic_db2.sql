@@ -1019,16 +1019,16 @@ use clinic_db2
  CASE 
         WHEN er.examination_service_id IS NULL THEN 'Chưa có KQ'
         ELSE 'Đã có KQ'
-    END AS 'Trạng thái',er.examination_service_id as "ma phieu dich vu",er.result,final_result
+    END AS 'Trạng thái',er.result,final_result
 FROM examinations e
 INNER JOIN examination_services es ON  es.examination_id=e.id
 INNER JOIN services s ON s.id=es.service_id
 LEFT JOIN examination_results er ON er.examination_service_id=es.id
-    Where e.id = 2297
+    Where e.id = 2298
     
   
     DELETE FROM examination_services
-WHERE id = 7303;
+WHERE id = 7305;
 
     
 delete from examination_results where id = 2329
