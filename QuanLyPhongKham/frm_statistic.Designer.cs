@@ -41,6 +41,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.label_1 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -121,6 +124,19 @@
             this.service_detail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.price_service_detail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.state_detail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtgv_detail_service_med = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.c2_examination_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c2_medication_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c2_medname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c2_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c2_morning = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c2_noon = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c2_afternoon = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c2_evening = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c2_days_of_use = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c2_total_quantity_med = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c2_note = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
@@ -133,6 +149,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_detail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_service)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_detail_service)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_detail_service_med)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -1104,7 +1121,7 @@
             dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtgv_detail_service.DefaultCellStyle = dataGridViewCellStyle13;
             this.dtgv_detail_service.GridColor = System.Drawing.Color.Black;
-            this.dtgv_detail_service.Location = new System.Drawing.Point(929, 391);
+            this.dtgv_detail_service.Location = new System.Drawing.Point(929, 390);
             this.dtgv_detail_service.Name = "dtgv_detail_service";
             this.dtgv_detail_service.RowHeadersVisible = false;
             this.dtgv_detail_service.Size = new System.Drawing.Size(504, 344);
@@ -1157,11 +1174,154 @@
             this.state_detail.HeaderText = "Trạng thái";
             this.state_detail.Name = "state_detail";
             // 
+            // dtgv_detail_service_med
+            // 
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtgv_detail_service_med.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle14;
+            this.dtgv_detail_service_med.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.None;
+            this.dtgv_detail_service_med.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgv_detail_service_med.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            this.dtgv_detail_service_med.ColumnHeadersHeight = 40;
+            this.dtgv_detail_service_med.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dtgv_detail_service_med.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.c2_examination_id,
+            this.stt,
+            this.c2_medication_id,
+            this.c2_medname,
+            this.c2_unit,
+            this.c2_morning,
+            this.c2_noon,
+            this.c2_afternoon,
+            this.c2_evening,
+            this.c2_days_of_use,
+            this.c2_total_quantity_med,
+            this.c2_note});
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgv_detail_service_med.DefaultCellStyle = dataGridViewCellStyle16;
+            this.dtgv_detail_service_med.GridColor = System.Drawing.Color.Black;
+            this.dtgv_detail_service_med.Location = new System.Drawing.Point(929, 391);
+            this.dtgv_detail_service_med.Name = "dtgv_detail_service_med";
+            this.dtgv_detail_service_med.RowHeadersVisible = false;
+            this.dtgv_detail_service_med.Size = new System.Drawing.Size(652, 376);
+            this.dtgv_detail_service_med.TabIndex = 35;
+            this.dtgv_detail_service_med.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dtgv_detail_service_med.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dtgv_detail_service_med.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dtgv_detail_service_med.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dtgv_detail_service_med.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dtgv_detail_service_med.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.dtgv_detail_service_med.ThemeStyle.GridColor = System.Drawing.Color.Black;
+            this.dtgv_detail_service_med.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.dtgv_detail_service_med.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dtgv_detail_service_med.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtgv_detail_service_med.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.dtgv_detail_service_med.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dtgv_detail_service_med.ThemeStyle.HeaderStyle.Height = 40;
+            this.dtgv_detail_service_med.ThemeStyle.ReadOnly = false;
+            this.dtgv_detail_service_med.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dtgv_detail_service_med.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dtgv_detail_service_med.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtgv_detail_service_med.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dtgv_detail_service_med.ThemeStyle.RowsStyle.Height = 22;
+            this.dtgv_detail_service_med.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dtgv_detail_service_med.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            // 
+            // c2_examination_id
+            // 
+            this.c2_examination_id.HeaderText = "Mã phiếu khám";
+            this.c2_examination_id.Name = "c2_examination_id";
+            this.c2_examination_id.Visible = false;
+            this.c2_examination_id.Width = 86;
+            // 
+            // stt
+            // 
+            this.stt.HeaderText = "STT";
+            this.stt.Name = "stt";
+            this.stt.Visible = false;
+            this.stt.Width = 20;
+            // 
+            // c2_medication_id
+            // 
+            this.c2_medication_id.HeaderText = "Mã thuốc";
+            this.c2_medication_id.Name = "c2_medication_id";
+            this.c2_medication_id.Visible = false;
+            this.c2_medication_id.Width = 97;
+            // 
+            // c2_medname
+            // 
+            this.c2_medname.HeaderText = "Tên thuốc";
+            this.c2_medname.Name = "c2_medname";
+            this.c2_medname.Width = 150;
+            // 
+            // c2_unit
+            // 
+            this.c2_unit.HeaderText = "ĐV";
+            this.c2_unit.Name = "c2_unit";
+            this.c2_unit.Width = 50;
+            // 
+            // c2_morning
+            // 
+            this.c2_morning.HeaderText = "Sáng";
+            this.c2_morning.Name = "c2_morning";
+            this.c2_morning.Width = 50;
+            // 
+            // c2_noon
+            // 
+            this.c2_noon.HeaderText = "Trưa";
+            this.c2_noon.Name = "c2_noon";
+            this.c2_noon.Width = 50;
+            // 
+            // c2_afternoon
+            // 
+            this.c2_afternoon.HeaderText = "Chiều";
+            this.c2_afternoon.Name = "c2_afternoon";
+            this.c2_afternoon.Width = 50;
+            // 
+            // c2_evening
+            // 
+            this.c2_evening.HeaderText = "Tối";
+            this.c2_evening.Name = "c2_evening";
+            this.c2_evening.Width = 50;
+            // 
+            // c2_days_of_use
+            // 
+            this.c2_days_of_use.HeaderText = "Số ngày";
+            this.c2_days_of_use.Name = "c2_days_of_use";
+            this.c2_days_of_use.Width = 50;
+            // 
+            // c2_total_quantity_med
+            // 
+            this.c2_total_quantity_med.HeaderText = "Số lượng";
+            this.c2_total_quantity_med.Name = "c2_total_quantity_med";
+            this.c2_total_quantity_med.Width = 50;
+            // 
+            // c2_note
+            // 
+            this.c2_note.HeaderText = "Ghi chú";
+            this.c2_note.Name = "c2_note";
+            this.c2_note.Width = 150;
+            // 
             // frm_statistic
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(230)))));
-            this.ClientSize = new System.Drawing.Size(1531, 766);
+            this.ClientSize = new System.Drawing.Size(1626, 766);
+            this.Controls.Add(this.dtgv_detail_service_med);
             this.Controls.Add(this.dtgv_detail_service);
             this.Controls.Add(this.dtgv_service);
             this.Controls.Add(this.dtgv_detail);
@@ -1204,6 +1364,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_detail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_service)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_detail_service)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_detail_service_med)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1290,5 +1451,18 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn service_detail;
         private System.Windows.Forms.DataGridViewTextBoxColumn price_service_detail;
         private System.Windows.Forms.DataGridViewTextBoxColumn state_detail;
+        private Guna.UI2.WinForms.Guna2DataGridView dtgv_detail_service_med;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c2_examination_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stt;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c2_medication_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c2_medname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c2_unit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c2_morning;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c2_noon;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c2_afternoon;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c2_evening;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c2_days_of_use;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c2_total_quantity_med;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c2_note;
     }
 }

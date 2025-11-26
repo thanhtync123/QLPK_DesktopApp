@@ -219,7 +219,9 @@ namespace QuanLyPhongKham
             dateTimePicker1.Value = DateTime.Today; 
             dateTimePicker2.Format = DateTimePickerFormat.Custom;
             dateTimePicker2.CustomFormat = "dd/MM/yyyy";
-            dateTimePicker2.Value = DateTime.Today; 
+            dateTimePicker2.Value = DateTime.Today;
+            dtgv_detail_service.Visible = false;
+            dtgv_detail_service_med.Visible = false;
 
             if (AppConfig.AppMode == "Ultrasound")
             {
@@ -283,6 +285,8 @@ namespace QuanLyPhongKham
 
         private void dtgv_service_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            dtgv_detail_service.Visible = false;
+            dtgv_detail_service_med.Visible = false;
             if (e.RowIndex < 0 || e.ColumnIndex < 0) return;
             int idExam = Convert.ToInt32(dtgv_service.Rows[e.RowIndex].Cells["id_exam_service"].Value);
             if (dtgv_service.Columns[e.ColumnIndex].Name == "del_service")
@@ -330,8 +334,14 @@ namespace QuanLyPhongKham
                     MessageBox.Show("Lỗi: " + ex.Message);
                 }
             }
-
-            string query = $@"
+            if (dtgv_service.Columns[e.ColumnIndex].Name != "del_service" )
+            {
+                if(dtgv_service.CurrentRow.Cells["type_service"].Value.ToString() == "chỉ định")
+                {
+                    dtgv_detail_service.Visible = true;
+                    dtgv_detail_service_med.Visible = false;
+                    Db.ResetConnection();
+                    string query = $@"
                  SELECT e.id, s.name, s.price,            
                     CASE 
                             WHEN er.examination_service_id IS NULL THEN 'Chưa có KQ'
@@ -343,23 +353,81 @@ namespace QuanLyPhongKham
                  LEFT JOIN examination_results er ON es.id = er.examination_service_id
                  WHERE e.id = {idExam}";
 
-            Db.ResetConnection();
-            Db.cmd = new MySqlCommand(query, Db.conn);
-            Db.dr = Db.cmd.ExecuteReader();
+                    Db.ResetConnection();
+                    Db.cmd = new MySqlCommand(query, Db.conn);
+                    Db.dr = Db.cmd.ExecuteReader();
 
-            dtgv_detail_service.Rows.Clear();
-            int stt = 1;
-            while (Db.dr.Read())
-            {
-                int i = dtgv_detail_service.Rows.Add();
-                var drr = dtgv_detail_service.Rows[i];
-                drr.Cells["price_service_detail"].Value = Db.dr["price"];
-                drr.Cells["service_detail"].Value = Db.dr["name"];
-                drr.Cells["stt_detail"].Value = stt++;
-                drr.Cells["state_detail"].Value  = Db.dr["state"];
-            }
+                    dtgv_detail_service.Rows.Clear();
+                    int stt = 1;
+                    while (Db.dr.Read())
+                    {
+                        int i = dtgv_detail_service.Rows.Add();
+                        var drr = dtgv_detail_service.Rows[i];
+                        drr.Cells["price_service_detail"].Value = Db.dr["price"];
+                        drr.Cells["service_detail"].Value = Db.dr["name"];
+                        drr.Cells["stt_detail"].Value = stt++;
+                        drr.Cells["state_detail"].Value = Db.dr["state"];
+                    }
 
-            Db.dr.Close();
+                    Db.dr.Close();
+                }
+                else if (dtgv_service.CurrentRow.Cells["type_service"].Value.ToString() == "toa thuốc")
+                {
+                    dtgv_detail_service_med.Visible = true;
+                    dtgv_detail_service.Visible = false;
+                    int id_exam = Convert.ToInt32(dtgv_service.CurrentRow.Cells["id_exam_service"].Value.ToString());
+                    Db.ResetConnection();
+                    string query = $@"
+               SELECT 
+                em.id AS id,
+                em.examination_id AS examination_id,
+                m.id AS med_id,
+                m.name,
+                REPLACE(CAST(em.morning AS CHAR), '.', ',') AS morning,
+                REPLACE(CAST(em.noon AS CHAR), '.', ',') AS noon,
+                REPLACE(CAST(em.afternoon AS CHAR), '.', ',') AS afternoon,
+                REPLACE(CAST(em.evening AS CHAR), '.', ',') AS evening,
+                em.unit,
+                em.days_of_use,
+                em.total_quantity_med,
+                em.note
+            FROM 
+                examination_medications em, examinations e, medications m
+            WHERE 
+                em.examination_id = e.id
+                AND em.medication_id = m.id
+                AND em.examination_id = {idExam}
+            ";
+                    Db.cmd = new MySqlCommand(query, Db.conn);
+                    Db.dr = Db.cmd.ExecuteReader();
+                    dtgv_detail_service_med.Rows.Clear(); 
+                    int stt = 1;
+                    while (Db.dr.Read())
+                    {
+                        int i = dtgv_detail_service_med.Rows.Add();
+                        DataGridViewRow drr = dtgv_detail_service_med.Rows[i];
+                        drr.Cells["stt"].Value = stt++;
+                        drr.Cells["c2_examination_id"].Value = Db.dr["examination_id"];
+                        drr.Cells["c2_medication_id"].Value = Db.dr["med_id"];
+                        drr.Cells["c2_medname"].Value = Db.dr["name"];
+                        drr.Cells["c2_morning"].Value = Db.dr["morning"].ToString().Replace(".", ",");
+                        drr.Cells["c2_noon"].Value = Db.dr["noon"].ToString().Replace(".", ",");
+                        drr.Cells["c2_afternoon"].Value = Db.dr["afternoon"].ToString().Replace(".", ",");
+                        drr.Cells["c2_evening"].Value = Db.dr["evening"].ToString().Replace(".", ",");
+                        drr.Cells["c2_unit"].Value = Db.dr["unit"];
+                        drr.Cells["c2_days_of_use"].Value = Db.dr["days_of_use"];
+                        drr.Cells["c2_total_quantity_med"].Value = Db.dr["total_quantity_med"];
+                        drr.Cells["c2_note"].Value = Db.dr["note"];
+                    }
+
+
+                    Db.dr.Close();
+                }    
+
+
+            }    
+
+               
         }
 
         private void dtgv_detail_service_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
