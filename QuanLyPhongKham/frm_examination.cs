@@ -575,6 +575,7 @@ namespace QuanLyPhongKham
                 LoadExamID();
                 LoadGrid();
                 MessageBox.Show("Lưu chỉ định thành công");
+                dtgv_service_patient.Rows.Clear();
                 loadLastTime();
 
             }
@@ -1262,6 +1263,7 @@ namespace QuanLyPhongKham
                 //--------------------------------------------------------------------
                 MessageBox.Show("Cập nhật dịch vụ thành công!");
                 loadLastTime();
+                dtgv_service_patient.Rows.Clear();
             }
             catch (Exception ex)
             {
@@ -1506,6 +1508,10 @@ namespace QuanLyPhongKham
 
         }
 
+        private void guna2ImageButton7_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

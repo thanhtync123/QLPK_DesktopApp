@@ -65,6 +65,25 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.dtgv_patients = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.last_exam_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.symptoms = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.STT_P = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID_P = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name_p = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date_of_birth_p = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gender_p = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phone_p = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.address_p = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pulse_p = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.blood_pressure_p = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.respiratory_rate_p = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.weight_p = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.height_p = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.temperature_p = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.last_diagnoses_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.last_diagnoses_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.time_patient = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.state = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txb_pulse = new Guna.UI2.WinForms.Guna2TextBox();
             this.txb_temperature = new Guna.UI2.WinForms.Guna2TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -168,25 +187,6 @@
             this.lb_lastTimeMed_days = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.last_exam_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.symptoms = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.STT_P = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ID_P = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name_p = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date_of_birth_p = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gender_p = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phone_p = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.address_p = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pulse_p = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.blood_pressure_p = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.respiratory_rate_p = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.weight_p = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.height_p = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.temperature_p = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.last_diagnoses_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.last_diagnoses_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.time_patient = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.state = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_patients)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_service)).BeginInit();
@@ -461,6 +461,133 @@
             this.dtgv_patients.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_patients_CellClick);
             this.dtgv_patients.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dtgv_patients_RowPostPaint);
             this.dtgv_patients.Click += new System.EventHandler(this.dtgv_patients_Click);
+            // 
+            // last_exam_id
+            // 
+            this.last_exam_id.HeaderText = "Mã Phiếu trước";
+            this.last_exam_id.Name = "last_exam_id";
+            this.last_exam_id.Visible = false;
+            // 
+            // symptoms
+            // 
+            this.symptoms.HeaderText = "symptoms";
+            this.symptoms.Name = "symptoms";
+            this.symptoms.Visible = false;
+            // 
+            // STT_P
+            // 
+            this.STT_P.HeaderText = "STT";
+            this.STT_P.Name = "STT_P";
+            this.STT_P.Width = 30;
+            // 
+            // ID_P
+            // 
+            this.ID_P.HeaderText = "Mã BN";
+            this.ID_P.Name = "ID_P";
+            this.ID_P.Visible = false;
+            this.ID_P.Width = 82;
+            // 
+            // name_p
+            // 
+            this.name_p.HeaderText = "Tên KH";
+            this.name_p.Name = "name_p";
+            this.name_p.Width = 230;
+            // 
+            // date_of_birth_p
+            // 
+            this.date_of_birth_p.HeaderText = "Ngày sinh";
+            this.date_of_birth_p.Name = "date_of_birth_p";
+            this.date_of_birth_p.Visible = false;
+            this.date_of_birth_p.Width = 82;
+            // 
+            // gender_p
+            // 
+            this.gender_p.HeaderText = "Giới tính";
+            this.gender_p.Name = "gender_p";
+            this.gender_p.Visible = false;
+            this.gender_p.Width = 82;
+            // 
+            // phone_p
+            // 
+            this.phone_p.HeaderText = "SĐT";
+            this.phone_p.Name = "phone_p";
+            this.phone_p.Visible = false;
+            this.phone_p.Width = 82;
+            // 
+            // address_p
+            // 
+            this.address_p.HeaderText = "Địa chỉ";
+            this.address_p.Name = "address_p";
+            this.address_p.Visible = false;
+            this.address_p.Width = 82;
+            // 
+            // pulse_p
+            // 
+            this.pulse_p.HeaderText = "Mạch";
+            this.pulse_p.Name = "pulse_p";
+            this.pulse_p.Visible = false;
+            this.pulse_p.Width = 82;
+            // 
+            // blood_pressure_p
+            // 
+            this.blood_pressure_p.HeaderText = "Huyết áp";
+            this.blood_pressure_p.Name = "blood_pressure_p";
+            this.blood_pressure_p.Visible = false;
+            this.blood_pressure_p.Width = 83;
+            // 
+            // respiratory_rate_p
+            // 
+            this.respiratory_rate_p.HeaderText = "Nhịp thở";
+            this.respiratory_rate_p.Name = "respiratory_rate_p";
+            this.respiratory_rate_p.Visible = false;
+            this.respiratory_rate_p.Width = 82;
+            // 
+            // weight_p
+            // 
+            this.weight_p.HeaderText = "Cân nặng";
+            this.weight_p.Name = "weight_p";
+            this.weight_p.Visible = false;
+            this.weight_p.Width = 82;
+            // 
+            // height_p
+            // 
+            this.height_p.HeaderText = "Chiều cao";
+            this.height_p.Name = "height_p";
+            this.height_p.Visible = false;
+            this.height_p.Width = 82;
+            // 
+            // temperature_p
+            // 
+            this.temperature_p.HeaderText = "Nhiệt độ";
+            this.temperature_p.Name = "temperature_p";
+            this.temperature_p.Visible = false;
+            this.temperature_p.Width = 82;
+            // 
+            // last_diagnoses_id
+            // 
+            this.last_diagnoses_id.HeaderText = "MCĐ Cuối";
+            this.last_diagnoses_id.Name = "last_diagnoses_id";
+            this.last_diagnoses_id.Visible = false;
+            this.last_diagnoses_id.Width = 82;
+            // 
+            // last_diagnoses_name
+            // 
+            this.last_diagnoses_name.HeaderText = "TCĐ cuối";
+            this.last_diagnoses_name.Name = "last_diagnoses_name";
+            this.last_diagnoses_name.Visible = false;
+            this.last_diagnoses_name.Width = 82;
+            // 
+            // time_patient
+            // 
+            this.time_patient.HeaderText = "Tiếp nhận";
+            this.time_patient.Name = "time_patient";
+            this.time_patient.Width = 80;
+            // 
+            // state
+            // 
+            this.state.HeaderText = "Tình trạng";
+            this.state.Name = "state";
+            this.state.Width = 104;
             // 
             // txb_pulse
             // 
@@ -1155,6 +1282,7 @@
             this.guna2ImageButton7.Size = new System.Drawing.Size(21, 23);
             this.guna2ImageButton7.TabIndex = 53;
             this.guna2ImageButton7.UseTransparentBackground = true;
+            this.guna2ImageButton7.Click += new System.EventHandler(this.guna2ImageButton7_Click);
             // 
             // btn_print_service
             // 
@@ -1826,133 +1954,6 @@
             this.label14.Size = new System.Drawing.Size(126, 19);
             this.label14.TabIndex = 69;
             this.label14.Text = "Toa thuốc gần nhất:";
-            // 
-            // last_exam_id
-            // 
-            this.last_exam_id.HeaderText = "Mã Phiếu trước";
-            this.last_exam_id.Name = "last_exam_id";
-            this.last_exam_id.Visible = false;
-            // 
-            // symptoms
-            // 
-            this.symptoms.HeaderText = "symptoms";
-            this.symptoms.Name = "symptoms";
-            this.symptoms.Visible = false;
-            // 
-            // STT_P
-            // 
-            this.STT_P.HeaderText = "STT";
-            this.STT_P.Name = "STT_P";
-            this.STT_P.Width = 30;
-            // 
-            // ID_P
-            // 
-            this.ID_P.HeaderText = "Mã BN";
-            this.ID_P.Name = "ID_P";
-            this.ID_P.Visible = false;
-            this.ID_P.Width = 82;
-            // 
-            // name_p
-            // 
-            this.name_p.HeaderText = "Tên KH";
-            this.name_p.Name = "name_p";
-            this.name_p.Width = 230;
-            // 
-            // date_of_birth_p
-            // 
-            this.date_of_birth_p.HeaderText = "Ngày sinh";
-            this.date_of_birth_p.Name = "date_of_birth_p";
-            this.date_of_birth_p.Visible = false;
-            this.date_of_birth_p.Width = 82;
-            // 
-            // gender_p
-            // 
-            this.gender_p.HeaderText = "Giới tính";
-            this.gender_p.Name = "gender_p";
-            this.gender_p.Visible = false;
-            this.gender_p.Width = 82;
-            // 
-            // phone_p
-            // 
-            this.phone_p.HeaderText = "SĐT";
-            this.phone_p.Name = "phone_p";
-            this.phone_p.Visible = false;
-            this.phone_p.Width = 82;
-            // 
-            // address_p
-            // 
-            this.address_p.HeaderText = "Địa chỉ";
-            this.address_p.Name = "address_p";
-            this.address_p.Visible = false;
-            this.address_p.Width = 82;
-            // 
-            // pulse_p
-            // 
-            this.pulse_p.HeaderText = "Mạch";
-            this.pulse_p.Name = "pulse_p";
-            this.pulse_p.Visible = false;
-            this.pulse_p.Width = 82;
-            // 
-            // blood_pressure_p
-            // 
-            this.blood_pressure_p.HeaderText = "Huyết áp";
-            this.blood_pressure_p.Name = "blood_pressure_p";
-            this.blood_pressure_p.Visible = false;
-            this.blood_pressure_p.Width = 83;
-            // 
-            // respiratory_rate_p
-            // 
-            this.respiratory_rate_p.HeaderText = "Nhịp thở";
-            this.respiratory_rate_p.Name = "respiratory_rate_p";
-            this.respiratory_rate_p.Visible = false;
-            this.respiratory_rate_p.Width = 82;
-            // 
-            // weight_p
-            // 
-            this.weight_p.HeaderText = "Cân nặng";
-            this.weight_p.Name = "weight_p";
-            this.weight_p.Visible = false;
-            this.weight_p.Width = 82;
-            // 
-            // height_p
-            // 
-            this.height_p.HeaderText = "Chiều cao";
-            this.height_p.Name = "height_p";
-            this.height_p.Visible = false;
-            this.height_p.Width = 82;
-            // 
-            // temperature_p
-            // 
-            this.temperature_p.HeaderText = "Nhiệt độ";
-            this.temperature_p.Name = "temperature_p";
-            this.temperature_p.Visible = false;
-            this.temperature_p.Width = 82;
-            // 
-            // last_diagnoses_id
-            // 
-            this.last_diagnoses_id.HeaderText = "MCĐ Cuối";
-            this.last_diagnoses_id.Name = "last_diagnoses_id";
-            this.last_diagnoses_id.Visible = false;
-            this.last_diagnoses_id.Width = 82;
-            // 
-            // last_diagnoses_name
-            // 
-            this.last_diagnoses_name.HeaderText = "TCĐ cuối";
-            this.last_diagnoses_name.Name = "last_diagnoses_name";
-            this.last_diagnoses_name.Visible = false;
-            this.last_diagnoses_name.Width = 82;
-            // 
-            // time_patient
-            // 
-            this.time_patient.HeaderText = "Tiếp nhận";
-            this.time_patient.Name = "time_patient";
-            this.time_patient.Width = 80;
-            // 
-            // state
-            // 
-            this.state.HeaderText = "Tình trạng";
-            this.state.Name = "state";
-            this.state.Width = 104;
             // 
             // frm_examination
             // 
