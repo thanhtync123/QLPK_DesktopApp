@@ -288,7 +288,7 @@
             this.dtgv_exam.RowHeadersVisible = false;
             this.dtgv_exam.RowHeadersWidth = 51;
             this.dtgv_exam.RowTemplate.Height = 35;
-            this.dtgv_exam.Size = new System.Drawing.Size(419, 530);
+            this.dtgv_exam.Size = new System.Drawing.Size(434, 530);
             this.dtgv_exam.TabIndex = 67;
             this.dtgv_exam.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgv_exam.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -450,10 +450,10 @@
             // pb_4
             // 
             this.pb_4.ImageRotate = 0F;
-            this.pb_4.Location = new System.Drawing.Point(419, 598);
+            this.pb_4.Location = new System.Drawing.Point(435, 598);
             this.pb_4.Margin = new System.Windows.Forms.Padding(4);
             this.pb_4.Name = "pb_4";
-            this.pb_4.Size = new System.Drawing.Size(273, 179);
+            this.pb_4.Size = new System.Drawing.Size(257, 179);
             this.pb_4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_4.TabIndex = 53;
             this.pb_4.TabStop = false;
@@ -461,10 +461,10 @@
             // pb_3
             // 
             this.pb_3.ImageRotate = 0F;
-            this.pb_3.Location = new System.Drawing.Point(419, 411);
+            this.pb_3.Location = new System.Drawing.Point(435, 411);
             this.pb_3.Margin = new System.Windows.Forms.Padding(4);
             this.pb_3.Name = "pb_3";
-            this.pb_3.Size = new System.Drawing.Size(273, 179);
+            this.pb_3.Size = new System.Drawing.Size(257, 179);
             this.pb_3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_3.TabIndex = 60;
             this.pb_3.TabStop = false;
@@ -493,10 +493,10 @@
             // pb_1
             // 
             this.pb_1.ImageRotate = 0F;
-            this.pb_1.Location = new System.Drawing.Point(420, 37);
+            this.pb_1.Location = new System.Drawing.Point(436, 37);
             this.pb_1.Margin = new System.Windows.Forms.Padding(4);
             this.pb_1.Name = "pb_1";
-            this.pb_1.Size = new System.Drawing.Size(273, 179);
+            this.pb_1.Size = new System.Drawing.Size(257, 179);
             this.pb_1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_1.TabIndex = 51;
             this.pb_1.TabStop = false;
@@ -524,10 +524,10 @@
             // pb_2
             // 
             this.pb_2.ImageRotate = 0F;
-            this.pb_2.Location = new System.Drawing.Point(419, 224);
+            this.pb_2.Location = new System.Drawing.Point(435, 224);
             this.pb_2.Margin = new System.Windows.Forms.Padding(4);
             this.pb_2.Name = "pb_2";
-            this.pb_2.Size = new System.Drawing.Size(273, 179);
+            this.pb_2.Size = new System.Drawing.Size(257, 179);
             this.pb_2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_2.TabIndex = 52;
             this.pb_2.TabStop = false;
@@ -1180,7 +1180,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1386, 788);
+            this.ClientSize = new System.Drawing.Size(1403, 805);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
