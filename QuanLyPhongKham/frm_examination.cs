@@ -1138,23 +1138,20 @@ namespace QuanLyPhongKham
         {
             try
             {
-                //--------------------------------------------------------------------
-                // 1. LẤY DANH SÁCH DỊCH VỤ TRONG DB
-                //--------------------------------------------------------------------
                 string query = $@"
-SELECT 
-    es.service_id,
-    CASE 
-        WHEN MAX(er.result) IS NULL OR MAX(er.result) = '' THEN 'Chưa có KQ'
-        ELSE 'Đã có KQ'
-    END AS result
-FROM examinations e
-JOIN examination_services es ON e.id = es.examination_id
-LEFT JOIN examination_results er ON es.id = er.examination_service_id
-WHERE e.id = {txb_exam_id.Text}
-GROUP BY es.service_id;
+                SELECT 
+                    es.service_id,
+                    CASE 
+                        WHEN MAX(er.result) IS NULL OR MAX(er.result) = '' THEN 'Chưa có KQ'
+                        ELSE 'Đã có KQ'
+                    END AS result
+                FROM examinations e
+                JOIN examination_services es ON e.id = es.examination_id
+                LEFT JOIN examination_results er ON es.id = er.examination_service_id
+                WHERE e.id = {txb_exam_id.Text}
+                GROUP BY es.service_id;
 
-";
+                ";
 
                 Dictionary<int, string> listServicePresent = new Dictionary<int, string>();
 
@@ -1165,109 +1162,64 @@ GROUP BY es.service_id;
                 {
                     int serviceId = reader.GetInt32("service_id");
                     string status = reader.GetString("result");
-
-     
-                        listServicePresent.Add(serviceId, status);
+                    listServicePresent.Add(serviceId, status);
 
                 }
 
-                reader.Close(); // BẮT BUỘC
-
-
-                //--------------------------------------------------------------------
-                // 2. XOÁ CÁC DỊCH VỤ CHƯA CÓ KQ
-                //--------------------------------------------------------------------
+                reader.Close(); 
                 foreach (var item in listServicePresent)
                 {
                     int serviceId = item.Key;
                     string status = item.Value;
 
                     if (status == "Đã có KQ")
-                    {
-                        Console.WriteLine($"Giữ lại: {serviceId} - Đã có KQ");
                         continue;
-                    }
-
-                    Console.WriteLine($"Xoá: {serviceId} - Chưa có KQ");
-
                     string deleteQuery = $@"
-                DELETE FROM examination_services 
-                WHERE examination_id = {txb_exam_id.Text} 
-                AND service_id = {serviceId}";
-
+                    DELETE FROM examination_services 
+                    WHERE examination_id = {txb_exam_id.Text} 
+                    AND service_id = {serviceId}";
                     new MySqlCommand(deleteQuery, Db.conn).ExecuteNonQuery();
                 }
 
 
-                //--------------------------------------------------------------------
-                // 3. THÊM LẠI DỊCH VỤ THEO GRID
-                //--------------------------------------------------------------------
                 foreach (DataGridViewRow row in dtgv_service_patient.Rows)
                 {
                     if (row.IsNewRow) continue;
-
-                    // Bỏ "Công khám"
-                    if (row.Cells["name_service2"].Value?.ToString() == "Công khám")
-                        continue;
-
+                    if (row.Cells["name_service2"].Value?.ToString() == "Công khám") continue;
                     int idGrid = Convert.ToInt32(row.Cells["id_service2"].Value);
-
-                    // Không chèn lại dịch vụ đã có kết quả
                     if (listServicePresent.ContainsKey(idGrid) &&
-                        listServicePresent[idGrid] == "Đã có KQ")
-                    {
-                        Console.WriteLine($"Không chèn (đã có KQ): {idGrid}");
-                        continue;
-                    }
-
+                        listServicePresent[idGrid] == "Đã có KQ") continue;
                     string insertQuery = $@"
                 INSERT INTO examination_services (examination_id, service_id)
                 VALUES ({txb_exam_id.Text}, {idGrid})";
-
                     new MySqlCommand(insertQuery, Db.conn).ExecuteNonQuery();
-                    Console.WriteLine($"Đã chèn: {idGrid}");
+
                 }
 
-
-                //--------------------------------------------------------------------
-                // 4. TÍNH TỔNG TIỀN MỚI
-                //--------------------------------------------------------------------
                 int total_price_new = 0;
 
                 foreach (DataGridViewRow row in dtgv_service_patient.Rows)
                 {
                     if (row.IsNewRow) continue;
-
-                    if (row.Cells["name_service2"].Value?.ToString() == "Công khám")
-                        continue;
-
+                    if (row.Cells["name_service2"].Value?.ToString() == "Công khám") continue;
                     int price = Convert.ToInt32(
                         row.Cells["price2"].Value.ToString()
                             .Replace(".", "")
                             .Replace(" đ", "")
                     );
-
                     total_price_new += price;
                 }
 
-
-                //--------------------------------------------------------------------
-                // 5. UPDATE GIÁ TIỀN EXAMINATION
-                //--------------------------------------------------------------------
                 string queryUpdatePrice = $@"
-            UPDATE examinations 
-            SET price = {total_price_new}
-            WHERE id = {Convert.ToInt32(txb_exam_id.Text)}";
+                    UPDATE examinations 
+                    SET price = {total_price_new}
+                    WHERE id = {Convert.ToInt32(txb_exam_id.Text)}";
 
                 new MySqlCommand(queryUpdatePrice, Db.conn).ExecuteNonQuery();
 
-
-                //--------------------------------------------------------------------
-                // DONE
-                //--------------------------------------------------------------------
                 MessageBox.Show("Cập nhật dịch vụ thành công!");
                 loadLastTime();
-     
+
             }
             catch (Exception ex)
             {
@@ -1293,10 +1245,6 @@ GROUP BY es.service_id;
             else
                 row.Cells["state"].Value = "Đã từng khám";
 
-
-
-
-
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
@@ -1307,8 +1255,6 @@ GROUP BY es.service_id;
                 if (ctl is DataGridView) return base.ProcessCmdKey(ref msg, keyData);
                 ctl = ctl.Parent;
             }
-
-            // Scroll Form bằng phím
             int x = -this.AutoScrollPosition.X;
             int y = -this.AutoScrollPosition.Y;
             int step = 30;
