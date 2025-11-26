@@ -1015,18 +1015,24 @@ COMMIT;
 
 use clinic_db2
 
-select * from examinations
-
-SELECT e.id,es.service_id,
+   SELECT es.id as "es.id" ,s.id as 'Mã CĐ',s.name as 'Tên chỉ định',s.price as 'Giá',s.type,
  CASE 
-        WHEN er.result IS NULL OR er.result = '' THEN 'Chưa có KQ'
+        WHEN er.examination_service_id IS NULL THEN 'Chưa có KQ'
         ELSE 'Đã có KQ'
-    END AS result
-    ,er.final_result
+    END AS 'Trạng thái',er.examination_service_id as "ma phieu dich vu",er.result,final_result
 FROM examinations e
-JOIN examination_services es ON e.id=es.examination_id
-LEFT JOIN examination_results er ON es.id=er.examination_service_id
-Where e.id = 2280
+INNER JOIN examination_services es ON  es.examination_id=e.id
+INNER JOIN services s ON s.id=es.service_id
+LEFT JOIN examination_results er ON er.examination_service_id=es.id
+    Where e.id = 2297
+    
+  
+    DELETE FROM examination_services
+WHERE id = 7303;
 
+    
+delete from examination_results where id = 2329
+
+select * from examination_results
 
 

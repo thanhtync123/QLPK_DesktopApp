@@ -452,8 +452,9 @@ namespace QuanLyPhongKham
                     dtgv_service_patient.Rows[rowIndex].Cells["name_service2"].Value = nameService;
                     dtgv_service_patient.Rows[rowIndex].Cells["price2"].Value = priceService;
                     dtgv_service_patient.Rows[rowIndex].Cells["delete_service"].Value = "-";
+                    dtgv_service_patient.Rows[rowIndex].Cells["state2"].Value = "Vừa thêm";
                     UpdateTotalServicePrice();
-                    UpdateSTT(); // Cập nhật số thứ tự trong DataGridView dịch vụ chỉ định
+                    UpdateSTT();
 
 
                 }
@@ -462,12 +463,40 @@ namespace QuanLyPhongKham
 
         private void dtgv_service_patient_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
-                if (dtgv_service_patient.Columns[e.ColumnIndex].Name == "delete_service")
+            if (e.RowIndex >= 0 && dtgv_service_patient.Columns[e.ColumnIndex].Name == "delete_service")
+            {
+                var row = dtgv_service_patient.Rows[e.RowIndex];
+
+                var esid = row.Cells["esid"].Value?.ToString();
+                var state = row.Cells["state2"].Value?.ToString();
+
+        
+                if (state == "Đã có KQ")
                 {
-                    dtgv_service_patient.Rows.RemoveAt(e.RowIndex);
-                    UpdateTotalServicePrice();
+                    var result = MessageBox.Show(
+                        "Dịch vụ này đã có kết quả. Bạn có chắc muốn xóa không?",
+                        "Xác nhận xóa",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning);
+
+                    if (result != DialogResult.Yes)
+                        return; 
                 }
+
+      
+                dtgv_service_patient.Rows.RemoveAt(e.RowIndex);
+                UpdateTotalServicePrice();
+
+                if (!string.IsNullOrEmpty(esid))
+                {
+                    string query = $@"
+                    DELETE FROM examination_services
+                    WHERE id = {esid}";
+                    Db.ExecuteNonQuery(query);
+            
+                }
+            }
+
         }
 
         private void btn_save_examination_service_Click(object sender, EventArgs e)
@@ -608,17 +637,20 @@ namespace QuanLyPhongKham
                 txb_exam_id.Text = frm.examId;
                 foreach (var row in frm.AllRows)
                 {
+
                     int index = dtgv_service_patient.Rows.Add();
 
-                    dtgv_service_patient.Rows[index].Cells[0].Value = row.Cells[0].Value; // Mã chỉ định
+                    dtgv_service_patient.Rows[index].Cells["id_service2"].Value = row.Cells[0].Value;
                     if (row.Cells[1].Value.ToString() == "Công khám" || row.Cells[1].Value.ToString() == "Kiểm tra")
-                        dtgv_service_patient.Rows[index].Cells[1].Value = "-"; // gán STT = -
+                        dtgv_service_patient.Rows[index].Cells["STT"].Value = "-";
                     else
-                        dtgv_service_patient.Rows[index].Cells[1].Value = stt++;                // STT
-                    dtgv_service_patient.Rows[index].Cells[2].Value = row.Cells[1].Value; // Tên chỉ định
-                    dtgv_service_patient.Rows[index].Cells[3].Value = row.Cells[2].Value; // Thành tiền
-                    dtgv_service_patient.Rows[index].Cells[4].Value = "";                 // Ghi chú
-                    dtgv_service_patient.Rows[index].Cells[5].Value = "-";                // Thao tác
+                        dtgv_service_patient.Rows[index].Cells["STT"].Value = stt++;
+                    dtgv_service_patient.Rows[index].Cells["name_service2"].Value = row.Cells[1].Value;
+                    dtgv_service_patient.Rows[index].Cells["price2"].Value = row.Cells[2].Value;
+                    dtgv_service_patient.Rows[index].Cells["notes2"].Value = "";
+                    dtgv_service_patient.Rows[index].Cells["delete_service"].Value = "-";
+                    dtgv_service_patient.Rows[index].Cells["state2"].Value = row.Cells[4].Value;
+                    dtgv_service_patient.Rows[index].Cells["esid"].Value = row.Cells[5].Value;
                 }
 
                 // Tính tổng thành tiền
@@ -724,15 +756,18 @@ namespace QuanLyPhongKham
                 {
                     int index = dtgv_service_patient.Rows.Add();
 
-                    dtgv_service_patient.Rows[index].Cells[0].Value = row.Cells[0].Value;
+
+                    dtgv_service_patient.Rows[index].Cells["id_service2"].Value = row.Cells[0].Value;
                     if (row.Cells[1].Value.ToString() == "Công khám" || row.Cells[1].Value.ToString() == "Kiểm tra")
-                        dtgv_service_patient.Rows[index].Cells[1].Value = "-";
+                        dtgv_service_patient.Rows[index].Cells["STT"].Value = "-";
                     else
-                        dtgv_service_patient.Rows[index].Cells[1].Value = stt++;
-                    dtgv_service_patient.Rows[index].Cells[2].Value = row.Cells[1].Value;
-                    dtgv_service_patient.Rows[index].Cells[3].Value = row.Cells[2].Value;
-                    dtgv_service_patient.Rows[index].Cells[4].Value = "";
-                    dtgv_service_patient.Rows[index].Cells[5].Value = "-";
+                        dtgv_service_patient.Rows[index].Cells["STT"].Value = stt++;
+                    dtgv_service_patient.Rows[index].Cells["name_service2"].Value = row.Cells[1].Value;
+                    dtgv_service_patient.Rows[index].Cells["price2"].Value = row.Cells[2].Value;
+                    dtgv_service_patient.Rows[index].Cells["notes2"].Value = "";
+                    dtgv_service_patient.Rows[index].Cells["delete_service"].Value = "-";
+                    dtgv_service_patient.Rows[index].Cells["state2"].Value = row.Cells[4].Value;
+                    dtgv_service_patient.Rows[index].Cells["esid"].Value = row.Cells[5].Value;
                 }
 
                 decimal total = 0;
@@ -745,6 +780,8 @@ namespace QuanLyPhongKham
                 }
 
                 lb_total_price_service.Text = total.ToString("N0") + " đ";
+                btn_save_examination_service.Enabled = true;
+                btn_update_examination.Enabled = false;
             }
 
         }
@@ -1138,94 +1175,65 @@ namespace QuanLyPhongKham
         {
             try
             {
-                string query = $@"
-                SELECT 
-                    es.service_id,
-                    CASE 
-                        WHEN MAX(er.result) IS NULL OR MAX(er.result) = '' THEN 'Chưa có KQ'
-                        ELSE 'Đã có KQ'
-                    END AS result
-                FROM examinations e
-                JOIN examination_services es ON e.id = es.examination_id
-                LEFT JOIN examination_results er ON es.id = er.examination_service_id
-                WHERE e.id = {txb_exam_id.Text}
-                GROUP BY es.service_id;
-
-                ";
-
-                Dictionary<int, string> listServicePresent = new Dictionary<int, string>();
-
-                var cmd = new MySqlCommand(query, Db.conn);
-                var reader = cmd.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    int serviceId = reader.GetInt32("service_id");
-                    string status = reader.GetString("result");
-                    listServicePresent.Add(serviceId, status);
-
-                }
-
-                reader.Close(); 
-                foreach (var item in listServicePresent)
-                {
-                    int serviceId = item.Key;
-                    string status = item.Value;
-
-                    if (status == "Đã có KQ")
-                        continue;
-                    string deleteQuery = $@"
-                    DELETE FROM examination_services 
-                    WHERE examination_id = {txb_exam_id.Text} 
-                    AND service_id = {serviceId}";
-                    new MySqlCommand(deleteQuery, Db.conn).ExecuteNonQuery();
-                }
-
-
                 foreach (DataGridViewRow row in dtgv_service_patient.Rows)
                 {
-                    if (row.IsNewRow) continue;
-                    if (row.Cells["name_service2"].Value?.ToString() == "Công khám") continue;
-                    int idGrid = Convert.ToInt32(row.Cells["id_service2"].Value);
-                    if (listServicePresent.ContainsKey(idGrid) &&
-                        listServicePresent[idGrid] == "Đã có KQ") continue;
-                    string insertQuery = $@"
-                INSERT INTO examination_services (examination_id, service_id)
-                VALUES ({txb_exam_id.Text}, {idGrid})";
-                    new MySqlCommand(insertQuery, Db.conn).ExecuteNonQuery();
+                    if (row.Cells["name_service2"].Value.ToString() == "Công khám") continue;
+                    if (row.Cells["state2"].Value.ToString() == "Chưa có KQ" && row.Cells["esid"].Value.ToString() != "")
+                    {
+                        string query = $@"DELETE FROM examination_services 
+                                           WHERE id = {row.Cells["esid"].Value.ToString()}";
+                        Db.ExecuteNonQuery(query);
+                        string queryIs = $@"
+                         INSERT INTO examination_services (examination_id, service_id)
+                                   VALUES ({txb_exam_id.Text}, {row.Cells["id_service2"].Value.ToString()})";
+                        Db.ExecuteNonQuery(queryIs);
+                    }
+              
+                    if (row.Cells["state2"].Value.ToString() == "Vừa thêm")
+
+                    {
+                        string queryIs = $@"
+                         INSERT INTO examination_services (examination_id, service_id)
+                                   VALUES ({txb_exam_id.Text}, {row.Cells["id_service2"].Value.ToString()})";
+                        Db.ExecuteNonQuery(queryIs);
+
+                    }
 
                 }
-
+            
                 int total_price_new = 0;
-
                 foreach (DataGridViewRow row in dtgv_service_patient.Rows)
                 {
                     if (row.IsNewRow) continue;
                     if (row.Cells["name_service2"].Value?.ToString() == "Công khám") continue;
+
                     int price = Convert.ToInt32(
                         row.Cells["price2"].Value.ToString()
                             .Replace(".", "")
                             .Replace(" đ", "")
                     );
+
                     total_price_new += price;
                 }
 
+        
                 string queryUpdatePrice = $@"
-                    UPDATE examinations 
-                    SET price = {total_price_new}
-                    WHERE id = {Convert.ToInt32(txb_exam_id.Text)}";
+                                UPDATE examinations 
+                                SET price = {total_price_new}
+                                WHERE id = {Convert.ToInt32(txb_exam_id.Text)}
+                            ";
 
                 new MySqlCommand(queryUpdatePrice, Db.conn).ExecuteNonQuery();
+                MessageBox.Show("Cập nhật thành công");
 
-                MessageBox.Show("Cập nhật dịch vụ thành công!");
                 loadLastTime();
-
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi: " + ex.ToString());
-                Clipboard.SetText(ex.ToString());
+                MessageBox.Show(ex.ToString());
             }
+         
+
         }
 
 
@@ -1461,6 +1469,36 @@ namespace QuanLyPhongKham
         private void guna2ImageButton7_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void dtgv_service_patient_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtgv_service_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtgv_service_patient_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            foreach (DataGridViewRow row in dtgv_service_patient.Rows)
+            {
+             
+
+                var cellState = row.Cells["state2"];
+
+                switch (cellState.Value?.ToString())
+                {
+                    case "Chưa có KQ":
+                        cellState.Style.ForeColor = Color.RoyalBlue;
+                        break;
+                    case "Đã có KQ":
+                        cellState.Style.ForeColor = Color.ForestGreen;
+                        break;
+                }
+            }
         }
     }
 }

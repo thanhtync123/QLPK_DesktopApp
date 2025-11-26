@@ -114,7 +114,7 @@ namespace QuanLyPhongKham
              CASE 
                     WHEN er.examination_service_id IS NULL THEN 'Chưa có KQ'
                     ELSE 'Đã có KQ'
-                END AS 'Trạng thái',er.examination_service_id,er.result,final_result
+                END AS 'Trạng thái',es.id as 'esid',er.result,final_result
             FROM examinations e
             INNER JOIN examination_services es ON  es.examination_id=e.id
             INNER JOIN services s ON s.id=es.service_id
@@ -133,7 +133,7 @@ namespace QuanLyPhongKham
                 drr.Cells["price"].Value = Db.dr["Giá"];
                 drr.Cells["state"].Value = Db.dr["Trạng thái"];
                 drr.Cells["type"].Value = Db.dr["type"];
-                drr.Cells["examination_service_id"].Value = Db.dr["examination_service_id"];
+                drr.Cells["examination_service_id"].Value = Db.dr["esid"];
 
 
             }
@@ -147,7 +147,7 @@ namespace QuanLyPhongKham
         {
             AllRows.Clear();
             DataGridViewRow row1 = new DataGridViewRow();
-            row1.CreateCells(dtgv_detail, "", "Công khám", "Miễn phí", "", "-");
+            row1.CreateCells(dtgv_detail, "", "Công khám", "Miễn phí", "", "");
             AllRows.Add(row1);
             string examId = dtgv_exam_service.CurrentRow.Cells[0].Value.ToString();
             if (dtgv_exam_service.CurrentRow != null)
