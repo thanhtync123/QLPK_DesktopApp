@@ -1178,17 +1178,22 @@ namespace QuanLyPhongKham
                 foreach (DataGridViewRow row in dtgv_service_patient.Rows)
                 {
                     if (row.Cells["name_service2"].Value.ToString() == "Công khám") continue;
-                    if (row.Cells["state2"].Value.ToString() == "Chưa có KQ" && row.Cells["esid"].Value.ToString() != "")
+                    var state = row.Cells["state2"].Value?.ToString() ?? "";
+                    var esid = row.Cells["esid"].Value?.ToString() ?? "";
+
+                    if (state == "Chưa có KQ" && esid != "")
                     {
                         string query = $@"DELETE FROM examination_services 
-                                           WHERE id = {row.Cells["esid"].Value.ToString()}";
+                      WHERE id = {esid}";
                         Db.ExecuteNonQuery(query);
+
                         string queryIs = $@"
-                         INSERT INTO examination_services (examination_id, service_id)
-                                   VALUES ({txb_exam_id.Text}, {row.Cells["id_service2"].Value.ToString()})";
+                        INSERT INTO examination_services (examination_id, service_id)
+                        VALUES ({txb_exam_id.Text}, {row.Cells["id_service2"].Value?.ToString()})";
                         Db.ExecuteNonQuery(queryIs);
                     }
-              
+
+
                     if (row.Cells["state2"].Value.ToString() == "Vừa thêm")
 
                     {
@@ -1347,6 +1352,7 @@ namespace QuanLyPhongKham
                 row.Cells["price2"].Value = Db.dr["price"];
                 row.Cells["notes2"].Value = Db.dr["note"];
                 row.Cells["delete_service"].Value = "-";
+                row.Cells["state2"].Value = "Vừa thêm";
             }
 
             Db.dr.Close();

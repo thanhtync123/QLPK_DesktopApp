@@ -41,6 +41,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -50,8 +52,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txb_name = new Guna.UI2.WinForms.Guna2TextBox();
             this.txb_ngaysinh = new Guna.UI2.WinForms.Guna2TextBox();
             this.txb_age = new Guna.UI2.WinForms.Guna2TextBox();
@@ -96,7 +96,6 @@
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.printDocument2 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog2 = new System.Windows.Forms.PrintPreviewDialog();
-            this.txb_symptoms = new Guna.UI2.WinForms.Guna2TextBox();
             this.lbsdfsf = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.txb_note = new Guna.UI2.WinForms.Guna2TextBox();
@@ -123,6 +122,14 @@
             this.add_service = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txb_search = new System.Windows.Forms.TextBox();
             this.dtgv_service_patient = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.id_service2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name_service2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.notes2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.state2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.esid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.delete_service = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_update_examination = new System.Windows.Forms.Button();
             this.btn_pre_service = new System.Windows.Forms.Button();
             this.guna2ImageButton8 = new Guna.UI2.WinForms.Guna2ImageButton();
@@ -181,14 +188,7 @@
             this.lb_lastTimeMed_days = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.id_service2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name_service2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.notes2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.state2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.esid = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.delete_service = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txb_symptoms = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_patients)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_service)).BeginInit();
@@ -732,26 +732,6 @@
             this.printPreviewDialog2.Name = "printPreviewDialog2";
             this.printPreviewDialog2.Visible = false;
             // 
-            // txb_symptoms
-            // 
-            this.txb_symptoms.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txb_symptoms.DefaultText = "";
-            this.txb_symptoms.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txb_symptoms.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txb_symptoms.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txb_symptoms.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txb_symptoms.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txb_symptoms.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_symptoms.ForeColor = System.Drawing.Color.Black;
-            this.txb_symptoms.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txb_symptoms.Location = new System.Drawing.Point(171, 195);
-            this.txb_symptoms.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txb_symptoms.Name = "txb_symptoms";
-            this.txb_symptoms.PlaceholderText = "";
-            this.txb_symptoms.SelectedText = "";
-            this.txb_symptoms.Size = new System.Drawing.Size(957, 31);
-            this.txb_symptoms.TabIndex = 15;
-            // 
             // lbsdfsf
             // 
             this.lbsdfsf.AutoSize = true;
@@ -1102,7 +1082,7 @@
             // txb_search
             // 
             this.txb_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_search.Location = new System.Drawing.Point(217, 44);
+            this.txb_search.Location = new System.Drawing.Point(217, 43);
             this.txb_search.Name = "txb_search";
             this.txb_search.Size = new System.Drawing.Size(320, 26);
             this.txb_search.TabIndex = 52;
@@ -1174,6 +1154,65 @@
             this.dtgv_service_patient.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_service_patient_CellClick);
             this.dtgv_service_patient.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dtgv_service_patient_CellFormatting);
             this.dtgv_service_patient.Click += new System.EventHandler(this.dtgv_service_patient_Click);
+            // 
+            // id_service2
+            // 
+            this.id_service2.HeaderText = "Mã CĐ";
+            this.id_service2.MinimumWidth = 6;
+            this.id_service2.Name = "id_service2";
+            this.id_service2.Visible = false;
+            this.id_service2.Width = 60;
+            // 
+            // STT
+            // 
+            this.STT.HeaderText = "STT";
+            this.STT.Name = "STT";
+            this.STT.Width = 25;
+            // 
+            // name_service2
+            // 
+            this.name_service2.HeaderText = "Tên chỉ định";
+            this.name_service2.MinimumWidth = 6;
+            this.name_service2.Name = "name_service2";
+            this.name_service2.Width = 210;
+            // 
+            // price2
+            // 
+            dataGridViewCellStyle21.Format = "N0";
+            this.price2.DefaultCellStyle = dataGridViewCellStyle21;
+            this.price2.HeaderText = "Thành tiền";
+            this.price2.MinimumWidth = 6;
+            this.price2.Name = "price2";
+            this.price2.Width = 125;
+            // 
+            // notes2
+            // 
+            this.notes2.HeaderText = "Ghi chú";
+            this.notes2.MinimumWidth = 6;
+            this.notes2.Name = "notes2";
+            this.notes2.Width = 170;
+            // 
+            // state2
+            // 
+            this.state2.HeaderText = "Trạng thái";
+            this.state2.Name = "state2";
+            // 
+            // esid
+            // 
+            this.esid.HeaderText = "esid";
+            this.esid.Name = "esid";
+            this.esid.Visible = false;
+            this.esid.Width = 50;
+            // 
+            // delete_service
+            // 
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.delete_service.DefaultCellStyle = dataGridViewCellStyle22;
+            this.delete_service.HeaderText = "Xóa";
+            this.delete_service.MinimumWidth = 6;
+            this.delete_service.Name = "delete_service";
+            this.delete_service.ReadOnly = true;
+            this.delete_service.Width = 50;
             // 
             // btn_update_examination
             // 
@@ -1915,64 +1954,25 @@
             this.label14.TabIndex = 69;
             this.label14.Text = "Toa thuốc gần nhất:";
             // 
-            // id_service2
+            // txb_symptoms
             // 
-            this.id_service2.HeaderText = "Mã CĐ";
-            this.id_service2.MinimumWidth = 6;
-            this.id_service2.Name = "id_service2";
-            this.id_service2.Visible = false;
-            this.id_service2.Width = 60;
-            // 
-            // STT
-            // 
-            this.STT.HeaderText = "STT";
-            this.STT.Name = "STT";
-            this.STT.Width = 25;
-            // 
-            // name_service2
-            // 
-            this.name_service2.HeaderText = "Tên chỉ định";
-            this.name_service2.MinimumWidth = 6;
-            this.name_service2.Name = "name_service2";
-            this.name_service2.Width = 210;
-            // 
-            // price2
-            // 
-            dataGridViewCellStyle21.Format = "N0";
-            this.price2.DefaultCellStyle = dataGridViewCellStyle21;
-            this.price2.HeaderText = "Thành tiền";
-            this.price2.MinimumWidth = 6;
-            this.price2.Name = "price2";
-            this.price2.Width = 125;
-            // 
-            // notes2
-            // 
-            this.notes2.HeaderText = "Ghi chú";
-            this.notes2.MinimumWidth = 6;
-            this.notes2.Name = "notes2";
-            this.notes2.Width = 170;
-            // 
-            // state2
-            // 
-            this.state2.HeaderText = "Trạng thái";
-            this.state2.Name = "state2";
-            // 
-            // esid
-            // 
-            this.esid.HeaderText = "esid";
-            this.esid.Name = "esid";
-            this.esid.Visible = false;
-            this.esid.Width = 50;
-            // 
-            // delete_service
-            // 
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.delete_service.DefaultCellStyle = dataGridViewCellStyle22;
-            this.delete_service.HeaderText = "Xóa";
-            this.delete_service.MinimumWidth = 6;
-            this.delete_service.Name = "delete_service";
-            this.delete_service.ReadOnly = true;
-            this.delete_service.Width = 50;
+            this.txb_symptoms.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txb_symptoms.DefaultText = "";
+            this.txb_symptoms.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txb_symptoms.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txb_symptoms.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txb_symptoms.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txb_symptoms.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txb_symptoms.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txb_symptoms.ForeColor = System.Drawing.Color.Black;
+            this.txb_symptoms.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txb_symptoms.Location = new System.Drawing.Point(171, 195);
+            this.txb_symptoms.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txb_symptoms.Name = "txb_symptoms";
+            this.txb_symptoms.PlaceholderText = "";
+            this.txb_symptoms.SelectedText = "";
+            this.txb_symptoms.Size = new System.Drawing.Size(957, 31);
+            this.txb_symptoms.TabIndex = 15;
             // 
             // frm_examination
             // 
@@ -1981,7 +1981,7 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(230)))));
-            this.ClientSize = new System.Drawing.Size(1714, 805);
+            this.ClientSize = new System.Drawing.Size(1817, 827);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.lb_lastTimeMed_hours);
@@ -2077,7 +2077,6 @@
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
         private System.Drawing.Printing.PrintDocument printDocument2;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog2;
-        private Guna.UI2.WinForms.Guna2TextBox txb_symptoms;
         private System.Windows.Forms.Label lbsdfsf;
         private System.Windows.Forms.Label label9;
         private Guna.UI2.WinForms.Guna2TextBox txb_note;
@@ -2189,5 +2188,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn state2;
         private System.Windows.Forms.DataGridViewTextBoxColumn esid;
         private System.Windows.Forms.DataGridViewTextBoxColumn delete_service;
+        private Guna.UI2.WinForms.Guna2TextBox txb_symptoms;
     }
 }
