@@ -125,7 +125,7 @@ namespace QuanLyPhongKham
                                         AND es.created_at BETWEEN '{fromDate}' AND '{toDate}'
                                         ";
             lb_nuoctieu.Text = Db.Scalar(queryTestNuocTieu).ToString();
-            //123213
+
             string querySinhHoa = $@"SELECT COUNT(*)
                        from examination_services es
                         join services s ON s.id = es.service_id
@@ -209,6 +209,7 @@ namespace QuanLyPhongKham
             }
 
             Db.dr.Close();
+            textBox1.Text = query;
 
         }
 
@@ -281,6 +282,9 @@ namespace QuanLyPhongKham
             }
 
             Db.dr.Close();
+            dtgv_detail_service.Rows.Clear();
+            dtgv_detail_service_med.Rows.Clear();
+            textBox2.Text = query;
         }
 
         private void dtgv_service_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -352,6 +356,7 @@ namespace QuanLyPhongKham
                  INNER JOIN services s ON s.id = es.service_id
                  LEFT JOIN examination_results er ON es.id = er.examination_service_id
                  WHERE e.id = {idExam}";
+                    textBox3.Text = query;
 
                     Db.ResetConnection();
                     Db.cmd = new MySqlCommand(query, Db.conn);
@@ -398,6 +403,7 @@ namespace QuanLyPhongKham
                 AND em.medication_id = m.id
                 AND em.examination_id = {idExam}
             ";
+                    textBox4.Text = query;
                     Db.cmd = new MySqlCommand(query, Db.conn);
                     Db.dr = Db.cmd.ExecuteReader();
                     dtgv_detail_service_med.Rows.Clear(); 

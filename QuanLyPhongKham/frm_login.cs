@@ -20,7 +20,6 @@ namespace QuanLyPhongKham
 
         private void btn_login_Click(object sender, EventArgs e)
         {
-            //12112
             try
             {
                 Db.ResetConnection();
@@ -63,7 +62,7 @@ namespace QuanLyPhongKham
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi đăng nhập: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi đăng nhập ( Kiểm tra lại máy chủ đã bật lên chưa ): " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
