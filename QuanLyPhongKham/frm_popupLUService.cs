@@ -110,7 +110,7 @@ namespace QuanLyPhongKham
             btn_delete.Enabled = true;
             id = Convert.ToInt16(dtgv_exam_service.Rows[e.RowIndex].Cells[0].Value.ToString());
             string query = $@"
-               SELECT s.id as 'Mã CĐ',s.name as 'Tên chỉ định',s.price as 'Giá',s.type,
+               SELECT distinct s.id as 'Mã CĐ',s.name as 'Tên chỉ định',s.price as 'Giá',s.type,
              CASE 
                     WHEN er.examination_service_id IS NULL THEN 'Chưa có KQ'
                     ELSE 'Đã có KQ'
@@ -139,7 +139,7 @@ namespace QuanLyPhongKham
             }
 
             Db.dr.Close();
-
+            textBox1.Text= query;
 
         }
 

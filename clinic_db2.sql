@@ -1034,5 +1034,150 @@ WHERE id = 7305;
 delete from examination_results where id = 2329
 
 select * from examination_results
+-----------------------------------------------------------
+
+select * from examinations where id = 346
+select * from examination_medications where examination_id = 346
+
+
+            SELECT
+                p.id, 
+                p.name,
+                SUM(e.price) as total_per_customer
+            FROM examinations e
+            INNER JOIN patients p ON e.patient_id = p.id
+            WHERE p.id = 167 
+            AND DATE(e.updated_at) BETWEEN '2025-06-01 00:00:00' AND '2025-06-30 23:59:59'
+            GROUP BY p.id, p.name
+            
+            
+                SELECT e.id,e.type,e.price,e.updated_at
+                FROM examinations e 
+                INNER JOIN patients p ON p.id = e.patient_id
+                WHERE p.id = 167
+                and DATE(e.updated_at) BETWEEN '2025-06-01 00:00:00' AND '2025-06-30 23:59:59'
+                            
+         
+         
+         
+                 SELECT  SUM(s.price)           
+                 FROM examinations e
+                 INNER JOIN examination_services es ON e.id = es.examination_id
+                 INNER JOIN services s ON s.id = es.service_id
+                 LEFT JOIN examination_results er ON es.id = er.examination_service_id
+                 WHERE e.id = 334
+                 
+               SELECT 
+                em.id AS id,
+                em.examination_id AS examination_id,
+                m.id AS med_id,
+                m.name,
+                REPLACE(CAST(em.morning AS CHAR), '.', ',') AS morning,
+                REPLACE(CAST(em.noon AS CHAR), '.', ',') AS noon,
+                REPLACE(CAST(em.afternoon AS CHAR), '.', ',') AS afternoon,
+                REPLACE(CAST(em.evening AS CHAR), '.', ',') AS evening,
+                em.unit,
+                em.days_of_use,
+                em.total_quantity_med,
+                em.note,
+                max(days_of_use) as max
+            FROM 
+                examination_medications em, examinations e, medications m
+            WHERE 
+                em.examination_id = e.id
+                AND em.medication_id = m.id
+                AND em.examination_id = 346
+            
+                            
+                            
+SELECT 
+    e.id,
+    e.type,
+    COALESCE(
+        e.price,
+        (
+            SELECT SUM(s.price)
+            FROM examination_services es
+            INNER JOIN services s ON s.id = es.service_id
+            WHERE es.examination_id = e.id
+        )
+    ) AS price,
+    e.updated_at
+FROM examinations e 
+INNER JOIN patients p ON p.id = e.patient_id
+WHERE p.id = 167
+  AND DATE(e.updated_at) BETWEEN '2025-06-01' AND '2025-06-30';
+  
+  
+  SELECT 
+    em.id AS id,
+    em.examination_id AS examination_id,
+    m.id AS med_id,
+    m.name,
+    REPLACE(CAST(em.morning AS CHAR), '.', ',') AS morning,
+    REPLACE(CAST(em.noon AS CHAR), '.', ',') AS noon,
+    REPLACE(CAST(em.afternoon AS CHAR), '.', ',') AS afternoon,
+    REPLACE(CAST(em.evening AS CHAR), '.', ',') AS evening,
+    em.unit,
+    em.days_of_use,
+    em.total_quantity_med,
+    em.note,
+    MAX(em.days_of_use*50000) OVER () AS total
+FROM 
+    examination_medications em
+INNER JOIN examinations e ON em.examination_id = e.id
+INNER JOIN medications m ON em.medication_id = m.id
+WHERE 
+    em.examination_id = 346;
+
+
+SELECT 
+    e.id,
+    e.type,
+    CASE
+        WHEN e.price IS NOT NULL THEN e.price
+        WHEN e.type = 'toa thuốc' THEN
+            (SELECT MAX(em.days_of_use) * 50000
+             FROM examination_medications em
+             WHERE em.examination_id = e.id)
+        ELSE 
+            (SELECT SUM(s.price)
+             FROM examination_services es
+             INNER JOIN services s ON es.service_id = s.id
+             WHERE es.examination_id = e.id)
+    END AS price,
+    e.updated_at
+FROM examinations e
+INNER JOIN patients p ON e.patient_id = p.id
+WHERE p.id = 167
+  AND DATE(e.updated_at) BETWEEN '2025-06-01' AND '2025-06-30';
+  
+  SELECT
+    p.id,
+    p.name,
+    SUM(
+        CASE
+            WHEN e.price IS NOT NULL THEN e.price
+            WHEN e.type = 'toa thuốc' THEN
+                (SELECT IFNULL(MAX(em.days_of_use) * 50000,0)
+                 FROM examination_medications em
+                 WHERE em.examination_id = e.id)
+            ELSE
+                (SELECT IFNULL(SUM(s.price),0)
+                 FROM examination_services es
+                 INNER JOIN services s ON es.service_id = s.id
+                 WHERE es.examination_id = e.id)
+        END
+    ) AS total_per_customer
+FROM examinations e
+INNER JOIN patients p ON e.patient_id = p.id
+WHERE DATE(e.updated_at) BETWEEN '{fromDate}' AND '{toDate}'
+GROUP BY p.id, p.name;
+
+drop database clinic_db2
+
+create database clinic_db2
+use clinic_db2
+
 
 
