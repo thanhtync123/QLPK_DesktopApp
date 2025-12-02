@@ -191,19 +191,19 @@ namespace QuanLyPhongKham
 
         private void traCứuPhiếuKhámToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddTab(new lb_chitietphieukham());
+  
         }
 
         private void traCứuPhiếuThuốcToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddTab(new frm_LookUpMedication());
+    
         }
 
 
 
         private void traCứuPhiếuChỉĐịnhToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddTab(new frm_LookUpService());
+          
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
@@ -278,7 +278,17 @@ namespace QuanLyPhongKham
 
         private void frm_nav_FormClosing(object sender, FormClosingEventArgs e)
         {
-           
+            DialogResult result = MessageBox.Show(
+          "Bạn có chắc chắn muốn thoát ứng dụng?",
+          "Xác nhận",
+          MessageBoxButtons.YesNo,
+          MessageBoxIcon.Question
+                        );
+
+    
+            if (result == DialogResult.No)
+                e.Cancel = true;
+            
         }
 
         private void AddTab(Form frm)

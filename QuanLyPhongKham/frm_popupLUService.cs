@@ -139,7 +139,7 @@ namespace QuanLyPhongKham
             }
 
             Db.dr.Close();
-            textBox1.Text= query;
+   
 
         }
 

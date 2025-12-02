@@ -117,7 +117,7 @@ namespace QuanLyPhongKham
 
             Db.dr.Close();
             Db.ResetConnection();
-            textBox1.Text = sql;
+    
 
         }
 

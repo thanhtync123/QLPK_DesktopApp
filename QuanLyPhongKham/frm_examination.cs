@@ -275,7 +275,7 @@ namespace QuanLyPhongKham
 
         private void LoadExamID()
         {
-            ResetConnection();
+            Db.ResetConnection();
             string query = "SELECT max(id)+1 as exam_id from examinations";
             Db.cmd = new MySqlCommand(query, Db.conn);
             Db.dr = Db.cmd.ExecuteReader();
@@ -294,7 +294,7 @@ namespace QuanLyPhongKham
         }
         private void LoadDTGV_Med()
         {
-            ResetConnection();
+            Db.ResetConnection();
             string query = @"SELECT `id`, `name`, `note`,`unit`, `price` FROM `medications` order by name";
             Db.cmd = new MySqlCommand(query, Db.conn);
             Db.dr = Db.cmd.ExecuteReader();
@@ -318,7 +318,7 @@ namespace QuanLyPhongKham
 
         private void LoadDTGV_Service(String keyword = "")
         {
-            ResetConnection();
+            Db.ResetConnection();
             string query = $@"SELECT id,`name`, `type`, `price`
                         FROM `services`
                          WHERE name LIKE '%{keyword}%'
@@ -355,8 +355,6 @@ namespace QuanLyPhongKham
 
                 Db.ResetConnection();
                 string diagnosisName = cbo_diagnoses.Text.Trim();
-
-                // Kiểm tra xem chẩn đoán đã có chưa
                 string checkSql = "SELECT id FROM diagnoses WHERE name = @name LIMIT 1;";
                 MySqlCommand checkCmd = new MySqlCommand(checkSql, Db.conn);
                 checkCmd.Parameters.AddWithValue("@name", diagnosisName);
@@ -1061,7 +1059,7 @@ namespace QuanLyPhongKham
 
         private void txb_med_search_TextChanged(object sender, EventArgs e)
         {
-            ResetConnection();
+           Db.ResetConnection();
             dtgv_med.Rows.Clear();
             int stt = 1;
             string query = $@"

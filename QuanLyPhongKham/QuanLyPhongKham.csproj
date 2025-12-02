@@ -203,6 +203,12 @@
       <DependentUpon>DataSetTest.xsd</DependentUpon>
     </Compile>
     <Compile Include="Db.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormScrollHelper.cs" />
     <Compile Include="frm_diagnoses.cs">
       <SubType>Form</SubType>
@@ -240,35 +246,11 @@
     <Compile Include="frm_login.Designer.cs">
       <DependentUpon>frm_login.cs</DependentUpon>
     </Compile>
-    <Compile Include="frm_LookUpExamination.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frm_LookUpExamination.Designer.cs">
-      <DependentUpon>frm_LookUpExamination.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frm_LookUpResult.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frm_LookUpResult.Designer.cs">
-      <DependentUpon>frm_LookUpResult.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frm_LookUpService.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frm_LookUpService.Designer.cs">
-      <DependentUpon>frm_LookUpService.cs</DependentUpon>
-    </Compile>
     <Compile Include="frm_med.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frm_med.Designer.cs">
       <DependentUpon>frm_med.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frm_LookUpMedication.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frm_LookUpMedication.Designer.cs">
-      <DependentUpon>frm_LookUpMedication.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_medications_set.cs">
       <SubType>Form</SubType>
@@ -381,6 +363,9 @@
     <Compile Include="LoadExam.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_diagnoses.resx">
       <DependentUpon>frm_diagnoses.cs</DependentUpon>
     </EmbeddedResource>
@@ -399,20 +384,8 @@
     <EmbeddedResource Include="frm_login.resx">
       <DependentUpon>frm_login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_LookUpExamination.resx">
-      <DependentUpon>frm_LookUpExamination.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frm_LookUpResult.resx">
-      <DependentUpon>frm_LookUpResult.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frm_LookUpService.resx">
-      <DependentUpon>frm_LookUpService.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frm_med.resx">
       <DependentUpon>frm_med.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frm_LookUpMedication.resx">
-      <DependentUpon>frm_LookUpMedication.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_medications_set.resx">
       <DependentUpon>frm_medications_set.cs</DependentUpon>

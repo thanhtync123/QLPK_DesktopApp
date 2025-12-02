@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Globalization;
-using System.Threading;
+using MySql.Data.MySqlClient;
 namespace QuanLyPhongKham
 {
     internal static class Program
@@ -16,7 +17,28 @@ namespace QuanLyPhongKham
             Thread.CurrentThread.CurrentUICulture = new CultureInfo("vi-VN");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frm_login());
+            try
+            {
+                Application.Run(new frm_login());
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(
+                    "Không thể kết nối tới MySQL server!\n\n" + ex.Message,
+                    "Lỗi kết nối MySQL",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Đã xảy ra lỗi:\n\n" + ex.Message,
+                    "Lỗi",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+            }
 
         }
     }

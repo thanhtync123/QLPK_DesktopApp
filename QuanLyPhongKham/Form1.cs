@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace QuanLyPhongKham
 {
-    public partial class frm_LookUpResult : Form
+    public partial class Form1 : Form
     {
-        public frm_LookUpResult()
+        public Form1()
         {
             InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            MessageBox.Show("dfj");
         }
     }
 }
