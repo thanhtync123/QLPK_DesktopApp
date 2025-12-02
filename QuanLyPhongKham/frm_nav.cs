@@ -276,6 +276,11 @@ namespace QuanLyPhongKham
             AddTab(new frm_services_set());
         }
 
+        private void frm_nav_FormClosing(object sender, FormClosingEventArgs e)
+        {
+           
+        }
+
         private void AddTab(Form frm)
         {
             int t = KiemTraFormTonTai(frm);
