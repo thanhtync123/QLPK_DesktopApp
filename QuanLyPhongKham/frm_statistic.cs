@@ -181,15 +181,38 @@ namespace QuanLyPhongKham
                         ";
             lb_testns1ag.Text = Db.Scalar(testns1ag).ToString();
 
+            //string query = $@"
+            //SELECT
+            //    p.id, 
+            //    p.name,
+            //    SUM(e.price) as total_per_customer
+            //FROM examinations e
+            //INNER JOIN patients p ON e.patient_id = p.id
+            //WHERE DATE(e.updated_at) BETWEEN '{fromDate}' AND '{toDate}'
+            //GROUP BY p.id, p.name;
+            //                ";
             string query = $@"
-            SELECT
-                p.id, 
+             SELECT
+                p.id,
                 p.name,
-                SUM(e.price) as total_per_customer
+                SUM(
+                    CASE
+                        WHEN e.price IS NOT NULL THEN e.price
+                        WHEN e.type = 'toa thuốc' THEN
+                            (SELECT IFNULL(MAX(em.days_of_use) * 50000,0)
+                             FROM examination_medications em
+                             WHERE em.examination_id = e.id)
+                        ELSE
+                            (SELECT IFNULL(SUM(s.price),0)
+                             FROM examination_services es
+                             INNER JOIN services s ON es.service_id = s.id
+                             WHERE es.examination_id = e.id)
+                    END
+                ) AS total_per_customer
             FROM examinations e
             INNER JOIN patients p ON e.patient_id = p.id
             WHERE DATE(e.updated_at) BETWEEN '{fromDate}' AND '{toDate}'
-            GROUP BY p.id, p.name;
+            GROUP BY p.id, p.name
                             ";
             Db.ResetConnection();
             Db.cmd = new MySqlCommand(query, Db.conn);
@@ -215,12 +238,22 @@ namespace QuanLyPhongKham
 
         private void frm_statistic_Load(object sender, EventArgs e)
         {
+            //dateTimePicker1.Format = DateTimePickerFormat.Custom;
+            //dateTimePicker1.CustomFormat = "dd/MM/yyyy";
+            //dateTimePicker1.Value = DateTime.Today; 
+            //dateTimePicker2.Format = DateTimePickerFormat.Custom;
+            //dateTimePicker2.CustomFormat = "dd/MM/yyyy";
+            //dateTimePicker2.Value = DateTime.Today;
+
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
             dateTimePicker1.CustomFormat = "dd/MM/yyyy";
-            dateTimePicker1.Value = DateTime.Today; 
+            dateTimePicker1.Value = new DateTime(2025, 6, 1);
+
+  
             dateTimePicker2.Format = DateTimePickerFormat.Custom;
             dateTimePicker2.CustomFormat = "dd/MM/yyyy";
-            dateTimePicker2.Value = DateTime.Today;
+            dateTimePicker2.Value = new DateTime(2025, 6, 30);
+
             dtgv_detail_service.Visible = false;
             dtgv_detail_service_med.Visible = false;
 
@@ -255,13 +288,35 @@ namespace QuanLyPhongKham
         {
             string fromDate = dateTimePicker1.Value.ToString("yyyy-MM-dd 00:00:00");
             string toDate = dateTimePicker2.Value.ToString("yyyy-MM-dd 23:59:59");
+            //string query = $@"
+            //    SELECT e.id,e.type,e.price,e.updated_at
+            //    FROM examinations e 
+            //    INNER JOIN patients p ON p.id = e.patient_id
+            //    WHERE p.id = {Convert.ToInt16(dtgv_detail.CurrentRow.Cells["id_patient"].Value.ToString())}
+            //    and DATE(e.updated_at) BETWEEN '{fromDate}' AND '{toDate}'
+            //                ";
             string query = $@"
-                SELECT e.id,e.type,e.price,e.updated_at
-                FROM examinations e 
-                INNER JOIN patients p ON p.id = e.patient_id
-                WHERE p.id = {Convert.ToInt16(dtgv_detail.CurrentRow.Cells["id_patient"].Value.ToString())}
-                and DATE(e.updated_at) BETWEEN '{fromDate}' AND '{toDate}'
-                            ";
+                    SELECT 
+            e.id,
+            e.type,
+            CASE
+                WHEN e.price IS NOT NULL THEN e.price
+                WHEN e.type = 'toa thuốc' THEN
+                    (SELECT MAX(em.days_of_use) * 50000
+                     FROM examination_medications em
+                     WHERE em.examination_id = e.id)
+                ELSE 
+                    (SELECT SUM(s.price)
+                     FROM examination_services es
+                     INNER JOIN services s ON es.service_id = s.id
+                     WHERE es.examination_id = e.id)
+            END AS price,
+            e.updated_at
+        FROM examinations e
+        INNER JOIN patients p ON e.patient_id = p.id
+     WHERE p.id = {Convert.ToInt16(dtgv_detail.CurrentRow.Cells["id_patient"].Value.ToString())}
+          AND DATE(e.updated_at) BETWEEN '{fromDate}' AND '{toDate}'
+                                ";
           
             Db.ResetConnection();
             Db.cmd = new MySqlCommand(query, Db.conn);
