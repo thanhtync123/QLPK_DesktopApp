@@ -27,25 +27,31 @@ namespace QuanLyPhongKham
         }
         public static void ResetConnection()
         {
-            // Nếu connection chưa khởi tạo
-            if (conn == null)
+            try
             {
-                conn = new MySqlConnection(connectionString);
+           
+                if (conn == null)
+                    conn = new MySqlConnection(connectionString);
+                if (conn.State == ConnectionState.Open)
+                    conn.Close();
+                if (conn.State != ConnectionState.Open)
+                
+                    conn.Open();
+                
             }
-
-            // Nếu connection đã mở → đóng lại
-            if (conn.State == ConnectionState.Open)
+            catch (MySqlException ex)
             {
-                conn.Close();
+                // Bắt các lỗi kết nối MySQL
+                MessageBox.Show("Mất kết nối đến máy chủ, hãy kiểm tra lại: " + ex.Message, "Lỗi MySQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // Nếu muốn, có thể log ex.ToString() vào file log
             }
-
-            // Nếu connection đã đóng hoặc chưa mở → mở ra
-            if (conn.State != ConnectionState.Open)
+            catch (Exception ex)
             {
-                conn.Open();
+                // Bắt tất cả các lỗi khác
+                MessageBox.Show("Mất kết nối đến máy chủ, hãy kiểm tra lại, Không xác định: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
+
         public static void LoadComboBoxData(ComboBox comboBox, string query, string displayMember, string valueMember)
         {
             ResetConnection();  

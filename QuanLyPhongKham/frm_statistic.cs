@@ -346,7 +346,7 @@ namespace QuanLyPhongKham
                     dtgv_detail_service_med.Visible = false;
                     Db.ResetConnection();
                     string query = $@"
-                 SELECT e.id, s.name, s.price,            
+                 SELECT distinct e.id, s.name, s.price,            
                     CASE 
                             WHEN er.examination_service_id IS NULL THEN 'Chưa có KQ'
                             ELSE 'Đã có KQ'
