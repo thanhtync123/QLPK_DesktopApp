@@ -238,21 +238,21 @@ namespace QuanLyPhongKham
 
         private void frm_statistic_Load(object sender, EventArgs e)
         {
-            //dateTimePicker1.Format = DateTimePickerFormat.Custom;
-            //dateTimePicker1.CustomFormat = "dd/MM/yyyy";
-            //dateTimePicker1.Value = DateTime.Today; 
-            //dateTimePicker2.Format = DateTimePickerFormat.Custom;
-            //dateTimePicker2.CustomFormat = "dd/MM/yyyy";
-            //dateTimePicker2.Value = DateTime.Today;
-
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
             dateTimePicker1.CustomFormat = "dd/MM/yyyy";
-            dateTimePicker1.Value = new DateTime(2025, 6, 1);
-
-  
+            dateTimePicker1.Value = DateTime.Today;
             dateTimePicker2.Format = DateTimePickerFormat.Custom;
             dateTimePicker2.CustomFormat = "dd/MM/yyyy";
-            dateTimePicker2.Value = new DateTime(2025, 6, 30);
+            dateTimePicker2.Value = DateTime.Today;
+
+            //dateTimePicker1.Format = DateTimePickerFormat.Custom;
+            //dateTimePicker1.CustomFormat = "dd/MM/yyyy";
+            //dateTimePicker1.Value = new DateTime(2025, 6, 1);
+
+
+            //dateTimePicker2.Format = DateTimePickerFormat.Custom;
+            //dateTimePicker2.CustomFormat = "dd/MM/yyyy";
+            //dateTimePicker2.Value = new DateTime(2025, 6, 30);
 
             dtgv_detail_service.Visible = false;
             dtgv_detail_service_med.Visible = false;

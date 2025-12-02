@@ -19,7 +19,7 @@ namespace QuanLyPhongKham
             Application.SetCompatibleTextRenderingDefault(false);
             try
             {
-                Application.Run(new frm_statistic());
+                Application.Run(new frm_login());
             }
             catch (MySqlException ex)
             {
