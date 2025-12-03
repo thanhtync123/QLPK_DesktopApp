@@ -1171,13 +1171,16 @@ WHERE p.id = 167
     ) AS total_per_customer
 FROM examinations e
 INNER JOIN patients p ON e.patient_id = p.id
-WHERE DATE(e.updated_at) BETWEEN '{fromDate}' AND '{toDate}'
+WHERE DATE(e.updated_at) BETWEEN '2025-06-01' AND '2025-06-30'
 GROUP BY p.id, p.name;
 
 drop database clinic_db2
 
 create database clinic_db2
 use clinic_db2
+
+
+
 
 
 

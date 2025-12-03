@@ -202,7 +202,7 @@ namespace QuanLyPhongKham
 
         private void dtgv_patients_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            cb_services_set.Enabled = true;
             LoadExamID();
             btn_tinhtien.Enabled = true;
             btn_pre_service.Enabled = true;
@@ -627,7 +627,7 @@ namespace QuanLyPhongKham
         }
         private void btn_tinhtien_Click(object sender, EventArgs e)
         {
-
+            cb_services_set.Enabled = false;
             dtgv_service_patient.Rows.Clear();
             frm_popupLUService frm = new frm_popupLUService();
             frm.PatientID = Convert.ToInt16(txb_id.Text);
