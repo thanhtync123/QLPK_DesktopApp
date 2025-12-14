@@ -311,11 +311,12 @@ namespace QuanLyPhongKham
                      INNER JOIN services s ON es.service_id = s.id
                      WHERE es.examination_id = e.id)
             END AS price,
-            e.updated_at
+            MAX(e.updated_at) AS updated_at
         FROM examinations e
         INNER JOIN patients p ON e.patient_id = p.id
      WHERE p.id = {Convert.ToInt16(dtgv_detail.CurrentRow.Cells["id_patient"].Value.ToString())}
           AND DATE(e.updated_at) BETWEEN '{fromDate}' AND '{toDate}'
+        GROUP BY e.id, e.type
                                 ";
           
             Db.ResetConnection();
