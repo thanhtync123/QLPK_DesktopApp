@@ -867,8 +867,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
-            <Top>1.97942in</Top>
-            <Left>1.30516in</Left>
+            <Top>1.90998in</Top>
+            <Left>2.55446in</Left>
             <Height>0.25in</Height>
             <Width>1.09113in</Width>
             <ZIndex>27</ZIndex>
@@ -976,8 +976,8 @@
             <Source>Embedded</Source>
             <Value>zaloicon</Value>
             <Sizing>FitProportional</Sizing>
-            <Top>1.97942in</Top>
-            <Left>0.72184in</Left>
+            <Top>1.90998in</Top>
+            <Left>1.97114in</Left>
             <Height>0.25in</Height>
             <Width>0.27083in</Width>
             <ZIndex>30</ZIndex>
@@ -991,8 +991,8 @@
             <Source>Embedded</Source>
             <Value>phoneicon</Value>
             <Sizing>FitProportional</Sizing>
-            <Top>1.97942in</Top>
-            <Left>1.02044in</Left>
+            <Top>1.90998in</Top>
+            <Left>2.26974in</Left>
             <Height>0.25in</Height>
             <Width>0.27083in</Width>
             <ZIndex>31</ZIndex>
@@ -1002,59 +1002,6 @@
               </Border>
             </Style>
           </Image>
-          <Image Name="Image4">
-            <Source>Embedded</Source>
-            <Value>ID2023_Facebook_icon</Value>
-            <Sizing>FitProportional</Sizing>
-            <Top>1.99744in</Top>
-            <Left>2.30445in</Left>
-            <Height>0.23198in</Height>
-            <Width>0.25694in</Width>
-            <ZIndex>32</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-            </Style>
-          </Image>
-          <Textbox Name="Textbox7">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=Parameters!txb_businessfb.Value</Value>
-                    <Style>
-                      <FontStyle>Italic</FontStyle>
-                      <FontFamily>tIMes New Roman</FontFamily>
-                      <FontSize>12pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                      <Color>LimeGreen</Color>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Left</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox2</rd:DefaultName>
-            <Top>1.97942in</Top>
-            <Left>2.5614in</Left>
-            <Height>0.25in</Height>
-            <Width>2.66405in</Width>
-            <ZIndex>33</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
           <Textbox Name="Textbox13">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
@@ -1083,7 +1030,7 @@
             <Left>4.01447cm</Left>
             <Height>1.19019cm</Height>
             <Width>8.9657cm</Width>
-            <ZIndex>34</ZIndex>
+            <ZIndex>32</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1120,7 +1067,7 @@
             <Left>4.27065cm</Left>
             <Height>0.92083cm</Height>
             <Width>8.36699cm</Width>
-            <ZIndex>35</ZIndex>
+            <ZIndex>33</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1155,7 +1102,7 @@
             <Left>18.69048cm</Left>
             <Height>0.6cm</Height>
             <Width>7.45968cm</Width>
-            <ZIndex>36</ZIndex>
+            <ZIndex>34</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1174,7 +1121,7 @@
             <Left>20.13425cm</Left>
             <Height>3.27525cm</Height>
             <Width>6.01591cm</Width>
-            <ZIndex>37</ZIndex>
+            <ZIndex>35</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1189,7 +1136,7 @@
             <Left>1.51597cm</Left>
             <Height>2.50472cm</Height>
             <Width>2.4985cm</Width>
-            <ZIndex>38</ZIndex>
+            <ZIndex>36</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
