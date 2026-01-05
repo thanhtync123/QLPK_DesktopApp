@@ -531,7 +531,7 @@
                     <Value xml:space="preserve">  </Value>
                     <Style>
                       <FontFamily>tIMes New Roman</FontFamily>
-                      <FontSize>12pt</FontSize>
+                      <FontSize>15pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
@@ -539,7 +539,7 @@
                     <Value>=Parameters!txb_businesstype.Value</Value>
                     <Style>
                       <FontFamily>tIMes New Roman</FontFamily>
-                      <FontSize>12pt</FontSize>
+                      <FontSize>15pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
@@ -554,7 +554,7 @@
                     <Value />
                     <Style>
                       <FontFamily>tIMes New Roman</FontFamily>
-                      <FontSize>12pt</FontSize>
+                      <FontSize>15pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>

@@ -967,7 +967,7 @@
                     <Value>=Parameters!txb_businesstype.Value</Value>
                     <Style>
                       <FontFamily>Times New Roman</FontFamily>
-                      <FontSize>19pt</FontSize>
+                      <FontSize>24pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                       <Color>Red</Color>
                     </Style>
