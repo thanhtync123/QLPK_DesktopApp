@@ -26,12 +26,19 @@ namespace QuanLyPhongKham
                 whereConditions += $" AND p.name LIKE '%{searchName}%'";
             }
 
-            // Lọc theo thời gian
             string selectedTime = cb_time.SelectedItem?.ToString();
             if (selectedTime == "Hôm nay")
             {
                 string today = DateTime.Today.ToString("dd/MM/yyyy");
                 whereConditions += $" AND e.follow_up = '{today}'";
+            }
+            else if (selectedTime == "Ngày mai")
+            {
+                DateTime tomorrow = DateTime.Today.AddDays(1);
+
+                whereConditions += $@"
+        AND STR_TO_DATE(e.follow_up, '%d/%m/%Y') = 
+            STR_TO_DATE('{tomorrow:dd/MM/yyyy}', '%d/%m/%Y')";
             }
             else if (selectedTime == "Trong 3 ngày tới")
             {
@@ -45,7 +52,6 @@ namespace QuanLyPhongKham
                 whereConditions += $" AND STR_TO_DATE(e.follow_up, '%d/%m/%Y') < STR_TO_DATE('{today:dd/MM/yyyy}', '%d/%m/%Y')";
             }
 
-            // Lọc theo trạng thái
             string selectedState = cb_state.SelectedItem?.ToString();
             if (selectedState == "Đã gọi")
             {
@@ -96,23 +102,31 @@ namespace QuanLyPhongKham
                     cell.Style.ForeColor = Color.Black;
                     cell.Style.Font = new Font(dtgv.Font, FontStyle.Bold);
 
-                    if (diff.Days == 0)
+                    if (diff.Days < 0)
                     {
-                        cell.Style.BackColor = Color.FromArgb(255, 77, 77);
+                        cell.Style.BackColor = Color.FromArgb(153, 0, 76); // đỏ tím
                         cell.Style.ForeColor = Color.White;
                     }
-                    else if (diff.Days > 0 && diff.Days <= 3)
+          
+                    else if (diff.Days == 0)
                     {
-                        cell.Style.BackColor = Color.FromArgb(255, 215, 0);
-                    }
-                    else if (diff.Days < 0)
-                    {
-                        cell.Style.BackColor = Color.FromArgb(153, 0, 76);
+                        cell.Style.BackColor = Color.FromArgb(255, 77, 77); // đỏ
                         cell.Style.ForeColor = Color.White;
                     }
+               
+                    else if (diff.Days == 1)
+                    
+                        cell.Style.BackColor = Color.FromArgb(144, 238, 144); // xanh lá nhạt
+                    
+       
+                    else if (diff.Days > 1 && diff.Days <= 3)
+                    
+                        cell.Style.BackColor = Color.FromArgb(255, 215, 0); // vàng
+                    
+
                 }
 
-                // Trạng thái
+
                 string state = Db.dr["state"].ToString().Trim().ToLower();
                 if (state == "đã gọi")
                 {
@@ -132,13 +146,15 @@ namespace QuanLyPhongKham
         private void frm_followup_Load(object sender, EventArgs e)
         {
 
-            cb_time.Items.AddRange(new string[] { "Tất cả", "Hôm nay", "Trong 3 ngày tới", "Đã trễ" });
+            cb_time.Items.AddRange(new string[] { "Tất cả", "Hôm nay","Ngày mai", "Trong 3 ngày tới", "Đã trễ" });
             cb_state.Items.AddRange(new string[] { "Tất cả", "Đã gọi", "Chưa gọi" });
-            cb_time.SelectedIndex = 0;
+            cb_time.SelectedIndex = 1;
             cb_state.SelectedIndex = 0;
-            lb_today.BackColor = Color.FromArgb(255, 77, 77);       // Hôm nay: đỏ
-            lb_3day.BackColor = Color.FromArgb(255, 215, 0);       // Trong 3 ngày: vàng
-            lb_late.BackColor = Color.FromArgb(153, 0, 76);        // Trễ hẹn: tím đậm
+            lb_today.BackColor = Color.FromArgb(255, 77, 77);       
+            lb_3day.BackColor = Color.FromArgb(255, 215, 0);       
+            lb_late.BackColor = Color.FromArgb(153, 0, 76);       
+            lb_tomorrow.BackColor = Color.FromArgb(255, 0, 255, 0);
+
             lb_today.ForeColor = Color.White;
             lb_3day.ForeColor = Color.Black;
             lb_late.ForeColor = Color.White;

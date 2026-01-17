@@ -32,15 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dtgv = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.txb_search = new System.Windows.Forms.TextBox();
-            this.cb_time = new System.Windows.Forms.ComboBox();
-            this.cb_state = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lb_today = new System.Windows.Forms.Label();
-            this.lb_3day = new System.Windows.Forms.Label();
-            this.lb_late = new System.Windows.Forms.Label();
             this.c_exam_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.c_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.c_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,6 +42,16 @@
             this.c_followup_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.c_state = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.c_action = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txb_search = new System.Windows.Forms.TextBox();
+            this.cb_time = new System.Windows.Forms.ComboBox();
+            this.cb_state = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lb_today = new System.Windows.Forms.Label();
+            this.lb_3day = new System.Windows.Forms.Label();
+            this.lb_late = new System.Windows.Forms.Label();
+            this.lb_tomorrow = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv)).BeginInit();
             this.SuspendLayout();
             // 
@@ -118,6 +119,63 @@
             this.dtgv.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dtgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_CellClick);
             // 
+            // c_exam_id
+            // 
+            this.c_exam_id.HeaderText = "Mã PK";
+            this.c_exam_id.Name = "c_exam_id";
+            this.c_exam_id.Visible = false;
+            // 
+            // c_id
+            // 
+            this.c_id.HeaderText = "Mã BN";
+            this.c_id.Name = "c_id";
+            this.c_id.Width = 50;
+            // 
+            // c_name
+            // 
+            this.c_name.HeaderText = "Họ tên ";
+            this.c_name.Name = "c_name";
+            this.c_name.Width = 200;
+            // 
+            // c_address
+            // 
+            this.c_address.HeaderText = "Địa chỉ";
+            this.c_address.Name = "c_address";
+            this.c_address.Width = 240;
+            // 
+            // c_phone
+            // 
+            this.c_phone.HeaderText = "SĐT";
+            this.c_phone.Name = "c_phone";
+            // 
+            // c_diagnoses
+            // 
+            this.c_diagnoses.HeaderText = "Chẩn đoán";
+            this.c_diagnoses.Name = "c_diagnoses";
+            this.c_diagnoses.Width = 300;
+            // 
+            // c_day_create
+            // 
+            this.c_day_create.HeaderText = "Ngày khám";
+            this.c_day_create.Name = "c_day_create";
+            this.c_day_create.Width = 200;
+            // 
+            // c_followup_date
+            // 
+            this.c_followup_date.HeaderText = "Ngày tái khám";
+            this.c_followup_date.Name = "c_followup_date";
+            this.c_followup_date.Width = 147;
+            // 
+            // c_state
+            // 
+            this.c_state.HeaderText = "Trạng thái";
+            this.c_state.Name = "c_state";
+            // 
+            // c_action
+            // 
+            this.c_action.HeaderText = "Thao tác";
+            this.c_action.Name = "c_action";
+            // 
             // txb_search
             // 
             this.txb_search.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -181,7 +239,7 @@
             // 
             this.lb_today.AutoSize = true;
             this.lb_today.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_today.Location = new System.Drawing.Point(784, 20);
+            this.lb_today.Location = new System.Drawing.Point(784, 9);
             this.lb_today.Name = "lb_today";
             this.lb_today.Size = new System.Drawing.Size(64, 19);
             this.lb_today.TabIndex = 7;
@@ -191,7 +249,7 @@
             // 
             this.lb_3day.AutoSize = true;
             this.lb_3day.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_3day.Location = new System.Drawing.Point(784, 42);
+            this.lb_3day.Location = new System.Drawing.Point(784, 45);
             this.lb_3day.Name = "lb_3day";
             this.lb_3day.Size = new System.Drawing.Size(107, 19);
             this.lb_3day.TabIndex = 8;
@@ -201,73 +259,27 @@
             // 
             this.lb_late.AutoSize = true;
             this.lb_late.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_late.Location = new System.Drawing.Point(784, 65);
+            this.lb_late.Location = new System.Drawing.Point(784, 68);
             this.lb_late.Name = "lb_late";
             this.lb_late.Size = new System.Drawing.Size(54, 19);
             this.lb_late.TabIndex = 9;
             this.lb_late.Text = "Trễ hẹn";
             // 
-            // c_exam_id
+            // lb_tomorrow
             // 
-            this.c_exam_id.HeaderText = "Mã PK";
-            this.c_exam_id.Name = "c_exam_id";
-            this.c_exam_id.Visible = false;
-            // 
-            // c_id
-            // 
-            this.c_id.HeaderText = "Mã BN";
-            this.c_id.Name = "c_id";
-            this.c_id.Width = 50;
-            // 
-            // c_name
-            // 
-            this.c_name.HeaderText = "Họ tên ";
-            this.c_name.Name = "c_name";
-            this.c_name.Width = 200;
-            // 
-            // c_address
-            // 
-            this.c_address.HeaderText = "Địa chỉ";
-            this.c_address.Name = "c_address";
-            this.c_address.Width = 240;
-            // 
-            // c_phone
-            // 
-            this.c_phone.HeaderText = "SĐT";
-            this.c_phone.Name = "c_phone";
-            // 
-            // c_diagnoses
-            // 
-            this.c_diagnoses.HeaderText = "Chẩn đoán";
-            this.c_diagnoses.Name = "c_diagnoses";
-            this.c_diagnoses.Width = 300;
-            // 
-            // c_day_create
-            // 
-            this.c_day_create.HeaderText = "Ngày khám";
-            this.c_day_create.Name = "c_day_create";
-            this.c_day_create.Width = 200;
-            // 
-            // c_followup_date
-            // 
-            this.c_followup_date.HeaderText = "Ngày tái khám";
-            this.c_followup_date.Name = "c_followup_date";
-            this.c_followup_date.Width = 147;
-            // 
-            // c_state
-            // 
-            this.c_state.HeaderText = "Trạng thái";
-            this.c_state.Name = "c_state";
-            // 
-            // c_action
-            // 
-            this.c_action.HeaderText = "Thao tác";
-            this.c_action.Name = "c_action";
+            this.lb_tomorrow.AutoSize = true;
+            this.lb_tomorrow.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_tomorrow.Location = new System.Drawing.Point(784, 28);
+            this.lb_tomorrow.Name = "lb_tomorrow";
+            this.lb_tomorrow.Size = new System.Drawing.Size(67, 19);
+            this.lb_tomorrow.TabIndex = 10;
+            this.lb_tomorrow.Text = "Ngày mai";
             // 
             // frm_followup
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1221, 658);
+            this.ClientSize = new System.Drawing.Size(1282, 658);
+            this.Controls.Add(this.lb_tomorrow);
             this.Controls.Add(this.lb_late);
             this.Controls.Add(this.lb_3day);
             this.Controls.Add(this.lb_today);
@@ -310,5 +322,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn c_followup_date;
         private System.Windows.Forms.DataGridViewTextBoxColumn c_state;
         private System.Windows.Forms.DataGridViewTextBoxColumn c_action;
+        private System.Windows.Forms.Label lb_tomorrow;
     }
 }
