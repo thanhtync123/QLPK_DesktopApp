@@ -78,6 +78,7 @@ namespace QuanLyPhongKham
                 cb_template.Text = "Chọn biểu mẫu";
                 // txb_result.Text = "";
                 txb_final_result.Text = "";
+                dtgv_result.Rows.Clear();
             }
 
         }

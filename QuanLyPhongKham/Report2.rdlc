@@ -867,7 +867,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
-            <Top>1.90998in</Top>
+            <Top>1.95165in</Top>
             <Left>2.55446in</Left>
             <Height>0.25in</Height>
             <Width>1.09113in</Width>
@@ -920,8 +920,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
-            <Top>1.56335in</Top>
-            <Height>0.48965in</Height>
+            <Top>1.57029in</Top>
+            <Height>0.39243in</Height>
             <Width>5.60884in</Width>
             <ZIndex>28</ZIndex>
             <Style>
@@ -957,7 +957,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox18</rd:DefaultName>
-            <Top>3.30728cm</Top>
+            <Top>3.16617cm</Top>
             <Left>0.09205cm</Left>
             <Height>0.7871cm</Height>
             <Width>14.08384cm</Width>
@@ -976,7 +976,7 @@
             <Source>Embedded</Source>
             <Value>zaloicon</Value>
             <Sizing>FitProportional</Sizing>
-            <Top>1.90998in</Top>
+            <Top>1.95165in</Top>
             <Left>1.97114in</Left>
             <Height>0.25in</Height>
             <Width>0.27083in</Width>
@@ -991,7 +991,7 @@
             <Source>Embedded</Source>
             <Value>phoneicon</Value>
             <Sizing>FitProportional</Sizing>
-            <Top>1.90998in</Top>
+            <Top>1.95165in</Top>
             <Left>2.26974in</Left>
             <Height>0.25in</Height>
             <Width>0.27083in</Width>
@@ -1051,7 +1051,7 @@
                     <Value>=Parameters!txb_businesstype.Value</Value>
                     <Style>
                       <FontFamily>Times New Roman</FontFamily>
-                      <FontSize>24pt</FontSize>
+                      <FontSize>22pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                       <Color>Red</Color>
                     </Style>
