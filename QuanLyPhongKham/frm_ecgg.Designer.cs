@@ -86,7 +86,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.txb_note = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.txb_reason = new System.Windows.Forms.TextBox();
+            this.txb_symptoms = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txb_address = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -203,9 +203,9 @@
             this.cb_template.FormattingEnabled = true;
             this.cb_template.Items.AddRange(new object[] {
             "Chọn biểu mẫu"});
-            this.cb_template.Location = new System.Drawing.Point(646, 110);
+            this.cb_template.Location = new System.Drawing.Point(646, 112);
             this.cb_template.Name = "cb_template";
-            this.cb_template.Size = new System.Drawing.Size(388, 28);
+            this.cb_template.Size = new System.Drawing.Size(188, 28);
             this.cb_template.TabIndex = 32;
             this.cb_template.Text = "Chọn biểu mẫu";
             this.cb_template.SelectedIndexChanged += new System.EventHandler(this.cb_template_SelectedIndexChanged);
@@ -625,7 +625,7 @@
             this.panel3.Controls.Add(this.label14);
             this.panel3.Controls.Add(this.txb_note);
             this.panel3.Controls.Add(this.label12);
-            this.panel3.Controls.Add(this.txb_reason);
+            this.panel3.Controls.Add(this.txb_symptoms);
             this.panel3.Controls.Add(this.label11);
             this.panel3.Controls.Add(this.txb_address);
             this.panel3.Controls.Add(this.label9);
@@ -741,7 +741,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(35, 145);
+            this.label10.Location = new System.Drawing.Point(35, 146);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(87, 20);
             this.label10.TabIndex = 45;
@@ -763,21 +763,21 @@
             this.label12.TabIndex = 26;
             this.label12.Text = "Ghi chú";
             // 
-            // txb_reason
+            // txb_symptoms
             // 
-            this.txb_reason.Location = new System.Drawing.Point(137, 176);
-            this.txb_reason.Name = "txb_reason";
-            this.txb_reason.Size = new System.Drawing.Size(388, 26);
-            this.txb_reason.TabIndex = 25;
+            this.txb_symptoms.Location = new System.Drawing.Point(137, 176);
+            this.txb_symptoms.Name = "txb_symptoms";
+            this.txb_symptoms.Size = new System.Drawing.Size(388, 26);
+            this.txb_symptoms.TabIndex = 25;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(7, 176);
+            this.label11.Location = new System.Drawing.Point(30, 179);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(118, 20);
+            this.label11.Size = new System.Drawing.Size(92, 20);
             this.label11.TabIndex = 24;
-            this.label11.Text = "Chẩn đoán phụ";
+            this.label11.Text = "Triệu chứng";
             // 
             // txb_address
             // 
@@ -874,7 +874,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(230)))));
-            this.ClientSize = new System.Drawing.Size(1386, 788);
+            this.ClientSize = new System.Drawing.Size(1403, 805);
             this.Controls.Add(this.webBrowser2);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.webBrowser1);
@@ -934,7 +934,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox txb_note;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox txb_reason;
+        private System.Windows.Forms.TextBox txb_symptoms;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txb_address;
         private System.Windows.Forms.Label label9;

@@ -384,7 +384,8 @@ namespace QuanLyPhongKham
             var mota = txb_result.Text.Trim();
             var ketqua = txb_final_result.Text.Trim();
             var chidinh = txb_service.Text.Trim();
-            var frm = new frm_report_xray(mabn, tenbn, ngaysinh, diachi, sdt, chandoan, chandoanphu, mota, ketqua, chidinh,gioitinh);
+            var title = "KẾT QUẢ X-QUANG";
+            var frm = new frm_report_xray(mabn, tenbn, ngaysinh, diachi, sdt, chandoan, chandoanphu, mota, ketqua, chidinh,gioitinh,title);
             frm.ShowDialog();
 
         }

@@ -126,7 +126,7 @@ namespace QuanLyPhongKham
             p.phone,
             p.address,
             DATE_FORMAT(p.updated_at, '%d/%m/%Y %H:%i') AS updated_at,
-            e.reason,
+            e.symptoms,
             d.name AS diagnosis,
             e.note
         FROM examinations e
@@ -176,7 +176,7 @@ namespace QuanLyPhongKham
                 drr.Cells["phone"].Value = Db.dr["phone"];
                 drr.Cells["address"].Value = Db.dr["address"];
                 drr.Cells["updated_at"].Value = Db.dr["updated_at"];
-                drr.Cells["reason"].Value = Db.dr["reason"];
+                drr.Cells["symptoms"].Value = Db.dr["symptoms"];
                 drr.Cells["diagnosis"].Value = Db.dr["diagnosis"];
                 drr.Cells["note"].Value = Db.dr["note"];
                 drr.Cells["time_exam"].Value = Db.dr["time_exam"];
@@ -270,7 +270,7 @@ namespace QuanLyPhongKham
                 var phone = row.Cells["phone"].Value?.ToString();
                 var address = row.Cells["address"].Value?.ToString();
                 var updated_at = row.Cells["updated_at"].Value?.ToString();
-                var reason = row.Cells["reason"].Value?.ToString();
+                var symptoms = row.Cells["symptoms"].Value?.ToString();
                 var diagnosis = row.Cells["diagnosis"].Value?.ToString();
                 var note = row.Cells["note"].Value?.ToString();
                 Db.SetTextAndMoveCursorToEnd(txb_id_exam, id_exam);
@@ -284,7 +284,7 @@ namespace QuanLyPhongKham
                 Db.SetTextAndMoveCursorToEnd(txb_phone, phone);
                 Db.SetTextAndMoveCursorToEnd(txb_address, address);
                 Db.SetTextAndMoveCursorToEnd(txb_reception_date, updated_at);
-                Db.SetTextAndMoveCursorToEnd(txb_reason, reason);
+                Db.SetTextAndMoveCursorToEnd(txb_symptoms, symptoms);
                 Db.SetTextAndMoveCursorToEnd(txb_id_patient, id_patient);
                 Db.SetTextAndMoveCursorToEnd(txb_note, note);
 
@@ -337,8 +337,8 @@ namespace QuanLyPhongKham
 
                         Db.SetTextAndMoveCursorToEnd(txb_final_result, Db.dr["final_result"].ToString());
 
-                        cb_template.SelectedValue = Convert.ToInt32(Db.dr["template_id"]);
-
+                           cb_template.SelectedValue = Convert.ToInt32(Db.dr["template_id"]);
+                    Console.WriteLine("Selected Template ID: " + Db.dr["template_id"].ToString());
                         isUserChangingTemplate = true;
                     }
 
@@ -385,18 +385,20 @@ namespace QuanLyPhongKham
         }
         private void btn_print_Click(object sender, EventArgs e)
         {
+
             var mabn = txb_id_patient.Text.Trim();
             var tenbn = txb_name.Text.Trim();
-            var ngaysinh = DateTime.Today.Year - DateTime.ParseExact(txb_dob.Text, "dd/MM/yyyy", null).Year - (DateTime.Today < DateTime.ParseExact(txb_dob.Text, "dd/MM/yyyy", null).AddYears(DateTime.Today.Year - DateTime.ParseExact(txb_dob.Text, "dd/MM/yyyy", null).Year) ? 1 : 0) + "";
+            var ngaysinh = txb_age.Text;
             var gioitinh = txb_gender.Text.Trim();
             var diachi = txb_address.Text.Trim();
             var sdt = txb_phone.Text.Trim();
             var chandoan = txb_chandoanchinh.Text.Trim();
-            var chandoanphu = txb_reason.Text.Trim();
+            var chandoanphu = txb_symptoms.Text.Trim();
             var mota = txb_result.Text.Trim();
             var ketqua = txb_final_result.Text.Trim();
             var chidinh = txb_service.Text.Trim();
-            var frm = new frm_report_xray(mabn, tenbn, ngaysinh, diachi, sdt, chandoan, chandoanphu, mota, ketqua, chidinh, gioitinh);
+            var title = "KẾT QUẢ ĐIỆN TÂM ĐỒ";
+            var frm = new frm_report_xray(mabn, tenbn, ngaysinh, diachi, sdt, chandoan, chandoanphu, mota, ketqua, chidinh, gioitinh,title);
             frm.ShowDialog();
         }
 
@@ -429,7 +431,7 @@ namespace QuanLyPhongKham
                 txb_id_patient.Text = "";
                 txb_name.Text = "";
                 txb_phone.Text = "";
-                txb_reason.Text = "";
+                txb_symptoms.Text = "";
                 txb_chandoanchinh.Text = "";
                 txb_reception_date.Text = "";
                 txb_result.Text = "";
@@ -438,7 +440,6 @@ namespace QuanLyPhongKham
                 dtgv_service.Rows.Clear();
             }
         }
-
 
     }
 }

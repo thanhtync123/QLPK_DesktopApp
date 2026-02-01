@@ -8,9 +8,9 @@ namespace QuanLyPhongKham
 {
     public partial class frm_report_xray : Form
     {
-        private string mabn, tenbn, ngaysinh, diachi, sdt, chandoan, chandoanphu, mota, ketqua, chidinh, gioitinh;
+        private string mabn, tenbn, ngaysinh, diachi, sdt, chandoan, chandoanphu, mota, ketqua, chidinh, gioitinh,title;
 
-        public frm_report_xray(string mabn, string tenbn, string ngaysinh, string diachi, string sdt, string chandoan, string chandoanphu, string mota, string ketqua, string chidinh, string gioitinh)
+        public frm_report_xray(string mabn, string tenbn, string ngaysinh, string diachi, string sdt, string chandoan, string chandoanphu, string mota, string ketqua, string chidinh, string gioitinh,string title)
         {
             InitializeComponent();
             this.mabn = mabn;
@@ -24,6 +24,7 @@ namespace QuanLyPhongKham
             this.ketqua = ketqua;
             this.chidinh = chidinh;
             this.gioitinh = gioitinh;
+            this.title = title;
         }
 
         public frm_report_xray()
@@ -78,7 +79,9 @@ namespace QuanLyPhongKham
                 new ReportParameter("txb_businessservice", AppConfig.businessservice),
                 new ReportParameter("txb_businessaddress", AppConfig.businessaddress),
                 new ReportParameter("txb_businessphone", AppConfig.businessphone),
-                new ReportParameter("txb_businessfb", AppConfig.businessfb)
+                new ReportParameter("txb_businessfb", AppConfig.businessfb),
+
+                 new ReportParameter("txb_title", title)
 
             };
 
