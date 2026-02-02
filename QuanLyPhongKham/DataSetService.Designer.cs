@@ -287,6 +287,8 @@ namespace QuanLyPhongKham {
             
             private global::System.Data.DataColumn columnnotes2;
             
+            private global::System.Data.DataColumn columnpercent_reduce;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public DataTable1DataTable() {
@@ -354,6 +356,14 @@ namespace QuanLyPhongKham {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn percent_reduceColumn {
+                get {
+                    return this.columnpercent_reduce;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -389,13 +399,14 @@ namespace QuanLyPhongKham {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DataTable1Row AddDataTable1Row(string id_service2, string name_service2, string price2, string notes2) {
+            public DataTable1Row AddDataTable1Row(string id_service2, string name_service2, string price2, string notes2, string percent_reduce) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id_service2,
                         name_service2,
                         price2,
-                        notes2};
+                        notes2,
+                        percent_reduce};
                 rowDataTable1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable1Row);
                 return rowDataTable1Row;
@@ -422,6 +433,7 @@ namespace QuanLyPhongKham {
                 this.columnname_service2 = base.Columns["name_service2"];
                 this.columnprice2 = base.Columns["price2"];
                 this.columnnotes2 = base.Columns["notes2"];
+                this.columnpercent_reduce = base.Columns["percent_reduce"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -435,6 +447,8 @@ namespace QuanLyPhongKham {
                 base.Columns.Add(this.columnprice2);
                 this.columnnotes2 = new global::System.Data.DataColumn("notes2", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnotes2);
+                this.columnpercent_reduce = new global::System.Data.DataColumn("percent_reduce", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpercent_reduce);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -641,6 +655,22 @@ namespace QuanLyPhongKham {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string percent_reduce {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.percent_reduceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'percent_reduce\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.percent_reduceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Isid_service2Null() {
                 return this.IsNull(this.tableDataTable1.id_service2Column);
             }
@@ -685,6 +715,18 @@ namespace QuanLyPhongKham {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Setnotes2Null() {
                 this[this.tableDataTable1.notes2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Ispercent_reduceNull() {
+                return this.IsNull(this.tableDataTable1.percent_reduceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setpercent_reduceNull() {
+                this[this.tableDataTable1.percent_reduceColumn] = global::System.Convert.DBNull;
             }
         }
         

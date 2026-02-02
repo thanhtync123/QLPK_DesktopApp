@@ -131,7 +131,7 @@ namespace QuanLyPhongKham
             Update_FollowUpDate();
             lb_d0.Text = "";
             lb_d1.Text = "";
-            dtgv_service_patient.Rows.Add("", "-", "Công khám","", "Miễn phí", "", "-");
+            dtgv_service_patient.Rows.Add("", "-", "Công khám", "", "Miễn phí", "", "-");
             btn_update_examination.Enabled = false;
             btn_select_med.Enabled = false;
             btn_tinhtien.Enabled = false;
@@ -141,14 +141,14 @@ namespace QuanLyPhongKham
 
             cb_percent_reduce.Items.Clear();
             for (int i = 0; i <= 100; i++)
-            
+
                 cb_percent_reduce.Items.Add(
                     new KeyValuePair<int, string>(i, $"{i}%")
                 );
-            
+
 
             cb_percent_reduce.DisplayMember = "Value";
-            cb_percent_reduce.ValueMember = "Key";   
+            cb_percent_reduce.ValueMember = "Key";
             cb_percent_reduce.SelectedIndex = 0;
 
 
@@ -261,15 +261,15 @@ namespace QuanLyPhongKham
 
             loadLastTime();
             dtgv_service_patient.Rows.Clear();
-            dtgv_service_patient.Rows.Add("", "-", "Công khám","", "Miễn phí", "", "-");
+            dtgv_service_patient.Rows.Add("", "-", "Công khám", "", "Miễn phí", "", "-");
             dtgv_patient_med.Rows.Clear();
 
 
 
-    
+
 
         }
-        
+
         private void LoadComboboxDoctorNote()
         {
 
@@ -485,7 +485,7 @@ namespace QuanLyPhongKham
                 var esid = row.Cells["esid"].Value?.ToString();
                 var state = row.Cells["state2"].Value?.ToString();
 
-        
+
                 if (state == "Đã có KQ")
                 {
                     var result = MessageBox.Show(
@@ -495,10 +495,10 @@ namespace QuanLyPhongKham
                         MessageBoxIcon.Warning);
 
                     if (result != DialogResult.Yes)
-                        return; 
+                        return;
                 }
 
-      
+
                 dtgv_service_patient.Rows.RemoveAt(e.RowIndex);
                 UpdateTotalServicePrice();
 
@@ -508,7 +508,7 @@ namespace QuanLyPhongKham
                     DELETE FROM examination_services
                     WHERE id = {esid}";
                     Db.ExecuteNonQuery(query);
-            
+
                 }
             }
 
@@ -608,7 +608,7 @@ namespace QuanLyPhongKham
                             cmdService.Parameters.AddWithValue("@service_id", row.Cells["id_service2"].Value);
                             string priceStr = row.Cells["price2"].Value?.ToString().Replace(".", "").Trim();
                             int price = 0;
-                            int.TryParse(priceStr, out price); 
+                            int.TryParse(priceStr, out price);
                             cmdService.Parameters.AddWithValue("@price", price);
                             cmdService.Parameters.AddWithValue("@percent_reduce", row.Cells["percent_reduce"].Value);
                             cmdService.ExecuteNonQuery();
@@ -661,53 +661,58 @@ namespace QuanLyPhongKham
                         dtgv_service_patient.Rows[index].Cells["STT"].Value = "-";
                     else
                         dtgv_service_patient.Rows[index].Cells["STT"].Value = stt++;
-                    //row1.CreateCells(dtgv_detail, "", "Công khám", "", "Miễn phí", "", "");
+
                     dtgv_service_patient.Rows[index].Cells["name_service2"].Value = row.Cells[1].Value;
-                    dtgv_service_patient.Rows[index].Cells["price2"].Value = row.Cells[2].Value;
+                    dtgv_service_patient.Rows[index].Cells["percent_reduce"].Value = row.Cells[2].Value;
+                    dtgv_service_patient.Rows[index].Cells["price2"].Value = row.Cells[3].Value;
                     dtgv_service_patient.Rows[index].Cells["notes2"].Value = "";
                     dtgv_service_patient.Rows[index].Cells["delete_service"].Value = "-";
                     dtgv_service_patient.Rows[index].Cells["state2"].Value = row.Cells[5].Value;
-                    //dtgv_service_patient.Rows[index].Cells["esid"].Value = row.Cells[5].Value;
+                    dtgv_service_patient.Rows[index].Cells["esid"].Value = row.Cells[6].Value;
                 }
 
                 // Tính tổng thành tiền
-                decimal total = 0;
-                foreach (DataGridViewRow row in dtgv_service_patient.Rows)
-                {
-                    if (row.IsNewRow) continue;
-
-                    if (decimal.TryParse(row.Cells[3].Value?.ToString(), out decimal value))
-                        total += value;
-                }
-
-                lb_total_price_service.Text = total.ToString("N0") + " đ";
+                UpdateTotalServicePrice();
             }
         }
         private void UpdateTotalServicePrice()
         {
-            decimal total = 0;
+            int totalAfterReduce = 0;
+            int totalOriginal = 0;
 
             foreach (DataGridViewRow row in dtgv_service_patient.Rows)
             {
+
+                if (row.IsNewRow) continue;
+                if (row.Cells["name_service2"].Value.ToString() == "Công khám") continue;
+
+
+                Db.ResetConnection();
+                Db.cmd.CommandText = $@"
+                    SELECT price 
+                    FROM services 
+                    WHERE id = {row.Cells["id_service2"].Value}
+                ";
+                var original_price_item = Convert.ToInt32(Db.cmd.ExecuteScalar());
+                totalOriginal += original_price_item;
+
+
                 if (row.Cells["price2"].Value != null)
-                {
-                    decimal price;
-                    if (decimal.TryParse(row.Cells["price2"].Value.ToString(), out price))
-                    {
-                        total += price;
-                    }
-                }
+
+                    totalAfterReduce += Convert.ToInt32(
+                        row.Cells["price2"].Value.ToString()
+                            .Replace(".", "")
+                            .Replace(",", "")
+                            .Trim()
+                    );
+
             }
 
-            lb_total_price_service.Text = total.ToString("N0");
+            lb_total_price_service.Text = totalAfterReduce.ToString("N0");
+            lb_total_price_origin.Text = totalOriginal.ToString("N0");
+            lb_reduce.Text = (totalOriginal - totalAfterReduce).ToString("N0");
+
         }
-
-
-
-
-
-
-
 
         private void btn_print_service_Click(object sender, EventArgs e)
         {
@@ -1074,7 +1079,7 @@ namespace QuanLyPhongKham
 
         private void txb_med_search_TextChanged(object sender, EventArgs e)
         {
-           Db.ResetConnection();
+            Db.ResetConnection();
             dtgv_med.Rows.Clear();
             int stt = 1;
             string query = $@"
@@ -1208,9 +1213,9 @@ namespace QuanLyPhongKham
                         INSERT INTO examination_services (examination_id, service_id,price,percent_reduce)
                         VALUES ({txb_exam_id.Text}, 
                                 {row.Cells["id_service2"].Value?.ToString()},
-                                {row.Cells["price2"].Value?.ToString()},
-                                {row.Cells["percent_reduce"].Value?.ToString()}
-                    )";
+                                {Convert.ToInt32(row.Cells["price2"].Value?.ToString().Replace(".", "").Trim())},
+                                {row.Cells["percent_reduce"].Value ?? 0})";
+
                         Db.ExecuteNonQuery(queryIs);
                     }
 
@@ -1222,9 +1227,10 @@ namespace QuanLyPhongKham
                              INSERT INTO examination_services (examination_id, service_id,price,percent_reduce)
                         VALUES ({txb_exam_id.Text}, 
                                 {row.Cells["id_service2"].Value?.ToString()},
-                                {row.Cells["price2"].Value?.ToString()},
-                                {row.Cells["percent_reduce"].Value?.ToString()}
+                               {Convert.ToInt32(row.Cells["price2"].Value?.ToString().Replace(".", "").Trim())},
+                                 {row.Cells["percent_reduce"].Value ?? 0})
                         ";
+
                         Db.ExecuteNonQuery(queryIs);
 
                     }
@@ -1233,8 +1239,8 @@ namespace QuanLyPhongKham
                     {
                         string queryIs = $@"
                             UPDATE examination_services
-                            SET price = {row.Cells["price2"].Value?.ToString()},
-                                percent_reduce={row.Cells["percent_reduce"].Value?.ToString()}
+                            SET price = {Convert.ToInt32(row.Cells["price2"].Value?.ToString().Replace(".", "").Trim())},
+                                percent_reduce={row.Cells["percent_reduce"].Value ?? 0}
                             WHERE id = {esid}
                                         ";
 
@@ -1242,7 +1248,7 @@ namespace QuanLyPhongKham
 
                     }
                 }
-            
+
                 int total_price_new = 0;
                 foreach (DataGridViewRow row in dtgv_service_patient.Rows)
                 {
@@ -1258,7 +1264,7 @@ namespace QuanLyPhongKham
                     total_price_new += price;
                 }
 
-        
+
                 string queryUpdatePrice = $@"
                                 UPDATE examinations 
                                 SET price = {total_price_new}
@@ -1274,7 +1280,7 @@ namespace QuanLyPhongKham
             {
                 MessageBox.Show(ex.ToString());
             }
-         
+
 
         }
         private void cb_services_set_SelectedIndexChanged(object sender, EventArgs e)
@@ -1337,7 +1343,7 @@ namespace QuanLyPhongKham
             foreach (DataGridViewRow row in dtgv_service_patient.Rows)
             {
                 if (row.IsNewRow) continue;
-                if (row.Cells["name_service2"].Value.ToString()=="Công khám") continue;
+                if (row.Cells["name_service2"].Value.ToString() == "Công khám") continue;
                 dtBackup.Rows.Add(
                     row.Cells["id_service2"].Value,
                     row.Cells["name_service2"].Value,
@@ -1420,7 +1426,7 @@ namespace QuanLyPhongKham
             }
         }
 
-       
+
 
         private void cb_med_set_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -1554,7 +1560,7 @@ namespace QuanLyPhongKham
         {
             foreach (DataGridViewRow row in dtgv_service_patient.Rows)
             {
-             
+
 
                 var cellState = row.Cells["state2"];
 
@@ -1577,7 +1583,7 @@ namespace QuanLyPhongKham
 
             var item = (KeyValuePair<int, string>)cb_percent_reduce.SelectedItem;
             int percent = item.Key;
-            foreach(DataGridViewRow dtgvr in dtgv_service_patient.Rows)
+            foreach (DataGridViewRow dtgvr in dtgv_service_patient.Rows)
             {
 
                 if (dtgvr.IsNewRow) continue;
@@ -1587,7 +1593,7 @@ namespace QuanLyPhongKham
 
             }
         }
-        private void updateTotalPriceAfterPercentReduce(int percent,DataGridViewRow dtgvr)
+        private void updateTotalPriceAfterPercentReduce(int percent, DataGridViewRow dtgvr)
         {
             Db.ResetConnection();
             Db.cmd.CommandText = $@"
@@ -1606,9 +1612,10 @@ namespace QuanLyPhongKham
 
             if (dtgv_service_patient.Columns[e.ColumnIndex].Name != "percent_reduce")
                 return;
+            if (dtgv_service_patient.Rows[e.RowIndex].Cells["name_service2"].Value.ToString() == "Công khám") return;
             int percent = dtgv_service_patient.Rows[e.RowIndex].Cells["percent_reduce"].Value == null ? 0 :
                 Convert.ToInt32(dtgv_service_patient.Rows[e.RowIndex].Cells["percent_reduce"].Value);
-           updateTotalPriceAfterPercentReduce(percent, dtgv_service_patient.Rows[e.RowIndex]);
+            updateTotalPriceAfterPercentReduce(percent, dtgv_service_patient.Rows[e.RowIndex]);
 
         }
     }

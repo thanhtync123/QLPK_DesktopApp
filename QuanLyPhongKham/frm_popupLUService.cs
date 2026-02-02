@@ -1,8 +1,12 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -10,9 +14,6 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 namespace QuanLyPhongKham
 {
@@ -149,6 +150,7 @@ namespace QuanLyPhongKham
             AllRows.Clear();
             DataGridViewRow row1 = new DataGridViewRow();
             row1.CreateCells(dtgv_detail, "", "Công khám", "","Miễn phí", "", "");
+
             AllRows.Add(row1);
             string examId = dtgv_exam_service.CurrentRow.Cells[0].Value.ToString();
             if (dtgv_exam_service.CurrentRow != null)
@@ -158,6 +160,8 @@ namespace QuanLyPhongKham
                 if (!row.IsNewRow)
                     AllRows.Add(row);
             }
+
+
 
             this.DialogResult = DialogResult.OK;
             this.Close();
