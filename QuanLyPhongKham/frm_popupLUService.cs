@@ -110,7 +110,7 @@ namespace QuanLyPhongKham
             btn_delete.Enabled = true;
             id = Convert.ToInt16(dtgv_exam_service.Rows[e.RowIndex].Cells[0].Value.ToString());
             string query = $@"
-               SELECT distinct s.id as 'Mã CĐ',s.name as 'Tên chỉ định',s.price as 'Giá',s.type,
+               SELECT distinct s.id as 'Mã CĐ',s.name as 'Tên chỉ định',es.price as 'Giá',es.percent_reduce as 'Giảm giá',s.type,
              CASE 
                     WHEN er.examination_service_id IS NULL THEN 'Chưa có KQ'
                     ELSE 'Đã có KQ'
@@ -134,6 +134,7 @@ namespace QuanLyPhongKham
                 drr.Cells["state"].Value = Db.dr["Trạng thái"];
                 drr.Cells["type"].Value = Db.dr["type"];
                 drr.Cells["examination_service_id"].Value = Db.dr["esid"];
+                drr.Cells["percent_reduce"].Value = Db.dr["Giảm giá"];
 
 
             }
@@ -147,7 +148,7 @@ namespace QuanLyPhongKham
         {
             AllRows.Clear();
             DataGridViewRow row1 = new DataGridViewRow();
-            row1.CreateCells(dtgv_detail, "", "Công khám", "Miễn phí", "", "");
+            row1.CreateCells(dtgv_detail, "", "Công khám", "","Miễn phí", "", "");
             AllRows.Add(row1);
             string examId = dtgv_exam_service.CurrentRow.Cells[0].Value.ToString();
             if (dtgv_exam_service.CurrentRow != null)
