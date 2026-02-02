@@ -402,7 +402,7 @@ namespace QuanLyPhongKham
                     dtgv_detail_service_med.Visible = false;
                     Db.ResetConnection();
                     string query = $@"
-                 SELECT distinct e.id, s.name, s.price,            
+                 SELECT distinct e.id, s.name, s.price as 'Giá gốc', es.price as 'Giá', es.percent_reduce,         
                     CASE 
                             WHEN er.examination_service_id IS NULL THEN 'Chưa có KQ'
                             ELSE 'Đã có KQ'
@@ -424,10 +424,12 @@ namespace QuanLyPhongKham
                     {
                         int i = dtgv_detail_service.Rows.Add();
                         var drr = dtgv_detail_service.Rows[i];
-                        drr.Cells["price_service_detail"].Value = Db.dr["price"];
+                        drr.Cells["price_origrinal"].Value = Db.dr["Giá gốc"];
+                        drr.Cells["price_service_detail"].Value = Db.dr["Giá"];
                         drr.Cells["service_detail"].Value = Db.dr["name"];
                         drr.Cells["stt_detail"].Value = stt++;
                         drr.Cells["state_detail"].Value = Db.dr["state"];
+                        drr.Cells["percent_reduce"].Value = Db.dr["percent_reduce"]+"%";
                     }
 
                     Db.dr.Close();
