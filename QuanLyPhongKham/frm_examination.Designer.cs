@@ -984,38 +984,40 @@
             // lb_reduce
             // 
             this.lb_reduce.AutoSize = true;
-            this.lb_reduce.Location = new System.Drawing.Point(743, 55);
+            this.lb_reduce.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_reduce.Location = new System.Drawing.Point(807, 29);
             this.lb_reduce.Name = "lb_reduce";
-            this.lb_reduce.Size = new System.Drawing.Size(17, 19);
+            this.lb_reduce.Size = new System.Drawing.Size(20, 24);
             this.lb_reduce.TabIndex = 63;
             this.lb_reduce.Text = "0";
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(686, 53);
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(733, 31);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(60, 22);
+            this.label17.Size = new System.Drawing.Size(64, 24);
             this.label17.TabIndex = 62;
             this.label17.Text = "Giảm:";
             // 
             // lb_total_price_origin
             // 
             this.lb_total_price_origin.AutoSize = true;
-            this.lb_total_price_origin.Location = new System.Drawing.Point(743, 33);
+            this.lb_total_price_origin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_total_price_origin.Location = new System.Drawing.Point(807, 7);
             this.lb_total_price_origin.Name = "lb_total_price_origin";
-            this.lb_total_price_origin.Size = new System.Drawing.Size(17, 19);
+            this.lb_total_price_origin.Size = new System.Drawing.Size(20, 24);
             this.lb_total_price_origin.TabIndex = 61;
             this.lb_total_price_origin.Text = "0";
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(667, 31);
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(713, 7);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(79, 22);
+            this.label16.Size = new System.Drawing.Size(88, 24);
             this.label16.TabIndex = 60;
             this.label16.Text = "Giá gốc:";
             // 
@@ -1057,11 +1059,11 @@
             this.dtgv_service_patient.DefaultCellStyle = dataGridViewCellStyle19;
             this.dtgv_service_patient.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dtgv_service_patient.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dtgv_service_patient.Location = new System.Drawing.Point(6, 211);
+            this.dtgv_service_patient.Location = new System.Drawing.Point(543, 75);
             this.dtgv_service_patient.Name = "dtgv_service_patient";
             this.dtgv_service_patient.RowHeadersVisible = false;
             this.dtgv_service_patient.RowHeadersWidth = 51;
-            this.dtgv_service_patient.Size = new System.Drawing.Size(744, 527);
+            this.dtgv_service_patient.Size = new System.Drawing.Size(744, 449);
             this.dtgv_service_patient.TabIndex = 1;
             this.dtgv_service_patient.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgv_service_patient.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -1221,7 +1223,7 @@
             this.dtgv_service.Name = "dtgv_service";
             this.dtgv_service.RowHeadersVisible = false;
             this.dtgv_service.RowHeadersWidth = 51;
-            this.dtgv_service.Size = new System.Drawing.Size(531, 129);
+            this.dtgv_service.Size = new System.Drawing.Size(531, 448);
             this.dtgv_service.TabIndex = 0;
             this.dtgv_service.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgv_service.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -1383,7 +1385,7 @@
             // 
             this.lb_total_price_service.AutoSize = true;
             this.lb_total_price_service.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_total_price_service.Location = new System.Drawing.Point(799, 7);
+            this.lb_total_price_service.Location = new System.Drawing.Point(807, 53);
             this.lb_total_price_service.Name = "lb_total_price_service";
             this.lb_total_price_service.Size = new System.Drawing.Size(21, 24);
             this.lb_total_price_service.TabIndex = 50;
@@ -1393,7 +1395,7 @@
             // 
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(667, 7);
+            this.label26.Location = new System.Drawing.Point(683, 50);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(118, 24);
             this.label26.TabIndex = 49;
@@ -2070,7 +2072,7 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(230)))));
-            this.ClientSize = new System.Drawing.Size(1386, 788);
+            this.ClientSize = new System.Drawing.Size(1530, 788);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.lb_lastTimeMed_hours);
