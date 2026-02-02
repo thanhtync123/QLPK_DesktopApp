@@ -140,7 +140,7 @@ namespace QuanLyPhongKham
             loadComboboxMedicationSet();
 
             cb_percent_reduce.Items.Clear();
-            for (int i = 0; i <= 100; i++)
+            for (int i = 0; i <= 100; i+=10)
 
                 cb_percent_reduce.Items.Add(
                     new KeyValuePair<int, string>(i, $"{i}%")
@@ -458,9 +458,10 @@ namespace QuanLyPhongKham
                     var idService = selectedRow.Cells["id_service"].Value?.ToString();
                     var nameService = selectedRow.Cells["service_name"].Value?.ToString();
                     var priceService = selectedRow.Cells["price1"].Value?.ToString();
+                    
                     if (decimal.TryParse(priceService, out decimal price))
 
-                        priceService = price.ToString("N0"); // Format với N0
+                        priceService = price.ToString("N0"); 
 
                     int rowIndex = dtgv_service_patient.Rows.Add();
                     dtgv_service_patient.Rows[rowIndex].Cells["id_service2"].Value = idService;
@@ -468,6 +469,8 @@ namespace QuanLyPhongKham
                     dtgv_service_patient.Rows[rowIndex].Cells["price2"].Value = priceService;
                     dtgv_service_patient.Rows[rowIndex].Cells["delete_service"].Value = "-";
                     dtgv_service_patient.Rows[rowIndex].Cells["state2"].Value = "Vừa thêm";
+                    dtgv_service_patient.Rows[rowIndex].Cells["original_price"].Value = selectedRow.Cells["price1"].Value;
+
                     UpdateTotalServicePrice();
                     UpdateSTT();
 
@@ -667,8 +670,9 @@ namespace QuanLyPhongKham
                     dtgv_service_patient.Rows[index].Cells["price2"].Value = row.Cells[3].Value;
                     dtgv_service_patient.Rows[index].Cells["notes2"].Value = "";
                     dtgv_service_patient.Rows[index].Cells["delete_service"].Value = "-";
-                    dtgv_service_patient.Rows[index].Cells["state2"].Value = row.Cells[5].Value;
-                    dtgv_service_patient.Rows[index].Cells["esid"].Value = row.Cells[6].Value;
+                    dtgv_service_patient.Rows[index].Cells["state2"].Value = row.Cells[6].Value;
+                    dtgv_service_patient.Rows[index].Cells["esid"].Value = row.Cells[7].Value;
+                    dtgv_service_patient.Rows[index].Cells["original_price"].Value = row.Cells[4].Value;
                 }
 
                
@@ -685,23 +689,14 @@ namespace QuanLyPhongKham
 
                 if (row.IsNewRow) continue;
                 if (row.Cells["name_service2"].Value.ToString() == "Công khám") continue;
-
-
-                Db.ResetConnection();
-                Db.cmd.CommandText = $@"
-                    SELECT price 
-                    FROM services 
-                    WHERE id = {row.Cells["id_service2"].Value}
-                ";
-                var original_price_item = Convert.ToInt32(Db.cmd.ExecuteScalar());
+                var original_price_item = Convert.ToInt32(row.Cells["original_price"].Value);
                 totalOriginal += original_price_item;
-
-
-                if (row.Cells["price2"].Value != null)
-
-                    totalAfterReduce +=
-                  Convert.ToInt32(row.Cells["price2"].Value.ToString().Replace(".", "")) *
-                  Convert.ToInt32(row.Cells["percent_reduce"].Value) / 100;
+                if (row.Cells["percent_reduce"].Value != null)
+                {
+                    int percent = Convert.ToInt32(row.Cells["percent_reduce"].Value);
+                    int reduceMoney = original_price_item * percent / 100;
+                    totalAfterReduce += reduceMoney;
+                }
 
 
             }
@@ -784,12 +779,15 @@ namespace QuanLyPhongKham
                         dtgv_service_patient.Rows[index].Cells["STT"].Value = "-";
                     else
                         dtgv_service_patient.Rows[index].Cells["STT"].Value = stt++;
+ 
                     dtgv_service_patient.Rows[index].Cells["name_service2"].Value = row.Cells[1].Value;
-                    dtgv_service_patient.Rows[index].Cells["price2"].Value = row.Cells[2].Value;
+                    dtgv_service_patient.Rows[index].Cells["percent_reduce"].Value = row.Cells[2].Value;
+                    dtgv_service_patient.Rows[index].Cells["price2"].Value = row.Cells[3].Value;
                     dtgv_service_patient.Rows[index].Cells["notes2"].Value = "";
                     dtgv_service_patient.Rows[index].Cells["delete_service"].Value = "-";
-                    dtgv_service_patient.Rows[index].Cells["state2"].Value = row.Cells[4].Value;
-                    dtgv_service_patient.Rows[index].Cells["esid"].Value = row.Cells[5].Value;
+                    dtgv_service_patient.Rows[index].Cells["state2"].Value = row.Cells[6].Value;
+                    dtgv_service_patient.Rows[index].Cells["esid"].Value = row.Cells[7].Value;
+                    dtgv_service_patient.Rows[index].Cells["original_price"].Value = row.Cells[4].Value;
                 }
 
                 decimal total = 0;
@@ -1314,6 +1312,7 @@ namespace QuanLyPhongKham
             rowDefault.Cells["price2"].Value = "Miễn phí";
             rowDefault.Cells["notes2"].Value = "";
             rowDefault.Cells["delete_service"].Value = "-";
+      
 
             int stt = 1;
             while (Db.dr.Read())
@@ -1327,10 +1326,13 @@ namespace QuanLyPhongKham
                 row.Cells["notes2"].Value = Db.dr["note"];
                 row.Cells["delete_service"].Value = "-";
                 row.Cells["state2"].Value = "Vừa thêm";
+                row.Cells["original_price"].Value = Db.dr["price"];
             }
 
             Db.dr.Close();
+            
             UpdateTotalServicePrice();
+            cb_percent_reduce.SelectedIndex = 0;
         }
 
         private DataTable dtBackup;
@@ -1595,13 +1597,8 @@ namespace QuanLyPhongKham
         }
         private void updateTotalPriceAfterPercentReduce(int percent, DataGridViewRow dtgvr)
         {
-            Db.ResetConnection();
-            Db.cmd.CommandText = $@"
-                    SELECT price 
-                    FROM services 
-                    WHERE id = {dtgvr.Cells["id_service2"].Value}
-                ";
-            var original_price = Convert.ToInt32(Db.cmd.ExecuteScalar());
+            var original_price = dtgvr.Cells["original_price"].Value == null ? 0 :
+                Convert.ToInt32(dtgvr.Cells["original_price"].Value.ToString().Replace(".", "").Trim());
             int reduced_price = original_price - (original_price * percent / 100);
             dtgvr.Cells["price2"].Value = reduced_price;
             UpdateTotalServicePrice();

@@ -35,15 +35,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_examination));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -53,6 +50,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txb_name = new Guna.UI2.WinForms.Guna2TextBox();
             this.txb_ngaysinh = new Guna.UI2.WinForms.Guna2TextBox();
             this.txb_age = new Guna.UI2.WinForms.Guna2TextBox();
@@ -119,15 +120,6 @@
             this.lb_total_price_origin = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.dtgv_service_patient = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.id_service2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name_service2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.percent_reduce = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.notes2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.state2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.esid = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.delete_service = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label15 = new System.Windows.Forms.Label();
             this.cb_percent_reduce = new System.Windows.Forms.ComboBox();
             this.cb_services_set = new System.Windows.Forms.ComboBox();
@@ -198,6 +190,16 @@
             this.label14 = new System.Windows.Forms.Label();
             this.txb_symptoms = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2BorderlessForm2 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
+            this.id_service2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name_service2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.percent_reduce = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.original_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.notes2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.state2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.esid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.delete_service = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_patients)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_service_patient)).BeginInit();
@@ -787,7 +789,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(622, 145);
+            this.label10.Location = new System.Drawing.Point(627, 162);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(61, 20);
             this.label10.TabIndex = 34;
@@ -1044,19 +1046,20 @@
             this.name_service2,
             this.percent_reduce,
             this.price2,
+            this.original_price,
             this.notes2,
             this.state2,
             this.esid,
             this.delete_service});
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle19.NullValue = null;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgv_service_patient.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle20.NullValue = null;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgv_service_patient.DefaultCellStyle = dataGridViewCellStyle20;
             this.dtgv_service_patient.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dtgv_service_patient.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtgv_service_patient.Location = new System.Drawing.Point(543, 75);
@@ -1091,73 +1094,6 @@
             this.dtgv_service_patient.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_service_patient_CellValueChanged);
             this.dtgv_service_patient.Click += new System.EventHandler(this.dtgv_service_patient_Click);
             // 
-            // id_service2
-            // 
-            this.id_service2.HeaderText = "Mã CĐ";
-            this.id_service2.MinimumWidth = 6;
-            this.id_service2.Name = "id_service2";
-            this.id_service2.Visible = false;
-            this.id_service2.Width = 60;
-            // 
-            // STT
-            // 
-            this.STT.HeaderText = "STT";
-            this.STT.Name = "STT";
-            this.STT.Width = 25;
-            // 
-            // name_service2
-            // 
-            this.name_service2.HeaderText = "Tên chỉ định";
-            this.name_service2.MinimumWidth = 6;
-            this.name_service2.Name = "name_service2";
-            this.name_service2.Width = 210;
-            // 
-            // percent_reduce
-            // 
-            dataGridViewCellStyle16.NullValue = "0";
-            this.percent_reduce.DefaultCellStyle = dataGridViewCellStyle16;
-            this.percent_reduce.HeaderText = "Giảm(%)";
-            this.percent_reduce.Name = "percent_reduce";
-            this.percent_reduce.Width = 60;
-            // 
-            // price2
-            // 
-            dataGridViewCellStyle17.Format = "N0";
-            this.price2.DefaultCellStyle = dataGridViewCellStyle17;
-            this.price2.HeaderText = "Thành tiền";
-            this.price2.MinimumWidth = 6;
-            this.price2.Name = "price2";
-            this.price2.Width = 125;
-            // 
-            // notes2
-            // 
-            this.notes2.HeaderText = "Ghi chú";
-            this.notes2.MinimumWidth = 6;
-            this.notes2.Name = "notes2";
-            this.notes2.Width = 170;
-            // 
-            // state2
-            // 
-            this.state2.HeaderText = "Trạng thái";
-            this.state2.Name = "state2";
-            // 
-            // esid
-            // 
-            this.esid.HeaderText = "esid";
-            this.esid.Name = "esid";
-            this.esid.Visible = false;
-            this.esid.Width = 50;
-            // 
-            // delete_service
-            // 
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.delete_service.DefaultCellStyle = dataGridViewCellStyle18;
-            this.delete_service.HeaderText = "Xóa";
-            this.delete_service.MinimumWidth = 6;
-            this.delete_service.Name = "delete_service";
-            this.delete_service.ReadOnly = true;
-            this.delete_service.Width = 50;
-            // 
             // label15
             // 
             this.label15.AutoSize = true;
@@ -1191,17 +1127,17 @@
             // 
             // dtgv_service
             // 
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.White;
-            this.dtgv_service.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.White;
+            this.dtgv_service.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle21;
             this.dtgv_service.BackgroundColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgv_service.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgv_service.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
             this.dtgv_service.ColumnHeadersHeight = 45;
             this.dtgv_service.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dtgv_service.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1210,14 +1146,14 @@
             this.type,
             this.price1,
             this.add_service});
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgv_service.DefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle25.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle25.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgv_service.DefaultCellStyle = dataGridViewCellStyle25;
             this.dtgv_service.GridColor = System.Drawing.Color.Black;
             this.dtgv_service.Location = new System.Drawing.Point(6, 76);
             this.dtgv_service.Name = "dtgv_service";
@@ -1272,9 +1208,9 @@
             // 
             // price1
             // 
-            dataGridViewCellStyle22.Format = "N0";
-            dataGridViewCellStyle22.NullValue = null;
-            this.price1.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle23.Format = "N0";
+            dataGridViewCellStyle23.NullValue = null;
+            this.price1.DefaultCellStyle = dataGridViewCellStyle23;
             this.price1.FillWeight = 86.92893F;
             this.price1.HeaderText = "Thành tiền";
             this.price1.MinimumWidth = 120;
@@ -1282,8 +1218,8 @@
             // 
             // add_service
             // 
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.add_service.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.add_service.DefaultCellStyle = dataGridViewCellStyle24;
             this.add_service.FillWeight = 86.92893F;
             this.add_service.HeaderText = "Thêm";
             this.add_service.MinimumWidth = 60;
@@ -2065,6 +2001,83 @@
             this.guna2BorderlessForm2.DockIndicatorTransparencyValue = 0.6D;
             this.guna2BorderlessForm2.TransparentWhileDrag = true;
             // 
+            // id_service2
+            // 
+            this.id_service2.HeaderText = "Mã CĐ";
+            this.id_service2.MinimumWidth = 6;
+            this.id_service2.Name = "id_service2";
+            this.id_service2.Visible = false;
+            this.id_service2.Width = 60;
+            // 
+            // STT
+            // 
+            this.STT.HeaderText = "STT";
+            this.STT.Name = "STT";
+            this.STT.Width = 25;
+            // 
+            // name_service2
+            // 
+            this.name_service2.HeaderText = "Tên chỉ định";
+            this.name_service2.MinimumWidth = 6;
+            this.name_service2.Name = "name_service2";
+            this.name_service2.Width = 210;
+            // 
+            // percent_reduce
+            // 
+            dataGridViewCellStyle16.NullValue = "0";
+            this.percent_reduce.DefaultCellStyle = dataGridViewCellStyle16;
+            this.percent_reduce.HeaderText = "Giảm(%)";
+            this.percent_reduce.Name = "percent_reduce";
+            this.percent_reduce.Width = 60;
+            // 
+            // price2
+            // 
+            dataGridViewCellStyle17.Format = "N0";
+            this.price2.DefaultCellStyle = dataGridViewCellStyle17;
+            this.price2.HeaderText = "Thành tiền";
+            this.price2.MinimumWidth = 6;
+            this.price2.Name = "price2";
+            this.price2.Width = 125;
+            // 
+            // original_price
+            // 
+            dataGridViewCellStyle18.Format = "N0";
+            dataGridViewCellStyle18.NullValue = null;
+            this.original_price.DefaultCellStyle = dataGridViewCellStyle18;
+            this.original_price.HeaderText = "Giá gốc";
+            this.original_price.Name = "original_price";
+            this.original_price.Visible = false;
+            this.original_price.Width = 125;
+            // 
+            // notes2
+            // 
+            this.notes2.HeaderText = "Ghi chú";
+            this.notes2.MinimumWidth = 6;
+            this.notes2.Name = "notes2";
+            this.notes2.Width = 170;
+            // 
+            // state2
+            // 
+            this.state2.HeaderText = "Trạng thái";
+            this.state2.Name = "state2";
+            // 
+            // esid
+            // 
+            this.esid.HeaderText = "esid";
+            this.esid.Name = "esid";
+            this.esid.Visible = false;
+            this.esid.Width = 50;
+            // 
+            // delete_service
+            // 
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.delete_service.DefaultCellStyle = dataGridViewCellStyle19;
+            this.delete_service.HeaderText = "Xóa";
+            this.delete_service.MinimumWidth = 6;
+            this.delete_service.Name = "delete_service";
+            this.delete_service.ReadOnly = true;
+            this.delete_service.Width = 50;
+            // 
             // frm_examination
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -2072,7 +2085,7 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(230)))));
-            this.ClientSize = new System.Drawing.Size(1530, 788);
+            this.ClientSize = new System.Drawing.Size(1386, 788);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.lb_lastTimeMed_hours);
@@ -2274,19 +2287,20 @@
         private Guna.UI2.WinForms.Guna2TextBox txb_symptoms;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.ComboBox cb_percent_reduce;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_service2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn STT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn name_service2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn percent_reduce;
-        private System.Windows.Forms.DataGridViewTextBoxColumn price2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn notes2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn state2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn esid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn delete_service;
         private System.Windows.Forms.Label lb_total_price_origin;
         private System.Windows.Forms.Label label16;
         private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm2;
         private System.Windows.Forms.Label lb_reduce;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_service2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn STT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name_service2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn percent_reduce;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn original_price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn notes2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn state2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn esid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn delete_service;
     }
 }

@@ -73,6 +73,7 @@
             this.name_service = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.percent_reduce = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.original_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.state = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.examination_service_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -241,6 +242,7 @@
             this.name_service,
             this.percent_reduce,
             this.price,
+            this.original_price,
             this.type,
             this.state,
             this.examination_service_id});
@@ -565,6 +567,12 @@
             this.price.Name = "price";
             this.price.Width = 150;
             // 
+            // original_price
+            // 
+            this.original_price.HeaderText = "Giá gốc";
+            this.original_price.Name = "original_price";
+            this.original_price.Visible = false;
+            // 
             // type
             // 
             this.type.HeaderText = "Loại";
@@ -660,6 +668,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn name_service;
         private System.Windows.Forms.DataGridViewTextBoxColumn percent_reduce;
         private System.Windows.Forms.DataGridViewTextBoxColumn price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn original_price;
         private System.Windows.Forms.DataGridViewTextBoxColumn type;
         private System.Windows.Forms.DataGridViewTextBoxColumn state;
         private System.Windows.Forms.DataGridViewTextBoxColumn examination_service_id;
