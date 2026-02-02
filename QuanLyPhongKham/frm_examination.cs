@@ -671,7 +671,7 @@ namespace QuanLyPhongKham
                     dtgv_service_patient.Rows[index].Cells["esid"].Value = row.Cells[6].Value;
                 }
 
-                // Tính tổng thành tiền
+               
                 UpdateTotalServicePrice();
             }
         }
@@ -699,18 +699,17 @@ namespace QuanLyPhongKham
 
                 if (row.Cells["price2"].Value != null)
 
-                    totalAfterReduce += Convert.ToInt32(
-                        row.Cells["price2"].Value.ToString()
-                            .Replace(".", "")
-                            .Replace(",", "")
-                            .Trim()
-                    );
+                    totalAfterReduce +=
+                  Convert.ToInt32(row.Cells["price2"].Value.ToString().Replace(".", "")) *
+                  Convert.ToInt32(row.Cells["percent_reduce"].Value) / 100;
+
 
             }
 
-            lb_total_price_service.Text = totalAfterReduce.ToString("N0");
+            lb_total_price_service.Text = (totalOriginal - totalAfterReduce).ToString("N0");
             lb_total_price_origin.Text = totalOriginal.ToString("N0");
-            lb_reduce.Text = (totalOriginal - totalAfterReduce).ToString("N0");
+            lb_reduce.Text = totalAfterReduce.ToString("N0");
+
 
         }
 
@@ -728,10 +727,11 @@ namespace QuanLyPhongKham
             var tongtien = lb_total_price_service.Text;
             var ngaykham = DateTime.Now.ToString("'Ngày' dd 'tháng' MM 'năm' yyyy");
             var sdt = txb_phone.Text;
-
+            var giagoc = lb_total_price_origin.Text;
+            var dagiam = lb_reduce.Text;
             frm_report_service frm = new frm_report_service(
                 GetDataTableFromDataGridView(dtgv_service_patient),
-                mabn, tenbn, diachi, ngaysinh, gioitinh, loidan, chandoan, trieuchung, ngaykham, tongtien, sdt // thêm tongtien
+                mabn, tenbn, diachi, ngaysinh, gioitinh, loidan, chandoan, trieuchung, ngaykham, tongtien, sdt,giagoc,dagiam
             );
             frm.ShowDialog();
         }
@@ -1609,15 +1609,31 @@ namespace QuanLyPhongKham
         private void dtgv_service_patient_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
-
-            if (dtgv_service_patient.Columns[e.ColumnIndex].Name != "percent_reduce")
+            if (dtgv_service_patient.Columns[e.ColumnIndex].Name != "percent_reduce") return;
+            var row = dtgv_service_patient.Rows[e.RowIndex];
+            if (row.Cells["name_service2"].Value?.ToString() == "Công khám")
+            {
+                row.Cells["percent_reduce"].Value = 0;
                 return;
-            if (dtgv_service_patient.Rows[e.RowIndex].Cells["name_service2"].Value.ToString() == "Công khám") return;
-            int percent = dtgv_service_patient.Rows[e.RowIndex].Cells["percent_reduce"].Value == null ? 0 :
-                Convert.ToInt32(dtgv_service_patient.Rows[e.RowIndex].Cells["percent_reduce"].Value);
-            updateTotalPriceAfterPercentReduce(percent, dtgv_service_patient.Rows[e.RowIndex]);
+            }
+            var cell = row.Cells["percent_reduce"];
+            int percent = 0;
+            if (cell.Value == null || !int.TryParse(cell.Value.ToString(), out percent))
+            {
+                MessageBox.Show("Vui lòng nhập số nguyên (0–100)");
+                cell.Value = 0;
+                return;
+            }
+            if (percent < 0 || percent > 100)
+            {
+                MessageBox.Show("Giảm giá phải từ 0–100%");
+                cell.Value = 0;
+                percent = 0;
+            }
 
+            updateTotalPriceAfterPercentReduce(percent, row);
         }
+
     }
 }
 

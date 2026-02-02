@@ -25,8 +25,10 @@ namespace QuanLyPhongKham
         private string ngaykham;
         private string tongtien;
         private string sdt;
-        //     mabn, tenbn, diachi, ngaysinh, gioitinh, loidan, chandoan, chandoanphu, ngaykham, tongtien
+   
         private DataTable _dtService;
+        private string giagoc;
+        private string dagiam;
 
         public frm_report_service(
             DataTable dtService,
@@ -40,7 +42,9 @@ namespace QuanLyPhongKham
             string chandoanphu,
             string ngaykham,
             string tongtien,
-            string sdt)
+            string sdt,
+            string giagoc,
+            string dagiam)
         {
             InitializeComponent();
             _dtService = dtService;
@@ -55,6 +59,8 @@ namespace QuanLyPhongKham
             this.ngaykham = ngaykham;
             this.tongtien = tongtien;
             this.sdt = sdt;
+            this.giagoc = giagoc;
+            this.dagiam = dagiam;
         }
       //  mabn, tenbn, diachi, ngaysinh, gioitinh, loidan, chandoan, chandoanphu, ngaykham, tongtien
         private void frm_report_service_Load(object sender, EventArgs e)
@@ -91,7 +97,9 @@ namespace QuanLyPhongKham
                     new ReportParameter("txb_businesstype", AppConfig.businesstype),
                     new ReportParameter("txb_businessname", AppConfig.businessname),
                     new ReportParameter("txb_businessservice",AppConfig.businessservice),
-                    new ReportParameter("txb_businessaddress",AppConfig.businessaddress)
+                    new ReportParameter("txb_businessaddress",AppConfig.businessaddress),
+                    new ReportParameter("txb_giagoc", giagoc??""),
+                    new ReportParameter("txb_giam", dagiam??"")
 
                 };
                 reportViewer1.LocalReport.SetParameters(parameters);
