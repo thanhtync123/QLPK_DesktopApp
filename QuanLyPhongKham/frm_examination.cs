@@ -140,19 +140,15 @@ namespace QuanLyPhongKham
             loadComboboxMedicationSet();
 
             cb_percent_reduce.Items.Clear();
-            for (int i = 0; i <= 100; i+=10)
+            int[] percents = { 0, 10, 20, 30, 50, 100 };
 
+            foreach (int i in percents)
                 cb_percent_reduce.Items.Add(
                     new KeyValuePair<int, string>(i, $"{i}%")
                 );
-
-
             cb_percent_reduce.DisplayMember = "Value";
             cb_percent_reduce.ValueMember = "Key";
             cb_percent_reduce.SelectedIndex = 0;
-
-
-
         }
         private void loadComboboxMedicationSet()
         {
@@ -1615,12 +1611,12 @@ namespace QuanLyPhongKham
             }
             var cell = row.Cells["percent_reduce"];
             int percent = 0;
-            if (cell.Value == null || !int.TryParse(cell.Value.ToString(), out percent))
-            {
-                MessageBox.Show("Vui lòng nhập số nguyên (0–100)");
-                cell.Value = 0;
-                return;
-            }
+            //if (cell.Value == null || !int.TryParse(cell.Value.ToString(), out percent))
+            //{
+            //    MessageBox.Show("Vui lòng nhập số nguyên (0–100)");
+            //    cell.Value = 0;
+            //    return;
+            //}
             if (percent < 0 || percent > 100)
             {
                 MessageBox.Show("Giảm giá phải từ 0–100%");

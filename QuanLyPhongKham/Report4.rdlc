@@ -382,7 +382,6 @@
                             <PaddingBottom>3pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -958,6 +957,7 @@
                     <Style>
                       <FontFamily>TIMEs New Roman</FontFamily>
                       <FontSize>12pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -965,8 +965,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_tongtien</rd:DefaultName>
-            <Top>8.19832cm</Top>
-            <Left>2.94978cm</Left>
+            <Top>6.92749cm</Top>
+            <Left>2.9145cm</Left>
             <Height>0.6cm</Height>
             <Width>3.18792cm</Width>
             <ZIndex>15</ZIndex>
@@ -1001,8 +1001,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox23</rd:DefaultName>
-            <Top>8.17186cm</Top>
-            <Left>0.82738cm</Left>
+            <Top>6.90103cm</Top>
+            <Left>0.7921cm</Left>
             <Height>0.6cm</Height>
             <Width>2.08712cm</Width>
             <ZIndex>16</ZIndex>
@@ -1241,8 +1241,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox23</rd:DefaultName>
-            <Top>6.96304cm</Top>
-            <Left>0.82738cm</Left>
+            <Top>7.50103cm</Top>
+            <Left>0.78577cm</Left>
             <Height>0.57354cm</Height>
             <Width>2.08712cm</Width>
             <ZIndex>23</ZIndex>
@@ -1280,8 +1280,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox23</rd:DefaultName>
-            <Top>7.57186cm</Top>
-            <Left>0.82738cm</Left>
+            <Top>8.10985cm</Top>
+            <Left>0.78577cm</Left>
             <Height>0.6cm</Height>
             <Width>2.08712cm</Width>
             <ZIndex>24</ZIndex>
@@ -1316,8 +1316,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_giagoc</rd:DefaultName>
-            <Top>6.96304cm</Top>
-            <Left>2.9145cm</Left>
+            <Top>7.50103cm</Top>
+            <Left>2.87289cm</Left>
             <Height>0.6cm</Height>
             <Width>3.2232cm</Width>
             <ZIndex>25</ZIndex>
@@ -1352,8 +1352,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_giam</rd:DefaultName>
-            <Top>7.56304cm</Top>
-            <Left>2.9145cm</Left>
+            <Top>8.10103cm</Top>
+            <Left>2.87289cm</Left>
             <Height>0.6cm</Height>
             <Width>3.2232cm</Width>
             <ZIndex>26</ZIndex>
