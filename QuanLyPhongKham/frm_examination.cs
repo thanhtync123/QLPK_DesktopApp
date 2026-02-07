@@ -597,9 +597,9 @@ namespace QuanLyPhongKham
                     if (row.Cells[0].Value != null)
                     {
                         string queryService = @"
-            INSERT INTO examination_services 
-            (id, examination_id, service_id, price,percent_reduce) 
-            VALUES (NULL, @examination_id, @service_id, @price,@percent_reduce);";
+                        INSERT INTO examination_services 
+                        (id, examination_id, service_id, price,percent_reduce) 
+                        VALUES (NULL, @examination_id, @service_id, @price,@percent_reduce);";
 
                         using (MySqlCommand cmdService = new MySqlCommand(queryService, Db.conn))
                         {
@@ -609,9 +609,11 @@ namespace QuanLyPhongKham
                             int price = 0;
                             int.TryParse(priceStr, out price);
                             cmdService.Parameters.AddWithValue("@price", price);
-                            cmdService.Parameters.AddWithValue("@percent_reduce", row.Cells["percent_reduce"].Value);
+                            cmdService.Parameters.AddWithValue("@percent_reduce", row.Cells["percent_reduce"].Value ?? 0);
                             cmdService.ExecuteNonQuery();
                         }
+
+
                     }
                 }
 
