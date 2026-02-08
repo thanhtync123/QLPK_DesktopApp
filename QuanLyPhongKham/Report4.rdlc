@@ -456,7 +456,7 @@
             </Style>
           </Tablix>
           <Textbox Name="txb_ngaykham">
-            <CanGrow>true</CanGrow>
+            <CanShrink>true</CanShrink>
             <KeepTogether>true</KeepTogether>
             <Paragraphs>
               <Paragraph>
@@ -847,6 +847,7 @@
           </Textbox>
           <Textbox Name="Textbox21">
             <CanGrow>true</CanGrow>
+            <CanShrink>true</CanShrink>
             <KeepTogether>true</KeepTogether>
             <Paragraphs>
               <Paragraph>
@@ -860,7 +861,7 @@
                   </TextRun>
                 </TextRuns>
                 <Style>
-                  <TextAlign>Left</TextAlign>
+                  <TextAlign>Right</TextAlign>
                 </Style>
               </Paragraph>
             </Paragraphs>
@@ -868,7 +869,7 @@
             <Top>1.42875in</Top>
             <Left>4.04319in</Left>
             <Height>0.25in</Height>
-            <Width>0.78097in</Width>
+            <Width>0.68678in</Width>
             <ZIndex>12</ZIndex>
             <Style>
               <Border>
@@ -898,9 +899,9 @@
             </Paragraphs>
             <rd:DefaultName>txb_gioitinh</rd:DefaultName>
             <Top>3.62901cm</Top>
-            <Left>11.72624cm</Left>
+            <Left>12.08468cm</Left>
             <Height>0.635cm</Height>
-            <Width>2.3549cm</Width>
+            <Width>1.82777cm</Width>
             <ZIndex>13</ZIndex>
             <Style>
               <Border>
@@ -947,7 +948,6 @@
             </Style>
           </Textbox>
           <Textbox Name="txb_tongtien">
-            <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
             <Paragraphs>
               <Paragraph>
@@ -965,11 +965,14 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_tongtien</rd:DefaultName>
-            <Top>6.92749cm</Top>
-            <Left>2.9145cm</Left>
+            <Top>8.18013cm</Top>
+            <Left>2.90817cm</Left>
             <Height>0.6cm</Height>
             <Width>3.18792cm</Width>
             <ZIndex>15</ZIndex>
+            <Visibility>
+              <Hidden>=IIF(Parameters!txb_giam.Value = 0, True, False)</Hidden>
+            </Visibility>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -981,7 +984,6 @@
             </Style>
           </Textbox>
           <Textbox Name="Textbox23">
-            <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
             <Paragraphs>
               <Paragraph>
@@ -1001,11 +1003,14 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox23</rd:DefaultName>
-            <Top>6.90103cm</Top>
-            <Left>0.7921cm</Left>
+            <Top>8.15367cm</Top>
+            <Left>0.78577cm</Left>
             <Height>0.6cm</Height>
             <Width>2.08712cm</Width>
             <ZIndex>16</ZIndex>
+            <Visibility>
+              <Hidden>=IIF(Parameters!txb_giam.Value = 0, True, False)</Hidden>
+            </Visibility>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1221,7 +1226,7 @@
             </Style>
           </Image>
           <Textbox Name="Textbox26">
-            <CanGrow>true</CanGrow>
+            <CanShrink>true</CanShrink>
             <KeepTogether>true</KeepTogether>
             <Paragraphs>
               <Paragraph>
@@ -1241,7 +1246,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox23</rd:DefaultName>
-            <Top>7.50103cm</Top>
+            <Top>6.95367cm</Top>
             <Left>0.78577cm</Left>
             <Height>0.57354cm</Height>
             <Width>2.08712cm</Width>
@@ -1260,7 +1265,7 @@
             </Style>
           </Textbox>
           <Textbox Name="Textbox27">
-            <CanGrow>true</CanGrow>
+            <CanShrink>true</CanShrink>
             <KeepTogether>true</KeepTogether>
             <Paragraphs>
               <Paragraph>
@@ -1280,7 +1285,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox23</rd:DefaultName>
-            <Top>8.10985cm</Top>
+            <Top>7.56249cm</Top>
             <Left>0.78577cm</Left>
             <Height>0.6cm</Height>
             <Width>2.08712cm</Width>
@@ -1299,7 +1304,7 @@
             </Style>
           </Textbox>
           <Textbox Name="txb_giagoc">
-            <CanGrow>true</CanGrow>
+            <CanShrink>true</CanShrink>
             <KeepTogether>true</KeepTogether>
             <Paragraphs>
               <Paragraph>
@@ -1316,7 +1321,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_giagoc</rd:DefaultName>
-            <Top>7.50103cm</Top>
+            <Top>6.95367cm</Top>
             <Left>2.87289cm</Left>
             <Height>0.6cm</Height>
             <Width>3.2232cm</Width>
@@ -1335,7 +1340,7 @@
             </Style>
           </Textbox>
           <Textbox Name="txb_giam">
-            <CanGrow>true</CanGrow>
+            <CanShrink>true</CanShrink>
             <KeepTogether>true</KeepTogether>
             <Paragraphs>
               <Paragraph>
@@ -1352,7 +1357,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_giam</rd:DefaultName>
-            <Top>8.10103cm</Top>
+            <Top>7.55367cm</Top>
             <Left>2.87289cm</Left>
             <Height>0.6cm</Height>
             <Width>3.2232cm</Width>
@@ -1397,6 +1402,80 @@
             <Height>0.57354cm</Height>
             <Width>3.24083cm</Width>
             <ZIndex>27</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="txb_tongtien2">
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Parameters!txb_tongtien.Value</Value>
+                    <Style>
+                      <FontFamily>TIMEs New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>txb_tongtien</rd:DefaultName>
+            <Top>6.89221cm</Top>
+            <Left>2.83761cm</Left>
+            <Height>0.68792cm</Height>
+            <Width>3.18792cm</Width>
+            <ZIndex>28</ZIndex>
+            <Visibility>
+              <Hidden>=IIF(Parameters!txb_giam.Value = 0, False, True)</Hidden>
+            </Visibility>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox29">
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Tổng tiền:</Value>
+                    <Style>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Right</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox23</rd:DefaultName>
+            <Top>6.89221cm</Top>
+            <Left>0.36963cm</Left>
+            <Height>0.68792cm</Height>
+            <Width>2.46798cm</Width>
+            <ZIndex>29</ZIndex>
+            <Visibility>
+              <Hidden>=IIF(Parameters!txb_giam.Value = 0, False, True)</Hidden>
+            </Visibility>
             <Style>
               <Border>
                 <Style>None</Style>
