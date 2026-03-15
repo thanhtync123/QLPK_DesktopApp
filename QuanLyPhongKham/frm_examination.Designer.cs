@@ -123,9 +123,9 @@
             this.id_service2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name_service2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.original_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.percent_reduce = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.price2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.original_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.notes2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.state2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.esid = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -151,8 +151,9 @@
             this.btn_save_examination_service = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rdn_person = new System.Windows.Forms.RadioButton();
-            this.rdn_child = new System.Windows.Forms.RadioButton();
+            this.rdn_60k = new System.Windows.Forms.RadioButton();
+            this.rdn_50k = new System.Windows.Forms.RadioButton();
+            this.rdn_40k = new System.Windows.Forms.RadioButton();
             this.cb_med_set = new System.Windows.Forms.ComboBox();
             this.dtgv_med = new Guna.UI2.WinForms.Guna2DataGridView();
             this.id_med = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -1043,9 +1044,9 @@
             this.id_service2,
             this.STT,
             this.name_service2,
+            this.original_price,
             this.percent_reduce,
             this.price2,
-            this.original_price,
             this.notes2,
             this.state2,
             this.esid,
@@ -1061,7 +1062,7 @@
             this.dtgv_service_patient.DefaultCellStyle = dataGridViewCellStyle20;
             this.dtgv_service_patient.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dtgv_service_patient.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dtgv_service_patient.Location = new System.Drawing.Point(543, 75);
+            this.dtgv_service_patient.Location = new System.Drawing.Point(9, 183);
             this.dtgv_service_patient.Name = "dtgv_service_patient";
             this.dtgv_service_patient.RowHeadersVisible = false;
             this.dtgv_service_patient.RowHeadersWidth = 51;
@@ -1114,38 +1115,38 @@
             this.name_service2.Name = "name_service2";
             this.name_service2.Width = 210;
             // 
+            // original_price
+            // 
+            dataGridViewCellStyle16.Format = "N0";
+            dataGridViewCellStyle16.NullValue = null;
+            this.original_price.DefaultCellStyle = dataGridViewCellStyle16;
+            this.original_price.HeaderText = "Giá gốc";
+            this.original_price.Name = "original_price";
+            this.original_price.Width = 125;
+            // 
             // percent_reduce
             // 
-            dataGridViewCellStyle16.NullValue = "0";
-            this.percent_reduce.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle17.NullValue = "0";
+            this.percent_reduce.DefaultCellStyle = dataGridViewCellStyle17;
             this.percent_reduce.HeaderText = "Giảm(%)";
             this.percent_reduce.Name = "percent_reduce";
             this.percent_reduce.Width = 60;
             // 
             // price2
             // 
-            dataGridViewCellStyle17.Format = "N0";
-            this.price2.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle18.Format = "N0";
+            this.price2.DefaultCellStyle = dataGridViewCellStyle18;
             this.price2.HeaderText = "Thành tiền";
             this.price2.MinimumWidth = 6;
             this.price2.Name = "price2";
             this.price2.Width = 125;
-            // 
-            // original_price
-            // 
-            dataGridViewCellStyle18.Format = "N0";
-            dataGridViewCellStyle18.NullValue = null;
-            this.original_price.DefaultCellStyle = dataGridViewCellStyle18;
-            this.original_price.HeaderText = "Giá gốc";
-            this.original_price.Name = "original_price";
-            this.original_price.Visible = false;
-            this.original_price.Width = 125;
             // 
             // notes2
             // 
             this.notes2.HeaderText = "Ghi chú";
             this.notes2.MinimumWidth = 6;
             this.notes2.Name = "notes2";
+            this.notes2.Visible = false;
             this.notes2.Width = 170;
             // 
             // state2
@@ -1456,39 +1457,52 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.White;
-            this.groupBox1.Controls.Add(this.rdn_person);
-            this.groupBox1.Controls.Add(this.rdn_child);
-            this.groupBox1.Location = new System.Drawing.Point(610, 4);
+            this.groupBox1.Controls.Add(this.rdn_60k);
+            this.groupBox1.Controls.Add(this.rdn_50k);
+            this.groupBox1.Controls.Add(this.rdn_40k);
+            this.groupBox1.Location = new System.Drawing.Point(610, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(196, 26);
+            this.groupBox1.Size = new System.Drawing.Size(345, 30);
             this.groupBox1.TabIndex = 64;
             this.groupBox1.TabStop = false;
             // 
-            // rdn_person
+            // rdn_60k
             // 
-            this.rdn_person.AutoSize = true;
-            this.rdn_person.Checked = true;
-            this.rdn_person.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdn_person.Location = new System.Drawing.Point(6, 2);
-            this.rdn_person.Name = "rdn_person";
-            this.rdn_person.Size = new System.Drawing.Size(102, 25);
-            this.rdn_person.TabIndex = 70;
-            this.rdn_person.TabStop = true;
-            this.rdn_person.Text = "Người lớn";
-            this.rdn_person.UseVisualStyleBackColor = true;
-            this.rdn_person.CheckedChanged += new System.EventHandler(this.rdn_person_CheckedChanged);
+            this.rdn_60k.AutoSize = true;
+            this.rdn_60k.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdn_60k.Location = new System.Drawing.Point(156, 2);
+            this.rdn_60k.Name = "rdn_60k";
+            this.rdn_60k.Size = new System.Drawing.Size(78, 25);
+            this.rdn_60k.TabIndex = 72;
+            this.rdn_60k.Text = "60.000";
+            this.rdn_60k.UseVisualStyleBackColor = true;
+            this.rdn_60k.CheckedChanged += new System.EventHandler(this.rdn_60k_CheckedChanged);
             // 
-            // rdn_child
+            // rdn_50k
             // 
-            this.rdn_child.AutoSize = true;
-            this.rdn_child.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdn_child.Location = new System.Drawing.Point(116, 2);
-            this.rdn_child.Name = "rdn_child";
-            this.rdn_child.Size = new System.Drawing.Size(80, 25);
-            this.rdn_child.TabIndex = 71;
-            this.rdn_child.Text = "Trẻ em";
-            this.rdn_child.UseVisualStyleBackColor = true;
-            this.rdn_child.CheckedChanged += new System.EventHandler(this.rdn_child_CheckedChanged);
+            this.rdn_50k.AutoSize = true;
+            this.rdn_50k.Checked = true;
+            this.rdn_50k.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdn_50k.Location = new System.Drawing.Point(81, 3);
+            this.rdn_50k.Name = "rdn_50k";
+            this.rdn_50k.Size = new System.Drawing.Size(78, 25);
+            this.rdn_50k.TabIndex = 70;
+            this.rdn_50k.TabStop = true;
+            this.rdn_50k.Text = "50.000";
+            this.rdn_50k.UseVisualStyleBackColor = true;
+            this.rdn_50k.CheckedChanged += new System.EventHandler(this.rdn_person_CheckedChanged);
+            // 
+            // rdn_40k
+            // 
+            this.rdn_40k.AutoSize = true;
+            this.rdn_40k.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdn_40k.Location = new System.Drawing.Point(1, 4);
+            this.rdn_40k.Name = "rdn_40k";
+            this.rdn_40k.Size = new System.Drawing.Size(78, 25);
+            this.rdn_40k.TabIndex = 71;
+            this.rdn_40k.Text = "40.000";
+            this.rdn_40k.UseVisualStyleBackColor = true;
+            this.rdn_40k.CheckedChanged += new System.EventHandler(this.rdn_child_CheckedChanged);
             // 
             // cb_med_set
             // 
@@ -1705,7 +1719,6 @@
             this.dtgv_patient_med.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtgv_patient_med.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dtgv_patient_med.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_patient_med_CellClick);
-       
             this.dtgv_patient_med.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_patient_med_CellValueChanged);
             this.dtgv_patient_med.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dtgv_patient_med_EditingControlShowing);
             // 
@@ -1927,7 +1940,7 @@
             this.guna2TabControl1.Controls.Add(this.tabPage1);
             this.guna2TabControl1.Controls.Add(this.tabPage2);
             this.guna2TabControl1.ItemSize = new System.Drawing.Size(180, 40);
-            this.guna2TabControl1.Location = new System.Drawing.Point(445, 230);
+            this.guna2TabControl1.Location = new System.Drawing.Point(445, 234);
             this.guna2TabControl1.Name = "guna2TabControl1";
             this.guna2TabControl1.SelectedIndex = 0;
             this.guna2TabControl1.Size = new System.Drawing.Size(1459, 623);
@@ -2231,8 +2244,8 @@
         private System.Windows.Forms.ComboBox cb_services_set;
         private System.Windows.Forms.ComboBox cb_med_set;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton rdn_person;
-        private System.Windows.Forms.RadioButton rdn_child;
+        private System.Windows.Forms.RadioButton rdn_50k;
+        private System.Windows.Forms.RadioButton rdn_40k;
         private System.Windows.Forms.Label lb_lastTimeMed_hours;
         private System.Windows.Forms.Label lb_lastTimeMed_days;
         private System.Windows.Forms.Label lb_lastTimeServiceExam_hours;
@@ -2273,12 +2286,13 @@
         private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm2;
         private System.Windows.Forms.Label lb_reduce;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.RadioButton rdn_60k;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_service2;
         private System.Windows.Forms.DataGridViewTextBoxColumn STT;
         private System.Windows.Forms.DataGridViewTextBoxColumn name_service2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn original_price;
         private System.Windows.Forms.DataGridViewTextBoxColumn percent_reduce;
         private System.Windows.Forms.DataGridViewTextBoxColumn price2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn original_price;
         private System.Windows.Forms.DataGridViewTextBoxColumn notes2;
         private System.Windows.Forms.DataGridViewTextBoxColumn state2;
         private System.Windows.Forms.DataGridViewTextBoxColumn esid;

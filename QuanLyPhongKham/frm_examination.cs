@@ -1138,9 +1138,12 @@ namespace QuanLyPhongKham
 
             lb_dayofuse.Text = maxDayOfUse + "";
             int total = 0;
-            if (rdn_person.Checked)
+            if (rdn_50k.Checked)
                 total = 50000 * maxDayOfUse;
-            else total = 40000 * maxDayOfUse;
+            else if(rdn_40k.Checked) 
+                total = 40000 * maxDayOfUse;
+            else if(rdn_60k.Checked)
+                total=60000* maxDayOfUse;
             txb_total_price_med.Text = total.ToString("#,##0");
             txb_follow_up.Text = DateTime.Today.AddDays(maxDayOfUse).ToString("dd/MM/yyyy");
 
@@ -1183,9 +1186,9 @@ namespace QuanLyPhongKham
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != ',')
                 e.Handled = true;
-            if (e.KeyChar == '.' && (sender as System.Windows.Forms.TextBox).Text.Contains('.'))
+            if (e.KeyChar == ',' && (sender as System.Windows.Forms.TextBox).Text.Contains(','))
                 e.Handled = true;
         }
 
@@ -1629,7 +1632,10 @@ namespace QuanLyPhongKham
             updateTotalPriceAfterPercentReduce(percent, row);
         }
 
+        private void rdn_60k_CheckedChanged(object sender, EventArgs e)
+        {
 
+        }
     }
 }
 
