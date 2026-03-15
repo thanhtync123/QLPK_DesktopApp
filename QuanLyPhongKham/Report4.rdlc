@@ -63,16 +63,19 @@
                   <Width>0.35584in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.36076in</Width>
+                  <Width>2.21228in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>0.80069in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.75777in</Width>
+                  <Width>0.56906in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.05475in</Width>
+                  <Width>0.76484in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1.18859in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -226,6 +229,7 @@
                                   <Style>
                                     <FontFamily>times New Roman</FontFamily>
                                     <FontWeight>Bold</FontWeight>
+                                    <Format>n0</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -235,6 +239,40 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox32</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox4">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Ghi chú</Value>
+                                  <Style>
+                                    <FontFamily>times New Roman</FontFamily>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox4</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -417,6 +455,40 @@
                             <PaddingBottom>3pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox5">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontFamily>times New Roman</FontFamily>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox5</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>3pt</PaddingLeft>
+                            <PaddingRight>3pt</PaddingRight>
+                            <PaddingTop>3pt</PaddingTop>
+                            <PaddingBottom>3pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
@@ -428,8 +500,21 @@
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
-                <TablixMember />
-                <TablixMember />
+                <TablixMember>
+                  <Visibility>
+                    <Hidden>=IIF(Sum(CDbl(Fields!percent_reduce.Value)) = 0, True, False)</Hidden>
+                  </Visibility>
+                </TablixMember>
+                <TablixMember>
+                  <Visibility>
+                    <Hidden>=IIF(Sum(CDbl(Fields!percent_reduce.Value)) = 0, True, False)</Hidden>
+                  </Visibility>
+                </TablixMember>
+                <TablixMember>
+                  <Visibility>
+                    <Hidden>=IIF(Sum(CDbl(Fields!percent_reduce.Value)) = 0, False, True)</Hidden>
+                  </Visibility>
+                </TablixMember>
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
@@ -443,10 +528,10 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
-            <Top>2.23767in</Top>
-            <Left>0.14752in</Left>
+            <Top>2.21684in</Top>
+            <Left>0.17101in</Left>
             <Height>0.5in</Height>
-            <Width>5.32981in</Width>
+            <Width>5.8913in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -474,7 +559,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_ngaykham</rd:DefaultName>
-            <Top>2.76209in</Top>
+            <Top>2.72736in</Top>
             <Left>2.73913in</Left>
             <Height>0.25in</Height>
             <Width>2.65624in</Width>
@@ -557,7 +642,7 @@
             <rd:DefaultName>txb_chandoan</rd:DefaultName>
             <Top>1.97042in</Top>
             <Left>0.91435in</Left>
-            <Height>0.25in</Height>
+            <Height>0.22223in</Height>
             <Width>3.93969in</Width>
             <ZIndex>3</ZIndex>
             <Style>
@@ -930,7 +1015,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox12</rd:DefaultName>
-            <Top>7.52722cm</Top>
+            <Top>7.43902cm</Top>
             <Left>9.13226cm</Left>
             <Height>0.6cm</Height>
             <Width>3.37696cm</Width>
@@ -963,10 +1048,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_tongtien</rd:DefaultName>
-            <Top>8.18013cm</Top>
-            <Left>2.90817cm</Left>
+            <Top>8.21543cm</Top>
+            <Left>2.87289cm</Left>
             <Height>0.6cm</Height>
-            <Width>3.18792cm</Width>
+            <Width>3.11736cm</Width>
             <ZIndex>15</ZIndex>
             <Visibility>
               <Hidden>=IIF(Parameters!txb_giam.Value = 0, True, False)</Hidden>
@@ -1001,8 +1086,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox23</rd:DefaultName>
-            <Top>8.15367cm</Top>
-            <Left>0.78577cm</Left>
+            <Top>8.18897cm</Top>
+            <Left>0.75049cm</Left>
             <Height>0.6cm</Height>
             <Width>2.08712cm</Width>
             <ZIndex>16</ZIndex>
@@ -1193,7 +1278,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_dtname</rd:DefaultName>
-            <Top>10.09439cm</Top>
+            <Top>10.00619cm</Top>
             <Left>7.27489cm</Left>
             <Height>0.6cm</Height>
             <Width>6.42935cm</Width>
@@ -1212,7 +1297,7 @@
             <Source>External</Source>
             <Value>=Parameters!pr_sign.Value</Value>
             <Sizing>FitProportional</Sizing>
-            <Top>7.64189cm</Top>
+            <Top>7.55369cm</Top>
             <Left>9.20104cm</Left>
             <Height>2.735cm</Height>
             <Width>4.33424cm</Width>
@@ -1244,8 +1329,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox23</rd:DefaultName>
-            <Top>6.95367cm</Top>
-            <Left>0.78577cm</Left>
+            <Top>6.98897cm</Top>
+            <Left>0.75049cm</Left>
             <Height>0.57354cm</Height>
             <Width>2.08712cm</Width>
             <ZIndex>23</ZIndex>
@@ -1283,8 +1368,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox23</rd:DefaultName>
-            <Top>7.56249cm</Top>
-            <Left>0.78577cm</Left>
+            <Top>7.59779cm</Top>
+            <Left>0.75049cm</Left>
             <Height>0.6cm</Height>
             <Width>2.08712cm</Width>
             <ZIndex>24</ZIndex>
@@ -1319,10 +1404,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_giagoc</rd:DefaultName>
-            <Top>6.95367cm</Top>
-            <Left>2.87289cm</Left>
+            <Top>6.98897cm</Top>
+            <Left>2.83761cm</Left>
             <Height>0.6cm</Height>
-            <Width>3.2232cm</Width>
+            <Width>3.15264cm</Width>
             <ZIndex>25</ZIndex>
             <Visibility>
               <Hidden>=IIF(Parameters!txb_giam.Value = 0, True, False)</Hidden>
@@ -1355,10 +1440,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_giam</rd:DefaultName>
-            <Top>7.55367cm</Top>
+            <Top>7.58897cm</Top>
             <Left>2.87289cm</Left>
             <Height>0.6cm</Height>
-            <Width>3.2232cm</Width>
+            <Width>3.15264cm</Width>
             <ZIndex>26</ZIndex>
             <Visibility>
               <Hidden>=IIF(Parameters!txb_giam.Value = 0, True, False)</Hidden>
@@ -1428,8 +1513,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_tongtien</rd:DefaultName>
-            <Top>6.89221cm</Top>
-            <Left>2.83761cm</Left>
+            <Top>6.92751cm</Top>
+            <Left>2.80233cm</Left>
             <Height>0.68792cm</Height>
             <Width>3.18792cm</Width>
             <ZIndex>28</ZIndex>
@@ -1466,10 +1551,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox23</rd:DefaultName>
-            <Top>6.89221cm</Top>
-            <Left>0.36963cm</Left>
-            <Height>0.68792cm</Height>
-            <Width>2.46798cm</Width>
+            <Top>6.98897cm</Top>
+            <Left>0.80846cm</Left>
+            <Height>0.62646cm</Height>
+            <Width>1.99387cm</Width>
             <ZIndex>29</ZIndex>
             <Visibility>
               <Hidden>=IIF(Parameters!txb_giam.Value = 0, False, True)</Hidden>
@@ -1488,7 +1573,7 @@
         <Height>10.77944cm</Height>
         <Style />
       </Body>
-      <Width>15.16598cm</Width>
+      <Width>15.63486cm</Width>
       <Page>
         <PageHeight>21cm</PageHeight>
         <PageWidth>14.8cm</PageWidth>
