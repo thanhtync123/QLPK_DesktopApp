@@ -247,6 +247,7 @@
             this.dtgv_preset_medications.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dtgv_preset_medications.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_preset_medications_CellClick);
             this.dtgv_preset_medications.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_preset_medications_CellValueChanged);
+            this.dtgv_preset_medications.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dtgv_preset_medications_EditingControlShowing);
             // 
             // id_med_pm
             // 

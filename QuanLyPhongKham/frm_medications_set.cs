@@ -89,16 +89,16 @@ namespace QuanLyPhongKham
                     VALUES
                     ({id_set},
                     {Convert.ToInt16(id_med)},
-                    {(string.IsNullOrEmpty(morning) ? "NULL" : morning)},
-                    {(string.IsNullOrEmpty(noon) ? "NULL" : noon)},
-                    {(string.IsNullOrEmpty(afternoon) ? "NULL" : afternoon)},
-                    {(string.IsNullOrEmpty(evening) ? "NULL" : evening)},
+                     {(string.IsNullOrEmpty(morning) ? "NULL" : $"'{morning}'")},
+                    {(string.IsNullOrEmpty(noon) ? "NULL" : $"'{noon}'")},
+                    {(string.IsNullOrEmpty(afternoon) ? "NULL" : $"'{afternoon}'")},
+                    {(string.IsNullOrEmpty(evening) ? "NULL" : $"'{evening}'")},
                     '{unit}',
                      {(days_of_use == 0 ? "NULL" : days_of_use.ToString())},
                     {(total_quantity_med == 0 ? "NULL" : total_quantity_med.ToString())},
                     {(string.IsNullOrEmpty(note) ? "NULL" : $"'{note}'")});
                     ";
-     
+    
                 Db.ExecuteNonQuery(query);
 
 
@@ -269,10 +269,10 @@ namespace QuanLyPhongKham
                 float morning = 0f, noon = 0f, afternoon = 0f, evening = 0f;
 
                 int.TryParse(row.Cells["days_of_use"].Value?.ToString(), out days_of_use);
-                float.TryParse(row.Cells["morning"].Value?.ToString(), out morning);
-                float.TryParse(row.Cells["noon"].Value?.ToString(), out noon);
-                float.TryParse(row.Cells["afternoon"].Value?.ToString(), out afternoon);
-                float.TryParse(row.Cells["evening"].Value?.ToString(), out evening);
+                float.TryParse(row.Cells["morning"].Value?.ToString()?.Replace(",", "."), System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out morning);
+                float.TryParse(row.Cells["noon"].Value?.ToString()?.Replace(",", "."), System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out noon);
+                float.TryParse(row.Cells["afternoon"].Value?.ToString()?.Replace(",", "."), System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out afternoon);
+                float.TryParse(row.Cells["evening"].Value?.ToString()?.Replace(",", "."), System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out evening);
 
                 float total_med = days_of_use * (morning + noon + afternoon + evening);
                 float total_rounded = (float)Math.Ceiling(total_med);
@@ -319,6 +319,27 @@ namespace QuanLyPhongKham
         private void dtgv_medications_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void dtgv_preset_medications_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            if (e.Control is TextBox txt)
+            {
+                txt.KeyPress -= Txt_KeyPress; // tránh bị gắn nhiều lần
+                txt.KeyPress += Txt_KeyPress;
+            }
+        }
+        private void Txt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != ',')
+            {
+                e.Handled = true;
+            }
+            TextBox txt = sender as TextBox;
+            if (e.KeyChar == ',' && txt.Text.Contains(","))
+            {
+                e.Handled = true;
+            }
         }
     }
 }
