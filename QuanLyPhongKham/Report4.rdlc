@@ -362,7 +362,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!percent_reduce.Value</Value>
+                                  <Value>=IIF(IsNothing(Fields!percent_reduce.Value), "0%", CStr(Fields!percent_reduce.Value) &amp; "%")</Value>
                                   <Style>
                                     <FontFamily>times New Roman</FontFamily>
                                   </Style>
@@ -446,7 +446,7 @@
             <Top>2.23767in</Top>
             <Left>0.14752in</Left>
             <Height>0.5in</Height>
-            <Width>5.32982in</Width>
+            <Width>5.32981in</Width>
             <Style>
               <Border>
                 <Style>None</Style>

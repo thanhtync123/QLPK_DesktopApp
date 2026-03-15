@@ -257,7 +257,7 @@ namespace QuanLyPhongKham
 
             loadLastTime();
             dtgv_service_patient.Rows.Clear();
-            dtgv_service_patient.Rows.Add("", "-", "Công khám", "", "Miễn phí", "", "-");
+            dtgv_service_patient.Rows.Add("", "-", "Công khám", "Miễn phí", "0", "Miễn phí", "-");
             dtgv_patient_med.Rows.Clear();
 
 
