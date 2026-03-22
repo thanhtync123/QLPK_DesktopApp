@@ -223,7 +223,7 @@ namespace QuanLyPhongKham
             btn_save_examination_service.Enabled = true;
             id = Convert.ToInt32(dtgv_patients.CurrentRow.Cells["ID_P"].Value);
             selectedPatientId = id;
-            txb_name.Text = dtgv_patients.CurrentRow.Cells["name_p"].Value.ToString();
+            txb_fullname.Text = dtgv_patients.CurrentRow.Cells["name_p"].Value.ToString();
             txb_id.Text = id.ToString();
             txb_ngaysinh.Text = dtgv_patients.CurrentRow.Cells["date_of_birth_p"].Value.ToString();
             int lastFourChars = Convert.ToInt32(txb_ngaysinh.Text.Substring(txb_ngaysinh.Text.Length - 4));
@@ -713,7 +713,7 @@ namespace QuanLyPhongKham
         {
 
             var mabn = txb_id.Text;
-            var tenbn = txb_name.Text;
+            var tenbn = txb_fullname.Text;
             var diachi = txb_address.Text;
             var ngaysinh = txb_age.Text;
             var gioitinh = txb_gender.Text;
@@ -847,7 +847,7 @@ namespace QuanLyPhongKham
         {
             Db.ResetConnection(); 
 
-            if (string.IsNullOrWhiteSpace(txb_name.Text))
+            if (string.IsNullOrWhiteSpace(txb_fullname.Text))
             {
                 MessageBox.Show("Vui lòng điền đầy đủ thông tin bệnh nhân và phiếu khám!");
                 return;
@@ -1005,7 +1005,7 @@ namespace QuanLyPhongKham
         private void btn_print_med_Click(object sender, EventArgs e)
         {
             var mabn = txb_id.Text;
-            var tenbn = txb_name.Text;
+            var tenbn = txb_fullname.Text;
             var diachi = txb_address.Text;
             var ngaysinh = txb_age.Text;
             var loidan = cb_doctornote.Text;

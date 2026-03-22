@@ -152,6 +152,7 @@
                     <Value>=Parameters!txb_tenbn.Value</Value>
                     <Style>
                       <FontFamily>Times New Roman</FontFamily>
+                      <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
                 </TextRuns>
