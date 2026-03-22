@@ -60,22 +60,19 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>0.35584in</Width>
+                  <Width>0.49819in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.56167in</Width>
+                  <Width>3.16666in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.63596in</Width>
+                  <Width>0.60124in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.56906in</Width>
+                  <Width>0.53434in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.74516in</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>0.71984in</Width>
+                  <Width>0.71044in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -239,40 +236,6 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox32</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox4">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Ghi chú</Value>
-                                  <Style>
-                                    <FontFamily>times New Roman</FontFamily>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox4</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -457,39 +420,6 @@
                         </Textbox>
                       </CellContents>
                     </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox5">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontFamily>times New Roman</FontFamily>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox5</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>3pt</PaddingLeft>
-                            <PaddingRight>3pt</PaddingRight>
-                            <PaddingTop>3pt</PaddingTop>
-                            <PaddingBottom>3pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
                   </TablixCells>
                 </TablixRow>
               </TablixRows>
@@ -509,11 +439,6 @@
                     <Hidden>=IIF(Sum(CDbl(Fields!percent_reduce.Value)) = 0, True, False)</Hidden>
                   </Visibility>
                 </TablixMember>
-                <TablixMember>
-                  <Visibility>
-                    <Hidden>=IIF(Sum(CDbl(Fields!percent_reduce.Value)) = 0, False, True)</Hidden>
-                  </Visibility>
-                </TablixMember>
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
@@ -527,10 +452,10 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
-            <Top>2.22736in</Top>
-            <Left>0.42968in</Left>
+            <Top>2.22379in</Top>
+            <Left>0.14552in</Left>
             <Height>0.5in</Height>
-            <Width>5.58753in</Width>
+            <Width>5.51087in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1572,7 +1497,7 @@
         <Height>10.77944cm</Height>
         <Style />
       </Body>
-      <Width>15.63486cm</Width>
+      <Width>14.46202cm</Width>
       <Page>
         <PageHeight>21cm</PageHeight>
         <PageWidth>14.8cm</PageWidth>

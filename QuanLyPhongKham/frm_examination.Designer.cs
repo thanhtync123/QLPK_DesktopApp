@@ -150,10 +150,7 @@
             this.label26 = new System.Windows.Forms.Label();
             this.btn_save_examination_service = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rdn_60k = new System.Windows.Forms.RadioButton();
-            this.rdn_50k = new System.Windows.Forms.RadioButton();
-            this.rdn_40k = new System.Windows.Forms.RadioButton();
+            this.cb_price_per_day = new System.Windows.Forms.ComboBox();
             this.cb_med_set = new System.Windows.Forms.ComboBox();
             this.dtgv_med = new Guna.UI2.WinForms.Guna2DataGridView();
             this.id_med = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -205,7 +202,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_service_patient)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_service)).BeginInit();
             this.tabPage1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_med)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_patient_med)).BeginInit();
             this.guna2TabControl1.SuspendLayout();
@@ -224,7 +220,7 @@
             this.txb_name.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txb_name.ForeColor = System.Drawing.Color.Black;
             this.txb_name.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txb_name.Location = new System.Drawing.Point(213, 6);
+            this.txb_name.Location = new System.Drawing.Point(-729, -322);
             this.txb_name.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txb_name.Name = "txb_name";
             this.txb_name.PlaceholderText = "";
@@ -436,7 +432,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtgv_patients.DefaultCellStyle = dataGridViewCellStyle3;
             this.dtgv_patients.GridColor = System.Drawing.Color.Black;
-            this.dtgv_patients.Location = new System.Drawing.Point(6, 256);
+            this.dtgv_patients.Location = new System.Drawing.Point(12, 272);
             this.dtgv_patients.Name = "dtgv_patients";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
@@ -1429,7 +1425,7 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.groupBox1);
+            this.tabPage1.Controls.Add(this.cb_price_per_day);
             this.tabPage1.Controls.Add(this.cb_med_set);
             this.tabPage1.Controls.Add(this.dtgv_med);
             this.tabPage1.Controls.Add(this.txb_follow_up);
@@ -1446,6 +1442,7 @@
             this.tabPage1.Controls.Add(this.guna2ImageButton2);
             this.tabPage1.Controls.Add(this.btn_print_med);
             this.tabPage1.Controls.Add(this.btn_save_med);
+            this.tabPage1.Controls.Add(this.txb_name);
             this.tabPage1.Location = new System.Drawing.Point(184, 4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -1454,61 +1451,27 @@
             this.tabPage1.Text = "Đơn thuốc";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // groupBox1
+            // cb_price_per_day
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.White;
-            this.groupBox1.Controls.Add(this.rdn_60k);
-            this.groupBox1.Controls.Add(this.rdn_50k);
-            this.groupBox1.Controls.Add(this.rdn_40k);
-            this.groupBox1.Location = new System.Drawing.Point(610, 2);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(345, 30);
-            this.groupBox1.TabIndex = 64;
-            this.groupBox1.TabStop = false;
-            // 
-            // rdn_60k
-            // 
-            this.rdn_60k.AutoSize = true;
-            this.rdn_60k.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdn_60k.Location = new System.Drawing.Point(156, 2);
-            this.rdn_60k.Name = "rdn_60k";
-            this.rdn_60k.Size = new System.Drawing.Size(78, 25);
-            this.rdn_60k.TabIndex = 72;
-            this.rdn_60k.Text = "60.000";
-            this.rdn_60k.UseVisualStyleBackColor = true;
-            this.rdn_60k.CheckedChanged += new System.EventHandler(this.rdn_60k_CheckedChanged);
-            // 
-            // rdn_50k
-            // 
-            this.rdn_50k.AutoSize = true;
-            this.rdn_50k.Checked = true;
-            this.rdn_50k.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdn_50k.Location = new System.Drawing.Point(81, 3);
-            this.rdn_50k.Name = "rdn_50k";
-            this.rdn_50k.Size = new System.Drawing.Size(78, 25);
-            this.rdn_50k.TabIndex = 70;
-            this.rdn_50k.TabStop = true;
-            this.rdn_50k.Text = "50.000";
-            this.rdn_50k.UseVisualStyleBackColor = true;
-            this.rdn_50k.CheckedChanged += new System.EventHandler(this.rdn_person_CheckedChanged);
-            // 
-            // rdn_40k
-            // 
-            this.rdn_40k.AutoSize = true;
-            this.rdn_40k.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdn_40k.Location = new System.Drawing.Point(1, 4);
-            this.rdn_40k.Name = "rdn_40k";
-            this.rdn_40k.Size = new System.Drawing.Size(78, 25);
-            this.rdn_40k.TabIndex = 71;
-            this.rdn_40k.Text = "40.000";
-            this.rdn_40k.UseVisualStyleBackColor = true;
-            this.rdn_40k.CheckedChanged += new System.EventHandler(this.rdn_child_CheckedChanged);
+            this.cb_price_per_day.FormattingEnabled = true;
+            this.cb_price_per_day.Items.AddRange(new object[] {
+            "Chọn giá tiền / Ngày thuốc",
+            "40.000",
+            "45.000",
+            "50.000",
+            "55.000",
+            "60.000"});
+            this.cb_price_per_day.Location = new System.Drawing.Point(538, 457);
+            this.cb_price_per_day.Name = "cb_price_per_day";
+            this.cb_price_per_day.Size = new System.Drawing.Size(240, 27);
+            this.cb_price_per_day.TabIndex = 70;
+            this.cb_price_per_day.SelectedIndexChanged += new System.EventHandler(this.cb_price_per_day_SelectedIndexChanged);
             // 
             // cb_med_set
             // 
             this.cb_med_set.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_med_set.FormattingEnabled = true;
-            this.cb_med_set.Location = new System.Drawing.Point(543, 36);
+            this.cb_med_set.Location = new System.Drawing.Point(427, 38);
             this.cb_med_set.Name = "cb_med_set";
             this.cb_med_set.Size = new System.Drawing.Size(223, 27);
             this.cb_med_set.TabIndex = 64;
@@ -1627,7 +1590,7 @@
             // txb_follow_up
             // 
             this.txb_follow_up.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_follow_up.Location = new System.Drawing.Point(403, 37);
+            this.txb_follow_up.Location = new System.Drawing.Point(289, 39);
             this.txb_follow_up.Name = "txb_follow_up";
             this.txb_follow_up.Size = new System.Drawing.Size(134, 26);
             this.txb_follow_up.TabIndex = 66;
@@ -1644,10 +1607,11 @@
             // 
             // txb_total_price_med
             // 
+            this.txb_total_price_med.Enabled = false;
             this.txb_total_price_med.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_total_price_med.Location = new System.Drawing.Point(470, 6);
+            this.txb_total_price_med.Location = new System.Drawing.Point(856, 458);
             this.txb_total_price_med.Name = "txb_total_price_med";
-            this.txb_total_price_med.Size = new System.Drawing.Size(134, 26);
+            this.txb_total_price_med.Size = new System.Drawing.Size(172, 26);
             this.txb_total_price_med.TabIndex = 62;
             // 
             // dtgv_patient_med
@@ -1692,10 +1656,10 @@
             this.dtgv_patient_med.DefaultCellStyle = dataGridViewCellStyle13;
             this.dtgv_patient_med.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dtgv_patient_med.GridColor = System.Drawing.Color.Black;
-            this.dtgv_patient_med.Location = new System.Drawing.Point(522, 67);
+            this.dtgv_patient_med.Location = new System.Drawing.Point(525, 67);
             this.dtgv_patient_med.Name = "dtgv_patient_med";
             this.dtgv_patient_med.RowHeadersVisible = false;
-            this.dtgv_patient_med.Size = new System.Drawing.Size(749, 444);
+            this.dtgv_patient_med.Size = new System.Drawing.Size(749, 364);
             this.dtgv_patient_med.TabIndex = 1;
             this.dtgv_patient_med.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgv_patient_med.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -1824,7 +1788,7 @@
             // 
             this.lb_dayofuse.AutoSize = true;
             this.lb_dayofuse.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_dayofuse.Location = new System.Drawing.Point(290, 42);
+            this.lb_dayofuse.Location = new System.Drawing.Point(633, 435);
             this.lb_dayofuse.Name = "lb_dayofuse";
             this.lb_dayofuse.Size = new System.Drawing.Size(17, 19);
             this.lb_dayofuse.TabIndex = 68;
@@ -1834,7 +1798,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(191, 41);
+            this.label13.Location = new System.Drawing.Point(534, 434);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(98, 19);
             this.label13.TabIndex = 67;
@@ -1846,7 +1810,7 @@
             this.chb_follow_up.Checked = true;
             this.chb_follow_up.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chb_follow_up.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chb_follow_up.Location = new System.Drawing.Point(313, 41);
+            this.chb_follow_up.Location = new System.Drawing.Point(199, 41);
             this.chb_follow_up.Name = "chb_follow_up";
             this.chb_follow_up.Size = new System.Drawing.Size(84, 23);
             this.chb_follow_up.TabIndex = 65;
@@ -1858,7 +1822,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(399, 10);
+            this.label12.Location = new System.Drawing.Point(785, 462);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(65, 19);
             this.label12.TabIndex = 61;
@@ -1940,7 +1904,7 @@
             this.guna2TabControl1.Controls.Add(this.tabPage1);
             this.guna2TabControl1.Controls.Add(this.tabPage2);
             this.guna2TabControl1.ItemSize = new System.Drawing.Size(180, 40);
-            this.guna2TabControl1.Location = new System.Drawing.Point(445, 234);
+            this.guna2TabControl1.Location = new System.Drawing.Point(451, 272);
             this.guna2TabControl1.Name = "guna2TabControl1";
             this.guna2TabControl1.SelectedIndex = 0;
             this.guna2TabControl1.Size = new System.Drawing.Size(1459, 623);
@@ -2123,7 +2087,6 @@
             this.Controls.Add(this.txb_gender);
             this.Controls.Add(this.txb_age);
             this.Controls.Add(this.txb_ngaysinh);
-            this.Controls.Add(this.txb_name);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.lbsdfsf);
             this.Controls.Add(this.txb_symptoms);
@@ -2140,8 +2103,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_service)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_med)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_patient_med)).EndInit();
             this.guna2TabControl1.ResumeLayout(false);
@@ -2243,9 +2204,6 @@
         private System.Windows.Forms.Label lb_d1;
         private System.Windows.Forms.ComboBox cb_services_set;
         private System.Windows.Forms.ComboBox cb_med_set;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton rdn_50k;
-        private System.Windows.Forms.RadioButton rdn_40k;
         private System.Windows.Forms.Label lb_lastTimeMed_hours;
         private System.Windows.Forms.Label lb_lastTimeMed_days;
         private System.Windows.Forms.Label lb_lastTimeServiceExam_hours;
@@ -2286,7 +2244,6 @@
         private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm2;
         private System.Windows.Forms.Label lb_reduce;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.RadioButton rdn_60k;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_service2;
         private System.Windows.Forms.DataGridViewTextBoxColumn STT;
         private System.Windows.Forms.DataGridViewTextBoxColumn name_service2;
@@ -2297,5 +2254,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn state2;
         private System.Windows.Forms.DataGridViewTextBoxColumn esid;
         private System.Windows.Forms.DataGridViewTextBoxColumn delete_service;
+        private System.Windows.Forms.ComboBox cb_price_per_day;
     }
 }

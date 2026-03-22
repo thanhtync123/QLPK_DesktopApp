@@ -47,16 +47,6 @@
             this.c1_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.c1_update_day = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtgv_detail = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.lb_state = new System.Windows.Forms.Label();
-            this.chb_viewall = new System.Windows.Forms.CheckBox();
-            this.btn_maxpage = new System.Windows.Forms.Button();
-            this.btn_firstpage = new System.Windows.Forms.Button();
-            this.btn_downpage = new System.Windows.Forms.Button();
-            this.btn_uppage = new System.Windows.Forms.Button();
-            this.lb_page = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lb_totalpage = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.c2_examination_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.c2_medication_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,6 +59,22 @@
             this.c2_days_of_use = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.c2_total_quantity_med = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.c2_note = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lb_state = new System.Windows.Forms.Label();
+            this.chb_viewall = new System.Windows.Forms.CheckBox();
+            this.btn_maxpage = new System.Windows.Forms.Button();
+            this.btn_firstpage = new System.Windows.Forms.Button();
+            this.btn_downpage = new System.Windows.Forms.Button();
+            this.btn_uppage = new System.Windows.Forms.Button();
+            this.lb_page = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lb_totalpage = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txb_dayofuse = new System.Windows.Forms.TextBox();
+            this.txb_price_per_day = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txb_totalprice = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_patient_medication)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_detail)).BeginInit();
             this.SuspendLayout();
@@ -293,7 +299,7 @@
             this.dtgv_detail.Location = new System.Drawing.Point(446, 92);
             this.dtgv_detail.Name = "dtgv_detail";
             this.dtgv_detail.RowHeadersVisible = false;
-            this.dtgv_detail.Size = new System.Drawing.Size(825, 602);
+            this.dtgv_detail.Size = new System.Drawing.Size(825, 393);
             this.dtgv_detail.TabIndex = 26;
             this.dtgv_detail.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgv_detail.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -316,6 +322,80 @@
             this.dtgv_detail.ThemeStyle.RowsStyle.Height = 22;
             this.dtgv_detail.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtgv_detail.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            // 
+            // c2_examination_id
+            // 
+            this.c2_examination_id.HeaderText = "Mã phiếu khám";
+            this.c2_examination_id.Name = "c2_examination_id";
+            this.c2_examination_id.Visible = false;
+            this.c2_examination_id.Width = 86;
+            // 
+            // stt
+            // 
+            this.stt.HeaderText = "STT";
+            this.stt.Name = "stt";
+            this.stt.Width = 40;
+            // 
+            // c2_medication_id
+            // 
+            this.c2_medication_id.HeaderText = "Mã thuốc";
+            this.c2_medication_id.Name = "c2_medication_id";
+            this.c2_medication_id.Visible = false;
+            this.c2_medication_id.Width = 97;
+            // 
+            // c2_medname
+            // 
+            this.c2_medname.HeaderText = "Tên thuốc";
+            this.c2_medname.Name = "c2_medname";
+            this.c2_medname.Width = 200;
+            // 
+            // c2_unit
+            // 
+            this.c2_unit.HeaderText = "ĐV";
+            this.c2_unit.Name = "c2_unit";
+            this.c2_unit.Width = 70;
+            // 
+            // c2_morning
+            // 
+            this.c2_morning.HeaderText = "Sáng";
+            this.c2_morning.Name = "c2_morning";
+            this.c2_morning.Width = 50;
+            // 
+            // c2_noon
+            // 
+            this.c2_noon.HeaderText = "Trưa";
+            this.c2_noon.Name = "c2_noon";
+            this.c2_noon.Width = 50;
+            // 
+            // c2_afternoon
+            // 
+            this.c2_afternoon.HeaderText = "Chiều";
+            this.c2_afternoon.Name = "c2_afternoon";
+            this.c2_afternoon.Width = 50;
+            // 
+            // c2_evening
+            // 
+            this.c2_evening.HeaderText = "Tối";
+            this.c2_evening.Name = "c2_evening";
+            this.c2_evening.Width = 50;
+            // 
+            // c2_days_of_use
+            // 
+            this.c2_days_of_use.HeaderText = "Số ngày";
+            this.c2_days_of_use.Name = "c2_days_of_use";
+            this.c2_days_of_use.Width = 50;
+            // 
+            // c2_total_quantity_med
+            // 
+            this.c2_total_quantity_med.HeaderText = "Số lượng";
+            this.c2_total_quantity_med.Name = "c2_total_quantity_med";
+            this.c2_total_quantity_med.Width = 50;
+            // 
+            // c2_note
+            // 
+            this.c2_note.HeaderText = "Ghi chú";
+            this.c2_note.Name = "c2_note";
+            this.c2_note.Width = 250;
             // 
             // lb_state
             // 
@@ -424,84 +504,70 @@
             this.label3.TabIndex = 63;
             this.label3.Text = "/";
             // 
-            // c2_examination_id
+            // label2
             // 
-            this.c2_examination_id.HeaderText = "Mã phiếu khám";
-            this.c2_examination_id.Name = "c2_examination_id";
-            this.c2_examination_id.Visible = false;
-            this.c2_examination_id.Width = 86;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(472, 504);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(122, 21);
+            this.label2.TabIndex = 64;
+            this.label2.Text = "Số ngày thuốc:";
             // 
-            // stt
+            // txb_dayofuse
             // 
-            this.stt.HeaderText = "STT";
-            this.stt.Name = "stt";
-            this.stt.Width = 40;
+            this.txb_dayofuse.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txb_dayofuse.Location = new System.Drawing.Point(594, 496);
+            this.txb_dayofuse.Name = "txb_dayofuse";
+            this.txb_dayofuse.Size = new System.Drawing.Size(195, 29);
+            this.txb_dayofuse.TabIndex = 65;
             // 
-            // c2_medication_id
+            // txb_price_per_day
             // 
-            this.c2_medication_id.HeaderText = "Mã thuốc";
-            this.c2_medication_id.Name = "c2_medication_id";
-            this.c2_medication_id.Visible = false;
-            this.c2_medication_id.Width = 97;
+            this.txb_price_per_day.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txb_price_per_day.Location = new System.Drawing.Point(594, 530);
+            this.txb_price_per_day.Name = "txb_price_per_day";
+            this.txb_price_per_day.Size = new System.Drawing.Size(195, 29);
+            this.txb_price_per_day.TabIndex = 67;
             // 
-            // c2_medname
+            // label4
             // 
-            this.c2_medname.HeaderText = "Tên thuốc";
-            this.c2_medname.Name = "c2_medname";
-            this.c2_medname.Width = 200;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(503, 538);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(90, 21);
+            this.label4.TabIndex = 66;
+            this.label4.Text = "Giá / ngày:";
             // 
-            // c2_unit
+            // label5
             // 
-            this.c2_unit.HeaderText = "ĐV";
-            this.c2_unit.Name = "c2_unit";
-            this.c2_unit.Width = 70;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(508, 573);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(85, 21);
+            this.label5.TabIndex = 68;
+            this.label5.Text = "Tổng tiền:";
             // 
-            // c2_morning
+            // txb_totalprice
             // 
-            this.c2_morning.HeaderText = "Sáng";
-            this.c2_morning.Name = "c2_morning";
-            this.c2_morning.Width = 50;
-            // 
-            // c2_noon
-            // 
-            this.c2_noon.HeaderText = "Trưa";
-            this.c2_noon.Name = "c2_noon";
-            this.c2_noon.Width = 50;
-            // 
-            // c2_afternoon
-            // 
-            this.c2_afternoon.HeaderText = "Chiều";
-            this.c2_afternoon.Name = "c2_afternoon";
-            this.c2_afternoon.Width = 50;
-            // 
-            // c2_evening
-            // 
-            this.c2_evening.HeaderText = "Tối";
-            this.c2_evening.Name = "c2_evening";
-            this.c2_evening.Width = 50;
-            // 
-            // c2_days_of_use
-            // 
-            this.c2_days_of_use.HeaderText = "Số ngày";
-            this.c2_days_of_use.Name = "c2_days_of_use";
-            this.c2_days_of_use.Width = 50;
-            // 
-            // c2_total_quantity_med
-            // 
-            this.c2_total_quantity_med.HeaderText = "Số lượng";
-            this.c2_total_quantity_med.Name = "c2_total_quantity_med";
-            this.c2_total_quantity_med.Width = 50;
-            // 
-            // c2_note
-            // 
-            this.c2_note.HeaderText = "Ghi chú";
-            this.c2_note.Name = "c2_note";
-            this.c2_note.Width = 250;
+            this.txb_totalprice.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txb_totalprice.Location = new System.Drawing.Point(594, 565);
+            this.txb_totalprice.Name = "txb_totalprice";
+            this.txb_totalprice.Size = new System.Drawing.Size(195, 29);
+            this.txb_totalprice.TabIndex = 69;
             // 
             // frm_popupLUMedication
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1283, 736);
+            this.ClientSize = new System.Drawing.Size(1348, 736);
+            this.Controls.Add(this.txb_totalprice);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txb_price_per_day);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.txb_dayofuse);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lb_totalpage);
             this.Controls.Add(this.label1);
@@ -565,5 +631,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn c2_days_of_use;
         private System.Windows.Forms.DataGridViewTextBoxColumn c2_total_quantity_med;
         private System.Windows.Forms.DataGridViewTextBoxColumn c2_note;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txb_dayofuse;
+        private System.Windows.Forms.TextBox txb_price_per_day;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txb_totalprice;
     }
 }

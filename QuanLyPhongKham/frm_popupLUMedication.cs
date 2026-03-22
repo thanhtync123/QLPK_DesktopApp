@@ -26,6 +26,7 @@ namespace QuanLyPhongKham
 
         }
         public List<object[]> selectedMedications = new List<object[]>();
+        public int price_per_day = 0; 
         public int PatientID { get; set; }
         private void LoadTotalPages()
         {
@@ -134,7 +135,7 @@ namespace QuanLyPhongKham
             ";
             Db.cmd = new MySqlCommand(query, Db.conn);
             Db.dr = Db.cmd.ExecuteReader();
-            dtgv_detail.Rows.Clear(); // Xóa dữ liệu cũ trong DataGridView
+            dtgv_detail.Rows.Clear(); 
             int stt = 1;
             while (Db.dr.Read())
             {
@@ -153,9 +154,33 @@ namespace QuanLyPhongKham
                 drr.Cells["c2_total_quantity_med"].Value = Db.dr["total_quantity_med"];
                 drr.Cells["c2_note"].Value = Db.dr["note"];
             }
-
-
             Db.dr.Close();
+            int maxDaysOfUse = 0;   
+            foreach (DataGridViewRow row in dtgv_detail.Rows)
+            {
+                if (row.IsNewRow) continue;
+                if (int.TryParse(row.Cells["c2_days_of_use"].Value?.ToString(), out int daysOfUse))
+                    if (daysOfUse > maxDaysOfUse)
+                        maxDaysOfUse = daysOfUse;
+            }
+            txb_dayofuse.Text = maxDaysOfUse.ToString();
+            string sql = $@"SELECT price FROM examinations WHERE id = {id_exam}";
+            Db.cmd = new MySqlCommand(sql, Db.conn);
+            object priceObj = Db.cmd.ExecuteScalar();
+            if (priceObj != null && decimal.TryParse(priceObj.ToString(), out decimal price))
+                txb_totalprice.Text = price+"";
+            else
+                txb_totalprice.Text = maxDaysOfUse * 50000+"";
+            int price_per_day = 0;
+
+            if (priceObj != null && priceObj != DBNull.Value)
+            {
+                 price_per_day = Convert.ToInt32(priceObj);
+                if (maxDaysOfUse > 0)
+                    price_per_day = price_per_day / maxDaysOfUse;
+            }
+            txb_price_per_day.Text = price_per_day + "";
+         
 
 
         }
@@ -184,6 +209,8 @@ namespace QuanLyPhongKham
                 };
 
                 selectedMedications.Add(rowData);
+                price_per_day = Convert.ToInt32(txb_price_per_day.Text);
+
             }
 
             this.DialogResult = DialogResult.OK;

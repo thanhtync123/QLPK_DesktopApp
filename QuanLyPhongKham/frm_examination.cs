@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using Mysqlx.Crud;
+using System;
 using System.CodeDom;
 using System.Collections;
 using System.Collections.Generic;
@@ -14,10 +16,9 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
-using Mysqlx.Crud;
 using static System.ComponentModel.Design.ObjectSelectorEditor;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
 namespace QuanLyPhongKham
 {
@@ -28,6 +29,7 @@ namespace QuanLyPhongKham
         private int? selectedPatientId = null;
         int maxDayOfUse = 0;
         public static event Action OnExamChanged;
+   
         public frm_examination()
         {
             InitializeComponent();
@@ -149,6 +151,7 @@ namespace QuanLyPhongKham
             cb_percent_reduce.DisplayMember = "Value";
             cb_percent_reduce.ValueMember = "Key";
             cb_percent_reduce.SelectedIndex = 0;
+            cb_price_per_day.SelectedIndex = 0;
         }
         private void loadComboboxMedicationSet()
         {
@@ -835,14 +838,14 @@ namespace QuanLyPhongKham
         {
             if (e.RowIndex < 0 || e.RowIndex >= dtgv_patient_med.Rows.Count) return;
 
-            UpdateMedicationSummary(); // gọi xử lý
+            UpdateMedicationSummary(); 
 
         }
 
 
         private void btn_save_med_Click(object sender, EventArgs e)
         {
-            Db.ResetConnection(); // Mở kết nối
+            Db.ResetConnection(); 
 
             if (string.IsNullOrWhiteSpace(txb_name.Text))
             {
@@ -855,6 +858,11 @@ namespace QuanLyPhongKham
                 MessageBox.Show("Vui lòng thêm thuốc vào toa!");
                 return;
             }
+            if (cb_price_per_day.Text == "Chọn giá tiền / Ngày thuốc")
+                {
+                MessageBox.Show("Vui lòng chọn giá tiền / Ngày thuốc!");
+                return;
+                }
 
             try
             {
@@ -1138,18 +1146,24 @@ namespace QuanLyPhongKham
 
             lb_dayofuse.Text = maxDayOfUse + "";
             int total = 0;
-            if (rdn_50k.Checked)
-                total = 50000 * maxDayOfUse;
-            else if(rdn_40k.Checked) 
+            if (cb_price_per_day.Text=="40.000")
                 total = 40000 * maxDayOfUse;
-            else if(rdn_60k.Checked)
-                total=60000* maxDayOfUse;
+            else if (cb_price_per_day.Text == "45.000")
+                total = 45000 * maxDayOfUse;
+            else if (cb_price_per_day.Text == "50.000")
+                total = 50000 * maxDayOfUse;
+            else if (cb_price_per_day.Text == "55.000")
+                total = 55000 * maxDayOfUse;
+            else if (cb_price_per_day.Text == "60.000")
+                total = 60000 * maxDayOfUse;
+
             txb_total_price_med.Text = total.ToString("#,##0");
             txb_follow_up.Text = DateTime.Today.AddDays(maxDayOfUse).ToString("dd/MM/yyyy");
 
 
             Update_FollowUpDate();
         }
+        
 
         private void btn_select_med_Click(object sender, EventArgs e)
         {
@@ -1162,6 +1176,17 @@ namespace QuanLyPhongKham
             {
                 foreach (var rowData in frm.selectedMedications)
                     dtgv_patient_med.Rows.Add(rowData);
+                if (frm.price_per_day==40000)
+                    cb_price_per_day.SelectedIndex = 1;
+                else if (frm.price_per_day == 45000)
+                    cb_price_per_day.SelectedIndex = 2;
+                else if (frm.price_per_day == 50000)
+                    cb_price_per_day.SelectedIndex = 3;
+                else if (frm.price_per_day == 55000)
+                    cb_price_per_day.SelectedIndex = 4;
+                else if (frm.price_per_day == 60000)
+                    cb_price_per_day.SelectedIndex = 5;
+                else cb_price_per_day.SelectedIndex = 0;
                 UpdateMedicationSummary();
             }
 
@@ -1635,6 +1660,11 @@ namespace QuanLyPhongKham
         private void rdn_60k_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void cb_price_per_day_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateMedicationSummary();
         }
     }
 }
