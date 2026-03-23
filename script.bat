@@ -5,7 +5,7 @@
 set DB_NAME=clinic_db2
 set DB_USER=root
 set DB_PASS=123456
-set DB_HOST=192.168.2.100
+set DB_HOST=192.168.1.100
 set DB_PORT=3306
 set MYSQL_PATH="C:\Program Files\MySQL\MySQL Server 8.0\bin\mysqldump.exe"
 
