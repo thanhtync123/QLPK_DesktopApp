@@ -140,7 +140,7 @@ namespace QuanLyPhongKham
             btn_pre_service.Enabled = false;
             loadComboboxServiceSet();
             loadComboboxMedicationSet();
-
+            rdn_50k.Checked=true;
             cb_percent_reduce.Items.Clear();
             int[] percents = { 0, 10, 20, 30, 50, 100 };
 
@@ -151,7 +151,7 @@ namespace QuanLyPhongKham
             cb_percent_reduce.DisplayMember = "Value";
             cb_percent_reduce.ValueMember = "Key";
             cb_percent_reduce.SelectedIndex = 0;
-            cb_price_per_day.SelectedIndex = 0;
+   
         }
         private void loadComboboxMedicationSet()
         {
@@ -858,11 +858,7 @@ namespace QuanLyPhongKham
                 MessageBox.Show("Vui lòng thêm thuốc vào toa!");
                 return;
             }
-            if (cb_price_per_day.Text == "Chọn giá tiền / Ngày thuốc")
-                {
-                MessageBox.Show("Vui lòng chọn giá tiền / Ngày thuốc!");
-                return;
-                }
+          
 
             try
             {
@@ -1146,15 +1142,15 @@ namespace QuanLyPhongKham
 
             lb_dayofuse.Text = maxDayOfUse + "";
             int total = 0;
-            if (cb_price_per_day.Text=="40.000")
+            if (rdn_40k.Checked==true)
                 total = 40000 * maxDayOfUse;
-            else if (cb_price_per_day.Text == "45.000")
+            else if (rdn_45k.Checked == true)
                 total = 45000 * maxDayOfUse;
-            else if (cb_price_per_day.Text == "50.000")
+            else if (rdn_50k.Checked == true)
                 total = 50000 * maxDayOfUse;
-            else if (cb_price_per_day.Text == "55.000")
+            else if (rdn_55k.Checked == true)
                 total = 55000 * maxDayOfUse;
-            else if (cb_price_per_day.Text == "60.000")
+            else if (rdn_60k.Checked==true)
                 total = 60000 * maxDayOfUse;
 
             txb_total_price_med.Text = total.ToString("#,##0");
@@ -1176,17 +1172,17 @@ namespace QuanLyPhongKham
             {
                 foreach (var rowData in frm.selectedMedications)
                     dtgv_patient_med.Rows.Add(rowData);
-                if (frm.price_per_day==40000)
-                    cb_price_per_day.SelectedIndex = 1;
+                if (frm.price_per_day == 40000)
+                    rdn_40k.Checked = true;
                 else if (frm.price_per_day == 45000)
-                    cb_price_per_day.SelectedIndex = 2;
+                    rdn_45k.Checked = true;
                 else if (frm.price_per_day == 50000)
-                    cb_price_per_day.SelectedIndex = 3;
+                    rdn_50k.Checked = true;
                 else if (frm.price_per_day == 55000)
-                    cb_price_per_day.SelectedIndex = 4;
+                    rdn_55k.Checked = true;
                 else if (frm.price_per_day == 60000)
-                    cb_price_per_day.SelectedIndex = 5;
-                else cb_price_per_day.SelectedIndex = 0;
+                    rdn_60k.Checked = true;
+                else rdn_50k.Checked = true;
                 UpdateMedicationSummary();
             }
 
@@ -1657,12 +1653,30 @@ namespace QuanLyPhongKham
             updateTotalPriceAfterPercentReduce(percent, row);
         }
 
-        private void rdn_60k_CheckedChanged(object sender, EventArgs e)
-        {
 
+
+
+        private void rdn_40k_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateMedicationSummary();
         }
 
-        private void cb_price_per_day_SelectedIndexChanged(object sender, EventArgs e)
+        private void rdn_45k_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateMedicationSummary();
+        }
+
+        private void rdn_50k_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateMedicationSummary();
+        }
+
+        private void rdn_55k_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateMedicationSummary();
+        }
+
+        private void rdn_60k_CheckedChanged_1(object sender, EventArgs e)
         {
             UpdateMedicationSummary();
         }
