@@ -133,7 +133,7 @@ namespace QuanLyPhongKham
             Update_FollowUpDate();
             lb_d0.Text = "";
             lb_d1.Text = "";
-            dtgv_service_patient.Rows.Add("", "-", "Công khám", "", "Miễn phí", "", "-");
+            dtgv_service_patient.Rows.Add("", "-", "Công khám", "Miễn phí", "", "", "-");
             btn_update_examination.Enabled = false;
             btn_select_med.Enabled = false;
             btn_tinhtien.Enabled = false;
@@ -467,7 +467,8 @@ namespace QuanLyPhongKham
                     dtgv_service_patient.Rows[rowIndex].Cells["name_service2"].Value = nameService;
                     dtgv_service_patient.Rows[rowIndex].Cells["price2"].Value = priceService;
                     dtgv_service_patient.Rows[rowIndex].Cells["delete_service"].Value = "-";
-                    dtgv_service_patient.Rows[rowIndex].Cells["state2"].Value = "Vừa thêm";
+                    dtgv_service_patient.Rows[rowIndex].Cells["state2"].Value = "Chưa có KQ";
+                    dtgv_service_patient.Rows[rowIndex].Cells["action"].Value = "Vừa thêm";
                     dtgv_service_patient.Rows[rowIndex].Cells["original_price"].Value = selectedRow.Cells["price1"].Value;
 
                     UpdateTotalServicePrice();
@@ -666,6 +667,7 @@ namespace QuanLyPhongKham
                     else
                         dtgv_service_patient.Rows[index].Cells["STT"].Value = stt++;
 
+                    dtgv_service_patient.Rows[index].Cells["action"].Value = "Trước đó";
                     dtgv_service_patient.Rows[index].Cells["name_service2"].Value = row.Cells[1].Value;
                     dtgv_service_patient.Rows[index].Cells["percent_reduce"].Value = row.Cells[2].Value;
                     dtgv_service_patient.Rows[index].Cells["price2"].Value = row.Cells[3].Value;
@@ -1240,7 +1242,7 @@ namespace QuanLyPhongKham
                     }
 
 
-                    if (row.Cells["state2"].Value.ToString() == "Vừa thêm")
+                    if (row.Cells["action"].Value.ToString() == "Vừa thêm")
 
                     {
                         string queryIs = $@"
@@ -1252,6 +1254,7 @@ namespace QuanLyPhongKham
                         ";
 
                         Db.ExecuteNonQuery(queryIs);
+                        row.Cells["action"].Value = "Trước đó";
 
                     }
                     if (row.Cells["state2"].Value.ToString() == "Đã có KQ")
