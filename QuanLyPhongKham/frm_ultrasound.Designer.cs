@@ -111,7 +111,6 @@
             this.guna2ImageButton4 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.btn_refresh = new System.Windows.Forms.Button();
             this.btn_print = new System.Windows.Forms.Button();
-            this.btn_edit = new System.Windows.Forms.Button();
             this.btn_save = new System.Windows.Forms.Button();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
@@ -1052,7 +1051,6 @@
             this.panel2.Controls.Add(this.guna2ImageButton4);
             this.panel2.Controls.Add(this.btn_refresh);
             this.panel2.Controls.Add(this.btn_print);
-            this.panel2.Controls.Add(this.btn_edit);
             this.panel2.Controls.Add(this.btn_save);
             this.panel2.Location = new System.Drawing.Point(4, 3);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
@@ -1069,7 +1067,7 @@
             this.guna2ImageButton6.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton6.ImageRotate = 0F;
             this.guna2ImageButton6.ImageSize = new System.Drawing.Size(20, 20);
-            this.guna2ImageButton6.Location = new System.Drawing.Point(242, 4);
+            this.guna2ImageButton6.Location = new System.Drawing.Point(214, 4);
             this.guna2ImageButton6.Margin = new System.Windows.Forms.Padding(2);
             this.guna2ImageButton6.Name = "guna2ImageButton6";
             this.guna2ImageButton6.PressedState.ImageSize = new System.Drawing.Size(64, 64);
@@ -1087,7 +1085,7 @@
             this.guna2ImageButton5.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton5.ImageRotate = 0F;
             this.guna2ImageButton5.ImageSize = new System.Drawing.Size(20, 20);
-            this.guna2ImageButton5.Location = new System.Drawing.Point(164, 6);
+            this.guna2ImageButton5.Location = new System.Drawing.Point(136, 6);
             this.guna2ImageButton5.Margin = new System.Windows.Forms.Padding(2);
             this.guna2ImageButton5.Name = "guna2ImageButton5";
             this.guna2ImageButton5.PressedState.ImageSize = new System.Drawing.Size(64, 64);
@@ -1117,7 +1115,7 @@
             // btn_refresh
             // 
             this.btn_refresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_refresh.Location = new System.Drawing.Point(238, 3);
+            this.btn_refresh.Location = new System.Drawing.Point(210, 3);
             this.btn_refresh.Margin = new System.Windows.Forms.Padding(4);
             this.btn_refresh.Name = "btn_refresh";
             this.btn_refresh.Size = new System.Drawing.Size(142, 31);
@@ -1129,7 +1127,7 @@
             // btn_print
             // 
             this.btn_print.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_print.Location = new System.Drawing.Point(161, 3);
+            this.btn_print.Location = new System.Drawing.Point(133, 3);
             this.btn_print.Margin = new System.Windows.Forms.Padding(4);
             this.btn_print.Name = "btn_print";
             this.btn_print.Size = new System.Drawing.Size(71, 31);
@@ -1138,25 +1136,13 @@
             this.btn_print.UseVisualStyleBackColor = true;
             this.btn_print.Click += new System.EventHandler(this.btn_print_Click);
             // 
-            // btn_edit
-            // 
-            this.btn_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_edit.Location = new System.Drawing.Point(84, 3);
-            this.btn_edit.Margin = new System.Windows.Forms.Padding(4);
-            this.btn_edit.Name = "btn_edit";
-            this.btn_edit.Size = new System.Drawing.Size(71, 31);
-            this.btn_edit.TabIndex = 29;
-            this.btn_edit.Text = "Sửa";
-            this.btn_edit.UseVisualStyleBackColor = true;
-            this.btn_edit.Click += new System.EventHandler(this.btn_edit_Click);
-            // 
             // btn_save
             // 
             this.btn_save.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_save.Location = new System.Drawing.Point(8, 3);
             this.btn_save.Margin = new System.Windows.Forms.Padding(4);
             this.btn_save.Name = "btn_save";
-            this.btn_save.Size = new System.Drawing.Size(71, 32);
+            this.btn_save.Size = new System.Drawing.Size(124, 32);
             this.btn_save.TabIndex = 28;
             this.btn_save.Text = "Lưu";
             this.btn_save.UseVisualStyleBackColor = true;
@@ -1180,7 +1166,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1403, 805);
+            this.ClientSize = new System.Drawing.Size(1420, 822);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -1220,7 +1206,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btn_refresh;
         private System.Windows.Forms.Button btn_print;
-        private System.Windows.Forms.Button btn_edit;
         private System.Windows.Forms.Button btn_save;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;

@@ -36,11 +36,11 @@ namespace QuanLyPhongKham
             LoadComboboxTemplate();
             webBrowser1.Visible = false;
             btn_save.Enabled = false;
-            btn_edit.Enabled = false;
+   
             cb_template.Enabled = false;
             if (txb_service.Text == "")
             {
-                btn_edit.Enabled = false;
+     
                 btn_save.Enabled = false;
               
                 return;
@@ -94,7 +94,6 @@ namespace QuanLyPhongKham
         private void dtgv_exam_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             cb_template.Enabled = false;
-            btn_edit.Enabled = false;
             btn_save.Enabled = false;
             btn_delete.Enabled = true;
             if (e.RowIndex >= 0 && dtgv_exam.Rows[e.RowIndex].Cells["id_exam"].Value != null)
@@ -148,9 +147,8 @@ namespace QuanLyPhongKham
 
                 if (dtgv_service.CurrentRow.Cells["state"].Value.ToString() == "Đã có KQ")
                 {
-                    btn_save.Enabled = false;
-                    btn_edit.Enabled = true;
-
+                    btn_save.Enabled = true;
+                    btn_save.Text = "Cập nhật";
                     string sql = @"SELECT 
                 es.id AS examination_service_id,
                 er.result AS result,
@@ -174,7 +172,7 @@ namespace QuanLyPhongKham
                     {
                         isUserChangingTemplate = false;
                         Db.SetTextAndMoveCursorToEnd(txb_result, Db.dr["result"].ToString()
-                             .Replace("\\r\\n", "\r\n")); // chuyển chuỗi '\\r\\n' về ký tự xuống dòng thật
+                             .Replace("\\r\\n", "\r\n")); 
 
                         Db.SetTextAndMoveCursorToEnd(txb_final_result, Db.dr["final_result"].ToString());
 
@@ -189,7 +187,7 @@ namespace QuanLyPhongKham
                 else
                 {
                     btn_save.Enabled = true;
-                    btn_edit.Enabled = false;
+                    btn_save.Text = "Lưu";
                     cb_template.Text = "Chọn biểu mẫu";
                     txb_result.Text = "";
                     txb_final_result.Text = "";
@@ -238,54 +236,60 @@ namespace QuanLyPhongKham
             string result = txb_result.Text;
             string final_result = txb_final_result.Text;
 
-            string query = @"INSERT INTO examination_results 
+            if (dtgv_service.CurrentRow.Cells["state"].Value?.ToString() == "Chưa có KQ")
+            {
+                btn_save.Text = "Lưu";
+                string query = @"INSERT INTO examination_results 
                 (examination_service_id, template_id, result,final_result) 
                 VALUES (@examination_service_id, @template_id, @result,@final_result);";
 
-            MySqlCommand cmd = new MySqlCommand(query, Db.conn);
-            cmd.Parameters.AddWithValue("@examination_service_id", examination_service_id);
-            cmd.Parameters.AddWithValue("@template_id", template_id);
-            cmd.Parameters.AddWithValue("@result", result);
-            cmd.Parameters.AddWithValue("@final_result", final_result);
-            int rowsAffected = cmd.ExecuteNonQuery();
-            if (rowsAffected > 0)
-            {
-                MessageBox.Show("Thêm kết quả thành công.");
-                LoadDTGV_Service();
+                MySqlCommand cmd = new MySqlCommand(query, Db.conn);
+                cmd.Parameters.AddWithValue("@examination_service_id", examination_service_id);
+                cmd.Parameters.AddWithValue("@template_id", template_id);
+                cmd.Parameters.AddWithValue("@result", result);
+                cmd.Parameters.AddWithValue("@final_result", final_result);
+                int rowsAffected = cmd.ExecuteNonQuery();
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Thêm kết quả thành công.");
+                    LoadDTGV_Service();
+                }
+
+                else
+                    MessageBox.Show("Không có dữ liệu nào được thêm.");
+                btn_save.Enabled = false;
+
             }
-
-            else
-                MessageBox.Show("Không có dữ liệu nào được thêm.");
-
-
-        }
-
-        private void btn_edit_Click(object sender, EventArgs e)
-        {
-            var examination_service_id = Convert.ToInt32(dtgv_service.CurrentRow.Cells["examination_service_id"].Value);
-            var template_id = Convert.ToInt32(cb_template.SelectedValue);
-            string result = txb_result.Text;
-            string final_result = txb_final_result.Text;
-            string query = @"UPDATE examination_results SET 
+            else if (dtgv_service.CurrentRow.Cells["state"].Value?.ToString() == "Đã có KQ")
+            {
+                btn_save.Text = "Cập nhật";
+                string query = @"UPDATE examination_results SET 
                             template_id=@template_id,
                             result=@result,
                             final_result = @final_result
                             WHERE examination_service_id = @examination_service_id";
 
-            MySqlCommand cmd = new MySqlCommand(query, Db.conn);
-            cmd.Parameters.AddWithValue("@examination_service_id", examination_service_id);
-            cmd.Parameters.AddWithValue("@template_id", template_id);
-            cmd.Parameters.AddWithValue("@result", result);
-            cmd.Parameters.AddWithValue("@final_result", final_result);
-            int rowsAffected = cmd.ExecuteNonQuery();
-            if (rowsAffected > 0)
-            {
-                MessageBox.Show("Sửa kết quả thành công.");
-                LoadDTGV_Service();
-            }
-            else
-                MessageBox.Show("Không có dữ liệu nào được sửa.");
+                MySqlCommand cmd = new MySqlCommand(query, Db.conn);
+                cmd.Parameters.AddWithValue("@examination_service_id", examination_service_id);
+                cmd.Parameters.AddWithValue("@template_id", template_id);
+                cmd.Parameters.AddWithValue("@result", result);
+                cmd.Parameters.AddWithValue("@final_result", final_result);
+                int rowsAffected = cmd.ExecuteNonQuery();
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Sửa kết quả thành công.");
+                    LoadDTGV_Service();
+                }
+                else
+                    MessageBox.Show("Không có dữ liệu nào được sửa.");
+                btn_save.Enabled = false;
+            }    
+
+
+
         }
+
+
 
         private void SearchExam()
         {

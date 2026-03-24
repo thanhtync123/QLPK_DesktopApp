@@ -40,7 +40,6 @@ namespace QuanLyPhongKham
             chb_anh3.Checked = true;
             chb_anh4.Checked = true;
             btn_save.Enabled = false;
-            btn_edit.Enabled = false;
 
         }
         private int snapCount = 0;
@@ -240,8 +239,9 @@ namespace QuanLyPhongKham
 
                 if (dtgv_service.CurrentRow.Cells["state"].Value.ToString() == "Đã có KQ")
                 {
-                    btn_save.Enabled =false;
-                    btn_edit.Enabled = true;
+                    btn_save.Enabled =true;
+                    btn_save.Text = "Cập nhật";
+             
 
                     string sql = @"SELECT 
                             es.id AS examination_service_id,
@@ -284,7 +284,7 @@ namespace QuanLyPhongKham
                 else
                 {
                     btn_save.Enabled = true;
-                    btn_edit.Enabled = false;
+                    btn_save.Text = "Lưu";
                     cb_template.Text = "Chọn biểu mẫu";
                     txb_result.Text = "";
                     txb_final_result.Text = "";
@@ -357,7 +357,7 @@ namespace QuanLyPhongKham
             cb_template.Enabled = false; 
             btn_delete.Enabled = true;
             btn_save.Enabled = false;
-            btn_edit.Enabled = false;
+ 
             if (e.RowIndex >= 0 && dtgv_exam.Rows[e.RowIndex].Cells["id_exam"].Value != null)
             {
                 DataGridViewRow row = dtgv_exam.Rows[e.RowIndex];
@@ -500,10 +500,9 @@ namespace QuanLyPhongKham
         {
             try
             {
-                //string projectDir = Directory.GetParent(Application.StartupPath).Parent.Parent.FullName;
-                // string imagesDir = Path.Combine(projectDir, "images");
+
                 string imagesDir = Path.Combine(Application.StartupPath, "images");
-                Directory.CreateDirectory(imagesDir);  // tạo nếu chưa có
+                Directory.CreateDirectory(imagesDir);  
 
                 var pbs = new[] { pb_1, pb_2, pb_3, pb_4 };
                 var paths = pbs.Where(p => p.Image != null).Select(p =>
@@ -518,57 +517,51 @@ namespace QuanLyPhongKham
                 int tid = Convert.ToInt32(cb_template.SelectedValue);
                 string result = txb_result.Text.Replace("'", "''");
                 string final = txb_final_result.Text.Replace("'", "''");
-
-                string query = $@"
-        INSERT INTO examination_results 
-        (examination_service_id, template_id, result, final_result, file_path) 
-        VALUES ({id}, {tid}, '{result}', '{final}', '{filePaths}');";
-
-                var cmd = new MySqlCommand(query, Db.conn);
-                MessageBox.Show(cmd.ExecuteNonQuery() > 0 ? "Thêm kết quả thành công." : "Không có dữ liệu nào được thêm.");
-                LoadDTGV_Service();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi: " + ex.Message);
-            }
-
-        }
-
-        private void btn_edit_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                string folder = Path.Combine(Application.StartupPath, "images");
-                Directory.CreateDirectory(folder);
-
-                var pbs = new[] { pb_1, pb_2, pb_3, pb_4 };
-                var imgs = pbs.Where(p => p.Image != null).Select(p =>
+                
+                if (dtgv_service.CurrentRow.Cells["state"].Value?.ToString() == "Chưa có KQ")
                 {
-                    string name = Guid.NewGuid() + ".jpg";
-                    p.Image.Save(Path.Combine(folder, name), System.Drawing.Imaging.ImageFormat.Jpeg);
-                    return $"images/{name}"; // Lưu đường dẫn tương đối
-                }).ToList();
+                    string query = $@"
+                    INSERT INTO examination_results 
+                    (examination_service_id, template_id, result, final_result, file_path) 
+                    VALUES ({id}, {tid}, '{result}', '{final}', '{filePaths}');";
 
-                string filePaths = string.Join(",", imgs);
-                int id = Convert.ToInt32(dtgv_service.CurrentRow.Cells["examination_service_id"].Value);
-                int tid = Convert.ToInt32(cb_template.SelectedValue);
-                string result = txb_result.Text.Replace("'", "''");
-                string final = txb_final_result.Text.Replace("'", "''");
+                    var cmd = new MySqlCommand(query, Db.conn);
+                    MessageBox.Show(cmd.ExecuteNonQuery() > 0 ? "Thêm kết quả thành công." : "Không có dữ liệu nào được thêm.");
+                    btn_save.Enabled= false;    
+                    LoadDTGV_Service();
+                }
+                else if (dtgv_service.CurrentRow.Cells["state"].Value?.ToString() == "Đã có KQ")
+                {
+                    try
+                    {
+                        string folder = Path.Combine(Application.StartupPath, "images");
+                        Directory.CreateDirectory(folder);
+                        var imgs = pbs.Where(p => p.Image != null).Select(p =>
+                        {
+                            string name = Guid.NewGuid() + ".jpg";
+                            p.Image.Save(Path.Combine(folder, name), System.Drawing.Imaging.ImageFormat.Jpeg);
+                            return $"images/{name}"; 
+                        }).ToList();
+                        string query = imgs.Count > 0
+                            ? $@"UPDATE examination_results SET template_id={tid}, result='{result}', final_result='{final}', file_path='{filePaths}' WHERE examination_service_id={id};"
+                            : $@"UPDATE examination_results SET template_id={tid}, result='{result}', final_result='{final}' WHERE examination_service_id={id};";
 
-                string query = imgs.Count > 0
-                    ? $@"UPDATE examination_results SET template_id={tid}, result='{result}', final_result='{final}', file_path='{filePaths}' WHERE examination_service_id={id};"
-                    : $@"UPDATE examination_results SET template_id={tid}, result='{result}', final_result='{final}' WHERE examination_service_id={id};";
-
-                var cmd = new MySqlCommand(query, Db.conn);
-                MessageBox.Show(cmd.ExecuteNonQuery() > 0 ? "Sửa kết quả thành công." : "Không có dữ liệu nào được sửa.");
-                LoadDTGV_Service();
+                        var cmd = new MySqlCommand(query, Db.conn);
+                        MessageBox.Show(cmd.ExecuteNonQuery() > 0 ? "Sửa kết quả thành công." : "Không có dữ liệu nào được sửa.");
+                        LoadDTGV_Service();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi: " + ex.Message);
+                    }
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi: " + ex.Message);
             }
         }
+
 
 
 

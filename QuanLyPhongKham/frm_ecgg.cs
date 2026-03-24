@@ -193,24 +193,53 @@ namespace QuanLyPhongKham
             string result = txb_result.Text;
             string final_result = txb_final_result.Text;
 
-            string query = @"INSERT INTO examination_results 
+
+            if (dtgv_service.CurrentRow.Cells["state"].Value?.ToString() == "Chưa có KQ")
+            {
+                string query = @"INSERT INTO examination_results 
                 (examination_service_id, template_id, result,final_result) 
                 VALUES (@examination_service_id, @template_id, @result,@final_result);";
 
-            MySqlCommand cmd = new MySqlCommand(query, Db.conn);
-            cmd.Parameters.AddWithValue("@examination_service_id", examination_service_id);
-            cmd.Parameters.AddWithValue("@template_id", template_id);
-            cmd.Parameters.AddWithValue("@result", result);
-            cmd.Parameters.AddWithValue("@final_result", final_result);
-            int rowsAffected = cmd.ExecuteNonQuery();
-            if (rowsAffected > 0)
-            {
-                MessageBox.Show("Thêm kết quả thành công.");
-                LoadDTGV_Service();
+                MySqlCommand cmd = new MySqlCommand(query, Db.conn);
+                cmd.Parameters.AddWithValue("@examination_service_id", examination_service_id);
+                cmd.Parameters.AddWithValue("@template_id", template_id);
+                cmd.Parameters.AddWithValue("@result", result);
+                cmd.Parameters.AddWithValue("@final_result", final_result);
+                int rowsAffected = cmd.ExecuteNonQuery();
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Thêm kết quả thành công.");
+                    LoadDTGV_Service();
+                }
+                else
+                MessageBox.Show("Không có dữ liệu nào được thêm.");
+                btn_save.Enabled = false;
             }
 
-            else
-                MessageBox.Show("Không có dữ liệu nào được thêm.");
+            else if (dtgv_service.CurrentRow.Cells["state"].Value?.ToString() == "Đã có KQ")
+            {
+                string query = @"UPDATE examination_results SET 
+                            template_id=@template_id,
+                            result=@result,
+                            final_result = @final_result
+                            WHERE examination_service_id = @examination_service_id";
+
+                MySqlCommand cmd = new MySqlCommand(query, Db.conn);
+                cmd.Parameters.AddWithValue("@examination_service_id", examination_service_id);
+                cmd.Parameters.AddWithValue("@template_id", template_id);
+                cmd.Parameters.AddWithValue("@result", result);
+                cmd.Parameters.AddWithValue("@final_result", final_result);
+                int rowsAffected = cmd.ExecuteNonQuery();
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Sửa kết quả thành công.");
+                    LoadDTGV_Service();
+                }
+                else
+                    MessageBox.Show("Không có dữ liệu nào được sửa.");
+                btn_save.Enabled = false;
+            }    
+              
         }
 
         private void txb_search_TextChanged(object sender, EventArgs e)
@@ -307,8 +336,8 @@ namespace QuanLyPhongKham
 
                 if (dtgv_service.CurrentRow.Cells["state"].Value.ToString() == "Đã có KQ")
                 {
-                    btn_save.Enabled = false;
-                    btn_edit.Enabled = true;
+                    btn_save.Enabled = true;
+                    btn_save.Text = "Cập nhật";
 
                     string sql = @"SELECT 
                 es.id AS examination_service_id,
@@ -348,7 +377,7 @@ namespace QuanLyPhongKham
                 else
                 {
                     btn_save.Enabled = true;
-                    btn_edit.Enabled = false;
+                    btn_save.Text = "Lưu";
                     cb_template.Text = "Chọn biểu mẫu";
                     txb_result.Text = "";
                     txb_final_result.Text = "";
@@ -441,5 +470,9 @@ namespace QuanLyPhongKham
             }
         }
 
+        private void guna2ImageButton4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

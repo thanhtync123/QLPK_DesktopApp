@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.Globalization;
@@ -35,7 +36,7 @@ namespace QuanLyPhongKham
             LoadExam.LoadDTGVCommon(dtgv_exam, "Xét nghiệm");
             LoadComboboxTemplate();
             btn_save.Enabled = false;
-            btn_edit.Enabled = false;
+     
             cb_template.Enabled = false;
 
         }
@@ -51,7 +52,7 @@ namespace QuanLyPhongKham
             cb_template.Enabled = false;
             btn_delete.Enabled = true;
             btn_save.Enabled = false;
-            btn_edit.Enabled = false;
+            //btn_edit.Enabled = false;
             if (e.RowIndex >= 0 && dtgv_exam.Rows[e.RowIndex].Cells["id_exam"].Value != null)
             {
 
@@ -264,7 +265,6 @@ namespace QuanLyPhongKham
         private void btn_save_Click(object sender, EventArgs e)
         {
             JArray resultArr = new JArray();
-
             foreach (DataGridViewRow r in dtgv_result.Rows)
             {
                 if (r.IsNewRow) continue;
@@ -276,19 +276,47 @@ namespace QuanLyPhongKham
                     ["normal_range"] = r.Cells[3].Value?.ToString()
                 });
             }
+            if (dtgv_service.CurrentRow.Cells["state"].Value?.ToString() == "Chưa có KQ")
+            {
 
-            var sql = "INSERT INTO examination_results (examination_service_id, template_id, result, final_result) VALUES (@examination_service_id, @template_id, @result, @final_result);";
-            var param = new Dictionary<string, object>
-    {
-        { "@examination_service_id", Convert.ToInt32(dtgv_service.CurrentRow.Cells[0].Value) },
-        { "@template_id", Convert.ToInt32(cb_template.SelectedValue) },
-        { "@result", resultArr.ToString(Newtonsoft.Json.Formatting.None) },
-        { "@final_result", txb_final_result.Text }
-    };
+                var sql = "INSERT INTO examination_results (examination_service_id, template_id, result, final_result) " +
+             "VALUES (@examination_service_id, @template_id, @result, @final_result);";
+                var param = new Dictionary<string, object>
+                {
+                    { "@examination_service_id", Convert.ToInt32(dtgv_service.CurrentRow.Cells[0].Value) },
+                    { "@template_id", Convert.ToInt32(cb_template.SelectedValue) },
+                    { "@result", resultArr.ToString(Newtonsoft.Json.Formatting.None) },
+                    { "@final_result", txb_final_result.Text }
+                };
+                Db.Add(sql, param);
+                MessageBox.Show("Đã lưu");
+                btn_save.Enabled = false;
+           
+            }
+           else if (dtgv_service.CurrentRow.Cells["state"].Value?.ToString() == "Đã có KQ")
+            {
 
-            Db.Add(sql, param);
-            MessageBox.Show("Đã lưu!");
-            LoadDTGV_Service();
+                string sql = @"UPDATE examination_results 
+                      SET template_id = @template_id, 
+                          result = @result, 
+                          final_result = @final_result 
+                      WHERE examination_service_id = @examination_service_id";
+
+                var param = new Dictionary<string, object>
+        {
+            { "@examination_service_id", Convert.ToInt32(dtgv_service.CurrentRow.Cells["examination_service_id"].Value) },
+            { "@template_id", Convert.ToInt32(cb_template.SelectedValue) },
+            { "@result", resultArr.ToString(Newtonsoft.Json.Formatting.None) },
+            { "@final_result", txb_final_result.Text }
+        };
+
+                Db.Update(sql, param);
+                MessageBox.Show("Cập nhật kết quả thành công!");
+                btn_save.Enabled = false;
+            
+            }    
+
+                LoadDTGV_Service();
         }
         private void dtgv_service_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -298,32 +326,25 @@ namespace QuanLyPhongKham
 
             try
             {
-                // Set flag to indicate we're loading results to prevent interference from other events
                 isLoadingResults = true;
 
                 DataGridViewRow row = dtgv_service.Rows[e.RowIndex];
                 var name_service = row.Cells["name"].Value?.ToString();
                 txb_service.Text = name_service;
-
-                // Only clear previous results if we're clicking a different row
                 if (lastClickedRowIndex != e.RowIndex)
                 {
                     dtgv_result.Rows.Clear();
                     txb_final_result.Text = string.Empty;
-
-                    // Reset template selection to avoid interference
                     isUserChangingTemplate = false;
                     cb_template.SelectedIndex = 0;
                     isUserChangingTemplate = true;
                 }
-
-                // Update the last clicked row index
                 lastClickedRowIndex = e.RowIndex;
 
                 if (row.Cells["state"].Value.ToString() == "Đã có KQ")
                 {
-                    btn_save.Enabled = false;
-                    btn_edit.Enabled = true;
+
+                    btn_save.Text = "Cập nhật";
 
                     string sql = @"SELECT 
                         es.id AS examination_service_id,
@@ -405,10 +426,7 @@ namespace QuanLyPhongKham
                 }
                 else
                 {
-                    btn_save.Enabled = true;
-                    btn_edit.Enabled = false;
-
-                    // Need to reset the combo box and clear final result
+                    btn_save.Text = "Lưu";
                     isUserChangingTemplate = false;
                     cb_template.SelectedIndex = 0;
                     txb_final_result.Text = "";
@@ -473,7 +491,7 @@ namespace QuanLyPhongKham
                 MessageBox.Show("Cập nhật kết quả thành công!");
                 LoadDTGV_Service();
 
-                btn_edit.Enabled = false;
+ 
                 btn_save.Enabled = true;
             }
             catch (Exception ex)
