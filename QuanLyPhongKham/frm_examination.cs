@@ -1227,18 +1227,14 @@ namespace QuanLyPhongKham
 
                     if (state == "Chưa có KQ" && esid != "")
                     {
-                        string query = $@"DELETE FROM examination_services 
-                      WHERE id = {esid}";
+                        
+                        string query = $@"
+                        UPDATE examination_services
+                        SET price = {Convert.ToInt32(row.Cells["price2"].Value.ToString().Replace(".", ""))},
+                            percent_reduce = {row.Cells["percent_reduce"].Value ?? 0}
+                        WHERE id = {esid}";
+
                         Db.ExecuteNonQuery(query);
-
-                        string queryIs = $@"
-                        INSERT INTO examination_services (examination_id, service_id,price,percent_reduce)
-                        VALUES ({txb_exam_id.Text}, 
-                                {row.Cells["id_service2"].Value?.ToString()},
-                                {Convert.ToInt32(row.Cells["price2"].Value?.ToString().Replace(".", "").Trim())},
-                                {row.Cells["percent_reduce"].Value ?? 0})";
-
-                        Db.ExecuteNonQuery(queryIs);
                     }
 
 
