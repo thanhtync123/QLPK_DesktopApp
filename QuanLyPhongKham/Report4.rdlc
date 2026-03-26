@@ -973,8 +973,8 @@
             </Paragraphs>
             <rd:DefaultName>txb_tongtien</rd:DefaultName>
             <Top>8.21543cm</Top>
-            <Left>2.87289cm</Left>
-            <Height>0.6cm</Height>
+            <Left>2.56259cm</Left>
+            <Height>0.57354cm</Height>
             <Width>3.11736cm</Width>
             <ZIndex>15</ZIndex>
             <Visibility>
@@ -1011,7 +1011,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox23</rd:DefaultName>
             <Top>8.18897cm</Top>
-            <Left>0.75049cm</Left>
+            <Left>0.44019cm</Left>
             <Height>0.6cm</Height>
             <Width>2.08712cm</Width>
             <ZIndex>16</ZIndex>
@@ -1254,7 +1254,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox23</rd:DefaultName>
             <Top>6.98897cm</Top>
-            <Left>0.75049cm</Left>
+            <Left>0.44019cm</Left>
             <Height>0.57354cm</Height>
             <Width>2.08712cm</Width>
             <ZIndex>23</ZIndex>
@@ -1293,7 +1293,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox23</rd:DefaultName>
             <Top>7.59779cm</Top>
-            <Left>0.75049cm</Left>
+            <Left>0.44019cm</Left>
             <Height>0.6cm</Height>
             <Width>2.08712cm</Width>
             <ZIndex>24</ZIndex>
@@ -1329,7 +1329,7 @@
             </Paragraphs>
             <rd:DefaultName>txb_giagoc</rd:DefaultName>
             <Top>6.98897cm</Top>
-            <Left>2.83761cm</Left>
+            <Left>2.52731cm</Left>
             <Height>0.6cm</Height>
             <Width>3.15264cm</Width>
             <ZIndex>25</ZIndex>
@@ -1365,7 +1365,7 @@
             </Paragraphs>
             <rd:DefaultName>txb_giam</rd:DefaultName>
             <Top>7.58897cm</Top>
-            <Left>2.87289cm</Left>
+            <Left>2.56259cm</Left>
             <Height>0.6cm</Height>
             <Width>3.15264cm</Width>
             <ZIndex>26</ZIndex>
@@ -1438,7 +1438,7 @@
             </Paragraphs>
             <rd:DefaultName>txb_tongtien</rd:DefaultName>
             <Top>6.92751cm</Top>
-            <Left>2.80233cm</Left>
+            <Left>2.49203cm</Left>
             <Height>0.68792cm</Height>
             <Width>3.18792cm</Width>
             <ZIndex>28</ZIndex>
@@ -1476,7 +1476,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox23</rd:DefaultName>
             <Top>6.98897cm</Top>
-            <Left>0.80846cm</Left>
+            <Left>0.49816cm</Left>
             <Height>0.62646cm</Height>
             <Width>1.99387cm</Width>
             <ZIndex>29</ZIndex>
@@ -1495,12 +1495,12 @@
           </Textbox>
           <Image Name="img_qrbank">
             <Source>External</Source>
-            <Value>=</Value>
+            <Value>=Parameters!pr_qrbank.Value</Value>
             <Sizing>FitProportional</Sizing>
-            <Top>8.93008cm</Top>
-            <Left>0.75049cm</Left>
-            <Height>1.5cm</Height>
-            <Width>1.5cm</Width>
+            <Top>6.91843cm</Top>
+            <Left>4.93428cm</Left>
+            <Height>3.37026cm</Height>
+            <Width>3.63121cm</Width>
             <ZIndex>30</ZIndex>
             <Style>
               <Border>
@@ -1509,7 +1509,7 @@
             </Style>
           </Image>
         </ReportItems>
-        <Height>11.47162cm</Height>
+        <Height>10.73079cm</Height>
         <Style />
       </Body>
       <Width>14.46202cm</Width>
