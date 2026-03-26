@@ -24,7 +24,7 @@ namespace QuanLyPhongKham
             {
                 Db.ResetConnection();
 
-                string query = "SELECT id, role, name,sig_img FROM users WHERE username = @username AND password = @password";
+                string query = "SELECT id, role, name,sig_img,bank_account,bank_code FROM users WHERE username = @username AND password = @password";
                 MySqlCommand cmd = new MySqlCommand(query, Db.conn);
                 cmd.Parameters.AddWithValue("@username", txb_username.Text);
                 cmd.Parameters.AddWithValue("@password", txb_password.Text);
@@ -40,6 +40,9 @@ namespace QuanLyPhongKham
                     CurrentUser.UserName = name;
                     CurrentUser.Id = id;
                     CurrentUser.Signature = sig_img;
+                    CurrentUser.Bank_account = reader["bank_account"].ToString();
+                    CurrentUser.Bank_code = reader["bank_code"].ToString();
+
                     reader.Close();
                     Db.conn.Close();
 

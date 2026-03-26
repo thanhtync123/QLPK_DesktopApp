@@ -12,5 +12,9 @@ namespace QuanLyPhongKham
         public static string Id { get; set; }
 
         public static string Signature { get; set; }
+
+        public static string Bank_account { get; set;  }
+
+        public static string Bank_code { get; set; }
     }
 }

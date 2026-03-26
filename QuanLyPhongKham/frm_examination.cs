@@ -727,10 +727,22 @@ namespace QuanLyPhongKham
             var sdt = txb_phone.Text;
             var giagoc = lb_total_price_origin.Text;
             var dagiam = lb_reduce.Text;
-            frm_report_service frm = new frm_report_service(
-                GetDataTableFromDataGridView(dtgv_service_patient),
-                mabn, tenbn, diachi, ngaysinh, gioitinh, loidan, chandoan, trieuchung, ngaykham, tongtien, sdt,giagoc,dagiam
-            );
+            string url_bankcode = $@"https://img.vietqr.io/image/{CurrentUser.Bank_code}-{CurrentUser.Bank_account}-compact.png?amount={Convert.ToInt32(tongtien.Replace(",", "").Replace(".", ""))}";
+            frm_report_service frm = new frm_report_service(GetDataTableFromDataGridView(dtgv_service_patient),
+                                                            mabn,
+                                                            tenbn,
+                                                            diachi,
+                                                            ngaysinh,
+                                                            gioitinh,
+                                                            loidan,
+                                                            chandoan,
+                                                            trieuchung,
+                                                            ngaykham,
+                                                            tongtien,
+                                                            sdt,
+                                                            giagoc,
+                                                            dagiam,
+                                                            url_bankcode);
             frm.ShowDialog();
         }
 
@@ -1039,11 +1051,8 @@ namespace QuanLyPhongKham
                 float afternoon = float.TryParse(afternoonStr, out var a) ? a : 0;
                 float evening = float.TryParse(eveningStr, out var ev) ? ev : 0;
 
-
-                // Dòng 1: STT / Tên thuốc + số lượng + đơn vị (đơn vị in nghiêng)
                 thuoc += $"{stt}/ <b>{medName}</b> &nbsp;&nbsp; <b>{totalQty}</b> <i>{unit}</i><br/>";
 
-                // Dòng 2: Liều dùng
                 List<string> dosages = new List<string>();
 
                 if (morning > 0)
@@ -1068,11 +1077,13 @@ namespace QuanLyPhongKham
             }
             thuoc = thuoc.TrimEnd();
 
-
+            string url_qrbank = $@"https://img.vietqr.io/image/{CurrentUser.Bank_code}-{CurrentUser.Bank_account}-compact2.png?
+                        amount={Convert.ToInt32(tongtien.Replace(",", "").Replace(".", ""))}
+                        &accountName={CurrentUser.UserName}";
             var frm = new frm_report_med(
                 mabn, tenbn, ngaysinh, diachi, loidan,
                 chandoan, chandoanphu, ngaykham,
-                tongtien, sdt, thuoc, taikham, songaythuoc
+                tongtien, sdt, thuoc, taikham, songaythuoc,url_qrbank
             );
 
             frm.ShowDialog();
@@ -1357,6 +1368,8 @@ namespace QuanLyPhongKham
         }
 
         private DataTable dtBackup;
+     
+
         private void LoadBackupOldService()
         {
             dtBackup = new DataTable();
