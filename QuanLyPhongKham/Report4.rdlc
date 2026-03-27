@@ -1498,9 +1498,9 @@
             <Value>=Parameters!pr_qrbank.Value</Value>
             <Sizing>FitProportional</Sizing>
             <Top>6.91843cm</Top>
-            <Left>4.93428cm</Left>
-            <Height>3.37026cm</Height>
-            <Width>3.63121cm</Width>
+            <Left>4.29928cm</Left>
+            <Height>3.08776cm</Height>
+            <Width>2.97561cm</Width>
             <ZIndex>30</ZIndex>
             <Style>
               <Border>

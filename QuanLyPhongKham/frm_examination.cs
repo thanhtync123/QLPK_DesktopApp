@@ -727,7 +727,7 @@ namespace QuanLyPhongKham
             var sdt = txb_phone.Text;
             var giagoc = lb_total_price_origin.Text;
             var dagiam = lb_reduce.Text;
-            string url_qrbank = $@"https://img.vietqr.io/image/{CurrentUser.Bank_code}-{CurrentUser.Bank_account}-compact2.png?amount={Convert.ToInt32(lb_total_price_service.Text.Replace(",", "").Replace(".", ""))}&accountName={CurrentUser.UserName}";
+            string url_qrbank = $@"https://img.vietqr.io/image/{CurrentUser.Bank_code}-{CurrentUser.Bank_account}-compact2.png&accountName={CurrentUser.UserName}";
             frm_report_service frm = new frm_report_service(GetDataTableFromDataGridView(dtgv_service_patient),
                                                             mabn,
                                                             tenbn,
@@ -1077,7 +1077,7 @@ namespace QuanLyPhongKham
             }
             thuoc = thuoc.TrimEnd();
 
-            string url_qrbank = $@"https://img.vietqr.io/image/{CurrentUser.Bank_code}-{CurrentUser.Bank_account}-compact2.png?amount={Convert.ToInt32(txb_total_price_med.Text.Replace(",", "").Replace(".", ""))}&accountName={CurrentUser.UserName}";
+            string url_qrbank = $@"https://img.vietqr.io/image/{CurrentUser.Bank_code}-{CurrentUser.Bank_account}-compact2.png&accountName={CurrentUser.UserName}";
             var frm = new frm_report_med(
                 mabn, tenbn, ngaysinh, diachi, loidan,
                 chandoan, chandoanphu, ngaykham,
