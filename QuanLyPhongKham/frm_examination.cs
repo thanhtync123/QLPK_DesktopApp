@@ -1678,6 +1678,7 @@ namespace QuanLyPhongKham
             object result = Db.cmd.ExecuteScalar();
             SetLastTime(lb_lastTimeMed_days, lb_lastTimeMed_hours, result);
 
+
             // Lấy "chỉ định"
             query = $@"
             SELECT updated_at
@@ -1689,6 +1690,44 @@ namespace QuanLyPhongKham
             Db.cmd = new MySqlCommand(query, Db.conn);
             result = Db.cmd.ExecuteScalar();
             SetLastTime(lb_lastTimeServiceExam_day, lb_lastTimeServiceExam_hours, result);
+
+            query = $@"
+            SELECT updated_at
+            FROM examinations
+            WHERE patient_id = {Convert.ToInt32(txb_id.Text)}
+              AND type = 'toa thuốc'
+              AND date(updated_at) = current_date()
+            ORDER BY updated_at DESC
+            LIMIT 1";
+            Db.cmd = new MySqlCommand(query, Db.conn);
+             result = Db.cmd.ExecuteScalar();
+            SetLastTime(lb_last_med_time, lb_lastTimeMed_hours, result);
+
+            query = $@"
+        SELECT price
+        FROM examinations
+        WHERE patient_id = {Convert.ToInt32(txb_id.Text)}
+          AND type = 'toa thuốc'
+          AND DATE(updated_at) = CURDATE()
+        ORDER BY updated_at DESC
+        LIMIT 1";
+
+            result = Db.Scalar(query); 
+
+            if (result != null && result != DBNull.Value)
+            {
+                int price = Convert.ToInt32(result); 
+                lb_last_med_price.Text = price.ToString("N0");
+            }
+            else
+            
+                lb_last_med_price.Text = "Chưa có";
+            
+
+
+
+
+
 
 
         }

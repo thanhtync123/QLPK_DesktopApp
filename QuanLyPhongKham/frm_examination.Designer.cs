@@ -206,6 +206,11 @@
             this.txb_symptoms = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2BorderlessForm2 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.txb_fullname = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.lb_last_med_time = new System.Windows.Forms.Label();
+            this.lb_last_med_price = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_patients)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_service_patient)).BeginInit();
@@ -441,7 +446,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtgv_patients.DefaultCellStyle = dataGridViewCellStyle3;
             this.dtgv_patients.GridColor = System.Drawing.Color.Black;
-            this.dtgv_patients.Location = new System.Drawing.Point(25, 275);
+            this.dtgv_patients.Location = new System.Drawing.Point(-1, 269);
             this.dtgv_patients.Name = "dtgv_patients";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
@@ -454,7 +459,7 @@
             this.dtgv_patients.RowHeadersVisible = false;
             this.dtgv_patients.RowHeadersWidth = 51;
             this.dtgv_patients.RowTemplate.Height = 35;
-            this.dtgv_patients.Size = new System.Drawing.Size(438, 515);
+            this.dtgv_patients.Size = new System.Drawing.Size(438, 558);
             this.dtgv_patients.TabIndex = 16;
             this.dtgv_patients.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgv_patients.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -961,7 +966,12 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.lb_last_med_price);
+            this.tabPage2.Controls.Add(this.label19);
+            this.tabPage2.Controls.Add(this.lb_last_med_time);
             this.tabPage2.Controls.Add(this.rdn_med_service);
+            this.tabPage2.Controls.Add(this.label18);
+            this.tabPage2.Controls.Add(this.label20);
             this.tabPage2.Controls.Add(this.rdn_onlyservice);
             this.tabPage2.Controls.Add(this.rdn_noauto);
             this.tabPage2.Controls.Add(this.lb_reduce);
@@ -1103,11 +1113,11 @@
             this.dtgv_service_patient.DefaultCellStyle = dataGridViewCellStyle20;
             this.dtgv_service_patient.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dtgv_service_patient.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dtgv_service_patient.Location = new System.Drawing.Point(513, 77);
+            this.dtgv_service_patient.Location = new System.Drawing.Point(513, 100);
             this.dtgv_service_patient.Name = "dtgv_service_patient";
             this.dtgv_service_patient.RowHeadersVisible = false;
             this.dtgv_service_patient.RowHeadersWidth = 51;
-            this.dtgv_service_patient.Size = new System.Drawing.Size(750, 449);
+            this.dtgv_service_patient.Size = new System.Drawing.Size(750, 426);
             this.dtgv_service_patient.TabIndex = 1;
             this.dtgv_service_patient.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgv_service_patient.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -1280,11 +1290,11 @@
             dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtgv_service.DefaultCellStyle = dataGridViewCellStyle25;
             this.dtgv_service.GridColor = System.Drawing.Color.Black;
-            this.dtgv_service.Location = new System.Drawing.Point(6, 76);
+            this.dtgv_service.Location = new System.Drawing.Point(6, 78);
             this.dtgv_service.Name = "dtgv_service";
             this.dtgv_service.RowHeadersVisible = false;
             this.dtgv_service.RowHeadersWidth = 51;
-            this.dtgv_service.Size = new System.Drawing.Size(507, 448);
+            this.dtgv_service.Size = new System.Drawing.Size(507, 446);
             this.dtgv_service.TabIndex = 0;
             this.dtgv_service.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgv_service.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -2009,7 +2019,7 @@
             this.guna2TabControl1.Controls.Add(this.tabPage1);
             this.guna2TabControl1.Controls.Add(this.tabPage2);
             this.guna2TabControl1.ItemSize = new System.Drawing.Size(180, 40);
-            this.guna2TabControl1.Location = new System.Drawing.Point(469, 275);
+            this.guna2TabControl1.Location = new System.Drawing.Point(443, 269);
             this.guna2TabControl1.Name = "guna2TabControl1";
             this.guna2TabControl1.SelectedIndex = 0;
             this.guna2TabControl1.Size = new System.Drawing.Size(1459, 623);
@@ -2162,6 +2172,51 @@
             this.txb_fullname.SelectedText = "";
             this.txb_fullname.Size = new System.Drawing.Size(353, 42);
             this.txb_fullname.TabIndex = 70;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(882, 76);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(197, 19);
+            this.label18.TabIndex = 71;
+            this.label18.Text = "Toa thuốc gần nhất trong ngày: ";
+            // 
+            // lb_last_med_time
+            // 
+            this.lb_last_med_time.AutoSize = true;
+            this.lb_last_med_time.Location = new System.Drawing.Point(1157, 76);
+            this.lb_last_med_time.Name = "lb_last_med_time";
+            this.lb_last_med_time.Size = new System.Drawing.Size(20, 19);
+            this.lb_last_med_time.TabIndex = 72;
+            this.lb_last_med_time.Text = "lb";
+            // 
+            // lb_last_med_price
+            // 
+            this.lb_last_med_price.AutoSize = true;
+            this.lb_last_med_price.Location = new System.Drawing.Point(1085, 76);
+            this.lb_last_med_price.Name = "lb_last_med_price";
+            this.lb_last_med_price.Size = new System.Drawing.Size(20, 19);
+            this.lb_last_med_price.TabIndex = 73;
+            this.lb_last_med_price.Text = "lb";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(1085, 78);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(20, 19);
+            this.label19.TabIndex = 76;
+            this.label19.Text = "lb";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(1157, 78);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(20, 19);
+            this.label20.TabIndex = 75;
+            this.label20.Text = "lb";
             // 
             // frm_examination
             // 
@@ -2390,5 +2445,10 @@
         private System.Windows.Forms.RadioButton rdn_med_service;
         private System.Windows.Forms.RadioButton rdn_onlyservice;
         private System.Windows.Forms.RadioButton rdn_noauto;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label lb_last_med_time;
+        private System.Windows.Forms.Label lb_last_med_price;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label20;
     }
 }
