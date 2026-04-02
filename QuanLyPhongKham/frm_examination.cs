@@ -713,37 +713,90 @@ namespace QuanLyPhongKham
 
         private void btn_print_service_Click(object sender, EventArgs e)
         {
+            string query = $@"SELECT id,price,updated_at
+                  FROM examinations
+                  WHERE patient_id = {Convert.ToInt16(txb_id.Text)}
+                  AND DATE(updated_at) = CURDATE()
+                  ORDER BY updated_at DESC";
+            DataTable dt = Db.ExecuteQuery(query);
+            Form frm = new Form()
+            {
+                Width = 300,
+                Height = 300,
+                Text = "Chọn phiếu",
+                StartPosition = FormStartPosition.CenterScreen
+            };
+            List<System.Windows.Forms.CheckBox> cbs = new List<System.Windows.Forms.CheckBox>();
 
-            var mabn = txb_id.Text;
-            var tenbn = txb_fullname.Text;
-            var diachi = txb_address.Text;
-            var ngaysinh = txb_age.Text;
-            var gioitinh = txb_gender.Text;
-            var loidan = cb_doctornote.Text;
-            var chandoan = cbo_diagnoses.Text;
-            var trieuchung = txb_symptoms.Text;
-            var tongtien = lb_total_price_service.Text;
-            var ngaykham = DateTime.Now.ToString("'Ngày' dd 'tháng' MM 'năm' yyyy");
-            var sdt = txb_phone.Text;
-            var giagoc = lb_total_price_origin.Text;
-            var dagiam = lb_reduce.Text;
-            string url_qrbank = $@"https://img.vietqr.io/image/{CurrentUser.Bank_code}-{CurrentUser.Bank_account}-compact2.png&accountName={CurrentUser.UserName}";
-            frm_report_service frm = new frm_report_service(GetDataTableFromDataGridView(dtgv_service_patient),
-                                                            mabn,
-                                                            tenbn,
-                                                            diachi,
-                                                            ngaysinh,
-                                                            gioitinh,
-                                                            loidan,
-                                                            chandoan,
-                                                            trieuchung,
-                                                            ngaykham,
-                                                            tongtien,
-                                                            sdt,
-                                                            giagoc,
-                                                            dagiam,
-                                                            url_qrbank);
+            foreach (DataRow r in dt.Rows)
+            {
+                var price = r["price"];
+                var time = Convert.ToDateTime(r["updated_at"]).ToString("HH:mm");
+                var id = r["id"];
+                System.Windows.Forms.CheckBox cb = new System.Windows.Forms.CheckBox()
+                {
+                    Text = $"ID: {id} - Giá: {price} - Thời gian: {time}",
+                    Dock = DockStyle.Top,
+                    Tag = r
+                };
+                cbs.Add(cb);
+                frm.Controls.Add(cb);
+            }
+            System.Windows.Forms.Button btn = new System.Windows.Forms.Button()
+            {
+                Text = "OK",
+                Dock = DockStyle.Bottom
+            };
+            frm.Controls.Add(btn);
+            List<DataRow> selectedRows = new List<DataRow>();
+            btn.Click += (s, ev) =>
+            {
+                selectedRows.Clear();
+                foreach (var cb in cbs)
+                    if (cb.Checked)
+                        selectedRows.Add((DataRow)cb.Tag);
+
+                frm.Close();
+            };
+
+            // Hiển thị form
             frm.ShowDialog();
+
+            // Test kết quả
+            MessageBox.Show($"Đã chọn: {selectedRows.Count} phiếu");
+
+            //frm.ShowDialog();
+
+            //var mabn = txb_id.Text;
+            //var tenbn = txb_fullname.Text;
+            //var diachi = txb_address.Text;
+            //var ngaysinh = txb_age.Text;
+            //var gioitinh = txb_gender.Text;
+            //var loidan = cb_doctornote.Text;
+            //var chandoan = cbo_diagnoses.Text;
+            //var trieuchung = txb_symptoms.Text;
+            //var tongtien = lb_total_price_service.Text;
+            //var ngaykham = DateTime.Now.ToString("'Ngày' dd 'tháng' MM 'năm' yyyy");
+            //var sdt = txb_phone.Text;
+            //var giagoc = lb_total_price_origin.Text;
+            //var dagiam = lb_reduce.Text;
+            //string url_qrbank = $@"https://img.vietqr.io/image/{CurrentUser.Bank_code}-{CurrentUser.Bank_account}-compact2.png&accountName={CurrentUser.UserName}";
+            //frm_report_service frm = new frm_report_service(GetDataTableFromDataGridView(dtgv_service_patient),
+            //                                                mabn,
+            //                                                tenbn,
+            //                                                diachi,
+            //                                                ngaysinh,
+            //                                                gioitinh,
+            //                                                loidan,
+            //                                                chandoan,
+            //                                                trieuchung,
+            //                                                ngaykham,
+            //                                                tongtien,
+            //                                                sdt,
+            //                                                giagoc,
+            //                                                dagiam,
+            //                                                url_qrbank);
+            //frm.ShowDialog();
         }
 
 

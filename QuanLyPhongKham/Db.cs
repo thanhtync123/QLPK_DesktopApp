@@ -189,7 +189,29 @@ namespace QuanLyPhongKham
             }
         }
 
+        public static DataTable ExecuteQuery(string query)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                ResetConnection(); // mở kết nối
 
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dt);
+                    }
+                }
+
+                conn.Close(); // đóng kết nối
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi ExecuteQuery: " + ex.Message);
+            }
+            return dt;
+        }
 
     }
 }
