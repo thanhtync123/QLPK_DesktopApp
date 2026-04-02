@@ -29,7 +29,7 @@ namespace QuanLyPhongKham
         private int? selectedPatientId = null;
         int maxDayOfUse = 0;
         public static event Action OnExamChanged;
-   
+
         public frm_examination()
         {
             InitializeComponent();
@@ -140,7 +140,7 @@ namespace QuanLyPhongKham
             btn_pre_service.Enabled = false;
             loadComboboxServiceSet();
             loadComboboxMedicationSet();
-            rdn_50k.Checked=true;
+            rdn_50k.Checked = true;
             cb_percent_reduce.Items.Clear();
             int[] percents = { 0, 10, 20, 30, 50, 100 };
 
@@ -151,7 +151,7 @@ namespace QuanLyPhongKham
             cb_percent_reduce.DisplayMember = "Value";
             cb_percent_reduce.ValueMember = "Key";
             cb_percent_reduce.SelectedIndex = 0;
-   
+
         }
         private void loadComboboxMedicationSet()
         {
@@ -457,10 +457,10 @@ namespace QuanLyPhongKham
                     var idService = selectedRow.Cells["id_service"].Value?.ToString();
                     var nameService = selectedRow.Cells["service_name"].Value?.ToString();
                     var priceService = selectedRow.Cells["price1"].Value?.ToString();
-                    
+
                     if (decimal.TryParse(priceService, out decimal price))
 
-                        priceService = price.ToString("N0"); 
+                        priceService = price.ToString("N0");
 
                     int rowIndex = dtgv_service_patient.Rows.Add();
                     dtgv_service_patient.Rows[rowIndex].Cells["id_service2"].Value = idService;
@@ -678,7 +678,7 @@ namespace QuanLyPhongKham
                     dtgv_service_patient.Rows[index].Cells["original_price"].Value = row.Cells[4].Value;
                 }
 
-               
+
                 UpdateTotalServicePrice();
             }
         }
@@ -710,93 +710,158 @@ namespace QuanLyPhongKham
 
 
         }
+        private void GenerateReportService(string tongtien_kemthuoc)
+        {
+            var mabn = txb_id.Text;
+            var tenbn = txb_fullname.Text;
+            var diachi = txb_address.Text;
+            var ngaysinh = txb_age.Text;
+            var gioitinh = txb_gender.Text;
+            var loidan = cb_doctornote.Text;
+            var chandoan = cbo_diagnoses.Text;
+            var trieuchung = txb_symptoms.Text;
+            var tongtien = lb_total_price_service.Text;
+            var ngaykham = DateTime.Now.ToString("'Ngày' dd 'tháng' MM 'năm' yyyy");
+            var sdt = txb_phone.Text;
+            var giagoc = lb_total_price_origin.Text;
+            var dagiam = lb_reduce.Text;
+            string url_qrbank = "";
 
+            if (rdn_noauto.Checked)
+                url_qrbank = $@"https://img.vietqr.io/image/{CurrentUser.Bank_code}-{CurrentUser.Bank_account}-compact2.png";
+            else if (tongtien_kemthuoc == "")
+                url_qrbank = $@"https://img.vietqr.io/image/{CurrentUser.Bank_code}-{CurrentUser.Bank_account}-compact2.png" +
+                            $"?amount={tongtien.Replace(",", "").Replace(".", "")}";
+            else
+                url_qrbank = $@"https://img.vietqr.io/image/{CurrentUser.Bank_code}-{CurrentUser.Bank_account}-compact2.png" +
+                             $"?amount={tongtien_kemthuoc.Replace(",", "").Replace(".", "")}";
+           
+            frm_report_service frm = new frm_report_service(GetDataTableFromDataGridView(dtgv_service_patient),
+                                                                    mabn,
+                                                                    tenbn,
+                                                                    diachi,
+                                                                    ngaysinh,
+                                                                    gioitinh,
+                                                                    loidan,
+                                                                    chandoan,
+                                                                    trieuchung,
+                                                                    ngaykham,
+                                                                    tongtien,
+                                                                    sdt,
+                                                                    giagoc,
+                                                                    dagiam,
+                                                                    url_qrbank,
+                                                                    tongtien_kemthuoc);
+            frm.ShowDialog();
+        }
         private void btn_print_service_Click(object sender, EventArgs e)
         {
-            string query = $@"SELECT id,price,updated_at
+
+            if (txb_id.Text=="")
+            {
+                MessageBox.Show("Vui lòng chọn KH trước khi in phiếu dịch vụ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            string query = $@"SELECT COUNT(*)
                   FROM examinations
                   WHERE patient_id = {Convert.ToInt16(txb_id.Text)}
                   AND DATE(updated_at) = CURDATE()
                   ORDER BY updated_at DESC";
-            DataTable dt = Db.ExecuteQuery(query);
-            Form frm = new Form()
+            var result = Db.Scalar(query);
+            if (Convert.ToInt32(result) == 0 || rdn_onlyservice.Checked == true || rdn_noauto.Checked==true)
             {
-                Width = 300,
-                Height = 300,
-                Text = "Chọn phiếu",
-                StartPosition = FormStartPosition.CenterScreen
-            };
-            List<System.Windows.Forms.CheckBox> cbs = new List<System.Windows.Forms.CheckBox>();
-
-            foreach (DataRow r in dt.Rows)
-            {
-                var price = r["price"];
-                var time = Convert.ToDateTime(r["updated_at"]).ToString("HH:mm");
-                var id = r["id"];
-                System.Windows.Forms.CheckBox cb = new System.Windows.Forms.CheckBox()
-                {
-                    Text = $"ID: {id} - Giá: {price} - Thời gian: {time}",
-                    Dock = DockStyle.Top,
-                    Tag = r
-                };
-                cbs.Add(cb);
-                frm.Controls.Add(cb);
+                var tongtien_kemthuoc = "";
+                GenerateReportService(tongtien_kemthuoc);
             }
-            System.Windows.Forms.Button btn = new System.Windows.Forms.Button()
+            else if(Convert.ToInt32(result) == 1 && rdn_med_service.Checked == true)
             {
-                Text = "OK",
-                Dock = DockStyle.Bottom
-            };
-            frm.Controls.Add(btn);
-            List<DataRow> selectedRows = new List<DataRow>();
-            btn.Click += (s, ev) =>
+                 query = $@"SELECT price
+                  FROM examinations
+                  WHERE patient_id = {Convert.ToInt16(txb_id.Text)}
+                  AND DATE(updated_at) = CURDATE()
+                  ORDER BY updated_at DESC";
+                result = Db.Scalar(query);
+                int temp = Convert.ToInt32(lb_total_price_service.Text.Replace(",", "").Replace(".", "")) + Convert.ToInt32(result);
+                var tongtien_kemthuoc = temp.ToString("N0");
+                GenerateReportService(tongtien_kemthuoc);
+
+            }
+            else if (Convert.ToInt32(result) >= 2 && rdn_med_service.Checked == true)
             {
-                selectedRows.Clear();
-                foreach (var cb in cbs)
-                    if (cb.Checked)
-                        selectedRows.Add((DataRow)cb.Tag);
+                query = $@"SELECT id,price,updated_at
+                  FROM examinations
+                  WHERE patient_id = {Convert.ToInt16(txb_id.Text)}
+                  AND DATE(updated_at) = CURDATE()
+                  ORDER BY updated_at DESC";
+                DataTable dt = Db.ExecuteQuery(query);
+                Form frm = new Form()
+                {
+                    Width = 600,
+                    Height = 300,
+                    Text = "Chọn phiếu",
+                    StartPosition = FormStartPosition.CenterScreen,
+                    Font = new Font("Times New Roman", 14)
+                };
+                List<System.Windows.Forms.CheckBox> cbs = new List<System.Windows.Forms.CheckBox>();
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    DataRow r = dt.Rows[i];
 
-                frm.Close();
-            };
+                    var price = Convert.ToInt32(r["price"]).ToString("N0");
+                    var time = Convert.ToDateTime(r["updated_at"]).ToString("HH:mm");
+                    var id = r["id"];
 
-            // Hiển thị form
-            frm.ShowDialog();
+                    CheckBox cb = new CheckBox()
+                    {
+                        Text = $"ID: {id} - Giá: {price} - Thời gian: {time}",
+                        Dock = DockStyle.Top,
+                        Tag = r
+                    };
 
-            // Test kết quả
-            MessageBox.Show($"Đã chọn: {selectedRows.Count} phiếu");
+                    cbs.Add(cb);
+                    frm.Controls.Add(cb);
+                    frm.Controls.SetChildIndex(cb, 0);
+                }
+                if (cbs.Count > 0)
+                    cbs[0].Checked = true; 
 
-            //frm.ShowDialog();
+                System.Windows.Forms.Button btn = new System.Windows.Forms.Button()
+                {
+                    Text = "OK",
+                    Dock = DockStyle.Bottom
+                };
+                Label lbl = new Label()
+                {
+                    Text = "Trong ngày có nhiều hơn 1 phiếu thuốc, hãy chọn phiếu",
+                    Dock = DockStyle.Top,
+                    TextAlign = ContentAlignment.MiddleCenter,
+                    Height = 40,
+                    Font = new Font("Times New Roman", 16, FontStyle.Bold)
+                };
 
-            //var mabn = txb_id.Text;
-            //var tenbn = txb_fullname.Text;
-            //var diachi = txb_address.Text;
-            //var ngaysinh = txb_age.Text;
-            //var gioitinh = txb_gender.Text;
-            //var loidan = cb_doctornote.Text;
-            //var chandoan = cbo_diagnoses.Text;
-            //var trieuchung = txb_symptoms.Text;
-            //var tongtien = lb_total_price_service.Text;
-            //var ngaykham = DateTime.Now.ToString("'Ngày' dd 'tháng' MM 'năm' yyyy");
-            //var sdt = txb_phone.Text;
-            //var giagoc = lb_total_price_origin.Text;
-            //var dagiam = lb_reduce.Text;
-            //string url_qrbank = $@"https://img.vietqr.io/image/{CurrentUser.Bank_code}-{CurrentUser.Bank_account}-compact2.png&accountName={CurrentUser.UserName}";
-            //frm_report_service frm = new frm_report_service(GetDataTableFromDataGridView(dtgv_service_patient),
-            //                                                mabn,
-            //                                                tenbn,
-            //                                                diachi,
-            //                                                ngaysinh,
-            //                                                gioitinh,
-            //                                                loidan,
-            //                                                chandoan,
-            //                                                trieuchung,
-            //                                                ngaykham,
-            //                                                tongtien,
-            //                                                sdt,
-            //                                                giagoc,
-            //                                                dagiam,
-            //                                                url_qrbank);
-            //frm.ShowDialog();
+                frm.Controls.Add(lbl);
+                frm.Controls.Add(btn);
+                List<DataRow> selectedRows = new List<DataRow>();
+                btn.Click += (s, ev) =>
+                {
+                    selectedRows.Clear();
+                    foreach (var cb in cbs)
+                        if (cb.Checked)
+                            selectedRows.Add((DataRow)cb.Tag);
+
+                    frm.Close();
+                };
+                frm.ShowDialog();
+                int total_med = 0;
+
+                foreach (var row in selectedRows)
+                    total_med += Convert.ToInt32(row["price"]);
+               
+                int temp = Convert.ToInt32(lb_total_price_service.Text.Replace(",","").Replace(".","")) +total_med;
+                var tongtien_kemthuoc = temp.ToString("N0");
+                GenerateReportService(tongtien_kemthuoc);
+            }
+
         }
 
 
@@ -847,7 +912,7 @@ namespace QuanLyPhongKham
                         dtgv_service_patient.Rows[index].Cells["STT"].Value = "-";
                     else
                         dtgv_service_patient.Rows[index].Cells["STT"].Value = stt++;
- 
+
                     dtgv_service_patient.Rows[index].Cells["name_service2"].Value = row.Cells[1].Value;
                     dtgv_service_patient.Rows[index].Cells["percent_reduce"].Value = row.Cells[2].Value;
                     dtgv_service_patient.Rows[index].Cells["price2"].Value = row.Cells[3].Value;
@@ -905,14 +970,14 @@ namespace QuanLyPhongKham
         {
             if (e.RowIndex < 0 || e.RowIndex >= dtgv_patient_med.Rows.Count) return;
 
-            UpdateMedicationSummary(); 
+            UpdateMedicationSummary();
 
         }
 
 
         private void btn_save_med_Click(object sender, EventArgs e)
         {
-            Db.ResetConnection(); 
+            Db.ResetConnection();
 
             if (string.IsNullOrWhiteSpace(txb_fullname.Text))
             {
@@ -925,7 +990,7 @@ namespace QuanLyPhongKham
                 MessageBox.Show("Vui lòng thêm thuốc vào toa!");
                 return;
             }
-          
+
 
             try
             {
@@ -1134,7 +1199,7 @@ namespace QuanLyPhongKham
             var frm = new frm_report_med(
                 mabn, tenbn, ngaysinh, diachi, loidan,
                 chandoan, chandoanphu, ngaykham,
-                tongtien, sdt, thuoc, taikham, songaythuoc,url_qrbank
+                tongtien, sdt, thuoc, taikham, songaythuoc, url_qrbank
             );
 
             frm.ShowDialog();
@@ -1206,7 +1271,7 @@ namespace QuanLyPhongKham
 
             lb_dayofuse.Text = maxDayOfUse + "";
             int total = 0;
-            if (rdn_40k.Checked==true)
+            if (rdn_40k.Checked == true)
                 total = 40000 * maxDayOfUse;
             else if (rdn_45k.Checked == true)
                 total = 45000 * maxDayOfUse;
@@ -1214,7 +1279,7 @@ namespace QuanLyPhongKham
                 total = 50000 * maxDayOfUse;
             else if (rdn_55k.Checked == true)
                 total = 55000 * maxDayOfUse;
-            else if (rdn_60k.Checked==true)
+            else if (rdn_60k.Checked == true)
                 total = 60000 * maxDayOfUse;
 
             txb_total_price_med.Text = total.ToString("#,##0");
@@ -1223,7 +1288,7 @@ namespace QuanLyPhongKham
 
             Update_FollowUpDate();
         }
-        
+
 
         private void btn_select_med_Click(object sender, EventArgs e)
         {
@@ -1289,7 +1354,7 @@ namespace QuanLyPhongKham
 
                     if (state == "Chưa có KQ" && esid != "")
                     {
-                        
+
                         string query = $@"
                         UPDATE examination_services
                         SET price = {Convert.ToInt32(row.Cells["price2"].Value.ToString().Replace(".", ""))},
@@ -1395,7 +1460,7 @@ namespace QuanLyPhongKham
             rowDefault.Cells["price2"].Value = "Miễn phí";
             rowDefault.Cells["notes2"].Value = "";
             rowDefault.Cells["delete_service"].Value = "-";
-      
+
 
             int stt = 1;
             while (Db.dr.Read())
@@ -1413,13 +1478,13 @@ namespace QuanLyPhongKham
             }
 
             Db.dr.Close();
-            
+
             UpdateTotalServicePrice();
             cb_percent_reduce.SelectedIndex = 0;
         }
 
         private DataTable dtBackup;
-     
+
 
         private void LoadBackupOldService()
         {

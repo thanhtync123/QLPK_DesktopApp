@@ -634,7 +634,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
-            <Top>1.42875in</Top>
+            <Top>1.43709in</Top>
             <Left>7.09846cm</Left>
             <Height>0.25in</Height>
             <Width>0.44531in</Width>
@@ -704,7 +704,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
-            <Top>1.70653in</Top>
+            <Top>1.71487in</Top>
             <Left>2.79468in</Left>
             <Height>0.25in</Height>
             <Width>0.44531in</Width>
@@ -739,7 +739,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_tenbn</rd:DefaultName>
-            <Top>1.42875in</Top>
+            <Top>1.43709in</Top>
             <Left>0.62789in</Left>
             <Height>0.25in</Height>
             <Width>2.16679in</Width>
@@ -773,7 +773,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_ngaysinh</rd:DefaultName>
-            <Top>1.42875in</Top>
+            <Top>1.43709in</Top>
             <Left>3.23998in</Left>
             <Height>0.25in</Height>
             <Width>0.80321in</Width>
@@ -805,7 +805,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_diachi</rd:DefaultName>
-            <Top>1.71486in</Top>
+            <Top>1.7232in</Top>
             <Left>0.62789in</Left>
             <Height>0.24167in</Height>
             <Width>2.16679in</Width>
@@ -837,7 +837,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_sdt</rd:DefaultName>
-            <Top>1.71486in</Top>
+            <Top>1.7232in</Top>
             <Left>3.23998in</Left>
             <Height>0.25in</Height>
             <Width>0.8689in</Width>
@@ -873,7 +873,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
-            <Top>1.42875in</Top>
+            <Top>1.43709in</Top>
             <Left>4.04319in</Left>
             <Height>0.25in</Height>
             <Width>0.68678in</Width>
@@ -905,7 +905,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_gioitinh</rd:DefaultName>
-            <Top>3.62901cm</Top>
+            <Top>3.65018cm</Top>
             <Left>12.08468cm</Left>
             <Height>0.635cm</Height>
             <Width>1.82777cm</Width>
@@ -1498,7 +1498,7 @@
             <Value>=Parameters!pr_qrbank.Value</Value>
             <Sizing>FitProportional</Sizing>
             <Top>6.91843cm</Top>
-            <Left>4.29928cm</Left>
+            <Left>4.61678cm</Left>
             <Height>3.08776cm</Height>
             <Width>2.97561cm</Width>
             <ZIndex>30</ZIndex>
@@ -1508,44 +1508,6 @@
               </Border>
             </Style>
           </Image>
-          <Textbox Name="Textbox28">
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>Chỉ định &amp; thuốc:</Value>
-                    <Style>
-                      <FontFamily>Times New Roman</FontFamily>
-                      <FontSize>12pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Left</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox23</rd:DefaultName>
-            <Top>8.78897cm</Top>
-            <Left>0.12269cm</Left>
-            <Height>0.63514cm</Height>
-            <Width>3.27775cm</Width>
-            <ZIndex>31</ZIndex>
-            <Visibility>
-              <Hidden>=IIF(Parameters!txb_giam.Value = 0, True, False)</Hidden>
-            </Visibility>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
           <Textbox Name="txb_tongtien_chidinh_thuoc">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
@@ -1561,15 +1523,57 @@
                     </Style>
                   </TextRun>
                 </TextRuns>
-                <Style />
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_tongtien_chidinh_thuoc</rd:DefaultName>
-            <Top>8.82411cm</Top>
-            <Left>3.40044cm</Left>
+            <Top>8.78897cm</Top>
+            <Left>2.56259cm</Left>
             <Height>0.6cm</Height>
-            <Width>2.3148cm</Width>
+            <Width>4.5359cm</Width>
+            <ZIndex>31</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox28">
+            <CanGrow>true</CanGrow>
+            <CanShrink>true</CanShrink>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Kèm thuốc:</Value>
+                    <Style>
+                      <FontFamily>tIMes New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Right</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox4</rd:DefaultName>
+            <Top>3.46022in</Top>
+            <Left>0.04195in</Left>
+            <Height>0.25in</Height>
+            <Width>0.96694in</Width>
             <ZIndex>32</ZIndex>
+            <Visibility>
+              <Hidden>=IIF(Parameters!txb_tongtien_chidinh_thuoc.Value = "", True, False)</Hidden>
+            </Visibility>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1581,7 +1585,7 @@
             </Style>
           </Textbox>
         </ReportItems>
-        <Height>10.73079cm</Height>
+        <Height>11.32967cm</Height>
         <Style />
       </Body>
       <Width>14.46202cm</Width>

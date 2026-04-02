@@ -30,6 +30,8 @@ namespace QuanLyPhongKham
         private string giagoc;
         private string dagiam;
         private string url_qrbank;
+        private string tongtien_kemthuoc;
+
 
         public frm_report_service(
             DataTable dtService,
@@ -46,7 +48,8 @@ namespace QuanLyPhongKham
             string sdt,
             string giagoc,
             string dagiam,
-            string url_qrbank)
+            string url_qrbank,
+            string tongtien_kemthuoc)
         {
             InitializeComponent();
             _dtService = dtService;
@@ -64,8 +67,9 @@ namespace QuanLyPhongKham
             this.giagoc = giagoc;
             this.dagiam = dagiam;
             this.url_qrbank = url_qrbank;
+            this.tongtien_kemthuoc = tongtien_kemthuoc;
         }
-        //  mabn, tenbn, diachi, ngaysinh, gioitinh, loidan, chandoan, chandoanphu, ngaykham, tongtien,url_qrbank
+        //  mabn, tenbn, diachi, ngaysinh, gioitinh, loidan, chandoan, chandoanphu, ngaykham, tongtien,url_qrbank,tongtien_kemthuoc
         private void frm_report_service_Load(object sender, EventArgs e)
         {
             reportViewer1.LocalReport.EnableExternalImages = true;
@@ -103,7 +107,8 @@ namespace QuanLyPhongKham
                     new ReportParameter("txb_businessaddress",AppConfig.businessaddress),
                     new ReportParameter("txb_giagoc", giagoc??""),
                     new ReportParameter("txb_giam", dagiam??""),
-                    new ReportParameter("pr_qrbank", url_qrbank??"")
+                    new ReportParameter("pr_qrbank", url_qrbank??""),
+                    new ReportParameter("txb_tongtien_chidinh_thuoc", tongtien_kemthuoc??"")
 
                 };
                 reportViewer1.LocalReport.SetParameters(parameters);
