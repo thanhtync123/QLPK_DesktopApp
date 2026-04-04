@@ -46,6 +46,8 @@ namespace QuanLyPhongKham
         public List<DataGridViewRow> AllRows { get; private set; } = new List<DataGridViewRow>();
         public string examId { get; set; }
         public int PatientID { get; set; }
+
+        public string typeOfService { get; set; }
         private void frm_popupLUService_Load(object sender, EventArgs e)
         {
             btn_delete.Enabled = false;
@@ -121,6 +123,7 @@ namespace QuanLyPhongKham
             INNER JOIN services s ON s.id=es.service_id
             LEFT JOIN examination_results er ON er.examination_service_id=es.id
                 Where e.id = {id}";
+            if (typeOfService == "ultrasound") query += $@" and s.type='Siêu âm' ";
             Db.cmd = new MySqlCommand(query, Db.conn);
             Db.dr = Db.cmd.ExecuteReader();
             dtgv_detail.Rows.Clear();

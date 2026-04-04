@@ -650,6 +650,7 @@ namespace QuanLyPhongKham
             dtgv_service_patient.Rows.Clear();
             frm_popupLUService frm = new frm_popupLUService();
             frm.PatientID = Convert.ToInt16(txb_id.Text);
+            frm.typeOfService = "all";
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 btn_save_examination_service.Enabled = false;
@@ -779,7 +780,7 @@ namespace QuanLyPhongKham
             dtgv_service_patient.Rows.Clear();
             frm_popupLUService frm = new frm_popupLUService();
             frm.PatientID = Convert.ToInt16(txb_id.Text);
-
+            frm.typeOfService = "all";
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 int stt = 1;

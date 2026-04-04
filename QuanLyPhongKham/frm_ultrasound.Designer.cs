@@ -116,6 +116,7 @@
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.btn_ultrasound_history = new System.Windows.Forms.Button();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_exam)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_4)).BeginInit();
@@ -168,6 +169,7 @@
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(230)))));
+            this.guna2Panel1.Controls.Add(this.btn_ultrasound_history);
             this.guna2Panel1.Controls.Add(this.btn_delimg4);
             this.guna2Panel1.Controls.Add(this.btn_delimg3);
             this.guna2Panel1.Controls.Add(this.btn_delimg2);
@@ -249,7 +251,7 @@
             // 
             this.btn_delete.Enabled = false;
             this.btn_delete.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_delete.Location = new System.Drawing.Point(306, 80);
+            this.btn_delete.Location = new System.Drawing.Point(305, 146);
             this.btn_delete.Name = "btn_delete";
             this.btn_delete.Size = new System.Drawing.Size(107, 33);
             this.btn_delete.TabIndex = 68;
@@ -1162,6 +1164,17 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // btn_ultrasound_history
+            // 
+            this.btn_ultrasound_history.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ultrasound_history.Location = new System.Drawing.Point(292, 83);
+            this.btn_ultrasound_history.Name = "btn_ultrasound_history";
+            this.btn_ultrasound_history.Size = new System.Drawing.Size(136, 34);
+            this.btn_ultrasound_history.TabIndex = 73;
+            this.btn_ultrasound_history.Text = "Lịch sử siêu âm";
+            this.btn_ultrasound_history.UseVisualStyleBackColor = true;
+            this.btn_ultrasound_history.Click += new System.EventHandler(this.btn_ultrasound_history_Click_1);
+            // 
             // frm_ultrasound
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1272,5 +1285,6 @@
         private System.Windows.Forms.Button btn_delimg3;
         private System.Windows.Forms.Button btn_delimg2;
         private System.Windows.Forms.Button btn_delimg1;
+        private System.Windows.Forms.Button btn_ultrasound_history;
     }
 }

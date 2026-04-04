@@ -895,5 +895,23 @@ namespace QuanLyPhongKham
             }
         }
 
+        private void btn_ultrasound_history_Click(object sender, EventArgs e)
+        {
+            frm_popupLUService frm = new frm_popupLUService();
+            frm.PatientID = Convert.ToInt16(txb_id_patient.Text);
+        }
+
+        private void btn_ultrasound_history_Click_1(object sender, EventArgs e)
+        {
+            if (txb_id_patient.Text == "")
+            {
+                MessageBox.Show("Chưa chọn KH, hãy chọn KH");
+                return;
+            }
+                frm_popupLUService frm = new frm_popupLUService();
+            frm.PatientID = Convert.ToInt16(txb_id_patient.Text);
+            frm.typeOfService = "ultrasound";
+            frm.Show();
+        }
     }
 }
