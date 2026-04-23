@@ -1071,7 +1071,11 @@ namespace QuanLyPhongKham
                 : Convert.ToInt32(tongtien_cls.Replace(",", "").Replace(".", ""));
 
             int total = med_price + cls_price;
-
+            if (!chb_print_money.Checked)
+            {
+                tongtien_med = "";
+                tongtien_cls = "";
+            }
             string url_qrbank = "";
             if (rdn_med_service.Checked == true)
                 url_qrbank = $@"https://img.vietqr.io/image/{CurrentUser.Bank_code}-{CurrentUser.Bank_account}-compact2.png?amount={total}&accountName={CurrentUser.UserName}";

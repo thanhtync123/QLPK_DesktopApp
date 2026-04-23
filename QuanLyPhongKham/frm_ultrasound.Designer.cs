@@ -40,6 +40,7 @@
             this.rdn_all = new System.Windows.Forms.RadioButton();
             this.rdn_noresult = new System.Windows.Forms.RadioButton();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btn_ultrasound_history = new System.Windows.Forms.Button();
             this.btn_delimg4 = new System.Windows.Forms.Button();
             this.btn_delimg3 = new System.Windows.Forms.Button();
             this.btn_delimg2 = new System.Windows.Forms.Button();
@@ -116,7 +117,6 @@
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.btn_ultrasound_history = new System.Windows.Forms.Button();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_exam)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_4)).BeginInit();
@@ -206,6 +206,17 @@
             this.guna2Panel1.Size = new System.Drawing.Size(712, 860);
             this.guna2Panel1.TabIndex = 4;
             this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
+            // 
+            // btn_ultrasound_history
+            // 
+            this.btn_ultrasound_history.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ultrasound_history.Location = new System.Drawing.Point(292, 718);
+            this.btn_ultrasound_history.Name = "btn_ultrasound_history";
+            this.btn_ultrasound_history.Size = new System.Drawing.Size(136, 34);
+            this.btn_ultrasound_history.TabIndex = 73;
+            this.btn_ultrasound_history.Text = "Lịch sử siêu âm";
+            this.btn_ultrasound_history.UseVisualStyleBackColor = true;
+            this.btn_ultrasound_history.Click += new System.EventHandler(this.btn_ultrasound_history_Click_1);
             // 
             // btn_delimg4
             // 
@@ -323,7 +334,7 @@
             this.guna2ImageButton3.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton3.ImageRotate = 0F;
             this.guna2ImageButton3.ImageSize = new System.Drawing.Size(20, 20);
-            this.guna2ImageButton3.Location = new System.Drawing.Point(493, 5);
+            this.guna2ImageButton3.Location = new System.Drawing.Point(544, 2);
             this.guna2ImageButton3.Margin = new System.Windows.Forms.Padding(2);
             this.guna2ImageButton3.Name = "guna2ImageButton3";
             this.guna2ImageButton3.PressedState.ImageSize = new System.Drawing.Size(64, 64);
@@ -341,7 +352,7 @@
             this.guna2ImageButton2.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton2.ImageRotate = 0F;
             this.guna2ImageButton2.ImageSize = new System.Drawing.Size(20, 20);
-            this.guna2ImageButton2.Location = new System.Drawing.Point(367, 5);
+            this.guna2ImageButton2.Location = new System.Drawing.Point(418, 2);
             this.guna2ImageButton2.Margin = new System.Windows.Forms.Padding(2);
             this.guna2ImageButton2.Name = "guna2ImageButton2";
             this.guna2ImageButton2.PressedState.ImageSize = new System.Drawing.Size(64, 64);
@@ -439,7 +450,7 @@
             // btn_del
             // 
             this.btn_del.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_del.Location = new System.Drawing.Point(493, 5);
+            this.btn_del.Location = new System.Drawing.Point(544, 2);
             this.btn_del.Margin = new System.Windows.Forms.Padding(4);
             this.btn_del.Name = "btn_del";
             this.btn_del.Size = new System.Drawing.Size(130, 28);
@@ -473,7 +484,7 @@
             // btn_upload
             // 
             this.btn_upload.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_upload.Location = new System.Drawing.Point(367, 4);
+            this.btn_upload.Location = new System.Drawing.Point(418, 1);
             this.btn_upload.Margin = new System.Windows.Forms.Padding(4);
             this.btn_upload.Name = "btn_upload";
             this.btn_upload.Size = new System.Drawing.Size(118, 28);
@@ -1163,17 +1174,6 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // btn_ultrasound_history
-            // 
-            this.btn_ultrasound_history.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_ultrasound_history.Location = new System.Drawing.Point(292, 83);
-            this.btn_ultrasound_history.Name = "btn_ultrasound_history";
-            this.btn_ultrasound_history.Size = new System.Drawing.Size(136, 34);
-            this.btn_ultrasound_history.TabIndex = 73;
-            this.btn_ultrasound_history.Text = "Lịch sử siêu âm";
-            this.btn_ultrasound_history.UseVisualStyleBackColor = true;
-            this.btn_ultrasound_history.Click += new System.EventHandler(this.btn_ultrasound_history_Click_1);
             // 
             // frm_ultrasound
             // 

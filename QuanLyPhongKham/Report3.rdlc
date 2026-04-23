@@ -377,9 +377,9 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_tongtien</rd:DefaultName>
-            <Top>2.58476in</Top>
-            <Left>1.26169in</Left>
-            <Height>0.12225in</Height>
+            <Top>2.46902in</Top>
+            <Left>1.26074in</Left>
+            <Height>0.08058in</Height>
             <Width>1.19537in</Width>
             <ZIndex>11</ZIndex>
             <Style>
@@ -730,65 +730,6 @@
               </Border>
             </Style>
           </Textbox>
-          <Textbox Name="Textbox17">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>  Tái khám: </Value>
-                    <Style>
-                      <FontFamily>Times New Roman</FontFamily>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Right</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox4</rd:DefaultName>
-            <Top>2.46902in</Top>
-            <Left>0.07545in</Left>
-            <Height>0.11574in</Height>
-            <Width>1.02397in</Width>
-            <ZIndex>21</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-            </Style>
-          </Textbox>
-          <Textbox Name="txb_taikham">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=Parameters!txb_taikham.Value</Value>
-                    <Style>
-                      <FontFamily>Times New Roman</FontFamily>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>txb_taikham</rd:DefaultName>
-            <Top>2.46902in</Top>
-            <Left>1.09942in</Left>
-            <Height>0.11574in</Height>
-            <Width>1.35764in</Width>
-            <ZIndex>22</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-            </Style>
-          </Textbox>
           <Textbox Name="Textbox19">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
@@ -827,7 +768,7 @@
             <Left>0.10739in</Left>
             <Height>0.09605in</Height>
             <Width>1.02397in</Width>
-            <ZIndex>23</ZIndex>
+            <ZIndex>21</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -855,7 +796,7 @@
             <Left>1.13136in</Left>
             <Height>0.09605in</Height>
             <Width>1.35764in</Width>
-            <ZIndex>24</ZIndex>
+            <ZIndex>22</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -869,7 +810,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Tổng cộng(thuốc):</Value>
+                    <Value>Thuốc:</Value>
                     <Style>
                       <FontFamily>Times New Roman</FontFamily>
                       <FontWeight>Bold</FontWeight>
@@ -882,11 +823,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
-            <Top>2.58476in</Top>
-            <Left>0.07545in</Left>
-            <Height>0.12225in</Height>
+            <Top>2.46902in</Top>
+            <Left>0.0745in</Left>
+            <Height>0.08058in</Height>
             <Width>1.18529in</Width>
-            <ZIndex>25</ZIndex>
+            <ZIndex>23</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -917,7 +858,7 @@
             <Left>2.77966in</Left>
             <Height>0.16636in</Height>
             <Width>2.40263in</Width>
-            <ZIndex>26</ZIndex>
+            <ZIndex>24</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -932,22 +873,7 @@
             <Left>3.47524in</Left>
             <Height>0.74471in</Height>
             <Width>1.08383in</Width>
-            <ZIndex>27</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-            </Style>
-          </Image>
-          <Image Name="img_qrbank">
-            <Source>External</Source>
-            <Value>=Parameters!pr_qrbank.Value</Value>
-            <Sizing>FitProportional</Sizing>
-            <Top>5.92151cm</Top>
-            <Left>5.73807cm</Left>
-            <Height>2.39199cm</Height>
-            <Width>2.01211cm</Width>
-            <ZIndex>28</ZIndex>
+            <ZIndex>25</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -961,7 +887,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Tổng cộng(CLS):</Value>
+                    <Value>Cận - lâm - sàng:</Value>
                     <Style>
                       <FontFamily>Times New Roman</FontFamily>
                       <FontWeight>Bold</FontWeight>
@@ -974,11 +900,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
-            <Top>2.70701in</Top>
-            <Left>0.07545in</Left>
+            <Top>2.5496in</Top>
+            <Left>0.0745in</Left>
             <Height>0.09989in</Height>
             <Width>1.18529in</Width>
-            <ZIndex>29</ZIndex>
+            <ZIndex>26</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1005,11 +931,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
-            <Top>2.8069in</Top>
-            <Left>0.07545in</Left>
+            <Top>2.64949in</Top>
+            <Left>0.0745in</Left>
             <Height>0.09989in</Height>
             <Width>1.18529in</Width>
-            <ZIndex>30</ZIndex>
+            <ZIndex>27</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1034,11 +960,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_taikham</rd:DefaultName>
-            <Top>2.70701in</Top>
-            <Left>1.26074in</Left>
+            <Top>2.5496in</Top>
+            <Left>1.25979in</Left>
             <Height>0.09989in</Height>
             <Width>1.19632in</Width>
-            <ZIndex>31</ZIndex>
+            <ZIndex>28</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1068,11 +994,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_taikham</rd:DefaultName>
-            <Top>2.8069in</Top>
-            <Left>1.26074in</Left>
+            <Top>2.64949in</Top>
+            <Left>1.25979in</Left>
             <Height>0.09989in</Height>
             <Width>1.22826in</Width>
-            <ZIndex>32</ZIndex>
+            <ZIndex>29</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
