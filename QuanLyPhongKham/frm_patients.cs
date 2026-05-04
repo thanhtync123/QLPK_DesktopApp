@@ -129,11 +129,11 @@ namespace QuanLyPhongKham
             SetButtonState(false);
             LoadPatients("");
             LoadTotalPage();
-
-            // KHỞI TẠO DEBOUNCE TIMER
             debounceTimer = new Timer();
             debounceTimer.Interval = 300; // debounce 300ms
             debounceTimer.Tick += DebounceTimer_Tick;
+
+            if(CurrentUser.Role=="user") btn_delete.Visible= false;
 
 
 

@@ -21,6 +21,7 @@ namespace QuanLyPhongKham
         private readonly string _taikham;
         private readonly string _songaythuoc;
         private readonly string _url_bankcode;
+        private readonly string _tongtien_cls;
 
         public frm_report_med(
             string mabn = "",        // 1
@@ -37,7 +38,8 @@ namespace QuanLyPhongKham
             string taikham = "",     //12
             string songaythuoc = ""  //13
 ,
-            string url_bankcode = "")
+            string url_bankcode = "",
+            string tongtien_cls = "")
 
         {
             InitializeComponent();
@@ -56,6 +58,7 @@ namespace QuanLyPhongKham
             _taikham = taikham;
             _songaythuoc = songaythuoc;
             _url_bankcode = url_bankcode;
+            _tongtien_cls = tongtien_cls;
         }
 
         private void frm_report_med_Load(object sender, EventArgs e)
@@ -81,7 +84,7 @@ namespace QuanLyPhongKham
 
                 var parameters = new ReportParameter[]
                 {
-                   
+
                     new ReportParameter("txb_mabn", _mabn ?? ""),
                     new ReportParameter("txb_tenbn", _tenbn ?? ""),
                     new ReportParameter("txb_ngaysinh", _ngaysinh ?? ""),
@@ -102,7 +105,8 @@ namespace QuanLyPhongKham
                     new ReportParameter("txb_businessservice", AppConfig.businessservice),
                     new ReportParameter("txb_businessphone", AppConfig.businessphone),
                     new ReportParameter("txb_businessaddress", AppConfig.businessaddress),
-                    new ReportParameter("pr_qrbank",_url_bankcode ?? "")
+                    new ReportParameter("pr_qrbank",_url_bankcode ?? ""),
+                    new ReportParameter("txb_tongtien_cls",_tongtien_cls ?? "")
                 };
 
                 reportViewer1.LocalReport.SetParameters(parameters);
