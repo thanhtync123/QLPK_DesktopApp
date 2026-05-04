@@ -42,6 +42,7 @@ namespace QuanLyPhongKham
                     CurrentUser.Signature = sig_img;
                     CurrentUser.Bank_account = reader["bank_account"].ToString();
                     CurrentUser.Bank_code = reader["bank_code"].ToString();
+                    CurrentUser.Role = role;
 
                     reader.Close();
                     Db.conn.Close();
