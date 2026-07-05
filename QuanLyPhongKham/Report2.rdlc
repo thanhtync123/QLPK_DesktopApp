@@ -1013,7 +1013,7 @@
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Times New Roman</FontFamily>
-                      <FontSize>29pt</FontSize>
+                      <FontSize>26pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                       <TextDecoration>None</TextDecoration>
                       <Color>Red</Color>
@@ -1029,7 +1029,7 @@
             <Top>1.9407cm</Top>
             <Left>2.68315cm</Left>
             <Height>1.19019cm</Height>
-            <Width>10.02403cm</Width>
+            <Width>11.36568cm</Width>
             <ZIndex>32</ZIndex>
             <Style>
               <Border>
@@ -1051,7 +1051,7 @@
                     <Value>=Parameters!txb_businesstype.Value</Value>
                     <Style>
                       <FontFamily>Times New Roman</FontFamily>
-                      <FontSize>22pt</FontSize>
+                      <FontSize>18pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                       <Color>Red</Color>
                     </Style>
@@ -1066,7 +1066,7 @@
             <Top>1.01987cm</Top>
             <Left>2.68315cm</Left>
             <Height>0.92083cm</Height>
-            <Width>9.526cm</Width>
+            <Width>11.43624cm</Width>
             <ZIndex>33</ZIndex>
             <Style>
               <Border>

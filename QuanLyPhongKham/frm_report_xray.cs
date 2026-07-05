@@ -80,8 +80,8 @@ namespace QuanLyPhongKham
                 new ReportParameter("txb_businessaddress", AppConfig.businessaddress),
                 new ReportParameter("txb_businessphone", AppConfig.businessphone),
                 new ReportParameter("txb_businessfb", AppConfig.businessfb),
-
                  new ReportParameter("txb_title", title)
+
 
             };
 

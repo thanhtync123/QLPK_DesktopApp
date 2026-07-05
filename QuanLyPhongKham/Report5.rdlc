@@ -1037,7 +1037,7 @@
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Times New Roman</FontFamily>
-                      <FontSize>29pt</FontSize>
+                      <FontSize>26pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                       <TextDecoration>None</TextDecoration>
                       <Color>Red</Color>
@@ -1050,10 +1050,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox13</rd:DefaultName>
-            <Top>2.10366cm</Top>
-            <Left>5.93423cm</Left>
+            <Top>2.28004cm</Top>
+            <Left>5.23323cm</Left>
             <Height>1.19019cm</Height>
-            <Width>9.44934cm</Width>
+            <Width>11.28755cm</Width>
             <ZIndex>20</ZIndex>
             <Style>
               <Border>
@@ -1075,7 +1075,7 @@
                     <Value>=Parameters!txb_businesstype.Value</Value>
                     <Style>
                       <FontFamily>Times New Roman</FontFamily>
-                      <FontSize>24pt</FontSize>
+                      <FontSize>18pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                       <Color>Red</Color>
                     </Style>
@@ -1087,10 +1087,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox16</rd:DefaultName>
-            <Top>1.18283cm</Top>
-            <Left>5.61673cm</Left>
+            <Top>1.35921cm</Top>
+            <Left>5.23323cm</Left>
             <Height>0.92083cm</Height>
-            <Width>10.56487cm</Width>
+            <Width>11.28755cm</Width>
             <ZIndex>21</ZIndex>
             <Style>
               <Border>
@@ -1107,7 +1107,7 @@
             <Value>=Parameters!image_logo.Value</Value>
             <Sizing>FitProportional</Sizing>
             <Top>0.69213cm</Top>
-            <Left>3.09981cm</Left>
+            <Left>2.46481cm</Left>
             <Height>2.74283cm</Height>
             <Width>2.76842cm</Width>
             <ZIndex>22</ZIndex>

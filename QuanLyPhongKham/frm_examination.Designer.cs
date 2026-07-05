@@ -115,7 +115,12 @@
             this.cb_doctornote = new System.Windows.Forms.ComboBox();
             this.lb_d0 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.lb_last_med_price = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.lb_last_med_time = new System.Windows.Forms.Label();
             this.rdn_med_service = new System.Windows.Forms.RadioButton();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
             this.rdn_onlyservice = new System.Windows.Forms.RadioButton();
             this.rdn_noauto = new System.Windows.Forms.RadioButton();
             this.lb_reduce = new System.Windows.Forms.Label();
@@ -206,11 +211,6 @@
             this.txb_symptoms = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2BorderlessForm2 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.txb_fullname = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.lb_last_med_time = new System.Windows.Forms.Label();
-            this.lb_last_med_price = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_patients)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_service_patient)).BeginInit();
@@ -1001,6 +1001,33 @@
             this.tabPage2.Text = "Chỉ định Cận lâm sàng";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // lb_last_med_price
+            // 
+            this.lb_last_med_price.AutoSize = true;
+            this.lb_last_med_price.Location = new System.Drawing.Point(1085, 76);
+            this.lb_last_med_price.Name = "lb_last_med_price";
+            this.lb_last_med_price.Size = new System.Drawing.Size(20, 19);
+            this.lb_last_med_price.TabIndex = 73;
+            this.lb_last_med_price.Text = "lb";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(1085, 78);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(20, 19);
+            this.label19.TabIndex = 76;
+            this.label19.Text = "lb";
+            // 
+            // lb_last_med_time
+            // 
+            this.lb_last_med_time.AutoSize = true;
+            this.lb_last_med_time.Location = new System.Drawing.Point(1157, 76);
+            this.lb_last_med_time.Name = "lb_last_med_time";
+            this.lb_last_med_time.Size = new System.Drawing.Size(20, 19);
+            this.lb_last_med_time.TabIndex = 72;
+            this.lb_last_med_time.Text = "lb";
+            // 
             // rdn_med_service
             // 
             this.rdn_med_service.AutoSize = true;
@@ -1012,6 +1039,25 @@
             this.rdn_med_service.TabStop = true;
             this.rdn_med_service.Text = "QR Chỉ định - thuốc";
             this.rdn_med_service.UseVisualStyleBackColor = true;
+            this.rdn_med_service.Visible = false;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(882, 76);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(197, 19);
+            this.label18.TabIndex = 71;
+            this.label18.Text = "Toa thuốc gần nhất trong ngày: ";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(1157, 78);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(20, 19);
+            this.label20.TabIndex = 75;
+            this.label20.Text = "lb";
             // 
             // rdn_onlyservice
             // 
@@ -1022,6 +1068,7 @@
             this.rdn_onlyservice.TabIndex = 65;
             this.rdn_onlyservice.Text = "QR Chỉ định";
             this.rdn_onlyservice.UseVisualStyleBackColor = true;
+            this.rdn_onlyservice.Visible = false;
             // 
             // rdn_noauto
             // 
@@ -1032,6 +1079,7 @@
             this.rdn_noauto.TabIndex = 64;
             this.rdn_noauto.Text = "QR tự nhập giá tiền";
             this.rdn_noauto.UseVisualStyleBackColor = true;
+            this.rdn_noauto.Visible = false;
             // 
             // lb_reduce
             // 
@@ -1403,7 +1451,7 @@
             // 
             this.guna2ImageButton8.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
             this.guna2ImageButton8.HoverState.ImageSize = new System.Drawing.Size(64, 64);
- 
+            this.guna2ImageButton8.Image = ((System.Drawing.Image)(resources.GetObject("guna2ImageButton8.Image")));
             this.guna2ImageButton8.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton8.ImageRotate = 0F;
             this.guna2ImageButton8.ImageSize = new System.Drawing.Size(20, 20);
@@ -1431,7 +1479,7 @@
             // 
             this.guna2ImageButton7.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
             this.guna2ImageButton7.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-
+            this.guna2ImageButton7.Image = ((System.Drawing.Image)(resources.GetObject("guna2ImageButton7.Image")));
             this.guna2ImageButton7.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton7.ImageRotate = 0F;
             this.guna2ImageButton7.ImageSize = new System.Drawing.Size(20, 20);
@@ -1959,7 +2007,7 @@
             // 
             this.guna2ImageButton1.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
             this.guna2ImageButton1.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-   
+            this.guna2ImageButton1.Image = ((System.Drawing.Image)(resources.GetObject("guna2ImageButton1.Image")));
             this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton1.ImageRotate = 0F;
             this.guna2ImageButton1.ImageSize = new System.Drawing.Size(20, 20);
@@ -1975,7 +2023,7 @@
             // 
             this.guna2ImageButton2.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
             this.guna2ImageButton2.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-    
+            this.guna2ImageButton2.Image = ((System.Drawing.Image)(resources.GetObject("guna2ImageButton2.Image")));
             this.guna2ImageButton2.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton2.ImageRotate = 0F;
             this.guna2ImageButton2.ImageSize = new System.Drawing.Size(20, 20);
@@ -2172,51 +2220,6 @@
             this.txb_fullname.SelectedText = "";
             this.txb_fullname.Size = new System.Drawing.Size(353, 42);
             this.txb_fullname.TabIndex = 70;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(882, 76);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(197, 19);
-            this.label18.TabIndex = 71;
-            this.label18.Text = "Toa thuốc gần nhất trong ngày: ";
-            // 
-            // lb_last_med_time
-            // 
-            this.lb_last_med_time.AutoSize = true;
-            this.lb_last_med_time.Location = new System.Drawing.Point(1157, 76);
-            this.lb_last_med_time.Name = "lb_last_med_time";
-            this.lb_last_med_time.Size = new System.Drawing.Size(20, 19);
-            this.lb_last_med_time.TabIndex = 72;
-            this.lb_last_med_time.Text = "lb";
-            // 
-            // lb_last_med_price
-            // 
-            this.lb_last_med_price.AutoSize = true;
-            this.lb_last_med_price.Location = new System.Drawing.Point(1085, 76);
-            this.lb_last_med_price.Name = "lb_last_med_price";
-            this.lb_last_med_price.Size = new System.Drawing.Size(20, 19);
-            this.lb_last_med_price.TabIndex = 73;
-            this.lb_last_med_price.Text = "lb";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(1085, 78);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(20, 19);
-            this.label19.TabIndex = 76;
-            this.label19.Text = "lb";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(1157, 78);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(20, 19);
-            this.label20.TabIndex = 75;
-            this.label20.Text = "lb";
             // 
             // frm_examination
             // 
