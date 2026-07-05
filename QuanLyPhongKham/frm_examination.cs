@@ -762,107 +762,107 @@ namespace QuanLyPhongKham
                 MessageBox.Show("Vui lòng chọn KH trước khi in phiếu dịch vụ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            string query = $@"SELECT COUNT(*)
-                  FROM examinations
-                  WHERE patient_id = {Convert.ToInt16(txb_id.Text)}
-                  AND DATE(updated_at) = CURDATE()
-                  ORDER BY updated_at DESC";
-            var result = Db.Scalar(query);
-            if (Convert.ToInt32(result) == 0 || rdn_onlyservice.Checked == true || rdn_noauto.Checked==true)
-            {
-                var tongtien_kemthuoc = "";
-                GenerateReportService(tongtien_kemthuoc);
-            }
-            else if(Convert.ToInt32(result) == 1 && rdn_med_service.Checked == true)
-            {
-                 query = $@"SELECT price
-                  FROM examinations
-                  WHERE patient_id = {Convert.ToInt16(txb_id.Text)}
-                  AND DATE(updated_at) = CURDATE()
-                  ORDER BY updated_at DESC";
-                result = Db.Scalar(query);
-                int temp = Convert.ToInt32(lb_total_price_service.Text.Replace(",", "").Replace(".", "")) + Convert.ToInt32(result);
-                var tongtien_kemthuoc = temp.ToString("N0");
-                GenerateReportService(tongtien_kemthuoc);
+            //string query = $@"SELECT COUNT(*)
+            //      FROM examinations
+            //      WHERE patient_id = {Convert.ToInt16(txb_id.Text)}
+            //      AND DATE(updated_at) = CURDATE()
+            //      ORDER BY updated_at DESC";
+            //var result = Db.Scalar(query);
+            //if (Convert.ToInt32(result) == 0 || rdn_onlyservice.Checked == true || rdn_noauto.Checked==true)
+            //{
+            //    var tongtien_kemthuoc = "";
+            //    GenerateReportService(tongtien_kemthuoc);
+            //}
+            //else if(Convert.ToInt32(result) == 1 && rdn_med_service.Checked == true)
+            //{
+            //     query = $@"SELECT price
+            //      FROM examinations
+            //      WHERE patient_id = {Convert.ToInt16(txb_id.Text)}
+            //      AND DATE(updated_at) = CURDATE()
+            //      ORDER BY updated_at DESC";
+            //    result = Db.Scalar(query);
+            //    int temp = Convert.ToInt32(lb_total_price_service.Text.Replace(",", "").Replace(".", "")) + Convert.ToInt32(result);
+            //    var tongtien_kemthuoc = temp.ToString("N0");
+            //    GenerateReportService(tongtien_kemthuoc);
 
-            }
-            else if (Convert.ToInt32(result) >= 2 && rdn_med_service.Checked == true)
-            {
-                query = $@"SELECT id,price,updated_at
-                  FROM examinations
-                  WHERE patient_id = {Convert.ToInt16(txb_id.Text)}
-                  AND DATE(updated_at) = CURDATE()
-                  ORDER BY updated_at DESC";
-                DataTable dt = Db.ExecuteQuery(query);
-                Form frm = new Form()
-                {
-                    Width = 600,
-                    Height = 300,
-                    Text = "Chọn phiếu",
-                    StartPosition = FormStartPosition.CenterScreen,
-                    Font = new Font("Times New Roman", 14)
-                };
-                List<System.Windows.Forms.CheckBox> cbs = new List<System.Windows.Forms.CheckBox>();
-                for (int i = 0; i < dt.Rows.Count; i++)
-                {
-                    DataRow r = dt.Rows[i];
+            //}
+            //else if (Convert.ToInt32(result) >= 2 && rdn_med_service.Checked == true)
+            //{
+            //    query = $@"SELECT id,price,updated_at
+            //      FROM examinations
+            //      WHERE patient_id = {Convert.ToInt16(txb_id.Text)}
+            //      AND DATE(updated_at) = CURDATE()
+            //      ORDER BY updated_at DESC";
+            //    DataTable dt = Db.ExecuteQuery(query);
+            //    Form frm = new Form()
+            //    {
+            //        Width = 600,
+            //        Height = 300,
+            //        Text = "Chọn phiếu",
+            //        StartPosition = FormStartPosition.CenterScreen,
+            //        Font = new Font("Times New Roman", 14)
+            //    };
+            //    List<System.Windows.Forms.CheckBox> cbs = new List<System.Windows.Forms.CheckBox>();
+            //    for (int i = 0; i < dt.Rows.Count; i++)
+            //    {
+            //        DataRow r = dt.Rows[i];
 
-                    var price = Convert.ToInt32(r["price"]).ToString("N0");
-                    var time = Convert.ToDateTime(r["updated_at"]).ToString("HH:mm");
-                    var id = r["id"];
+            //        var price = Convert.ToInt32(r["price"]).ToString("N0");
+            //        var time = Convert.ToDateTime(r["updated_at"]).ToString("HH:mm");
+            //        var id = r["id"];
 
-                    CheckBox cb = new CheckBox()
-                    {
-                        Text = $"ID: {id} - Giá: {price} - Thời gian: {time}",
-                        Dock = DockStyle.Top,
-                        Tag = r
-                    };
+            //        CheckBox cb = new CheckBox()
+            //        {
+            //            Text = $"ID: {id} - Giá: {price} - Thời gian: {time}",
+            //            Dock = DockStyle.Top,
+            //            Tag = r
+            //        };
 
-                    cbs.Add(cb);
-                    frm.Controls.Add(cb);
-                    frm.Controls.SetChildIndex(cb, 0);
-                }
-                if (cbs.Count > 0)
-                    cbs[0].Checked = true; 
+            //        cbs.Add(cb);
+            //        frm.Controls.Add(cb);
+            //        frm.Controls.SetChildIndex(cb, 0);
+            //    }
+            //    if (cbs.Count > 0)
+            //        cbs[0].Checked = true; 
 
-                System.Windows.Forms.Button btn = new System.Windows.Forms.Button()
-                {
-                    Text = "OK",
-                    Dock = DockStyle.Bottom
-                };
-                Label lbl = new Label()
-                {
-                    Text = "Trong ngày có nhiều hơn 1 phiếu thuốc, hãy chọn phiếu",
-                    Dock = DockStyle.Top,
-                    TextAlign = ContentAlignment.MiddleCenter,
-                    Height = 40,
-                    Font = new Font("Times New Roman", 16, FontStyle.Bold)
-                };
+            //    System.Windows.Forms.Button btn = new System.Windows.Forms.Button()
+            //    {
+            //        Text = "OK",
+            //        Dock = DockStyle.Bottom
+            //    };
+            //    Label lbl = new Label()
+            //    {
+            //        Text = "Trong ngày có nhiều hơn 1 phiếu thuốc, hãy chọn phiếu",
+            //        Dock = DockStyle.Top,
+            //        TextAlign = ContentAlignment.MiddleCenter,
+            //        Height = 40,
+            //        Font = new Font("Times New Roman", 16, FontStyle.Bold)
+            //    };
 
-                frm.Controls.Add(lbl);
-                frm.Controls.Add(btn);
-                List<DataRow> selectedRows = new List<DataRow>();
-                btn.Click += (s, ev) =>
-                {
-                    selectedRows.Clear();
-                    foreach (var cb in cbs)
-                        if (cb.Checked)
-                            selectedRows.Add((DataRow)cb.Tag);
+            //    frm.Controls.Add(lbl);
+            //    frm.Controls.Add(btn);
+            //    List<DataRow> selectedRows = new List<DataRow>();
+            //    btn.Click += (s, ev) =>
+            //    {
+            //        selectedRows.Clear();
+            //        foreach (var cb in cbs)
+            //            if (cb.Checked)
+            //                selectedRows.Add((DataRow)cb.Tag);
 
-                    frm.Close();
-                };
-                frm.ShowDialog();
-                int total_med = 0;
+            //        frm.Close();
+            //    };
+            //    frm.ShowDialog();
+            //    int total_med = 0;
 
-                foreach (var row in selectedRows)
-                    total_med += Convert.ToInt32(row["price"]);
-               
-                int temp = Convert.ToInt32(lb_total_price_service.Text.Replace(",","").Replace(".","")) +total_med;
-                var tongtien_kemthuoc = temp.ToString("N0");
-                GenerateReportService(tongtien_kemthuoc);
-            }
+            //    foreach (var row in selectedRows)
+            //        total_med += Convert.ToInt32(row["price"]);
 
+            //    int temp = Convert.ToInt32(lb_total_price_service.Text.Replace(",","").Replace(".","")) +total_med;
+            //    var tongtien_kemthuoc = temp.ToString("N0");
+            GenerateReportService(lb_total_price_service.Text);
         }
+
+        
 
 
 
