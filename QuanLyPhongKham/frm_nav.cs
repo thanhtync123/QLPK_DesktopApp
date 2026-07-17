@@ -126,6 +126,14 @@ namespace QuanLyPhongKham
 
                 if (imageRec.Contains(e.Location))
                 {
+                    if (tabControl1.TabPages[i].Controls.Count > 0)
+                    {
+                        if (tabControl1.TabPages[i].Controls[0] is frm_ultrasound us)
+                        {
+                            us.closeWebcam();
+                        }
+                    }
+
                     tabControl1.TabPages.RemoveAt(i);
                     break;
                 }
