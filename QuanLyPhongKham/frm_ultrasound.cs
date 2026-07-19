@@ -1,6 +1,4 @@
 ﻿using AForge.Video;
-using AForge.Video;
-using AForge.Video.DirectShow;
 using AForge.Video.DirectShow;
 using MySql.Data.MySqlClient;
 using Org.BouncyCastle.Math.Field;
@@ -46,7 +44,9 @@ namespace QuanLyPhongKham
             chb_anh3.Checked = true;
             chb_anh4.Checked = true;
             btn_save.Enabled = false;
-       
+            btn_openformvideo.Enabled = false;
+
+
 
         }
         private int snapCount = 0;
@@ -240,7 +240,7 @@ namespace QuanLyPhongKham
             {
                 cb_template.Enabled = true;
                 ResetPictureBoxes();
-
+                btn_openformvideo.Enabled = true;
                 DataGridViewRow row = dtgv_service.Rows[e.RowIndex];
                 txb_service.Text = row.Cells["name"].Value?.ToString();
 
@@ -942,26 +942,42 @@ namespace QuanLyPhongKham
      
         private void OpenWebcam(int index)
         {
-            if (videoSource != null && videoSource.IsRunning)
-            {
-                videoSource.SignalToStop();
-                videoSource.WaitForStop();
-            }
-
-            videoSource = new VideoCaptureDevice(cameras[index].MonikerString);
-
-            videoSource.NewFrame += (s, ev) =>
-            {
-                Bitmap bmp = (Bitmap)ev.Frame.Clone();
-
-                pb_webcam.Invoke(new Action(() =>
+            try {
+                if (videoSource != null && videoSource.IsRunning)
                 {
-                    pb_webcam.Image?.Dispose();
-                    pb_webcam.Image = bmp;
-                }));
-            };
+                    videoSource.SignalToStop();
+                    videoSource.WaitForStop();
+                }
 
-            videoSource.Start();
+                videoSource = new VideoCaptureDevice(cameras[index].MonikerString);
+
+                videoSource.NewFrame += (s, ev) =>
+                {
+                    Bitmap bmpMain = (Bitmap)ev.Frame.Clone();
+
+                    if (pb_webcam.IsHandleCreated)
+                    {
+                        pb_webcam.BeginInvoke(new Action(() =>
+                        {
+                            pb_webcam.Image?.Dispose();
+                            pb_webcam.Image = bmpMain;
+                        }));
+                    }
+
+                    if (frmVideo != null && !frmVideo.IsDisposed)
+                    {
+                        Bitmap bmpVideo = (Bitmap)ev.Frame.Clone();
+                        frmVideo.ShowFrame(bmpVideo);
+                    }
+                };
+
+                videoSource.Start();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+          
         }
 
         private void loadWebcamList()
@@ -999,17 +1015,53 @@ namespace QuanLyPhongKham
         {
             if (videoSource != null)
             {
-                if (videoSource.IsRunning)
+                try
                 {
-                    videoSource.SignalToStop();
-                    videoSource.WaitForStop();
+                    if (videoSource.IsRunning)
+                    {
+                        videoSource.SignalToStop();
+                    }
                 }
-
-                videoSource = null;
+                catch
+                {
+                }
+                finally
+                {
+                    videoSource = null;
+                }
             }
 
-            pb_webcam.Image?.Dispose();
-            pb_webcam.Image = null;
+            if (pb_webcam.Image != null)
+            {
+                pb_webcam.Image.Dispose();
+                pb_webcam.Image = null;
+            }
+        }
+        private frm_video_ultrasound frmVideo;
+        private void btn_openformvideo_Click(object sender, EventArgs e)
+        {
+     
+
+            if (frmVideo == null || frmVideo.IsDisposed)
+            {
+                frmVideo = new frm_video_ultrasound(this);
+       
+                frmVideo.Show();
+            }
+            else
+                frmVideo.Focus();
+            
+
+        }
+        public void SetImage(int index, Image img)
+        {
+            switch (index)
+            {
+                case 0: pb_1.Image = img; break;
+                case 1: pb_2.Image = img; break;
+                case 2: pb_3.Image = img; break;
+                case 3: pb_4.Image = img; break;
+            }
         }
 
     }

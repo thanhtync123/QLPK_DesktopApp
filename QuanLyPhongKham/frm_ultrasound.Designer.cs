@@ -40,6 +40,10 @@
             this.rdn_all = new System.Windows.Forms.RadioButton();
             this.rdn_noresult = new System.Windows.Forms.RadioButton();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btn_openformvideo = new System.Windows.Forms.Button();
+            this.pb_webcam = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.btn_snap = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.cb_webcam = new System.Windows.Forms.ComboBox();
             this.btn_ultrasound_history = new System.Windows.Forms.Button();
             this.btn_delimg4 = new System.Windows.Forms.Button();
             this.btn_delimg3 = new System.Windows.Forms.Button();
@@ -47,14 +51,21 @@
             this.btn_delimg1 = new System.Windows.Forms.Button();
             this.btn_delete = new System.Windows.Forms.Button();
             this.dtgv_exam = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.guna2ImageButton3 = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.guna2ImageButton2 = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.chb_anh4 = new Guna.UI2.WinForms.Guna2CheckBox();
             this.chb_anh3 = new Guna.UI2.WinForms.Guna2CheckBox();
             this.chb_anh2 = new Guna.UI2.WinForms.Guna2CheckBox();
             this.chb_anh1 = new Guna.UI2.WinForms.Guna2CheckBox();
             this.btn_del = new System.Windows.Forms.Button();
+            this.pb_4 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.pb_3 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.btn_upload = new System.Windows.Forms.Button();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.pb_1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.txb_search = new Guna.UI2.WinForms.Guna2TextBox();
+            this.pb_2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.rdn_resulted = new System.Windows.Forms.RadioButton();
             this.dtpk_fromdate = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
@@ -100,6 +111,9 @@
             this.txb_name = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.guna2ImageButton6 = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.guna2ImageButton5 = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.guna2ImageButton4 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.btn_refresh = new System.Windows.Forms.Button();
             this.btn_print = new System.Windows.Forms.Button();
             this.btn_save = new System.Windows.Forms.Button();
@@ -107,30 +121,17 @@
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.cb_webcam = new System.Windows.Forms.ComboBox();
-            this.btn_snap = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.guna2ImageButton3 = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.guna2ImageButton2 = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.pb_4 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.pb_3 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.pb_1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.pb_2 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2ImageButton6 = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.guna2ImageButton5 = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.guna2ImageButton4 = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.pb_webcam = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_webcam)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_exam)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgv_service)).BeginInit();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_webcam)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_service)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dtpk_todate
@@ -173,6 +174,7 @@
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(230)))));
+            this.guna2Panel1.Controls.Add(this.btn_openformvideo);
             this.guna2Panel1.Controls.Add(this.pb_webcam);
             this.guna2Panel1.Controls.Add(this.btn_snap);
             this.guna2Panel1.Controls.Add(this.cb_webcam);
@@ -207,6 +209,7 @@
             this.guna2Panel1.Controls.Add(this.label2);
             this.guna2Panel1.Controls.Add(this.btn_search);
             this.guna2Panel1.Controls.Add(this.label1);
+            this.guna2Panel1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Panel1.Location = new System.Drawing.Point(13, 15);
             this.guna2Panel1.Margin = new System.Windows.Forms.Padding(4);
             this.guna2Panel1.Name = "guna2Panel1";
@@ -214,12 +217,58 @@
             this.guna2Panel1.TabIndex = 4;
             this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
             // 
+            // btn_openformvideo
+            // 
+            this.btn_openformvideo.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_openformvideo.Location = new System.Drawing.Point(350, 540);
+            this.btn_openformvideo.Name = "btn_openformvideo";
+            this.btn_openformvideo.Size = new System.Drawing.Size(78, 31);
+            this.btn_openformvideo.TabIndex = 79;
+            this.btn_openformvideo.Text = "Phóng to";
+            this.btn_openformvideo.UseVisualStyleBackColor = true;
+            this.btn_openformvideo.Click += new System.EventHandler(this.btn_openformvideo_Click);
+            // 
+            // pb_webcam
+            // 
+            this.pb_webcam.ImageRotate = 0F;
+            this.pb_webcam.Location = new System.Drawing.Point(9, 540);
+            this.pb_webcam.Margin = new System.Windows.Forms.Padding(4);
+            this.pb_webcam.Name = "pb_webcam";
+            this.pb_webcam.Size = new System.Drawing.Size(334, 205);
+            this.pb_webcam.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_webcam.TabIndex = 78;
+            this.pb_webcam.TabStop = false;
+            // 
+            // btn_snap
+            // 
+            this.btn_snap.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btn_snap.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btn_snap.Image = global::QuanLyPhongKham.Properties.Resources.images;
+            this.btn_snap.ImageOffset = new System.Drawing.Point(0, 0);
+            this.btn_snap.ImageRotate = 0F;
+            this.btn_snap.Location = new System.Drawing.Point(272, 504);
+            this.btn_snap.Name = "btn_snap";
+            this.btn_snap.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btn_snap.Size = new System.Drawing.Size(38, 22);
+            this.btn_snap.TabIndex = 77;
+            this.btn_snap.Click += new System.EventHandler(this.btn_snap_Click_1);
+            // 
+            // cb_webcam
+            // 
+            this.cb_webcam.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_webcam.FormattingEnabled = true;
+            this.cb_webcam.Location = new System.Drawing.Point(4, 503);
+            this.cb_webcam.Name = "cb_webcam";
+            this.cb_webcam.Size = new System.Drawing.Size(262, 29);
+            this.cb_webcam.TabIndex = 75;
+            this.cb_webcam.SelectedIndexChanged += new System.EventHandler(this.cb_webcam_SelectedIndexChanged);
+            // 
             // btn_ultrasound_history
             // 
             this.btn_ultrasound_history.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_ultrasound_history.Location = new System.Drawing.Point(292, 718);
+            this.btn_ultrasound_history.Location = new System.Drawing.Point(316, 504);
             this.btn_ultrasound_history.Name = "btn_ultrasound_history";
-            this.btn_ultrasound_history.Size = new System.Drawing.Size(136, 34);
+            this.btn_ultrasound_history.Size = new System.Drawing.Size(118, 30);
             this.btn_ultrasound_history.TabIndex = 73;
             this.btn_ultrasound_history.Text = "Lịch sử siêu âm";
             this.btn_ultrasound_history.UseVisualStyleBackColor = true;
@@ -285,7 +334,7 @@
             this.dtgv_exam.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -331,6 +380,60 @@
             this.dtgv_exam.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtgv_exam.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dtgv_exam.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_exam_CellClick_1);
+            // 
+            // guna2ImageButton3
+            // 
+            this.guna2ImageButton3.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ImageButton3.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton3.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton3.Image = global::QuanLyPhongKham.Properties.Resources.trash;
+            this.guna2ImageButton3.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton3.ImageRotate = 0F;
+            this.guna2ImageButton3.ImageSize = new System.Drawing.Size(20, 20);
+            this.guna2ImageButton3.Location = new System.Drawing.Point(544, 2);
+            this.guna2ImageButton3.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2ImageButton3.Name = "guna2ImageButton3";
+            this.guna2ImageButton3.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton3.Size = new System.Drawing.Size(26, 25);
+            this.guna2ImageButton3.TabIndex = 66;
+            this.guna2ImageButton3.UseTransparentBackground = true;
+            this.guna2ImageButton3.Click += new System.EventHandler(this.guna2ImageButton1_Click);
+            // 
+            // guna2ImageButton2
+            // 
+            this.guna2ImageButton2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ImageButton2.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton2.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton2.Image = global::QuanLyPhongKham.Properties.Resources.check;
+            this.guna2ImageButton2.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton2.ImageRotate = 0F;
+            this.guna2ImageButton2.ImageSize = new System.Drawing.Size(20, 20);
+            this.guna2ImageButton2.Location = new System.Drawing.Point(418, 2);
+            this.guna2ImageButton2.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2ImageButton2.Name = "guna2ImageButton2";
+            this.guna2ImageButton2.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton2.Size = new System.Drawing.Size(26, 25);
+            this.guna2ImageButton2.TabIndex = 66;
+            this.guna2ImageButton2.UseTransparentBackground = true;
+            this.guna2ImageButton2.Click += new System.EventHandler(this.guna2ImageButton1_Click);
+            // 
+            // guna2ImageButton1
+            // 
+            this.guna2ImageButton1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ImageButton1.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton1.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton1.Image = global::QuanLyPhongKham.Properties.Resources.search__1_;
+            this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton1.ImageRotate = 0F;
+            this.guna2ImageButton1.ImageSize = new System.Drawing.Size(20, 20);
+            this.guna2ImageButton1.Location = new System.Drawing.Point(154, 21);
+            this.guna2ImageButton1.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2ImageButton1.Name = "guna2ImageButton1";
+            this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton1.Size = new System.Drawing.Size(26, 25);
+            this.guna2ImageButton1.TabIndex = 66;
+            this.guna2ImageButton1.UseTransparentBackground = true;
+            this.guna2ImageButton1.Click += new System.EventHandler(this.guna2ImageButton1_Click);
             // 
             // chb_anh4
             // 
@@ -412,6 +515,28 @@
             this.btn_del.UseVisualStyleBackColor = true;
             this.btn_del.Click += new System.EventHandler(this.btn_del_Click);
             // 
+            // pb_4
+            // 
+            this.pb_4.ImageRotate = 0F;
+            this.pb_4.Location = new System.Drawing.Point(435, 598);
+            this.pb_4.Margin = new System.Windows.Forms.Padding(4);
+            this.pb_4.Name = "pb_4";
+            this.pb_4.Size = new System.Drawing.Size(257, 179);
+            this.pb_4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_4.TabIndex = 53;
+            this.pb_4.TabStop = false;
+            // 
+            // pb_3
+            // 
+            this.pb_3.ImageRotate = 0F;
+            this.pb_3.Location = new System.Drawing.Point(435, 411);
+            this.pb_3.Margin = new System.Windows.Forms.Padding(4);
+            this.pb_3.Name = "pb_3";
+            this.pb_3.Size = new System.Drawing.Size(257, 179);
+            this.pb_3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_3.TabIndex = 60;
+            this.pb_3.TabStop = false;
+            // 
             // btn_upload
             // 
             this.btn_upload.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -433,6 +558,17 @@
             this.webBrowser1.Size = new System.Drawing.Size(272, 127);
             this.webBrowser1.TabIndex = 58;
             // 
+            // pb_1
+            // 
+            this.pb_1.ImageRotate = 0F;
+            this.pb_1.Location = new System.Drawing.Point(436, 37);
+            this.pb_1.Margin = new System.Windows.Forms.Padding(4);
+            this.pb_1.Name = "pb_1";
+            this.pb_1.Size = new System.Drawing.Size(257, 179);
+            this.pb_1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_1.TabIndex = 51;
+            this.pb_1.TabStop = false;
+            // 
             // txb_search
             // 
             this.txb_search.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -452,6 +588,17 @@
             this.txb_search.Size = new System.Drawing.Size(290, 24);
             this.txb_search.TabIndex = 57;
             this.txb_search.TextChanged += new System.EventHandler(this.txb_search_TextChanged);
+            // 
+            // pb_2
+            // 
+            this.pb_2.ImageRotate = 0F;
+            this.pb_2.Location = new System.Drawing.Point(435, 224);
+            this.pb_2.Margin = new System.Windows.Forms.Padding(4);
+            this.pb_2.Name = "pb_2";
+            this.pb_2.Size = new System.Drawing.Size(257, 179);
+            this.pb_2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_2.TabIndex = 52;
+            this.pb_2.TabStop = false;
             // 
             // rdn_resulted
             // 
@@ -980,178 +1127,6 @@
             this.panel2.Size = new System.Drawing.Size(1235, 42);
             this.panel2.TabIndex = 0;
             // 
-            // btn_refresh
-            // 
-            this.btn_refresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_refresh.Location = new System.Drawing.Point(255, 5);
-            this.btn_refresh.Margin = new System.Windows.Forms.Padding(4);
-            this.btn_refresh.Name = "btn_refresh";
-            this.btn_refresh.Size = new System.Drawing.Size(142, 31);
-            this.btn_refresh.TabIndex = 31;
-            this.btn_refresh.Text = "     Lấy phiếu khám";
-            this.btn_refresh.UseVisualStyleBackColor = true;
-            this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
-            // 
-            // btn_print
-            // 
-            this.btn_print.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_print.Location = new System.Drawing.Point(133, 3);
-            this.btn_print.Margin = new System.Windows.Forms.Padding(4);
-            this.btn_print.Name = "btn_print";
-            this.btn_print.Size = new System.Drawing.Size(114, 31);
-            this.btn_print.TabIndex = 30;
-            this.btn_print.Text = "In";
-            this.btn_print.UseVisualStyleBackColor = true;
-            this.btn_print.Click += new System.EventHandler(this.btn_print_Click);
-            // 
-            // btn_save
-            // 
-            this.btn_save.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_save.Location = new System.Drawing.Point(8, 3);
-            this.btn_save.Margin = new System.Windows.Forms.Padding(4);
-            this.btn_save.Name = "btn_save";
-            this.btn_save.Size = new System.Drawing.Size(124, 32);
-            this.btn_save.TabIndex = 28;
-            this.btn_save.Text = "Lưu";
-            this.btn_save.UseVisualStyleBackColor = true;
-            this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
-            // 
-            // printPreviewDialog1
-            // 
-            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
-            this.printPreviewDialog1.Enabled = true;
-            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
-            this.printPreviewDialog1.Name = "printPreviewDialog1";
-            this.printPreviewDialog1.Visible = false;
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // cb_webcam
-            // 
-            this.cb_webcam.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cb_webcam.FormattingEnabled = true;
-            this.cb_webcam.Location = new System.Drawing.Point(4, 503);
-            this.cb_webcam.Name = "cb_webcam";
-            this.cb_webcam.Size = new System.Drawing.Size(277, 29);
-            this.cb_webcam.TabIndex = 75;
-            this.cb_webcam.SelectedIndexChanged += new System.EventHandler(this.cb_webcam_SelectedIndexChanged);
-            // 
-            // btn_snap
-            // 
-            this.btn_snap.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.btn_snap.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.btn_snap.Image = global::QuanLyPhongKham.Properties.Resources.images;
-            this.btn_snap.ImageOffset = new System.Drawing.Point(0, 0);
-            this.btn_snap.ImageRotate = 0F;
-            this.btn_snap.Location = new System.Drawing.Point(292, 540);
-            this.btn_snap.Name = "btn_snap";
-            this.btn_snap.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.btn_snap.Size = new System.Drawing.Size(38, 40);
-            this.btn_snap.TabIndex = 77;
-            this.btn_snap.Click += new System.EventHandler(this.btn_snap_Click_1);
-            // 
-            // guna2ImageButton3
-            // 
-            this.guna2ImageButton3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ImageButton3.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton3.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton3.Image = global::QuanLyPhongKham.Properties.Resources.trash;
-            this.guna2ImageButton3.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageButton3.ImageRotate = 0F;
-            this.guna2ImageButton3.ImageSize = new System.Drawing.Size(20, 20);
-            this.guna2ImageButton3.Location = new System.Drawing.Point(544, 2);
-            this.guna2ImageButton3.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2ImageButton3.Name = "guna2ImageButton3";
-            this.guna2ImageButton3.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton3.Size = new System.Drawing.Size(26, 25);
-            this.guna2ImageButton3.TabIndex = 66;
-            this.guna2ImageButton3.UseTransparentBackground = true;
-            this.guna2ImageButton3.Click += new System.EventHandler(this.guna2ImageButton1_Click);
-            // 
-            // guna2ImageButton2
-            // 
-            this.guna2ImageButton2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ImageButton2.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton2.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton2.Image = global::QuanLyPhongKham.Properties.Resources.check;
-            this.guna2ImageButton2.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageButton2.ImageRotate = 0F;
-            this.guna2ImageButton2.ImageSize = new System.Drawing.Size(20, 20);
-            this.guna2ImageButton2.Location = new System.Drawing.Point(418, 2);
-            this.guna2ImageButton2.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2ImageButton2.Name = "guna2ImageButton2";
-            this.guna2ImageButton2.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton2.Size = new System.Drawing.Size(26, 25);
-            this.guna2ImageButton2.TabIndex = 66;
-            this.guna2ImageButton2.UseTransparentBackground = true;
-            this.guna2ImageButton2.Click += new System.EventHandler(this.guna2ImageButton1_Click);
-            // 
-            // guna2ImageButton1
-            // 
-            this.guna2ImageButton1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ImageButton1.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton1.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton1.Image = global::QuanLyPhongKham.Properties.Resources.search__1_;
-            this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageButton1.ImageRotate = 0F;
-            this.guna2ImageButton1.ImageSize = new System.Drawing.Size(20, 20);
-            this.guna2ImageButton1.Location = new System.Drawing.Point(154, 21);
-            this.guna2ImageButton1.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2ImageButton1.Name = "guna2ImageButton1";
-            this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton1.Size = new System.Drawing.Size(26, 25);
-            this.guna2ImageButton1.TabIndex = 66;
-            this.guna2ImageButton1.UseTransparentBackground = true;
-            this.guna2ImageButton1.Click += new System.EventHandler(this.guna2ImageButton1_Click);
-            // 
-            // pb_4
-            // 
-            this.pb_4.ImageRotate = 0F;
-            this.pb_4.Location = new System.Drawing.Point(435, 598);
-            this.pb_4.Margin = new System.Windows.Forms.Padding(4);
-            this.pb_4.Name = "pb_4";
-            this.pb_4.Size = new System.Drawing.Size(257, 179);
-            this.pb_4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb_4.TabIndex = 53;
-            this.pb_4.TabStop = false;
-            // 
-            // pb_3
-            // 
-            this.pb_3.ImageRotate = 0F;
-            this.pb_3.Location = new System.Drawing.Point(435, 411);
-            this.pb_3.Margin = new System.Windows.Forms.Padding(4);
-            this.pb_3.Name = "pb_3";
-            this.pb_3.Size = new System.Drawing.Size(257, 179);
-            this.pb_3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb_3.TabIndex = 60;
-            this.pb_3.TabStop = false;
-            // 
-            // pb_1
-            // 
-            this.pb_1.ImageRotate = 0F;
-            this.pb_1.Location = new System.Drawing.Point(436, 37);
-            this.pb_1.Margin = new System.Windows.Forms.Padding(4);
-            this.pb_1.Name = "pb_1";
-            this.pb_1.Size = new System.Drawing.Size(257, 179);
-            this.pb_1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb_1.TabIndex = 51;
-            this.pb_1.TabStop = false;
-            // 
-            // pb_2
-            // 
-            this.pb_2.ImageRotate = 0F;
-            this.pb_2.Location = new System.Drawing.Point(435, 224);
-            this.pb_2.Margin = new System.Windows.Forms.Padding(4);
-            this.pb_2.Name = "pb_2";
-            this.pb_2.Size = new System.Drawing.Size(257, 179);
-            this.pb_2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb_2.TabIndex = 52;
-            this.pb_2.TabStop = false;
-            // 
             // guna2ImageButton6
             // 
             this.guna2ImageButton6.BackColor = System.Drawing.Color.Transparent;
@@ -1206,43 +1181,81 @@
             this.guna2ImageButton4.UseTransparentBackground = true;
             this.guna2ImageButton4.Click += new System.EventHandler(this.guna2ImageButton1_Click);
             // 
-            // pb_webcam
+            // btn_refresh
             // 
-            this.pb_webcam.ImageRotate = 0F;
-            this.pb_webcam.Location = new System.Drawing.Point(9, 540);
-            this.pb_webcam.Margin = new System.Windows.Forms.Padding(4);
-            this.pb_webcam.Name = "pb_webcam";
-            this.pb_webcam.Size = new System.Drawing.Size(257, 179);
-            this.pb_webcam.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb_webcam.TabIndex = 78;
-            this.pb_webcam.TabStop = false;
+            this.btn_refresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_refresh.Location = new System.Drawing.Point(255, 5);
+            this.btn_refresh.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_refresh.Name = "btn_refresh";
+            this.btn_refresh.Size = new System.Drawing.Size(142, 31);
+            this.btn_refresh.TabIndex = 31;
+            this.btn_refresh.Text = "     Lấy phiếu khám";
+            this.btn_refresh.UseVisualStyleBackColor = true;
+            this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
+            // 
+            // btn_print
+            // 
+            this.btn_print.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_print.Location = new System.Drawing.Point(133, 3);
+            this.btn_print.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_print.Name = "btn_print";
+            this.btn_print.Size = new System.Drawing.Size(114, 31);
+            this.btn_print.TabIndex = 30;
+            this.btn_print.Text = "In";
+            this.btn_print.UseVisualStyleBackColor = true;
+            this.btn_print.Click += new System.EventHandler(this.btn_print_Click);
+            // 
+            // btn_save
+            // 
+            this.btn_save.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_save.Location = new System.Drawing.Point(8, 3);
+            this.btn_save.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_save.Name = "btn_save";
+            this.btn_save.Size = new System.Drawing.Size(124, 32);
+            this.btn_save.TabIndex = 28;
+            this.btn_save.Text = "Lưu";
+            this.btn_save.UseVisualStyleBackColor = true;
+            this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // frm_ultrasound
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1386, 788);
+            this.ClientSize = new System.Drawing.Size(1403, 805);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frm_ultrasound";
             this.Text = "Siêu âm";
-   
             this.Load += new System.EventHandler(this.frm_ultrasound_Load);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_webcam)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_exam)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_2)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_service)).EndInit();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pb_4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_webcam)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1333,5 +1346,6 @@
         private System.Windows.Forms.ComboBox cb_webcam;
         private Guna.UI2.WinForms.Guna2ImageButton btn_snap;
         private Guna.UI2.WinForms.Guna2PictureBox pb_webcam;
+        private System.Windows.Forms.Button btn_openformvideo;
     }
 }

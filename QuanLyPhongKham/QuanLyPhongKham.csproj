@@ -212,12 +212,6 @@
       <DependentUpon>DataSetTest.xsd</DependentUpon>
     </Compile>
     <Compile Include="Db.cs" />
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormScrollHelper.cs" />
     <Compile Include="frm_diagnoses.cs">
       <SubType>Form</SubType>
@@ -363,6 +357,12 @@
     <Compile Include="frm_users.Designer.cs">
       <DependentUpon>frm_users.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_video_ultrasound.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_video_ultrasound.Designer.cs">
+      <DependentUpon>frm_video_ultrasound.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_xray.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -372,9 +372,6 @@
     <Compile Include="LoadExam.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frm_diagnoses.resx">
       <DependentUpon>frm_diagnoses.cs</DependentUpon>
     </EmbeddedResource>
@@ -446,6 +443,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_users.resx">
       <DependentUpon>frm_users.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_video_ultrasound.resx">
+      <DependentUpon>frm_video_ultrasound.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_xray.resx">
       <DependentUpon>frm_xray.cs</DependentUpon>
