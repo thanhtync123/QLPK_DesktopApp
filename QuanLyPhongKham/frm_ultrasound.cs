@@ -156,6 +156,19 @@ namespace QuanLyPhongKham
                 }
             }
         }
+        private string SaveTempImage(Image img)
+        {
+            string imagesDir = Path.Combine(Application.StartupPath, "images");
+            Directory.CreateDirectory(imagesDir);
+
+            string fileName = Guid.NewGuid().ToString() + ".jpg";
+            string fullPath = Path.Combine(imagesDir, fileName);
+
+            img.Save(fullPath, System.Drawing.Imaging.ImageFormat.Jpeg);
+
+            // Trả về đường dẫn tương đối
+            return "images/" + fileName;
+        }
 
         private void btn_print_Click(object sender, EventArgs e)
         {
@@ -172,6 +185,17 @@ namespace QuanLyPhongKham
                 var ketqua = txb_final_result.Text.Trim();
                 var chidinh = txb_service.Text.Trim();
                 var gioitinh = txb_gender.Text.Trim();
+                if (pb_1.Image != null && string.IsNullOrEmpty(imageUrl1))
+                    imageUrl1 = SaveTempImage(pb_1.Image);
+
+                if (pb_2.Image != null && string.IsNullOrEmpty(imageUrl2))
+                    imageUrl2 = SaveTempImage(pb_2.Image);
+
+                if (pb_3.Image != null && string.IsNullOrEmpty(imageUrl3))
+                    imageUrl3 = SaveTempImage(pb_3.Image);
+
+                if (pb_4.Image != null && string.IsNullOrEmpty(imageUrl4))
+                    imageUrl4 = SaveTempImage(pb_4.Image);
 
                 // Thư mục Resources nằm cạnh file exe
                 string resourceDir = Path.Combine(Application.StartupPath, "Resources");
