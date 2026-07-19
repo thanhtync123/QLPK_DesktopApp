@@ -19,7 +19,7 @@ namespace QuanLyPhongKham
             Application.SetCompatibleTextRenderingDefault(false);
             try
             {
-                Application.Run(new frm_login());
+                Application.Run(new frm_nav(""));
             }
             catch (MySqlException ex)
             {
@@ -39,6 +39,7 @@ namespace QuanLyPhongKham
                     MessageBoxIcon.Error
                 );
             }
+          
 
         }
     }

@@ -70,6 +70,15 @@
     <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AForge, Version=2.2.5.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.2.2.5\lib\AForge.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video, Version=2.2.5.0, Culture=neutral, PublicKeyToken=cbfb6e07d173c401, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.Video.2.2.5\lib\AForge.Video.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video.DirectShow, Version=2.2.5.0, Culture=neutral, PublicKeyToken=61ea4348d43881b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.Video.DirectShow.2.2.5\lib\AForge.Video.DirectShow.dll</HintPath>
+    </Reference>
     <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
       <HintPath>..\packages\BouncyCastle.Cryptography.2.3.1\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
     </Reference>
@@ -348,6 +357,12 @@
     <Compile Include="frm_users.Designer.cs">
       <DependentUpon>frm_users.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_video_ultrasound.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_video_ultrasound.Designer.cs">
+      <DependentUpon>frm_video_ultrasound.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_xray.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -429,6 +444,9 @@
     <EmbeddedResource Include="frm_users.resx">
       <DependentUpon>frm_users.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_video_ultrasound.resx">
+      <DependentUpon>frm_video_ultrasound.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_xray.resx">
       <DependentUpon>frm_xray.cs</DependentUpon>
     </EmbeddedResource>
@@ -447,6 +465,7 @@
     <EmbeddedResource Include="Report3.rdlc" />
     <EmbeddedResource Include="Report4.rdlc" />
     <EmbeddedResource Include="Report5.rdlc" />
+    <None Include="App.config" />
     <None Include="DataSetFake.xsc">
       <DependentUpon>DataSetFake.xsd</DependentUpon>
     </None>
@@ -719,6 +738,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="config_example.txt" />
+    <None Include="Resources\images.png" />
+    <None Include="Resources\download.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Web.WebView2.1.0.3179.45\build\Microsoft.Web.WebView2.targets" Condition="Exists('..\packages\Microsoft.Web.WebView2.1.0.3179.45\build\Microsoft.Web.WebView2.targets')" />

@@ -40,6 +40,10 @@
             this.rdn_all = new System.Windows.Forms.RadioButton();
             this.rdn_noresult = new System.Windows.Forms.RadioButton();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btn_openformvideo = new System.Windows.Forms.Button();
+            this.pb_webcam = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.btn_snap = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.cb_webcam = new System.Windows.Forms.ComboBox();
             this.btn_ultrasound_history = new System.Windows.Forms.Button();
             this.btn_delimg4 = new System.Windows.Forms.Button();
             this.btn_delimg3 = new System.Windows.Forms.Button();
@@ -118,6 +122,7 @@
             this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.guna2Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_webcam)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_exam)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_3)).BeginInit();
@@ -169,6 +174,10 @@
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(230)))));
+            this.guna2Panel1.Controls.Add(this.btn_openformvideo);
+            this.guna2Panel1.Controls.Add(this.pb_webcam);
+            this.guna2Panel1.Controls.Add(this.btn_snap);
+            this.guna2Panel1.Controls.Add(this.cb_webcam);
             this.guna2Panel1.Controls.Add(this.btn_ultrasound_history);
             this.guna2Panel1.Controls.Add(this.btn_delimg4);
             this.guna2Panel1.Controls.Add(this.btn_delimg3);
@@ -200,6 +209,7 @@
             this.guna2Panel1.Controls.Add(this.label2);
             this.guna2Panel1.Controls.Add(this.btn_search);
             this.guna2Panel1.Controls.Add(this.label1);
+            this.guna2Panel1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Panel1.Location = new System.Drawing.Point(13, 15);
             this.guna2Panel1.Margin = new System.Windows.Forms.Padding(4);
             this.guna2Panel1.Name = "guna2Panel1";
@@ -207,12 +217,58 @@
             this.guna2Panel1.TabIndex = 4;
             this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
             // 
+            // btn_openformvideo
+            // 
+            this.btn_openformvideo.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_openformvideo.Location = new System.Drawing.Point(350, 540);
+            this.btn_openformvideo.Name = "btn_openformvideo";
+            this.btn_openformvideo.Size = new System.Drawing.Size(78, 31);
+            this.btn_openformvideo.TabIndex = 79;
+            this.btn_openformvideo.Text = "Phóng to";
+            this.btn_openformvideo.UseVisualStyleBackColor = true;
+            this.btn_openformvideo.Click += new System.EventHandler(this.btn_openformvideo_Click);
+            // 
+            // pb_webcam
+            // 
+            this.pb_webcam.ImageRotate = 0F;
+            this.pb_webcam.Location = new System.Drawing.Point(9, 540);
+            this.pb_webcam.Margin = new System.Windows.Forms.Padding(4);
+            this.pb_webcam.Name = "pb_webcam";
+            this.pb_webcam.Size = new System.Drawing.Size(334, 205);
+            this.pb_webcam.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_webcam.TabIndex = 78;
+            this.pb_webcam.TabStop = false;
+            // 
+            // btn_snap
+            // 
+            this.btn_snap.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btn_snap.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btn_snap.Image = global::QuanLyPhongKham.Properties.Resources.images;
+            this.btn_snap.ImageOffset = new System.Drawing.Point(0, 0);
+            this.btn_snap.ImageRotate = 0F;
+            this.btn_snap.Location = new System.Drawing.Point(272, 504);
+            this.btn_snap.Name = "btn_snap";
+            this.btn_snap.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btn_snap.Size = new System.Drawing.Size(38, 22);
+            this.btn_snap.TabIndex = 77;
+            this.btn_snap.Click += new System.EventHandler(this.btn_snap_Click_1);
+            // 
+            // cb_webcam
+            // 
+            this.cb_webcam.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_webcam.FormattingEnabled = true;
+            this.cb_webcam.Location = new System.Drawing.Point(4, 503);
+            this.cb_webcam.Name = "cb_webcam";
+            this.cb_webcam.Size = new System.Drawing.Size(262, 29);
+            this.cb_webcam.TabIndex = 75;
+            this.cb_webcam.SelectedIndexChanged += new System.EventHandler(this.cb_webcam_SelectedIndexChanged);
+            // 
             // btn_ultrasound_history
             // 
             this.btn_ultrasound_history.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_ultrasound_history.Location = new System.Drawing.Point(292, 718);
+            this.btn_ultrasound_history.Location = new System.Drawing.Point(316, 504);
             this.btn_ultrasound_history.Name = "btn_ultrasound_history";
-            this.btn_ultrasound_history.Size = new System.Drawing.Size(136, 34);
+            this.btn_ultrasound_history.Size = new System.Drawing.Size(118, 30);
             this.btn_ultrasound_history.TabIndex = 73;
             this.btn_ultrasound_history.Text = "Lịch sử siêu âm";
             this.btn_ultrasound_history.UseVisualStyleBackColor = true;
@@ -278,7 +334,7 @@
             this.dtgv_exam.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -300,7 +356,7 @@
             this.dtgv_exam.RowHeadersVisible = false;
             this.dtgv_exam.RowHeadersWidth = 51;
             this.dtgv_exam.RowTemplate.Height = 35;
-            this.dtgv_exam.Size = new System.Drawing.Size(434, 530);
+            this.dtgv_exam.Size = new System.Drawing.Size(434, 314);
             this.dtgv_exam.TabIndex = 67;
             this.dtgv_exam.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgv_exam.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -1179,7 +1235,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1386, 788);
+            this.ClientSize = new System.Drawing.Size(1403, 805);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -1189,6 +1245,7 @@
             this.Load += new System.EventHandler(this.frm_ultrasound_Load);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_webcam)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_exam)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_3)).EndInit();
@@ -1286,5 +1343,9 @@
         private System.Windows.Forms.Button btn_delimg2;
         private System.Windows.Forms.Button btn_delimg1;
         private System.Windows.Forms.Button btn_ultrasound_history;
+        private System.Windows.Forms.ComboBox cb_webcam;
+        private Guna.UI2.WinForms.Guna2ImageButton btn_snap;
+        private Guna.UI2.WinForms.Guna2PictureBox pb_webcam;
+        private System.Windows.Forms.Button btn_openformvideo;
     }
 }

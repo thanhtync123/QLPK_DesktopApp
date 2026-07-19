@@ -1,25 +1,26 @@
-﻿using System;
+﻿using AForge.Video;
+using AForge.Video.DirectShow;
+using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Math.Field;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Printing;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
-using WMPLib;
-using System.IO;
-using System.Collections.Generic;
-using Org.BouncyCastle.Math.Field;
+
 
 namespace QuanLyPhongKham
 {
     public partial class frm_ultrasound : Form
     {
-
         private bool isUserChangingTemplate = true;
 
 
@@ -32,6 +33,9 @@ namespace QuanLyPhongKham
 
         private void frm_ultrasound_Load(object sender, EventArgs e)
         {
+
+            loadWebcamList();
+
             LoadExam.LoadDTGVCommon(dtgv_exam, "Siêu âm");
             LoadComboboxTemplate();
             cb_template.Enabled = false;
@@ -40,6 +44,9 @@ namespace QuanLyPhongKham
             chb_anh3.Checked = true;
             chb_anh4.Checked = true;
             btn_save.Enabled = false;
+            btn_openformvideo.Enabled = false;
+
+
 
         }
         private int snapCount = 0;
@@ -149,6 +156,19 @@ namespace QuanLyPhongKham
                 }
             }
         }
+        private string SaveTempImage(Image img)
+        {
+            string imagesDir = Path.Combine(Application.StartupPath, "images");
+            Directory.CreateDirectory(imagesDir);
+
+            string fileName = Guid.NewGuid().ToString() + ".jpg";
+            string fullPath = Path.Combine(imagesDir, fileName);
+
+            img.Save(fullPath, System.Drawing.Imaging.ImageFormat.Jpeg);
+
+            // Trả về đường dẫn tương đối
+            return "images/" + fileName;
+        }
 
         private void btn_print_Click(object sender, EventArgs e)
         {
@@ -165,6 +185,17 @@ namespace QuanLyPhongKham
                 var ketqua = txb_final_result.Text.Trim();
                 var chidinh = txb_service.Text.Trim();
                 var gioitinh = txb_gender.Text.Trim();
+                if (pb_1.Image != null && string.IsNullOrEmpty(imageUrl1))
+                    imageUrl1 = SaveTempImage(pb_1.Image);
+
+                if (pb_2.Image != null && string.IsNullOrEmpty(imageUrl2))
+                    imageUrl2 = SaveTempImage(pb_2.Image);
+
+                if (pb_3.Image != null && string.IsNullOrEmpty(imageUrl3))
+                    imageUrl3 = SaveTempImage(pb_3.Image);
+
+                if (pb_4.Image != null && string.IsNullOrEmpty(imageUrl4))
+                    imageUrl4 = SaveTempImage(pb_4.Image);
 
                 // Thư mục Resources nằm cạnh file exe
                 string resourceDir = Path.Combine(Application.StartupPath, "Resources");
@@ -233,7 +264,7 @@ namespace QuanLyPhongKham
             {
                 cb_template.Enabled = true;
                 ResetPictureBoxes();
-
+                btn_openformvideo.Enabled = true;
                 DataGridViewRow row = dtgv_service.Rows[e.RowIndex];
                 txb_service.Text = row.Cells["name"].Value?.ToString();
 
@@ -612,7 +643,7 @@ namespace QuanLyPhongKham
         {
 
         }
-        private void PasteImageFromClipboard()
+        private void AddImage(Image img)
         {
             if (string.IsNullOrWhiteSpace(txb_service.Text))
             {
@@ -622,7 +653,6 @@ namespace QuanLyPhongKham
             }
             try
             {
-                Image img = Clipboard.GetImage();
                 if (img != null)
                 {
                     // Tìm PictureBox trống đầu tiên
@@ -667,11 +697,11 @@ namespace QuanLyPhongKham
                         // Tăng biến đếm ảnh
                         snapCount++;
 
-                        MessageBox.Show("Đã paste ảnh thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Đã paste/chụp ảnh thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
-                        MessageBox.Show("Tất cả các ô đã có ảnh. Vui lòng xóa ít nhất một ảnh để paste.",
+                        MessageBox.Show("Tất cả các ô đã có ảnh. Vui lòng xóa ít nhất một ảnh để paste/chụp.",
                             "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
@@ -680,6 +710,24 @@ namespace QuanLyPhongKham
             {
                 MessageBox.Show($"Lỗi khi paste ảnh: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        private void CaptureFromWebcam()
+        {
+            if (pb_webcam.Image == null)
+            {
+                MessageBox.Show("Chưa có hình từ webcam.");
+                return;
+            }
+
+            AddImage((Image)pb_webcam.Image.Clone());
+        }
+
+        private void PasteImageFromClipboard()
+        {
+            Image img = Clipboard.GetImage();
+
+            if (img != null)
+                AddImage((Image)img.Clone());
         }
 
         private void PasteTextFromClipboard()
@@ -913,5 +961,132 @@ namespace QuanLyPhongKham
             frm.typeOfService = "ultrasound";
             frm.Show();
         }
+        public FilterInfoCollection cameras;
+        public VideoCaptureDevice videoSource;
+     
+        private void OpenWebcam(int index)
+        {
+            try {
+                if (videoSource != null && videoSource.IsRunning)
+                {
+                    videoSource.SignalToStop();
+                    videoSource.WaitForStop();
+                }
+
+                videoSource = new VideoCaptureDevice(cameras[index].MonikerString);
+
+                videoSource.NewFrame += (s, ev) =>
+                {
+                    Bitmap bmpMain = (Bitmap)ev.Frame.Clone();
+
+                    if (pb_webcam.IsHandleCreated)
+                    {
+                        pb_webcam.BeginInvoke(new Action(() =>
+                        {
+                            pb_webcam.Image?.Dispose();
+                            pb_webcam.Image = bmpMain;
+                        }));
+                    }
+
+                    if (frmVideo != null && !frmVideo.IsDisposed)
+                    {
+                        Bitmap bmpVideo = (Bitmap)ev.Frame.Clone();
+                        frmVideo.ShowFrame(bmpVideo);
+                    }
+                };
+
+                videoSource.Start();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+          
+        }
+
+        private void loadWebcamList()
+        {
+
+            cameras = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+
+            cb_webcam.Items.Clear();
+
+            foreach (FilterInfo camera in cameras)
+                cb_webcam.Items.Add(camera.Name);
+
+            if (cb_webcam.Items.Count > 0)
+                cb_webcam.SelectedIndex = 0;
+
+        }
+
+
+        private void cb_webcam_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cb_webcam.SelectedIndex >= 0)
+                OpenWebcam(cb_webcam.SelectedIndex);
+        }
+
+        private void btn_snap_Click_1(object sender, EventArgs e)
+        {
+            if(txb_name.Text == "")
+            {
+                MessageBox.Show("Chưa chọn KH, hãy chọn KH");
+                return;
+            }
+            CaptureFromWebcam();
+        }
+        public void closeWebcam()
+        {
+            if (videoSource != null)
+            {
+                try
+                {
+                    if (videoSource.IsRunning)
+                    {
+                        videoSource.SignalToStop();
+                    }
+                }
+                catch
+                {
+                }
+                finally
+                {
+                    videoSource = null;
+                }
+            }
+
+            if (pb_webcam.Image != null)
+            {
+                pb_webcam.Image.Dispose();
+                pb_webcam.Image = null;
+            }
+        }
+        private frm_video_ultrasound frmVideo;
+        private void btn_openformvideo_Click(object sender, EventArgs e)
+        {
+     
+
+            if (frmVideo == null || frmVideo.IsDisposed)
+            {
+                frmVideo = new frm_video_ultrasound(this);
+       
+                frmVideo.Show();
+            }
+            else
+                frmVideo.Focus();
+            
+
+        }
+        public void SetImage(int index, Image img)
+        {
+            switch (index)
+            {
+                case 0: pb_1.Image = img; break;
+                case 1: pb_2.Image = img; break;
+                case 2: pb_3.Image = img; break;
+                case 3: pb_4.Image = img; break;
+            }
+        }
+
     }
 }

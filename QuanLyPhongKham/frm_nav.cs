@@ -126,6 +126,14 @@ namespace QuanLyPhongKham
 
                 if (imageRec.Contains(e.Location))
                 {
+                    if (tabControl1.TabPages[i].Controls.Count > 0)
+                    {
+                        if (tabControl1.TabPages[i].Controls[0] is frm_ultrasound us)
+                        {
+                            us.closeWebcam();
+                        }
+                    }
+
                     tabControl1.TabPages.RemoveAt(i);
                     break;
                 }
@@ -284,10 +292,11 @@ namespace QuanLyPhongKham
           MessageBoxButtons.YesNo,
           MessageBoxIcon.Question
                         );
-
-    
             if (result == DialogResult.No)
                 e.Cancel = true;
+            foreach (TabPage page in tabControl1.TabPages)
+                if (page.Controls.Count > 0 && page.Controls[0] is frm_ultrasound us)
+                    us.closeWebcam();
             
         }
 
@@ -295,9 +304,7 @@ namespace QuanLyPhongKham
         {
             int t = KiemTraFormTonTai(frm);
             if (t >= 0)
-            {
                 tabControl1.SelectedTab = tabControl1.TabPages[t];
-            }
             else
             {
                 TabPage newTab = new TabPage(frm.Text.Trim());
