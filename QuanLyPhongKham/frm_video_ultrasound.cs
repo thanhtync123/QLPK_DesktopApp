@@ -21,6 +21,7 @@ namespace QuanLyPhongKham
     {
         private frm_ultrasound parentForm;
         private bool daTruyenAnh = false;
+        private List<string> imagePaths = new List<string>();
 
         public frm_video_ultrasound(frm_ultrasound parent)
         {
@@ -74,6 +75,7 @@ namespace QuanLyPhongKham
             item.Text = "Ảnh " + imageList1.Images.Count;
 
             lv_image.Items.Add(item);
+ 
         }
 
         // Truyền ảnh về form siêu âm
