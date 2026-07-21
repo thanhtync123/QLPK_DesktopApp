@@ -30,16 +30,7 @@ namespace QuanLyPhongKham
                     MessageBoxIcon.Error
                 );
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(
-                    "Đã xảy ra lỗi:\n\n" + ex.Message,
-                    "Lỗi",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error
-                );
-            }
-          
+      
 
         }
     }

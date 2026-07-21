@@ -697,7 +697,7 @@ namespace QuanLyPhongKham
                         // Tăng biến đếm ảnh
                         snapCount++;
 
-                        MessageBox.Show("Đã paste/chụp ảnh thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //MessageBox.Show("Đã paste/chụp ảnh thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
