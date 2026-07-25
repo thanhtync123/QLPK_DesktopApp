@@ -68,7 +68,55 @@ namespace QuanLyPhongKham
             {
                 MessageBox.Show("Lỗi đăng nhập ( Kiểm tra lại máy chủ đã bật lên chưa ): " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            try
+            {
+                Db.ResetConnection();
 
+                string query = "SELECT id, role, name,sig_img,bank_account,bank_code FROM users WHERE username = @username AND password = @password";
+                MySqlCommand cmd = new MySqlCommand(query, Db.conn);
+                cmd.Parameters.AddWithValue("@username", txb_username.Text);
+                cmd.Parameters.AddWithValue("@password", txb_password.Text);
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    string role = reader["role"].ToString();
+                    string name = reader["name"].ToString();
+                    string id = reader["id"].ToString();
+                    string sig_img = reader["sig_img"].ToString();
+                    CurrentUser.UserName = name;
+                    CurrentUser.Id = id;
+                    CurrentUser.Signature = sig_img;
+                    CurrentUser.Bank_account = reader["bank_account"].ToString();
+                    CurrentUser.Bank_code = reader["bank_code"].ToString();
+                    CurrentUser.Role = role;
+
+                    reader.Close();
+                    Db.conn.Close();
+
+                    this.Hide();
+                    frm_nav frm = new frm_nav(role);
+                    frm.ShowDialog();
+                    this.Close();
+
+
+
+
+                }
+                else
+                {
+                    reader.Close();
+                    Db.conn.Close();
+                    MessageBox.Show("Tài khoản hoặc mật khẩu không đúng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi đăng nhập ( Kiểm tra lại máy chủ đã bật lên chưa ): " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
         private void frm_login_Load(object sender, EventArgs e)

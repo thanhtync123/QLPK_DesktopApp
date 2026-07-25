@@ -19,7 +19,7 @@ namespace QuanLyPhongKham
             Application.SetCompatibleTextRenderingDefault(false);
             try
             {
-                Application.Run(new frm_nav(""));
+                Application.Run(new frm_login());
             }
             catch (MySqlException ex)
             {
@@ -30,16 +30,7 @@ namespace QuanLyPhongKham
                     MessageBoxIcon.Error
                 );
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(
-                    "Đã xảy ra lỗi:\n\n" + ex.Message,
-                    "Lỗi",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error
-                );
-            }
-          
+      
 
         }
     }
