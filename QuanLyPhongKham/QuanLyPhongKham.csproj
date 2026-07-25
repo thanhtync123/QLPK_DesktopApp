@@ -285,6 +285,12 @@
     <Compile Include="frm_popupLUService.Designer.cs">
       <DependentUpon>frm_popupLUService.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_preview_ultrasound_image.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_preview_ultrasound_image.Designer.cs">
+      <DependentUpon>frm_preview_ultrasound_image.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_report_med.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -407,6 +413,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_popupLUService.resx">
       <DependentUpon>frm_popupLUService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_preview_ultrasound_image.resx">
+      <DependentUpon>frm_preview_ultrasound_image.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_report_med.resx">
       <DependentUpon>frm_report_med.cs</DependentUpon>

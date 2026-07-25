@@ -1,8 +1,9 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using Mysqlx.Crud;
+using System;
+using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
-using Mysqlx.Crud;
 
 namespace QuanLyPhongKham
 {
@@ -213,25 +214,50 @@ namespace QuanLyPhongKham
             INNER JOIN patients p ON e.patient_id = p.id
             WHERE DATE(e.updated_at) BETWEEN '{fromDate}' AND '{toDate}'
             GROUP BY p.id, p.name
+            ORDER BY p.updated_at DESC
                             ";
+            //Db.ResetConnection();
+            //Db.cmd = new MySqlCommand(query, Db.conn);
+            //Db.dr = Db.cmd.ExecuteReader();
+            //dtgv_detail.Rows.Clear();
+            //int stt = 1;
+            //while (Db.dr.Read())
+            //{
+
+            //    int i = dtgv_detail.Rows.Add();
+            //    DataGridViewRow drr = dtgv_detail.Rows[i];
+            //    drr.Cells["stt_patient"].Value = stt++;
+            //    drr.Cells["id_patient"].Value = Db.dr["id"];
+            //    drr.Cells["name_patient"].Value = Db.dr["name"];
+            //    drr.Cells["revenue_patient"].Value = Db.dr["total_per_customer"];
+
+            //}
+
+            //Db.dr.Close();
+            //textBox1.Text = query;
             Db.ResetConnection();
             Db.cmd = new MySqlCommand(query, Db.conn);
             Db.dr = Db.cmd.ExecuteReader();
-            dtgv_detail.Rows.Clear();
-            int stt = 1;
-            while (Db.dr.Read())
-            {
 
+            DataTable dt = new DataTable();
+            dt.Load(Db.dr);
+            Db.dr.Close();
+
+            dtgv_detail.Rows.Clear();
+
+            int stt = dt.Rows.Count;
+
+            foreach (DataRow row in dt.Rows)
+            {
                 int i = dtgv_detail.Rows.Add();
                 DataGridViewRow drr = dtgv_detail.Rows[i];
-                drr.Cells["stt_patient"].Value = stt++;
-                drr.Cells["id_patient"].Value = Db.dr["id"];
-                drr.Cells["name_patient"].Value = Db.dr["name"];
-                drr.Cells["revenue_patient"].Value = Db.dr["total_per_customer"];
 
+                drr.Cells["stt_patient"].Value = stt--;
+                drr.Cells["id_patient"].Value = row["id"];
+                drr.Cells["name_patient"].Value = row["name"];
+                drr.Cells["revenue_patient"].Value = row["total_per_customer"];
             }
 
-            Db.dr.Close();
             textBox1.Text = query;
 
         }

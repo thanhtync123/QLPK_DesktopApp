@@ -701,8 +701,19 @@ namespace QuanLyPhongKham
                     }
                     else
                     {
-                        MessageBox.Show("Tất cả các ô đã có ảnh. Vui lòng xóa ít nhất một ảnh để paste/chụp.",
-                            "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        //MessageBox.Show("Tất cả các ô đã có ảnh. Vui lòng xóa ít nhất một ảnh để paste/chụp.",
+                        //    "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        imageList1.Images.Add(new Bitmap(img, imageList1.ImageSize));
+
+                        // Thêm vào ListView
+                        ListViewItem item = new ListViewItem();
+                        item.Text = "Ảnh " + (listView1.Items.Count + 5);
+                        item.ImageIndex = imageList1.Images.Count - 1;
+
+                 
+                        item.Tag = (Image)img.Clone();
+
+                        listView1.Items.Add(item);
                     }
                 }
             }
@@ -1088,5 +1099,36 @@ namespace QuanLyPhongKham
             }
         }
 
+        private void listView1_DoubleClick(object sender, EventArgs e)
+        {
+            if (pb_1.Image != null && pb_2.Image != null && pb_3.Image != null && pb_4.Image != null)
+            {
+                MessageBox.Show("Tất cả các ô đã có ảnh. Vui lòng xóa ít nhất một ảnh để paste/chụp.",
+                    "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            foreach (ListViewItem item in listView1.SelectedItems)
+            {
+                Image img = (Image)item.Tag;
+                AddImage((Image)img.Clone());
+            }
+        }
+
+        private void listView1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count == 0)
+                return;
+
+            Image img = (Image)listView1.SelectedItems[0].Tag;
+
+            using (frm_preview_ultrasound_image frm = new frm_preview_ultrasound_image(img))
+                frm.ShowDialog();
+            
+        }
     }
 }
