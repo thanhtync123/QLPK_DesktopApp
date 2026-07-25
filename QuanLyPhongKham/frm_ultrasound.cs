@@ -424,6 +424,9 @@ namespace QuanLyPhongKham
                 txb_result.Text = "";
                 txb_final_result.Text = "";
 
+                listView1.Items.Clear();
+                imageList1.Images.Clear();
+                deleteAllImage();
                 LoadDTGV_Service();
             }
         }
@@ -844,28 +847,22 @@ namespace QuanLyPhongKham
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
+        private void deleteAllImage()
+        {
+            if (pb_1.Image != null) { pb_1.Image.Dispose(); pb_1.Image = null; }
+            if (pb_2.Image != null) { pb_2.Image.Dispose(); pb_2.Image = null; }
+            if (pb_3.Image != null) { pb_3.Image.Dispose(); pb_3.Image = null; }
+            if (pb_4.Image != null) { pb_4.Image.Dispose(); pb_4.Image = null; }
+        
+            imageUrl1 = imageUrl2 = imageUrl3 = imageUrl4 = null;
+            snapCount = 0;
+        }
 
         private void btn_del_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Bạn có chắc chắn muốn xóa tất cả ảnh?", "Xác nhận",
         MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                // Giải phóng bộ nhớ cho các ảnh
-                if (pb_1.Image != null) { pb_1.Image.Dispose(); pb_1.Image = null; }
-                if (pb_2.Image != null) { pb_2.Image.Dispose(); pb_2.Image = null; }
-                if (pb_3.Image != null) { pb_3.Image.Dispose(); pb_3.Image = null; }
-                if (pb_4.Image != null) { pb_4.Image.Dispose(); pb_4.Image = null; }
-
- 
-
-                // Xóa tất cả đường dẫn
-                imageUrl1 = imageUrl2 = imageUrl3 = imageUrl4 = null;
-
-                // Reset biến đếm ảnh
-                snapCount = 0;
-
-                
-            }
+                deleteAllImage();
         }
 
         private void guna2ImageButton1_Click(object sender, EventArgs e)
@@ -1098,37 +1095,52 @@ namespace QuanLyPhongKham
                 case 3: pb_4.Image = img; break;
             }
         }
+        private void listView1_Click(object sender, EventArgs e)
+        {
+            timer1.Stop();
+            timer1.Start();
+        }
 
         private void listView1_DoubleClick(object sender, EventArgs e)
         {
-            if (pb_1.Image != null && pb_2.Image != null && pb_3.Image != null && pb_4.Image != null)
-            {
-                MessageBox.Show("Tất cả các ô đã có ảnh. Vui lòng xóa ít nhất một ảnh để paste/chụp.",
-                    "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            timer1.Stop();
+
+            if (listView1.SelectedItems.Count == 0)
                 return;
-            }
-            foreach (ListViewItem item in listView1.SelectedItems)
+
+            PictureBox[] pictureBoxes = { pb_1, pb_2, pb_3, pb_4 };
+
+            foreach (PictureBox pb in pictureBoxes)
             {
-                Image img = (Image)item.Tag;
-                AddImage((Image)img.Clone());
+                if (pb.Image == null)
+                {
+                    Image img = (Image)listView1.SelectedItems[0].Tag;
+                    pb.Image = (Image)img.Clone();
+                    pb.Visible = true;
+
+                    return;
+                }
             }
+
+            MessageBox.Show("Vui lòng xóa một ảnh chính trước.");
         }
 
-        private void listView1_Click(object sender, EventArgs e)
-        {
 
-        }
+    
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        private void timer1_Tick(object sender, EventArgs e)
         {
+            timer1.Stop();
+
             if (listView1.SelectedItems.Count == 0)
                 return;
 
             Image img = (Image)listView1.SelectedItems[0].Tag;
 
             using (frm_preview_ultrasound_image frm = new frm_preview_ultrasound_image(img))
+            {
                 frm.ShowDialog();
-            
+            }
         }
     }
 }
