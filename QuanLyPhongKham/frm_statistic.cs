@@ -193,9 +193,10 @@ namespace QuanLyPhongKham
             //GROUP BY p.id, p.name;
             //                ";
             string query = $@"
-             SELECT
-                p.id,
-                p.name,
+           SELECT
+            p.id,
+            p.name,
+            IFNULL(
                 SUM(
                     CASE
                         WHEN e.price IS NOT NULL THEN e.price
@@ -209,12 +210,15 @@ namespace QuanLyPhongKham
                              INNER JOIN services s ON es.service_id = s.id
                              WHERE es.examination_id = e.id)
                     END
-                ) AS total_per_customer
-            FROM examinations e
-            INNER JOIN patients p ON e.patient_id = p.id
-            WHERE DATE(e.updated_at) BETWEEN '{fromDate}' AND '{toDate}'
-            GROUP BY p.id, p.name
-            ORDER BY p.updated_at DESC
+                ),0
+            ) AS total_per_customer
+        FROM patients p
+        LEFT JOIN examinations e
+            ON p.id = e.patient_id
+           AND e.updated_at BETWEEN '{fromDate}' AND '{toDate}'
+        WHERE p.updated_at BETWEEN '{fromDate}' AND '{toDate}'
+        GROUP BY p.id, p.name
+        ORDER BY p.updated_at DESC;
                             ";
             //Db.ResetConnection();
             //Db.cmd = new MySqlCommand(query, Db.conn);
