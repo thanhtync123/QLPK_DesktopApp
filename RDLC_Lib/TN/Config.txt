@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <startup>
+    <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.7.2" />
+  </startup>
+<appSettings> 
+<add key="AppMode" value="All"/> 
+<add key="BusinessType" value="PHÒNG KHÁM"/> 
+<add key="BusinessName" value="PHAN HỮU THÚY NGA"/> 
+<add key="BusinessService" value="Khám thai - Khám phụ khoa - Khám hiếm muộn"/> 
+<add key="BusinessPhone" value="0907.071.235"/> 
+<add key="BusinessAddress" value="Số 11, Trần Bạch Đằng, P. Tân An, TP. Cần Thơ"/> 
+<add key="BusinessFB" value=""/> </appSettings>
+  <connectionStrings>
+    <add name="ClinicDb" connectionString="Server=192.168.1.100;Port=3306;Database=clinic_db2;Uid=root;Pwd=123456;" providerName="MySql.Data.MySqlClient" />
+  </connectionStrings>
+  <runtime>
+    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+      <dependentAssembly>
+        <assemblyIdentity name="System.Memory" publicKeyToken="cc7b13ffcd2ddd51" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.0.1.2" newVersion="4.0.1.2" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Runtime.CompilerServices.Unsafe" publicKeyToken="b03f5f7f11d50a3a" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-6.0.0.0" newVersion="6.0.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Microsoft.SqlServer.Types" publicKeyToken="89845dcd8080cc91" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-16.0.0.0" newVersion="16.0.0.0" />
+      </dependentAssembly>
+    </assemblyBinding>
+  </runtime>
+</configuration>
