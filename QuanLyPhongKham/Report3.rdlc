@@ -25,9 +25,9 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
-            <Top>1.42859in</Top>
+            <Top>1.42809in</Top>
             <Left>0.26832in</Left>
-            <Height>0.25135in</Height>
+            <Height>0.18192in</Height>
             <Width>0.66042in</Width>
             <Style>
               <Border>
@@ -55,9 +55,9 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
-            <Top>1.42995in</Top>
+            <Top>1.40031in</Top>
             <Left>2.896in</Left>
-            <Height>0.25in</Height>
+            <Height>0.18056in</Height>
             <Width>1.025in</Width>
             <ZIndex>1</ZIndex>
             <Style>
@@ -86,7 +86,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
-            <Top>1.67995in</Top>
+            <Top>1.59476in</Top>
             <Left>0.27209in</Left>
             <Height>0.23263in</Height>
             <Width>0.67956in</Width>
@@ -131,7 +131,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox9</rd:DefaultName>
-            <Top>1.87091in</Top>
+            <Top>1.78572in</Top>
             <Left>0.17426in</Left>
             <Height>0.15971in</Height>
             <Width>0.91319in</Width>
@@ -160,9 +160,9 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_tenbn</rd:DefaultName>
-            <Top>1.42995in</Top>
+            <Top>1.42809in</Top>
             <Left>0.80374in</Left>
-            <Height>0.25in</Height>
+            <Height>0.18192in</Height>
             <Width>2.57559in</Width>
             <ZIndex>4</ZIndex>
             <Style>
@@ -188,9 +188,9 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_ngaysinh</rd:DefaultName>
-            <Top>1.42995in</Top>
+            <Top>1.40031in</Top>
             <Left>3.921in</Left>
-            <Height>0.25in</Height>
+            <Height>0.18056in</Height>
             <Width>1.29405in</Width>
             <ZIndex>5</ZIndex>
             <Style>
@@ -216,7 +216,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_chandoan</rd:DefaultName>
-            <Top>1.85703in</Top>
+            <Top>1.77184in</Top>
             <Left>1.2194in</Left>
             <Height>0.1736in</Height>
             <Width>4.03348in</Width>
@@ -244,7 +244,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_diachi</rd:DefaultName>
-            <Top>1.67995in</Top>
+            <Top>1.59476in</Top>
             <Left>0.82664in</Left>
             <Height>0.23263in</Height>
             <Width>2.55269in</Width>
@@ -275,7 +275,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_ngaykham</rd:DefaultName>
-            <Top>2.3313in</Top>
+            <Top>2.24611in</Top>
             <Left>3.00286in</Left>
             <Height>0.10441in</Height>
             <Width>2.04862in</Width>
@@ -316,7 +316,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox33</rd:DefaultName>
-            <Top>2.44959in</Top>
+            <Top>2.3644in</Top>
             <Left>3.82001in</Left>
             <Height>0.0935in</Height>
             <Width>0.525in</Width>
@@ -348,40 +348,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox16</rd:DefaultName>
-            <Top>3.01347cm</Top>
+            <Top>2.83957cm</Top>
             <Left>5.73807cm</Left>
             <Height>0.71723cm</Height>
             <Width>4.04505cm</Width>
             <ZIndex>10</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-            </Style>
-          </Textbox>
-          <Textbox Name="txb_tongtien">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=Parameters!txb_tongtien.Value</Value>
-                    <Style>
-                      <FontFamily>Times New Roman</FontFamily>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>txb_tongtien</rd:DefaultName>
-            <Top>2.46902in</Top>
-            <Left>1.26074in</Left>
-            <Height>0.08058in</Height>
-            <Width>1.19537in</Width>
-            <ZIndex>11</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -417,11 +388,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
-            <Top>0.98503in</Top>
+            <Top>0.9415in</Top>
             <Left>1.88001in</Left>
             <Height>0.21704in</Height>
             <Width>2.33172in</Width>
-            <ZIndex>12</ZIndex>
+            <ZIndex>11</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -448,11 +419,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
-            <Top>0.64953in</Top>
+            <Top>0.606in</Top>
             <Left>0.58839in</Left>
             <Height>0.34249in</Height>
             <Width>4.66449in</Width>
-            <ZIndex>13</ZIndex>
+            <ZIndex>12</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -507,7 +478,7 @@
             <Left>1.32837in</Left>
             <Height>0.27083in</Height>
             <Width>3.16248in</Width>
-            <ZIndex>14</ZIndex>
+            <ZIndex>13</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -536,11 +507,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox18</rd:DefaultName>
-            <Top>1.04792cm</Top>
+            <Top>1.13253cm</Top>
             <Left>1.56021cm</Left>
             <Height>0.60188cm</Height>
             <Width>11.97323cm</Width>
-            <ZIndex>15</ZIndex>
+            <ZIndex>14</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -557,7 +528,7 @@
                     <Value>=Parameters!txb_businessname.Value</Value>
                     <Style>
                       <FontFamily>tIMes New Roman</FontFamily>
-                      <FontSize>20pt</FontSize>
+                      <FontSize>18pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
@@ -572,7 +543,7 @@
                     <Value />
                     <Style>
                       <FontFamily>tIMes New Roman</FontFamily>
-                      <FontSize>20pt</FontSize>
+                      <FontSize>18pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
@@ -583,11 +554,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
-            <Top>0.18341in</Top>
-            <Left>1.31004in</Left>
+            <Top>0.26225in</Top>
+            <Left>1.43504in</Left>
             <Height>0.34375in</Height>
             <Width>3.16248in</Width>
-            <ZIndex>16</ZIndex>
+            <ZIndex>15</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -615,11 +586,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
-            <Top>1.67995in</Top>
+            <Top>1.59476in</Top>
             <Left>2.66662in</Left>
             <Height>0.22222in</Height>
             <Width>0.62988in</Width>
-            <ZIndex>17</ZIndex>
+            <ZIndex>16</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -643,11 +614,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_sdt</rd:DefaultName>
-            <Top>1.67995in</Top>
+            <Top>1.59476in</Top>
             <Left>3.32427in</Left>
             <Height>0.22222in</Height>
             <Width>1.2348in</Width>
-            <ZIndex>18</ZIndex>
+            <ZIndex>17</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -676,11 +647,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_med</rd:DefaultName>
-            <Top>2.18851in</Top>
+            <Top>2.10332in</Top>
             <Left>0.60384in</Left>
             <Height>0.14279in</Height>
             <Width>4.59445in</Width>
-            <ZIndex>19</ZIndex>
+            <ZIndex>18</ZIndex>
             <Style>
               <Border />
             </Style>
@@ -719,11 +690,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox9</rd:DefaultName>
-            <Top>2.03062in</Top>
+            <Top>1.94543in</Top>
             <Left>0.24722in</Left>
             <Height>0.177in</Height>
             <Width>1.01352in</Width>
-            <ZIndex>20</ZIndex>
+            <ZIndex>19</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -764,11 +735,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox9</rd:DefaultName>
-            <Top>2.37297in</Top>
+            <Top>2.28778in</Top>
             <Left>0.10739in</Left>
             <Height>0.09605in</Height>
             <Width>1.02397in</Width>
-            <ZIndex>21</ZIndex>
+            <ZIndex>20</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -792,42 +763,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_songaythuoc</rd:DefaultName>
-            <Top>2.37297in</Top>
+            <Top>2.28778in</Top>
             <Left>1.13136in</Left>
             <Height>0.09605in</Height>
             <Width>1.35764in</Width>
-            <ZIndex>22</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-            </Style>
-          </Textbox>
-          <Textbox Name="Textbox20">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>Thuốc:</Value>
-                    <Style>
-                      <FontFamily>Times New Roman</FontFamily>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Right</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox4</rd:DefaultName>
-            <Top>2.46902in</Top>
-            <Left>0.0745in</Left>
-            <Height>0.08058in</Height>
-            <Width>1.18529in</Width>
-            <ZIndex>23</ZIndex>
+            <ZIndex>21</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -854,11 +794,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_dtname</rd:DefaultName>
-            <Top>2.98078in</Top>
+            <Top>2.89559in</Top>
             <Left>2.77966in</Left>
             <Height>0.16636in</Height>
             <Width>2.40263in</Width>
-            <ZIndex>24</ZIndex>
+            <ZIndex>22</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -869,48 +809,17 @@
             <Source>External</Source>
             <Value>=Parameters!pr_sign.Value</Value>
             <Sizing>Fit</Sizing>
-            <Top>2.52832in</Top>
+            <Top>2.44313in</Top>
             <Left>3.47524in</Left>
             <Height>0.74471in</Height>
             <Width>1.08383in</Width>
-            <ZIndex>25</ZIndex>
+            <ZIndex>23</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
               </Border>
             </Style>
           </Image>
-          <Textbox Name="Textbox21">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>Cận - lâm - sàng:</Value>
-                    <Style>
-                      <FontFamily>Times New Roman</FontFamily>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Right</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox4</rd:DefaultName>
-            <Top>2.5496in</Top>
-            <Left>0.0745in</Left>
-            <Height>0.09989in</Height>
-            <Width>1.18529in</Width>
-            <ZIndex>26</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-            </Style>
-          </Textbox>
           <Textbox Name="Textbox22">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
@@ -931,40 +840,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
-            <Top>2.64949in</Top>
-            <Left>0.0745in</Left>
+            <Top>2.38383in</Top>
+            <Left>0.21816in</Left>
             <Height>0.09989in</Height>
-            <Width>1.18529in</Width>
-            <ZIndex>27</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-            </Style>
-          </Textbox>
-          <Textbox Name="txb_taikham2">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=Parameters!txb_tongtien_cls.Value</Value>
-                    <Style>
-                      <FontFamily>Times New Roman</FontFamily>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>txb_taikham</rd:DefaultName>
-            <Top>2.5496in</Top>
-            <Left>1.25979in</Left>
-            <Height>0.09989in</Height>
-            <Width>1.19632in</Width>
-            <ZIndex>28</ZIndex>
+            <Width>0.9132in</Width>
+            <ZIndex>24</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -994,11 +874,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>txb_taikham</rd:DefaultName>
-            <Top>2.64949in</Top>
-            <Left>1.25979in</Left>
+            <Top>2.38383in</Top>
+            <Left>1.13136in</Left>
             <Height>0.09989in</Height>
             <Width>1.22826in</Width>
-            <ZIndex>29</ZIndex>
+            <ZIndex>25</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1006,7 +886,7 @@
             </Style>
           </Textbox>
         </ReportItems>
-        <Height>8.5532cm</Height>
+        <Height>8.44737cm</Height>
         <Style />
       </Body>
       <Width>13.68271cm</Width>

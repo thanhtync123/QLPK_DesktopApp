@@ -949,6 +949,7 @@ namespace QuanLyPhongKham
             dtgv_patient_med.Rows[r].Cells["med_name_2"].Value = dtgv_med.Rows[e.RowIndex].Cells["med_name"].Value;
             dtgv_patient_med.Rows[r].Cells["note_2"].Value = dtgv_med.Rows[e.RowIndex].Cells["note"].Value;
             dtgv_patient_med.Rows[r].Cells["unit_2"].Value = dtgv_med.Rows[e.RowIndex].Cells["unit"].Value;
+            dtgv_patient_med.Rows[r].Cells["unit_price"].Value = dtgv_med.Rows[e.RowIndex].Cells["price"].Value;
             dtgv_patient_med.Rows[r].Cells["morning"].Value = "";
             dtgv_patient_med.Rows[r].Cells["afternoon"].Value = "";
             dtgv_patient_med.Rows[r].Cells["days_of_use"].Value = "";
@@ -1254,6 +1255,11 @@ namespace QuanLyPhongKham
                 row.Cells["total_quantity"].Value = total_med > 0
                     ? total_rounded.ToString("0")
                     : "";
+                string quantity = row.Cells["total_quantity"].Value?.ToString();
+
+                row.Cells["total_price"].Value =
+                    Convert.ToInt16(string.IsNullOrEmpty(quantity) ? "0" : quantity)
+                    * Convert.ToInt32(row.Cells["unit_price"].Value);
             }
 
 
@@ -1271,17 +1277,13 @@ namespace QuanLyPhongKham
 
             lb_dayofuse.Text = maxDayOfUse + "";
             int total = 0;
-            if (rdn_40k.Checked == true)
-                total = 40000 * maxDayOfUse;
-            else if (rdn_45k.Checked == true)
-                total = 45000 * maxDayOfUse;
-            else if (rdn_50k.Checked == true)
-                total = 50000 * maxDayOfUse;
-            else if (rdn_55k.Checked == true)
-                total = 55000 * maxDayOfUse;
-            else if (rdn_60k.Checked == true)
-                total = 60000 * maxDayOfUse;
 
+
+            foreach (DataGridViewRow dtgvr in dtgv_patient_med.Rows)
+            {
+                if (dtgvr.IsNewRow) continue;
+                total += Convert.ToInt32(dtgvr.Cells["total_price"].Value);
+            }
             txb_total_price_med.Text = total.ToString("#,##0");
             txb_follow_up.Text = DateTime.Today.AddDays(maxDayOfUse).ToString("dd/MM/yyyy");
 

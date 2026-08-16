@@ -96,12 +96,18 @@
             this.label3 = new System.Windows.Forms.Label();
             this.guna2ImageButton9 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.btn_cancel_reupdated = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv)).BeginInit();
             this.SuspendLayout();
             // 
             // txb_name
             // 
-            this.txb_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txb_name.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txb_name.Location = new System.Drawing.Point(75, 55);
             this.txb_name.Margin = new System.Windows.Forms.Padding(6);
             this.txb_name.Name = "txb_name";
@@ -112,11 +118,11 @@
             // rdn_male
             // 
             this.rdn_male.AutoSize = true;
-            this.rdn_male.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdn_male.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdn_male.Location = new System.Drawing.Point(393, 101);
             this.rdn_male.Margin = new System.Windows.Forms.Padding(6);
             this.rdn_male.Name = "rdn_male";
-            this.rdn_male.Size = new System.Drawing.Size(60, 24);
+            this.rdn_male.Size = new System.Drawing.Size(57, 23);
             this.rdn_male.TabIndex = 5;
             this.rdn_male.TabStop = true;
             this.rdn_male.Text = "Nam";
@@ -125,11 +131,11 @@
             // rdn_female
             // 
             this.rdn_female.AutoSize = true;
-            this.rdn_female.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdn_female.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdn_female.Location = new System.Drawing.Point(502, 100);
             this.rdn_female.Margin = new System.Windows.Forms.Padding(6);
             this.rdn_female.Name = "rdn_female";
-            this.rdn_female.Size = new System.Drawing.Size(47, 24);
+            this.rdn_female.Size = new System.Drawing.Size(48, 23);
             this.rdn_female.TabIndex = 6;
             this.rdn_female.TabStop = true;
             this.rdn_female.Text = "Nữ";
@@ -171,7 +177,7 @@
             this.dtgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -197,7 +203,7 @@
             this.updated_at_format});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
@@ -416,66 +422,66 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(18, 55);
             this.label8.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(57, 20);
+            this.label8.Size = new System.Drawing.Size(50, 19);
             this.label8.TabIndex = 0;
             this.label8.Text = "Họ tên";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(18, 97);
             this.label9.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(75, 20);
+            this.label9.Size = new System.Drawing.Size(66, 19);
             this.label9.TabIndex = 3;
             this.label9.Text = "Năm sinh";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(314, 101);
             this.label10.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(67, 20);
+            this.label10.Size = new System.Drawing.Size(59, 19);
             this.label10.TabIndex = 4;
             this.label10.Text = "Giới tính";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(320, 15);
             this.label11.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(41, 20);
+            this.label11.Size = new System.Drawing.Size(38, 19);
             this.label11.TabIndex = 7;
             this.label11.Text = "SĐT";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(312, 61);
             this.label12.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(57, 20);
+            this.label12.Size = new System.Drawing.Size(51, 19);
             this.label12.TabIndex = 9;
             this.label12.Text = "Địa chỉ";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.Location = new System.Drawing.Point(52, 17);
             this.label13.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(26, 20);
+            this.label13.Size = new System.Drawing.Size(25, 19);
             this.label13.TabIndex = 11;
             this.label13.Text = "ID";
             // 
@@ -601,17 +607,17 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(634, 215);
+            this.label24.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(557, 213);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(80, 20);
+            this.label24.Size = new System.Drawing.Size(75, 19);
             this.label24.TabIndex = 42;
             this.label24.Text = "Chiều cao";
             // 
             // txb_height
             // 
             this.txb_height.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txb_height.DefaultText = "   cm";
+            this.txb_height.DefaultText = "";
             this.txb_height.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txb_height.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txb_height.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -620,28 +626,28 @@
             this.txb_height.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txb_height.ForeColor = System.Drawing.Color.Black;
             this.txb_height.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txb_height.Location = new System.Drawing.Point(720, 193);
+            this.txb_height.Location = new System.Drawing.Point(642, 193);
             this.txb_height.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txb_height.Name = "txb_height";
             this.txb_height.PlaceholderText = "";
             this.txb_height.SelectedText = "";
-            this.txb_height.Size = new System.Drawing.Size(164, 40);
+            this.txb_height.Size = new System.Drawing.Size(108, 40);
             this.txb_height.TabIndex = 39;
             // 
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(339, 155);
+            this.label23.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(288, 167);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(73, 20);
+            this.label23.Size = new System.Drawing.Size(70, 19);
             this.label23.TabIndex = 37;
             this.label23.Text = "Huyết áp";
             // 
             // txb_blood_pressure
             // 
             this.txb_blood_pressure.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txb_blood_pressure.DefaultText = "  mmHg";
+            this.txb_blood_pressure.DefaultText = "";
             this.txb_blood_pressure.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txb_blood_pressure.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txb_blood_pressure.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -650,38 +656,38 @@
             this.txb_blood_pressure.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txb_blood_pressure.ForeColor = System.Drawing.Color.Black;
             this.txb_blood_pressure.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txb_blood_pressure.Location = new System.Drawing.Point(419, 141);
+            this.txb_blood_pressure.Location = new System.Drawing.Point(356, 146);
             this.txb_blood_pressure.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txb_blood_pressure.Name = "txb_blood_pressure";
             this.txb_blood_pressure.PlaceholderText = "";
             this.txb_blood_pressure.SelectedText = "";
-            this.txb_blood_pressure.Size = new System.Drawing.Size(210, 40);
+            this.txb_blood_pressure.Size = new System.Drawing.Size(114, 40);
             this.txb_blood_pressure.TabIndex = 36;
             // 
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(336, 216);
+            this.label21.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(288, 222);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(68, 20);
+            this.label21.Size = new System.Drawing.Size(66, 19);
             this.label21.TabIndex = 34;
             this.label21.Text = "Nhiệt độ";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(58, 155);
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(39, 164);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 20);
+            this.label1.Size = new System.Drawing.Size(48, 19);
             this.label1.TabIndex = 33;
             this.label1.Text = "Mạch";
             // 
             // txb_pulse
             // 
             this.txb_pulse.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txb_pulse.DefaultText = "  Lần / phút";
+            this.txb_pulse.DefaultText = "";
             this.txb_pulse.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txb_pulse.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txb_pulse.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -690,18 +696,18 @@
             this.txb_pulse.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txb_pulse.ForeColor = System.Drawing.Color.Black;
             this.txb_pulse.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txb_pulse.Location = new System.Drawing.Point(122, 141);
+            this.txb_pulse.Location = new System.Drawing.Point(94, 144);
             this.txb_pulse.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txb_pulse.Name = "txb_pulse";
             this.txb_pulse.PlaceholderText = "";
             this.txb_pulse.SelectedText = "";
-            this.txb_pulse.Size = new System.Drawing.Size(210, 40);
+            this.txb_pulse.Size = new System.Drawing.Size(91, 40);
             this.txb_pulse.TabIndex = 32;
             // 
             // txb_temperature
             // 
             this.txb_temperature.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txb_temperature.DefaultText = "  °C";
+            this.txb_temperature.DefaultText = "";
             this.txb_temperature.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txb_temperature.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txb_temperature.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -710,28 +716,28 @@
             this.txb_temperature.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txb_temperature.ForeColor = System.Drawing.Color.Black;
             this.txb_temperature.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txb_temperature.Location = new System.Drawing.Point(417, 196);
+            this.txb_temperature.Location = new System.Drawing.Point(354, 201);
             this.txb_temperature.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txb_temperature.Name = "txb_temperature";
             this.txb_temperature.PlaceholderText = "";
             this.txb_temperature.SelectedText = "";
-            this.txb_temperature.Size = new System.Drawing.Size(210, 40);
+            this.txb_temperature.Size = new System.Drawing.Size(114, 40);
             this.txb_temperature.TabIndex = 31;
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(636, 164);
+            this.label22.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(568, 167);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(68, 20);
+            this.label22.Size = new System.Drawing.Size(67, 19);
             this.label22.TabIndex = 44;
             this.label22.Text = "Nhịp thở";
             // 
             // txb_respiratory_rate
             // 
             this.txb_respiratory_rate.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txb_respiratory_rate.DefaultText = "  Lần/phút";
+            this.txb_respiratory_rate.DefaultText = "";
             this.txb_respiratory_rate.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txb_respiratory_rate.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txb_respiratory_rate.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -740,28 +746,28 @@
             this.txb_respiratory_rate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txb_respiratory_rate.ForeColor = System.Drawing.Color.Black;
             this.txb_respiratory_rate.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txb_respiratory_rate.Location = new System.Drawing.Point(720, 144);
+            this.txb_respiratory_rate.Location = new System.Drawing.Point(642, 144);
             this.txb_respiratory_rate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txb_respiratory_rate.Name = "txb_respiratory_rate";
             this.txb_respiratory_rate.PlaceholderText = "";
             this.txb_respiratory_rate.SelectedText = "";
-            this.txb_respiratory_rate.Size = new System.Drawing.Size(164, 40);
+            this.txb_respiratory_rate.Size = new System.Drawing.Size(108, 40);
             this.txb_respiratory_rate.TabIndex = 43;
             // 
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(38, 216);
+            this.label25.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(10, 216);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(78, 20);
+            this.label25.Size = new System.Drawing.Size(72, 19);
             this.label25.TabIndex = 46;
             this.label25.Text = "Cân nặng";
             // 
             // txb_weight
             // 
             this.txb_weight.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txb_weight.DefaultText = "  kg";
+            this.txb_weight.DefaultText = "";
             this.txb_weight.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txb_weight.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txb_weight.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -770,12 +776,12 @@
             this.txb_weight.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.txb_weight.ForeColor = System.Drawing.Color.Black;
             this.txb_weight.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txb_weight.Location = new System.Drawing.Point(122, 196);
+            this.txb_weight.Location = new System.Drawing.Point(94, 196);
             this.txb_weight.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txb_weight.Name = "txb_weight";
             this.txb_weight.PlaceholderText = "";
             this.txb_weight.SelectedText = "";
-            this.txb_weight.Size = new System.Drawing.Size(208, 41);
+            this.txb_weight.Size = new System.Drawing.Size(91, 41);
             this.txb_weight.TabIndex = 45;
             // 
             // btn_firstpage
@@ -863,11 +869,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(193, 99);
             this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(39, 20);
+            this.label3.Size = new System.Drawing.Size(35, 19);
             this.label3.TabIndex = 57;
             this.label3.Text = "Tuổi";
             // 
@@ -900,12 +906,84 @@
             this.btn_cancel_reupdated.UseVisualStyleBackColor = true;
             this.btn_cancel_reupdated.Click += new System.EventHandler(this.btn_cancel_reupdated_Click_1);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Blue;
+            this.label4.Location = new System.Drawing.Point(192, 164);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(62, 19);
+            this.label4.TabIndex = 65;
+            this.label4.Text = "Lần/phút";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Blue;
+            this.label5.Location = new System.Drawing.Point(193, 217);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(24, 19);
+            this.label5.TabIndex = 66;
+            this.label5.Text = "kg";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Blue;
+            this.label6.Location = new System.Drawing.Point(477, 166);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(49, 19);
+            this.label6.TabIndex = 67;
+            this.label6.Text = "mmHg";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.Blue;
+            this.label14.Location = new System.Drawing.Point(477, 221);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(30, 19);
+            this.label14.TabIndex = 68;
+            this.label14.Text = " °C";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.Blue;
+            this.label15.Location = new System.Drawing.Point(757, 164);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(62, 19);
+            this.label15.TabIndex = 69;
+            this.label15.Text = "Lần/phút";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.Blue;
+            this.label16.Location = new System.Drawing.Point(757, 213);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(27, 19);
+            this.label16.TabIndex = 70;
+            this.label16.Text = "cm";
+            // 
             // frm_patients
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(230)))));
             this.ClientSize = new System.Drawing.Size(1370, 822);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.guna2ImageButton9);
             this.Controls.Add(this.btn_cancel_reupdated);
             this.Controls.Add(this.txb_age);
@@ -956,7 +1034,7 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txb_name);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "frm_patients";
@@ -1034,5 +1112,11 @@
         private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton9;
         private System.Windows.Forms.Button btn_cancel_reupdated;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
     }
 }

@@ -24,6 +24,7 @@ namespace QuanLyPhongKham
             dtgv.Columns["stt"].Width = 30;
             dtgv.Columns["name"].Width = 150;
             dtgv.Columns["unit"].Width = 80;
+            dtgv.Columns["price"].Width = 100;
             dtgv.Columns["note"].Width = 150;
         }
 
@@ -35,6 +36,7 @@ namespace QuanLyPhongKham
             id,
             name,
             unit,
+            price,
             note
         FROM medications
         ORDER BY name";
@@ -45,6 +47,7 @@ namespace QuanLyPhongKham
             dtgv.Columns["id"].HeaderText = "Mã thuốc";
             dtgv.Columns["name"].HeaderText = "Tên thuốc";
             dtgv.Columns["unit"].HeaderText = "Đơn vị";
+            dtgv.Columns["price"].HeaderText = "Đơn giá";
             dtgv.Columns["note"].HeaderText = "Ghi chú";
         }
 
@@ -57,6 +60,7 @@ namespace QuanLyPhongKham
             btn_add.Enabled = true;
             btn_update.Enabled = false;
             btn_delete.Enabled = false;
+            nud_price.Value= 0;
         }
 
         private void dtgv_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -68,7 +72,7 @@ namespace QuanLyPhongKham
                 txb_name.Text = row.Cells["name"].Value.ToString();
                 txb_unit.Text = row.Cells["unit"].Value.ToString();
                 txb_note.Text = row.Cells["note"].Value.ToString();
-
+                nud_price.Value = Convert.ToDecimal(row.Cells["price"].Value);
                 btn_add.Enabled = false;
                 btn_update.Enabled = true;
                 btn_delete.Enabled = true;
@@ -79,7 +83,7 @@ namespace QuanLyPhongKham
         {
             string query = @"INSERT INTO medications 
                              (id, name, unit, note, price, created_at, updated_at) 
-                             VALUES (NULL, @name, @unit, @note, NULL, CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP())";
+                             VALUES (NULL, @name, @unit, @note, @price, CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP())";
             Db.Add(query, GetFormData());
             LoadDTGV();
             ClearForm();
@@ -94,7 +98,7 @@ namespace QuanLyPhongKham
             }
 
             string query = @"UPDATE medications 
-                             SET name = @name, unit = @unit, note = @note, updated_at = CURRENT_TIMESTAMP()
+                             SET name = @name, unit = @unit, note = @note,price=@price, updated_at = CURRENT_TIMESTAMP()
                              WHERE id = @id";
             var data = GetFormData();
             data.Add("@id", txb_id.Text.Trim());
@@ -126,7 +130,7 @@ namespace QuanLyPhongKham
         {
             string keyword = MySql.Data.MySqlClient.MySqlHelper.EscapeString(txb_search.Text.Trim());
             string query = $@"
-                SELECT id, name, unit, note 
+                SELECT id, name,price, unit, note
                 FROM medications 
                 WHERE id LIKE '%{keyword}%' OR name LIKE '%{keyword}%'";
             Db.LoadDTGV(dtgv, query);
@@ -143,7 +147,8 @@ namespace QuanLyPhongKham
             {
                 { "@name", txb_name.Text.Trim() },
                 { "@unit", txb_unit.Text.Trim() },
-                { "@note", txb_note.Text.Trim() }
+                { "@note", txb_note.Text.Trim() },
+                 { "@price", nud_price.Text.Trim() }
             };
         }
     }
