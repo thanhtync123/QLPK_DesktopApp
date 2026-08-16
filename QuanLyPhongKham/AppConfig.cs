@@ -9,6 +9,7 @@ namespace QuanLyPhongKham
 {
     public static class AppConfig
     {
+    
         public static string AppMode
             => ConfigurationManager.AppSettings["AppMode"] ?? "All";
         public static string businesstype => ConfigurationManager.AppSettings["BusinessType"];
