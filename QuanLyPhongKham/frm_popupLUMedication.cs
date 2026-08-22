@@ -125,7 +125,8 @@ namespace QuanLyPhongKham
                 em.unit,
                 em.days_of_use,
                 em.total_quantity_med,
-                em.note
+                em.note,
+                em.unit_price
             FROM 
                 examination_medications em, examinations e, medications m
             WHERE 
@@ -153,12 +154,17 @@ namespace QuanLyPhongKham
                 drr.Cells["c2_days_of_use"].Value = Db.dr["days_of_use"];
                 drr.Cells["c2_total_quantity_med"].Value = Db.dr["total_quantity_med"];
                 drr.Cells["c2_note"].Value = Db.dr["note"];
+                drr.Cells["unit_price"].Value = Db.dr["unit_price"];
             }
             Db.dr.Close();
             int maxDaysOfUse = 0;   
             foreach (DataGridViewRow row in dtgv_detail.Rows)
             {
                 if (row.IsNewRow) continue;
+                row.Cells["total_price"].Value =
+                    Convert.ToInt32(row.Cells["unit_price"].Value) *
+                    Convert.ToInt32(row.Cells["c2_total_quantity_med"].Value);
+
                 if (int.TryParse(row.Cells["c2_days_of_use"].Value?.ToString(), out int daysOfUse))
                     if (daysOfUse > maxDaysOfUse)
                         maxDaysOfUse = daysOfUse;
@@ -179,7 +185,7 @@ namespace QuanLyPhongKham
                 if (maxDaysOfUse > 0)
                     price_per_day = price_per_day / maxDaysOfUse;
             }
-            txb_price_per_day.Text = price_per_day + "";
+            //txb_price_per_day.Text = price_per_day + "";
          
 
 
@@ -205,11 +211,13 @@ namespace QuanLyPhongKham
                     row.Cells["c2_evening"].Value,
                     row.Cells["c2_days_of_use"].Value,
                     row.Cells["c2_total_quantity_med"].Value,
+                    row.Cells["unit_price"].Value,
+                    row.Cells["total_price"].Value,
                     row.Cells["c2_note"].Value
                 };
 
                 selectedMedications.Add(rowData);
-                price_per_day = Convert.ToInt32(txb_price_per_day.Text);
+           //     price_per_day = Convert.ToInt32(txb_price_per_day.Text);
 
             }
 

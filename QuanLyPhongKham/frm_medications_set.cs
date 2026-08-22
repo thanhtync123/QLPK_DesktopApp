@@ -35,6 +35,7 @@ namespace QuanLyPhongKham
                 row.Cells["id"].Value = Db.dr["id"];
                 row.Cells["name"].Value = Db.dr["name"];
                 row.Cells["description"].Value = Db.dr["description"];
+              
 
 
             }
@@ -43,7 +44,7 @@ namespace QuanLyPhongKham
         }
         private void LoadDTGV_Med(string keyword)
         {
-            string query = $@"SELECT id, name, unit, note  from medications where name like '%{txb_search_med.Text}%' order by name asc";
+            string query = $@"SELECT id, name, unit, note, price from medications where name like '%{txb_search_med.Text}%' order by name asc";
             Db.cmd = new MySqlCommand(query, Db.conn);
             Db.dr = Db.cmd.ExecuteReader();
             dtgv_medications.Rows.Clear();
@@ -55,6 +56,7 @@ namespace QuanLyPhongKham
                 row.Cells["name_med"].Value = Db.dr["name"];
                 row.Cells["unit_med"].Value = Db.dr["unit"];
                 row.Cells["note_med"].Value = Db.dr["note"];
+                row.Cells["c1_unit_price"].Value = Db.dr["price"];
                 row.Cells["add_med"].Value = "+";
 
             }
@@ -80,12 +82,14 @@ namespace QuanLyPhongKham
                 int.TryParse(row.Cells["days_of_use"].Value?.ToString(), out days_of_use);
                 int.TryParse(row.Cells["total_quantity_med"].Value?.ToString(), out total_quantity_med);
 
+                var unit_price = row.Cells["c2_unit_price"].Value?.ToString();
+
 
 
 
                 string query = $@"
                     INSERT INTO preset_medications
-                    (id_preset_medications_set, id_medications, morning, noon, afternoon, evening, unit, days_of_use, total_quantity_med, note)
+                    (id_preset_medications_set, id_medications, morning, noon, afternoon, evening, unit, days_of_use, total_quantity_med, note,unit_price)
                     VALUES
                     ({id_set},
                     {Convert.ToInt16(id_med)},
@@ -96,7 +100,9 @@ namespace QuanLyPhongKham
                     '{unit}',
                      {(days_of_use == 0 ? "NULL" : days_of_use.ToString())},
                     {(total_quantity_med == 0 ? "NULL" : total_quantity_med.ToString())},
-                    {(string.IsNullOrEmpty(note) ? "NULL" : $"'{note}'")});
+                    {(string.IsNullOrEmpty(note) ? "NULL" : $"'{note}'")},
+                    {Convert.ToInt32(unit_price)});
+
                     ";
     
                 Db.ExecuteNonQuery(query);
@@ -190,7 +196,8 @@ namespace QuanLyPhongKham
                 pm.unit, 
                 pm.days_of_use, 
                 pm.total_quantity_med, 
-                pm.note
+                pm.note,
+                pm.unit_price
             FROM preset_medications pm
             INNER JOIN medications m ON pm.id_medications = m.id
             WHERE pm.id_preset_medications_set = {txb_id.Text};
@@ -213,6 +220,10 @@ namespace QuanLyPhongKham
                 row.Cells["days_of_use"].Value = Db.dr["days_of_use"];
                 row.Cells["total_quantity_med"].Value = Db.dr["total_quantity_med"];
                 row.Cells["note"].Value = Db.dr["note"];
+                row.Cells["c2_unit_price"].Value = Db.dr["unit_price"];
+                row.Cells["total_price"].Value =
+     Convert.ToInt32(Db.dr["unit_price"].ToString() == "" ? "0" : Db.dr["unit_price"].ToString()) *
+     Convert.ToInt32(Db.dr["total_quantity_med"].ToString() == "" ? "0" : Db.dr["total_quantity_med"].ToString());
                 row.Cells["del_med"].Value = "-";
             }
             Db.dr.Close();
@@ -249,7 +260,13 @@ namespace QuanLyPhongKham
             dtgv_preset_medications.Rows[rowIndex].Cells["name_pm"].Value = dtgv_medications.CurrentRow.Cells["name_med"].Value;
             dtgv_preset_medications.Rows[rowIndex].Cells["unit"].Value = dtgv_medications.CurrentRow.Cells["unit_med"].Value;
             dtgv_preset_medications.Rows[rowIndex].Cells["note"].Value = dtgv_medications.CurrentRow.Cells["note_med"].Value;
+            dtgv_preset_medications.Rows[rowIndex].Cells["c2_unit_price"].Value = dtgv_medications.CurrentRow.Cells["c1_unit_price"].Value;
             dtgv_preset_medications.Rows[rowIndex].Cells["del_med"].Value = "-";
+          
+            //dtgv_preset_medications.Rows[rowIndex].Cells["total_price"].Value = Convert.ToInt32(dtgv_preset_medications.Rows[rowIndex].Cells["total_quantity_med"].Value) *
+            //                                                                    Convert.ToInt32(dtgv_preset_medications.Rows[rowIndex].Cells["c2_unit_price"].Value);
+
+
 
 
         }
@@ -279,7 +296,12 @@ namespace QuanLyPhongKham
 
                 row.Cells["total_quantity_med"].Value = total_med > 0
                     ? total_rounded.ToString("0")
-                    : "";
+                    : "0";
+
+                int totalQuantity = Convert.ToInt32(row.Cells["total_quantity_med"].Value ?? 0);
+                int unitPrice = Convert.ToInt32(row.Cells["c2_unit_price"].Value ?? 0);
+
+                row.Cells["total_price"].Value = totalQuantity * unitPrice;
             }
 
 

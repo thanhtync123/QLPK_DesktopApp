@@ -140,7 +140,7 @@ namespace QuanLyPhongKham
             btn_pre_service.Enabled = false;
             loadComboboxServiceSet();
             loadComboboxMedicationSet();
-            rdn_50k.Checked = true;
+       
             cb_percent_reduce.Items.Clear();
             int[] percents = { 0, 10, 20, 30, 50, 100 };
 
@@ -1073,11 +1073,11 @@ namespace QuanLyPhongKham
                         string unit = row.Cells["unit_2"].Value?.ToString()?.Replace("'", "''");
                         string note = row.Cells["note_2"].Value?.ToString()?.Replace("'", "''");
                         string days = string.IsNullOrEmpty(row.Cells["days_of_use"].Value?.ToString()) ? "NULL" : row.Cells["days_of_use"].Value.ToString();
-
+                        string unit_price = string.IsNullOrEmpty(row.Cells["unit_price"].Value?.ToString()) ? "NULL" : row.Cells["unit_price"].Value.ToString().Replace(",", ".");
                         string insertMed = $@"
                     INSERT INTO `examination_medications` (
                         `id`, `examination_id`, `medication_id`, `morning`,`noon`, `afternoon`,`evening`, `unit`,
-                        `days_of_use`, `total_quantity_med`, `note`, `created_at`, `updated_at`
+                        `days_of_use`, `total_quantity_med`,`unit_price` ,`note`, `created_at`, `updated_at`
                     ) VALUES (
                         NULL,
                         '{examId}', 
@@ -1089,6 +1089,7 @@ namespace QuanLyPhongKham
                         '{unit}',
                         {days},
                         {total},
+                        {unit_price},
                         '{note}',
                         current_timestamp(),
                         current_timestamp()
@@ -1303,17 +1304,6 @@ namespace QuanLyPhongKham
             {
                 foreach (var rowData in frm.selectedMedications)
                     dtgv_patient_med.Rows.Add(rowData);
-                if (frm.price_per_day == 40000)
-                    rdn_40k.Checked = true;
-                else if (frm.price_per_day == 45000)
-                    rdn_45k.Checked = true;
-                else if (frm.price_per_day == 50000)
-                    rdn_50k.Checked = true;
-                else if (frm.price_per_day == 55000)
-                    rdn_55k.Checked = true;
-                else if (frm.price_per_day == 60000)
-                    rdn_60k.Checked = true;
-                else rdn_50k.Checked = true;
                 UpdateMedicationSummary();
             }
 
@@ -1587,7 +1577,7 @@ namespace QuanLyPhongKham
             if (cb_med_set.SelectedIndex == 0) return;
             Db.ResetConnection();
             string query = $@"
-             select m.id,m.name,pm.morning,pm.noon,pm.afternoon,pm.evening,pm.unit,pm.days_of_use,pm.total_quantity_med,pm.note 
+             select m.id,m.name,pm.morning,pm.noon,pm.afternoon,pm.evening,pm.unit,pm.days_of_use,pm.total_quantity_med,pm.note,pm.unit_price
              from preset_medications pm
              inner join medications m on m.id = pm.id_medications
              where id_preset_medications_set = {cb_med_set.SelectedValue}"
@@ -1613,6 +1603,8 @@ namespace QuanLyPhongKham
                 row.Cells["days_of_use"].Value = Db.dr["days_of_use"];
                 row.Cells["total_quantity"].Value = Db.dr["total_quantity_med"];
                 row.Cells["note_2"].Value = Db.dr["note"];
+                row.Cells["unit_price"].Value = Db.dr["unit_price"];
+                row.Cells["total_price"].Value = Convert.ToInt32(row.Cells["unit_price"].Value) * Convert.ToInt32(row.Cells["total_quantity"].Value);
                 row.Cells["delete_med"].Value = "-";
                 row.Cells["id_med_2"].Value = Db.dr["id"];
             }
@@ -1848,6 +1840,11 @@ namespace QuanLyPhongKham
         private void rdn_60k_CheckedChanged_1(object sender, EventArgs e)
         {
             UpdateMedicationSummary();
+        }
+
+        private void txb_ngaysinh_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
