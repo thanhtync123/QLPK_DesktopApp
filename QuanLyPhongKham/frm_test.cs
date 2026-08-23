@@ -1,4 +1,7 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -6,14 +9,13 @@ using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 
 namespace QuanLyPhongKham
@@ -27,6 +29,8 @@ namespace QuanLyPhongKham
         public frm_test()
         {
             InitializeComponent();
+            this.KeyPreview = true;
+            this.KeyDown += frm_test_KeyDown;
 
         }
 
@@ -38,6 +42,7 @@ namespace QuanLyPhongKham
             btn_save.Enabled = false;
      
             cb_template.Enabled = false;
+            pb_imgresult.Visible = false;
 
         }
         private void LoadComboboxTemplate()
@@ -264,60 +269,10 @@ namespace QuanLyPhongKham
 
         private void btn_save_Click(object sender, EventArgs e)
         {
-            JArray resultArr = new JArray();
-            foreach (DataGridViewRow r in dtgv_result.Rows)
-            {
-                if (r.IsNewRow) continue;
-                resultArr.Add(new JObject
-                {
-                    ["indication"] = r.Cells[0].Value?.ToString(),
-                    ["result"] = r.Cells[1].Value?.ToString(),
-                    ["unit"] = r.Cells[2].Value?.ToString(),
-                    ["normal_range"] = r.Cells[3].Value?.ToString()
-                });
-            }
-            if (dtgv_service.CurrentRow.Cells["state"].Value?.ToString() == "Chưa có KQ")
-            {
-
-                var sql = "INSERT INTO examination_results (examination_service_id, template_id, result, final_result) " +
-             "VALUES (@examination_service_id, @template_id, @result, @final_result);";
-                var param = new Dictionary<string, object>
-                {
-                    { "@examination_service_id", Convert.ToInt32(dtgv_service.CurrentRow.Cells[0].Value) },
-                    { "@template_id", Convert.ToInt32(cb_template.SelectedValue) },
-                    { "@result", resultArr.ToString(Newtonsoft.Json.Formatting.None) },
-                    { "@final_result", txb_final_result.Text }
-                };
-                Db.Add(sql, param);
-                MessageBox.Show("Đã lưu");
-                btn_save.Enabled = false;
            
+
             }
-           else if (dtgv_service.CurrentRow.Cells["state"].Value?.ToString() == "Đã có KQ")
-            {
 
-                string sql = @"UPDATE examination_results 
-                      SET template_id = @template_id, 
-                          result = @result, 
-                          final_result = @final_result 
-                      WHERE examination_service_id = @examination_service_id";
-
-                var param = new Dictionary<string, object>
-        {
-            { "@examination_service_id", Convert.ToInt32(dtgv_service.CurrentRow.Cells["examination_service_id"].Value) },
-            { "@template_id", Convert.ToInt32(cb_template.SelectedValue) },
-            { "@result", resultArr.ToString(Newtonsoft.Json.Formatting.None) },
-            { "@final_result", txb_final_result.Text }
-        };
-
-                Db.Update(sql, param);
-                MessageBox.Show("Cập nhật kết quả thành công!");
-                btn_save.Enabled = false;
-            
-            }    
-
-                LoadDTGV_Service();
-        }
         private void dtgv_service_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             btn_save.Enabled = true;
@@ -331,6 +286,7 @@ namespace QuanLyPhongKham
                 DataGridViewRow row = dtgv_service.Rows[e.RowIndex];
                 var name_service = row.Cells["name"].Value?.ToString();
                 txb_service.Text = name_service;
+
                 if (lastClickedRowIndex != e.RowIndex)
                 {
                     dtgv_result.Rows.Clear();
@@ -339,37 +295,75 @@ namespace QuanLyPhongKham
                     cb_template.SelectedIndex = 0;
                     isUserChangingTemplate = true;
                 }
+
                 lastClickedRowIndex = e.RowIndex;
 
                 if (row.Cells["state"].Value.ToString() == "Đã có KQ")
                 {
-
                     btn_save.Text = "Cập nhật";
 
                     string sql = @"SELECT 
-                        es.id AS examination_service_id,
-                        er.result AS result,
-                        er.template_id,
-                        er.final_result
-                    FROM 
-                        examinations e
-                    JOIN examination_services es ON e.id = es.examination_id
-                    JOIN services s ON es.service_id = s.id
-                    JOIN examination_results er ON er.examination_service_id = es.id
-                    WHERE 
-                        er.examination_service_id = @examination_service_id";
+                es.id AS examination_service_id,
+                er.result AS result,
+                er.file_path AS file_path,
+                er.template_id,
+                er.final_result
+            FROM 
+                examinations e
+            JOIN examination_services es ON e.id = es.examination_id
+            JOIN services s ON es.service_id = s.id
+            JOIN examination_results er ON er.examination_service_id = es.id
+            WHERE 
+                er.examination_service_id = @examination_service_id";
 
-                    var exam_service_id = Convert.ToInt32(row.Cells["examination_service_id"].Value);
+                    var exam_service_id = Convert.ToInt32(
+                        row.Cells["examination_service_id"].Value
+                    );
 
                     Db.ResetConnection();
+
                     using (MySqlCommand cmd = new MySqlCommand(sql, Db.conn))
                     {
-                        cmd.Parameters.AddWithValue("@examination_service_id", exam_service_id);
+                        cmd.Parameters.AddWithValue(
+                            "@examination_service_id",
+                            exam_service_id
+                        );
 
                         using (MySqlDataReader reader = cmd.ExecuteReader())
                         {
                             if (reader.Read())
                             {
+                                // =========================
+                                // XỬ LÝ ẢNH / TEXT
+                                // =========================
+
+                                string filepath = reader["file_path"]?.ToString();
+
+                                if (!string.IsNullOrEmpty(filepath))
+                                {
+                                    // Có ảnh
+                                    rdn_imgresult.Checked = true;
+                                    rdn_textresult.Checked = false;
+
+                                    string fullPath = Path.Combine(
+                                        Application.StartupPath,
+                                        filepath
+                                    );
+
+                                    if (File.Exists(fullPath))
+                                    {
+                                        pb_imgresult.Image?.Dispose();
+                                        pb_imgresult.Image = Image.FromFile(fullPath);
+                                        pb_imgresult.SizeMode = PictureBoxSizeMode.Zoom;
+                                    }
+                                }
+                                else
+                                {
+                                    // Có kết quả text
+                                    rdn_imgresult.Checked = false;
+                                    rdn_textresult.Checked = true;
+                                }
+
                                 // Disable template change events temporarily
                                 isUserChangingTemplate = false;
 
@@ -377,48 +371,65 @@ namespace QuanLyPhongKham
                                 dtgv_result.Rows.Clear();
 
                                 // Display final result
-                                Db.SetTextAndMoveCursorToEnd(txb_final_result, reader["final_result"].ToString());
+                                Db.SetTextAndMoveCursorToEnd(
+                                    txb_final_result,
+                                    reader["final_result"].ToString()
+                                );
 
                                 // Set template combobox
                                 var templateId = reader["template_id"];
+
                                 if (templateId != DBNull.Value)
                                 {
-                                    cb_template.SelectedValue = Convert.ToInt32(templateId);
+                                    cb_template.SelectedValue =
+                                        Convert.ToInt32(templateId);
                                 }
 
                                 // Get JSON result string
-                                string jsonResult = reader["result"].ToString();
+                                string jsonResult =
+                                    reader["result"].ToString();
 
                                 // Check if JSON is valid
                                 if (!string.IsNullOrEmpty(jsonResult))
                                 {
                                     try
                                     {
-                                        JArray jsonArray = JArray.Parse(jsonResult);
+                                        JArray jsonArray =
+                                            JArray.Parse(jsonResult);
+
                                         dtgv_result.Rows.Clear();
 
                                         foreach (JObject result in jsonArray)
                                         {
-                                            string indication = result["indication"]?.ToString() ?? "";
-                                            string resultValue = result["result"]?.ToString() ?? "";
-                                            string unit = result["unit"]?.ToString() ?? "";
-                                            string normalRange = result["normal_range"]?.ToString() ?? "";
+                                            string indication =
+                                                result["indication"]?.ToString() ?? "";
 
-                                            dtgv_result.Rows.Add(indication, resultValue, unit, normalRange);
+                                            string resultValue =
+                                                result["result"]?.ToString() ?? "";
+
+                                            string unit =
+                                                result["unit"]?.ToString() ?? "";
+
+                                            string normalRange =
+                                                result["normal_range"]?.ToString() ?? "";
+
+                                            dtgv_result.Rows.Add(
+                                                indication,
+                                                resultValue,
+                                                unit,
+                                                normalRange
+                                            );
                                         }
                                     }
                                     catch (JsonReaderException ex)
                                     {
-                                        MessageBox.Show("JSON không hợp lệ: " + ex.Message);
+                                        MessageBox.Show(
+                                            "JSON không hợp lệ: " + ex.Message
+                                        );
                                     }
                                 }
 
-                                else
-                                {
-                                    MessageBox.Show("Không có dữ liệu kết quả.");
-                                }
-
-                                // Re-enable template change events when everything is loaded
+                                // Re-enable template change events
                                 isUserChangingTemplate = true;
                             }
                         }
@@ -431,6 +442,8 @@ namespace QuanLyPhongKham
                     cb_template.SelectedIndex = 0;
                     txb_final_result.Text = "";
                     isUserChangingTemplate = true;
+                    rdn_imgresult.Checked = false;
+                    
                 }
             }
             catch (Exception ex)
@@ -439,7 +452,6 @@ namespace QuanLyPhongKham
             }
             finally
             {
-                // Always reset this flag
                 isLoadingResults = false;
             }
         }
@@ -504,24 +516,7 @@ namespace QuanLyPhongKham
         private void btn_print_Click(object sender, EventArgs e)
         {
 
-            var mabn = txb_id_patient.Text;
-            var tenbn = txb_name.Text;
-            //  var ngaysinh = txb_dob.Text;
-            var ngaysinh = txb_age.Text;
-            var chandoan = txb_reason1.Text;
-            var chandoanphu = txb_symptoms.Text;
-            var diachi = txb_address.Text;
-            var ketqua = txb_final_result.Text;
-            var ngaykham = DateTime.Now.ToString("'Ngày' dd 'tháng' MM 'năm' yyyy");
-            var gioitinh = txb_gender.Text;
-            var chidinh = txb_service.Text;
-            var nhanvien = CurrentUser.UserName;
-
-            var sdt = txb_phone.Text;
-            DataTable dt = GetDataTableFromDataGridView(dtgv_result);
-            frm_report_test frm = new frm_report_test(dt, mabn, tenbn, ngaysinh, chandoan, chandoanphu, diachi, ketqua, ngaykham, sdt, gioitinh, chidinh, nhanvien);
-
-            frm.ShowDialog();
+          
 
         }
         //public DataTable GetDataTableFromDataGridView(DataGridView dgv)
@@ -585,8 +580,7 @@ namespace QuanLyPhongKham
 
         private void btn_refresh_Click(object sender, EventArgs e)
         {
-            dtgv_exam.Rows.Clear();
-            LoadExam.LoadDTGVCommon(dtgv_exam, "Xét nghiệm");
+           
         }
 
         private void txb_search_TextChanged(object sender, EventArgs e)
@@ -759,6 +753,192 @@ namespace QuanLyPhongKham
                 return true;
 
             return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+
+ 
+
+        private void rdn_imgresult_CheckedChanged(object sender, EventArgs e)
+        {
+            if(rdn_imgresult.Checked)
+            {
+                dtgv_result.Visible = false;
+                pb_imgresult.Visible = true;
+            }
+        }
+
+        private void rdn_textresult_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdn_textresult.Checked)
+            {
+                dtgv_result.Visible = true;
+                pb_imgresult.Visible = false;
+            }
+            
+        }
+
+        private void frm_test_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.V && Clipboard.ContainsImage())
+            {
+                pb_imgresult.Image = Clipboard.GetImage();
+                pb_imgresult.SizeMode = PictureBoxSizeMode.Zoom;
+            }
+        }
+
+        private void btn_save_Click_1(object sender, EventArgs e)
+        {
+            if (rdn_imgresult.Checked)
+            {
+                if (rdn_imgresult.Checked)
+                {
+                    if (pb_imgresult.Image == null)
+                    {
+                        MessageBox.Show("Chưa có ảnh kết quả!");
+                        return;
+                    }
+
+                    string imagesDir = Path.Combine(Application.StartupPath, "images");
+                    Directory.CreateDirectory(imagesDir);
+
+                    string fileName = Guid.NewGuid() + ".jpg";
+                    string filePath = Path.Combine(imagesDir, fileName);
+
+                    pb_imgresult.Image.Save(
+                        filePath,
+                        System.Drawing.Imaging.ImageFormat.Jpeg
+                    );
+
+                    // Lưu đường dẫn vào database
+                    string imagePath = $"images/{fileName}";
+
+                    if (dtgv_service.CurrentRow.Cells["state"].Value?.ToString() == "Chưa có KQ")
+                    {
+                        var sql = "INSERT INTO examination_results " +
+                                  "(examination_service_id, template_id, file_path,result) " +
+                                  "VALUES (@examination_service_id, @template_id, @file_path,'');";
+
+                        var param = new Dictionary<string, object>
+        {
+            { "@examination_service_id", Convert.ToInt32(dtgv_service.CurrentRow.Cells["examination_service_id"].Value) },
+            { "@template_id", Convert.ToInt32(cb_template.SelectedValue) },
+            { "@file_path", imagePath }
+        };
+
+                        Db.Add(sql, param);
+
+                        MessageBox.Show("Đã lưu");
+                        btn_save.Enabled = false;
+                    }
+                    else if (dtgv_service.CurrentRow.Cells["state"].Value?.ToString() == "Đã có KQ")
+                    {
+                        string sql = @"UPDATE examination_results 
+                       SET template_id = @template_id, 
+                           file_path = @file_path
+         
+                       WHERE examination_service_id = @examination_service_id";
+
+                        var param = new Dictionary<string, object>
+        {
+            { "@examination_service_id", Convert.ToInt32(dtgv_service.CurrentRow.Cells["examination_service_id"].Value) },
+            { "@template_id", Convert.ToInt32(cb_template.SelectedValue) },
+            { "@file_path", imagePath }
+        };
+
+                        Db.Update(sql, param);
+
+                        MessageBox.Show("Cập nhật kết quả thành công!");
+                        btn_save.Enabled = false;
+                    }
+
+                    LoadDTGV_Service();
+                }
+            }
+            else
+            {
+                JArray resultArr = new JArray();
+                foreach (DataGridViewRow r in dtgv_result.Rows)
+                {
+                    if (r.IsNewRow) continue;
+                    resultArr.Add(new JObject
+                    {
+                        ["indication"] = r.Cells[0].Value?.ToString(),
+                        ["result"] = r.Cells[1].Value?.ToString(),
+                        ["unit"] = r.Cells[2].Value?.ToString(),
+                        ["normal_range"] = r.Cells[3].Value?.ToString()
+                    });
+                }
+                if (dtgv_service.CurrentRow.Cells["state"].Value?.ToString() == "Chưa có KQ")
+                {
+
+                    var sql = "INSERT INTO examination_results (examination_service_id, template_id, result, final_result) " +
+                 "VALUES (@examination_service_id, @template_id, @result, @final_result);";
+                    var param = new Dictionary<string, object>
+                {
+                    { "@examination_service_id", Convert.ToInt32(dtgv_service.CurrentRow.Cells[0].Value) },
+                    { "@template_id", Convert.ToInt32(cb_template.SelectedValue) },
+                    { "@result", resultArr.ToString(Newtonsoft.Json.Formatting.None) },
+                    { "@final_result", txb_final_result.Text }
+                };
+                    Db.Add(sql, param);
+                    MessageBox.Show("Đã lưu");
+                    btn_save.Enabled = false;
+
+                }
+                else if (dtgv_service.CurrentRow.Cells["state"].Value?.ToString() == "Đã có KQ")
+                {
+
+                    string sql = @"UPDATE examination_results 
+                      SET template_id = @template_id, 
+                          result = @result, 
+                          final_result = @final_result 
+                      WHERE examination_service_id = @examination_service_id";
+
+                    var param = new Dictionary<string, object>
+        {
+            { "@examination_service_id", Convert.ToInt32(dtgv_service.CurrentRow.Cells["examination_service_id"].Value) },
+            { "@template_id", Convert.ToInt32(cb_template.SelectedValue) },
+            { "@result", resultArr.ToString(Newtonsoft.Json.Formatting.None) },
+            { "@final_result", txb_final_result.Text }
+        };
+
+                    Db.Update(sql, param);
+                    MessageBox.Show("Cập nhật kết quả thành công!");
+                    btn_save.Enabled = false;
+
+                }
+
+                LoadDTGV_Service();
+            }
+
+        }
+
+        private void btn_print_Click_1(object sender, EventArgs e)
+        {
+            var mabn = txb_id_patient.Text;
+            var tenbn = txb_name.Text;
+            //  var ngaysinh = txb_dob.Text;
+            var ngaysinh = txb_age.Text;
+            var chandoan = txb_reason1.Text;
+            var chandoanphu = txb_symptoms.Text;
+            var diachi = txb_address.Text;
+            var ketqua = txb_final_result.Text;
+            var ngaykham = DateTime.Now.ToString("'Ngày' dd 'tháng' MM 'năm' yyyy");
+            var gioitinh = txb_gender.Text;
+            var chidinh = txb_service.Text;
+            var nhanvien = CurrentUser.UserName;
+
+            var sdt = txb_phone.Text;
+            DataTable dt = GetDataTableFromDataGridView(dtgv_result);
+            frm_report_test frm = new frm_report_test(dt, mabn, tenbn, ngaysinh, chandoan, chandoanphu, diachi, ketqua, ngaykham, sdt, gioitinh, chidinh, nhanvien);
+
+            frm.ShowDialog();
+        }
+
+        private void btn_refresh_Click_1(object sender, EventArgs e)
+        {
+            dtgv_exam.Rows.Clear();
+            LoadExam.LoadDTGVCommon(dtgv_exam, "Xét nghiệm");
         }
     }
 }

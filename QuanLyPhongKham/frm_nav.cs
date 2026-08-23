@@ -37,14 +37,14 @@ namespace QuanLyPhongKham
             {
                 // Ẩn các menu không cần thiết
                 xQuangToolStripMenuItem.Visible = false;
-                điệnTimToolStripMenuItem.Visible = false;
+                //điệnTimToolStripMenuItem.Visible = false;
                 xétNghiệmToolStripMenuItem.Visible = false;
             }
             else if (appMode == "All")
             {
                 // Hiện tất cả
                 xQuangToolStripMenuItem.Visible = true;
-                điệnTimToolStripMenuItem.Visible = true;
+              //  điệnTimToolStripMenuItem.Visible = true;
                 xétNghiệmToolStripMenuItem.Visible = true;
                 siêuÂmToolStripMenuItem.Visible = true;
             }

@@ -1714,7 +1714,7 @@
             this.dtgv_patient_med.Location = new System.Drawing.Point(3, 237);
             this.dtgv_patient_med.Name = "dtgv_patient_med";
             this.dtgv_patient_med.RowHeadersVisible = false;
-            this.dtgv_patient_med.Size = new System.Drawing.Size(920, 178);
+            this.dtgv_patient_med.Size = new System.Drawing.Size(920, 195);
             this.dtgv_patient_med.TabIndex = 1;
             this.dtgv_patient_med.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgv_patient_med.ThemeStyle.AlternatingRowsStyle.Font = null;
