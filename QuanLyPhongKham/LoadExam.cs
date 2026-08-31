@@ -75,7 +75,11 @@ namespace QuanLyPhongKham
         JOIN examination_services es ON e.id = es.examination_id
         JOIN services s ON es.service_id = s.id
         LEFT JOIN examination_results er ON er.examination_service_id = es.id
-        WHERE s.type = @type
+       WHERE (
+            (@type = 'OTHER' AND s.type NOT IN ('Siêu âm', 'Xét nghiệm'))
+            OR
+            (@type <> 'OTHER' AND s.type = @type)
+        )
     ";
 
             if (string.IsNullOrEmpty(search))

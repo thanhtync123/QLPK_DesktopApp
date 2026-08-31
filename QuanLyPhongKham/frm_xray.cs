@@ -28,7 +28,7 @@ namespace QuanLyPhongKham
         {
             InitializeComponent();
             LoadExam.InitialDTGVCommon(dtgv_exam);
-            LoadExam.LoadDTGVCommon(dtgv_exam, "X-quang");
+            LoadExam.LoadDTGVCommon(dtgv_exam, "OTHER");
         }
         private void frm_xray_Load(object sender, EventArgs e)
         {
@@ -59,7 +59,8 @@ namespace QuanLyPhongKham
                JOIN examination_services es ON e.id = es.examination_id
                JOIN services s ON es.service_id = s.id
                LEFT JOIN examination_results er ON er.examination_service_id = es.id
-               WHERE e.id = @exam_id AND s.type = 'X-quang'";
+               WHERE e.id = @exam_id 
+                AND s.type NOT IN ('Siêu âm', 'Xét nghiệm')";
 
             Db.conn = new MySqlConnection(Db.connectionString);
             Db.ResetConnection();
@@ -87,7 +88,7 @@ namespace QuanLyPhongKham
         }
         private void LoadComboboxTemplate()
         {
-            string query = "SELECT id, name, template_content,type FROM templates where type = 'X-quang' ";
+            string query = "SELECT id, name, template_content, type FROM templates WHERE type NOT IN ('Siêu âm', 'Xét nghiệm')";
             Db.LoadComboBoxData(cb_template, query, "name", "id");
             
         }
@@ -314,7 +315,7 @@ namespace QuanLyPhongKham
         JOIN patients p ON e.patient_id = p.id
         JOIN diagnoses d ON e.diagnosis_id = d.id
         JOIN examination_services es ON es.examination_id = e.id
-        JOIN services s ON s.id = es.service_id AND s.type = 'X-quang'
+        JOIN services s ON s.id = es.service_id AND s.type NOT IN ('Siêu âm', 'Xét nghiệm')
         LEFT JOIN examination_results er ON er.examination_service_id = es.id
         WHERE DATE(e.updated_at) 
               BETWEEN STR_TO_DATE(@from_date, '%d/%m/%Y') 
@@ -388,7 +389,7 @@ namespace QuanLyPhongKham
             var mota = txb_result.Text.Trim();
             var ketqua = txb_final_result.Text.Trim();
             var chidinh = txb_service.Text.Trim();
-            var title = "KẾT QUẢ X-QUANG";
+            var title = "KẾT QUẢ "+chidinh;
             var frm = new frm_report_xray(mabn, tenbn, ngaysinh, diachi, sdt, chandoan, chandoanphu, mota, ketqua, chidinh,gioitinh,title);
             frm.ShowDialog();
 
@@ -396,13 +397,13 @@ namespace QuanLyPhongKham
         private void btn_refresh_Click(object sender, EventArgs e)
         {
             dtgv_exam.Rows.Clear();
-            LoadExam.LoadDTGVCommon(dtgv_exam, "X-quang"); 
+            LoadExam.LoadDTGVCommon(dtgv_exam, "OTHER"); 
         }
 
         private void txb_search_TextChanged(object sender, EventArgs e)
         {
 			string keyword = txb_search.Text.Trim();
-			LoadExam.LoadDTGVCommon(dtgv_exam, "X-quang", keyword);
+			LoadExam.LoadDTGVCommon(dtgv_exam, "OTHER", keyword);
 		}
 
         private void btn_delete_Click(object sender, EventArgs e)

@@ -101,7 +101,7 @@
             // 
             // xQuangToolStripMenuItem
             // 
-            this.xQuangToolStripMenuItem.Image = global::QuanLyPhongKham.Properties.Resources.x_ray;
+            this.xQuangToolStripMenuItem.Image = global::QuanLyPhongKham.Properties.Resources.phieuthuoc;
             this.xQuangToolStripMenuItem.Name = "xQuangToolStripMenuItem";
             this.xQuangToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
             this.xQuangToolStripMenuItem.Text = "Dịch vụ khác";

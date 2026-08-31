@@ -28,23 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.label_1 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -56,10 +56,6 @@
             this.guna2ImageButton4 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.label_3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.pn_egg = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2ImageButton5 = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.lb_6 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.pn_xray = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2ImageButton8 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.lb_5 = new System.Windows.Forms.Label();
@@ -76,34 +72,6 @@
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.guna2ImageButton9 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.lb_sinhhoa = new System.Windows.Forms.Label();
-            this.lb_nuoctieu = new System.Windows.Forms.Label();
-            this.lb_testhp = new System.Windows.Forms.Label();
-            this.lb_hba1c = new System.Windows.Forms.Label();
-            this.lb_ktvgb = new System.Windows.Forms.Label();
-            this.lb_vgc = new System.Windows.Forms.Label();
-            this.lb_vgb = new System.Windows.Forms.Label();
-            this.lb_huyethoc = new System.Windows.Forms.Label();
-            this.pn_detail_test = new Guna.UI2.WinForms.Guna2Panel();
-            this.lb_testns1ag = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.lb_iondo = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.lb_stronggyloides = new System.Windows.Forms.Label();
-            this.lb_toxocara = new System.Windows.Forms.Label();
-            this.lb_troponin = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.lb_7 = new System.Windows.Forms.Label();
             this.guna2ImageButton7 = new Guna.UI2.WinForms.Guna2ImageButton();
@@ -121,6 +89,12 @@
             this.time_service = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.del_service = new System.Windows.Forms.DataGridViewButtonColumn();
             this.dtgv_detail_service = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.stt_detail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.service_detail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price_service_detail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price_origrinal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.percent_reduce = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.state_detail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtgv_detail_service_med = new Guna.UI2.WinForms.Guna2DataGridView();
             this.c2_examination_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stt = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -138,25 +112,51 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.stt_detail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.service_detail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price_service_detail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price_origrinal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.percent_reduce = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.state_detail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lb_6 = new System.Windows.Forms.Label();
+            this.guna2ImageButton5 = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.pn_egg = new Guna.UI2.WinForms.Guna2Panel();
+            this.lb_ktvgb = new System.Windows.Forms.Label();
+            this.lb_vgc = new System.Windows.Forms.Label();
+            this.lb_vgb = new System.Windows.Forms.Label();
+            this.lb_hba1c = new System.Windows.Forms.Label();
+            this.lb_huyethoc = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.lb_testhp = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lb_nuoctieu = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lb_sinhhoa = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.lb_troponin = new System.Windows.Forms.Label();
+            this.lb_toxocara = new System.Windows.Forms.Label();
+            this.lb_stronggyloides = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.lb_iondo = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.lb_testns1ag = new System.Windows.Forms.Label();
+            this.pn_detail_test = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
-            this.pn_egg.SuspendLayout();
             this.pn_xray.SuspendLayout();
             this.guna2Panel6.SuspendLayout();
             this.pn_test.SuspendLayout();
-            this.pn_detail_test.SuspendLayout();
             this.guna2Panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_detail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_service)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_detail_service)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_detail_service_med)).BeginInit();
+            this.pn_egg.SuspendLayout();
+            this.pn_detail_test.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -289,55 +289,6 @@
             this.label6.Size = new System.Drawing.Size(154, 20);
             this.label6.TabIndex = 0;
             this.label6.Text = "Doanh thu dịch vụ";
-            // 
-            // pn_egg
-            // 
-            this.pn_egg.BackColor = System.Drawing.Color.GreenYellow;
-            this.pn_egg.BorderColor = System.Drawing.Color.Yellow;
-            this.pn_egg.Controls.Add(this.guna2ImageButton5);
-            this.pn_egg.Controls.Add(this.lb_6);
-            this.pn_egg.Controls.Add(this.label8);
-            this.pn_egg.Location = new System.Drawing.Point(10, 365);
-            this.pn_egg.Name = "pn_egg";
-            this.pn_egg.Size = new System.Drawing.Size(229, 80);
-            this.pn_egg.TabIndex = 6;
-            // 
-            // guna2ImageButton5
-            // 
-            this.guna2ImageButton5.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ImageButton5.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton5.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton5.Image = global::QuanLyPhongKham.Properties.Resources.electrocardiogram1;
-            this.guna2ImageButton5.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageButton5.ImageRotate = 0F;
-            this.guna2ImageButton5.Location = new System.Drawing.Point(154, 10);
-            this.guna2ImageButton5.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2ImageButton5.Name = "guna2ImageButton5";
-            this.guna2ImageButton5.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton5.Size = new System.Drawing.Size(62, 63);
-            this.guna2ImageButton5.TabIndex = 12;
-            this.guna2ImageButton5.UseTransparentBackground = true;
-            // 
-            // lb_6
-            // 
-            this.lb_6.AutoSize = true;
-            this.lb_6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_6.ForeColor = System.Drawing.Color.Red;
-            this.lb_6.Location = new System.Drawing.Point(11, 37);
-            this.lb_6.Name = "lb_6";
-            this.lb_6.Size = new System.Drawing.Size(76, 25);
-            this.lb_6.TabIndex = 1;
-            this.lb_6.Text = "label7";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(8, 10);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(123, 20);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Số ca điện tim";
             // 
             // pn_xray
             // 
@@ -540,325 +491,6 @@
             this.guna2Button1.Text = "Xem";
             this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(202, 29);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 21);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "Huyết học:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(185, 73);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(137, 21);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "Test Viêm gan B:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(184, 117);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(138, 21);
-            this.label5.TabIndex = 15;
-            this.label5.Text = "Test Viêm gan C:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(112, 94);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(210, 21);
-            this.label7.TabIndex = 16;
-            this.label7.Text = "Test kháng thể viêm gan B:";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(137, 51);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(156, 21);
-            this.label9.TabIndex = 20;
-            this.label9.Text = "Còn lại ( sinh hóa ):";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(202, 184);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(120, 21);
-            this.label11.TabIndex = 19;
-            this.label11.Text = "Test nước tiểu:";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(242, 160);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(80, 21);
-            this.label13.TabIndex = 18;
-            this.label13.Text = "Test H.P:";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(213, 138);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(109, 21);
-            this.label15.TabIndex = 17;
-            this.label15.Text = "Test HbA1C:";
-            // 
-            // lb_sinhhoa
-            // 
-            this.lb_sinhhoa.AutoSize = true;
-            this.lb_sinhhoa.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_sinhhoa.ForeColor = System.Drawing.Color.Red;
-            this.lb_sinhhoa.Location = new System.Drawing.Point(298, 52);
-            this.lb_sinhhoa.Name = "lb_sinhhoa";
-            this.lb_sinhhoa.Size = new System.Drawing.Size(20, 22);
-            this.lb_sinhhoa.TabIndex = 28;
-            this.lb_sinhhoa.Text = "a";
-            // 
-            // lb_nuoctieu
-            // 
-            this.lb_nuoctieu.AutoSize = true;
-            this.lb_nuoctieu.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_nuoctieu.ForeColor = System.Drawing.Color.Red;
-            this.lb_nuoctieu.Location = new System.Drawing.Point(324, 182);
-            this.lb_nuoctieu.Name = "lb_nuoctieu";
-            this.lb_nuoctieu.Size = new System.Drawing.Size(20, 22);
-            this.lb_nuoctieu.TabIndex = 27;
-            this.lb_nuoctieu.Text = "a";
-            // 
-            // lb_testhp
-            // 
-            this.lb_testhp.AutoSize = true;
-            this.lb_testhp.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_testhp.ForeColor = System.Drawing.Color.Red;
-            this.lb_testhp.Location = new System.Drawing.Point(324, 160);
-            this.lb_testhp.Name = "lb_testhp";
-            this.lb_testhp.Size = new System.Drawing.Size(20, 22);
-            this.lb_testhp.TabIndex = 26;
-            this.lb_testhp.Text = "a";
-            // 
-            // lb_hba1c
-            // 
-            this.lb_hba1c.AutoSize = true;
-            this.lb_hba1c.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_hba1c.ForeColor = System.Drawing.Color.Red;
-            this.lb_hba1c.Location = new System.Drawing.Point(324, 138);
-            this.lb_hba1c.Name = "lb_hba1c";
-            this.lb_hba1c.Size = new System.Drawing.Size(20, 22);
-            this.lb_hba1c.TabIndex = 25;
-            this.lb_hba1c.Text = "a";
-            // 
-            // lb_ktvgb
-            // 
-            this.lb_ktvgb.AutoSize = true;
-            this.lb_ktvgb.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_ktvgb.ForeColor = System.Drawing.Color.Red;
-            this.lb_ktvgb.Location = new System.Drawing.Point(324, 94);
-            this.lb_ktvgb.Name = "lb_ktvgb";
-            this.lb_ktvgb.Size = new System.Drawing.Size(20, 22);
-            this.lb_ktvgb.TabIndex = 24;
-            this.lb_ktvgb.Text = "a";
-            // 
-            // lb_vgc
-            // 
-            this.lb_vgc.AutoSize = true;
-            this.lb_vgc.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_vgc.ForeColor = System.Drawing.Color.Red;
-            this.lb_vgc.Location = new System.Drawing.Point(324, 117);
-            this.lb_vgc.Name = "lb_vgc";
-            this.lb_vgc.Size = new System.Drawing.Size(20, 22);
-            this.lb_vgc.TabIndex = 23;
-            this.lb_vgc.Text = "a";
-            // 
-            // lb_vgb
-            // 
-            this.lb_vgb.AutoSize = true;
-            this.lb_vgb.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_vgb.ForeColor = System.Drawing.Color.Red;
-            this.lb_vgb.Location = new System.Drawing.Point(324, 73);
-            this.lb_vgb.Name = "lb_vgb";
-            this.lb_vgb.Size = new System.Drawing.Size(20, 22);
-            this.lb_vgb.TabIndex = 22;
-            this.lb_vgb.Text = "a";
-            // 
-            // lb_huyethoc
-            // 
-            this.lb_huyethoc.AutoSize = true;
-            this.lb_huyethoc.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_huyethoc.ForeColor = System.Drawing.Color.Red;
-            this.lb_huyethoc.Location = new System.Drawing.Point(299, 29);
-            this.lb_huyethoc.Name = "lb_huyethoc";
-            this.lb_huyethoc.Size = new System.Drawing.Size(20, 22);
-            this.lb_huyethoc.TabIndex = 21;
-            this.lb_huyethoc.Text = "a";
-            // 
-            // pn_detail_test
-            // 
-            this.pn_detail_test.BackColor = System.Drawing.Color.Honeydew;
-            this.pn_detail_test.BorderColor = System.Drawing.Color.Yellow;
-            this.pn_detail_test.Controls.Add(this.lb_testns1ag);
-            this.pn_detail_test.Controls.Add(this.label24);
-            this.pn_detail_test.Controls.Add(this.lb_iondo);
-            this.pn_detail_test.Controls.Add(this.label22);
-            this.pn_detail_test.Controls.Add(this.lb_stronggyloides);
-            this.pn_detail_test.Controls.Add(this.lb_toxocara);
-            this.pn_detail_test.Controls.Add(this.lb_troponin);
-            this.pn_detail_test.Controls.Add(this.label20);
-            this.pn_detail_test.Controls.Add(this.label19);
-            this.pn_detail_test.Controls.Add(this.label17);
-            this.pn_detail_test.Controls.Add(this.label18);
-            this.pn_detail_test.Controls.Add(this.lb_sinhhoa);
-            this.pn_detail_test.Controls.Add(this.label2);
-            this.pn_detail_test.Controls.Add(this.label3);
-            this.pn_detail_test.Controls.Add(this.label5);
-            this.pn_detail_test.Controls.Add(this.lb_nuoctieu);
-            this.pn_detail_test.Controls.Add(this.label7);
-            this.pn_detail_test.Controls.Add(this.label15);
-            this.pn_detail_test.Controls.Add(this.label13);
-            this.pn_detail_test.Controls.Add(this.lb_testhp);
-            this.pn_detail_test.Controls.Add(this.label11);
-            this.pn_detail_test.Controls.Add(this.label9);
-            this.pn_detail_test.Controls.Add(this.lb_huyethoc);
-            this.pn_detail_test.Controls.Add(this.lb_hba1c);
-            this.pn_detail_test.Controls.Add(this.lb_vgb);
-            this.pn_detail_test.Controls.Add(this.lb_vgc);
-            this.pn_detail_test.Controls.Add(this.lb_ktvgb);
-            this.pn_detail_test.Location = new System.Drawing.Point(10, 451);
-            this.pn_detail_test.Name = "pn_detail_test";
-            this.pn_detail_test.Size = new System.Drawing.Size(496, 296);
-            this.pn_detail_test.TabIndex = 13;
-            // 
-            // lb_testns1ag
-            // 
-            this.lb_testns1ag.AutoSize = true;
-            this.lb_testns1ag.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_testns1ag.ForeColor = System.Drawing.Color.Red;
-            this.lb_testns1ag.Location = new System.Drawing.Point(440, 53);
-            this.lb_testns1ag.Name = "lb_testns1ag";
-            this.lb_testns1ag.Size = new System.Drawing.Size(20, 22);
-            this.lb_testns1ag.TabIndex = 38;
-            this.lb_testns1ag.Text = "a";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(333, 52);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(110, 21);
-            this.label24.TabIndex = 37;
-            this.label24.Text = "Test NS1 Ag:";
-            // 
-            // lb_iondo
-            // 
-            this.lb_iondo.AutoSize = true;
-            this.lb_iondo.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_iondo.ForeColor = System.Drawing.Color.Red;
-            this.lb_iondo.Location = new System.Drawing.Point(440, 30);
-            this.lb_iondo.Name = "lb_iondo";
-            this.lb_iondo.Size = new System.Drawing.Size(20, 22);
-            this.lb_iondo.TabIndex = 36;
-            this.lb_iondo.Text = "a";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(375, 30);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(68, 21);
-            this.label22.TabIndex = 35;
-            this.label22.Text = "Ion Đồ:";
-            // 
-            // lb_stronggyloides
-            // 
-            this.lb_stronggyloides.AutoSize = true;
-            this.lb_stronggyloides.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_stronggyloides.ForeColor = System.Drawing.Color.Red;
-            this.lb_stronggyloides.Location = new System.Drawing.Point(324, 246);
-            this.lb_stronggyloides.Name = "lb_stronggyloides";
-            this.lb_stronggyloides.Size = new System.Drawing.Size(20, 22);
-            this.lb_stronggyloides.TabIndex = 34;
-            this.lb_stronggyloides.Text = "a";
-            // 
-            // lb_toxocara
-            // 
-            this.lb_toxocara.AutoSize = true;
-            this.lb_toxocara.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_toxocara.ForeColor = System.Drawing.Color.Red;
-            this.lb_toxocara.Location = new System.Drawing.Point(324, 226);
-            this.lb_toxocara.Name = "lb_toxocara";
-            this.lb_toxocara.Size = new System.Drawing.Size(20, 22);
-            this.lb_toxocara.TabIndex = 33;
-            this.lb_toxocara.Text = "a";
-            // 
-            // lb_troponin
-            // 
-            this.lb_troponin.AutoSize = true;
-            this.lb_troponin.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_troponin.ForeColor = System.Drawing.Color.Red;
-            this.lb_troponin.Location = new System.Drawing.Point(324, 204);
-            this.lb_troponin.Name = "lb_troponin";
-            this.lb_troponin.Size = new System.Drawing.Size(20, 22);
-            this.lb_troponin.TabIndex = 32;
-            this.lb_troponin.Text = "a";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(70, 247);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(252, 21);
-            this.label20.TabIndex = 31;
-            this.label20.Text = "Stronggyloides-IgG (Giun lươn):";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(5, 226);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(317, 21);
-            this.label19.TabIndex = 30;
-            this.label19.Text = "Toxocara canis IgG (Giun đũa chó,mèo):";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(239, 205);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(83, 21);
-            this.label17.TabIndex = 29;
-            this.label17.Text = "Troponin:";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(17, 10);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(76, 20);
-            this.label18.TabIndex = 0;
-            this.label18.Text = "Chi tiết: ";
-            // 
             // label16
             // 
             this.label16.AutoSize = true;
@@ -911,17 +543,17 @@
             // dtgv_detail
             // 
             this.dtgv_detail.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dtgv_detail.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.White;
+            this.dtgv_detail.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle18;
             this.dtgv_detail.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgv_detail.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgv_detail.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
             this.dtgv_detail.ColumnHeadersHeight = 35;
             this.dtgv_detail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dtgv_detail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -929,14 +561,14 @@
             this.stt_patient,
             this.name_patient,
             this.revenue_patient});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgv_detail.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgv_detail.DefaultCellStyle = dataGridViewCellStyle21;
             this.dtgv_detail.GridColor = System.Drawing.Color.Black;
             this.dtgv_detail.Location = new System.Drawing.Point(512, 41);
             this.dtgv_detail.Name = "dtgv_detail";
@@ -986,27 +618,27 @@
             // 
             // revenue_patient
             // 
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle3.Format = "N0";
-            this.revenue_patient.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle20.Format = "N0";
+            this.revenue_patient.DefaultCellStyle = dataGridViewCellStyle20;
             this.revenue_patient.HeaderText = "Doanh thu";
             this.revenue_patient.Name = "revenue_patient";
             // 
             // dtgv_service
             // 
             this.dtgv_service.AllowUserToAddRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            this.dtgv_service.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.White;
+            this.dtgv_service.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle22;
             this.dtgv_service.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgv_service.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgv_service.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle23;
             this.dtgv_service.ColumnHeadersHeight = 35;
             this.dtgv_service.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dtgv_service.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1016,14 +648,14 @@
             this.revenue_service,
             this.time_service,
             this.del_service});
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgv_service.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle26.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle26.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgv_service.DefaultCellStyle = dataGridViewCellStyle26;
             this.dtgv_service.GridColor = System.Drawing.Color.Black;
             this.dtgv_service.Location = new System.Drawing.Point(929, 41);
             this.dtgv_service.Name = "dtgv_service";
@@ -1072,19 +704,19 @@
             // 
             // revenue_service
             // 
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle7.Format = "N0";
-            this.revenue_service.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle24.Format = "N0";
+            this.revenue_service.DefaultCellStyle = dataGridViewCellStyle24;
             this.revenue_service.HeaderText = "Doanh thu";
             this.revenue_service.Name = "revenue_service";
             // 
             // time_service
             // 
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle8.Format = "dd/MM/yyyy HH:mm";
-            this.time_service.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle25.ForeColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle25.Format = "dd/MM/yyyy HH:mm";
+            this.time_service.DefaultCellStyle = dataGridViewCellStyle25;
             this.time_service.HeaderText = "Thời gian";
             this.time_service.Name = "time_service";
             this.time_service.Width = 150;
@@ -1101,17 +733,17 @@
             // dtgv_detail_service
             // 
             this.dtgv_detail_service.AllowUserToAddRows = false;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
-            this.dtgv_detail_service.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle27.BackColor = System.Drawing.Color.White;
+            this.dtgv_detail_service.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle27;
             this.dtgv_detail_service.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.None;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgv_detail_service.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle28.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle28.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle28.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgv_detail_service.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle28;
             this.dtgv_detail_service.ColumnHeadersHeight = 35;
             this.dtgv_detail_service.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dtgv_detail_service.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1121,14 +753,14 @@
             this.price_origrinal,
             this.percent_reduce,
             this.state_detail});
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgv_detail_service.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle31.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle31.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle31.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle31.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle31.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgv_detail_service.DefaultCellStyle = dataGridViewCellStyle31;
             this.dtgv_detail_service.GridColor = System.Drawing.Color.Black;
             this.dtgv_detail_service.Location = new System.Drawing.Point(929, 393);
             this.dtgv_detail_service.Name = "dtgv_detail_service";
@@ -1158,22 +790,60 @@
             this.dtgv_detail_service.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dtgv_detail_service.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dtgv_detail_service_CellFormatting);
             // 
+            // stt_detail
+            // 
+            this.stt_detail.HeaderText = "STT";
+            this.stt_detail.Name = "stt_detail";
+            this.stt_detail.Width = 50;
+            // 
+            // service_detail
+            // 
+            this.service_detail.HeaderText = "Dịch vụ";
+            this.service_detail.Name = "service_detail";
+            this.service_detail.Width = 200;
+            // 
+            // price_service_detail
+            // 
+            dataGridViewCellStyle29.Format = "N0";
+            this.price_service_detail.DefaultCellStyle = dataGridViewCellStyle29;
+            this.price_service_detail.HeaderText = "Giá";
+            this.price_service_detail.Name = "price_service_detail";
+            this.price_service_detail.Width = 90;
+            // 
+            // price_origrinal
+            // 
+            dataGridViewCellStyle30.Format = "N0";
+            this.price_origrinal.DefaultCellStyle = dataGridViewCellStyle30;
+            this.price_origrinal.HeaderText = "Giá gốc";
+            this.price_origrinal.Name = "price_origrinal";
+            this.price_origrinal.Width = 90;
+            // 
+            // percent_reduce
+            // 
+            this.percent_reduce.HeaderText = "Giảm";
+            this.percent_reduce.Name = "percent_reduce";
+            // 
+            // state_detail
+            // 
+            this.state_detail.HeaderText = "Trạng thái";
+            this.state_detail.Name = "state_detail";
+            // 
             // dtgv_detail_service_med
             // 
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtgv_detail_service_med.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle32.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle32.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtgv_detail_service_med.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle32;
             this.dtgv_detail_service_med.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.None;
             this.dtgv_detail_service_med.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgv_detail_service_med.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle33.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle33.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle33.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle33.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle33.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgv_detail_service_med.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle33;
             this.dtgv_detail_service_med.ColumnHeadersHeight = 40;
             this.dtgv_detail_service_med.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dtgv_detail_service_med.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1189,14 +859,14 @@
             this.c2_days_of_use,
             this.c2_total_quantity_med,
             this.c2_note});
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgv_detail_service_med.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle34.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle34.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle34.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle34.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle34.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgv_detail_service_med.DefaultCellStyle = dataGridViewCellStyle34;
             this.dtgv_detail_service_med.GridColor = System.Drawing.Color.Black;
             this.dtgv_detail_service_med.Location = new System.Drawing.Point(929, 412);
             this.dtgv_detail_service_med.Name = "dtgv_detail_service_med";
@@ -1328,43 +998,373 @@
             this.textBox1.Size = new System.Drawing.Size(100, 26);
             this.textBox1.TabIndex = 36;
             // 
-            // stt_detail
+            // label8
             // 
-            this.stt_detail.HeaderText = "STT";
-            this.stt_detail.Name = "stt_detail";
-            this.stt_detail.Width = 50;
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(8, 10);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(123, 20);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Số ca điện tim";
             // 
-            // service_detail
+            // lb_6
             // 
-            this.service_detail.HeaderText = "Dịch vụ";
-            this.service_detail.Name = "service_detail";
-            this.service_detail.Width = 200;
+            this.lb_6.AutoSize = true;
+            this.lb_6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_6.ForeColor = System.Drawing.Color.Red;
+            this.lb_6.Location = new System.Drawing.Point(11, 37);
+            this.lb_6.Name = "lb_6";
+            this.lb_6.Size = new System.Drawing.Size(76, 25);
+            this.lb_6.TabIndex = 1;
+            this.lb_6.Text = "label7";
             // 
-            // price_service_detail
+            // guna2ImageButton5
             // 
-            dataGridViewCellStyle12.Format = "N0";
-            this.price_service_detail.DefaultCellStyle = dataGridViewCellStyle12;
-            this.price_service_detail.HeaderText = "Giá";
-            this.price_service_detail.Name = "price_service_detail";
-            this.price_service_detail.Width = 90;
+            this.guna2ImageButton5.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ImageButton5.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton5.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton5.Image = global::QuanLyPhongKham.Properties.Resources.electrocardiogram1;
+            this.guna2ImageButton5.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton5.ImageRotate = 0F;
+            this.guna2ImageButton5.Location = new System.Drawing.Point(154, 10);
+            this.guna2ImageButton5.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2ImageButton5.Name = "guna2ImageButton5";
+            this.guna2ImageButton5.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton5.Size = new System.Drawing.Size(62, 63);
+            this.guna2ImageButton5.TabIndex = 12;
+            this.guna2ImageButton5.UseTransparentBackground = true;
             // 
-            // price_origrinal
+            // pn_egg
             // 
-            dataGridViewCellStyle13.Format = "N0";
-            this.price_origrinal.DefaultCellStyle = dataGridViewCellStyle13;
-            this.price_origrinal.HeaderText = "Giá gốc";
-            this.price_origrinal.Name = "price_origrinal";
-            this.price_origrinal.Width = 90;
+            this.pn_egg.BackColor = System.Drawing.Color.GreenYellow;
+            this.pn_egg.BorderColor = System.Drawing.Color.Yellow;
+            this.pn_egg.Controls.Add(this.guna2ImageButton5);
+            this.pn_egg.Controls.Add(this.lb_6);
+            this.pn_egg.Controls.Add(this.label8);
+            this.pn_egg.Location = new System.Drawing.Point(10, 365);
+            this.pn_egg.Name = "pn_egg";
+            this.pn_egg.Size = new System.Drawing.Size(229, 80);
+            this.pn_egg.TabIndex = 6;
             // 
-            // percent_reduce
+            // lb_ktvgb
             // 
-            this.percent_reduce.HeaderText = "Giảm";
-            this.percent_reduce.Name = "percent_reduce";
+            this.lb_ktvgb.AutoSize = true;
+            this.lb_ktvgb.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_ktvgb.ForeColor = System.Drawing.Color.Red;
+            this.lb_ktvgb.Location = new System.Drawing.Point(324, 94);
+            this.lb_ktvgb.Name = "lb_ktvgb";
+            this.lb_ktvgb.Size = new System.Drawing.Size(20, 22);
+            this.lb_ktvgb.TabIndex = 24;
+            this.lb_ktvgb.Text = "a";
             // 
-            // state_detail
+            // lb_vgc
             // 
-            this.state_detail.HeaderText = "Trạng thái";
-            this.state_detail.Name = "state_detail";
+            this.lb_vgc.AutoSize = true;
+            this.lb_vgc.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_vgc.ForeColor = System.Drawing.Color.Red;
+            this.lb_vgc.Location = new System.Drawing.Point(324, 117);
+            this.lb_vgc.Name = "lb_vgc";
+            this.lb_vgc.Size = new System.Drawing.Size(20, 22);
+            this.lb_vgc.TabIndex = 23;
+            this.lb_vgc.Text = "a";
+            // 
+            // lb_vgb
+            // 
+            this.lb_vgb.AutoSize = true;
+            this.lb_vgb.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_vgb.ForeColor = System.Drawing.Color.Red;
+            this.lb_vgb.Location = new System.Drawing.Point(324, 73);
+            this.lb_vgb.Name = "lb_vgb";
+            this.lb_vgb.Size = new System.Drawing.Size(20, 22);
+            this.lb_vgb.TabIndex = 22;
+            this.lb_vgb.Text = "a";
+            // 
+            // lb_hba1c
+            // 
+            this.lb_hba1c.AutoSize = true;
+            this.lb_hba1c.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_hba1c.ForeColor = System.Drawing.Color.Red;
+            this.lb_hba1c.Location = new System.Drawing.Point(324, 138);
+            this.lb_hba1c.Name = "lb_hba1c";
+            this.lb_hba1c.Size = new System.Drawing.Size(20, 22);
+            this.lb_hba1c.TabIndex = 25;
+            this.lb_hba1c.Text = "a";
+            // 
+            // lb_huyethoc
+            // 
+            this.lb_huyethoc.AutoSize = true;
+            this.lb_huyethoc.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_huyethoc.ForeColor = System.Drawing.Color.Red;
+            this.lb_huyethoc.Location = new System.Drawing.Point(299, 29);
+            this.lb_huyethoc.Name = "lb_huyethoc";
+            this.lb_huyethoc.Size = new System.Drawing.Size(20, 22);
+            this.lb_huyethoc.TabIndex = 21;
+            this.lb_huyethoc.Text = "a";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(137, 51);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(156, 21);
+            this.label9.TabIndex = 20;
+            this.label9.Text = "Còn lại ( sinh hóa ):";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(202, 184);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(120, 21);
+            this.label11.TabIndex = 19;
+            this.label11.Text = "Test nước tiểu:";
+            // 
+            // lb_testhp
+            // 
+            this.lb_testhp.AutoSize = true;
+            this.lb_testhp.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_testhp.ForeColor = System.Drawing.Color.Red;
+            this.lb_testhp.Location = new System.Drawing.Point(324, 160);
+            this.lb_testhp.Name = "lb_testhp";
+            this.lb_testhp.Size = new System.Drawing.Size(20, 22);
+            this.lb_testhp.TabIndex = 26;
+            this.lb_testhp.Text = "a";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(242, 160);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(80, 21);
+            this.label13.TabIndex = 18;
+            this.label13.Text = "Test H.P:";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(213, 138);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(109, 21);
+            this.label15.TabIndex = 17;
+            this.label15.Text = "Test HbA1C:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(112, 94);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(210, 21);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "Test kháng thể viêm gan B:";
+            // 
+            // lb_nuoctieu
+            // 
+            this.lb_nuoctieu.AutoSize = true;
+            this.lb_nuoctieu.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_nuoctieu.ForeColor = System.Drawing.Color.Red;
+            this.lb_nuoctieu.Location = new System.Drawing.Point(324, 182);
+            this.lb_nuoctieu.Name = "lb_nuoctieu";
+            this.lb_nuoctieu.Size = new System.Drawing.Size(20, 22);
+            this.lb_nuoctieu.TabIndex = 27;
+            this.lb_nuoctieu.Text = "a";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(184, 117);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(138, 21);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "Test Viêm gan C:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(185, 73);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(137, 21);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "Test Viêm gan B:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(202, 29);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(91, 21);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Huyết học:";
+            // 
+            // lb_sinhhoa
+            // 
+            this.lb_sinhhoa.AutoSize = true;
+            this.lb_sinhhoa.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_sinhhoa.ForeColor = System.Drawing.Color.Red;
+            this.lb_sinhhoa.Location = new System.Drawing.Point(298, 52);
+            this.lb_sinhhoa.Name = "lb_sinhhoa";
+            this.lb_sinhhoa.Size = new System.Drawing.Size(20, 22);
+            this.lb_sinhhoa.TabIndex = 28;
+            this.lb_sinhhoa.Text = "a";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(17, 10);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(76, 20);
+            this.label18.TabIndex = 0;
+            this.label18.Text = "Chi tiết: ";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(239, 205);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(83, 21);
+            this.label17.TabIndex = 29;
+            this.label17.Text = "Troponin:";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(5, 226);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(317, 21);
+            this.label19.TabIndex = 30;
+            this.label19.Text = "Toxocara canis IgG (Giun đũa chó,mèo):";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(70, 247);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(252, 21);
+            this.label20.TabIndex = 31;
+            this.label20.Text = "Stronggyloides-IgG (Giun lươn):";
+            // 
+            // lb_troponin
+            // 
+            this.lb_troponin.AutoSize = true;
+            this.lb_troponin.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_troponin.ForeColor = System.Drawing.Color.Red;
+            this.lb_troponin.Location = new System.Drawing.Point(324, 204);
+            this.lb_troponin.Name = "lb_troponin";
+            this.lb_troponin.Size = new System.Drawing.Size(20, 22);
+            this.lb_troponin.TabIndex = 32;
+            this.lb_troponin.Text = "a";
+            // 
+            // lb_toxocara
+            // 
+            this.lb_toxocara.AutoSize = true;
+            this.lb_toxocara.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_toxocara.ForeColor = System.Drawing.Color.Red;
+            this.lb_toxocara.Location = new System.Drawing.Point(324, 226);
+            this.lb_toxocara.Name = "lb_toxocara";
+            this.lb_toxocara.Size = new System.Drawing.Size(20, 22);
+            this.lb_toxocara.TabIndex = 33;
+            this.lb_toxocara.Text = "a";
+            // 
+            // lb_stronggyloides
+            // 
+            this.lb_stronggyloides.AutoSize = true;
+            this.lb_stronggyloides.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_stronggyloides.ForeColor = System.Drawing.Color.Red;
+            this.lb_stronggyloides.Location = new System.Drawing.Point(324, 246);
+            this.lb_stronggyloides.Name = "lb_stronggyloides";
+            this.lb_stronggyloides.Size = new System.Drawing.Size(20, 22);
+            this.lb_stronggyloides.TabIndex = 34;
+            this.lb_stronggyloides.Text = "a";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(375, 30);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(68, 21);
+            this.label22.TabIndex = 35;
+            this.label22.Text = "Ion Đồ:";
+            // 
+            // lb_iondo
+            // 
+            this.lb_iondo.AutoSize = true;
+            this.lb_iondo.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_iondo.ForeColor = System.Drawing.Color.Red;
+            this.lb_iondo.Location = new System.Drawing.Point(440, 30);
+            this.lb_iondo.Name = "lb_iondo";
+            this.lb_iondo.Size = new System.Drawing.Size(20, 22);
+            this.lb_iondo.TabIndex = 36;
+            this.lb_iondo.Text = "a";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(333, 52);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(110, 21);
+            this.label24.TabIndex = 37;
+            this.label24.Text = "Test NS1 Ag:";
+            // 
+            // lb_testns1ag
+            // 
+            this.lb_testns1ag.AutoSize = true;
+            this.lb_testns1ag.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_testns1ag.ForeColor = System.Drawing.Color.Red;
+            this.lb_testns1ag.Location = new System.Drawing.Point(440, 53);
+            this.lb_testns1ag.Name = "lb_testns1ag";
+            this.lb_testns1ag.Size = new System.Drawing.Size(20, 22);
+            this.lb_testns1ag.TabIndex = 38;
+            this.lb_testns1ag.Text = "a";
+            // 
+            // pn_detail_test
+            // 
+            this.pn_detail_test.BackColor = System.Drawing.Color.Honeydew;
+            this.pn_detail_test.BorderColor = System.Drawing.Color.Yellow;
+            this.pn_detail_test.Controls.Add(this.lb_testns1ag);
+            this.pn_detail_test.Controls.Add(this.label24);
+            this.pn_detail_test.Controls.Add(this.lb_iondo);
+            this.pn_detail_test.Controls.Add(this.label22);
+            this.pn_detail_test.Controls.Add(this.lb_stronggyloides);
+            this.pn_detail_test.Controls.Add(this.lb_toxocara);
+            this.pn_detail_test.Controls.Add(this.lb_troponin);
+            this.pn_detail_test.Controls.Add(this.label20);
+            this.pn_detail_test.Controls.Add(this.label19);
+            this.pn_detail_test.Controls.Add(this.label17);
+            this.pn_detail_test.Controls.Add(this.label18);
+            this.pn_detail_test.Controls.Add(this.lb_sinhhoa);
+            this.pn_detail_test.Controls.Add(this.label2);
+            this.pn_detail_test.Controls.Add(this.label3);
+            this.pn_detail_test.Controls.Add(this.label5);
+            this.pn_detail_test.Controls.Add(this.lb_nuoctieu);
+            this.pn_detail_test.Controls.Add(this.label7);
+            this.pn_detail_test.Controls.Add(this.label15);
+            this.pn_detail_test.Controls.Add(this.label13);
+            this.pn_detail_test.Controls.Add(this.lb_testhp);
+            this.pn_detail_test.Controls.Add(this.label11);
+            this.pn_detail_test.Controls.Add(this.label9);
+            this.pn_detail_test.Controls.Add(this.lb_huyethoc);
+            this.pn_detail_test.Controls.Add(this.lb_hba1c);
+            this.pn_detail_test.Controls.Add(this.lb_vgb);
+            this.pn_detail_test.Controls.Add(this.lb_vgc);
+            this.pn_detail_test.Controls.Add(this.lb_ktvgb);
+            this.pn_detail_test.Location = new System.Drawing.Point(10, 451);
+            this.pn_detail_test.Name = "pn_detail_test";
+            this.pn_detail_test.Size = new System.Drawing.Size(496, 296);
+            this.pn_detail_test.TabIndex = 13;
             // 
             // frm_statistic
             // 
@@ -1403,22 +1403,22 @@
             this.guna2Panel2.PerformLayout();
             this.guna2Panel3.ResumeLayout(false);
             this.guna2Panel3.PerformLayout();
-            this.pn_egg.ResumeLayout(false);
-            this.pn_egg.PerformLayout();
             this.pn_xray.ResumeLayout(false);
             this.pn_xray.PerformLayout();
             this.guna2Panel6.ResumeLayout(false);
             this.guna2Panel6.PerformLayout();
             this.pn_test.ResumeLayout(false);
             this.pn_test.PerformLayout();
-            this.pn_detail_test.ResumeLayout(false);
-            this.pn_detail_test.PerformLayout();
             this.guna2Panel8.ResumeLayout(false);
             this.guna2Panel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_detail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_service)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_detail_service)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_detail_service_med)).EndInit();
+            this.pn_egg.ResumeLayout(false);
+            this.pn_egg.PerformLayout();
+            this.pn_detail_test.ResumeLayout(false);
+            this.pn_detail_test.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1435,9 +1435,6 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
         private System.Windows.Forms.Label label_3;
         private System.Windows.Forms.Label label6;
-        private Guna.UI2.WinForms.Guna2Panel pn_egg;
-        private System.Windows.Forms.Label lb_6;
-        private System.Windows.Forms.Label label8;
         private Guna.UI2.WinForms.Guna2Panel pn_xray;
         private System.Windows.Forms.Label lb_5;
         private System.Windows.Forms.Label label10;
@@ -1452,42 +1449,13 @@
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton2;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton3;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton4;
-        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton5;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton8;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton6;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton9;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label lb_sinhhoa;
-        private System.Windows.Forms.Label lb_nuoctieu;
-        private System.Windows.Forms.Label lb_testhp;
-        private System.Windows.Forms.Label lb_hba1c;
-        private System.Windows.Forms.Label lb_ktvgb;
-        private System.Windows.Forms.Label lb_vgc;
-        private System.Windows.Forms.Label lb_vgb;
-        private System.Windows.Forms.Label lb_huyethoc;
-        private Guna.UI2.WinForms.Guna2Panel pn_detail_test;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label lb_stronggyloides;
-        private System.Windows.Forms.Label lb_toxocara;
-        private System.Windows.Forms.Label lb_troponin;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label lb_7;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton7;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel8;
-        private System.Windows.Forms.Label lb_iondo;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label lb_testns1ag;
-        private System.Windows.Forms.Label label24;
         private Guna.UI2.WinForms.Guna2DataGridView dtgv_detail;
         private Guna.UI2.WinForms.Guna2DataGridView dtgv_service;
         private Guna.UI2.WinForms.Guna2DataGridView dtgv_detail_service;
@@ -1525,5 +1493,37 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn price_origrinal;
         private System.Windows.Forms.DataGridViewTextBoxColumn percent_reduce;
         private System.Windows.Forms.DataGridViewTextBoxColumn state_detail;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lb_6;
+        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton5;
+        private Guna.UI2.WinForms.Guna2Panel pn_egg;
+        private System.Windows.Forms.Label lb_ktvgb;
+        private System.Windows.Forms.Label lb_vgc;
+        private System.Windows.Forms.Label lb_vgb;
+        private System.Windows.Forms.Label lb_hba1c;
+        private System.Windows.Forms.Label lb_huyethoc;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lb_testhp;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lb_nuoctieu;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lb_sinhhoa;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label lb_troponin;
+        private System.Windows.Forms.Label lb_toxocara;
+        private System.Windows.Forms.Label lb_stronggyloides;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label lb_iondo;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label lb_testns1ag;
+        private Guna.UI2.WinForms.Guna2Panel pn_detail_test;
     }
 }
