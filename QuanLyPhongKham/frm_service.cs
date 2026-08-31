@@ -1,5 +1,8 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace QuanLyPhongKham
@@ -13,15 +16,49 @@ namespace QuanLyPhongKham
 
         private void frm_service_Load(object sender, EventArgs e)
         {
-            cb_type.Items.AddRange(new string[] { "Xét nghiệm", "X-quang", "Siêu âm", "Điện tim" });
+            loadComboboxTypeService();
             cb_type.SelectedIndex = 0;
             txb_id.ReadOnly = true;
             LoadDTGV();
 
             btn_update.Enabled = false;
             btn_delete.Enabled = false;
-        }
+            LoadDTGV_TypeService();
 
+        }
+        private void loadComboboxTypeService()
+        {
+
+            Db.ResetConnection();
+
+            string sql = "SELECT id, name FROM type_service ORDER BY name";
+
+            MySqlDataAdapter da = new MySqlDataAdapter(sql, Db.conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            cb_type.DataSource = dt;
+            cb_type.DisplayMember = "name";
+            cb_type.ValueMember = "id";
+        }
+        private void LoadDTGV_TypeService()
+        {
+            Db.ResetConnection();
+            string query = @"SELECT `id`, `name` FROM `type_service` order by name";
+            Db.cmd = new MySqlCommand(query, Db.conn);
+            Db.dr = Db.cmd.ExecuteReader();
+ 
+            while (Db.dr.Read())
+            {
+                int i = dtgv_typeService.Rows.Add();
+                DataGridViewRow drr = dtgv_typeService.Rows[i];
+                drr.Cells["id"].Value = Db.dr["id"];
+                drr.Cells["name"].Value = Db.dr["name"];
+
+            }
+
+            Db.dr.Close();
+        }
         private void LoadDTGV()
         {
             string query = @"SELECT id, name, type, price FROM services ORDER BY type";
@@ -45,7 +82,7 @@ namespace QuanLyPhongKham
             return new Dictionary<string, object>
             {
                 { "@name", txb_name.Text.Trim() },
-                { "@type", cb_type.SelectedItem.ToString() },
+                { "@type", cb_type.Text },
                 { "@price", txb_price.Text.Trim() }
             };
         }
@@ -155,6 +192,27 @@ namespace QuanLyPhongKham
         private void guna2ImageButton1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_saveTypeService_Click(object sender, EventArgs e)
+        {
+            string sql = $@"INSERT INTO type_service (name) VALUES ('{txb_nameService.Text}')";
+            Db.ExecuteNonQuery(sql);
+            dtgv_typeService.Rows.Clear();
+            LoadDTGV_TypeService();
+            loadComboboxTypeService();
+        }
+
+        private void btn_deleteTypeService_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(
+               dtgv_typeService.CurrentRow.Cells["id"].Value
+           );
+            string sql = $"DELETE FROM type_service WHERE id = {id}";
+            Db.ExecuteNonQuery(sql);
+            dtgv_typeService.Rows.Clear();
+            LoadDTGV_TypeService();
+            loadComboboxTypeService();
         }
     }
 }

@@ -1,7 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
+﻿using MySql.Data.MySqlClient;
 using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Windows.Forms;
 
 namespace QuanLyPhongKham
 {
@@ -11,7 +13,21 @@ namespace QuanLyPhongKham
         {
             InitializeComponent();
         }
+        private void loadComboboxTypeService()
+        {
 
+            Db.ResetConnection();
+
+            string sql = "SELECT id, name FROM type_service ORDER BY name";
+
+            MySqlDataAdapter da = new MySqlDataAdapter(sql, Db.conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            cb_type.DataSource = dt;
+            cb_type.DisplayMember = "name";
+            cb_type.ValueMember = "id";
+        }
         private void frm_template_Load(object sender, EventArgs e)
         {
             cb_type.SelectedIndex = 0;
@@ -21,6 +37,7 @@ namespace QuanLyPhongKham
             btn_delete.Enabled = false;
    
             LoadDTGV();
+            loadComboboxTypeService();
         }
 
         private void LoadDTGV()

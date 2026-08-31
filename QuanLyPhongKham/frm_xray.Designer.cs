@@ -861,7 +861,7 @@
             this.Controls.Add(this.guna2Panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frm_xray";
-            this.Text = "X-Quang";
+            this.Text = "Dịch vụ khác";
             this.Load += new System.EventHandler(this.frm_xray_Load);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
