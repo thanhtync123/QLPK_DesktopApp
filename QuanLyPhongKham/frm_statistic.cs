@@ -49,16 +49,17 @@ namespace QuanLyPhongKham
                 SELECT COUNT(*) 
                 FROM examination_services es
                 JOIN services s ON es.service_id = s.id
-                WHERE s.type = 'X-quang' AND es.created_at BETWEEN '{fromDate}' AND '{toDate}'";
+                 WHERE s.type NOT IN ('Siêu âm', 'Xét nghiệm') 
+                AND es.created_at BETWEEN '{fromDate}' AND '{toDate}'";
             lb_5.Text = Db.Scalar(query5).ToString();
 
-            // Số ca Điện tim
-            string query6 = $@"
-    SELECT COUNT(*) 
-    FROM examination_services es
-    JOIN services s ON es.service_id = s.id
-    WHERE s.type = 'Điện tim' AND es.created_at BETWEEN '{fromDate}' AND '{toDate}'";
-            lb_6.Text = Db.Scalar(query6).ToString();
+    //        // Số ca Điện tim
+    //        string query6 = $@"
+    //SELECT COUNT(*) 
+    //FROM examination_services es
+    //JOIN services s ON es.service_id = s.id
+    //WHERE s.type = 'Điện tim' AND es.created_at BETWEEN '{fromDate}' AND '{toDate}'";
+    //        lb_6.Text = Db.Scalar(query6).ToString();
 
             // Số ca Siêu âm
             string query7 = $@"
@@ -83,104 +84,104 @@ namespace QuanLyPhongKham
                       AND LOWER(s.name) NOT LIKE '%kháng thể viêm gan b%'
                       AND es.created_at BETWEEN '{fromDate}' AND '{toDate}'
                                     ";
-            lb_vgb.Text = Db.Scalar(queryTestVGB).ToString();
-            string queryTestKhangTheVGB = $@"SELECT COUNT(*)
-                                from examination_services es
-                                join services s ON s.id = es.service_id
-                    WHERE LOWER(s.name) LIKE '%kháng thể viêm gan b%'
-                    AND es.created_at BETWEEN '{fromDate}' AND '{toDate}'
-                                    ";
-            lb_ktvgb.Text = Db.Scalar(queryTestKhangTheVGB).ToString();
-            string queryTestVGC = $@"SELECT COUNT(*)
-                                    from examination_services es
-                                    join services s ON s.id = es.service_id
-                    WHERE LOWER(s.name) LIKE '%test %viêm gan c%'
-                    AND es.created_at BETWEEN '{fromDate}' AND '{toDate}'
-                                    ";
-            lb_vgc.Text = Db.Scalar(queryTestVGC).ToString();
-            string queryTestHuyetHoc = $@"Select count(*)
-                                        from examination_services es
-                                        join services s ON s.id = es.service_id
-                                        Where LOWER(s.name) LIKE '%Huyết học%'
-                                        AND es.created_at BETWEEN '{fromDate}' AND '{toDate}'
-                                        ";
-            lb_huyethoc.Text = Db.Scalar(queryTestHuyetHoc).ToString();
-            string queryTestHbA1C = $@"SELECT COUNT(*)
-                                        from examination_services es
-                                        join services s ON s.id = es.service_id
-                                        Where LOWER(s.name) LIKE '%HbA1C%'
-                                        AND es.created_at BETWEEN '{fromDate}' AND '{toDate}'
-                                        ";
-            lb_hba1c.Text = Db.Scalar(queryTestHbA1C).ToString();
-            string queryTestHP = $@"SELECT COUNT(*)
-                                       from examination_services es
-                                        join services s ON s.id = es.service_id
-                                        Where LOWER(s.name) LIKE '%HP%' OR LOWER(s.name) LIKE '%H.pylori%'
-                                        AND es.created_at BETWEEN '{fromDate}' AND '{toDate}'
-                                        ";
-            lb_testhp.Text = Db.Scalar(queryTestHP).ToString();
-            string queryTestNuocTieu = $@"SELECT COUNT(*)
-                                        from examination_services es
-                                        join services s ON s.id = es.service_id
-                                        Where LOWER(s.name) LIKE '%Xét nghiệm nước tiểu%'
-                                        AND es.created_at BETWEEN '{fromDate}' AND '{toDate}'
-                                        ";
-            lb_nuoctieu.Text = Db.Scalar(queryTestNuocTieu).ToString();
+            //lb_vgb.Text = Db.Scalar(queryTestVGB).ToString();
+            //string queryTestKhangTheVGB = $@"SELECT COUNT(*)
+            //                    from examination_services es
+            //                    join services s ON s.id = es.service_id
+            //        WHERE LOWER(s.name) LIKE '%kháng thể viêm gan b%'
+            //        AND es.created_at BETWEEN '{fromDate}' AND '{toDate}'
+            //                        ";
+            //lb_ktvgb.Text = Db.Scalar(queryTestKhangTheVGB).ToString();
+            //string queryTestVGC = $@"SELECT COUNT(*)
+            //                        from examination_services es
+            //                        join services s ON s.id = es.service_id
+            //        WHERE LOWER(s.name) LIKE '%test %viêm gan c%'
+            //        AND es.created_at BETWEEN '{fromDate}' AND '{toDate}'
+            //                        ";
+            //lb_vgc.Text = Db.Scalar(queryTestVGC).ToString();
+            //string queryTestHuyetHoc = $@"Select count(*)
+            //                            from examination_services es
+            //                            join services s ON s.id = es.service_id
+            //                            Where LOWER(s.name) LIKE '%Huyết học%'
+            //                            AND es.created_at BETWEEN '{fromDate}' AND '{toDate}'
+            //                            ";
+            //lb_huyethoc.Text = Db.Scalar(queryTestHuyetHoc).ToString();
+            //string queryTestHbA1C = $@"SELECT COUNT(*)
+            //                            from examination_services es
+            //                            join services s ON s.id = es.service_id
+            //                            Where LOWER(s.name) LIKE '%HbA1C%'
+            //                            AND es.created_at BETWEEN '{fromDate}' AND '{toDate}'
+            //                            ";
+            //lb_hba1c.Text = Db.Scalar(queryTestHbA1C).ToString();
+            //string queryTestHP = $@"SELECT COUNT(*)
+            //                           from examination_services es
+            //                            join services s ON s.id = es.service_id
+            //                            Where LOWER(s.name) LIKE '%HP%' OR LOWER(s.name) LIKE '%H.pylori%'
+            //                            AND es.created_at BETWEEN '{fromDate}' AND '{toDate}'
+            //                            ";
+            //lb_testhp.Text = Db.Scalar(queryTestHP).ToString();
+            //string queryTestNuocTieu = $@"SELECT COUNT(*)
+            //                            from examination_services es
+            //                            join services s ON s.id = es.service_id
+            //                            Where LOWER(s.name) LIKE '%Xét nghiệm nước tiểu%'
+            //                            AND es.created_at BETWEEN '{fromDate}' AND '{toDate}'
+            //                            ";
+            //lb_nuoctieu.Text = Db.Scalar(queryTestNuocTieu).ToString();
 
-            string querySinhHoa = $@"SELECT COUNT(*)
-                       from examination_services es
-                        join services s ON s.id = es.service_id
-                        WHERE s.type = 'Xét nghiệm'
-                          AND LOWER(s.name) NOT LIKE '%test %viêm gan b%'
-                          AND LOWER(s.name) NOT LIKE '%kháng thể viêm gan b%'
-                          AND LOWER(s.name) NOT LIKE '%test %viêm gan c%'
-                          AND LOWER(s.name) NOT LIKE '%huyết học%'
-                          AND LOWER(s.name) NOT LIKE '%hba1c%'
-                          AND LOWER(s.name) NOT LIKE '%hp%'
-                          AND LOWER(s.name) NOT LIKE '%h.pylori%'
-                          AND LOWER(s.name) NOT LIKE '%xét nghiệm nước tiểu%'
-                          AND LOWER(s.name) NOT LIKE '%ion đồ%'
-                          AND LOWER(s.name) NOT LIKE '%NS1 Ag%'
-                            AND es.created_at BETWEEN '{fromDate}' AND '{toDate}'
-                        ";
-            lb_sinhhoa.Text = Db.Scalar(querySinhHoa).ToString();
-            string queryTroponin = $@"SELECT COUNT(*)
-                       from examination_services es
-                        join services s ON s.id = es.service_id
-                        WHERE LOWER(s.name) LIKE '%troponin%'
-                          AND es.created_at BETWEEN '{fromDate}' AND '{toDate}'
-                        ";
-            lb_troponin.Text = Db.Scalar(queryTroponin).ToString();
-            string queryToxocara = $@"SELECT COUNT(*)
-                       from examination_services es
-                        join services s ON s.id = es.service_id
-                        WHERE LOWER(s.name) LIKE '%toxocara%'
-                          AND es.created_at BETWEEN '{fromDate}' AND '{toDate}'
-                        ";
-            lb_toxocara.Text = Db.Scalar(queryToxocara).ToString();
-            string querystrongyloides = $@"SELECT COUNT(*)
-                       from examination_services es
-                        join services s ON s.id = es.service_id
-                        WHERE LOWER(s.name) LIKE '%stronggyloides%'
-                          AND es.created_at BETWEEN '{fromDate}' AND '{toDate}'
-                        ";
-            lb_stronggyloides.Text = Db.Scalar(querystrongyloides).ToString();
+            //string querySinhHoa = $@"SELECT COUNT(*)
+            //           from examination_services es
+            //            join services s ON s.id = es.service_id
+            //            WHERE s.type = 'Xét nghiệm'
+            //              AND LOWER(s.name) NOT LIKE '%test %viêm gan b%'
+            //              AND LOWER(s.name) NOT LIKE '%kháng thể viêm gan b%'
+            //              AND LOWER(s.name) NOT LIKE '%test %viêm gan c%'
+            //              AND LOWER(s.name) NOT LIKE '%huyết học%'
+            //              AND LOWER(s.name) NOT LIKE '%hba1c%'
+            //              AND LOWER(s.name) NOT LIKE '%hp%'
+            //              AND LOWER(s.name) NOT LIKE '%h.pylori%'
+            //              AND LOWER(s.name) NOT LIKE '%xét nghiệm nước tiểu%'
+            //              AND LOWER(s.name) NOT LIKE '%ion đồ%'
+            //              AND LOWER(s.name) NOT LIKE '%NS1 Ag%'
+            //                AND es.created_at BETWEEN '{fromDate}' AND '{toDate}'
+            //            ";
+            //lb_sinhhoa.Text = Db.Scalar(querySinhHoa).ToString();
+            //string queryTroponin = $@"SELECT COUNT(*)
+            //           from examination_services es
+            //            join services s ON s.id = es.service_id
+            //            WHERE LOWER(s.name) LIKE '%troponin%'
+            //              AND es.created_at BETWEEN '{fromDate}' AND '{toDate}'
+            //            ";
+            //lb_troponin.Text = Db.Scalar(queryTroponin).ToString();
+            //string queryToxocara = $@"SELECT COUNT(*)
+            //           from examination_services es
+            //            join services s ON s.id = es.service_id
+            //            WHERE LOWER(s.name) LIKE '%toxocara%'
+            //              AND es.created_at BETWEEN '{fromDate}' AND '{toDate}'
+            //            ";
+            //lb_toxocara.Text = Db.Scalar(queryToxocara).ToString();
+            //string querystrongyloides = $@"SELECT COUNT(*)
+            //           from examination_services es
+            //            join services s ON s.id = es.service_id
+            //            WHERE LOWER(s.name) LIKE '%stronggyloides%'
+            //              AND es.created_at BETWEEN '{fromDate}' AND '{toDate}'
+            //            ";
+            //lb_stronggyloides.Text = Db.Scalar(querystrongyloides).ToString();
 
-            string queryion = $@"SELECT COUNT(*)
-                       from examination_services es
-                        join services s ON s.id = es.service_id
-                        WHERE LOWER(s.name) LIKE '%ion đồ%'
-                          AND es.created_at BETWEEN '{fromDate}' AND '{toDate}'
-                        ";
-            lb_iondo.Text = Db.Scalar(queryion).ToString();
+            //string queryion = $@"SELECT COUNT(*)
+            //           from examination_services es
+            //            join services s ON s.id = es.service_id
+            //            WHERE LOWER(s.name) LIKE '%ion đồ%'
+            //              AND es.created_at BETWEEN '{fromDate}' AND '{toDate}'
+            //            ";
+            //lb_iondo.Text = Db.Scalar(queryion).ToString();
 
-            string testns1ag = $@"SELECT COUNT(*)
-                       from examination_services es
-                        join services s ON s.id = es.service_id
-                        WHERE LOWER(s.name) LIKE '%ns1 ag%'
-                          AND es.created_at BETWEEN '{fromDate}' AND '{toDate}'
-                        ";
-            lb_testns1ag.Text = Db.Scalar(testns1ag).ToString();
+            //string testns1ag = $@"SELECT COUNT(*)
+            //           from examination_services es
+            //            join services s ON s.id = es.service_id
+            //            WHERE LOWER(s.name) LIKE '%ns1 ag%'
+            //              AND es.created_at BETWEEN '{fromDate}' AND '{toDate}'
+            //            ";
+            //lb_testns1ag.Text = Db.Scalar(testns1ag).ToString();
 
             //string query = $@"
             //SELECT
@@ -289,8 +290,8 @@ namespace QuanLyPhongKham
 
             if (AppConfig.AppMode == "Ultrasound")
             {
-                pn_detail_test.Visible = false;
-                pn_egg.Visible = false;
+                //pn_detail_test.Visible = false;
+                //pn_egg.Visible = false;
                 pn_test.Visible = false;
                 pn_xray.Visible = false;
 
